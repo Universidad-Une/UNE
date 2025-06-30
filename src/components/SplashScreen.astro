@@ -1,0 +1,326 @@
+---
+export interface Props {
+  logoSrc: string;
+}
+
+const { logoSrc } = Astro.props;
+---
+
+<div 
+  id="splashScreen" 
+  class="splash-container"
+  data-logo-src={logoSrc}
+>
+  <div class="scene-container">
+    <div class="fade-overlay" id="fadeOverlay"></div>
+    
+    <!-- Efectos de luz -->
+    <div class="light-effects">
+      <div class="light-ray light-ray-1"></div>
+      <div class="light-ray light-ray-2"></div>
+      <div class="light-ray light-ray-3"></div>
+      <div class="light-particles particle-1"></div>
+      <div class="light-particles particle-2"></div>
+      <div class="light-particles particle-3"></div>
+    </div>
+
+    <div class="welcome-title" id="welcomeTitle">
+      <img 
+        src={logoSrc} 
+        alt="UNE Logo" 
+        class="une-logo"
+        loading="eager"
+        decoding="sync"
+      />
+      <h1>Bienvenido</h1>
+    </div>
+  </div>
+</div>
+
+<style>
+  .splash-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    will-change: opacity;
+  }
+
+  .scene-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  /* Efectos de luz optimizados */
+  .light-effects {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+  }
+
+  .light-ray {
+    position: absolute;
+    width: 2px;
+    height: 100px;
+    background: linear-gradient(to bottom, transparent, rgba(235, 172, 36, 0.6), transparent);
+    opacity: 0;
+    transform-origin: bottom;
+    will-change: opacity, transform;
+  }
+
+  .light-ray-1 {
+    top: 10%;
+    left: 20%;
+    transform: rotate(-15deg) scaleY(0);
+  }
+
+  .light-ray-2 {
+    top: 15%;
+    right: 25%;
+    transform: rotate(20deg) scaleY(0);
+  }
+
+  .light-ray-3 {
+    top: 20%;
+    left: 60%;
+    transform: rotate(-30deg) scaleY(0);
+  }
+
+  .light-particles {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: rgba(228, 170, 10, 0.8);
+    border-radius: 50%;
+    opacity: 0;
+    transform: scale(0);
+    will-change: opacity, transform;
+  }
+
+  .particle-1 {
+    top: 30%;
+    left: 15%;
+  }
+
+  .particle-2 {
+    top: 40%;
+    right: 20%;
+  }
+
+  .particle-3 {
+    top: 25%;
+    left: 70%;
+  }
+
+  .welcome-title {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.8);
+    text-align: center;
+    opacity: 0;
+    z-index: 10;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 40px 50px;
+    border-radius: 20px;
+    backdrop-filter: blur(15px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    min-width: 350px;
+    will-change: opacity, transform;
+  }
+
+  .une-logo {
+    width: 220px;
+    height: auto;
+    margin-bottom: 20px;
+    filter: drop-shadow(0 3px 10px rgba(0, 0, 0, 0.2));
+  }
+
+  .welcome-title h1 {
+    font-size: 3rem;
+    color: #2c5aa0;
+    font-weight: 700;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+    margin: 0;
+    letter-spacing: 1px;
+  }
+
+  .fade-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, transparent 30%, rgba(248, 249, 250, 0.8) 70%);
+    opacity: 1;
+    z-index: 1;
+    will-change: opacity;
+  }
+
+  /* Animaciones optimizadas con CSS */
+  @keyframes fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
+  }
+
+  @keyframes scaleIn {
+    from { 
+      opacity: 0; 
+      transform: translate(-50%, -50%) scale(0.8);
+    }
+    to { 
+      opacity: 1; 
+      transform: translate(-50%, -50%) scale(1);
+    }
+  }
+
+  @keyframes lightRayAppear {
+    0% { opacity: 0; transform: scaleY(0); }
+    50% { opacity: 1; transform: scaleY(1.5); }
+    100% { opacity: 0.3; transform: scaleY(1.5); }
+  }
+
+  @keyframes particleFloat {
+    0% { 
+      opacity: 0; 
+      transform: scale(0);
+    }
+    50% { 
+      opacity: 1; 
+      transform: scale(1.5);
+    }
+    100% { 
+      opacity: 0; 
+      transform: scale(1.5) translateY(-20px);
+    }
+  }
+
+  /* Media queries */
+  @media (max-width: 768px) {
+    .welcome-title {
+      min-width: 300px;
+      padding: 30px 35px;
+    }
+    
+    .welcome-title h1 {
+      font-size: 2.2rem;
+    }
+
+    .une-logo {
+      width: 180px;
+    }
+
+    .light-ray {
+      height: 60px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .welcome-title {
+      min-width: 280px;
+      padding: 25px 30px;
+    }
+    
+    .welcome-title h1 {
+      font-size: 1.8rem;
+    }
+
+    .une-logo {
+      width: 150px;
+    }
+  }
+
+  /* Reducir motion para usuarios que lo prefieren */
+  @media (prefers-reduced-motion: reduce) {
+    .splash-container * {
+      animation-duration: 0.1s !important;
+      transition-duration: 0.1s !important;
+    }
+  }
+</style>
+
+<script>
+  // Función para manejar la animación del splash
+  function initSplashAnimation() {
+    const splashScreen = document.getElementById('splashScreen');
+    const fadeOverlay = document.getElementById('fadeOverlay');
+    const welcomeTitle = document.getElementById('welcomeTitle');
+    const lightRays = document.querySelectorAll('.light-ray');
+    const particles = document.querySelectorAll('.light-particles');
+
+    if (!splashScreen || !fadeOverlay || !welcomeTitle) {
+      console.error('Elementos del splash screen no encontrados');
+      return;
+    }
+
+    // Función para aplicar animaciones secuenciales
+    function runAnimation() {
+      // 1. Fade out del overlay (0.8s)
+      fadeOverlay.style.animation = 'fadeOut 0.8s ease-out forwards';
+
+      // 2. Efectos de luz (1s delay)
+      setTimeout(() => {
+        lightRays.forEach((ray, index) => {
+          ray.style.animationDelay = `${index * 0.1}s`;
+          ray.style.animation = 'lightRayAppear 1.4s ease-out forwards';
+        });
+      }, 1000);
+
+      // 3. Partículas (1.2s delay)
+      setTimeout(() => {
+        particles.forEach((particle, index) => {
+          particle.style.animationDelay = `${index * 0.15}s`;
+          particle.style.animation = 'particleFloat 1.8s ease-out forwards';
+        });
+      }, 1200);
+
+      // 4. Título de bienvenida (2s delay)
+      setTimeout(() => {
+        welcomeTitle.style.animation = 'scaleIn 1s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards';
+      }, 2000);
+
+      // 5. Completar splash (3.5s total)
+      setTimeout(() => {
+        completeSplash();
+      }, 3500);
+    }
+
+    // Función para completar el splash
+    function completeSplash() {
+      splashScreen.style.transition = 'opacity 0.5s ease-in-out';
+      splashScreen.style.opacity = '0';
+      
+      setTimeout(() => {
+        splashScreen.style.display = 'none';
+        // Disparar evento personalizado
+        window.dispatchEvent(new CustomEvent('splash:complete'));
+      }, 500);
+    }
+
+    // Iniciar animación cuando el DOM esté listo
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', runAnimation);
+    } else {
+      // DOM ya está listo
+      setTimeout(runAnimation, 100);
+    }
+  }
+
+  // Inicializar solo una vez
+  if (!window.splashInitialized) {
+    window.splashInitialized = true;
+    initSplashAnimation();
+  }
+</script>
