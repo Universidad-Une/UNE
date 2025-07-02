@@ -1,23 +1,866 @@
-<nav>
-  <ul class="bg-rojo-une border border-blue-800 flex">
-    <li class="font-sans text-white p-4 hover:bg-blue-800 transition-colors duration-200 cursor-pointer">
-      Admisiones
-    </li>
-    <li class="font-sans text-white p-4 hover:bg-blue-800 transition-colors duration-200 cursor-pointer">
-      Oferta académica
-    </li>
-    <li class="font-sans text-white p-4 hover:bg-blue-700 transition-colors duration-200 cursor-pointer">
-      Información escolar
-    </li>
-    <li class="font-sans text-red-300 p-4 hover:bg-blue-800 transition-colors duration-200 cursor-pointer">
-      Vida estudiantil
-    </li>
-    <li class="font-sans text-white p-4 hover:bg-blue-800 transition-colors duration-200 cursor-pointer">
-      Nosotros
-    </li>
-  </ul>
-</nav>
+---
+import { Menu, X, ChevronDown } from "@lucide/astro";
 
-<div class="bg-rojo-une text-white p-4 rounded">
-  Este es un fondo rojo con texto blanco.
+import Logo_UNE from "../assets/Logos/UNE_com.webp";
+import UNE_Blanco from "../assets/Logos/UNE_blanco.webp";
+import UNE_enlinea from "../assets/Logos/UNE_en_linea_blanco.webp";
+import Enjoy from "../assets/Logos/Enjoy_english_blanco.webp";
+import VTU from "../assets/Logos/VTU_blanco.webp";
+import Clinica from "../assets/Logos/Clinica_UNE_blanco.webp";
+---
+
+<div
+  class="hidden md:flex w-full h-14 bg-rojo-une items-center justify-end gap-5 px-4 rounded-b-3xl"
+>
+  <img src={UNE_enlinea.src} alt="UNE" class="h-12 w-auto" />
+  <img src={Clinica.src} alt="UNE" class="h-12 w-auto" />
+  <img src={VTU.src} alt="UNE" class="h-12 w-auto" />
+  <img src={Enjoy.src} alt="UNE" class="h-12 w-auto" />
 </div>
+<header class="bg-white/50 backdrop-blur-[10.2px] shadow-sm sticky top-0 z-50">
+  <div class="w-full">
+    <div class="flex items-center justify-between h-24">
+      <div class="flex-shrink-0">
+        <img src={Logo_UNE.src} alt="UNE" class="h-20 w-auto" />
+      </div>
+
+      <nav class="hidden md:flex space-x-4 items-center">
+        <div class="relative group">
+          <button
+            class="flex items-center px-3 py-2 hover:text-red-600 font-bold transition-colors duration-200"
+          >
+            Admisiones
+            <ChevronDown
+              size={16}
+              class="ml-1 transform group-hover:rotate-180 transition-transform duration-200"
+            />
+          </button>
+        </div>
+
+        <div class="relative group">
+          <button
+            class="flex items-center px-3 py-2 hover:text-red-600 font-bold transition-colors duration-200"
+          >
+            Oferta Académica
+            <ChevronDown
+              size={16}
+              class="ml-1 transform group-hover:rotate-180 transition-transform duration-200"
+            />
+          </button>
+        </div>
+
+        <div class="relative group">
+          <button
+            class="flex items-center px-3 py-2 hover:text-red-600 font-bold transition-colors duration-200"
+          >
+            Información Escolar
+            <ChevronDown
+              size={16}
+              class="ml-1 transform group-hover:rotate-180 transition-transform duration-200"
+            />
+          </button>
+        </div>
+
+        <div class="relative group">
+          <button
+            class="flex items-center px-3 py-2 hover:text-red-600 font-bold transition-colors duration-200"
+          >
+            Vida Estudiantil
+            <ChevronDown
+              size={16}
+              class="ml-1 transform group-hover:rotate-180 transition-transform duration-200"
+            />
+          </button>
+        </div>
+
+        <div class="relative group">
+          <button
+            class="flex items-center px-3 py-2 hover:text-red-600 font-bold transition-colors duration-200"
+          >
+            Nosotros
+            <ChevronDown
+              size={16}
+              class="ml-1 transform group-hover:rotate-180 transition-transform duration-200"
+            />
+          </button>
+        </div>
+      </nav>
+
+      <div class="md:hidden">
+        <button
+          type="button"
+          class="mobile-menu-button p-2 rounded-md text-blue-900 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          aria-expanded="false"
+        >
+          <Menu size={24} stroke-width={2} class="menu-icon" />
+          <X size={24} stroke-width={2} class="close-icon hidden" />
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div
+    class="dropdown-menu admisiones-dropdown absolute left-0 right-0 top-full bg-white border-t border-gray-200 shadow-lg opacity-0 invisible transform translate-y-2 transition-all duration-300 ease-out z-50"
+  >
+    <div class="container mx-auto px-4 py-8">
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+        <a
+          href="#"
+          class="group block p-4 rounded-lg hover:bg-blue-50 transition-colors duration-200"
+        >
+          <h3
+            class="font-semibold text-gray-900 group-hover:text-blue-600 mb-2"
+          >
+            Formulario De Inscripción
+          </h3>
+          <p class="text-sm text-gray-500">Inicia tu proceso de admisión</p>
+        </a>
+        <a
+          href="#"
+          class="group block p-4 rounded-lg hover:bg-blue-50 transition-colors duration-200"
+        >
+          <h3
+            class="font-semibold text-gray-900 group-hover:text-blue-600 mb-2"
+          >
+            Test Vocacional
+          </h3>
+          <p class="text-sm text-gray-500">Descubre tu vocación</p>
+        </a>
+        <a
+          href="#"
+          class="group block p-4 rounded-lg hover:bg-blue-50 transition-colors duration-200"
+        >
+          <h3
+            class="font-semibold text-gray-900 group-hover:text-blue-600 mb-2"
+          >
+            Requisitos De Admisión
+          </h3>
+          <p class="text-sm text-gray-500">Conoce los requisitos</p>
+        </a>
+        <a
+          href="#"
+          class="group block p-4 rounded-lg hover:bg-blue-50 transition-colors duration-200"
+        >
+          <h3
+            class="font-semibold text-gray-900 group-hover:text-blue-600 mb-2"
+          >
+            Precios/Colegiaturas
+          </h3>
+          <p class="text-sm text-gray-500">Información de costos</p>
+        </a>
+        <a
+          href="#"
+          class="group block p-4 rounded-lg hover:bg-blue-50 transition-colors duration-200"
+        >
+          <h3
+            class="font-semibold text-gray-900 group-hover:text-blue-600 mb-2"
+          >
+            Preguntas Frecuentes
+          </h3>
+          <p class="text-sm text-gray-500">Resuelve tus dudas</p>
+        </a>
+        <a
+          href="#"
+          class="group block p-4 rounded-lg hover:bg-blue-50 transition-colors duration-200"
+        >
+          <h3
+            class="font-semibold text-gray-900 group-hover:text-blue-600 mb-2"
+          >
+           Apoyos educativos
+          </h3>
+          <p class="text-sm text-gray-500">Conoce los apoyos a los cuales puedes acceder</p>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div
+    class="dropdown-menu oferta-dropdown absolute left-0 right-0 top-full bg-white border-t border-gray-200 shadow-lg opacity-0 invisible transform translate-y-2 transition-all duration-300 ease-out z-50"
+  >
+    <div class="container mx-auto px-4 py-8">
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+        <a
+          href="#"
+          class="group block p-4 rounded-lg hover:bg-blue-50 transition-colors duration-200"
+        >
+          <h3
+            class="font-semibold text-gray-900 group-hover:text-blue-600 mb-2"
+          >
+            Licenciaturas
+          </h3>
+          <p class="text-sm text-gray-500">Programas de pregrado</p>
+        </a>
+        <a
+          href="#"
+          class="group block p-4 rounded-lg hover:bg-blue-50 transition-colors duration-200"
+        >
+          <h3
+            class="font-semibold text-gray-900 group-hover:text-blue-600 mb-2"
+          >
+            Maestrías
+          </h3>
+          <p class="text-sm text-gray-500">Programas de posgrado</p>
+        </a>
+        <a
+          href="#"
+          class="group block p-4 rounded-lg hover:bg-blue-50 transition-colors duration-200"
+        >
+          <h3
+            class="font-semibold text-gray-900 group-hover:text-blue-600 mb-2"
+          >
+            Doctorados
+          </h3>
+          <p class="text-sm text-gray-500">Estudios doctorales</p>
+        </a>
+        <a
+          href="#"
+          class="group block p-4 rounded-lg hover:bg-blue-50 transition-colors duration-200"
+        >
+          <h3
+            class="font-semibold text-gray-900 group-hover:text-blue-600 mb-2"
+          >
+            Educación Continua
+          </h3>
+          <p class="text-sm text-gray-500">Cursos especializados</p>
+        </a>
+        <a
+          href="#"
+          class="group block p-4 rounded-lg hover:bg-blue-50 transition-colors duration-200"
+        >
+          <h3
+            class="font-semibold text-gray-900 group-hover:text-blue-600 mb-2"
+          >
+            Diplomados
+          </h3>
+          <p class="text-sm text-gray-500">Programas cortos</p>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div
+    class="dropdown-menu informacion-dropdown absolute left-0 right-0 top-full bg-white border-t border-gray-200 shadow-lg opacity-0 invisible transform translate-y-2 transition-all duration-300 ease-out z-50"
+  >
+    <div class="container mx-auto px-4 py-8">
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+        <a
+          href="#"
+          class="group block p-4 rounded-lg hover:bg-blue-50 transition-colors duration-200"
+        >
+          <h3
+            class="font-semibold text-gray-900 group-hover:text-blue-600 mb-2"
+          >
+            Calendario Académico
+          </h3>
+          <p class="text-sm text-gray-500">Fechas importantes</p>
+        </a>
+        <a
+          href="#"
+          class="group block p-4 rounded-lg hover:bg-blue-50 transition-colors duration-200"
+        >
+          <h3
+            class="font-semibold text-gray-900 group-hover:text-blue-600 mb-2"
+          >
+            Bilbiotecas
+          </h3>
+          <p class="text-sm text-gray-500">Accede a los recursos de aprendizaje</p>
+        </a>
+        <a
+          href="#"
+          class="group block p-4 rounded-lg hover:bg-blue-50 transition-colors duration-200"
+        >
+          <h3
+            class="font-semibold text-gray-900 group-hover:text-blue-600 mb-2"
+          >
+            Reglamentos
+          </h3>
+          <p class="text-sm text-gray-500">Normativas institucionales</p>
+        </a>
+        <a
+          href="#"
+          class="group block p-4 rounded-lg hover:bg-blue-50 transition-colors duration-200"
+        >
+          <h3
+            class="font-semibold text-gray-900 group-hover:text-blue-600 mb-2"
+          >
+            Servicios Escolares
+          </h3>
+          <p class="text-sm text-gray-500">Trámites académicos</p>
+        </a>
+        <a
+          href="#"
+          class="group block p-4 rounded-lg hover:bg-blue-50 transition-colors duration-200"
+        >
+          <h3
+            class="font-semibold text-gray-900 group-hover:text-blue-600 mb-2"
+          >
+            Biblioteca
+          </h3>
+          <p class="text-sm text-gray-500">Recursos bibliográficos</p>
+        </a>
+        <a
+          href="#"
+          class="group block p-4 rounded-lg hover:bg-blue-50 transition-colors duration-200"
+        >
+          <h3
+            class="font-semibold text-gray-900 group-hover:text-blue-600 mb-2"
+          >
+            Plataformas Digitales
+          </h3>
+          <p class="text-sm text-gray-500">Acceso digital</p>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div
+    class="dropdown-menu vida-dropdown absolute left-0 right-0 top-full bg-white border-t border-gray-200 shadow-lg opacity-0 invisible transform translate-y-2 transition-all duration-300 ease-out z-50"
+  >
+    <div class="container mx-auto px-4 py-8">
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+        <a
+          href="#"
+          class="group block p-4 rounded-lg hover:bg-blue-50 transition-colors duration-200"
+        >
+          <h3
+            class="font-semibold text-gray-900 group-hover:text-blue-600 mb-2"
+          >
+            Actividades Extracurriculares
+          </h3>
+          <p class="text-sm text-gray-500">Actividades complementarias</p>
+        </a>
+        <a
+          href="#"
+          class="group block p-4 rounded-lg hover:bg-blue-50 transition-colors duration-200"
+        >
+          <h3
+            class="font-semibold text-gray-900 group-hover:text-blue-600 mb-2"
+          >
+            Deportes
+          </h3>
+          <p class="text-sm text-gray-500">Actividades deportivas</p>
+        </a>
+        <a
+          href="#"
+          class="group block p-4 rounded-lg hover:bg-blue-50 transition-colors duration-200"
+        >
+          <h3
+            class="font-semibold text-gray-900 group-hover:text-blue-600 mb-2"
+          >
+            Cultura y Arte
+          </h3>
+          <p class="text-sm text-gray-500">Expresión artística</p>
+        </a>
+        <a
+          href="#"
+          class="group block p-4 rounded-lg hover:bg-blue-50 transition-colors duration-200"
+        >
+          <h3
+            class="font-semibold text-gray-900 group-hover:text-blue-600 mb-2"
+          >
+            Grupos Estudiantiles
+          </h3>
+          <p class="text-sm text-gray-500">Organizaciones estudiantiles</p>
+        </a>
+        <a
+          href="#"
+          class="group block p-4 rounded-lg hover:bg-blue-50 transition-colors duration-200"
+        >
+          <h3
+            class="font-semibold text-gray-900 group-hover:text-blue-600 mb-2"
+          >
+            Eventos
+          </h3>
+          <p class="text-sm text-gray-500">Calendario de eventos</p>
+        </a>
+        <a
+          href="#"
+          class="group block p-4 rounded-lg hover:bg-blue-50 transition-colors duration-200"
+        >
+          <h3
+            class="font-semibold text-gray-900 group-hover:text-blue-600 mb-2"
+          >
+            Voluntariado
+          </h3>
+          <p class="text-sm text-gray-500">Servicio comunitario</p>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div
+    class="dropdown-menu nosotros-dropdown absolute left-0 right-0 top-full bg-white border-t border-gray-200 shadow-lg opacity-0 invisible transform translate-y-2 transition-all duration-300 ease-out z-50"
+  >
+    <div class="container mx-auto px-4 py-8">
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-7 gap-6">
+        <a
+          href="#"
+          class="group block p-4 rounded-lg hover:bg-blue-50 transition-colors duration-200"
+        >
+          <h3
+            class="font-semibold text-gray-900 group-hover:text-blue-600 mb-2"
+          >
+            Historia
+          </h3>
+          <p class="text-sm text-gray-500">Nuestra trayectoria</p>
+        </a>
+        <a
+          href="#"
+          class="group block p-4 rounded-lg hover:bg-blue-50 transition-colors duration-200"
+        >
+          <h3
+            class="font-semibold text-gray-900 group-hover:text-blue-600 mb-2"
+          >
+            Misión y Visión
+          </h3>
+          <p class="text-sm text-gray-500">Propósito institucional</p>
+        </a>
+        <a
+          href="#"
+          class="group block p-4 rounded-lg hover:bg-blue-50 transition-colors duration-200"
+        >
+          <h3
+            class="font-semibold text-gray-900 group-hover:text-blue-600 mb-2"
+          >
+            Valores
+          </h3>
+          <p class="text-sm text-gray-500">Principios fundamentales</p>
+        </a>
+        <a
+          href="#"
+          class="group block p-4 rounded-lg hover:bg-blue-50 transition-colors duration-200"
+        >
+          <h3
+            class="font-semibold text-gray-900 group-hover:text-blue-600 mb-2"
+          >
+            Directorio
+          </h3>
+          <p class="text-sm text-gray-500">Equipo directivo</p>
+        </a>
+        <a
+          href="#"
+          class="group block p-4 rounded-lg hover:bg-blue-50 transition-colors duration-200"
+        >
+          <h3
+            class="font-semibold text-gray-900 group-hover:text-blue-600 mb-2"
+          >
+            Campus
+          </h3>
+          <p class="text-sm text-gray-500">Instalaciones</p>
+        </a>
+        <a
+          href="#"
+          class="group block p-4 rounded-lg hover:bg-blue-50 transition-colors duration-200"
+        >
+          <h3
+            class="font-semibold text-gray-900 group-hover:text-blue-600 mb-2"
+          >
+            Acreditaciones
+          </h3>
+          <p class="text-sm text-gray-500">Reconocimientos oficiales</p>
+        </a>
+        <a
+          href="#"
+          class="group block p-4 rounded-lg hover:bg-blue-50 transition-colors duration-200"
+        >
+          <h3
+            class="font-semibold text-gray-900 group-hover:text-blue-600 mb-2"
+          >
+            Transparencia
+          </h3>
+          <p class="text-sm text-gray-500">Información pública</p>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div
+    class="mobile-menu fixed inset-0 z-50 opacity-0 invisible transition-opacity duration-300 ease-in-out"
+  >
+    <div
+      class="w-full h-screen bg-azul-une flex transform -translate-x-full transition-transform duration-300 ease-in-out"
+    >
+      <div class="w-[75%] h-full flex flex-col">
+        <div class="flex items-center justify-between p-4 absolute w-full">
+          <img src={UNE_Blanco.src} alt="UNE" class="h-20 w-auto" />
+          <button
+            type="button"
+            class="close-menu-button p-2 text-white hover:bg-blue-800 rounded-md"
+          >
+            <X size={32} />
+          </button>
+        </div>
+
+        <nav class="flex-1 p-4 overflow-y-auto mt-40">
+          <div class="mb-4">
+            <button
+              class="menu-section flex items-center justify-between w-full text-left text-white font-bold py-3 px-2 hover:bg-blue-800 rounded-md transition-colors duration-200"
+            >
+              <span class="font-bold text-lg tracking-wide">ADMISIONES</span>
+              <ChevronDown
+                size={20}
+                class="chevron transform transition-transform duration-200"
+              />
+            </button>
+            <div class="submenu hidden ml-4 mt-2 space-y-1">
+              <a
+                href="#"
+                class="block text-gray-300 py-2 px-2 text-sm hover:text-white hover:bg-blue-800 rounded"
+                >Formulario De Inscripción</a
+              >
+              <a
+                href="#"
+                class="block text-gray-300 py-2 px-2 text-sm hover:text-white hover:bg-blue-800 rounded"
+                >Test Vocacional</a
+              >
+              <a
+                href="#"
+                class="block text-gray-300 py-2 px-2 text-sm hover:text-white hover:bg-blue-800 rounded"
+                >Requisitos De Admisión</a
+              >
+              <a
+                href="#"
+                class="block text-gray-300 py-2 px-2 text-sm hover:text-white hover:bg-blue-800 rounded"
+                >Precios/Colegiaturas</a
+              >
+              <a
+                href="#"
+                class="block text-gray-300 py-2 px-2 text-sm hover:text-white hover:bg-blue-800 rounded"
+                >Preguntas Frecuentes</a
+              >
+              <a
+                href="#"
+                class="block text-gray-300 py-2 px-2 text-sm hover:text-white hover:bg-blue-800 rounded"
+                >Calcula Tu Beca</a
+              >
+            </div>
+          </div>
+
+          <div class="mb-4">
+            <button
+              class="menu-section flex items-center justify-between w-full text-left text-white font-bold py-3 px-2 hover:bg-blue-800 rounded-md transition-colors duration-200"
+            >
+              <span class="text-lg tracking-wide">OFERTA ACADÉMICA</span>
+              <ChevronDown
+                size={20}
+                class="chevron transform transition-transform duration-200"
+              />
+            </button>
+            <div class="submenu hidden ml-4 mt-2 space-y-1">
+              <a
+                href="#"
+                class="block text-gray-300 py-2 px-2 text-sm hover:text-white hover:bg-blue-800 rounded"
+                >Licenciaturas</a
+              >
+              <a
+                href="#"
+                class="block text-gray-300 py-2 px-2 text-sm hover:text-white hover:bg-blue-800 rounded"
+                >Maestrías</a
+              >
+              <a
+                href="#"
+                class="block text-gray-300 py-2 px-2 text-sm hover:text-white hover:bg-blue-800 rounded"
+                >Doctorados</a
+              >
+              <a
+                href="#"
+                class="block text-gray-300 py-2 px-2 text-sm hover:text-white hover:bg-blue-800 rounded"
+                >Educación Continua</a
+              >
+              <a
+                href="#"
+                class="block text-gray-300 py-2 px-2 text-sm hover:text-white hover:bg-blue-800 rounded"
+                >Diplomados</a
+              >
+            </div>
+          </div>
+
+          <div class="mb-4">
+            <button
+              class="menu-section flex items-center justify-between w-full text-left text-white font-bold py-3 px-2 hover:bg-blue-800 rounded-md transition-colors duration-200"
+            >
+              <span class="text-lg tracking-wide">INFORMACIÓN ESCOLAR</span>
+              <ChevronDown
+                size={20}
+                class="chevron transform transition-transform duration-200"
+              />
+            </button>
+            <div class="submenu hidden ml-4 mt-2 space-y-1">
+              <a
+                href="#"
+                class="block text-gray-300 py-2 px-2 text-sm hover:text-white hover:bg-blue-800 rounded"
+                >Calendario Académico</a
+              >
+              <a
+                href="#"
+                class="block text-gray-300 py-2 px-2 text-sm hover:text-white hover:bg-blue-800 rounded"
+                >Horarios</a
+              >
+              <a
+                href="#"
+                class="block text-gray-300 py-2 px-2 text-sm hover:text-white hover:bg-blue-800 rounded"
+                >Reglamentos</a
+              >
+              <a
+                href="#"
+                class="block text-gray-300 py-2 px-2 text-sm hover:text-white hover:bg-blue-800 rounded"
+                >Servicios Escolares</a
+              >
+              <a
+                href="#"
+                class="block text-gray-300 py-2 px-2 text-sm hover:text-white hover:bg-blue-800 rounded"
+                >Biblioteca</a
+              >
+              <a
+                href="#"
+                class="block text-gray-300 py-2 px-2 text-sm hover:text-white hover:bg-blue-800 rounded"
+                >Plataformas Digitales</a
+              >
+            </div>
+          </div>
+
+          <div class="mb-4">
+            <button
+              class="menu-section flex items-center justify-between w-full text-left text-white font-bold py-3 px-2 hover:bg-blue-800 rounded-md transition-colors duration-200"
+            >
+              <span class="text-lg tracking-wide">VIDA ESTUDIANTIL</span>
+              <ChevronDown
+                size={20}
+                class="chevron transform transition-transform duration-200"
+              />
+            </button>
+            <div class="submenu hidden ml-4 mt-2 space-y-1">
+              <a
+                href="#"
+                class="block text-gray-300 py-2 px-2 text-sm hover:text-white hover:bg-blue-800 rounded"
+                >Actividades Extracurriculares</a
+              >
+              <a
+                href="#"
+                class="block text-gray-300 py-2 px-2 text-sm hover:text-white hover:bg-blue-800 rounded"
+                >Deportes</a
+              >
+              <a
+                href="#"
+                class="block text-gray-300 py-2 px-2 text-sm hover:text-white hover:bg-blue-800 rounded"
+                >Cultura y Arte</a
+              >
+              <a
+                href="#"
+                class="block text-gray-300 py-2 px-2 text-sm hover:text-white hover:bg-blue-800 rounded"
+                >Grupos Estudiantiles</a
+              >
+              <a
+                href="#"
+                class="block text-gray-300 py-2 px-2 text-sm hover:text-white hover:bg-blue-800 rounded"
+                >Eventos</a
+              >
+              <a
+                href="#"
+                class="block text-gray-300 py-2 px-2 text-sm hover:text-white hover:bg-blue-800 rounded"
+                >Voluntariado</a
+              >
+            </div>
+          </div>
+
+          <div class="mb-4">
+            <button
+              class="menu-section flex items-center justify-between w-full text-left text-white font-bold py-3 px-2 hover:bg-blue-800 rounded-md transition-colors duration-200"
+            >
+              <span class="text-lg tracking-wide">NOSOTROS</span>
+              <ChevronDown
+                size={20}
+                class="chevron transform transition-transform duration-200"
+              />
+            </button>
+            <div class="submenu hidden ml-4 mt-2 space-y-1">
+              <a
+                href="#"
+                class="block text-gray-300 py-2 px-2 text-sm hover:text-white hover:bg-blue-800 rounded"
+                >Historia</a
+              >
+              <a
+                href="#"
+                class="block text-gray-300 py-2 px-2 text-sm hover:text-white hover:bg-blue-800 rounded"
+                >Misión y Visión</a
+              >
+              <a
+                href="#"
+                class="block text-gray-300 py-2 px-2 text-sm hover:text-white hover:bg-blue-800 rounded"
+                >Valores</a
+              >
+              <a
+                href="#"
+                class="block text-gray-300 py-2 px-2 text-sm hover:text-white hover:bg-blue-800 rounded"
+                >Directorio</a
+              >
+              <a
+                href="#"
+                class="block text-gray-300 py-2 px-2 text-sm hover:text-white hover:bg-blue-800 rounded"
+                >Campus</a
+              >
+              <a
+                href="#"
+                class="block text-gray-300 py-2 px-2 text-sm hover:text-white hover:bg-blue-800 rounded"
+                >Acreditaciones</a
+              >
+              <a
+                href="#"
+                class="block text-gray-300 py-2 px-2 text-sm hover:text-white hover:bg-blue-800 rounded"
+                >Transparencia</a
+              >
+            </div>
+          </div>
+        </nav>
+      </div>
+
+      <div class="w-[25%] h-full flex items-center justify-center">
+        <div
+          class="w-full h-[70dvh] bg-rojo-une flex flex-col items-center justify-center gap-5 space-y-4 px-4 rounded-l-2xl"
+        >
+          <img src={UNE_enlinea.src} alt="UNE" class="h-20 w-auto" />
+          <img src={Clinica.src} alt="UNE" class="h-20 w-auto" />
+          <img src={VTU.src} alt="UNE" class="h-20 w-auto" />
+          <img src={Enjoy.src} alt="UNE" class="h-20 w-auto" />
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<script>
+  // Mobile menu functionality
+  const mobileMenuButton = document.querySelector(".mobile-menu-button");
+  const mobileMenu = document.querySelector(".mobile-menu");
+  const closeMenuButton = document.querySelector(".close-menu-button");
+  const menuIcon = document.querySelector(".menu-icon");
+  const closeIcon = document.querySelector(".close-icon");
+  const menuContainer = mobileMenu?.querySelector("div:first-child");
+
+  function openMenu() {
+    mobileMenu?.classList.remove("opacity-0", "invisible"); // Hace el contenedor visible y opaco
+    mobileMenu?.classList.add("opacity-100", "visible"); // Añade la clase visible
+    menuContainer?.classList.remove("-translate-x-full"); // Inicia el deslizamiento
+    menuIcon?.classList.add("hidden");
+    closeIcon?.classList.remove("hidden");
+    document.body.style.overflow = "hidden";
+  }
+
+  function closeMenu() {
+    menuContainer?.classList.add("-translate-x-full"); // Inicia el deslizamiento de salida
+    // Espera a que termine la transición de deslizamiento antes de ocultar el menú completamente
+    setTimeout(() => {
+      mobileMenu?.classList.remove("opacity-100", "visible"); // Hace el contenedor transparente
+      mobileMenu?.classList.add("opacity-0", "invisible"); // Oculta el contenedor
+      menuIcon?.classList.remove("hidden");
+      closeIcon?.classList.add("hidden");
+      document.body.style.overflow = "";
+    }, 300); // Este timeout debe coincidir con la duración de la transición (duration-300)
+  }
+
+  mobileMenuButton?.addEventListener("click", openMenu);
+  closeMenuButton?.addEventListener("click", closeMenu);
+
+  // Desktop dropdown functionality
+  const navItems = document.querySelectorAll("nav .group");
+  const dropdowns = document.querySelectorAll(".dropdown-menu");
+
+  // Map navigation items to their corresponding dropdowns
+  const dropdownMap = {
+    0: "admisiones-dropdown",
+    1: "oferta-dropdown",
+    2: "informacion-dropdown",
+    3: "vida-dropdown",
+    4: "nosotros-dropdown",
+  };
+
+  navItems.forEach((item, index) => {
+    const dropdown = document.querySelector(`.${dropdownMap[index]}`);
+
+    if (dropdown) {
+      let hoverTimeout;
+
+      // Show dropdown on hover
+      item.addEventListener("mouseenter", () => {
+        clearTimeout(hoverTimeout);
+
+        // Hide all other dropdowns
+        dropdowns.forEach((d) => {
+          if (d !== dropdown) {
+            d.classList.remove("opacity-100", "visible");
+            d.classList.add("opacity-0", "invisible");
+          }
+        });
+
+        // Show current dropdown
+        dropdown.classList.remove("opacity-0", "invisible", "translate-y-2");
+        dropdown.classList.add("opacity-100", "visible", "translate-y-0");
+      });
+
+      // Hide dropdown when leaving nav item
+      item.addEventListener("mouseleave", () => {
+        hoverTimeout = setTimeout(() => {
+          dropdown.classList.remove("opacity-100", "visible", "translate-y-0");
+          dropdown.classList.add("opacity-0", "invisible", "translate-y-2");
+        }, 100);
+      });
+
+      // Keep dropdown open when hovering over it
+      dropdown.addEventListener("mouseenter", () => {
+        clearTimeout(hoverTimeout);
+      });
+
+      // Hide dropdown when leaving dropdown
+      dropdown.addEventListener("mouseleave", () => {
+        dropdown.classList.remove("opacity-100", "visible", "translate-y-0");
+        dropdown.classList.add("opacity-0", "invisible", "translate-y-2");
+      });
+    }
+  });
+
+  // Mobile submenu functionality
+  const menuSections = document.querySelectorAll(".menu-section");
+
+  menuSections.forEach((section) => {
+    section.addEventListener("click", () => {
+      const submenu = section.nextElementSibling;
+      const chevron = section.querySelector(".chevron");
+
+      if (submenu?.classList.contains("hidden")) {
+        submenu.classList.remove("hidden");
+        chevron?.classList.add("rotate-180");
+      } else {
+        submenu?.classList.add("hidden");
+        chevron?.classList.remove("rotate-180");
+      }
+    });
+  });
+
+  // Close menu on escape key
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+      if (!mobileMenu?.classList.contains("hidden")) {
+        closeMenu();
+      }
+      // Also close desktop dropdowns
+      dropdowns.forEach((dropdown) => {
+        dropdown.classList.remove("opacity-100", "visible", "translate-y-0");
+        dropdown.classList.add("opacity-0", "invisible", "translate-y-2");
+      });
+    }
+  });
+</script>
+
+<style>
+  .dropdown-menu {
+    transform: translateY(8px);
+  }
+
+  .dropdown-menu.translate-y-0 {
+    transform: translateY(0);
+  }
+
+  .dropdown-menu.translate-y-2 {
+    transform: translateY(8px);
+  }
+</style>

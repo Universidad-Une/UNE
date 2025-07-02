@@ -6,15 +6,14 @@ export interface Props {
 const { logoSrc } = Astro.props;
 ---
 
-<div 
-  id="splashScreen" 
+<div
+  id="splashScreen"
   class="splash-container"
   data-logo-src={logoSrc}
 >
   <div class="scene-container">
     <div class="fade-overlay" id="fadeOverlay"></div>
-    
-    <!-- Efectos de luz -->
+
     <div class="light-effects">
       <div class="light-ray light-ray-1"></div>
       <div class="light-ray light-ray-2"></div>
@@ -25,9 +24,9 @@ const { logoSrc } = Astro.props;
     </div>
 
     <div class="welcome-title" id="welcomeTitle">
-      <img 
-        src={logoSrc} 
-        alt="UNE Logo" 
+      <img
+        src={logoSrc}
+        alt="UNE Logo"
         class="une-logo"
         loading="eager"
         decoding="sync"
@@ -139,6 +138,11 @@ const { logoSrc } = Astro.props;
     border: 1px solid rgba(255, 255, 255, 0.2);
     min-width: 350px;
     will-change: opacity, transform;
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+    text-align: center;
   }
 
   .une-logo {
@@ -150,9 +154,7 @@ const { logoSrc } = Astro.props;
 
   .welcome-title h1 {
     font-size: 3rem;
-    color: #2c5aa0;
     font-weight: 700;
-    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
     margin: 0;
     letter-spacing: 1px;
   }
@@ -176,12 +178,12 @@ const { logoSrc } = Astro.props;
   }
 
   @keyframes scaleIn {
-    from { 
-      opacity: 0; 
+    from {
+      opacity: 0;
       transform: translate(-50%, -50%) scale(0.8);
     }
-    to { 
-      opacity: 1; 
+    to {
+      opacity: 1;
       transform: translate(-50%, -50%) scale(1);
     }
   }
@@ -193,16 +195,16 @@ const { logoSrc } = Astro.props;
   }
 
   @keyframes particleFloat {
-    0% { 
-      opacity: 0; 
+    0% {
+      opacity: 0;
       transform: scale(0);
     }
-    50% { 
-      opacity: 1; 
+    50% {
+      opacity: 1;
       transform: scale(1.5);
     }
-    100% { 
-      opacity: 0; 
+    100% {
+      opacity: 0;
       transform: scale(1.5) translateY(-20px);
     }
   }
@@ -213,7 +215,7 @@ const { logoSrc } = Astro.props;
       min-width: 300px;
       padding: 30px 35px;
     }
-    
+
     .welcome-title h1 {
       font-size: 2.2rem;
     }
@@ -232,7 +234,7 @@ const { logoSrc } = Astro.props;
       min-width: 280px;
       padding: 25px 30px;
     }
-    
+
     .welcome-title h1 {
       font-size: 1.8rem;
     }
@@ -301,7 +303,7 @@ const { logoSrc } = Astro.props;
     function completeSplash() {
       splashScreen.style.transition = 'opacity 0.5s ease-in-out';
       splashScreen.style.opacity = '0';
-      
+
       setTimeout(() => {
         splashScreen.style.display = 'none';
         // Disparar evento personalizado

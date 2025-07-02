@@ -1,0 +1,120 @@
+---
+// Cards_Niveles.astro
+import { ArrowRight } from "@lucide/astro";
+import Secundaria from "../assets/Imagenes/Secundaria.png";
+import Bachillerato from "../assets/Imagenes/Bachillerato.png";
+import Licenciaturas from "../assets/Imagenes/Licenciaturas.png";
+import Posgrado from "../assets/Imagenes/Posgrado.png";
+---
+
+<section class="py-16 px-4 bg-gray-50">
+  <div class="max-w-7xl mx-auto">
+    <!-- Título -->
+    <div class="text-center mb-12">
+      <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+        Niveles Educativos
+      </h2>
+    </div>
+
+    <!-- Grid de cards -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      
+      <!-- Card 1: Secundaria -->
+      <div class="group relative bg-gradient-to-br from-blue-600 to-blue-800 rounded-3xl overflow-hidden h-96 cursor-pointer transform transition-all duration-300 hover:scale-105 hover:shadow-2xl">
+        <!-- Imagen de persona -->
+        <div class="absolute top-0 left-0 right-0 h-48 flex items-center justify-center">
+          <img 
+            src={Secundaria.src} 
+            alt="Estudiante de Secundaria" 
+            class="w-32 h-32 object-cover rounded-full border-4 border-white/20"
+          />
+        </div>
+        
+        <!-- Contenido -->
+        <div class="absolute bottom-0 left-0 right-0 p-6 text-white">
+          <h3 class="text-2xl font-bold mb-3">SECUNDARIA</h3>
+          <p class="text-sm text-blue-100 mb-4 leading-relaxed">
+            Formación integral con talleres académicos, deportivos y artísticos.
+          </p>
+          <a href="#" class="inline-flex items-center gap-2 text-white font-medium hover:text-blue-200 transition-colors group">
+            Conocer más
+            <ArrowRight class="h-5 w-5 transform group-hover:translate-x-1 transition-transform" />
+          </a>
+        </div>
+      </div>
+
+      <!-- Card 2: Bachillerato -->
+      <div class="group relative bg-gradient-to-br from-blue-500 to-purple-600 rounded-3xl overflow-hidden h-96 cursor-pointer transform transition-all duration-300 hover:scale-105 hover:shadow-2xl">
+        <!-- Imagen de persona -->
+        <div class="absolute top-0 left-0 right-0 h-48 flex items-center justify-center">
+          <img 
+            src={Bachillerato.src} 
+            alt="Estudiante de Bachillerato" 
+            class="w-32 h-32 object-cover rounded-full border-4 border-white/20"
+          />
+        </div>
+        
+        <!-- Contenido -->
+        <div class="absolute bottom-0 left-0 right-0 p-6 text-white">
+          <h3 class="text-2xl font-bold mb-3">BACHILLERATO</h3>
+          <p class="text-sm text-blue-100 mb-2 leading-relaxed">
+            Educación completa, formación integral. Impulsando tu futuro.
+          </p>
+          <a href="#" class="inline-flex items-center gap-2 text-white font-medium hover:text-blue-200 transition-colors group">
+            Conocer más
+            <ArrowRight class="h-5 w-5 transform group-hover:translate-x-1 transition-transform" />
+          </a>
+        </div>
+      </div>
+
+      <!-- Card 3: Licenciaturas -->
+      <div class="group relative bg-gradient-to-br from-red-500 to-pink-600 rounded-3xl overflow-hidden h-96 cursor-pointer transform transition-all duration-300 hover:scale-105 hover:shadow-2xl">
+        <!-- Imagen de persona -->
+        <div class="absolute top-0 left-0 right-0 h-48 flex items-center justify-center">
+          <img 
+            src={Licenciaturas.src} 
+            alt="Estudiante de Licenciatura" 
+            class="w-32 h-32 object-cover rounded-full border-4 border-white/20"
+          />
+        </div>
+        
+        <!-- Contenido -->
+        <div class="absolute bottom-0 left-0 right-0 p-6 text-white">
+          <h3 class="text-2xl font-bold mb-3">LICENCIATURAS</h3>
+          <p class="text-sm text-red-100 mb-2 leading-relaxed">
+            Programas de excelencia. Encuentra el programa que impulse tu futuro.
+          </p>
+          <a href="#" class="inline-flex items-center gap-2 text-white font-medium hover:text-red-200 transition-colors group">
+            Conocer más
+            <ArrowRight class="h-5 w-5 transform group-hover:translate-x-1 transition-transform" />
+          </a>
+        </div>
+      </div>
+
+      <!-- Card 4: Posgrados -->
+      <div class="group relative bg-gradient-to-br from-gray-700 to-gray-900 rounded-3xl overflow-hidden h-96 cursor-pointer transform transition-all duration-300 hover:scale-105 hover:shadow-2xl">
+        <!-- Imagen de persona -->
+        <div class="absolute top-0 left-0 right-0 h-48 flex items-center justify-center">
+          <img 
+            src={Posgrado.src} 
+            alt="Estudiante de Posgrado" 
+            class=""
+          />
+        </div>
+        
+        <!-- Contenido -->
+        <div class="absolute bottom-0 left-0 right-0 p-6 text-white">
+          <h3 class="text-2xl font-bold mb-3">POSGRADOS</h3>
+          <p class="text-sm text-gray-300 mb-2 leading-relaxed">
+            Formación avanzada para líderes que transforman. Diseñado para profesionales.
+          </p>
+          <a href="#" class="inline-flex items-center gap-2 text-white font-medium hover:text-gray-300 transition-colors group">
+            Conocer más
+            <ArrowRight class="h-5 w-5 transform group-hover:translate-x-1 transition-transform" />
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
