@@ -5,116 +5,734 @@ import Secundaria from "../assets/Imagenes/Secundaria.png";
 import Bachillerato from "../assets/Imagenes/Bachillerato.png";
 import Licenciaturas from "../assets/Imagenes/Licenciaturas.png";
 import Posgrado from "../assets/Imagenes/Posgrado.png";
+import Idiomas from "../assets/Imagenes/Ingles.png";
+import Continua from "../assets/Imagenes/E_Continua.png";
+
+// Datos de las cards
+const cardsData = [
+  {
+    id: "secundaria",
+    title: "SECUNDARIA",
+    description:
+      "Formación integral con talleres académicos, deportivos y artísticos.",
+    image: Secundaria.src,
+    alt: "Estudiante de Secundaria",
+    bgColor: "#001A71",
+    textColor: "text-white",
+    textSecondary: "text-blue-100",
+    hoverColor: "hover:text-blue-200",
+  },
+  {
+    id: "bachillerato",
+    title: "BACHILLERATO",
+    description:
+      "Educación completa, formación integral. Impulsando tu futuro.",
+    image: Bachillerato.src,
+    alt: "Estudiante de Bachillerato",
+    bgColor: "#6D8FFF",
+    textColor: "text-white",
+    textSecondary: "text-blue-100",
+    hoverColor: "hover:text-blue-200",
+  },
+  {
+    id: "licenciaturas",
+    title: "LICENCIATURAS",
+    description:
+      "Programas de excelencia. Encuentra el programa que impulse tu futuro.",
+    image: Licenciaturas.src,
+    alt: "Estudiante de Licenciatura",
+    bgColor: "rgb(239 68 68)",
+    textColor: "text-white",
+    textSecondary: "text-red-100",
+    hoverColor: "hover:text-red-200",
+  },
+  {
+    id: "posgrados",
+    title: "POSGRADOS",
+    description: "Formación avanzada para profesionales que transforman",
+    image: Posgrado.src,
+    alt: "Estudiante de Posgrado",
+    bgColor: "#F2F6FE",
+    textColor: "text-gray-900",
+    textSecondary: "text-gray-700",
+    hoverColor: "hover:text-gray-600",
+  },
+  {
+    id: "idiomas",
+    title: "IDIOMAS",
+    description: "Domina nuevos idiomas y amplía tus horizontes globales",
+    image: Idiomas.src,
+    alt: "Estudiante de Idiomas",
+    bgColor: "#F2F6FE",
+    textColor: "text-gray-900",
+    textSecondary: "text-gray-700",
+    hoverColor: "hover:text-gray-600",
+  },
+  {
+    id: "continua",
+    title: "ED. CONTINUA",
+    description: "Actualización profesional constante para el mundo actual",
+    image: Continua.src,
+    alt: "Educación Continua",
+    bgColor: "#F2F6FE",
+    textColor: "text-gray-900",
+    textSecondary: "text-gray-700",
+    hoverColor: "hover:text-gray-600",
+  },
+];
 ---
 
-<section class="py-16 px-4 bg-gray-50">
+<section class="py-16 px-4">
   <div class="max-w-7xl mx-auto">
-    <!-- Título -->
     <div class="text-center mb-12">
       <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
         Niveles Educativos
       </h2>
     </div>
 
-    <!-- Grid de cards -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-      
-      <!-- Card 1: Secundaria -->
-      <div class="group relative bg-gradient-to-br from-blue-600 to-blue-800 rounded-3xl overflow-hidden h-96 cursor-pointer transform transition-all duration-300 hover:scale-105 hover:shadow-2xl">
-        <!-- Imagen de persona -->
-        <div class="absolute top-0 left-0 right-0 h-48 flex items-center justify-center">
-          <img 
-            src={Secundaria.src} 
-            alt="Estudiante de Secundaria" 
-            class="w-32 h-32 object-cover rounded-full border-4 border-white/20"
-          />
-        </div>
-        
-        <!-- Contenido -->
-        <div class="absolute bottom-0 left-0 right-0 p-6 text-white">
-          <h3 class="text-2xl font-bold mb-3">SECUNDARIA</h3>
-          <p class="text-sm text-blue-100 mb-4 leading-relaxed">
-            Formación integral con talleres académicos, deportivos y artísticos.
-          </p>
-          <a href="#" class="inline-flex items-center gap-2 text-white font-medium hover:text-blue-200 transition-colors group">
-            Conocer más
-            <ArrowRight class="h-5 w-5 transform group-hover:translate-x-1 transition-transform" />
-          </a>
-        </div>
+    <div class="hidden lg:block py-4 relative overflow-visible">
+      <div
+        id="desktop-carousel"
+        class="flex overflow-x-auto overflow-y-visible"
+      >
+        {
+          cardsData.map((card) => (
+            <div class="flex-shrink-0 w-80 lg:w-1/3 xl:w-1/4 snap-center pr-6">
+              <div class="group relative">
+                <div class="absolute -top-20 left-1/2 transform -translate-x-1/2 z-10">
+                  {/* Mantuve exactamente la misma posición de la imagen */}
+                  <div class="relative">
+                    <img
+                      src={card.image}
+                      alt={card.alt}
+                      class="w-auto max-w-none h-[300px] object-contain object-top"
+                    />
+                    <div
+                      class="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t to-transparent pointer-events-none"
+                      style={`background: linear-gradient(to top, ${card.bgColor}, transparent)`}
+                    />
+                  </div>
+                </div>
+
+                <div
+                  class="rounded-2xl h-96 cursor-pointer transform transition-all duration-300 hover:scale-105 hover:shadow-2xl pt-8"
+                  style={`background-color: ${card.bgColor}`}
+                >
+                  <div class="absolute bottom-0 left-0 right-0 p-4">
+                    <div class="h-20 flex items-end justify-center mb-2">
+                      <h3
+                        class={`text-xl font-bold text-center ${card.textColor}`}
+                      >
+                        {card.title}
+                      </h3>
+                    </div>
+                    <p
+                      class={`text-xs ${card.textSecondary} mb-4 leading-relaxed text-center min-h-[2.5rem] flex items-center justify-center`}
+                    >
+                      {card.description}
+                    </p>
+                    <div class="flex justify-center">
+                      <a
+                        href="#"
+                        class={`inline-flex items-center gap-2 ${card.textColor} font-medium ${card.hoverColor} transition-colors group`}
+                      >
+                        Conocer más
+                        <ArrowRight class="h-4 w-4 transform group-hover:translate-x-1 transition-transform" />
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+      <button
+        id="desktop-prev"
+        class="absolute left-0 top-1/2 -translate-y-1/2 bg-gray-800 text-white p-2 rounded-full shadow-lg z-20"
+      >
+        &#10094;
+      </button>
+      <button
+        id="desktop-next"
+        class="absolute right-0 top-1/2 -translate-y-1/2 bg-gray-800 text-white p-2 rounded-full shadow-lg z-20"
+      >
+        &#10095;
+      </button>
+    </div>
+
+    <div class="pt-16 sm:pt-20 md:pt-24 hidden sm:block lg:hidden">
+      <div
+        class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 mb-20 sm:mb-24 lg:mb-32"
+      >
+        {
+          cardsData.slice(0, 4).map((card) => (
+            <div class="group relative">
+              <div class="absolute -top-12 sm:-top-16 md:-top-20 left-1/2 transform -translate-x-1/2 z-10">
+                <div class="relative">
+                  <img
+                    src={card.image}
+                    alt={card.alt}
+                    class="w-auto max-w-none h-[200px] sm:h-[250px] md:h-[280px] lg:h-[300px] object-contain object-top"
+                  />
+                  <div
+                    class="absolute bottom-0 left-0 right-0 h-16 sm:h-18 md:h-20 bg-gradient-to-t to-transparent pointer-events-none"
+                    style={`background: linear-gradient(to top, ${card.bgColor}, transparent)`}
+                  />
+                </div>
+              </div>
+
+              <div
+                class="rounded-2xl h-96 sm:h-[26rem] md:h-[28rem] cursor-pointer transform transition-all duration-300 hover:scale-105 hover:shadow-2xl pt-8 sm:pt-10 md:pt-12"
+                style={`background-color: ${card.bgColor}`}
+              >
+                <div class="absolute bottom-0 left-0 right-0 p-4 sm:p-5 md:p-6">
+                  <div class="h-20 sm:h-24 md:h-28 flex items-end justify-center mb-2 sm:mb-3">
+                    <h3
+                      class={`text-xl sm:text-2xl font-bold text-center ${card.textColor}`}
+                    >
+                      {card.title}
+                    </h3>
+                  </div>
+                  <p
+                    class={`text-xs sm:text-sm ${card.textSecondary} mb-4 sm:mb-5 md:mb-6 leading-relaxed text-center min-h-[2.5rem] sm:min-h-[3rem] md:min-h-[3.5rem] flex items-center justify-center`}
+                  >
+                    {card.description}
+                  </p>
+                  <div class="flex justify-center">
+                    <a
+                      href="#"
+                      class={`inline-flex items-center gap-2 ${card.textColor} font-medium ${card.hoverColor} transition-colors group`}
+                    >
+                      Conocer más
+                      <ArrowRight class="h-4 w-4 sm:h-5 sm:w-5 transform group-hover:translate-x-1 transition-transform" />
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))
+        }
       </div>
 
-      <!-- Card 2: Bachillerato -->
-      <div class="group relative bg-gradient-to-br from-blue-500 to-purple-600 rounded-3xl overflow-hidden h-96 cursor-pointer transform transition-all duration-300 hover:scale-105 hover:shadow-2xl">
-        <!-- Imagen de persona -->
-        <div class="absolute top-0 left-0 right-0 h-48 flex items-center justify-center">
-          <img 
-            src={Bachillerato.src} 
-            alt="Estudiante de Bachillerato" 
-            class="w-32 h-32 object-cover rounded-full border-4 border-white/20"
-          />
+      <div
+        class="grid grid-cols-1 sm:grid-cols-2 gap-6 lg:gap-8 max-w-2xl mx-auto"
+      >
+        {
+          cardsData.slice(4).map((card) => (
+            <div class="group relative">
+              <div class="absolute -top-12 sm:-top-16 md:-top-20 left-1/2 transform -translate-x-1/2 z-10">
+                <div class="relative">
+                  <img
+                    src={card.image}
+                    alt={card.alt}
+                    class="w-auto max-w-none h-[200px] sm:h-[250px] md:h-[280px] lg:h-[300px] object-contain object-top"
+                  />
+                  <div
+                    class="absolute bottom-0 left-0 right-0 h-16 sm:h-18 md:h-20 bg-gradient-to-t to-transparent pointer-events-none"
+                    style={`background: linear-gradient(to top, ${card.bgColor}, transparent)`}
+                  />
+                </div>
+              </div>
+
+              <div
+                class="rounded-2xl h-96 sm:h-[26rem] md:h-[28rem] cursor-pointer transform transition-all duration-300 hover:scale-105 hover:shadow-2xl pt-8 sm:pt-10 md:pt-12"
+                style={`background-color: ${card.bgColor}`}
+              >
+                <div class="absolute bottom-0 left-0 right-0 p-4 sm:p-5 md:p-6">
+                  <div class="h-20 sm:h-24 md:h-28 flex items-end justify-center mb-2 sm:mb-3">
+                    <h3
+                      class={`text-xl sm:text-2xl font-bold text-center ${card.textColor}`}
+                    >
+                      {card.title}
+                    </h3>
+                  </div>
+                  <p
+                    class={`text-xs sm:text-sm ${card.textSecondary} mb-4 sm:mb-5 md:mb-6 leading-relaxed text-center min-h-[2.5rem] sm:min-h-[3rem] md:min-h-[3.5rem] flex items-center justify-center`}
+                  >
+                    {card.description}
+                  </p>
+                  <div class="flex justify-center">
+                    <a
+                      href="#"
+                      class={`inline-flex items-center gap-2 ${card.textColor} font-medium ${card.hoverColor} transition-colors group`}
+                    >
+                      Conocer más
+                      <ArrowRight class="h-4 w-4 sm:h-5 sm:w-5 transform group-hover:translate-x-1 transition-transform" />
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+
+    <div class="sm:hidden pt-16">
+      <div class="carousel-3d-container-mobile">
+        <div class="carousel-3d-mobile" id="carousel3dMobile">
+          {
+            cardsData.map((card, index) => (
+              <div
+                class={`carousel-card-mobile ${index === 2 ? "active" : ""}`}
+                data-index={index}
+              >
+                <div class="absolute -top-8 left-1/2 transform -translate-x-1/2 z-10">
+                  <div class="relative">
+                    <img
+                      src={card.image}
+                      alt={card.alt}
+                      class="w-auto max-w-none h-[150px] object-contain object-top"
+                    />
+                    <div
+                      class="absolute bottom-0 left-0 right-0 h-12 bg-gradient-to-t to-transparent pointer-events-none"
+                      style={`background: linear-gradient(to top, ${card.bgColor}, transparent)`}
+                    />
+                  </div>
+                </div>
+
+                <div
+                  class="rounded-2xl h-80 cursor-pointer pt-6"
+                  style={`background-color: ${card.bgColor}`}
+                >
+                  <div class="absolute bottom-0 left-0 right-0 p-4">
+                    <div class="h-16 flex items-end justify-center mb-2">
+                      <h3
+                        class={`text-lg font-bold text-center ${card.textColor}`}
+                      >
+                        {card.title}
+                      </h3>
+                    </div>
+                    <p
+                      class={`text-xs ${card.textSecondary} mb-4 leading-relaxed text-center min-h-[2rem] flex items-center justify-center`}
+                    >
+                      {card.description}
+                    </p>
+                    <div class="flex justify-center">
+                      <a
+                        href="#"
+                        class={`inline-flex items-center gap-2 ${card.textColor} font-medium ${card.hoverColor} transition-colors group`}
+                      >
+                        Conocer más
+                        <ArrowRight class="h-4 w-4 transform group-hover:translate-x-1 transition-transform" />
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))
+          }
         </div>
-        
-        <!-- Contenido -->
-        <div class="absolute bottom-0 left-0 right-0 p-6 text-white">
-          <h3 class="text-2xl font-bold mb-3">BACHILLERATO</h3>
-          <p class="text-sm text-blue-100 mb-2 leading-relaxed">
-            Educación completa, formación integral. Impulsando tu futuro.
-          </p>
-          <a href="#" class="inline-flex items-center gap-2 text-white font-medium hover:text-blue-200 transition-colors group">
-            Conocer más
-            <ArrowRight class="h-5 w-5 transform group-hover:translate-x-1 transition-transform" />
-          </a>
+
+        <div class="carousel-indicators-mobile">
+          {
+            cardsData.map((_, index) => (
+              <button
+                class={`indicator-mobile ${index === 2 ? "active" : ""}`}
+                data-index={index}
+              />
+            ))
+          }
         </div>
       </div>
-
-      <!-- Card 3: Licenciaturas -->
-      <div class="group relative bg-gradient-to-br from-red-500 to-pink-600 rounded-3xl overflow-hidden h-96 cursor-pointer transform transition-all duration-300 hover:scale-105 hover:shadow-2xl">
-        <!-- Imagen de persona -->
-        <div class="absolute top-0 left-0 right-0 h-48 flex items-center justify-center">
-          <img 
-            src={Licenciaturas.src} 
-            alt="Estudiante de Licenciatura" 
-            class="w-32 h-32 object-cover rounded-full border-4 border-white/20"
-          />
-        </div>
-        
-        <!-- Contenido -->
-        <div class="absolute bottom-0 left-0 right-0 p-6 text-white">
-          <h3 class="text-2xl font-bold mb-3">LICENCIATURAS</h3>
-          <p class="text-sm text-red-100 mb-2 leading-relaxed">
-            Programas de excelencia. Encuentra el programa que impulse tu futuro.
-          </p>
-          <a href="#" class="inline-flex items-center gap-2 text-white font-medium hover:text-red-200 transition-colors group">
-            Conocer más
-            <ArrowRight class="h-5 w-5 transform group-hover:translate-x-1 transition-transform" />
-          </a>
-        </div>
-      </div>
-
-      <!-- Card 4: Posgrados -->
-      <div class="group relative bg-gradient-to-br from-gray-700 to-gray-900 rounded-3xl overflow-hidden h-96 cursor-pointer transform transition-all duration-300 hover:scale-105 hover:shadow-2xl">
-        <!-- Imagen de persona -->
-        <div class="absolute top-0 left-0 right-0 h-48 flex items-center justify-center">
-          <img 
-            src={Posgrado.src} 
-            alt="Estudiante de Posgrado" 
-            class=""
-          />
-        </div>
-        
-        <!-- Contenido -->
-        <div class="absolute bottom-0 left-0 right-0 p-6 text-white">
-          <h3 class="text-2xl font-bold mb-3">POSGRADOS</h3>
-          <p class="text-sm text-gray-300 mb-2 leading-relaxed">
-            Formación avanzada para líderes que transforman. Diseñado para profesionales.
-          </p>
-          <a href="#" class="inline-flex items-center gap-2 text-white font-medium hover:text-gray-300 transition-colors group">
-            Conocer más
-            <ArrowRight class="h-5 w-5 transform group-hover:translate-x-1 transition-transform" />
-          </a>
-        </div>
-      </div>
-
     </div>
   </div>
 </section>
+
+<style>
+  /* Estilos del carrusel 3D solo para móvil */
+  .carousel-3d-container-mobile {
+    width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .carousel-3d-mobile {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    height: 400px;
+    perspective: 1000px;
+  }
+
+  .carousel-card-mobile {
+    position: absolute;
+    width: 240px;
+    height: 320px;
+    border-radius: 16px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+    transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    cursor: pointer;
+    overflow: visible;
+    transform-style: preserve-3d;
+  }
+
+  /* Card central activa */
+  .carousel-card-mobile.active {
+    transform: translateX(0) scale(1) rotateY(0deg);
+    z-index: 3;
+    opacity: 1;
+  }
+
+  /* Cards laterales - distribuidas alrededor del centro */
+  .carousel-card-mobile:nth-child(1):not(.active) {
+    transform: translateX(-200px) scale(0.7) rotateY(25deg);
+    z-index: 0;
+    opacity: 0.4;
+  }
+
+  .carousel-card-mobile:nth-child(2):not(.active) {
+    transform: translateX(-100px) scale(0.85) rotateY(15deg);
+    z-index: 2;
+    opacity: 0.7;
+  }
+
+  .carousel-card-mobile:nth-child(3):not(.active) {
+    transform: translateX(0) scale(1) rotateY(0deg);
+    z-index: 3;
+    opacity: 1;
+  }
+
+  .carousel-card-mobile:nth-child(4):not(.active) {
+    transform: translateX(100px) scale(0.85) rotateY(-15deg);
+    z-index: 2;
+    opacity: 0.7;
+  }
+
+  .carousel-card-mobile:nth-child(5):not(.active) {
+    transform: translateX(200px) scale(0.7) rotateY(-25deg);
+    z-index: 0;
+    opacity: 0.4;
+  }
+
+  .carousel-card-mobile:nth-child(6):not(.active) {
+    transform: translateX(300px) scale(0.6) rotateY(-35deg);
+    z-index: 0;
+    opacity: 0.3;
+  }
+
+  /* Indicadores móvil */
+  .carousel-indicators-mobile {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 30px;
+  }
+
+  .indicator-mobile {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .indicator-mobile.active {
+    background: #667eea;
+    transform: scale(1.2);
+  }
+
+  .indicator-mobile:hover {
+    background: rgba(0, 0, 0, 0.5);
+  }
+
+  /* Responsive para pantallas muy pequeñas */
+  @media (max-width: 360px) {
+    .carousel-card-mobile {
+      width: 200px;
+      height: 280px;
+    }
+
+    .carousel-card-mobile:nth-child(1):not(.active),
+    .carousel-card-mobile:nth-child(6):not(.active) {
+      transform: translateX(-150px) scale(0.6) rotateY(20deg);
+      opacity: 0.3;
+    }
+
+    .carousel-card-mobile:nth-child(2):not(.active),
+    .carousel-card-mobile:nth-child(5):not(.active) {
+      transform: translateX(-75px) scale(0.8) rotateY(10deg);
+      opacity: 0.6;
+    }
+
+    .carousel-card-mobile:nth-child(4):not(.active) {
+      transform: translateX(75px) scale(0.8) rotateY(-10deg);
+    }
+
+    .carousel-card-mobile:nth-child(5):not(.active) {
+      transform: translateX(150px) scale(0.6) rotateY(-20deg);
+    }
+  }
+
+  /* Estilos para el carrusel lineal de desktop */
+  .custom-scrollbar::-webkit-scrollbar {
+    height: 8px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 10px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+</style>
+
+<script>
+  class MobileCarousel3D {
+    constructor() {
+      this.currentIndex = 2; // Empezar con la tercera card activa (centro)
+      this.cards = document.querySelectorAll(".carousel-card-mobile");
+      this.indicators = document.querySelectorAll(".indicator-mobile");
+      this.totalCards = this.cards.length;
+
+      // Solo inicializar en móvil
+      if (window.innerWidth < 640) {
+        this.init();
+      }
+    }
+
+    init() {
+      // Event listeners para las cards
+      this.cards.forEach((card, index) => {
+        card.addEventListener("click", () => {
+          if (index !== this.currentIndex) {
+            this.goToSlide(index);
+          }
+        });
+      });
+
+      // Event listeners para los indicadores
+      this.indicators.forEach((indicator, index) => {
+        indicator.addEventListener("click", () => {
+          this.goToSlide(index);
+        });
+      });
+
+      // Touch events para móvil
+      this.setupTouchEvents();
+
+      // Inicializar posiciones
+      this.updatePositions();
+
+      // Keyboard navigation
+      document.addEventListener("keydown", (e) => {
+        if (window.innerWidth < 640) {
+          if (e.key === "ArrowLeft") {
+            this.prevSlide();
+          } else if (e.key === "ArrowRight") {
+            this.nextSlide();
+          }
+        }
+      });
+    }
+
+    goToSlide(index) {
+      // Remover clase active de todos
+      this.cards.forEach((card) => card.classList.remove("active"));
+      this.indicators.forEach((indicator) =>
+        indicator.classList.remove("active")
+      );
+
+      // Actualizar índice actual
+      this.currentIndex = index;
+
+      // Agregar clase active al nuevo
+      this.cards[index].classList.add("active");
+      this.indicators[index].classList.add("active");
+
+      // Reorganizar posiciones
+      this.updatePositions();
+    }
+
+    updatePositions() {
+      this.cards.forEach((card, index) => {
+        // Calcular distancia con ciclo infinito
+        let distance = index - this.currentIndex;
+
+        // Ajustar distancia para ciclo infinito (encontrar el camino más corto)
+        if (distance > this.totalCards / 2) {
+          distance -= this.totalCards;
+        } else if (distance < -this.totalCards / 2) {
+          distance += this.totalCards;
+        }
+
+        if (distance === 0) {
+          // Card activa (centro)
+          card.style.transform = "translateX(0) scale(1) rotateY(0deg)";
+          card.style.opacity = "1";
+          card.style.zIndex = "3";
+        } else {
+          let translateX, scale, rotateY, opacity, zIndex;
+
+          switch (distance) {
+            case -2:
+              translateX = -200;
+              scale = 0.7;
+              rotateY = 25;
+              opacity = 0.4;
+              zIndex = 0;
+              break;
+            case -1:
+              translateX = -100;
+              scale = 0.85;
+              rotateY = 15;
+              opacity = 0.7;
+              zIndex = 2;
+              break;
+            case 1:
+              translateX = 100;
+              scale = 0.85;
+              rotateY = -15;
+              opacity = 0.7;
+              zIndex = 2;
+              break;
+            case 2:
+              translateX = 200;
+              scale = 0.7;
+              rotateY = -25;
+              opacity = 0.4;
+              zIndex = 0;
+              break;
+            case 3:
+              translateX = 300;
+              scale = 0.6;
+              rotateY = -35;
+              opacity = 0.3;
+              zIndex = 0;
+              break;
+            default:
+              // Cards en ciclo infinito (extremos que se conectan)
+              if (distance < -2) {
+                // Cards que aparecen por la derecha en el ciclo infinito
+                translateX = 300 + (Math.abs(distance) - 3) * 50;
+                scale = Math.max(0.6 - (Math.abs(distance) - 3) * 0.1, 0.4);
+                rotateY = -35 - (Math.abs(distance) - 3) * 10;
+                opacity = Math.max(0.3 - (Math.abs(distance) - 3) * 0.1, 0.1);
+              } else {
+                // Cards que aparecen por la izquierda en el ciclo infinito
+                translateX = -200 - (distance - 3) * 50;
+                scale = Math.max(0.6 - (distance - 3) * 0.1, 0.4);
+                rotateY = 25 + (distance - 3) * 10;
+                opacity = Math.max(0.3 - (distance - 3) * 0.1, 0.1);
+              }
+              zIndex = 0;
+              break;
+          }
+
+          card.style.transform = `translateX(${translateX}px) scale(${scale}) rotateY(${rotateY}deg)`;
+          card.style.opacity = opacity.toString();
+          card.style.zIndex = zIndex.toString();
+        }
+      });
+    }
+
+    nextSlide() {
+      const nextIndex = (this.currentIndex + 1) % this.totalCards;
+      this.goToSlide(nextIndex);
+    }
+
+    prevSlide() {
+      const prevIndex =
+        (this.currentIndex - 1 + this.totalCards) % this.totalCards;
+      this.goToSlide(prevIndex);
+    }
+
+    setupTouchEvents() {
+      let startX = 0;
+      let endX = 0;
+      const carousel = document.querySelector(".carousel-3d-mobile");
+
+      if (carousel) {
+        carousel.addEventListener("touchstart", (e) => {
+          startX = e.touches[0].clientX;
+        });
+
+        carousel.addEventListener("touchend", (e) => {
+          endX = e.changedTouches[0].clientX;
+          this.handleSwipe();
+        });
+      }
+    }
+
+    handleSwipe() {
+      const threshold = 50;
+      const diff = startX - endX;
+
+      if (Math.abs(diff) > threshold) {
+        if (diff > 0) {
+          this.nextSlide();
+        } else {
+          this.prevSlide();
+        }
+      }
+    }
+  }
+
+  // --- Desktop Carousel Logic ---
+  class DesktopCarousel {
+    constructor() {
+      this.carousel = document.getElementById("desktop-carousel");
+      this.prevBtn = document.getElementById("desktop-prev");
+      this.nextBtn = document.getElementById("desktop-next");
+      this.scrollAmount = 300; // Adjust based on card width + gap
+
+      if (this.carousel && window.innerWidth >= 1024) {
+        // Only initialize for desktop
+        this.init();
+      }
+    }
+
+    init() {
+      this.prevBtn.addEventListener("click", () =>
+        this.scroll(-this.scrollAmount)
+      );
+      this.nextBtn.addEventListener("click", () =>
+        this.scroll(this.scrollAmount)
+      );
+    }
+
+    scroll(amount) {
+      this.carousel.scrollBy({
+        left: amount,
+        behavior: "smooth",
+      });
+    }
+  }
+
+  // Inicializar cuando el DOM esté listo
+  document.addEventListener("DOMContentLoaded", () => {
+    new MobileCarousel3D();
+    new DesktopCarousel(); // Initialize desktop carousel
+  });
+
+  // Reinicializar en resize si cambia de móvil a desktop o viceversa
+  window.addEventListener("resize", () => {
+    // Only create new instance if not exists or if screen size changes relevantly
+    if (window.innerWidth < 640 && !window.mobileCarousel) {
+      window.mobileCarousel = new MobileCarousel3D();
+      // Remove desktop carousel if it exists
+      if (window.desktopCarousel) {
+        window.desktopCarousel = null;
+      }
+    } else if (window.innerWidth >= 1024 && !window.desktopCarousel) {
+      window.desktopCarousel = new DesktopCarousel();
+      // Remove mobile carousel if it exists
+      if (window.mobileCarousel) {
+        window.mobileCarousel = null;
+      }
+    }
+  });
+</script>
