@@ -82,88 +82,87 @@ const cardsData = [
 ];
 ---
 
-<section class="py-16 px-4">
-  <div class="max-w-7xl mx-auto">
-    <div class="text-center mb-12">
-      <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-        Niveles Educativos
-      </h2>
-    </div>
+<div class="max-w-10/12 mx-auto">
+  <div class="text-center mb-12">
+    <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+      Niveles Educativos
+    </h2>
+  </div>
+  
+  <!-- Sección con padding-top aumentado para dar espacio a las imágenes -->
+  <section class=" px-4 ">
+    <!-- Contenedor desktop con más espacio superior -->
+    <div class="hidden lg:block  pb-8 relative w-full ">
+      <!-- Contenedor con fade interno -->
+      <div class="relative">
+        <div id="desktop-splide" class="splide pb-6">
+          <div class="splide__track mt-24">
+            <ul class="splide__list">
+              {
+                cardsData.map((card) => (
+                  <li class="splide__slide">
+                    <div class="group relative w-80 mx-auto">
+                      <!-- Imagen posicionada absolutamente con más espacio -->
+                      <div class="absolute -top-32 left-1/2 transform -translate-x-1/2 z-10">
+                        <div class="relative">
+                          <img
+                            src={card.image}
+                            alt={card.alt}
+                            class="w-auto max-w-none h-[300px] object-contain object-top"
+                          />
+                          <div
+                            class="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t to-transparent pointer-events-none"
+                            style={`background: linear-gradient(to top, ${card.bgColor}, transparent)`}
+                          />
+                        </div>
+                      </div>
 
-    <div class="hidden lg:block py-4 relative overflow-visible">
-      <div
-        id="desktop-carousel"
-        class="flex overflow-x-auto overflow-y-visible"
-      >
-        {
-          cardsData.map((card) => (
-            <div class="flex-shrink-0 w-80 lg:w-1/3 xl:w-1/4 snap-center pr-6">
-              <div class="group relative">
-                <div class="absolute -top-20 left-1/2 transform -translate-x-1/2 z-10">
-                  {/* Mantuve exactamente la misma posición de la imagen */}
-                  <div class="relative">
-                    <img
-                      src={card.image}
-                      alt={card.alt}
-                      class="w-auto max-w-none h-[300px] object-contain object-top"
-                    />
-                    <div
-                      class="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t to-transparent pointer-events-none"
-                      style={`background: linear-gradient(to top, ${card.bgColor}, transparent)`}
-                    />
-                  </div>
-                </div>
-
-                <div
-                  class="rounded-2xl h-96 cursor-pointer transform transition-all duration-300 hover:scale-105 hover:shadow-2xl pt-8"
-                  style={`background-color: ${card.bgColor}`}
-                >
-                  <div class="absolute bottom-0 left-0 right-0 p-4">
-                    <div class="h-20 flex items-end justify-center mb-2">
-                      <h3
-                        class={`text-xl font-bold text-center ${card.textColor}`}
+                      <!-- Card con más padding-top para acomodar la imagen -->
+                      <div
+                        class="rounded-2xl h-96 sm:h-[26rem] md:h-[24rem] cursor-pointer transform transition-all duration-300 hover:scale-105 hover:shadow-2xl pt-16 sm:pt-20 md:pt-24"
+                        style={`background-color: ${card.bgColor}`}
                       >
-                        {card.title}
-                      </h3>
+                        <div class="absolute bottom-0 left-0 right-0 p-4 sm:p-5 md:p-6">
+                          <div class=" flex items-end justify-center mb-2 sm:mb-3">
+                            <h3
+                              class={`text-xl sm:text-2xl font-bold text-center ${card.textColor}`}
+                            >
+                              {card.title}
+                            </h3>
+                          </div>
+                          <p
+                            class={`text-xs sm:text-sm ${card.textSecondary} mb-4 sm:mb-5 md:mb-6 leading-relaxed text-center min-h-[2.5rem] sm:min-h-[3rem] md:min-h-[3.5rem] flex items-center justify-center`}
+                          >
+                            {card.description}
+                          </p>
+                          <div class="flex justify-center">
+                            <a
+                              href="#"
+                              class={`inline-flex items-center gap-2 ${card.textColor} font-medium ${card.hoverColor} transition-colors group`}
+                            >
+                              Conocer más
+                              <ArrowRight class="h-4 w-4 sm:h-5 sm:w-5 transform group-hover:translate-x-1 transition-transform" />
+                            </a>
+                          </div>
+                        </div>
+                      </div>
                     </div>
-                    <p
-                      class={`text-xs ${card.textSecondary} mb-4 leading-relaxed text-center min-h-[2.5rem] flex items-center justify-center`}
-                    >
-                      {card.description}
-                    </p>
-                    <div class="flex justify-center">
-                      <a
-                        href="#"
-                        class={`inline-flex items-center gap-2 ${card.textColor} font-medium ${card.hoverColor} transition-colors group`}
-                      >
-                        Conocer más
-                        <ArrowRight class="h-4 w-4 transform group-hover:translate-x-1 transition-transform" />
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          ))
-        }
+                  </li>
+                ))
+              }
+            </ul>
+          </div>
+        </div>
+        
+        <!-- Fade interno en X -->
+        <div class="fade-overlay absolute inset-0 pointer-events-none z-10"></div>
       </div>
-      <button
-        id="desktop-prev"
-        class="absolute left-0 top-1/2 -translate-y-1/2 bg-gray-800 text-white p-2 rounded-full shadow-lg z-20"
-      >
-        &#10094;
-      </button>
-      <button
-        id="desktop-next"
-        class="absolute right-0 top-1/2 -translate-y-1/2 bg-gray-800 text-white p-2 rounded-full shadow-lg z-20"
-      >
-        &#10095;
-      </button>
     </div>
+  </section>
 
-    <div class="pt-16 sm:pt-20 md:pt-24 hidden sm:block lg:hidden">
+   <div class="pt-16 sm:pt-20 md:pt-24 hidden sm:block lg:hidden">
       <div
-        class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 mb-20 sm:mb-24 lg:mb-32"
+        class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-24 lg:gap-8 mb-20 sm:mb-24 lg:mb-32"
       >
         {
           cardsData.slice(0, 4).map((card) => (
@@ -278,15 +277,15 @@ const cardsData = [
                 class={`carousel-card-mobile ${index === 2 ? "active" : ""}`}
                 data-index={index}
               >
-                <div class="absolute -top-8 left-1/2 transform -translate-x-1/2 z-10">
+                <div class="absolute -top-16 left-1/2 transform -translate-x-1/2 z-10">
                   <div class="relative">
                     <img
                       src={card.image}
                       alt={card.alt}
-                      class="w-auto max-w-none h-[150px] object-contain object-top"
+                      class="w-auto max-w-none h-[200px] object-contain object-top"
                     />
                     <div
-                      class="absolute bottom-0 left-0 right-0 h-12 bg-gradient-to-t to-transparent pointer-events-none"
+                      class="absolute border-b-fuchsia-600 bottom-0 left-0 right-0 h-12 bg-gradient-to-t to-transparent pointer-events-none"
                       style={`background: linear-gradient(to top, ${card.bgColor}, transparent)`}
                     />
                   </div>
@@ -296,8 +295,8 @@ const cardsData = [
                   class="rounded-2xl h-80 cursor-pointer pt-6"
                   style={`background-color: ${card.bgColor}`}
                 >
-                  <div class="absolute bottom-0 left-0 right-0 p-4">
-                    <div class="h-16 flex items-end justify-center mb-2">
+                  <div class="absolute bottom-6 left-0 right-0 p-4">
+                    <div class=" flex items-end justify-center ">
                       <h3
                         class={`text-lg font-bold text-center ${card.textColor}`}
                       >
@@ -315,7 +314,7 @@ const cardsData = [
                         class={`inline-flex items-center gap-2 ${card.textColor} font-medium ${card.hoverColor} transition-colors group`}
                       >
                         Conocer más
-                        <ArrowRight class="h-4 w-4 transform group-hover:translate-x-1 transition-transform" />
+                      <ArrowRight size={24} absoluteStrokeWidth={false} class="transform group-hover:translate-x-1 transition-transform rounded-full  border-2 border-white" />
                       </a>
                     </div>
                   </div>
@@ -337,10 +336,142 @@ const cardsData = [
         </div>
       </div>
     </div>
-  </div>
-</section>
+</div>
+
+<script>
+  import Splide from "@splidejs/splide";
+  import { AutoScroll } from "@splidejs/splide-extension-auto-scroll";
+  import "@splidejs/splide/dist/css/splide.min.css";
+
+ document.addEventListener("DOMContentLoaded", function () {
+  const desktopSplideElement = document.getElementById("desktop-splide");
+  if (desktopSplideElement) {
+    const splide = new Splide("#desktop-splide", {
+      type: "loop",
+      drag: "free",
+      focus: "center",
+      perPage: 3,
+      autoWidth: false,
+      fixedWidth: "320px",
+      gap: "2rem",
+      arrows: true,
+      pagination: false,
+      autoScroll: {
+        speed: 0.5,
+      },
+      breakpoints: {
+        1400: {
+          perPage: 2,
+          fixedWidth: "320px",
+        },
+        1200: {
+          perPage: 2,
+          fixedWidth: "300px",
+        },
+        1024: {
+          perPage: 1,
+          fixedWidth: "280px",
+        },
+      },
+    }).mount({ AutoScroll });
+  }
+});
+</script>
 
 <style>
+  /* Asegurar que todos los contenedores permitan overflow visible */
+  .max-w-10\/12 {
+    overflow: visible !important;
+  }
+  
+  section {
+    overflow: visible !important;
+  }
+
+  .hidden.lg\:block {
+    overflow: visible !important;
+  }
+
+  #desktop-splide {
+    overflow: visible !important;
+  }
+
+  #desktop-splide .splide__track {
+    overflow-x: hidden !important;
+    overflow-y: visible !important;
+  }
+
+  #desktop-splide .splide__list,
+  #desktop-splide .splide__slide {
+    overflow: visible !important;
+  }
+  
+  /* Asegurar que el contenedor padre tenga suficiente altura */
+  .splide__slide .group {
+    position: relative;
+    z-index: 1;
+  }
+  
+  /* Dar más espacio vertical al contenedor */
+  .splide__list {
+    padding-top: 8rem !important;
+  }
+
+  /* Fade interno en X */
+  .fade-overlay {
+    background: linear-gradient(
+      to right, 
+      white 0%, 
+      transparent 15%, 
+      transparent 85%, 
+      white 100%
+    );
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+
+  /* Ajustar el fade para diferentes tamaños de pantalla */
+  @media (max-width: 1400px) {
+    .fade-overlay {
+      background: linear-gradient(
+        to right, 
+        white 0%, 
+        transparent 10%, 
+        transparent 90%, 
+        white 100%
+      );
+    }
+  }
+
+  @media (max-width: 1200px) {
+    .fade-overlay {
+      background: linear-gradient(
+        to right, 
+        white 0%, 
+        transparent 8%, 
+        transparent 92%, 
+        white 100%
+      );
+    }
+  }
+
+  @media (max-width: 1024px) {
+    .fade-overlay {
+      background: linear-gradient(
+        to right, 
+        white 0%, 
+        transparent 5%, 
+        transparent 95%, 
+        white 100%
+      );
+    }
+  }
+</style>
+
+<!-- Estilos mobile y tablet -->
+ <style>
   /* Estilos del carrusel 3D solo para móvil */
   .carousel-3d-container-mobile {
     width: 100%;
@@ -469,28 +600,10 @@ const cardsData = [
       transform: translateX(150px) scale(0.6) rotateY(-20deg);
     }
   }
-
-  /* Estilos para el carrusel lineal de desktop */
-  .custom-scrollbar::-webkit-scrollbar {
-    height: 8px;
-  }
-
-  .custom-scrollbar::-webkit-scrollbar-track {
-    background: #f1f1f1;
-    border-radius: 10px;
-  }
-
-  .custom-scrollbar::-webkit-scrollbar-thumb {
-    background: #888;
-    border-radius: 10px;
-  }
-
-  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-    background: #555;
-  }
 </style>
 
-<script>
+<!-- Carousel 3d mobil-->
+ <script>
   class MobileCarousel3D {
     constructor() {
       this.currentIndex = 2; // Empezar con la tercera card activa (centro)
@@ -681,36 +794,7 @@ const cardsData = [
     }
   }
 
-  // --- Desktop Carousel Logic ---
-  class DesktopCarousel {
-    constructor() {
-      this.carousel = document.getElementById("desktop-carousel");
-      this.prevBtn = document.getElementById("desktop-prev");
-      this.nextBtn = document.getElementById("desktop-next");
-      this.scrollAmount = 300; // Adjust based on card width + gap
-
-      if (this.carousel && window.innerWidth >= 1024) {
-        // Only initialize for desktop
-        this.init();
-      }
-    }
-
-    init() {
-      this.prevBtn.addEventListener("click", () =>
-        this.scroll(-this.scrollAmount)
-      );
-      this.nextBtn.addEventListener("click", () =>
-        this.scroll(this.scrollAmount)
-      );
-    }
-
-    scroll(amount) {
-      this.carousel.scrollBy({
-        left: amount,
-        behavior: "smooth",
-      });
-    }
-  }
+  
 
   // Inicializar cuando el DOM esté listo
   document.addEventListener("DOMContentLoaded", () => {
@@ -724,15 +808,7 @@ const cardsData = [
     if (window.innerWidth < 640 && !window.mobileCarousel) {
       window.mobileCarousel = new MobileCarousel3D();
       // Remove desktop carousel if it exists
-      if (window.desktopCarousel) {
-        window.desktopCarousel = null;
-      }
-    } else if (window.innerWidth >= 1024 && !window.desktopCarousel) {
-      window.desktopCarousel = new DesktopCarousel();
-      // Remove mobile carousel if it exists
-      if (window.mobileCarousel) {
-        window.mobileCarousel = null;
-      }
-    }
+      
+    }  
   });
 </script>

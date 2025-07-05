@@ -1,0 +1,165 @@
+---
+// src/components/AcademicCarousel.astro
+// Cards_Niveles.astro
+import { ArrowRight } from "@lucide/astro";
+---
+
+<div
+  class="max-w-7xl mx-auto mt-12 flex flex-wrap justify-center gap-8 px-4"
+>
+
+  <div
+    class="academic-card w-full max-w-[380px] bg-white rounded-lg shadow-lg h-[200px] relative hover:shadow-xl transition-all duration-300 hover:scale-105"
+  >
+    <div class="flex flex-row h-full">
+      <!-- Contenido de texto -->
+      <div class="flex-1 pl-6 pt-4 flex flex-col justify-around z-10">
+        <div>
+          <div class="flex items-center mb-4">
+            <h2
+              class="text-lg lg:text-xl font-bold text-gray-800 group-hover:text-azul-une transition-colors duration-300"
+            >
+              Lic. en Enfermería
+            </h2>
+          </div>
+          <p
+            class="text-gray-600 text-xs  leading-relaxed hover:text-gray-800 transition-colors duration-300"
+          >
+            Formación práctica en hospitales de alto nivel con especialidades emergentes
+          </p>
+        </div>
+
+        <a
+          class="font-bold flex gap-3 justify-between items-center hover:text-azul-une transition-colors duration-300 group"
+          href=""
+        >
+          <span class="text-sm lg:text-base">Ver plan de estudios</span>
+          <ArrowRight
+            class="bg-azul-une text-white w-8 h-8 lg:w-10 lg:h-10 p-2 lg:p-3 rounded-full group-hover:bg-white group-hover:text-azul-une group-hover:shadow-lg transition-all duration-300 flex-shrink-0"
+          />
+        </a>
+      </div>
+
+      <!-- Imagen con altura controlada -->
+      <div class="w-24 sm:w-32 lg:w-24 flex items-end justify-end z-0 flex-shrink-0">
+        <img
+          src="/src/assets/Imagenes/Enfemeria.png"
+          alt="Estudiante de Ingeniería"
+          class="object-contain h-[100px] sm:h-[120px] lg:h-[130px] w-auto hover:scale-110 transition-transform duration-300"
+        />
+      </div>
+    </div>
+
+    <!-- SVG decorativo -->
+    <div class="absolute -top-3 right-3 lg:-top-5 lg:right-5 z-20">
+      <img
+        src="/src/assets/Imagenes/Badges.png"
+        class="hover:scale-110 transition-transform duration-300 w-8 h-8 lg:w-auto lg:h-auto"
+      />
+    </div>
+  </div>
+
+  <div
+    class="academic-card w-full max-w-[380px] bg-white rounded-lg shadow-lg h-[200px] relative hover:shadow-xl transition-all duration-300 hover:scale-105"
+  >
+    <div class="flex flex-row h-full">
+      <!-- Contenido de texto -->
+      <div class="flex-1 pl-6 pt-4 flex flex-col justify-around z-10">
+        <div>
+          <div class="flex items-center mb-4">
+            <h2
+              class="text-lg lg:text-xl font-bold text-gray-800 group-hover:text-azul-une transition-colors duration-300"
+            >
+              Lic. en Cirujano Dentista
+            </h2>
+          </div>
+          <p
+            class="text-gray-600 text-xs  leading-relaxed hover:text-gray-800 transition-colors duration-300"
+          >
+            Estudia con tecnología de vanguardia y prácticas reales desde el primer día
+          </p>
+        </div>
+
+        <a
+          class="font-bold flex gap-3 justify-between items-center hover:text-azul-une transition-colors duration-300 group"
+          href=""
+        >
+          <span class="text-sm lg:text-base">Ver plan de estudios</span>
+          <ArrowRight
+            class="bg-azul-une text-white w-8 h-8 lg:w-10 lg:h-10 p-2 lg:p-3 rounded-full group-hover:bg-white group-hover:text-azul-une group-hover:shadow-lg transition-all duration-300 flex-shrink-0"
+          />
+        </a>
+      </div>
+
+      <!-- Imagen con altura controlada -->
+      <div class="w-24 sm:w-32 lg:w-24 flex items-end justify-end z-0 flex-shrink-0">
+        <img
+          src="/src/assets/Imagenes/Odontologia.png"
+          alt="Estudiante de Ingeniería"
+          class="object-contain h-[100px] sm:h-[120px] lg:h-[130px] w-auto hover:scale-110 transition-transform duration-300"
+        />
+      </div>
+    </div>
+
+    <!-- SVG decorativo -->
+    <div class="absolute -top-3 right-3 lg:-top-5 lg:right-5 z-20">
+      <img
+        src="/src/assets/Imagenes/Badges_odontologia.png"
+        class="hover:scale-110 transition-transform duration-300 w-8 h-8 lg:w-auto lg:h-auto"
+      />
+    </div>
+  </div>
+
+  <!-- Tercera card que se centrará automáticamente -->
+  <div
+    class="academic-card w-full max-w-[380px] bg-white rounded-lg shadow-lg h-[200px] relative hover:shadow-xl transition-all duration-300 hover:scale-105"
+  >
+    <div class="flex flex-row h-full">
+      <!-- Contenido de texto -->
+      <div class="flex-1 pl-6 pt-4 flex flex-col justify-around z-10">
+        <div>
+          <div class="flex items-center mb-4">
+            <h2
+              class="text-lg lg:text-xl font-bold text-gray-800 group-hover:text-azul-une transition-colors duration-300"
+            >
+              Ing. de Datos y Ciberseguridad
+            </h2>
+          </div>
+          <p
+            class="text-gray-600 text-xs  leading-relaxed hover:text-gray-800 transition-colors duration-300"
+          >
+            Domina el manejo de Big Data, IA y análisis predictivo y el mundo digital
+          </p>
+        </div>
+
+        <a
+          class="font-bold flex gap-3 justify-between items-center hover:text-azul-une transition-colors duration-300 group"
+          href=""
+        >
+          <span class="text-sm lg:text-base">Ver plan de estudios</span>
+          <ArrowRight
+            class="bg-azul-une text-white w-8 h-8 lg:w-10 lg:h-10 p-2 lg:p-3 rounded-full group-hover:bg-white group-hover:text-azul-une group-hover:shadow-lg transition-all duration-300 flex-shrink-0"
+          />
+        </a>
+      </div>
+
+      <!-- Imagen con altura controlada -->
+      <div class="w-24 sm:w-32 lg:w-24 flex items-end justify-end z-0 flex-shrink-0">
+        <img
+          src="/src/assets/Imagenes/Datos.png"
+          alt="Estudiante de Ingeniería"
+          class="object-contain h-[100px] sm:h-[120px] lg:h-[130px] w-auto hover:scale-110 transition-transform duration-300"
+        />
+      </div>
+    </div>
+
+    <!-- SVG decorativo -->
+    <div class="absolute -top-3 right-3 lg:-top-5 lg:right-5 z-20">
+      <img
+        src="/src/assets/Imagenes/Badges_ciencia.png"
+        class="hover:scale-110 transition-transform duration-300 w-8 h-8 lg:w-auto lg:h-auto"
+      />
+    </div>
+  </div>
+  
+</div>
