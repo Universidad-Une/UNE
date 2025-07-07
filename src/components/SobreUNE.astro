@@ -1,0 +1,218 @@
+---
+// src/SobreUNE.astro
+import { ArrowRight } from "@lucide/astro";
+import UNE30 from "../assets/Logos/UNE30.png";
+---
+
+<section class="bg-white">
+  <!-- Header Section -->
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <div class="flex justify-between items-center">
+      <div>
+        <h2 class="text-3xl font-bold text-gray-900 mb-2">SOMOS UNE</h2>
+        <p class="text-gray-600">Nuestra historia</p>
+      </div>
+      <div class="flex items-center hover:text-blue-800 transition-colors">
+        <span class="mr-2">Explora UNE</span>
+        <ArrowRight
+          class="border border-black text-black w-6 h-6 p-1 rounded-full group-hover:bg-white group-hover:text-azul-une group-hover:shadow-lg transition-all duration-300 flex-shrink-0"
+        />
+      </div>
+    </div>
+
+    <!-- UNE Logo and Description -->
+    <div class="text-center mb-16">
+      <div class="mb-8">
+        <img
+          src="/src/assets/Logos/UNE_30.png"
+          alt="UNE Logo"
+          class="mx-auto h-72 w-auto"
+        />
+      </div>
+
+      <p class="text-gray-700 text-lg max-w-4xl mx-auto leading-relaxed">
+        La Universidad de especialidades UNE es una institución líder en
+        formación integral, reconocida por su innovación académica, vinculación
+        internacional y compromiso con el desarrollo social.
+      </p>
+    </div>
+
+    <!-- Partner Logos Carousel -->
+    <div class="mb-16">
+      <div class="splide" id="partners-carousel" aria-label="Partners Carousel">
+        <div class="splide__track">
+          <ul class="splide__list">
+            <li class="splide__slide">
+              <img
+                src="/src/assets/Logos/PISA.png"
+                alt="Partner 1"
+                class="h-12 w-auto opacity-70 hover:opacity-100 transition-opacity mx-auto"
+              />
+            </li>
+            <li class="splide__slide">
+              <img
+                src="/src/assets/Logos/PISA.png"
+                alt="Partner 2"
+                class="h-12 w-auto opacity-70 hover:opacity-100 transition-opacity mx-auto"
+              />
+            </li>
+            <li class="splide__slide">
+              <img
+                src="/src/assets/Logos/PISA.png"
+                alt="Partner 3"
+                class="h-12 w-auto opacity-70 hover:opacity-100 transition-opacity mx-auto"
+              />
+            </li>
+            <li class="splide__slide">
+              <img
+                src="/src/assets/Logos/PISA.png"
+                alt="Partner 4"
+                class="h-12 w-auto opacity-70 hover:opacity-100 transition-opacity mx-auto"
+              />
+            </li>
+            <li class="splide__slide">
+              <img
+                src="/src/assets/Logos/PISA.png"
+                alt="Partner 5"
+                class="h-12 w-auto opacity-70 hover:opacity-100 transition-opacity mx-auto"
+              />
+            </li>
+            <li class="splide__slide">
+              <img
+                src="/src/assets/Logos/PISA.png"
+                alt="Partner 6"
+                class="h-12 w-auto opacity-70 hover:opacity-100 transition-opacity mx-auto"
+              />
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="text-center mt-8">
+        <p class="text-gray-700 text-lg">
+          <span class="text-red-500 font-bold">Más de 800</span> convenios con
+          <span class="font-semibold">empresas</span> para la formación de sus equipos
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Statistics Section -->
+  <div
+    class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 bg-gradient-to-r from-blue-900 to-blue-800 text-white"
+  >
+    <div class="flex flex-col lg:flex-row gap-8 items-center">
+      <!-- 30 Años -->
+      <div
+        class="w-full lg:w-1/2 border-b lg:border-b-0 lg:border-r border-white p-4 flex flex-col items-center justify-center text-center"
+      >
+        <div
+          class="flex flex-col sm:flex-row items-center justify-center gap-4"
+        >
+          <h4 class="text-6xl sm:text-7xl font-bold mb-2">30</h4>
+          <span
+            class="text-3xl sm:text-5xl font-semibold leading-tight sm:leading-snug"
+          >
+            Años de <br />
+            experiencia
+          </span>
+        </div>
+        <p
+          class="text-blue-200 text-sm sm:text-base leading-relaxed mt-4 max-w-xl"
+        >
+          Somos la institución que ha confiado siempre en el potencial humano y
+          hemos sido cada estudiante, brindando educación de excelencia que
+          prepara profesionales comprometidos con el desarrollo de México.
+        </p>
+      </div>
+
+      <!-- Grid 2x2 (Always 2 columns even on mobile) -->
+      <div
+        class="grid grid-cols-2 gap-6 w-full max-w-3xl mx-auto text-center lg:pt-0"
+      >
+        <!-- +45 Licenciaturas -->
+        <div>
+          <div class="text-4xl sm:text-6xl font-bold mb-2">+45</div>
+          <div class="text-base sm:text-xl font-semibold">
+            Licenciaturas diferentes
+          </div>
+        </div>
+
+        <!-- +12K Alumnos -->
+        <div>
+          <div class="text-4xl sm:text-6xl font-bold mb-2">+12K</div>
+          <div class="text-base sm:text-xl font-semibold">
+            Alumnos actualmente inscritos
+          </div>
+        </div>
+
+        <!-- 18 Planteles -->
+        <div>
+          <div class="text-4xl sm:text-6xl font-bold mb-2">18</div>
+          <div class="text-base sm:text-xl font-semibold">Planteles</div>
+        </div>
+
+        <!-- +60K Egresados -->
+        <div>
+          <div class="text-4xl sm:text-6xl font-bold mb-2">+60K</div>
+          <div class="text-base sm:text-xl font-semibold">De egresados</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Estilos para el carousel */
+  .splide {
+    max-width: 100%;
+  }
+
+  .splide__slide {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 20px;
+  }
+
+  /* Opcional: estilos adicionales si necesitas algo más específico */
+  .gradient-bg {
+    background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%);
+  }
+</style>
+
+<script>
+  import { Splide } from "@splidejs/splide";
+  import { AutoScroll } from "@splidejs/splide-extension-auto-scroll";
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const partnersCarousel = new Splide("#partners-carousel", {
+      type: "loop",
+      drag: "free",
+      focus: "center",
+      perPage: 5,
+      perMove: 1,
+      gap: "2rem",
+      arrows: false,
+      pagination: false,
+      autoScroll: {
+        speed: 0.3,
+        pauseOnHover: true,
+        pauseOnFocus: true,
+      },
+      breakpoints: {
+        1024: {
+          perPage: 4,
+        },
+        768: {
+          perPage: 3,
+        },
+        480: {
+          perPage: 2,
+        },
+      },
+    });
+
+    partnersCarousel.mount({ AutoScroll });
+  });
+</script>

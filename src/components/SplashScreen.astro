@@ -1,328 +1,254 @@
 ---
-export interface Props {
-  logoSrc: string;
-}
-
+// Astro con JavaScript
 const { logoSrc } = Astro.props;
 ---
 
-<div
-  id="splashScreen"
-  class="splash-container"
-  data-logo-src={logoSrc}
->
-  <div class="scene-container">
-    <div class="fade-overlay" id="fadeOverlay"></div>
+<div class="initial-blocks">
+    <div class="block-top"></div>
+    <div class="block-bottom"></div>
+</div>
 
-    <div class="light-effects">
-      <div class="light-ray light-ray-1"></div>
-      <div class="light-ray light-ray-2"></div>
-      <div class="light-ray light-ray-3"></div>
-      <div class="light-particles particle-1"></div>
-      <div class="light-particles particle-2"></div>
-      <div class="light-particles particle-3"></div>
-    </div>
+<div id="preloader">
+    <div class="logo-container">
+       <svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="804.000000pt" height="310.000000pt"
+            viewBox="0 0 804.000000 310.000000" preserveAspectRatio="xMidYMid meet">
 
-    <div class="welcome-title" id="welcomeTitle">
-      <img
-        src={logoSrc}
-        alt="UNE Logo"
-        class="une-logo"
-        loading="eager"
-        decoding="sync"
-      />
-      <h1>Bienvenido</h1>
+            <g transform="translate(0.000000,310.000000) scale(0.100000,-0.100000)" stroke="none">
+
+                <!-- Parte superior: rojo -->
+                <path class="bandera-parte" fill="#E2231A" d="M1926 2560 c-518 -26 -1068 -91 -1401 -165 -60 -14 -113 -25 -117
+  -25 -19 0 -1 -28 100 -156 59 -75 125 -160 147 -189 22 -29 75 -98 118 -153
+  78 -100 78 -100 110 -91 72 22 460 120 567 143 259 57 755 128 1105 157 207
+  18 1183 18 1405 1 395 -31 866 -95 1210 -163 107 -21 195 -37 197 -35 2 1 -27
+  26 -65 54 -37 28 -128 99 -202 157 -74 59 -148 117 -165 130 -71 55 -456 155
+  -865 224 -192 33 -552 73 -870 96 -241 18 -1024 27 -1274 15z" />
+
+                <!-- Parte media: azul -->
+                <path class="bandera-parte" fill="#001970" d="M3080 1984 c-544 -30 -805 -58 -1270 -135 -241 -40 -851 -163 -869
+  -175 -2 -2 19 -30 45 -64 27 -33 67 -85 89 -114 22 -29 94 -122 160 -206 66
+  -83 133 -170 148 -191 15 -21 31 -39 34 -39 2 0 62 18 131 39 135 42 465 127
+  622 160 288 61 774 129 1080 151 391 28 1055 28 1475 0 222 -15 504 -46 740
+  -81 110 -16 236 -34 280 -40 44 -5 174 -29 288 -53 227 -47 224 -47 121 30
+  -28 22 -153 120 -278 219 -125 99 -242 190 -260 203 -65 45 -620 165 -1046
+  227 -297 42 -655 66 -1060 69 -201 2 -394 2 -430 0z" />
+
+                <!-- Parte inferior: rojo -->
+                <path class="bandera-parte" fill="#E2231A" d="M3725 1254 c-27 -2 -124 -8 -215 -14 -572 -37 -1331 -155 -1833 -285
+  -75 -19 -139 -35 -142 -35 -15 0 7 -33 129 -197 73 -98 138 -188 144 -200 7
+  -12 18 -27 25 -35 7 -7 55 -71 107 -143 51 -71 100 -135 109 -141 17 -13 13
+  -14 200 53 272 97 570 179 886 243 326 66 479 90 755 115 634 57 1056 58 1716
+  5 333 -27 496 -48 924 -121 260 -44 376 -68 619 -128 91 -23 168 -41 173 -41
+  9 0 -93 88 -157 135 -22 16 -65 50 -95 75 -30 26 -65 53 -76 61 -12 8 -115 88
+  -229 178 -206 163 -209 165 -294 188 -470 128 -1010 220 -1571 269 -173 15
+  -1035 28 -1175 18z" />
+            </g>
+        </svg>
+        <h1 class="font-bold">UNE</h1>
     </div>
-  </div>
 </div>
 
 <style>
-  .splash-container {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 9999;
-    will-change: opacity;
-  }
-
-  .scene-container {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-  }
-
-  /* Efectos de luz optimizados */
-  .light-effects {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-  }
-
-  .light-ray {
-    position: absolute;
-    width: 2px;
-    height: 100px;
-    background: linear-gradient(to bottom, transparent, rgba(235, 172, 36, 0.6), transparent);
-    opacity: 0;
-    transform-origin: bottom;
-    will-change: opacity, transform;
-  }
-
-  .light-ray-1 {
-    top: 10%;
-    left: 20%;
-    transform: rotate(-15deg) scaleY(0);
-  }
-
-  .light-ray-2 {
-    top: 15%;
-    right: 25%;
-    transform: rotate(20deg) scaleY(0);
-  }
-
-  .light-ray-3 {
-    top: 20%;
-    left: 60%;
-    transform: rotate(-30deg) scaleY(0);
-  }
-
-  .light-particles {
-    position: absolute;
-    width: 4px;
-    height: 4px;
-    background: rgba(228, 170, 10, 0.8);
-    border-radius: 50%;
-    opacity: 0;
-    transform: scale(0);
-    will-change: opacity, transform;
-  }
-
-  .particle-1 {
-    top: 30%;
-    left: 15%;
-  }
-
-  .particle-2 {
-    top: 40%;
-    right: 20%;
-  }
-
-  .particle-3 {
-    top: 25%;
-    left: 70%;
-  }
-
-  .welcome-title {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) scale(0.8);
-    text-align: center;
-    opacity: 0;
-    z-index: 10;
-    background: rgba(255, 255, 255, 0.95);
-    padding: 40px 50px;
-    border-radius: 20px;
-    backdrop-filter: blur(15px);
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    min-width: 350px;
-    will-change: opacity, transform;
-    display: flex;
-    flex-direction: column;
-    justify-items: center;
-    align-items: center;
-    text-align: center;
-  }
-
-  .une-logo {
-    width: 220px;
-    height: auto;
-    margin-bottom: 20px;
-    filter: drop-shadow(0 3px 10px rgba(0, 0, 0, 0.2));
-  }
-
-  .welcome-title h1 {
-    font-size: 3rem;
-    font-weight: 700;
-    margin: 0;
-    letter-spacing: 1px;
-  }
-
-  .fade-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(circle at center, transparent 30%, rgba(248, 249, 250, 0.8) 70%);
-    opacity: 1;
-    z-index: 1;
-    will-change: opacity;
-  }
-
-  /* Animaciones optimizadas con CSS */
-  @keyframes fadeOut {
-    from { opacity: 1; }
-    to { opacity: 0; }
-  }
-
-  @keyframes scaleIn {
-    from {
-      opacity: 0;
-      transform: translate(-50%, -50%) scale(0.8);
-    }
-    to {
-      opacity: 1;
-      transform: translate(-50%, -50%) scale(1);
-    }
-  }
-
-  @keyframes lightRayAppear {
-    0% { opacity: 0; transform: scaleY(0); }
-    50% { opacity: 1; transform: scaleY(1.5); }
-    100% { opacity: 0.3; transform: scaleY(1.5); }
-  }
-
-  @keyframes particleFloat {
-    0% {
-      opacity: 0;
-      transform: scale(0);
-    }
-    50% {
-      opacity: 1;
-      transform: scale(1.5);
-    }
-    100% {
-      opacity: 0;
-      transform: scale(1.5) translateY(-20px);
-    }
-  }
-
-  /* Media queries */
-  @media (max-width: 768px) {
-    .welcome-title {
-      min-width: 300px;
-      padding: 30px 35px;
+    /* Contenedores de los cuadrados iniciales */
+    .initial-blocks {
+        position: fixed;
+        inset: 0;
+        z-index: 10000;
+        display: flex;
+        flex-direction: column;
     }
 
-    .welcome-title h1 {
-      font-size: 2.2rem;
+    .block-top {
+        height: 50vh;
+        width: 100%;
+        background: linear-gradient(135deg, #E2231A 0%, #ff4444 100%);
+        box-shadow: 0 10px 30px rgba(226, 35, 26, 0.3);
     }
 
-    .une-logo {
-      width: 180px;
+    .block-bottom {
+        height: 50vh;
+        width: 100%;
+        background: linear-gradient(135deg, #001970 0%, #003399 100%);
+        box-shadow: 0 -10px 30px rgba(0, 25, 112, 0.3);
     }
 
-    .light-ray {
-      height: 60px;
+    /* Estilos del preloader */
+    #preloader {
+        position: fixed;
+        inset: 0;
+        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        z-index: 9999;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 2rem;
+        opacity: 1;
+        overflow: hidden;
     }
-  }
 
-  @media (max-width: 480px) {
-    .welcome-title {
-      min-width: 280px;
-      padding: 25px 30px;
+    /* Contenedor del logo - sin efectos de card */
+    .logo-container {
+        position: relative;
+        z-index: 10;
+        transform: scale(0.8);
+        opacity: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
     }
 
-    .welcome-title h1 {
-      font-size: 1.8rem;
+    #preloader svg {
+        width: 100%;
+        max-width: 500px;
+        height: auto;
+        margin-bottom: 1.5rem;
     }
 
-    .une-logo {
-      width: 150px;
+    #preloader h1 {
+        font-weight: 700;
+        font-size: clamp(2.5rem, 8vw, 4rem);
+        color: #001970;
+        margin: 0;
+        letter-spacing: 2px;
     }
-  }
 
-  /* Reducir motion para usuarios que lo prefieren */
-  @media (prefers-reduced-motion: reduce) {
-    .splash-container * {
-      animation-duration: 0.1s !important;
-      transition-duration: 0.1s !important;
+    /* Estado inicial de las partes de la bandera */
+    .bandera-parte {
+        opacity: 0;
+        transform: translateY(30px);
     }
-  }
+
+    /* Animaciones mejoradas */
+    @keyframes logoScale {
+        0% {
+            opacity: 0;
+            transform: scale(0.8);
+        }
+        100% {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+
+    /* Responsivo */
+    @media (max-width: 768px) {
+        .logo-container {
+            margin: 0 1rem;
+        }
+
+        #preloader h1 {
+            font-size: clamp(2rem, 10vw, 3rem);
+        }
+    }
+
+    @media (max-width: 480px) {
+        .logo-container {
+            margin: 0 0.5rem;
+        }
+
+        #preloader h1 {
+            font-size: clamp(1.5rem, 12vw, 2.5rem);
+        }
+    }
+
+    /* Reducir motion para usuarios que lo prefieren */
+    @media (prefers-reduced-motion: reduce) {
+        * {
+            animation-duration: 0.1s !important;
+            transition-duration: 0.1s !important;
+        }
+    }
 </style>
 
 <script>
-  // Función para manejar la animación del splash
-  function initSplashAnimation() {
-    const splashScreen = document.getElementById('splashScreen');
-    const fadeOverlay = document.getElementById('fadeOverlay');
-    const welcomeTitle = document.getElementById('welcomeTitle');
-    const lightRays = document.querySelectorAll('.light-ray');
-    const particles = document.querySelectorAll('.light-particles');
+    // Función para manejar la animación del preloader
+    function initPreloaderAnimation() {
+        const preloader = document.getElementById('preloader');
+        const initialBlocks = document.querySelector('.initial-blocks');
+        const logoContainer = document.querySelector('.logo-container');
+        const banderaParts = document.querySelectorAll('.bandera-parte');
 
-    if (!splashScreen || !fadeOverlay || !welcomeTitle) {
-      console.error('Elementos del splash screen no encontrados');
-      return;
+        if (!preloader || !initialBlocks || !logoContainer) {
+            console.error('Elementos del preloader no encontrados');
+            return;
+        }
+
+        // Función para ejecutar la animación secuencial
+        function runAnimation() {
+            // Paso 1: Esperar un momento breve
+            setTimeout(() => {
+                // Paso 2: Animar los bloques de colores
+                const blockTop = document.querySelector('.block-top');
+                const blockBottom = document.querySelector('.block-bottom');
+                
+                if (blockTop && blockBottom) {
+                    blockTop.style.transition = 'transform 0.6s cubic-bezier(0.25, 0.1, 0.25, 1)';
+                    blockBottom.style.transition = 'transform 0.6s cubic-bezier(0.25, 0.1, 0.25, 1)';
+                    
+                    blockTop.style.transform = 'translateY(-96%) translateX(-3%)';
+                    blockBottom.style.transform = 'translateY(96%) translateX(3%)';
+                }
+
+                // Paso 3: Mostrar el preloader (ya está visible)
+                setTimeout(() => {
+                    // El preloader ya está visible, continuamos con la animación
+                    
+                    // Paso 4: Mostrar el logo con animación
+                    setTimeout(() => {
+                        logoContainer.style.transition = 'opacity 0.6s ease, transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
+                        logoContainer.style.opacity = '1';
+                        logoContainer.style.transform = 'scale(1)';
+                        
+                        // Paso 5: Animar las partes de la bandera
+                        setTimeout(() => {
+                            banderaParts.forEach((part, index) => {
+                                setTimeout(() => {
+                                    part.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+                                    part.style.opacity = '1';
+                                    part.style.transform = 'translateY(0)';
+                                }, index * 120);
+                            });
+                            
+                            // Paso 6: Finalizar después de un tiempo
+                            setTimeout(() => {
+                                completePreloader();
+                            }, 1200);
+                        }, 200);
+                    }, 200);
+                }, 600);
+            }, 300);
+        }
+
+        // Función para completar el preloader
+        function completePreloader() {
+            preloader.style.transition = 'opacity 0.6s ease';
+            initialBlocks.style.transition = 'opacity 0.6s ease';
+            
+            preloader.style.opacity = '0';
+            initialBlocks.style.opacity = '0';
+
+            setTimeout(() => {
+                preloader.style.display = 'none';
+                initialBlocks.style.display = 'none';
+                
+                // Disparar evento personalizado
+                window.dispatchEvent(new CustomEvent('preloader:complete'));
+            }, 600);
+        }
+
+        // Iniciar animación
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', runAnimation);
+        } else {
+            runAnimation();
+        }
     }
 
-    // Función para aplicar animaciones secuenciales
-    function runAnimation() {
-      // 1. Fade out del overlay (0.8s)
-      fadeOverlay.style.animation = 'fadeOut 0.8s ease-out forwards';
-
-      // 2. Efectos de luz (1s delay)
-      setTimeout(() => {
-        lightRays.forEach((ray, index) => {
-          ray.style.animationDelay = `${index * 0.1}s`;
-          ray.style.animation = 'lightRayAppear 1.4s ease-out forwards';
-        });
-      }, 1000);
-
-      // 3. Partículas (1.2s delay)
-      setTimeout(() => {
-        particles.forEach((particle, index) => {
-          particle.style.animationDelay = `${index * 0.15}s`;
-          particle.style.animation = 'particleFloat 1.8s ease-out forwards';
-        });
-      }, 1200);
-
-      // 4. Título de bienvenida (2s delay)
-      setTimeout(() => {
-        welcomeTitle.style.animation = 'scaleIn 1s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards';
-      }, 2000);
-
-      // 5. Completar splash (3.5s total)
-      setTimeout(() => {
-        completeSplash();
-      }, 3500);
+    // Inicializar solo una vez
+    if (!window.preloaderInitialized) {
+        window.preloaderInitialized = true;
+        initPreloaderAnimation();
     }
-
-    // Función para completar el splash
-    function completeSplash() {
-      splashScreen.style.transition = 'opacity 0.5s ease-in-out';
-      splashScreen.style.opacity = '0';
-
-      setTimeout(() => {
-        splashScreen.style.display = 'none';
-        // Disparar evento personalizado
-        window.dispatchEvent(new CustomEvent('splash:complete'));
-      }, 500);
-    }
-
-    // Iniciar animación cuando el DOM esté listo
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', runAnimation);
-    } else {
-      // DOM ya está listo
-      setTimeout(runAnimation, 100);
-    }
-  }
-
-  // Inicializar solo una vez
-  if (!window.splashInitialized) {
-    window.splashInitialized = true;
-    initSplashAnimation();
-  }
 </script>

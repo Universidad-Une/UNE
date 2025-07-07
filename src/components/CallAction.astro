@@ -1,79 +1,47 @@
 ---
-// HeroSection.astro
-import fondoPlantel from '../assets/Imagenes/Backgrouds/fondo-plantel.png';
-import uneBlanco from '../assets/Logos/UNE_blanco.webp';
+import uneBlanco from "../assets/Logos/UNE_blanco.webp";
 ---
 
-<section class="relative min-h-screen bg-cover bg-center bg-no-repeat" style={`background-image: url(${fondoPlantel})`}>>
-  <!-- Overlay -->
-  <div class="absolute inset-0 bg-black bg-opacity-40"></div>
-  
+<section
+  class="relative bg-cover bg-center bg-no-repeat py-12"
+  style="background-image: url('/Images/Fondo-plantel.png');"
+>
   <!-- Content -->
-  <div class="relative z-10 flex items-center justify-center min-h-screen px-4">
-    <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-      
+  <div class="relative z-10 flex items-center justify-center px-4">
+    <div
+      class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 items-center"
+    >
       <!-- Left side - Logo and Text -->
       <div class="text-center lg:text-left">
         <!-- UNE Logo -->
-        <div class="mb-8">
-          <img 
-            src={uneBlanco} 
-            alt="UNE Logo" 
-            class="w-48 h-auto mx-auto lg:mx-0"
+        <div>
+          <img
+            src={uneBlanco.src}
+            alt="UNE Logo"
+            class="w-64 h-auto mx-auto lg:mx-0"
           />
         </div>
-        
-        <!-- Main Text -->
-        <div class="text-white space-y-4">
-          <p class="text-lg lg:text-xl leading-relaxed">
-            En UNE, nuestro compromiso es tu futuro, contando con 18 planteles para ti y más de 45 carreras en diferentes modalidades, junto con convenios de más de 800 empresas
-          </p>
-        </div>
-        
-        <!-- CTA Button -->
-        <div class="mt-8">
-          <button class="bg-red-600 hover:bg-red-700 text-white font-semibold py-3 px-8 rounded-lg transition-colors duration-300 shadow-lg">
-            Hablar con un asesor
-          </button>
-        </div>
       </div>
-      
-      <!-- Right side - Profile Circle -->
-      <div class="flex justify-center lg:justify-end">
-        <div class="relative">
-          <!-- Blue Circle Background -->
-          <div class="w-32 h-32 lg:w-40 lg:h-40 bg-blue-500 rounded-full flex items-center justify-center shadow-lg">
-            <!-- Profile Image Placeholder -->
-            <div class="w-24 h-24 lg:w-32 lg:h-32 bg-gray-300 rounded-full overflow-hidden">
-              <img 
-                src="/src/assets/Imagenes/profile-placeholder.jpg" 
-                alt="Asesor UNE" 
-                class="w-full h-full object-cover"
-                onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgdmlld0JveD0iMCAwIDEwMCAxMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIiBmaWxsPSIjRDFEMUQ2Ii8+CjxwYXRoIGQ9Ik01MCA1MEMzOC45NSA1MCAzMCA0MS4wNSAzMCAzMEMzMCAxOC45NSAzOC45NSAxMCA1MCAxMEM2MS4wNSAxMCA3MCAzOC45NSA3MCA1MEM3MCA2MS4wNSA2MS4wNSA3MCA1MCA3MFoiIGZpbGw9IiM5Q0ExQTYiLz4KPHBhdGggZD0iTTUwIDUwQzU2LjYyNzQgNTAgNjIgNDQuNjI3NCA2MiAzOEM2MiAzMS4zNzI2IDU2LjYyNzQgMjYgNTAgMjZDNDMuMzcyNiAyNiAzOCAzMS4zNzI2IDM4IDM4QzM4IDQ0LjYyNzQgNDMuMzcyNiA1MCA1MCA1MFoiIGZpbGw9IiM2QjdCODQiLz4KPC9zdmc+Cg=='"
-              />
-            </div>
-          </div>
-          
-          <!-- Small accent circle -->
-          <div class="absolute -top-2 -right-2 w-8 h-8 bg-orange-400 rounded-full shadow-lg"></div>
-        </div>
+
+      <!-- Right side  -->
+      <div class="flex flex-col justify-center items-center text-white">
+        <p class="text-lg font-light lg:text-xl text-center my-8">
+          En UNE, nuestro compromiso es tu futuro, contando con 18 planteles
+          para ti y más de 45 carreras en diferentes modalidades, junto con
+          convenios de más de 800 empresas
+        </p>
+        <button
+          class="bg-red-600 hover:bg-red-700 text-white font-semibold py-3 px-8 rounded-lg transition-colors duration-300 shadow-lg"
+        >
+          Hablar con un asesor
+        </button>
       </div>
-      
     </div>
   </div>
 </section>
 
 <style>
-  /* Custom styles for better responsiveness */
-  @media (max-width: 1024px) {
-    .hero-text {
-      font-size: clamp(1rem, 2.5vw, 1.25rem);
-    }
-  }
-  
-  /* Smooth hover effects */
-  button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  .hero-section {
+    background-image: url("/Images/Fondo-plantel.png");
   }
 </style>
