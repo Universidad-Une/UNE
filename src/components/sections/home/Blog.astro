@@ -2,11 +2,11 @@
 // BlogScaleSection.astro
 ---
 
-<section class="relative min-h-80 flex items-center justify-center pt-8">
+<section class="relative min-h-89 flex items-center justify-center pt-8">
   <!-- Elemento escalable con fondo -->
   <div 
     id="scalingElement"
-    class="relative w-full mx-auto px-6 pt-12 text-center text-white will-change-transform transition-transform duration-75 ease-out bg-cover bg-center bg-no-repeat rounded-2xl"
+    class="relative w-full mx-auto px-6 pt-12 pb-12 text-center text-white will-change-transform transition-transform duration-75 ease-out bg-cover bg-center bg-no-repeat rounded-2xl"
     style="transform: scale(0.8); background-image: url('/Images/Fondo-plantel.png');"
   >
     <!-- Contenido del blog -->
@@ -61,22 +61,34 @@
     const scalingElement = document.getElementById('scalingElement');
     if (!scalingElement) return;
 
-    const scrollY = window.scrollY;
     const windowHeight = window.innerHeight;
-
+    const elementRect = scalingElement.getBoundingClientRect();
+    
     // Rango de escala (de 80% a 100%)
     const minScale = 0.8;
     const maxScale = 1.0;
 
-    // Calcular el progreso del scroll de manera más precisa
-    const elementRect = scalingElement.getBoundingClientRect();
-    const elementCenter = elementRect.top + elementRect.height / 2;
-    const windowCenter = windowHeight / 2;
+    // Calcular el progreso basado en la posición del elemento
+    let scrollProgress = 0;
     
-    // Progreso basado en cuando el elemento está en el centro de la pantalla
-    const distanceFromCenter = Math.abs(elementCenter - windowCenter);
-    const maxDistance = windowHeight / 2 + elementRect.height / 2;
-    const scrollProgress = Math.max(0, Math.min(1, 1 - (distanceFromCenter / maxDistance)));
+    // Cuando el elemento está entrando en la vista desde arriba
+    if (elementRect.top > 0) {
+      // Elemento aún no ha entrado completamente
+      const distanceFromTop = elementRect.top;
+      const maxDistance = windowHeight;
+      scrollProgress = Math.max(0, Math.min(1, 1 - (distanceFromTop / maxDistance)));
+    } 
+    // Cuando el elemento está en la vista o saliendo por abajo
+    else if (elementRect.bottom > 0) {
+      // Elemento está visible, mantener escala máxima
+      scrollProgress = 1;
+    }
+    // Cuando el elemento ya pasó completamente
+    else {
+      // Elemento ha salido de la vista por abajo, mantener escala máxima
+      scrollProgress = 1;
+    }
+
     const scale = minScale + (maxScale - minScale) * scrollProgress;
 
     // Aplicar la transformación
@@ -113,7 +125,7 @@
     <div class="grid grid-cols-1 lg:grid-cols-2">
       
       <!-- Newsletter -->
-      <div class="bg-white p-8 border-r-0 lg:border-r border-gray-200 border-t border-b lg:border-b-0 h-full flex flex-col  justify-center  ">
+      <div class="bg-white p-8 border-r-0 lg:border-r border-gray-200 border-t border-b lg:border-b-0 h-full flex flex-col justify-center">
         <h3 class="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
           No te pierdas ningún detalle
         </h3>

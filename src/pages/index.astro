@@ -1,64 +1,32 @@
----
-import "../styles/global.css";
-import SplashScreen from "../components/SplashScreen.astro";
-import Header from "../components/Header.astro";
-import Hero from "../components/Hero.astro";
-import logoImage from "../assets/Logos/UNE_com.webp";
-import Accesos from "../components/Accesos.astro";
-import Cards_Niveles from "../components/Cards_Niveles.astro";
-import Demo from "../components/demo.astro";
-import CarouselCarreras from "../components/Carousel_carreras.astro";
-import Tabs from "../components/Tabs.astro";
-import CallAction from "../components/CallAction.astro";
-import SobreUNE from "../components/SobreUNE.astro";
-import DescubreUNE from "../components/DescubreUNE.astro";
-import DentroUNE from "../components/DentroUNE.astro";
-import Blog from "../components/Blog.astro";
-import Frecuents from "../components/Faq.astro";
-import GeneralCTA from "../components/GeneralCTA.astro";
-import Footer from "../components/Footer.astro";
+﻿---
+// Página principal con nueva estructura
+import Layout from "@/layouts/Layout.astro";
+import SplashScreen from "@/components/sections/home/SplashScreen.astro";
+import Hero from "@/components/sections/home/Hero.astro";
+import Accesos from "@/components/sections/home/Accesos.astro";
+import Cards_Niveles from "@/components/sections/home/Cards_Niveles.astro";
+import CarouselCarreras from "@/components/sections/home/Carousel_carreras.astro";
+import Tabs from "@/components/sections/home/Tabs.astro";
+import CallAction from "@/components/sections/shared/CallAction.astro";
+import SobreUNE from "@/components/sections/home/SobreUNE.astro";
+import DescubreUNE from "@/components/sections/home/DescubreUNE.astro";
+import DentroUNE from "@/components/sections/home/DentroUNE.astro";
+import Blog from "@/components/sections/home/Blog.astro";
+import Frecuents from "@/components/sections/shared/Faq.astro";
+import GeneralCTA from "@/components/sections/shared/GeneralCTA.astro";
+import logoImage from "@/assets/Logos/UNE_com.webp";
 
 const pageTitle = "UNE - 30 Años Creyendo en Ti";
 const pageDescription = "Universidad UNE - 30 años de excelencia educativa";
 ---
 
-<html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{pageTitle}</title>
-    <meta name="description" content={pageDescription} />
-
-    <!-- Preload crítico -->
-    <link rel="preload" href={logoImage.src} as="image" type="image/png" />
-
-    <!-- Favicons -->
-    <link rel="icon" type="image/x-icon" href="/Favicon/favicon.ico" />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="32x32"
-      href="/Favicon/favicon-32x32.png"
-    />
-    <link
-      rel="apple-touch-icon"
-      sizes="180x180"
-      href="/Favicon/apple-icon-180x180.png"
-    />
-    <link rel="manifest" href="/Favicon/manifest.json" />
-
-    <!-- Meta adicionales para SEO -->
-    <meta name="theme-color" content="#2c5aa0" />
-    <meta name="robots" content="index, follow" />
-  </head>
-
+<Layout title={pageTitle} description={pageDescription}>
   <body class="overflow-hidden font-gotham">
     <!-- Splash Screen con carga no bloqueante -->
     <SplashScreen logoSrc={logoImage.src} />
 
     <!-- Contenido principal -->
     <main id="mainContent" class="main-content">
-      <Header />
       <Hero />
       <Accesos />
       <Cards_Niveles />
@@ -71,7 +39,6 @@ const pageDescription = "Universidad UNE - 30 años de excelencia educativa";
       <Blog />
       <Frecuents />
       <GeneralCTA />
-      <Footer/>
 
       <script is:inline>
         // Función para mostrar contenido principal
@@ -136,4 +103,4 @@ const pageDescription = "Universidad UNE - 30 años de excelencia educativa";
       </script>
     </main>
   </body>
-</html>
+</Layout>

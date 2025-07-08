@@ -43,19 +43,19 @@
           Inscripciones
         </button>
         <button 
-          class="tab-button px-4 py-2 text-sm font-medium rounded-full transition-all duration-200  text-gray-700 hover:"
+          class="tab-button px-4 py-2 text-sm font-medium rounded-full transition-all duration-200 bg-gray-200 text-gray-700 hover:bg-gray-300"
           data-tab="admisiones"
         >
           Admisiones
         </button>
         <button 
-          class="tab-button px-4 py-2 text-sm font-medium rounded-full transition-all duration-200  text-gray-700 hover:"
+          class="tab-button px-4 py-2 text-sm font-medium rounded-full transition-all duration-200 bg-gray-200 text-gray-700 hover:bg-gray-300"
           data-tab="documentacion"
         >
           Documentación
         </button>
         <button 
-          class="tab-button px-4 py-2 text-sm font-medium rounded-full transition-all duration-200  text-gray-700 hover:"
+          class="tab-button px-4 py-2 text-sm font-medium rounded-full transition-all duration-200 bg-gray-200 text-gray-700 hover:bg-gray-300"
           data-tab="modalidades"
         >
           Modalidades de Estudio
@@ -199,32 +199,36 @@
     });
   }
 
-  // Inicializar con la primera categoría
-  renderQuestions('inscripciones');
+  // Función para inicializar el FAQ
+  function initializeFAQ() {
+    // Inicializar con la primera categoría
+    renderQuestions('inscripciones');
 
-  // Event listeners para los tabs
-  document.querySelectorAll('.tab-button').forEach(button => {
-    button.addEventListener('click', function() {
-      const category = this.dataset.tab;
-      
-      // Actualizar estilos de tabs
-      document.querySelectorAll('.tab-button').forEach(btn => {
-        btn.classList.remove('bg-blue-600', 'text-white');
-        btn.classList.add('', 'text-gray-700');
+    // Event listeners para los tabs
+    document.querySelectorAll('.tab-button').forEach(button => {
+      button.addEventListener('click', function() {
+        const category = this.dataset.tab;
+        
+        // Actualizar estilos de tabs
+        document.querySelectorAll('.tab-button').forEach(btn => {
+          btn.classList.remove('bg-blue-600', 'text-white');
+          btn.classList.add('bg-gray-200', 'text-gray-700');
+        });
+        
+        this.classList.remove('bg-gray-200', 'text-gray-700');
+        this.classList.add('bg-blue-600', 'text-white');
+        
+        // Renderizar preguntas de la nueva categoría
+        renderQuestions(category);
       });
-      
-      this.classList.remove('', 'text-gray-700');
-      this.classList.add('bg-blue-600', 'text-white');
-      
-      // Renderizar preguntas de la nueva categoría
-      renderQuestions(category);
     });
-  });
+  }
+
+  // Ejecutar cuando el DOM esté listo
+  document.addEventListener('DOMContentLoaded', initializeFAQ);
 </script>
 
 <style>
- 
-  
   .faq-answer {
     max-height: 0;
     overflow: hidden;
