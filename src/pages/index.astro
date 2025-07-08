@@ -11,6 +11,12 @@ import CarouselCarreras from "../components/Carousel_carreras.astro";
 import Tabs from "../components/Tabs.astro";
 import CallAction from "../components/CallAction.astro";
 import SobreUNE from "../components/SobreUNE.astro";
+import DescubreUNE from "../components/DescubreUNE.astro";
+import DentroUNE from "../components/DentroUNE.astro";
+import Blog from "../components/Blog.astro";
+import Frecuents from "../components/Faq.astro";
+import GeneralCTA from "../components/GeneralCTA.astro";
+import Footer from "../components/Footer.astro";
 
 const pageTitle = "UNE - 30 Años Creyendo en Ti";
 const pageDescription = "Universidad UNE - 30 años de excelencia educativa";
@@ -48,81 +54,86 @@ const pageDescription = "Universidad UNE - 30 años de excelencia educativa";
 
   <body class="overflow-hidden font-gotham">
     <!-- Splash Screen con carga no bloqueante -->
-     <SplashScreen logoSrc={logoImage.src} />
+    <SplashScreen logoSrc={logoImage.src} />
 
     <!-- Contenido principal -->
     <main id="mainContent" class="main-content">
       <Header />
-      <Hero/>
-      <Accesos/>
-      <Cards_Niveles/>
-      <CarouselCarreras/>
-      <Tabs/>
-      <CallAction/>
-      <SobreUNE/>
+      <Hero />
+      <Accesos />
+      <Cards_Niveles />
+      <CarouselCarreras />
+      <Tabs />
+      <CallAction />
+      <SobreUNE />
+      <DescubreUNE />
+      <DentroUNE />
+      <Blog />
+      <Frecuents />
+      <GeneralCTA />
+      <Footer/>
 
+      <script is:inline>
+        // Función para mostrar contenido principal
+        function showMainContent() {
+          const mainContent = document.getElementById("mainContent");
 
+          if (!mainContent) {
+            console.error("Elemento mainContent no encontrado");
+            return;
+          }
 
+          console.log("Mostrando contenido principal");
 
-      <h1>UNE</h1>
-      <!-- Título Principal -->
-      <h1 class="text-4xl font-bold text-center text-blue-700">Mi Mini Blog</h1>
+          // Mostrar el contenido principal
+          mainContent.style.display = "block";
 
-    
+          // Usar requestAnimationFrame para una transición suave
+          requestAnimationFrame(() => {
+            mainContent.style.transition =
+              "opacity 0.8s ease-out, transform 0.8s ease-out";
+            mainContent.style.opacity = "1";
+            mainContent.style.transform = "translateY(0)";
 
-    <script is:inline>
-  // Función para mostrar contenido principal
-  function showMainContent() {
-    const mainContent = document.getElementById("mainContent");
+            // Permitir scroll después de la transición
+            setTimeout(() => {
+              document.body.classList.remove("overflow-hidden");
+            }, 500);
+          });
+        }
 
-    if (!mainContent) {
-      console.error("Elemento mainContent no encontrado");
-      return;
-    }
+        // Escuchar ambos eventos para compatibilidad
+        window.addEventListener("preloader:complete", showMainContent);
+        window.addEventListener("splash:complete", showMainContent);
 
-    console.log("Mostrando contenido principal");
+        // Fallback en caso de que el preloader no se complete
+        window.addEventListener("load", () => {
+          setTimeout(() => {
+            // Verificar si el preloader aún está visible
+            const preloader = document.getElementById("preloader");
+            const initialBlocks = document.querySelector(".initial-blocks");
 
-    // Mostrar el contenido principal
-    mainContent.style.display = "block";
+            if (
+              preloader &&
+              preloader.style.display !== "none" &&
+              preloader.style.opacity !== "0"
+            ) {
+              console.warn("Preloader timeout - mostrando contenido");
+              showMainContent();
+            } else if (
+              initialBlocks &&
+              initialBlocks.style.display !== "none" &&
+              initialBlocks.style.opacity !== "0"
+            ) {
+              console.warn("Preloader timeout - mostrando contenido");
+              showMainContent();
+            }
+          }, 5000); // 5 segundos de timeout
+        });
 
-    // Usar requestAnimationFrame para una transición suave
-    requestAnimationFrame(() => {
-      mainContent.style.transition =
-        "opacity 0.8s ease-out, transform 0.8s ease-out";
-      mainContent.style.opacity = "1";
-      mainContent.style.transform = "translateY(0)";
-
-      // Permitir scroll después de la transición
-      setTimeout(() => {
-        document.body.classList.remove("overflow-hidden");
-      }, 500);
-    });
-  }
-
-  // Escuchar ambos eventos para compatibilidad
-  window.addEventListener("preloader:complete", showMainContent);
-  window.addEventListener("splash:complete", showMainContent);
-
-  // Fallback en caso de que el preloader no se complete
-  window.addEventListener("load", () => {
-    setTimeout(() => {
-      // Verificar si el preloader aún está visible
-      const preloader = document.getElementById("preloader");
-      const initialBlocks = document.querySelector(".initial-blocks");
-      
-      if (preloader && preloader.style.display !== "none" && preloader.style.opacity !== "0") {
-        console.warn("Preloader timeout - mostrando contenido");
-        showMainContent();
-      } else if (initialBlocks && initialBlocks.style.display !== "none" && initialBlocks.style.opacity !== "0") {
-        console.warn("Preloader timeout - mostrando contenido");
-        showMainContent();
-      }
-    }, 5000); // 5 segundos de timeout
-  });
-
-  // Asegurar que el body tenga overflow hidden inicialmente
-  document.body.classList.add("overflow-hidden");
-</script>
+        // Asegurar que el body tenga overflow hidden inicialmente
+        document.body.classList.add("overflow-hidden");
+      </script>
     </main>
   </body>
 </html>

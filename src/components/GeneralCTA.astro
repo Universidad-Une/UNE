@@ -1,0 +1,190 @@
+---
+// ContactSection.astro
+export interface Props {
+  backgroundImage?: string;
+  title?: string;
+  subtitle?: string;
+  className?: string;
+}
+
+const { 
+  backgroundImage, 
+  title = "Dejanos tus datos y nos contactaremos contigo",
+  subtitle = "Estamos para ti",
+  className = ""
+} = Astro.props;
+---
+
+<section class={`relative py-16 px-4 min-h-[400px] ${className}`}>
+  <!-- Fondo con imagen o color -->
+  <div class="absolute inset-0">
+    {backgroundImage ? (
+      <div 
+        class="w-full h-full bg-cover bg-center bg-no-repeat"
+        style={`background-image: url('${backgroundImage}');`}
+      >
+        <!-- Overlay para mejorar legibilidad del texto -->
+        <div class="absolute inset-0 bg-black/40"></div>
+      </div>
+    ) : (
+      <div class="w-full h-full bg-red-une"></div>
+    )}
+  </div>
+
+  <!-- Contenido -->
+  <div class="relative z-10 max-w-6xl mx-auto">
+    <div class="grid lg:grid-cols-2 gap-12 items-center">
+      <!-- Texto -->
+      <div class="text-white">
+        <p class="text-lg font-medium mb-4 opacity-90">
+          {subtitle}
+        </p>
+        <h2 class="text-4xl lg:text-5xl font-bold leading-tight">
+          {title}
+        </h2>
+      </div>
+
+      <!-- Formulario -->
+      <div class="">
+        <form id="contact-form" class=" flex flex-col justify-center items-center">
+          <!-- Campo Nombre -->
+          <div class="relative">
+            <input
+              type="text"
+              id="nombre"
+              name="nombre"
+              placeholder="Nombre"
+              required
+              class="w-full bg-transparent border-b-2 border-white/50 text-white placeholder-white/70 py-3 px-0 focus:outline-none focus:border-white transition-colors text-lg"
+            />
+          </div>
+
+          <!-- Campo Teléfono -->
+          <div class="relative">
+            <input
+              type="tel"
+              id="telefono"
+              name="telefono"
+              placeholder="Teléfono"
+              required
+              class="w-full bg-transparent border-b-2 border-white/50 text-white placeholder-white/70 py-3 px-0 focus:outline-none focus:border-white transition-colors text-lg"
+            />
+          </div>
+
+          <!-- Campo Correo -->
+          <div class="relative">
+            <input
+              type="email"
+              id="correo"
+              name="correo"
+              placeholder="Correo"
+              required
+              class="w-full bg-transparent border-b-2 border-white/50 text-white placeholder-white/70 py-3 px-0 focus:outline-none focus:border-white transition-colors text-lg"
+            />
+          </div>
+
+          <!-- Botón Enviar -->
+          <div class="pt-4">
+            <button
+              type="submit"
+              class="bg-azul-une hover:bg-blue-700 text-white font-semibold py-3 px-8 rounded transition-colors duration-200 text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
+            >
+              Enviar
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('contact-form');
+    
+    if (form) {
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const formData = new FormData(form);
+        const data = Object.fromEntries(formData);
+        
+        // Aquí puedes manejar el envío del formulario
+        console.log('Datos del formulario:', data);
+        
+        // Ejemplo de validación simple
+        if (data.nombre && data.telefono && data.correo) {
+          // Simulación de envío exitoso
+          alert('¡Gracias! Nos pondremos en contacto contigo pronto.');
+          form.reset();
+        } else {
+          alert('Por favor, completa todos los campos.');
+        }
+      });
+    }
+
+    // Efecto de enfoque en los inputs
+    const inputs = document.querySelectorAll('input');
+    inputs.forEach(input => {
+      input.addEventListener('focus', function() {
+        this.parentElement.classList.add('focused');
+      });
+      
+      input.addEventListener('blur', function() {
+        if (!this.value) {
+          this.parentElement.classList.remove('focused');
+        }
+      });
+    });
+  });
+</script>
+
+<style>
+  /* Definir el color rojo UNE */
+  :root {
+    --red-une: #E53E3E; /* Ajusta este color según el rojo específico de UNE */
+  }
+
+  .bg-red-une {
+    background-color: var(--red-une);
+  }
+
+  /* Animaciones para los inputs */
+  .relative.focused input {
+    border-color: white;
+  }
+
+  /* Estilo personalizado para el glassmorphism */
+  .backdrop-blur-sm {
+    backdrop-filter: blur(10px);
+  }
+
+  /* Efecto hover mejorado para el botón */
+  button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 1024px) {
+    .grid {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+    
+    h2 {
+      font-size: 2.5rem;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .bg-white\/10 {
+      margin: 0 1rem;
+      padding: 1.5rem;
+    }
+    
+    h2 {
+      font-size: 2rem;
+    }
+  }
+</style>

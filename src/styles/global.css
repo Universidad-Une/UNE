@@ -60,6 +60,12 @@
 @font-face {
   font-family: 'Gotham';
   src: url('/fonts/Gotham/Gotham-BLACK.TTF') format('truetype');
+  font-weight: 800;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Gotham';
+  src: url('/fonts/Gotham/GOTHAM-ULTRA.TTF') format('truetype');
   font-weight: 900;
   font-style: normal;
 }

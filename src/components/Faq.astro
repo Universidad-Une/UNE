@@ -1,0 +1,237 @@
+---
+// FAQ.astro
+---
+
+<section class="max-w-6xl mx-auto px-4 py-12">
+  <div class="text-center mb-8">
+    <h2 class="text-sm font-semibold text-gray-600 uppercase tracking-wide mb-2">
+      PREGUNTAS FRECUENTES
+    </h2>
+    <h1 class="text-4xl font-bold text-gray-900 mb-8">
+      ¡Respondemos tus preguntas!
+    </h1>
+  </div>
+
+  <div class="grid lg:grid-cols-2 gap-12 items-center">
+    <!-- Ilustración FAQ -->
+    <div class="flex justify-center">
+      <div class="relative">
+        <div class="w-80 h-80 bg-blue-50 rounded-full flex items-center justify-center">
+          <div class="text-center">
+            <div class="text-8xl font-bold text-blue-200 mb-4">FAQ</div>
+            <!-- Figuras decorativas -->
+            <div class="absolute top-10 left-10 w-12 h-12 bg-orange-400 rounded-lg flex items-center justify-center">
+              <div class="w-6 h-6 bg-white rounded"></div>
+            </div>
+            <div class="absolute top-16 right-8 w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center">
+              <div class="w-4 h-4 bg-white rounded-full"></div>
+            </div>
+            <div class="absolute bottom-12 right-16 w-8 h-8 bg-red-400 rounded-full"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tabs y Preguntas -->
+    <div class="space-y-6">
+      <!-- Tabs -->
+      <div class="flex flex-wrap gap-2 mb-6">
+        <button 
+          class="tab-button px-4 py-2 text-sm font-medium rounded-full transition-all duration-200 bg-blue-600 text-white"
+          data-tab="inscripciones"
+        >
+          Inscripciones
+        </button>
+        <button 
+          class="tab-button px-4 py-2 text-sm font-medium rounded-full transition-all duration-200  text-gray-700 hover:"
+          data-tab="admisiones"
+        >
+          Admisiones
+        </button>
+        <button 
+          class="tab-button px-4 py-2 text-sm font-medium rounded-full transition-all duration-200  text-gray-700 hover:"
+          data-tab="documentacion"
+        >
+          Documentación
+        </button>
+        <button 
+          class="tab-button px-4 py-2 text-sm font-medium rounded-full transition-all duration-200  text-gray-700 hover:"
+          data-tab="modalidades"
+        >
+          Modalidades de Estudio
+        </button>
+      </div>
+
+      <!-- Contenido de preguntas -->
+      <div id="faq-content" class="space-y-3">
+        <!-- Las preguntas se cargarán aquí dinámicamente -->
+      </div>
+
+      <!-- Ver todas las preguntas -->
+      <div class="flex justify-end mt-8">
+        <button class="flex items-center text-gray-600 hover:text-gray-900 transition-colors">
+          <span class="text-sm">Ver todas las preguntas frecuentes</span>
+          <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  // Datos de las preguntas por categoría
+  const faqData = {
+    inscripciones: [
+      {
+        question: "¿Cuáles son los requisitos para ingresar a UNE?",
+        answer: "Los requisitos incluyen certificado de bachillerato, acta de nacimiento, CURP, fotografías tamaño infantil, y aprobar el examen de admisión."
+      },
+      {
+        question: "¿Cuándo abren las convocatorias de admisión?",
+        answer: "Las convocatorias se publican generalmente en enero para el ciclo escolar que inicia en agosto, y en junio para el ciclo de enero."
+      },
+      {
+        question: "¿Hay examen de admisión? ¿En qué consiste?",
+        answer: "Sí, hay examen de admisión que evalúa conocimientos generales, habilidades matemáticas, comprensión lectora y conocimientos específicos del área de estudio."
+      },
+      {
+        question: "¿Se puede hacer el proceso de admisión en línea?",
+        answer: "Sí, gran parte del proceso se puede realizar en línea a través de nuestro portal de admisiones, incluyendo el registro y seguimiento de tu solicitud."
+      }
+    ],
+    admisiones: [
+      {
+        question: "¿Cuánto cuesta estudiar en UNE?",
+        answer: "Las colegiaturas varían según la carrera y modalidad. Contamos con opciones de becas y planes de financiamiento para apoyar a los estudiantes."
+      },
+      {
+        question: "¿Qué carreras están disponibles?",
+        answer: "Ofrecemos más de 30 programas académicos en áreas como Ingeniería, Ciencias de la Salud, Negocios, Humanidades y Artes."
+      },
+      {
+        question: "¿Cuándo son las fechas de examen?",
+        answer: "Los exámenes se realizan generalmente en febrero-marzo para el ciclo de agosto, y en julio-agosto para el ciclo de enero."
+      },
+      {
+        question: "¿Hay opciones de beca disponibles?",
+        answer: "Sí, ofrecemos becas académicas, deportivas, culturales y socioeconómicas. También tenemos convenios con empresas para becas de trabajo."
+      }
+    ],
+    documentacion: [
+      {
+        question: "¿Qué documentos necesito para inscribirme?",
+        answer: "Certificado de bachillerato, acta de nacimiento, CURP, comprobante de domicilio, fotografías y comprobante de pago de inscripción."
+      },
+      {
+        question: "¿Los documentos deben estar apostillados?",
+        answer: "Para estudiantes extranjeros, sí es necesario que los documentos estén apostillados o legalizados según el país de origen."
+      },
+      {
+        question: "¿Puedo enviar documentos digitalizados?",
+        answer: "Inicialmente sí, pero posteriormente deberás presentar los documentos originales para cotejo en el proceso de inscripción."
+      },
+      {
+        question: "¿Hay fecha límite para entregar documentos?",
+        answer: "Sí, todos los documentos deben estar completos antes del inicio del ciclo escolar. Las fechas específicas se informan en la convocatoria."
+      }
+    ],
+    modalidades: [
+      {
+        question: "¿Ofrecen modalidad en línea?",
+        answer: "Sí, tenemos carreras 100% en línea y modalidades híbridas que combinan clases presenciales y virtuales."
+      },
+      {
+        question: "¿Cuál es la diferencia entre modalidades?",
+        answer: "Presencial: clases en campus. Híbrida: combinación de presencial y virtual. En línea: 100% virtual con flexibilidad de horarios."
+      },
+      {
+        question: "¿Los títulos tienen la misma validez?",
+        answer: "Sí, todos nuestros títulos tienen la misma validez oficial ante SEP, independientemente de la modalidad de estudio."
+      },
+      {
+        question: "¿Puedo cambiar de modalidad durante la carrera?",
+        answer: "En algunos casos sí es posible, dependiendo de la disponibilidad de la carrera en la modalidad deseada y cumpliendo ciertos requisitos."
+      }
+    ]
+  };
+
+  function renderQuestions(category) {
+    const container = document.getElementById('faq-content');
+    const questions = faqData[category];
+    
+    container.innerHTML = questions.map(faq => `
+      <div class="border border-gray-200 rounded-lg">
+        <button 
+          class="faq-question w-full px-6 py-4 text-left flex justify-between items-center hover:bg-gray-50 transition-colors"
+          data-question="${faq.question}"
+        >
+          <span class="font-medium text-gray-900 pr-4">${faq.question}</span>
+          <svg class="w-5 h-5 text-gray-500 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+          </svg>
+        </button>
+        <div class="faq-answer hidden px-6 pb-4">
+          <p class="text-gray-600">${faq.answer}</p>
+        </div>
+      </div>
+    `).join('');
+
+    // Añadir event listeners a las preguntas
+    document.querySelectorAll('.faq-question').forEach(question => {
+      question.addEventListener('click', function() {
+        const answer = this.parentElement.querySelector('.faq-answer');
+        const icon = this.querySelector('svg');
+        
+        // Cerrar otras preguntas abiertas
+        document.querySelectorAll('.faq-answer').forEach(otherAnswer => {
+          if (otherAnswer !== answer) {
+            otherAnswer.classList.add('hidden');
+            otherAnswer.parentElement.querySelector('svg').classList.remove('rotate-180');
+          }
+        });
+        
+        // Toggle la pregunta actual
+        answer.classList.toggle('hidden');
+        icon.classList.toggle('rotate-180');
+      });
+    });
+  }
+
+  // Inicializar con la primera categoría
+  renderQuestions('inscripciones');
+
+  // Event listeners para los tabs
+  document.querySelectorAll('.tab-button').forEach(button => {
+    button.addEventListener('click', function() {
+      const category = this.dataset.tab;
+      
+      // Actualizar estilos de tabs
+      document.querySelectorAll('.tab-button').forEach(btn => {
+        btn.classList.remove('bg-blue-600', 'text-white');
+        btn.classList.add('', 'text-gray-700');
+      });
+      
+      this.classList.remove('', 'text-gray-700');
+      this.classList.add('bg-blue-600', 'text-white');
+      
+      // Renderizar preguntas de la nueva categoría
+      renderQuestions(category);
+    });
+  });
+</script>
+
+<style>
+ 
+  
+  .faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+  }
+  
+  .faq-answer:not(.hidden) {
+    max-height: 200px;
+  }
+</style>

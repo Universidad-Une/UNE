@@ -43,7 +43,7 @@ const { logoSrc } = Astro.props;
   -1035 28 -1175 18z" />
             </g>
         </svg>
-        <h1 class="font-bold">UNE</h1>
+        <h1 class=" text-[12rem] ">UNE</h1>
     </div>
 </div>
 
@@ -99,21 +99,23 @@ const { logoSrc } = Astro.props;
         text-align: center;
     }
 
-    #preloader svg {
-        width: 100%;
-        max-width: 500px;
-        height: auto;
-        margin-bottom: 1.5rem;
-    }
+   #preloader svg {
+    width: 100%;
+    max-width: 300px; /* Reduje el tamaño para que combine mejor */
+    height: auto;
+    margin-bottom: -8px; /* Empuja el texto hacia arriba */
+}
 
-    #preloader h1 {
-        font-weight: 700;
-        font-size: clamp(2.5rem, 8vw, 4rem);
-        color: #001970;
-        margin: 0;
-        letter-spacing: 2px;
-    }
+/* Ajustes para el texto */
+#preloader h1 {
+    color: #001970;
+    letter-spacing: 2px;
+    font-size: 8rem; /* Tamaño más manejable (equivalente a text-6xl) */
+    line-height: 1; /* Elimina espacio extra debajo del texto */
+    margin-top: -10px; /* Lo acerca más al SVG */
+    font-weight: 900;
 
+}
     /* Estado inicial de las partes de la bandera */
     .bandera-parte {
         opacity: 0;
@@ -133,26 +135,8 @@ const { logoSrc } = Astro.props;
     }
 
     /* Responsivo */
-    @media (max-width: 768px) {
-        .logo-container {
-            margin: 0 1rem;
-        }
 
-        #preloader h1 {
-            font-size: clamp(2rem, 10vw, 3rem);
-        }
-    }
-
-    @media (max-width: 480px) {
-        .logo-container {
-            margin: 0 0.5rem;
-        }
-
-        #preloader h1 {
-            font-size: clamp(1.5rem, 12vw, 2.5rem);
-        }
-    }
-
+  
     /* Reducir motion para usuarios que lo prefieren */
     @media (prefers-reduced-motion: reduce) {
         * {
