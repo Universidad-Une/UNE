@@ -1,0 +1,776 @@
+---
+import logoImage from "@/assets/Imagenes/Backgrouds/Admisiones.png";
+import Layout from "@/layouts/Layout.astro";
+
+import { FileText, Camera, CreditCard, CheckCircle } from "@lucide/astro";
+---
+
+<Layout>
+  <!-- Hero Section -->
+  <section
+    class="relative bg-cover bg-center min-h-[65vh]"
+    style={`background-image: url(${logoImage.src})`}
+  >
+    <!-- Overlay para mejorar legibilidad -->
+    <div class="absolute inset-0 bg-black bg-opacity-30"></div>
+
+    <div
+      class="relative container mx-auto px-4 h-full flex items-center min-h-[65vh]"
+    >
+      <!-- Contenido principal izquierdo -->
+      <div class="text-white max-w-2xl z-10">
+        <h1 class="text-6xl font-bold mb-4 leading-tight">ADMISIONES</h1>
+        <p class="text-lg mb-8 leading-relaxed">
+          En UNE, tus metas son nuestro impulso.<br />
+          ¡Descubre tu mejor versión con nosotros!
+        </p>
+        <button
+          class="bg-red-600 hover:bg-red-700 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-colors duration-300 transform hover:scale-105"
+          onclick="window.location.href='/admisiones/proceso'"
+        >
+          INICIAR PROCESO
+        </button>
+      </div>
+
+      <!-- Tarjetas laterales derechas -->
+      <div
+        class="hidden lg:flex absolute right-8 top-1/2 transform -translate-y-1/2 flex-col space-y-4 z-10"
+      >
+        <!-- TEST VOCACIONAL -->
+        <div
+          class="bg-black bg-opacity-70 text-white p-6 rounded-lg min-w-[280px] backdrop-blur-sm hover:bg-opacity-80 transition-all duration-300 cursor-pointer group"
+        >
+          <h3
+            class="font-bold text-xl mb-2 group-hover:text-blue-300 transition-colors"
+          >
+            TEST VOCACIONAL
+          </h3>
+          <p class="text-sm opacity-90 leading-relaxed">
+            Descubre cuál es tu vocación, cuáles son<br />
+            tus aptitudes y cómo aprovecharlas al<br />
+            máximo
+          </p>
+        </div>
+
+        <!-- PLANTELES -->
+        <div
+          class="bg-black bg-opacity-70 text-white p-6 rounded-lg min-w-[280px] backdrop-blur-sm hover:bg-opacity-80 transition-all duration-300 cursor-pointer group"
+        >
+          <h3
+            class="font-bold text-xl mb-2 group-hover:text-blue-300 transition-colors"
+          >
+            PLANTELES
+          </h3>
+          <p class="text-sm opacity-90 leading-relaxed">
+            Conoce las ubicaciones y todas sus<br />
+            amenidades
+          </p>
+        </div>
+
+        <!-- OFERTA ACADÉMICA -->
+        <div
+          class="bg-black bg-opacity-70 text-white p-6 rounded-lg min-w-[280px] backdrop-blur-sm hover:bg-opacity-80 transition-all duration-300 cursor-pointer group"
+        >
+          <h3
+            class="font-bold text-xl mb-2 group-hover:text-blue-300 transition-colors"
+          >
+            OFERTA<br />ACADÉMICA
+          </h3>
+          <p class="text-sm opacity-90 leading-relaxed">
+            Explora entre los diferentes niveles<br />
+            educativos y sus modalidades
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tarjetas móviles -->
+    <div
+      class="lg:hidden bg-white bg-opacity-95 mx-4 mb-4 rounded-lg p-4 backdrop-blur-sm"
+    >
+      <div class="grid grid-cols-1 gap-4">
+        <div
+          class="text-center p-4 border-b border-gray-200 hover:bg-gray-50 transition-colors cursor-pointer"
+        >
+          <h3 class="font-bold text-gray-800 mb-2">TEST VOCACIONAL</h3>
+          <p class="text-sm text-gray-600">Descubre cuál es tu vocación</p>
+        </div>
+        <div
+          class="text-center p-4 border-b border-gray-200 hover:bg-gray-50 transition-colors cursor-pointer"
+        >
+          <h3 class="font-bold text-gray-800 mb-2">PLANTELES</h3>
+          <p class="text-sm text-gray-600">
+            Conoce las ubicaciones y amenidades
+          </p>
+        </div>
+        <div
+          class="text-center p-4 hover:bg-gray-50 transition-colors cursor-pointer"
+        >
+          <h3 class="font-bold text-gray-800 mb-2">OFERTA ACADÉMICA</h3>
+          <p class="text-sm text-gray-600">Explora niveles educativos</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Process Steps -->
+  <section class="py-16 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center mb-12">
+        ¿Cómo iniciar tu proceso de admisión?
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div class="text-center">
+          <div
+            class="w-16 h-16 bg-red-600 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold"
+          >
+            1
+          </div>
+          <h3 class="text-xl font-bold mb-2">
+            Explora las carreras y oferta académica
+          </h3>
+          <p class="text-gray-600">
+            Conoce nuestras licenciaturas, ingenierías y programas de posgrado
+            disponibles
+          </p>
+        </div>
+        <div class="text-center">
+          <div
+            class="w-16 h-16 bg-red-600 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold"
+          >
+            2
+          </div>
+          <h3 class="text-xl font-bold mb-2">
+            Elige carrera y modalidad preferida
+          </h3>
+          <p class="text-gray-600">
+            Selecciona la carrera que más te interese y la modalidad que se
+            adapte a tu estilo de vida
+          </p>
+        </div>
+        <div class="text-center">
+          <div
+            class="w-16 h-16 bg-red-600 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold"
+          >
+            3
+          </div>
+          <h3 class="text-xl font-bold mb-2">
+            Agenda visita o contacta un asesor
+          </h3>
+          <p class="text-gray-600">
+            Conoce nuestras instalaciones, habla con asesores académicos y
+            resuelve tus dudas
+          </p>
+        </div>
+        <div class="text-center">
+          <div
+            class="w-16 h-16 bg-red-600 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold"
+          >
+            4
+          </div>
+          <h3 class="text-xl font-bold mb-2">Entrega tus documentos</h3>
+          <p class="text-gray-600">
+            Presenta la documentación requerida para completar tu proceso de
+            admisión
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 bg-white">
+    <div class="container px-4">
+      <div class="max-w-7xl mx-auto">
+        <p class="text-sm text-gray-600 mb-2">REQUISITOS</p>
+        <h2 class="text-3xl font-bold mb-40">
+          CONOCE LOS DOCUMENTOS QUE NECESITAS
+        </h2>
+
+        <!-- Tabs -->
+        <div class="flex flex-wrap gap-2 mb-8 justify-center">
+          <button
+            class="tab-button px-6 py-2 rounded-full font-medium transition-all duration-300 bg-blue-900 text-white"
+            data-tab="secundaria"
+          >
+            Secundaria
+          </button>
+          <button
+            class="tab-button px-6 py-2 rounded-full font-medium transition-all duration-300 bg-gray-200 text-gray-700 hover:bg-gray-300"
+            data-tab="bachillerato"
+          >
+            Bachillerato
+          </button>
+          <button
+            class="tab-button px-6 py-2 rounded-full font-medium transition-all duration-300 bg-gray-200 text-gray-700 hover:bg-gray-300"
+            data-tab="licenciatura"
+          >
+            Licenciatura
+          </button>
+          <button
+            class="tab-button px-6 py-2 rounded-full font-medium transition-all duration-300 bg-gray-200 text-gray-700 hover:bg-gray-300"
+            data-tab="maestria"
+          >
+            Maestría
+          </button>
+        </div>
+
+        <!-- Content -->
+        <div class="flex flex-col lg:flex-row gap-8">
+          <!-- Vertical Text -->
+          <div class="lg:w-1/3 flex justify-center lg:justify-start">
+            <div class="relative">
+              <div
+                id="vertical-text"
+                class="text-4xl lg:text-6xl font-bold text-blue-900 transform -rotate-90 origin-center lg:origin-bottom whitespace-nowrap"
+              >
+                SECUNDARIA
+              </div>
+            </div>
+          </div>
+
+          <!-- Requirements Card -->
+          <div class="lg:w-2/3">
+            <div class="bg-gray-50 rounded-lg   ">
+              <div id="requirements-list" class="space-y-4 px-6 pt-4 min-h-[220px]">
+                <!-- Requirements will be populated by JavaScript -->
+
+
+              </div>
+              <div class="text-sm mt-6 py-6 bg-azul-une  rounded-b-lg text-white text-center font-bold">
+                Todos los documentos originales y cinco copias
+              </div>
+            </div>
+
+            
+
+            <div class="space-y-3">
+              
+              <button
+                class="w-full border-2 border-green-600 text-green-600 px-8 py-3 rounded-lg hover:bg-green-50 transition-colors duration-300 flex items-center justify-center gap-2"
+                onclick="downloadRequirements()"
+              >
+                <svg
+                  class="w-5 h-5"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                  ></path>
+                </svg>
+                Descargar requisitos
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- Study Modalities -->
+  <section class="py-16 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center mb-12">
+        En UNE tenemos diferentes modalidades
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Semipresencial -->
+        <div class="bg-white rounded-lg p-6 shadow-md">
+          <div
+            class="h-40 bg-gray-200 rounded-lg mb-4 flex items-center justify-center"
+          >
+            <img
+              src="/api/placeholder/300/160"
+              alt="Semipresencial"
+              class="w-full h-full object-cover rounded-lg"
+            />
+          </div>
+          <h3 class="text-xl font-bold mb-4 text-center">SEMIPRESENCIAL</h3>
+          <p class="text-sm text-gray-600 mb-4 text-center">
+            Flexibilidad para estudiar a tu ritmo
+          </p>
+          <ul class="space-y-2 text-sm">
+            <li class="flex items-start space-x-2">
+              <CheckCircle className="w-4 h-4 text-green-600 mt-0.5" />
+              <span>Cuentas con documentación</span>
+            </li>
+            <li class="flex items-start space-x-2">
+              <CheckCircle className="w-4 h-4 text-green-600 mt-0.5" />
+              <span>Estudios flexibles (reconocimiento)</span>
+            </li>
+            <li class="flex items-start space-x-2">
+              <CheckCircle className="w-4 h-4 text-green-600 mt-0.5" />
+              <span>Ideal para trabajar y estudiar</span>
+            </li>
+            <li class="flex items-start space-x-2">
+              <CheckCircle className="w-4 h-4 text-green-600 mt-0.5" />
+              <span>Acceso a la plataforma digital</span>
+            </li>
+            <li class="flex items-start space-x-2">
+              <CheckCircle className="w-4 h-4 text-green-600 mt-0.5" />
+              <span>Apoyo docente especializado</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Presencial -->
+        <div class="bg-white rounded-lg p-6 shadow-md">
+          <div
+            class="h-40 bg-gray-200 rounded-lg mb-4 flex items-center justify-center"
+          >
+            <img
+              src="/api/placeholder/300/160"
+              alt="Presencial"
+              class="w-full h-full object-cover rounded-lg"
+            />
+          </div>
+          <h3 class="text-xl font-bold mb-4 text-center">PRESENCIAL</h3>
+          <p class="text-sm text-gray-600 mb-4 text-center">
+            Vive la experiencia universitaria completa
+          </p>
+          <ul class="space-y-2 text-sm">
+            <li class="flex items-start space-x-2">
+              <CheckCircle className="w-4 h-4 text-green-600 mt-0.5" />
+              <span>Interacción directa con docentes</span>
+            </li>
+            <li class="flex items-start space-x-2">
+              <CheckCircle className="w-4 h-4 text-green-600 mt-0.5" />
+              <span>Educación práctica y experimental</span>
+            </li>
+            <li class="flex items-start space-x-2">
+              <CheckCircle className="w-4 h-4 text-green-600 mt-0.5" />
+              <span>Actividades extracurriculares y club</span>
+            </li>
+            <li class="flex items-start space-x-2">
+              <CheckCircle className="w-4 h-4 text-green-600 mt-0.5" />
+              <span>Actividades extracurriculares y club</span>
+            </li>
+            <li class="flex items-start space-x-2">
+              <CheckCircle className="w-4 h-4 text-green-600 mt-0.5" />
+              <span>Actividades extracurriculares y club</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- En Línea -->
+        <div class="bg-white rounded-lg p-6 shadow-md">
+          <div
+            class="h-40 bg-gray-200 rounded-lg mb-4 flex items-center justify-center"
+          >
+            <img
+              src="/api/placeholder/300/160"
+              alt="En Línea"
+              class="w-full h-full object-cover rounded-lg"
+            />
+          </div>
+          <h3 class="text-xl font-bold mb-4 text-center">EN LÍNEA</h3>
+          <p class="text-sm text-gray-600 mb-4 text-center">
+            Estudia desde donde estés
+          </p>
+          <ul class="space-y-2 text-sm">
+            <li class="flex items-start space-x-2">
+              <CheckCircle className="w-4 h-4 text-green-600 mt-0.5" />
+              <span>100% en línea desde casa</span>
+            </li>
+            <li class="flex items-start space-x-2">
+              <CheckCircle className="w-4 h-4 text-green-600 mt-0.5" />
+              <span>Plataforma educativa de última generación</span>
+            </li>
+            <li class="flex items-start space-x-2">
+              <CheckCircle className="w-4 h-4 text-green-600 mt-0.5" />
+              <span>Apoyo académico online</span>
+            </li>
+            <li class="flex items-start space-x-2">
+              <CheckCircle className="w-4 h-4 text-green-600 mt-0.5" />
+              <span>Flexibilidad educativa al 100% personalizada</span>
+            </li>
+            <li class="flex items-start space-x-2">
+              <CheckCircle className="w-4 h-4 text-green-600 mt-0.5" />
+              <span>Apoyo durante todo el proceso</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Sabatina and Fines de Semana -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
+        <!-- Sabatina -->
+        <div class="bg-white rounded-lg p-6 shadow-md">
+          <div
+            class="h-40 bg-gray-200 rounded-lg mb-4 flex items-center justify-center"
+          >
+            <img
+              src="/api/placeholder/300/160"
+              alt="Sabatina"
+              class="w-full h-full object-cover rounded-lg"
+            />
+          </div>
+          <h3 class="text-xl font-bold mb-4 text-center">SABATINA</h3>
+          <p class="text-sm text-gray-600 mb-4 text-center">
+            Concilia tu tiempo sin renunciar a tu crecimiento
+          </p>
+          <ul class="space-y-2 text-sm">
+            <li class="flex items-start space-x-2">
+              <CheckCircle className="w-4 h-4 text-green-600 mt-0.5" />
+              <span>Clases presenciales sólo los sábados</span>
+            </li>
+            <li class="flex items-start space-x-2">
+              <CheckCircle className="w-4 h-4 text-green-600 mt-0.5" />
+              <span>Horarios flexibles (mañana/tarde/noche)</span>
+            </li>
+            <li class="flex items-start space-x-2">
+              <CheckCircle className="w-4 h-4 text-green-600 mt-0.5" />
+              <span>Compromiso con tu horario de lunes a viernes</span>
+            </li>
+            <li class="flex items-start space-x-2">
+              <CheckCircle className="w-4 h-4 text-green-600 mt-0.5" />
+              <span>Apoyo y atención docente</span>
+            </li>
+            <li class="flex items-start space-x-2">
+              <CheckCircle className="w-4 h-4 text-green-600 mt-0.5" />
+              <span>Flexibilidad para hacer prácticas</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Fines de Semana -->
+        <div class="bg-white rounded-lg p-6 shadow-md">
+          <div
+            class="h-40 bg-gray-200 rounded-lg mb-4 flex items-center justify-center"
+          >
+            <img
+              src="/api/placeholder/300/160"
+              alt="Fines de Semana"
+              class="w-full h-full object-cover rounded-lg"
+            />
+          </div>
+          <h3 class="text-xl font-bold mb-4 text-center">FINES DE SEMANA</h3>
+          <p class="text-sm text-gray-600 mb-4 text-center">
+            Equilibra tu capacitación sin afectar tu rutina
+          </p>
+          <ul class="space-y-2 text-sm">
+            <li class="flex items-start space-x-2">
+              <CheckCircle className="w-4 h-4 text-green-600 mt-0.5" />
+              <span>Clases sábados y domingos</span>
+            </li>
+            <li class="flex items-start space-x-2">
+              <CheckCircle className="w-4 h-4 text-green-600 mt-0.5" />
+              <span>Compromiso sin interrumpir tu: 5 días</span>
+            </li>
+            <li class="flex items-start space-x-2">
+              <CheckCircle className="w-4 h-4 text-green-600 mt-0.5" />
+              <span>Manifiesto empresarial</span>
+            </li>
+            <li class="flex items-start space-x-2">
+              <CheckCircle className="w-4 h-4 text-green-600 mt-0.5" />
+              <span>Docentes especializados</span>
+            </li>
+            <li class="flex items-start space-x-2">
+              <CheckCircle className="w-4 h-4 text-green-600 mt-0.5" />
+              <span>Networking con otros como tú profesionistas</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Discover More -->
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center mb-12">DESCUBRE MÁS</h2>
+      <div
+        class="relative bg-cover bg-center h-96 rounded-lg"
+        style="background-image: url('/api/placeholder/800/400')"
+      >
+        <div class="absolute inset-0 bg-black bg-opacity-50 rounded-lg"></div>
+        <div
+          class="relative h-full flex items-center justify-center text-white"
+        >
+          <div class="text-center">
+            <h3 class="text-4xl font-bold mb-4">INSCRIPCIÓN<br />SIN COSTO</h3>
+            <p class="text-lg mb-6">
+              Conoce nuestras becas, licenciaturas y posgrados
+            </p>
+            <button
+              class="bg-red-600 hover:bg-red-700 text-white px-8 py-3 rounded-lg"
+            >
+              Más información
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+
+  <script>
+    // Datos de requisitos por nivel educativo
+    const requirementsData = {
+      secundaria: {
+        title: "SECUNDARIA",
+        requirements: [
+          {
+            icon: "document",
+            text: "Acta de nacimiento",
+          },
+          {
+            icon: "document",
+            text: "Certificado de primaria",
+          },
+          {
+            icon: "camera",
+            text: "8 fotografías blanco y negro, tamaño infantil de estudio",
+          },
+          {
+            icon: "card",
+            text: "CURP",
+          },
+        ],
+      },
+      bachillerato: {
+        title: "BACHILLERATO",
+        requirements: [
+          {
+            icon: "document",
+            text: "Acta de nacimiento",
+          },
+          {
+            icon: "document",
+            text: "Certificado de secundaria",
+          },
+          {
+            icon: "camera",
+            text: "6 fotografías a color, tamaño infantil de estudio",
+          },
+          {
+            icon: "card",
+            text: "CURP",
+          },
+          {
+            icon: "document",
+            text: "Constancia de estudios (si aplica)",
+          },
+        ],
+      },
+      licenciatura: {
+        title: "LICENCIATURA",
+        requirements: [
+          {
+            icon: "document",
+            text: "Acta de nacimiento",
+          },
+          {
+            icon: "document",
+            text: "Certificado de bachillerato",
+          },
+          {
+            icon: "camera",
+            text: "6 fotografías a color, tamaño infantil de estudio",
+          },
+          {
+            icon: "card",
+            text: "CURP",
+          },
+          {
+            icon: "document",
+            text: "Constancia de servicio social (si aplica)",
+          },
+          {
+            icon: "document",
+            text: "Carta de buena conducta",
+          },
+        ],
+      },
+      maestria: {
+        title: "MAESTRÍA",
+        requirements: [
+          {
+            icon: "document",
+            text: "Acta de nacimiento",
+          },
+          {
+            icon: "document",
+            text: "Título de licenciatura",
+          },
+          {
+            icon: "document",
+            text: "Cédula profesional",
+          },
+          {
+            icon: "camera",
+            text: "6 fotografías a color, tamaño infantil de estudio",
+          },
+          {
+            icon: "card",
+            text: "CURP",
+          },
+          {
+            icon: "document",
+            text: "Curriculum vitae actualizado",
+          },
+          {
+            icon: "document",
+            text: "Carta de motivos",
+          },
+        ],
+      },
+    };
+
+    // Función para obtener el icono SVG
+    function getIcon(type) {
+      const icons = {
+        document: `<svg class="w-5 h-5 text-red-600 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+      </svg>`,
+        camera: `<svg class="w-5 h-5 text-red-600 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"></path>
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"></path>
+      </svg>`,
+        card: `<svg class="w-5 h-5 text-red-600 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"></path>
+      </svg>`,
+      };
+      return icons[type] || icons.document;
+    }
+
+    // Función para renderizar requisitos
+    function renderRequirements(levelKey) {
+      const data = requirementsData[levelKey];
+      const container = document.getElementById("requirements-list");
+      const verticalText = document.getElementById("vertical-text");
+
+      // Actualizar texto vertical
+      verticalText.textContent = data.title;
+
+      // Limpiar contenedor
+      container.innerHTML = "";
+
+      // Agregar requisitos con animación
+      data.requirements.forEach((requirement, index) => {
+        const item = document.createElement("div");
+        item.className =
+          "flex items-start space-x-3 opacity-0 transform translate-y-4 transition-all duration-300";
+        item.style.transitionDelay = `${index * 100}ms`;
+
+        item.innerHTML = `
+        ${getIcon(requirement.icon)}
+        <span class="text-gray-800 leading-relaxed">${requirement.text}</span>
+      `;
+
+        container.appendChild(item);
+
+        // Trigger animation
+        setTimeout(() => {
+          item.classList.remove("opacity-0", "translate-y-4");
+        }, 50);
+      });
+    }
+
+    // Función para cambiar tab activo
+    function setActiveTab(activeTab) {
+      const buttons = document.querySelectorAll(".tab-button");
+
+      buttons.forEach((button) => {
+        const tabName = button.getAttribute("data-tab");
+        if (tabName === activeTab) {
+          button.className =
+            "tab-button px-6 py-2 rounded-full font-medium transition-all duration-300 bg-blue-900 text-white transform scale-105";
+        } else {
+          button.className =
+            "tab-button px-6 py-2 rounded-full font-medium transition-all duration-300 bg-gray-200 text-gray-700 hover:bg-gray-300";
+        }
+      });
+    }
+
+    // Funciones para botones
+    function showDetailedRequirements() {
+      const activeTab = document
+        .querySelector(".tab-button.bg-blue-900")
+        .getAttribute("data-tab");
+      alert(
+        `Mostrando requisitos detallados para ${requirementsData[activeTab].title}`
+      );
+      // Aquí puedes implementar la lógica para mostrar más detalles
+    }
+
+    function downloadRequirements() {
+      const activeTab = document
+        .querySelector(".tab-button.bg-blue-900")
+        .getAttribute("data-tab");
+      alert(`Descargando requisitos para ${requirementsData[activeTab].title}`);
+      // Aquí puedes implementar la lógica de descarga
+    }
+
+    // Inicialización cuando el DOM esté listo
+    document.addEventListener("DOMContentLoaded", function () {
+      // Renderizar requisitos iniciales
+      renderRequirements("secundaria");
+
+      // Agregar event listeners a los botones de tabs
+      const tabButtons = document.querySelectorAll(".tab-button");
+
+      tabButtons.forEach((button) => {
+        button.addEventListener("click", function () {
+          const tabName = this.getAttribute("data-tab");
+          setActiveTab(tabName);
+          renderRequirements(tabName);
+        });
+      });
+    });
+  </script>
+
+  <style>
+    /* Estilos adicionales para mejorar la experiencia */
+    .tab-button {
+      user-select: none;
+    }
+
+    .tab-button:active {
+      transform: scale(0.98);
+    }
+
+    /* Animación para el texto vertical */
+    #vertical-text {
+      transition: all 0.5s ease-in-out;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 1024px) {
+      #vertical-text {
+        transform: rotate(0deg) !important;
+        font-size: 2rem;
+        text-align: center;
+        margin-bottom: 1rem;
+      }
+    }
+
+    /* Hover effects */
+    .tab-button:hover:not(.bg-blue-900) {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Loading animation */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .fade-in-up {
+      animation: fadeInUp 0.6s ease-out;
+    }
+  </style>
