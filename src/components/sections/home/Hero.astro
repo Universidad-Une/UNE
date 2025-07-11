@@ -2,6 +2,9 @@
 // src/components/MainSlider.astro
 import ComercialMp4 from "@/assets/Videos/Comercial.mp4";
 import ComercialWebm from "@/assets/Videos/Comercial.webm";
+import Oferta from "@/assets/Imagenes/Heros/Admision.jpg";
+import Historia from "@/assets/Imagenes/Heros/historia.jpg";
+import Becas from "@/assets/Imagenes/Heros/Becas.jpg";
 import { ArrowRight } from "@lucide/astro";
 ---
 
@@ -32,7 +35,8 @@ import { ArrowRight } from "@lucide/astro";
 
         <li class="splide__slide">
           <div
-            class="relative w-full overflow-hidden h-[650px] bg-gradient-to-br from-blue-600 to-blue-800 flex items-center justify-center"
+            class="relative w-full overflow-hidden h-[650px] bg-cover bg-center bg-no-repeat flex items-center justify-center"
+            style={`background-image: url(${Oferta.src})`}
           >
             <div class="text-center">
               <h2
@@ -56,7 +60,8 @@ import { ArrowRight } from "@lucide/astro";
 
         <li class="splide__slide">
           <div
-            class="relative w-full rounded-lg overflow-hidden h-[650px] bg-gradient-to-br from-green-600 to-green-800 flex items-center justify-center"
+            class="relative w-full overflow-hidden h-[650px] bg-cover bg-center bg-no-repeat flex items-center justify-center"
+            style={`background-image: url(${Historia.src})`}
           >
             <div class="text-center">
               <h2
@@ -79,7 +84,8 @@ import { ArrowRight } from "@lucide/astro";
 
         <li class="splide__slide">
           <div
-            class="relative w-full rounded-lg overflow-hidden h-[650px] bg-gradient-to-br from-purple-600 to-purple-800 flex items-center justify-center"
+            class="relative w-full overflow-hidden h-[650px] bg-cover bg-center bg-no-repeat flex items-center justify-center"
+            style={`background-image: url(${Becas.src})`}
           >
             <div class="text-center">
               <h2
@@ -151,7 +157,7 @@ import { ArrowRight } from "@lucide/astro";
           data-slide-index="0"
         >
           <h3
-            class="text-white text-base-custom md:text-lg-custom font-semibold tracking-wide text-center sm:text-left hidden sm:block whitespace-nowrap"
+            class="text-white text-base-custom md:text-lg-custom font-semibold tracking-wide text-center sm:text-left hidden md:block whitespace-nowrap"
           >
             30 AÑOS CREYENDO EN TI
           </h3>
@@ -162,7 +168,7 @@ import { ArrowRight } from "@lucide/astro";
           data-slide-index="1"
         >
           <h3
-            class="text-white text-base-custom md:text-lg-custom font-semibold tracking-wide text-center sm:text-left hidden sm:block whitespace-nowrap"
+            class="text-white text-base-custom md:text-lg-custom font-semibold tracking-wide text-center sm:text-left hidden md:block whitespace-nowrap"
           >
             OFERTA ACADÉMICA
           </h3>
@@ -173,7 +179,7 @@ import { ArrowRight } from "@lucide/astro";
           data-slide-index="2"
         >
           <h3
-            class="text-white text-base-custom md:text-lg-custom font-semibold tracking-wide text-center sm:text-left hidden sm:block whitespace-nowrap"
+            class="text-white text-base-custom md:text-lg-custom font-semibold tracking-wide text-center sm:text-left hidden md:block whitespace-nowrap"
           >
             NUESTRA HISTORIA
           </h3>
@@ -184,7 +190,7 @@ import { ArrowRight } from "@lucide/astro";
           data-slide-index="3"
         >
           <h3
-            class="text-white text-base-custom md:text-lg-custom font-semibold tracking-wide text-center sm:text-left hidden sm:block whitespace-nowrap"
+            class="text-white text-base-custom md:text-lg-custom font-semibold tracking-wide text-center sm:text-left hidden md:block whitespace-nowrap"
           >
             APOYOS EDUCATIVOS
           </h3>
@@ -338,364 +344,364 @@ import { ArrowRight } from "@lucide/astro";
   }
 
   /* Responsive adjustments (can be removed if handled purely by Tailwind) */
-  @media (max-width: 640px) {
+  @media (max-width: 650px) {
     .progress-line::before,
     .progress-line::after {
       width: 100%;
     }
   }
 </style>
-<script> 
+<script>
   import { Splide } from "@splidejs/splide";
 
-// DOM elements
-const mainVideo = document.getElementById("mainVideo");
-const playPauseBtn = document.getElementById("playPauseBtn");
-const playIcon = document.getElementById("playIcon");
-const pauseIcon = document.getElementById("pauseIcon");
-const progressLines = document.querySelectorAll(".progress-line");
-const mainSliderElement = document.getElementById("main-slider");
+  // DOM elements
+  const mainVideo = document.getElementById("mainVideo");
+  const playPauseBtn = document.getElementById("playPauseBtn");
+  const playIcon = document.getElementById("playIcon");
+  const pauseIcon = document.getElementById("pauseIcon");
+  const progressLines = document.querySelectorAll(".progress-line");
+  const mainSliderElement = document.getElementById("main-slider");
 
-let splideInstance = null;
-let isVideoPlaying = true;
-let videoProgressInterval = null;
-let slideProgressInterval = null;
-let isPaused = false;
-let autoplayTimeout = null; // Custom autoplay mechanism
+  let splideInstance = null;
+  let isVideoPlaying = true;
+  let videoProgressInterval = null;
+  let slideProgressInterval = null;
+  let isPaused = false;
+  let autoplayTimeout = null; // Custom autoplay mechanism
 
-// Durations for each slide in milliseconds
-const slideDurations = [
-  60000, // 1 minuto (60 segundos * 1000 ms)
-  8000, // 8 seconds for Oferta Académica
-  8000, // 8 seconds for Nuestra Historia
-  8000, // 8 seconds for Apoyos Educativos
-];
+  // Durations for each slide in milliseconds
+  const slideDurations = [
+    60000, // 1 minuto (60 segundos * 1000 ms)
+    8000, // 8 seconds for Oferta Académica
+    8000, // 8 seconds for Nuestra Historia
+    8000, // 8 seconds for Apoyos Educativos
+  ];
 
-// Custom autoplay functions
-function startAutoplay(currentIndex) {
-  clearAutoplay();
-  
-  if (isPaused) return;
-  
-  const duration = slideDurations[currentIndex];
-  
-  autoplayTimeout = setTimeout(() => {
-    if (!isPaused && splideInstance) {
-      const nextIndex = (currentIndex + 1) % slideDurations.length;
-      splideInstance.go(nextIndex);
+  // Custom autoplay functions
+  function startAutoplay(currentIndex) {
+    clearAutoplay();
+
+    if (isPaused) return;
+
+    const duration = slideDurations[currentIndex];
+
+    autoplayTimeout = setTimeout(() => {
+      if (!isPaused && splideInstance) {
+        const nextIndex = (currentIndex + 1) % slideDurations.length;
+        splideInstance.go(nextIndex);
+      }
+    }, duration);
+  }
+
+  function clearAutoplay() {
+    if (autoplayTimeout) {
+      clearTimeout(autoplayTimeout);
+      autoplayTimeout = null;
     }
-  }, duration);
-}
-
-function clearAutoplay() {
-  if (autoplayTimeout) {
-    clearTimeout(autoplayTimeout);
-    autoplayTimeout = null;
-  }
-}
-
-function pauseAutoplay() {
-  clearAutoplay();
-}
-
-function resumeAutoplay() {
-  if (splideInstance && !isPaused) {
-    startAutoplay(splideInstance.index);
-  }
-}
-
-// Function to initialize Splide
-function initializeSplide() {
-  if (!mainSliderElement) {
-    console.error("Splide container not found.");
-    return;
   }
 
-  splideInstance = new Splide(mainSliderElement, {
-    type: "slide",
-    autoplay: false, // Disable built-in autoplay
-    arrows: false,
-    pagination: false,
-    keyboard: false,
-    drag: false,
-    speed: 600,
-    pauseOnHover: false,
-    pauseOnFocus: false,
-    rewind: true,
-  });
+  function pauseAutoplay() {
+    clearAutoplay();
+  }
 
-  splideInstance.mount();
+  function resumeAutoplay() {
+    if (splideInstance && !isPaused) {
+      startAutoplay(splideInstance.index);
+    }
+  }
 
-  // Splide Event Listeners
-  splideInstance.on("moved", (newIndex) => {
-    handleSlideChange(newIndex);
-  });
+  // Function to initialize Splide
+  function initializeSplide() {
+    if (!mainSliderElement) {
+      console.error("Splide container not found.");
+      return;
+    }
 
-  // Initialize first slide
-  handleSlideChange(splideInstance.index);
-}
+    splideInstance = new Splide(mainSliderElement, {
+      type: "slide",
+      autoplay: false, // Disable built-in autoplay
+      arrows: false,
+      pagination: false,
+      keyboard: false,
+      drag: false,
+      speed: 600,
+      pauseOnHover: false,
+      pauseOnFocus: false,
+      rewind: true,
+    });
 
-// Handle slide changes
-function handleSlideChange(newIndex) {
-  console.log(`Slide changed to: ${newIndex}`);
+    splideInstance.mount();
 
-  // Clear any existing intervals and timeouts
-  clearInterval(videoProgressInterval);
-  clearInterval(slideProgressInterval);
-  clearAutoplay();
+    // Splide Event Listeners
+    splideInstance.on("moved", (newIndex) => {
+      handleSlideChange(newIndex);
+    });
 
-  updateProgressBars(newIndex);
+    // Initialize first slide
+    handleSlideChange(splideInstance.index);
+  }
 
-  if (playPauseBtn) {
+  // Handle slide changes
+  function handleSlideChange(newIndex) {
+    console.log(`Slide changed to: ${newIndex}`);
+
+    // Clear any existing intervals and timeouts
+    clearInterval(videoProgressInterval);
+    clearInterval(slideProgressInterval);
+    clearAutoplay();
+
+    updateProgressBars(newIndex);
+
+    if (playPauseBtn) {
+      if (newIndex === 0) {
+        playPauseBtn.style.display = "block"; // Show button for video slide
+      } else {
+        playPauseBtn.style.display = "none"; // Hide button for other slides
+      }
+    }
+
     if (newIndex === 0) {
-      playPauseBtn.style.display = "block"; // Show button for video slide
+      // Video slide
+      if (mainVideo) {
+        mainVideo.currentTime = 0;
+        if (!isPaused) {
+          mainVideo.play().catch((e) => console.log("Video play error:", e));
+          startVideoProgress();
+          updatePlayPauseButton(true);
+        } else {
+          mainVideo.pause();
+          updatePlayPauseButton(false);
+        }
+      }
+
+      // Start custom autoplay for video
+      if (!isPaused) {
+        startAutoplay(0);
+      }
     } else {
-      playPauseBtn.style.display = "none"; // Hide button for other slides
+      // Non-video slide
+      if (mainVideo && !mainVideo.paused) {
+        mainVideo.pause();
+      }
+
+      if (!isPaused) {
+        startSlideProgress(newIndex);
+        startAutoplay(newIndex);
+      } else {
+        startSlideProgress(newIndex); // If paused, only initialize progress bar
+      }
     }
   }
 
-  if (newIndex === 0) {
-    // Video slide
-    if (mainVideo) {
-      mainVideo.currentTime = 0;
-      if (!isPaused) {
+  // Update visual state of progress bars
+  function updateProgressBars(currentSlideIndex) {
+    progressLines.forEach((line, index) => {
+      line.classList.remove("is-active", "is-completed", "is-paused");
+      line.style.setProperty("--slide-duration", "0s");
+
+      if (index < currentSlideIndex) {
+        line.classList.add("is-completed");
+      } else if (index === currentSlideIndex) {
+        line.classList.add("is-active");
+
+        if (isPaused) {
+          line.classList.add("is-paused");
+        }
+
+        let duration = slideDurations[index];
+
+        if (index === 0) {
+          // Always use fixed value for slide 0
+          duration = slideDurations[0];
+        }
+
+        if (duration) {
+          line.style.setProperty("--slide-duration", `${duration / 1000}s`);
+        }
+      }
+    });
+  }
+
+  // Start progress bar animation for non-video slides
+  function startSlideProgress(slideIndex) {
+    if (slideIndex === 0) return;
+
+    const duration = slideDurations[slideIndex];
+    const progressLine = progressLines[slideIndex];
+
+    if (!duration || !progressLine) return;
+
+    progressLine.style.setProperty("--slide-duration", `${duration / 1000}s`);
+    progressLine.classList.remove("is-active");
+    void progressLine.offsetWidth;
+    progressLine.classList.add("is-active");
+
+    slideProgressInterval = setTimeout(() => {
+      if (!isPaused && splideInstance) {
+        progressLine.classList.remove("is-active");
+        progressLine.classList.add("is-completed");
+        // The autoplay mechanism will handle the transition
+      }
+    }, duration);
+  }
+
+  // Control video play/pause and slider
+  function togglePlayPause() {
+    isPaused = !isPaused;
+
+    if (isPaused) {
+      if (splideInstance.index === 0 && mainVideo) {
+        mainVideo.pause();
+        clearInterval(videoProgressInterval);
+      } else {
+        clearInterval(slideProgressInterval);
+      }
+      pauseAutoplay();
+
+      progressLines.forEach((line) => {
+        if (line.classList.contains("is-active")) {
+          line.classList.add("is-paused");
+        }
+      });
+
+      updatePlayPauseButton(false);
+    } else {
+      if (splideInstance.index === 0 && mainVideo) {
         mainVideo.play().catch((e) => console.log("Video play error:", e));
         startVideoProgress();
-        updatePlayPauseButton(true);
       } else {
-        mainVideo.pause();
-        updatePlayPauseButton(false);
+        startSlideProgress(splideInstance.index);
       }
-    }
+      resumeAutoplay();
 
-    // Start custom autoplay for video
-    if (!isPaused) {
-      startAutoplay(0);
-    }
-  } else {
-    // Non-video slide
-    if (mainVideo && !mainVideo.paused) {
-      mainVideo.pause();
-    }
+      progressLines.forEach((line) => {
+        line.classList.remove("is-paused");
+      });
 
-    if (!isPaused) {
-      startSlideProgress(newIndex);
-      startAutoplay(newIndex);
+      updatePlayPauseButton(true);
+    }
+  }
+
+  // Helper to update play/pause button icon
+  function updatePlayPauseButton(playing) {
+    isVideoPlaying = playing;
+    if (playing) {
+      playIcon.classList.add("hidden");
+      pauseIcon.classList.remove("hidden");
+      playPauseBtn.setAttribute("aria-label", "Pausar");
     } else {
-      startSlideProgress(newIndex); // If paused, only initialize progress bar
+      playIcon.classList.remove("hidden");
+      pauseIcon.classList.add("hidden");
+      playPauseBtn.setAttribute("aria-label", "Reproducir");
     }
   }
-}
 
-// Update visual state of progress bars
-function updateProgressBars(currentSlideIndex) {
-  progressLines.forEach((line, index) => {
-    line.classList.remove("is-active", "is-completed", "is-paused");
-    line.style.setProperty("--slide-duration", "0s");
+  // Start progress bar animation for the video
+  function startVideoProgress() {
+    clearInterval(videoProgressInterval);
 
-    if (index < currentSlideIndex) {
-      line.classList.add("is-completed");
-    } else if (index === currentSlideIndex) {
-      line.classList.add("is-active");
+    if (!mainVideo) return;
 
-      if (isPaused) {
-        line.classList.add("is-paused");
-      }
+    const videoDurationMs = slideDurations[0]; // Use fixed 1 minute value
+    const videoCurrentTimeMs = mainVideo.currentTime * 1000;
+    const remainingTimeMs = videoDurationMs - videoCurrentTimeMs;
 
-      let duration = slideDurations[index];
-
-      if (index === 0) {
-        // Always use fixed value for slide 0
-        duration = slideDurations[0];
-      }
-
-      if (duration) {
-        line.style.setProperty("--slide-duration", `${duration / 1000}s`);
-      }
-    }
-  });
-}
-
-// Start progress bar animation for non-video slides
-function startSlideProgress(slideIndex) {
-  if (slideIndex === 0) return;
-
-  const duration = slideDurations[slideIndex];
-  const progressLine = progressLines[slideIndex];
-
-  if (!duration || !progressLine) return;
-
-  progressLine.style.setProperty("--slide-duration", `${duration / 1000}s`);
-  progressLine.classList.remove("is-active");
-  void progressLine.offsetWidth;
-  progressLine.classList.add("is-active");
-
-  slideProgressInterval = setTimeout(() => {
-    if (!isPaused && splideInstance) {
-      progressLine.classList.remove("is-active");
-      progressLine.classList.add("is-completed");
-      // The autoplay mechanism will handle the transition
-    }
-  }, duration);
-}
-
-// Control video play/pause and slider
-function togglePlayPause() {
-  isPaused = !isPaused;
-
-  if (isPaused) {
-    if (splideInstance.index === 0 && mainVideo) {
-      mainVideo.pause();
-      clearInterval(videoProgressInterval);
-    } else {
-      clearInterval(slideProgressInterval);
-    }
-    pauseAutoplay();
-
-    progressLines.forEach((line) => {
-      if (line.classList.contains("is-active")) {
-        line.classList.add("is-paused");
-      }
-    });
-
-    updatePlayPauseButton(false);
-  } else {
-    if (splideInstance.index === 0 && mainVideo) {
-      mainVideo.play().catch((e) => console.log("Video play error:", e));
-      startVideoProgress();
-    } else {
-      startSlideProgress(splideInstance.index);
-    }
-    resumeAutoplay();
-
-    progressLines.forEach((line) => {
-      line.classList.remove("is-paused");
-    });
-
-    updatePlayPauseButton(true);
-  }
-}
-
-// Helper to update play/pause button icon
-function updatePlayPauseButton(playing) {
-  isVideoPlaying = playing;
-  if (playing) {
-    playIcon.classList.add("hidden");
-    pauseIcon.classList.remove("hidden");
-    playPauseBtn.setAttribute("aria-label", "Pausar");
-  } else {
-    playIcon.classList.remove("hidden");
-    pauseIcon.classList.add("hidden");
-    playPauseBtn.setAttribute("aria-label", "Reproducir");
-  }
-}
-
-// Start progress bar animation for the video
-function startVideoProgress() {
-  clearInterval(videoProgressInterval);
-
-  if (!mainVideo) return;
-
-  const videoDurationMs = slideDurations[0]; // Use fixed 1 minute value
-  const videoCurrentTimeMs = mainVideo.currentTime * 1000;
-  const remainingTimeMs = videoDurationMs - videoCurrentTimeMs;
-
-  if (remainingTimeMs <= 0) {
-    if (splideInstance) {
-      splideInstance.go("+1");
-    }
-    return;
-  }
-
-  const firstProgressLine = progressLines[0];
-  if (firstProgressLine) {
-    firstProgressLine.style.setProperty(
-      "--slide-duration",
-      `${remainingTimeMs / 1000}s`
-    );
-
-    firstProgressLine.classList.remove("is-active");
-    void firstProgressLine.offsetWidth;
-    firstProgressLine.classList.add("is-active");
-  }
-
-  videoProgressInterval = setInterval(() => {
-    // Advance if video ends or if 1 minute has passed (our fixed duration)
-    if (
-      !mainVideo ||
-      mainVideo.paused ||
-      mainVideo.ended ||
-      isPaused ||
-      mainVideo.currentTime * 1000 >= videoDurationMs
-    ) {
-      clearInterval(videoProgressInterval);
-      const completedLine = progressLines[0];
-      if (completedLine) {
-        completedLine.classList.remove("is-active");
-        completedLine.classList.add("is-completed");
-      }
-
-      if (splideInstance && !isPaused) {
-        setTimeout(() => {
-          splideInstance.go("+1");
-        }, 300);
+    if (remainingTimeMs <= 0) {
+      if (splideInstance) {
+        splideInstance.go("+1");
       }
       return;
     }
-  }, 100);
-}
 
-// Event Listeners
-if (playPauseBtn) {
-  playPauseBtn.addEventListener("click", togglePlayPause);
-}
+    const firstProgressLine = progressLines[0];
+    if (firstProgressLine) {
+      firstProgressLine.style.setProperty(
+        "--slide-duration",
+        `${remainingTimeMs / 1000}s`
+      );
 
-if (mainVideo) {
-  mainVideo.addEventListener("loadedmetadata", () => {
-    // Start custom autoplay for video when metadata is loaded
-    if (splideInstance && splideInstance.index === 0) {
-      if (!isPaused) {
-        startAutoplay(0);
+      firstProgressLine.classList.remove("is-active");
+      void firstProgressLine.offsetWidth;
+      firstProgressLine.classList.add("is-active");
+    }
+
+    videoProgressInterval = setInterval(() => {
+      // Advance if video ends or if 1 minute has passed (our fixed duration)
+      if (
+        !mainVideo ||
+        mainVideo.paused ||
+        mainVideo.ended ||
+        isPaused ||
+        mainVideo.currentTime * 1000 >= videoDurationMs
+      ) {
+        clearInterval(videoProgressInterval);
+        const completedLine = progressLines[0];
+        if (completedLine) {
+          completedLine.classList.remove("is-active");
+          completedLine.classList.add("is-completed");
+        }
+
+        if (splideInstance && !isPaused) {
+          setTimeout(() => {
+            splideInstance.go("+1");
+          }, 300);
+        }
+        return;
+      }
+    }, 100);
+  }
+
+  // Event Listeners
+  if (playPauseBtn) {
+    playPauseBtn.addEventListener("click", togglePlayPause);
+  }
+
+  if (mainVideo) {
+    mainVideo.addEventListener("loadedmetadata", () => {
+      // Start custom autoplay for video when metadata is loaded
+      if (splideInstance && splideInstance.index === 0) {
+        if (!isPaused) {
+          startAutoplay(0);
+          startVideoProgress();
+        }
+      }
+      updateProgressBars(splideInstance ? splideInstance.index : 0);
+    });
+
+    mainVideo.addEventListener("play", () => {
+      if (!isPaused && splideInstance && splideInstance.index === 0) {
+        updatePlayPauseButton(true);
         startVideoProgress();
       }
-    }
-    updateProgressBars(splideInstance ? splideInstance.index : 0);
-  });
+    });
 
-  mainVideo.addEventListener("play", () => {
-    if (!isPaused && splideInstance && splideInstance.index === 0) {
-      updatePlayPauseButton(true);
-      startVideoProgress();
-    }
-  });
+    mainVideo.addEventListener("pause", () => {
+      if (isPaused) {
+        updatePlayPauseButton(false);
+        clearInterval(videoProgressInterval);
+      }
+    });
 
-  mainVideo.addEventListener("pause", () => {
-    if (isPaused) {
-      updatePlayPauseButton(false);
+    mainVideo.addEventListener("ended", () => {
       clearInterval(videoProgressInterval);
-    }
+      updatePlayPauseButton(false);
+      // The autoplay mechanism will handle the transition
+    });
+  }
+
+  // Click handler for progress bars to navigate
+  progressLines.forEach((line) => {
+    line.addEventListener("click", (e) => {
+      e.preventDefault();
+      const slideIndex = parseInt(line.dataset.slideIndex, 10);
+      if (splideInstance && !isNaN(slideIndex)) {
+        splideInstance.go(slideIndex);
+      }
+    });
   });
 
-  mainVideo.addEventListener("ended", () => {
-    clearInterval(videoProgressInterval);
-    updatePlayPauseButton(false);
-    // The autoplay mechanism will handle the transition
+  // Initialize when DOM is ready
+  document.addEventListener("DOMContentLoaded", () => {
+    initializeSplide();
   });
-}
-
-// Click handler for progress bars to navigate
-progressLines.forEach((line) => {
-  line.addEventListener("click", (e) => {
-    e.preventDefault();
-    const slideIndex = parseInt(line.dataset.slideIndex, 10);
-    if (splideInstance && !isNaN(slideIndex)) {
-      splideInstance.go(slideIndex);
-    }
-  });
-});
-
-// Initialize when DOM is ready
-document.addEventListener("DOMContentLoaded", () => {
-  initializeSplide();
-});
 </script>

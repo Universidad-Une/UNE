@@ -1,0 +1,723 @@
+---
+import FondoAdmisiones from "@/assets/Imagenes/Heros/Admsiones.jpg";
+import LogoUNE from "@/assets/Logos/UNE_azul.png";
+import Layout from "@/layouts/Layout.astro";
+import SemiescolarizadaImg from "@/assets/Imagenes/Modalidades/Semiescolarizada.jpg";
+import PresencialImg from "@/assets/Imagenes/Modalidades/Presencial.jpg";
+import EnLineaImg from "@/assets/Imagenes/Modalidades/En linea.png";
+import SabatinaImg from "@/assets/Imagenes/Modalidades/Sabatina.png";
+import FinesImg from "@/assets/Imagenes/Modalidades/Fines.png";
+import VideoBackground from "@/assets/Videos/videoplayback.mp4";
+
+import { CheckCircle, FileDown } from "@lucide/astro";
+---
+
+<Layout>
+  <!-- Hero Section -->
+ <section
+  class="relative bg-cover bg-center min-h-[65vh]"
+  style={{ backgroundImage: `url(${FondoAdmisiones.src})` }}
+>
+    <!-- Overlay para mejorar legibilidad -->
+
+    <div
+      class="relative container mx-auto px-4 h-full flex items-center min-h-[65vh]"
+    >
+      <!-- Contenido principal izquierdo -->
+      <div class="text-white max-w-2xl z-10">
+        <h1 class="text-6xl font-bold mb-4 leading-tight">ADMISIONES</h1>
+        <p class="text-lg mb-8 leading-relaxed">
+          En UNE, tus metas son nuestro impulso.<br />
+          ¡Descubre tu mejor versión con nosotros!
+        </p>
+        <button
+          class="bg-red-600 hover:bg-red-700 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-colors duration-300 transform hover:scale-105"
+          onclick="window.location.href='/admisiones/proceso'"
+        >
+          INICIAR PROCESO
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Process Steps -->
+  <section class="py-16 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center mb-12">
+        ¿Cómo iniciar tu proceso de admisión?
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div class="text-center">
+          <div
+            class="w-16 h-16 bg-red-600 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold"
+          >
+            1
+          </div>
+          <h3 class="text-xl font-bold mb-2">
+            Explora las carreras y oferta académica
+          </h3>
+          <p class="text-gray-600">
+            Conoce nuestras licenciaturas, ingenierías y programas de posgrado
+            disponibles
+          </p>
+        </div>
+        <div class="text-center">
+          <div
+            class="w-16 h-16 bg-red-600 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold"
+          >
+            2
+          </div>
+          <h3 class="text-xl font-bold mb-2">
+            Elige carrera y modalidad preferida
+          </h3>
+          <p class="text-gray-600">
+            Selecciona la carrera que más te interese y la modalidad que se
+            adapte a tu estilo de vida
+          </p>
+        </div>
+        <div class="text-center">
+          <div
+            class="w-16 h-16 bg-red-600 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold"
+          >
+            3
+          </div>
+          <h3 class="text-xl font-bold mb-2">
+            Agenda visita o contacta un asesor
+          </h3>
+          <p class="text-gray-600">
+            Conoce nuestras instalaciones, habla con asesores académicos y
+            resuelve tus dudas
+          </p>
+        </div>
+        <div class="text-center">
+          <div
+            class="w-16 h-16 bg-red-600 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold"
+          >
+            4
+          </div>
+          <h3 class="text-xl font-bold mb-2">Entrega tus documentos</h3>
+          <p class="text-gray-600">
+            Presenta la documentación requerida para completar tu proceso de
+            admisión
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Requisitos  -->
+  <section class="py-16 bg-white">
+    <div class="container px-4">
+      <div class="max-w-7xl mx-auto">
+        <p class="text-sm text-gray-600 mb-2">REQUISITOS</p>
+        <h2 class="text-3xl font-bold mb-12">
+          CONOCE LOS DOCUMENTOS QUE NECESITAS
+        </h2>
+
+        <!-- Tabs -->
+        <div class="flex flex-wrap gap-2 mb-8 justify-end">
+          <button
+            class="tab-button px-6 py-2 rounded-full font-medium transition-all duration-300 bg-blue-900 text-white"
+            data-tab="secundaria"
+          >
+            Secundaria
+          </button>
+          <button
+            class="tab-button px-6 py-2 rounded-full font-medium transition-all duration-300 bg-gray-200 text-gray-700 hover:bg-gray-300"
+            data-tab="bachillerato"
+          >
+            Bachillerato
+          </button>
+          <button
+            class="tab-button px-6 py-2 rounded-full font-medium transition-all duration-300 bg-gray-200 text-gray-700 hover:bg-gray-300"
+            data-tab="licenciatura"
+          >
+            Licenciatura
+          </button>
+          <button
+            class="tab-button px-6 py-2 rounded-full font-medium transition-all duration-300 bg-gray-200 text-gray-700 hover:bg-gray-300"
+            data-tab="maestria"
+          >
+            Maestría
+          </button>
+        </div>
+
+        <!-- Content -->
+        <div class="flex flex-col lg:flex-row gap-8">
+          <!-- Vertical Text -->
+          <div
+            class="lg:w-1/3 flex justify-center lg:items-center lg:justify-center"
+          >
+            <div class="relative">
+              <div
+                id="vertical-text"
+                class="text-4xl lg:text-6xl font-bold text-blue-900 lg:transform lg:-rotate-90 lg:origin-center whitespace-nowrap"
+              >
+                SECUNDARIA
+              </div>
+            </div>
+          </div>
+
+          <!-- Requirements Card -->
+          <div
+            class="lg:w-2/3 py-4 flex flex-col gap-4 items-center justify-center"
+          >
+            <div class="shadow-md rounded-lg w-full">
+              <div
+                id="requirements-list"
+                class="space-y-4 px-6 pt-4 min-h-[220px] w-full relative overflow-hidden"
+              >
+                <!-- Logo UNE de fondo -->
+                <div
+                  class="absolute inset-0 flex items-center justify-center pointer-events-none z-0"
+                >
+                  <img
+                    src={LogoUNE.src}
+                    alt="UNE Logo"
+                    class="w-32 h-32 md:w-40 md:h-40 lg:w-48 lg:h-48 opacity-50 object-contain select-none"
+                  />
+                </div>
+
+                <!-- Requirements will be populated by JavaScript -->
+                <div id="requirements-content" class="relative z-20 space-y-4">
+                  <!-- Aquí van los requisitos dinámicos -->
+                </div>
+              </div>
+              <div
+                class="text-sm mt-6 py-6 bg-azul-une rounded-b-lg text-white text-center font-bold"
+              >
+                Todos los documentos originales y cinco copias
+              </div>
+            </div>
+
+            <!-- Botón alineado a la derecha -->
+            <div class="w-full flex justify-end">
+              <!-- Botón de descarga -->
+              <button
+                id="download-button"
+                class="border-2 border-green-600 text-green-600 px-8 py-3 rounded-lg hover:bg-green-50 transition-colors duration-300 flex items-center justify-center gap-2"
+              >
+                <FileDown class="w-5 h-5" />
+                Descargar requisitos
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Study Modalities -->
+  <section class="py-16">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center mb-12">
+        En UNE tenemos diferentes modalidades
+      </h2>
+
+      <div class="flex flex-wrap justify-center gap-8">
+        <!-- Semipresencial -->
+        <div
+          class="bg-white rounded-lg pb-6 shadow-md w-full md:w-[48%] lg:w-[31%] max-w-[390px]"
+        >
+          <div
+            class="h-40 bg-gray-200 rounded-t-lg mb-4 flex items-center justify-center overflow-hidden"
+          >
+            <img
+              src={SemiescolarizadaImg.src}
+              alt="Semipresencial"
+              class="w-full h-full object-cover"
+            />
+          </div>
+          <h3 class="text-xl font-bold mb-4 text-center">SEMIPRESENCIAL</h3>
+          <p class="text-sm text-gray-600 mb-4 text-center">
+            Flexibilidad para estudiar a tu ritmo
+          </p>
+          <ul class="space-y-2 text-sm px-6">
+            <li class="flex items-start space-x-2">
+              <CheckCircle className="w-4 h-4 text-green-600 mt-0.5" />
+              <span>Cuentas con documentación</span>
+            </li>
+            <li class="flex items-start space-x-2">
+              <CheckCircle className="w-4 h-4 text-green-600 mt-0.5" />
+              <span>Estudios flexibles (reconocimiento)</span>
+            </li>
+            <li class="flex items-start space-x-2">
+              <CheckCircle className="w-4 h-4 text-green-600 mt-0.5" />
+              <span>Ideal para trabajar y estudiar</span>
+            </li>
+            <li class="flex items-start space-x-2">
+              <CheckCircle className="w-4 h-4 text-green-600 mt-0.5" />
+              <span>Acceso a la plataforma digital</span>
+            </li>
+            <li class="flex items-start space-x-2">
+              <CheckCircle className="w-4 h-4 text-green-600 mt-0.5" />
+              <span>Apoyo docente especializado</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Presencial -->
+        <div
+          class="bg-white rounded-lg pb-6 shadow-md w-full md:w-[48%] lg:w-[31%] max-w-[390px]"
+        >
+          <div
+            class="h-40 bg-gray-200 rounded-t-lg mb-4 flex items-center justify-center overflow-hidden"
+          >
+            <img
+              src={PresencialImg.src}
+              alt="Presencial"
+              class="w-full h-full object-cover"
+            />
+          </div>
+          <h3 class="text-xl font-bold mb-4 text-center">PRESENCIAL</h3>
+          <p class="text-sm text-gray-600 mb-4 text-center">
+            Vive la experiencia universitaria completa
+          </p>
+          <ul class="space-y-2 text-sm px-6">
+            <li class="flex items-start space-x-2">
+              <CheckCircle className="w-4 h-4 text-green-600 mt-0.5" />
+              <span>Interacción directa con docentes</span>
+            </li>
+            <li class="flex items-start space-x-2">
+              <CheckCircle className="w-4 h-4 text-green-600 mt-0.5" />
+              <span>Educación práctica y experimental</span>
+            </li>
+            <li class="flex items-start space-x-2">
+              <CheckCircle className="w-4 h-4 text-green-600 mt-0.5" />
+              <span>Actividades extracurriculares y club</span>
+            </li>
+            <li class="flex items-start space-x-2">
+              <CheckCircle className="w-4 h-4 text-green-600 mt-0.5" />
+              <span>Networking estudiantil</span>
+            </li>
+            <li class="flex items-start space-x-2">
+              <CheckCircle className="w-4 h-4 text-green-600 mt-0.5" />
+              <span>Instalaciones especializadas</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- En Línea -->
+        <div
+          class="bg-white rounded-lg pb-6 shadow-md w-full md:w-[48%] lg:w-[31%] max-w-[390px]"
+        >
+          <div
+            class="h-40 bg-gray-200 rounded-t-lg mb-4 flex items-center justify-center overflow-hidden"
+          >
+            <img
+              src={EnLineaImg.src}
+              alt="En Línea"
+              class="w-full h-full object-cover"
+            />
+          </div>
+          <h3 class="text-xl font-bold mb-4 text-center">EN LÍNEA</h3>
+          <p class="text-sm text-gray-600 mb-4 text-center">
+            Estudia desde donde estés
+          </p>
+          <ul class="space-y-2 text-sm px-6">
+            <li class="flex items-start space-x-2">
+              <CheckCircle className="w-4 h-4 text-green-600 mt-0.5" />
+              <span>100% en línea desde casa</span>
+            </li>
+            <li class="flex items-start space-x-2">
+              <CheckCircle className="w-4 h-4 text-green-600 mt-0.5" />
+              <span>Plataforma educativa de última generación</span>
+            </li>
+            <li class="flex items-start space-x-2">
+              <CheckCircle className="w-4 h-4 text-green-600 mt-0.5" />
+              <span>Apoyo académico online</span>
+            </li>
+            <li class="flex items-start space-x-2">
+              <CheckCircle className="w-4 h-4 text-green-600 mt-0.5" />
+              <span>Flexibilidad educativa al 100% personalizada</span>
+            </li>
+            <li class="flex items-start space-x-2">
+              <CheckCircle className="w-4 h-4 text-green-600 mt-0.5" />
+              <span>Apoyo durante todo el proceso</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Sabatina -->
+        <div
+          class="bg-white rounded-lg pb-6 shadow-md w-full md:w-[48%] lg:w-[31%] max-w-[390px]"
+        >
+          <div
+            class="h-40 bg-gray-200 rounded-lg mb-4 flex items-center justify-center overflow-hidden"
+          >
+            <img
+              src={SabatinaImg.src}
+              alt="Sabatina"
+              class="w-full h-full object-cover rounded-lg"
+            />
+          </div>
+          <h3 class="text-xl font-bold mb-4 text-center">SABATINA</h3>
+          <p class="text-sm text-gray-600 mb-4 text-center">
+            Concilia tu tiempo sin renunciar a tu crecimiento
+          </p>
+          <ul class="space-y-2 text-sm px-6">
+            <li class="flex items-start space-x-2">
+              <CheckCircle className="w-4 h-4 text-green-600 mt-0.5" />
+              <span>Clases presenciales sólo los sábados</span>
+            </li>
+            <li class="flex items-start space-x-2">
+              <CheckCircle className="w-4 h-4 text-green-600 mt-0.5" />
+              <span>Horarios flexibles (mañana/tarde/noche)</span>
+            </li>
+            <li class="flex items-start space-x-2">
+              <CheckCircle className="w-4 h-4 text-green-600 mt-0.5" />
+              <span>Compromiso con tu horario de lunes a viernes</span>
+            </li>
+            <li class="flex items-start space-x-2">
+              <CheckCircle className="w-4 h-4 text-green-600 mt-0.5" />
+              <span>Apoyo y atención docente</span>
+            </li>
+            <li class="flex items-start space-x-2">
+              <CheckCircle className="w-4 h-4 text-green-600 mt-0.5" />
+              <span>Flexibilidad para hacer prácticas</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Fines de Semana -->
+        <div
+          class="bg-white rounded-lg pb-6 shadow-md w-full md:w-[48%] lg:w-[31%] max-w-[390px]"
+        >
+          <div
+            class="h-40 bg-gray-200 rounded-t-lg mb-4 flex items-center justify-center overflow-hidden"
+          >
+            <img
+              src={FinesImg.src}
+              alt="Fines de Semana"
+              class="w-full h-full object-cover"
+            />
+          </div>
+          <h3 class="text-xl font-bold mb-4 text-center">FINES DE SEMANA</h3>
+          <p class="text-sm text-gray-600 mb-4 text-center">
+            Equilibra tu capacitación sin afectar tu rutina
+          </p>
+          <ul class="space-y-2 text-sm px-6">
+            <li class="flex items-start space-x-2">
+              <CheckCircle className="w-4 h-4 text-green-600 mt-0.5" />
+              <span>Clases sábados y domingos</span>
+            </li>
+            <li class="flex items-start space-x-2">
+              <CheckCircle className="w-4 h-4 text-green-600 mt-0.5" />
+              <span>Compromiso sin interrumpir tu trabajo</span>
+            </li>
+            <li class="flex items-start space-x-2">
+              <CheckCircle className="w-4 h-4 text-green-600 mt-0.5" />
+              <span>Enfoque empresarial</span>
+            </li>
+            <li class="flex items-start space-x-2">
+              <CheckCircle className="w-4 h-4 text-green-600 mt-0.5" />
+              <span>Docentes especializados</span>
+            </li>
+            <li class="flex items-start space-x-2">
+              <CheckCircle className="w-4 h-4 text-green-600 mt-0.5" />
+              <span>Networking con otros profesionistas</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Discover More -->
+ 
+<!-- Discover More -->
+<section class="py-16 bg-white">
+  <div class="container mx-auto px-4">
+    <h2 class="text-3xl font-bold text-center mb-12">DESCUBRE MÁS</h2>
+    <div class="flex justify-center">
+      <div class="relative w-full max-w-4xl">
+        <!-- Video -->
+        <video
+          class="w-full h-auto rounded-lg"
+          controls
+          preload="metadata"
+        >
+          <source src={VideoBackground} type="video/mp4" />
+          Tu navegador no soporta el elemento de video.
+        </video>
+      </div>
+    </div>
+  </div>
+</section>
+</Layout>
+
+<script>
+  // Datos de requisitos por nivel educativo
+  const requirementsData = {
+    secundaria: {
+      title: "SECUNDARIA",
+      requirements: [
+        {
+          icon: "document",
+          text: "Acta de nacimiento",
+        },
+        {
+          icon: "document",
+          text: "Certificado de primaria",
+        },
+        {
+          icon: "camera",
+          text: "8 fotografías blanco y negro, tamaño infantil de estudio",
+        },
+        {
+          icon: "card",
+          text: "CURP",
+        },
+      ],
+    },
+    bachillerato: {
+      title: "BACHILLERATO",
+      requirements: [
+        {
+          icon: "document",
+          text: "Acta de nacimiento",
+        },
+        {
+          icon: "document",
+          text: "Certificado de secundaria",
+        },
+        {
+          icon: "camera",
+          text: "6 fotografías a color, tamaño infantil de estudio",
+        },
+        {
+          icon: "card",
+          text: "CURP",
+        },
+        {
+          icon: "document",
+          text: "Constancia de estudios (si aplica)",
+        },
+      ],
+    },
+    licenciatura: {
+      title: "LICENCIATURA",
+      requirements: [
+        {
+          icon: "document",
+          text: "Acta de nacimiento",
+        },
+        {
+          icon: "document",
+          text: "Certificado de bachillerato",
+        },
+        {
+          icon: "camera",
+          text: "6 fotografías a color, tamaño infantil de estudio",
+        },
+        {
+          icon: "card",
+          text: "CURP",
+        },
+        {
+          icon: "document",
+          text: "Constancia de servicio social (si aplica)",
+        },
+        {
+          icon: "document",
+          text: "Carta de buena conducta",
+        },
+      ],
+    },
+    maestria: {
+      title: "MAESTRÍA",
+      requirements: [
+        {
+          icon: "document",
+          text: "Acta de nacimiento",
+        },
+        {
+          icon: "document",
+          text: "Título de licenciatura",
+        },
+        {
+          icon: "document",
+          text: "Cédula profesional",
+        },
+        {
+          icon: "camera",
+          text: "6 fotografías a color, tamaño infantil de estudio",
+        },
+        {
+          icon: "card",
+          text: "CURP",
+        },
+        {
+          icon: "document",
+          text: "Curriculum vitae actualizado",
+        },
+        {
+          icon: "document",
+          text: "Carta de motivos",
+        },
+      ],
+    },
+  };
+
+  // Función para obtener el icono SVG
+  function getIcon(type) {
+    const icons = {
+      document: `<svg class="w-5 h-5 text-red-600 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+      </svg>`,
+      camera: `<svg class="w-5 h-5 text-red-600 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"></path>
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"></path>
+      </svg>`,
+      card: `<svg class="w-5 h-5 text-red-600 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"></path>
+      </svg>`,
+    };
+    return icons[type] || icons.document;
+  }
+
+  // Función para renderizar requisitos
+  function renderRequirements(levelKey) {
+    const data = requirementsData[levelKey];
+    const container = document.getElementById("requirements-content"); // Cambiado aquí
+    const verticalText = document.getElementById("vertical-text");
+
+    // Actualizar texto vertical
+    verticalText.textContent = data.title;
+
+    // Limpiar contenedor (ahora solo limpia el contenido dinámico, no el logo)
+    container.innerHTML = "";
+
+    // Resto del código igual...
+    data.requirements.forEach((requirement, index) => {
+      const item = document.createElement("div");
+      item.className =
+        "flex items-start space-x-3 opacity-0 transform translate-y-4 transition-all duration-300";
+      item.style.transitionDelay = `${index * 100}ms`;
+
+      item.innerHTML = `
+      ${getIcon(requirement.icon)}
+      <span class="text-gray-800 leading-relaxed">${requirement.text}</span>
+    `;
+
+      container.appendChild(item);
+
+      // Trigger animation
+      setTimeout(() => {
+        item.classList.remove("opacity-0", "translate-y-4");
+      }, 50);
+    });
+  }
+
+  // Función para cambiar tab activo
+  function setActiveTab(activeTab) {
+    const buttons = document.querySelectorAll(".tab-button");
+
+    buttons.forEach((button) => {
+      const tabName = button.getAttribute("data-tab");
+      if (tabName === activeTab) {
+        button.className =
+          "tab-button px-6 py-2 rounded-full font-medium transition-all duration-300 bg-blue-900 text-white transform scale-105";
+      } else {
+        button.className =
+          "tab-button px-6 py-2 rounded-full font-medium transition-all duration-300 bg-gray-200 text-gray-700 hover:bg-gray-300";
+      }
+    });
+  }
+
+  // Inicialización cuando el DOM esté listo
+  document.addEventListener("DOMContentLoaded", function () {
+    // Render inicial
+    renderRequirements("secundaria");
+    setActiveTab("secundaria");
+
+    // Escucha de tabs
+    const tabButtons = document.querySelectorAll(".tab-button");
+    tabButtons.forEach((button) => {
+      button.addEventListener("click", function () {
+        const tabName = this.getAttribute("data-tab");
+        setActiveTab(tabName);
+        renderRequirements(tabName);
+      });
+    });
+
+    // Lógica de descarga PDF
+    const downloadButton = document.getElementById("download-button");
+    downloadButton.addEventListener("click", function () {
+      const activeTab = document.querySelector(".tab-button.bg-blue-900");
+      if (!activeTab) return;
+
+      const tab = activeTab.getAttribute("data-tab");
+      let fileName = "";
+
+      switch (tab) {
+        case "secundaria":
+          fileName = "Secundaria-requsitos.pdf";
+          break;
+        case "bachillerato":
+          fileName = "Bachillerato-requsitos.pdf";
+          break;
+        case "licenciatura":
+          fileName = "Licenciatura-requsitos.pdf";
+          break;
+        case "maestria":
+          fileName = "Posgrados-requsitos.pdf";
+          break;
+      }
+
+      // Descargar archivo
+      const a = document.createElement("a");
+      a.href = `/Requisitos/${fileName}`;
+      a.download = fileName;
+      a.click();
+    });
+  });
+</script>
+
+<style>
+  /* Estilos adicionales para mejorar la experiencia */
+  .tab-button {
+    user-select: none;
+  }
+
+  .tab-button:active {
+    transform: scale(0.98);
+  }
+
+  /* Animación para el texto vertical */
+  #vertical-text {
+    transition: all 0.5s ease-in-out;
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 1024px) {
+    #vertical-text {
+      transform: rotate(0deg) !important;
+      font-size: 2rem;
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+  }
+
+  /* Hover effects */
+  .tab-button:hover:not(.bg-blue-900) {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Loading animation */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .fade-in-up {
+    animation: fadeInUp 0.6s ease-out;
+  }
+</style>
