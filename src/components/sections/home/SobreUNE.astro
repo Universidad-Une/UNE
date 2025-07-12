@@ -1,7 +1,8 @@
 ---
 // src/SobreUNE.astro
 import { ArrowRight } from "@lucide/astro";
-import UNE30 from "../assets/Logos/UNE30.png";
+import Numeralia from "@assets/Imagenes/Middles/Numeralia.jpg";
+import NumeraliaMobile from "@assets/Imagenes/Middles/NumeraliaMobile.jpg";
 ---
 
 <section class="bg-white">
@@ -197,7 +198,16 @@ import UNE30 from "../assets/Logos/UNE30.png";
 
   <!-- Statistics Section -->
   <div
-    class=" mx-auto px-4 sm:px-6 lg:px-8 py-16 bg-gradient-to-r from-blue-900 to-blue-800 text-white"
+     class="mx-auto px-4 sm:px-6 lg:px-8 py-16  text-white"
+  style={{
+    backgroundImage: `url(${Numeralia.src})`,
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+    backgroundRepeat: 'no-repeat',
+    backgroundBlendMode: 'overlay' // Esto permite que el gradiente se mezcle con la imagen
+
+    
+  }}
   >
     <div class="flex flex-col lg:flex-row gap-8 items-center">
       <!-- 30 Años -->
