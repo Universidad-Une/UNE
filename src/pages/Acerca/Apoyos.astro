@@ -1,0 +1,379 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Hero from "@/assets/Imagenes/Heros/Becas.jpg";
+import Cover from "@/assets/Imagenes/Middles/Sillas.png";
+import { Check } from "@lucide/astro";
+---
+
+<Layout>
+    <!-- Hero Section -->
+    <section
+        class="relative min-h-[65vh] overflow-hidden bg-cover bg-center bg-no-repeat flex items-center justify-center"
+        style={`background-image: url(${Hero.src})`}
+    >
+        <div
+            class="relative z-10 text-center text-white max-w-4xl mx-auto px-4"
+        >
+            <h1 class="text-5xl md:text-6xl font-bold mb-4">
+                Programas Académicos
+            </h1>
+            <h2 class="text-3xl md:text-4xl font-semibold mb-6">UNE</h2>
+            <p class="text-xl md:text-2xl mb-8 max-w-2xl mx-auto">
+                Reconocemos tu excelencia académica con apoyos educativos que
+                hacen la diferencia. Conoce nuestro programa y prepárate para la
+                próxima convocatoria
+            </p>
+            <button
+                class="bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-8 rounded-lg text-lg transition-colors"
+            >
+                Próxima Convocatoria 2025- Agosto
+            </button>
+        </div>
+    </section>
+
+    <!-- No solo es una beca Section -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="text-4xl font-bold text-gray-800 mb-6">
+                        No solo es una beca es
+                    </h2>
+                    <p class="text-gray-600 text-lg leading-relaxed">
+                        Es el reconocimiento a tu dedicación y esfuerzo
+                        académico. Nuestro programa de apoyos educativos va más
+                        allá del descuento económico: es una inversión en tu
+                        futuro profesional y personal. Creemos en el poder
+                        transformador de la educación y confiamos de que en UNE
+                        valoramos a los estudiantes comprometidos con su
+                        formación. Porque sabemos que quienes se esfuerzan por
+                        destacar merecen el respaldo para alcanzar sus metas.
+                    </p>
+                </div>
+                <div class="flex justify-center">
+                    <img
+                        src="/src/assets/Imagenes/Secciones/Water.png"
+                        alt="Estudiante graduada"
+                        class="rounded-lg shadow-lg"
+                    />
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Apoyos Disponibles Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <section class="py-16 bg-white">
+                <div class="container mx-auto px-4">
+                    <section class="py-16 bg-white">
+                        <div class="container mx-auto px-4">
+                            <div class="text-center mb-12">
+                                <h2
+                                    class="text-4xl font-bold text-gray-800 mb-4"
+                                >
+                                    Apoyos Disponibles por Modalidad
+                                </h2>
+                                <p class="text-xl text-gray-600">
+                                    Descubre las oportunidades que UNE tiene
+                                    para ti
+                                </p>
+                            </div>
+
+                            <div class="">
+                                <!-- Primera fila: 3 elementos -->
+                                <div
+                                    class="grid md:grid-cols-2 lg:grid-cols-3 gap-0"
+                                >
+                                    <!-- Modalidad Matutina -->
+                                    <div
+                                        class="bg-white border-b-2 border-r-2 border-gray-400 p-6 hover:shadow-lg transition-shadow"
+                                    >
+                                        <div
+                                            class="text-red-600 font-bold text-lg mb-2"
+                                        >
+                                            / 01
+                                        </div>
+                                        <h3
+                                            class="text-xl font-bold text-gray-800 mb-4"
+                                        >
+                                            Modalidad Matutina
+                                        </h3>
+                                        <p class="text-gray-600">
+                                            Apoyo del 15% durante el primer
+                                            ciclo para estudiantes de nuevo
+                                            ingreso que mantengan excelencia
+                                            académica.
+                                        </p>
+                                    </div>
+
+                                    <!-- Programa de Excelencia -->
+                                    <div
+                                        class="bg-white border-r-2 border-b-2 border-gray-400 p-6 hover:shadow-lg transition-shadow lg:border-r-2"
+                                    >
+                                        <div
+                                            class="text-red-600 font-bold text-lg mb-2"
+                                        >
+                                            / 02
+                                        </div>
+                                        <h3
+                                            class="text-xl font-bold text-gray-800 mb-4"
+                                        >
+                                            Programa de Excelencia Continua
+                                        </h3>
+                                        <p class="text-gray-600">
+                                            Modalidades Matutina y En Línea
+                                            reciben 30% de apoyo durante todo el
+                                            programa académico.
+                                        </p>
+                                    </div>
+
+                                    <!-- Modalidad Sabatina -->
+                                    <div
+                                        class="bg-white border-b-2 border-gray-400 p-6 hover:shadow-lg transition-shadow"
+                                    >
+                                        <div
+                                            class="text-red-600 font-bold text-lg mb-2"
+                                        >
+                                            / 03
+                                        </div>
+                                        <h3
+                                            class="text-xl font-bold text-gray-800 mb-4"
+                                        >
+                                            Modalidad Sabatina y En Línea
+                                        </h3>
+                                        <p class="text-gray-600">
+                                            Apoyo del 15% en el primer ciclo,
+                                            diseñado para estudiantes que
+                                            balancean trabajo y estudios.
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <!-- Segunda fila: 2 elementos al 50% cada uno -->
+                                <div class="grid grid-cols-2 gap-0">
+                                    <!-- Incentivo por Revalidación -->
+                                    <div
+                                        class="bg-white border-r-2 border-gray-400 p-6 hover:shadow-lg transition-shadow"
+                                    >
+                                        <div
+                                            class="text-red-600 font-bold text-lg mb-2"
+                                        >
+                                            / 04
+                                        </div>
+                                        <h3
+                                            class="text-xl font-bold text-gray-800 mb-4"
+                                        >
+                                            Incentivo por Revalidación
+                                        </h3>
+                                        <p class="text-gray-600">
+                                            Apoyo adicional del 5% durante el
+                                            primer ciclo para estudiantes que
+                                            revaliden estudios previos.
+                                        </p>
+                                    </div>
+
+                                    <!-- Renovación por Mérito -->
+                                    <div
+                                        class="bg-white p-6 hover:shadow-lg transition-shadow"
+                                    >
+                                        <div
+                                            class="text-red-600 font-bold text-lg mb-2"
+                                        >
+                                            / 05
+                                        </div>
+                                        <h3
+                                            class="text-xl font-bold text-gray-800 mb-4"
+                                        >
+                                            Renovación por Mérito
+                                        </h3>
+                                        <p class="text-gray-600">
+                                            El apoyo se mantiene cumpliendo con
+                                            promedio mínimo de 8.5, puntualidad
+                                            en pagos y regularidad académica.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </section>
+        </div>
+    </section>
+
+    <!-- Criterios de Elegibilidad Section -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-gray-800 mb-8">
+                    Criterios de Elegibilidad
+                </h2>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="flex justify-center">
+                    <img
+                        src="/src/assets/Imagenes/Secciones/Becas.jpg"
+                        alt="Criterios de elegibilidad"
+                        class="w-92 h-auto rounded-lg"
+                    />
+                </div>
+                <div class="space-y-6">
+                    <div class="flex items-center space-x-4">
+                        <div
+                            class="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center"
+                        >
+                            <Check class="w-4 h-4 text-white" />
+                        </div>
+                        <span class="text-lg text-gray-700"
+                            >Promedio mínimo de 8.5</span
+                        >
+                    </div>
+                    <div class="flex items-center space-x-4">
+                        <div
+                            class="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center"
+                        >
+                            <Check class="w-4 h-4 text-white" />
+                        </div>
+                        <span class="text-lg text-gray-700"
+                            >Mantener regularidad académica</span
+                        >
+                    </div>
+                    <div class="flex items-center space-x-4">
+                        <div
+                            class="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center"
+                        >
+                            <Check class="w-4 h-4 text-white" />
+                        </div>
+                        <span class="text-lg text-gray-700"
+                            >Cumplimiento puntual de colegiaturas</span
+                        >
+                    </div>
+                    <div class="flex items-center space-x-4">
+                        <div
+                            class="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center"
+                        >
+                            <Check class="w-4 h-4 text-white" />
+                        </div>
+                        <span class="text-lg text-gray-700"
+                            >Sin exámenes extraordinarios</span
+                        >
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cómo Solicitar tu Evaluación Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4">
+                    Cómo Solicitar tu Evaluación
+                </h2>
+                <p class="text-xl text-gray-600">
+                    Sigue estos sencillos pasos para aplicar a nuestro programa
+                    de apoyos educativos
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-4 gap-8">
+                <!-- Paso 1: Consulta -->
+                <div class="text-center">
+                    <div
+                        class="w-16 h-16 bg-red-600 rounded-full flex items-center justify-center mx-auto mb-4"
+                    >
+                        <span class="text-white font-bold text-xl">1</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">
+                        Consulta
+                    </h3>
+                    <p class="text-gray-600">
+                        Verifica si cumples los requisitos
+                    </p>
+                </div>
+
+                <!-- Paso 2: Documentación -->
+                <div class="text-center">
+                    <div
+                        class="w-16 h-16 bg-red-600 rounded-full flex items-center justify-center mx-auto mb-4"
+                    >
+                        <span class="text-white font-bold text-xl">2</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">
+                        Documentación
+                    </h3>
+                    <p class="text-gray-600">
+                        Presenta comprobantes académicos
+                    </p>
+                </div>
+
+                <!-- Paso 3: Evaluación -->
+                <div class="text-center">
+                    <div
+                        class="w-16 h-16 bg-red-600 rounded-full flex items-center justify-center mx-auto mb-4"
+                    >
+                        <span class="text-white font-bold text-xl">3</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">
+                        Evaluación
+                    </h3>
+                    <p class="text-gray-600">
+                        Nuestro equipo revisa tu solicitud
+                    </p>
+                </div>
+
+                <!-- Paso 4: Resultado -->
+                <div class="text-center">
+                    <div
+                        class="w-16 h-16 bg-red-600 rounded-full flex items-center justify-center mx-auto mb-4"
+                    >
+                        <span class="text-white font-bold text-xl">4</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">
+                        Resultado
+                    </h3>
+                    <p class="text-gray-600">
+                        Conoce tu aprobación en 48 horas
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Notificaciones -->
+    <section
+        class="py-16 bg-cover bg-center bg-no-repeat relative"
+        style={`background-image: url(${Cover.src})`}
+    >
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="grid md:grid-cols-2 gap-8 items-center">
+                <div>
+                    <h2 class="text-4xl font-bold text-white mb-6">
+                        ¿Quieres ser notificado de la próxima convocatoria?
+                    </h2>
+                </div>
+                <div class="space-y-4">
+                    <div class="flex flex-col sm:flex-row gap-4 text-white">
+                        <input
+                            type="email"
+                            placeholder="Correo"
+                            class="flex-1 px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-red-500"
+                        />
+                        <input
+                            type="tel"
+                            placeholder="Celular"
+                            class="flex-1 px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-red-500"
+                        />
+                    </div>
+                    <button
+                        class="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-6 rounded-lg transition-colors"
+                    >
+                        Registrar Interés
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+</Layout>

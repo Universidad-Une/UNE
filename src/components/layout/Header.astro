@@ -21,7 +21,9 @@ import Clinica from "@logos/Clinica_UNE_blanco.webp";
   <div class="w-full">
     <div class="flex items-center justify-between h-24">
       <div class="flex-shrink-0">
-        <img src={Logo_UNE.src} alt="UNE" class="h-20 w-auto" />
+        <a href="/">
+          <img src={Logo_UNE.src} alt="UNE" class="h-20 w-auto" />
+        </a>
       </div>
 
       <nav class="hidden md:flex space-x-4 items-center">
@@ -41,7 +43,7 @@ import Clinica from "@logos/Clinica_UNE_blanco.webp";
           <button
             class="flex items-center px-3 py-2 hover:text-red-600 font-bold transition-colors duration-200"
           >
-            Oferta Académica
+            Oferta académica
             <ChevronDown
               size={16}
               class="ml-1 transform group-hover:rotate-180 transition-transform duration-200"
@@ -53,7 +55,7 @@ import Clinica from "@logos/Clinica_UNE_blanco.webp";
           <button
             class="flex items-center px-3 py-2 hover:text-red-600 font-bold transition-colors duration-200"
           >
-            Información Escolar
+            Información escolar
             <ChevronDown
               size={16}
               class="ml-1 transform group-hover:rotate-180 transition-transform duration-200"
@@ -65,7 +67,7 @@ import Clinica from "@logos/Clinica_UNE_blanco.webp";
           <button
             class="flex items-center px-3 py-2 hover:text-red-600 font-bold transition-colors duration-200"
           >
-            Vida Estudiantil
+            Vida estudiantil
             <ChevronDown
               size={16}
               class="ml-1 transform group-hover:rotate-180 transition-transform duration-200"
@@ -103,122 +105,156 @@ import Clinica from "@logos/Clinica_UNE_blanco.webp";
     class="dropdown-menu admisiones-dropdown absolute left-0 right-0 top-full bg-white border-t border-gray-200 shadow-lg opacity-0 invisible transform translate-y-2 transition-all duration-300 ease-out z-50"
   >
     <div class="container mx-auto px-4 py-8">
-      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6">
         <a
-          href="#"
+          href="/contacto/formulario-inscripcion"
           class="group block p-4 rounded-lg hover:bg-blue-50 transition-colors duration-200"
         >
           <h3
             class="font-semibold text-gray-900 group-hover:text-blue-600 mb-2"
           >
-            Formulario De Inscripción
+            Formulario de inscripción
           </h3>
           <p class="text-sm text-gray-500">Inicia tu proceso de admisión</p>
         </a>
-       
+
         <a
-          href="#"
+          href="acerca/PreguntasFrecuentes"
           class="group block p-4 rounded-lg hover:bg-blue-50 transition-colors duration-200"
         >
           <h3
             class="font-semibold text-gray-900 group-hover:text-blue-600 mb-2"
           >
-            Requisitos De Admisión
-          </h3>
-          <p class="text-sm text-gray-500">Conoce los requisitos</p>
-        </a>
-        <a
-          href="#"
-          class="group block p-4 rounded-lg hover:bg-blue-50 transition-colors duration-200"
-        >
-          <h3
-            class="font-semibold text-gray-900 group-hover:text-blue-600 mb-2"
-          >
-            Precios/Colegiaturas
-          </h3>
-          <p class="text-sm text-gray-500">Información de costos</p>
-        </a>
-        <a
-          href="#"
-          class="group block p-4 rounded-lg hover:bg-blue-50 transition-colors duration-200"
-        >
-          <h3
-            class="font-semibold text-gray-900 group-hover:text-blue-600 mb-2"
-          >
-            Preguntas Frecuentes
+            Preguntas frecuentes
           </h3>
           <p class="text-sm text-gray-500">Resuelve tus dudas</p>
         </a>
         <a
-          href="#"
+          href="acerca/Apoyos"
           class="group block p-4 rounded-lg hover:bg-blue-50 transition-colors duration-200"
         >
           <h3
             class="font-semibold text-gray-900 group-hover:text-blue-600 mb-2"
           >
-           Apoyos educativos
+            Apoyos educativos
           </h3>
-          <p class="text-sm text-gray-500">Conoce los apoyos a los cuales puedes acceder</p>
+          <p class="text-sm text-gray-500">
+            Conoce los apoyos a los cuales puedes acceder
+          </p>
         </a>
       </div>
     </div>
   </div>
 
-  <div
-    class="dropdown-menu oferta-dropdown absolute left-0 right-0 top-full bg-white border-t border-gray-200 shadow-lg opacity-0 invisible transform translate-y-2 transition-all duration-300 ease-out z-50"
-  >
-    <div class="container mx-auto px-4 py-8">
-      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+ <div
+  class="dropdown-menu oferta-dropdown absolute left-0 right-0 top-full bg-white border-t border-gray-200 shadow-lg opacity-0 invisible transform translate-y-2 transition-all duration-300 ease-out z-50"
+>
+  <div class="container mx-auto px-4 py-6">
+    <!-- Sección Colegio UNE -->
+    <div class="mb-6">
+      <h2 class="text-base font-bold text-gray-800 mb-3 border-b border-gray-200 pb-1">
+        Colegio UNE
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-3">
         <a
-          href="#"
-          class="group block p-4 rounded-lg hover:bg-blue-50 transition-colors duration-200"
+          href="/oferta/colegio-une/Primaria"
+          class="group block p-3 rounded-lg hover:bg-blue-50 transition-colors duration-200"
         >
           <h3
-            class="font-semibold text-gray-900 group-hover:text-blue-600 mb-2"
+            class="font-semibold text-gray-900 group-hover:text-blue-600"
+          >
+            Primaria
+          </h3>
+        </a>
+        <a
+          href="/oferta/colegio-une/Secundaria"
+          class="group block p-3 rounded-lg hover:bg-blue-50 transition-colors duration-200"
+        >
+          <h3
+            class="font-semibold text-gray-900 group-hover:text-blue-600"
+          >
+            Secundaria
+          </h3>
+        </a>
+        <a
+          href="/oferta/colegio-une/Bachillerato-sej"
+          class="group block p-3 rounded-lg hover:bg-blue-50 transition-colors duration-200"
+        >
+          <h3
+            class="font-semibold text-gray-900 group-hover:text-blue-600"
+          >
+            Bachillerato SEJ
+          </h3>
+        </a>
+        <a
+          href="/oferta/colegio-une/Bachillerato-udg"
+          class="group block p-3 rounded-lg hover:bg-blue-50 transition-colors duration-200"
+        >
+          <h3
+            class="font-semibold text-gray-900 group-hover:text-blue-600"
+          >
+            Bachillerato UDG
+          </h3>
+        </a>
+      </div>
+    </div>
+
+    <!-- Sección Educación Superior -->
+    <div>
+      <h2 class="text-base font-bold text-gray-800 mb-3 border-b border-gray-200 pb-1">
+        Educación Superior
+      </h2>
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+        <a
+          href="/oferta/Licenciaturas"
+          class="group block p-3 rounded-lg hover:bg-blue-50 transition-colors duration-200"
+        >
+          <h3
+            class="font-semibold text-gray-900 group-hover:text-blue-600 mb-1"
           >
             Licenciaturas
           </h3>
           <p class="text-sm text-gray-500">Programas de pregrado</p>
         </a>
         <a
-          href="#"
-          class="group block p-4 rounded-lg hover:bg-blue-50 transition-colors duration-200"
+          href="/oferta/Maestria"
+          class="group block p-3 rounded-lg hover:bg-blue-50 transition-colors duration-200"
         >
           <h3
-            class="font-semibold text-gray-900 group-hover:text-blue-600 mb-2"
+            class="font-semibold text-gray-900 group-hover:text-blue-600 mb-1"
           >
             Maestrías
           </h3>
           <p class="text-sm text-gray-500">Programas de posgrado</p>
         </a>
         <a
-          href="#"
-          class="group block p-4 rounded-lg hover:bg-blue-50 transition-colors duration-200"
+          href="/oferta/Doctorados"
+          class="group block p-3 rounded-lg hover:bg-blue-50 transition-colors duration-200"
         >
           <h3
-            class="font-semibold text-gray-900 group-hover:text-blue-600 mb-2"
+            class="font-semibold text-gray-900 group-hover:text-blue-600 mb-1"
           >
             Doctorados
           </h3>
           <p class="text-sm text-gray-500">Estudios doctorales</p>
         </a>
         <a
-          href="#"
-          class="group block p-4 rounded-lg hover:bg-blue-50 transition-colors duration-200"
+          href="/oferta/Continua"
+          class="group block p-3 rounded-lg hover:bg-blue-50 transition-colors duration-200"
         >
           <h3
-            class="font-semibold text-gray-900 group-hover:text-blue-600 mb-2"
+            class="font-semibold text-gray-900 group-hover:text-blue-600 mb-1"
           >
-            Educación Continua
+            Educación continua
           </h3>
           <p class="text-sm text-gray-500">Cursos especializados</p>
         </a>
         <a
-          href="#"
-          class="group block p-4 rounded-lg hover:bg-blue-50 transition-colors duration-200"
+          href="/oferta/Diplomados"
+          class="group block p-3 rounded-lg hover:bg-blue-50 transition-colors duration-200"
         >
           <h3
-            class="font-semibold text-gray-900 group-hover:text-blue-600 mb-2"
+            class="font-semibold text-gray-900 group-hover:text-blue-600 mb-1"
           >
             Diplomados
           </h3>
@@ -227,6 +263,7 @@ import Clinica from "@logos/Clinica_UNE_blanco.webp";
       </div>
     </div>
   </div>
+</div>
 
   <div
     class="dropdown-menu informacion-dropdown absolute left-0 right-0 top-full bg-white border-t border-gray-200 shadow-lg opacity-0 invisible transform translate-y-2 transition-all duration-300 ease-out z-50"
@@ -240,7 +277,7 @@ import Clinica from "@logos/Clinica_UNE_blanco.webp";
           <h3
             class="font-semibold text-gray-900 group-hover:text-blue-600 mb-2"
           >
-            Calendario Académico
+            Calendario académico
           </h3>
           <p class="text-sm text-gray-500">Fechas importantes</p>
         </a>
@@ -253,7 +290,9 @@ import Clinica from "@logos/Clinica_UNE_blanco.webp";
           >
             Bilbiotecas
           </h3>
-          <p class="text-sm text-gray-500">Accede a los recursos de aprendizaje</p>
+          <p class="text-sm text-gray-500">
+            Accede a los recursos de aprendizaje
+          </p>
         </a>
         <a
           href="#"
@@ -273,7 +312,7 @@ import Clinica from "@logos/Clinica_UNE_blanco.webp";
           <h3
             class="font-semibold text-gray-900 group-hover:text-blue-600 mb-2"
           >
-            Servicios Escolares
+            Servicios escolares
           </h3>
           <p class="text-sm text-gray-500">Trámites académicos</p>
         </a>
@@ -295,7 +334,7 @@ import Clinica from "@logos/Clinica_UNE_blanco.webp";
           <h3
             class="font-semibold text-gray-900 group-hover:text-blue-600 mb-2"
           >
-            Plataformas Digitales
+            Plataformas digitales
           </h3>
           <p class="text-sm text-gray-500">Acceso digital</p>
         </a>
@@ -315,7 +354,7 @@ import Clinica from "@logos/Clinica_UNE_blanco.webp";
           <h3
             class="font-semibold text-gray-900 group-hover:text-blue-600 mb-2"
           >
-            Actividades Extracurriculares
+            Actividades extracurriculares
           </h3>
           <p class="text-sm text-gray-500">Actividades complementarias</p>
         </a>
@@ -482,17 +521,14 @@ import Clinica from "@logos/Clinica_UNE_blanco.webp";
         </div>
 
         <nav class="flex-1 p-4 overflow-y-auto mt-40">
-
-           <div class="mb-4">
-            <a href="/"
+          <div class="mb-4">
+            <a
+              href="/"
               class="menu-section flex items-center justify-between w-full text-left text-white font-bold py-3 px-2 hover:bg-blue-800 rounded-md transition-colors duration-200"
             >
               <span class="font-bold text-lg tracking-wide">INICIO</span>
-             
             </a>
-         
           </div>
-
 
           <div class="mb-4">
             <button
@@ -508,23 +544,13 @@ import Clinica from "@logos/Clinica_UNE_blanco.webp";
               <a
                 href="#"
                 class="block text-gray-300 py-2 px-2 text-sm hover:text-white hover:bg-blue-800 rounded"
-                >Formulario De Inscripción</a
+                >Formulario De inscripción</a
               >
-             
+
               <a
-                href="#"
+                href="acerca/PreguntasFrecuentes"
                 class="block text-gray-300 py-2 px-2 text-sm hover:text-white hover:bg-blue-800 rounded"
-                >Requisitos De Admisión</a
-              >
-              <a
-                href="#"
-                class="block text-gray-300 py-2 px-2 text-sm hover:text-white hover:bg-blue-800 rounded"
-                >Precios/Colegiaturas</a
-              >
-              <a
-                href="#"
-                class="block text-gray-300 py-2 px-2 text-sm hover:text-white hover:bg-blue-800 rounded"
-                >Preguntas Frecuentes</a
+                >Preguntas frecuentes</a
               >
               <a
                 href="#"
@@ -538,7 +564,7 @@ import Clinica from "@logos/Clinica_UNE_blanco.webp";
             <button
               class="menu-section flex items-center justify-between w-full text-left text-white font-bold py-3 px-2 hover:bg-blue-800 rounded-md transition-colors duration-200"
             >
-              <span class="text-lg tracking-wide">OFERTA ACADÉMICA</span>
+              <span class="text-lg tracking-wide">Oferta académica</span>
               <ChevronDown
                 size={20}
                 class="chevron transform transition-transform duration-200"

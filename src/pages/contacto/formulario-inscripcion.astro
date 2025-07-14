@@ -1,0 +1,114 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import LogoUNEBlanco from "@/assets/Logos/UNE_blanco.webp";
+import Formulario from "@/assets/Imagenes/Heros/Formulario.jpg";
+import { BookOpen, FileText } from "@lucide/astro";
+import Ilustracion from "@/assets/Imagenes/Adaptables/Ilustracion.jpg";
+import Form from "@/components/sections/inscripcion/Form.astro";
+---
+
+<Layout>
+  <main class="min-h-screen bg-gray-50">
+    <!-- Hero Section -->
+    <section
+      class="relative bg-cover bg-center min-h-[70vh]"
+      style={{ backgroundImage: `url(${Formulario.src})` }}
+    >
+      <div class="absolute inset-0 opacity-10">
+        <div
+          class="absolute top-20 right-20 w-32 h-32 bg-white rounded-full opacity-20"
+        >
+        </div>
+        <div
+          class="absolute bottom-20 left-20 w-24 h-24 bg-white rounded-full opacity-15"
+        >
+        </div>
+      </div>
+
+      <div class="container mx-auto px-4 py-16 relative z-10">
+        <div class="grid lg:grid-cols-2 gap-8 items-center">
+          <div class="space-y-6">
+            <h1 class="text-3xl text-white lg:text-5xl font-bold leading-tight">
+              Bienvenido a tu proceso de Inscripción
+            </h1>
+            <p class="text-lg text-blue-100 leading-relaxed">
+              Bienvenido a nuestra plataforma de inscripciones, donde podrás
+              registrarte de manera rápida y sencilla para nuestros programas
+              académicos. Aquí encontrarás toda la información necesaria para
+              completar tu inscripción.
+            </p>
+            <div class="space-y-2 text-blue-100">
+              <div class="flex items-center gap-2">
+                <span class="text-sm">📞</span>
+                <a href="tel:3300000831" class="hover:underline">330000 0831</a>
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="text-sm">✉️</span>
+                <a
+                  href="mailto:informes@universidad-une.com"
+                  class="hover:underline">informes@universidad-une.com</a
+                >
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="text-sm">📱</span>
+                <a
+                  href="https://api.whatsapp.com/send/?phone=3380000863&text=%C2%A1Hola%21%2C+visit%C3%A9+el+sitio+web+y+quiero+m%C3%A1s+informaci%C3%B3n&type=phone_number&app_absent=0"
+                  class="hover:underline"
+                >
+                  (+1) 8000 0831
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <img
+            src={LogoUNEBlanco.src}
+            alt="UNE Logo"
+            class="w-32 h-auto relative top-52 left-92"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- Welcome Section -->
+    <section class="py-16 bg-white">
+      <div class="container mx-auto px-4">
+        <div class="bg-white rounded-2xl shadow-lg">
+          <div class="grid lg:grid-cols-2 gap-12 items-center">
+            <div class="space-y-6 p-8">
+              <div class="flex flex-col items-start gap-4">
+                <div
+                  class="w-12 h-12 bg-blue-900 rounded-lg flex items-center justify-center"
+                >
+                  <BookOpen class="w-6 h-6 text-white" />
+                </div>
+                <h2 class="text-3xl font-bold text-gray-900">
+                  ¡Bienvenidos a Nuestro Portal de Inscripciones!
+                </h2>
+              </div>
+
+              <p class="text-gray-600 leading-relaxed">
+                A continuación, se te solicitarán algunos datos personales para
+                completar tu inscripción. Una vez que envíes la información,
+                nuestro equipo revisará tu solicitud y se pondrá en contacto
+                contigo para confirmarla. En ese momento, te indicaremos cuándo
+                y dónde deberás presentar tus documentos originales para
+                finalizar el proceso. ¡Gracias por tu confianza!
+              </p>
+            </div>
+
+            <div class="h-full w-full">
+              <img
+                src={Ilustracion.src}
+                alt="Ilustración del proceso de inscripción"
+                class="w-full h-full object-fill rounded-tr-2xl rounded-br-2xl"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Registration Form -->
+    <Form />
+  </main>
+</Layout>
