@@ -1,6 +1,311 @@
 ---
-import Layout from "@/layouts/Layout.astro"
+import Layout from "@/layouts/Layout.astro";
+import Hero from "@/assets/Imagenes/Heros/Secundaria.jpg";
+import ImagenCard from "@/assets/Imagenes/CardsNiveles/Nivel.png";
+import ColegioUNE from "@/assets/Logos/Colegio.png";
+import SecondaryCard from "@components/sections/detallesOferta/card.astro";
+import Planteles from "@components/sections/detallesOferta/planteles.astro";
+import Costos from "@components/sections/detallesOferta/costos.astro";
+import Requisitos from "@/components/sections/detallesOferta/requisitos.astro";
+import PlanEstudios from "@/components/sections/detallesOferta/planEstudios.astro";
+import Perfiles from "@/components/sections/detallesOferta/perfiles.astro";
+import FAQComponent from "@/components/sections/detallesOferta/preguntas.astro";
+import CTAinscripcion from "@/components/sections/shared/ctaInscripcion.astro";
+
+const planteles = [
+  {
+    id: "1",
+    nombre: "Primaria",
+    direccion:
+      "Chimalhuacán #6 Col. Ciudad del Sol Guadalajara, Jalisco",
+    ciudad: "Guadalajara",
+    url: "/campus/centro",
+    imagen: "/src/assets/Imagenes/CardsPlanteles/PlazaSol.png",
+    lat: 20.651805, // Actualizado
+    lon: -103.402918, // Actualizado
+    
+  },
+  
+];
+
+const ciudades = [
+  "Guadalajara",
+
+];
+
+const costosData = {
+  inscripcionAnual: 2500,
+  seguroEscolar: 1200,
+  coberturaEscolar: 1200,
+  uniformeEscolar: {
+    kitCompleto: 1380,
+    ahorro: 200,
+  },
+  uniformeDiario: [
+    {
+      id: "1",
+      nombre: "Falda",
+      precio: 510,
+      imagen: "/src/assets/Imagenes/Uniformes/Falda.png",
+    },
+    {
+      id: "2",
+      nombre: "Blusa",
+      precio: 320,
+      imagen: "/src/assets/Imagenes/Uniformes/Falda.png",
+    },
+    {
+      id: "3",
+      nombre: "Suéter",
+      precio: 450,
+      imagen: "/src/assets/Imagenes/Uniformes/Falda.png",
+    },
+  ],
+};
+const requisitosSecundaria = {
+  items: [
+    "Acta de nacimiento",
+    "CURP (formato actualizado)",
+    "Certificado de primaria",
+    "Comprobante de domicilio",
+    "Fotografías tamaño infantil (blanco y negro)",
+  ],
+  pdfUrl: "/public/pdfs/secundaria_req.pdf",
+};
+
+const semestresDatos = [
+  {
+    numero: 1,
+    materias: [
+      {
+        codigo: "ED1021",
+        nombre: "Introducción a la Educación",
+        creditos: 30,
+        color: "verde",
+      },
+      {
+        codigo: "Filosofía y Ética en Educación",
+        nombre: "Filosofía y Ética en Educación",
+        creditos: 30,
+        color: "verde",
+      },
+      {
+        codigo: "ED1024",
+        nombre: "Desarrollo Infantil y adolescente",
+        creditos: 30,
+        color: "verde",
+      },
+      {
+        codigo: "ED1027",
+        nombre: "Habilidades Básicas de Investigación",
+        creditos: 30,
+        color: "verde",
+      },
+    ],
+  },
+  {
+    numero: 2,
+    materias: [
+      {
+        codigo: "FH1203",
+        nombre: "Pensamiento lógico y tecnológico",
+        creditos: 30,
+        color: "amarillo",
+      },
+      {
+        codigo: "ED2016",
+        nombre: "Desarrollo de la Psicomotricidad",
+        creditos: 30,
+        color: "amarillo",
+      },
+      {
+        codigo: "HJ2026",
+        nombre: "Ética social cristiana",
+        creditos: 30,
+        color: "amarillo",
+      },
+      {
+        codigo: "ED1029",
+        nombre: "Historia de la Pedagogía moderna",
+        creditos: 30,
+        color: "amarillo",
+      },
+    ],
+  },
+  {
+    numero: 3,
+    materias: [
+      {
+        codigo: "PS1201",
+        nombre: "Fundamentos de Psicología y Bienestar",
+        creditos: 30,
+        color: "naranja",
+      },
+      {
+        codigo: "Gestión educativa institucional",
+        nombre: "Gestión educativa institucional",
+        creditos: 30,
+        color: "naranja",
+      },
+      {
+        codigo: "ED2012",
+        nombre: "Desarrollo Socioemocional",
+        creditos: 30,
+        color: "naranja",
+      },
+      {
+        codigo: "ED3027",
+        nombre: "Administración educativa",
+        creditos: 30,
+        color: "naranja",
+      },
+    ],
+  },
+  // Puedes agregar más semestres según necesites
+];
+
+const faqs = [
+  {
+    question: "¿Cuál es la edad mínima para ingresar a primero de primaria?",
+    answer:
+      "La edad mínima para ingresar a primero de primaria es de 6 años cumplidos al 31 de diciembre del ciclo escolar en curso, conforme a lo establecido por la SEP.",
+  },
+  {
+    question: "¿Qué documentos necesito para inscribir a mi hijo?",
+    answer:
+      "Necesitas: acta de nacimiento original y copia, CURP, cartilla de vacunación, comprobante de domicilio, identificación del padre o tutor, y certificado de preescolar si aplica.",
+  },
+  {
+    question: "¿Tienen horario extendido o clases extracurriculares?",
+    answer:
+      "Sí, contamos con horario extendido y actividades extracurriculares como arte, deportes, lectura y tecnología, que se ofrecen por las tardes con costo adicional.",
+  },
+  {
+    question: "¿Cuál es el horario de clases regular?",
+    answer:
+      "El horario regular es de lunes a viernes de 8:00 a.m. a 2:00 p.m. con un receso a media mañana para el desayuno o almuerzo ligero.",
+  },
+  {
+    question: "¿La primaria cuenta con servicio de comedor?",
+    answer:
+      "Sí, contamos con un servicio de comedor con menú balanceado supervisado por nutriólogos. El servicio es opcional y se contrata mensualmente.",
+  },
+  {
+    question: "¿Hay transporte escolar disponible?",
+    answer:
+      "Sí, ofrecemos transporte escolar con rutas establecidas. Puedes consultar disponibilidad y costos al momento de la inscripción.",
+  },
+  {
+    question: "¿Cómo puedo conocer las instalaciones?",
+    answer:
+      "Puedes agendar una visita guiada llamando a nuestra línea de atención o enviando un mensaje por nuestras redes sociales oficiales.",
+  },
+  {
+    question: "¿Qué métodos de enseñanza utilizan?",
+    answer:
+      "Utilizamos un enfoque integral basado en competencias, con apoyo en tecnología educativa, desarrollo socioemocional y aprendizaje significativo.",
+  },
+];
+
 ---
+
 <Layout>
-    Contenido
+  <main class="min-h-screen">
+    <!-- Hero Section -->
+    <section
+      class="relative min-h-[65vh] bg-cover bg-center bg-no-repeat"
+      style={`background-image: url(${Hero.src})`}
+    >
+      <!-- Hero Content -->
+      <div
+        class="relative z-10 container mx-auto px-4 h-full min-h-[65vh] flex flex-col justify-center"
+      >
+        <div class="text-center text-white max-w-4xl mx-auto">
+          <!-- Main Title -->
+          <h1 class="text-6xl md:text-7xl font-bold tracking-wider mb-4">
+            PRIMARIA
+          </h1>
+          <h2 class="text-4xl md:text-5xl font-bold tracking-wider mb-8">
+            UNE
+          </h2>
+
+          <!-- Description -->
+          <p
+            class="text-lg md:text-xl leading-relaxed mb-16 max-w-3xl mx-auto font-light"
+          >
+            En el colegio UNE, se consolidan hábitos, valores y habilidades
+            esenciales para la vida. Aquí se despierta la curiosidad, se
+            fortalecen las capacidades de pensamiento crítico.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Floating Card - ahora está fuera de la sección hero -->
+    <div class="relative -top-28 z-20 px-4">
+      <div class="bg-white rounded-2xl px-8 py-6 shadow-2xl max-w-2xl mx-auto">
+        <div class="flex items-center justify-between">
+          <!-- Logo section -->
+          <div class="flex items-center space-x-4">
+            <img
+              src={ColegioUNE.src}
+              alt="Colegio UNE"
+              class="w-48 object-contain"
+            />
+          </div>
+
+          <!-- CTA Button -->
+          <button
+            class="bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-6 rounded-lg text-base transition-colors duration-300 shadow-lg whitespace-nowrap"
+          >
+            INSCRIBIR A MI HIJO
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <SecondaryCard
+      logoSrc={ColegioUNE.src}
+      studentImageSrc={ImagenCard.src}
+      title="PRIMARIA"
+      description="En el Colegio UNE Secundaria, entendemos que esta etapa es clave para el desarrollo integral de tus hijos."
+      additionalText="Somos parte de la reconocida Universidad UNE, y nuestro programa educativo está diseñado para ir más allá de lo académico, formando jóvenes capaces, críticos y socialmente responsables."
+      features={[
+        { icon: "ShieldCheck", label: "Seguridad" },
+        { icon: "BookOpen", label: "Educación" },
+        { icon: "Users", label: "Comunidad" },
+        { icon: "Trophy", label: "Excelencia" },
+        { icon: "Star", label: "Calidad" },
+      ]}
+    />
+
+    <Planteles
+      titulo="Encuentra tu campus más cercano"
+      planteles={planteles}
+      ciudades={ciudades}
+      mostrarMasCercano={true}
+    />
+
+    <Costos
+      inscripcionAnual={costosData.inscripcionAnual}
+      seguroEscolar={costosData.seguroEscolar}
+      coberturaEscolar={costosData.coberturaEscolar}
+      uniformeEscolar={costosData.uniformeEscolar}
+      uniformeDiario={costosData.uniformeDiario}
+    />
+
+    <Requisitos nivel="Secundaria" requisitos={requisitosSecundaria} />
+
+    <PlanEstudios titulo="Propuesta Educativa" semestres={semestresDatos} />
+
+    <Perfiles />
+
+    <FAQComponent
+      faqs={faqs}
+      title="Preguntas frecuentes"
+      subtitle="Encuentra respuestas a las dudas más comunes"
+    />
+
+    <CTAinscripcion/>
+  </main>
 </Layout>

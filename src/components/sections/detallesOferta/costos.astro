@@ -1,0 +1,248 @@
+---
+// Props interface
+interface Props {
+  inscripcionAnual: number;
+  seguroEscolar: number;
+  coberturaEscolar: number;
+  uniformeEscolar: {
+    kitCompleto: number;
+    ahorro: number;
+  };
+  uniformeDiario: Array<{
+    id: string;
+    nombre: string;
+    precio: number;
+    imagen: string;
+  }>;
+  planteles: Array<{
+    nombre: string;
+    inscripcion: number;
+  }>;
+}
+
+const { 
+  inscripcionAnual, 
+  seguroEscolar, 
+  coberturaEscolar, 
+  uniformeEscolar, 
+  uniformeDiario 
+} = Astro.props;
+
+import Uniforme from "@assets/Imagenes/Uniformes/Gral.jpg"
+---
+
+<div class="max-w-6xl mt-32 mx-auto p-6">
+  <!-- Header -->
+  <div class="text-center my-20">
+    <h1 class="text-3xl font-bold text-gray-900 mb-2">CONOCE NUESTROS COSTOS</h1>
+    <p class="text-gray-600">Conoce toda la información sobre los costos de</p>
+    <p class="text-gray-600">inscripción y mensualidades de nuestros planteles</p>
+  </div>
+
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+    <!-- Costos Fijos Card -->
+    <div class="rounded-lg overflow-hidden shadow-lg relative" style={`background-image: url(${Uniforme.src}); background-size: cover; background-position: center;`}>
+      
+      <!-- Contenido -->
+      <div class="relative z-10 p-6">
+        <!-- Título principal -->
+        <div class="text-center mb-8">
+          <h2 class="text-3xl font-bold text-white mb-2">Costos Fijos</h2>
+          <p class="text-white text-sm opacity-90">(Todos los Planteles)</p>
+        </div>
+        
+        <div class="space-y-6">
+          <!-- Inscripción anual -->
+          <div class="flex justify-between items-center border-b border-gray-400 pb-4">
+            <div>
+              <h3 class="text-white font-bold text-lg">Inscripción:</h3>
+              <p class="text-white text-sm">Pago único al inicio del ciclo escolar</p>
+            </div>
+            <div class="text-right">
+              <span class="text-3xl font-bold text-white">${inscripcionAnual.toLocaleString()}</span>
+            </div>
+          </div>
+
+          <!-- Seguro Escolar -->
+          <div class="flex justify-between items-center border-b border-gray-400 pb-4">
+            <div>
+              <h3 class="text-white font-bold text-lg">Seguro Escolar</h3>
+              <p class="text-white text-sm">Cobertura médica durante el ciclo escolar</p>
+            </div>
+            <div class="text-right">
+              <span class="text-3xl font-bold text-white">${seguroEscolar.toLocaleString()}</span>
+            </div>
+          </div>
+
+          <!-- Cobertura médica -->
+          <div class="flex justify-between items-center">
+            <div>
+              <p class="text-white text-sm">Cobertura médica durante el ciclo escolar</p>
+            </div>
+            <div class="text-right">
+              <span class="text-3xl font-bold text-white">${coberturaEscolar.toLocaleString()}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Column -->
+    <div class="space-y-6">
+      <!-- Uniformes Escolares -->
+      <div class="bg-white rounded-lg shadow-lg p-6">
+        <h2 class="text-xl font-bold text-blue-800 mb-4">Uniformes Escolares</h2>
+        
+        <div class="flex justify-between items-center mb-4">
+          <div>
+            <h3 class="font-semibold text-gray-800">Kit Deportivo Completo</h3>
+            <p class="text-sm text-gray-600">Incluye: Pants + Playera deportiva + Sudadera</p>
+          </div>
+          <div class="text-right">
+            <span class="text-2xl font-bold text-gray-800">${uniformeEscolar.kitCompleto.toLocaleString()}</span>
+          </div>
+        </div>
+
+        <div class="bg-green-500 text-white text-center py-2 rounded-lg text-sm font-medium">
+          Ahorro de ${uniformeEscolar.ahorro} vs compra individual
+        </div>
+      </div>
+
+      <!-- Uniforme Diario Carousel -->
+      <div class="bg-gray-800 rounded-lg overflow-hidden shadow-lg relative">
+        <div id="uniform-carousel" class="splide">
+          <div class="splide__track">
+            <ul class="splide__list">
+              {uniformeDiario.map((item) => (
+                <li class="splide__slide" key={item.id}>
+                  <div class="relative h-80 w-full rounded-lg overflow-hidden">
+                    <!-- Imagen de fondo -->
+                    <img 
+                      src={item.imagen || Uniforme} 
+                      alt={item.nombre} 
+                      class="w-full h-full object-cover"
+                    />
+                    
+                    <!-- Título superior -->
+                    <div class="absolute top-4 left-4 right-4">
+                      <h2 class="text-2xl font-bold text-white">Uniforme Diario</h2>
+                    </div>
+                    
+                    <!-- Contenido inferior -->
+                    <div class="absolute bottom-4 left-4 right-4">
+                      <div class="flex justify-between items-end">
+                        <div class="text-white">
+                          <h3 class="text-2xl font-bold mb-1">{item.nombre}</h3>
+                          <p class="text-3xl font-bold">${item.precio.toLocaleString()}</p>
+                        </div>
+                        <button class="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors">
+                          ¿Dónde comprar?
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
+        <!-- Botones de navegación -->
+        <button class="absolute left-2 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 hover:bg-opacity-75 text-white p-2 rounded-full z-10" id="prev-btn">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+          </svg>
+        </button>
+        <button class="absolute right-2 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 hover:bg-opacity-75 text-white p-2 rounded-full z-10" id="next-btn">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  /* Estilos para el carousel */
+  .splide__slide {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100% !important;
+    flex-shrink: 0;
+  }
+  
+  .splide__arrows {
+    display: none;
+  }
+  
+  .splide__pagination {
+    bottom: 10px;
+  }
+  
+  .splide__pagination__page {
+    background: rgba(255, 255, 255, 0.5);
+  }
+  
+  .splide__pagination__page.is-active {
+    background: white;
+  }
+  
+  /* Asegurar que cada slide tenga el tamaño correcto */
+  .splide__track {
+    overflow: hidden;
+    width: 100%;
+  }
+  
+  .splide__list {
+    display: flex;
+    align-items: center;
+    width: 100%;
+  }
+  
+  /* Forzar que solo se vea una slide a la vez */
+  #uniform-carousel .splide__slide {
+    min-width: 100%;
+    max-width: 100%;
+  }
+</style>
+
+<script>
+  import { Splide } from '@splidejs/splide';
+  
+  document.addEventListener('DOMContentLoaded', function() {
+    const splide = new Splide('#uniform-carousel', {
+      type: 'loop',
+      perPage: 1,
+      perMove: 1,
+      arrows: false,
+      pagination: false,
+      autoplay: true,
+      interval: 4000,
+      pauseOnHover: true,
+      resetProgress: false,
+      gap: '0',
+      padding: '0',
+      width: '100%',
+      height: '320px',
+      fixedHeight: true,
+      focus: 'center',
+      trimSpace: false,
+    });
+    
+    splide.mount();
+    
+    // Controles personalizados
+    const prevBtn = document.getElementById('prev-btn');
+    const nextBtn = document.getElementById('next-btn');
+    
+    prevBtn?.addEventListener('click', () => {
+      splide.go('<');
+    });
+    
+    nextBtn?.addEventListener('click', () => {
+      splide.go('>');
+    });
+  });
+</script>

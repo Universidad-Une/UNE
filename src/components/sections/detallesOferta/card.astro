@@ -1,0 +1,94 @@
+---
+import { 
+  ShieldCheck, 
+  BookOpen, 
+  Users, 
+  Trophy, 
+  Star,
+  Heart,
+  Target,
+  Zap,
+  Globe,
+  Award
+} from  "@lucide/astro";
+
+const {
+  logoSrc,
+  studentImageSrc,
+  title,
+  description,
+  additionalText,
+  features,
+} = Astro.props;
+
+// Mapeo de nombres de iconos a componentes
+const iconMap = {
+  ShieldCheck,
+  BookOpen,
+  Users,
+  Trophy,
+  Star,
+  Heart,
+  Target,
+  Zap,
+  Globe,
+  Award
+};
+
+// Función para obtener el componente del icono
+const getIconComponent = (iconName) => {
+  return iconMap[iconName] || ShieldCheck;
+};
+---
+
+<div class="max-w-4xl mx-auto bg-white rounded-lg shadow-lg overflow-hidden">
+  <!-- Header Section -->
+  <div class="relative shadow-2xl ">
+    <!-- Logo -->
+    <div class="absolute top-6 left-6">
+      <img src={logoSrc} alt="Logo" class="h-12 w-auto" />
+    </div>
+    <!-- Content Grid -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-8">
+      <!-- Left Column - Text Content -->
+      <div class="space-y-6 p-8">
+        <div class="flex items-center gap-2 text-blue-900 font-semibold mt-12">
+          <span class="text-xl">{title}</span>
+        </div>
+        <div class="space-y-4 text-gray-700">
+          <p class="leading-relaxed">{description}</p>
+          <p class="leading-relaxed">{additionalText}</p>
+        </div>
+      </div>
+      <!-- Right Column - Student Image -->
+      <div class="relative">
+        <div class="relative z-10">
+          <img
+            src={studentImageSrc}
+            alt="Estudiante"
+            class="w-full h-auto rounded-tr-2xl rounded-br-2xl shadow-md"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Features Section -->
+<div class="p-8 mt-12 max-w-4xl mx-auto">
+  <div class="grid grid-cols-2 md:grid-cols-5 gap-6">
+    {
+      features.map((feature) => {
+        const IconComponent = getIconComponent(feature.icon);
+        return (
+          <div class="flex flex-col items-center text-center space-y-3">
+            <div class="w-12 h-12 bg-blue-900 rounded-full flex items-center justify-center">
+              <IconComponent class="text-white w-6 h-6" />
+            </div>
+            <span class="text-sm font-medium text-gray-700">{feature.label}</span>
+          </div>
+        );
+      })
+    }
+  </div>
+</div>

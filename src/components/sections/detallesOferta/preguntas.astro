@@ -1,0 +1,98 @@
+---
+import { Plus, Minus } from "@lucide/astro";
+
+// Definición de props
+export interface Props {
+  faqs: Array<{
+    question: string;
+    answer: string;
+  }>;
+  title?: string;
+  subtitle?: string;
+}
+
+// Extraer las props con valores por defecto
+const { 
+  faqs = [], 
+  title = "Todo lo que necesitas saber, en un solo lugar.",
+  subtitle = ""
+} = Astro.props;
+---
+
+<section class="py-16 bg-gray-50">
+  <div class="container mx-auto px-4">
+    <!-- Section Title -->
+    <div class="text-center mb-12">
+      <h2 class="text-4xl font-bold text-blue-900 mb-4">
+        {title}
+      </h2>
+      {subtitle && <p class="text-lg text-gray-600">{subtitle}</p>}
+    </div>
+
+    <!-- FAQ Grid -->
+    <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-4">
+      <!-- FAQ Items dinámicos -->
+      {faqs.map((faq, index) => (
+        <div
+          class="faq-item bg-azul-une text-white rounded-lg cursor-pointer hover:bg-blue-800 transition-colors duration-300 group"
+          key={index}
+        >
+          <div
+            class="faq-question p-6 flex items-center justify-between"
+          >
+            <h3 class="text-lg font-semibold">
+              {faq.question}
+            </h3>
+            <Plus
+              class="faq-icon w-6 h-6 transform group-hover:rotate-45 transition-transform duration-300"
+            />
+          </div>
+          <div class="faq-answer bg-blue-800 p-6 hidden">
+            <p class="text-white">
+              {faq.answer}
+            </p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<script>
+  // Add interactive functionality for FAQ items
+  document.addEventListener("DOMContentLoaded", function () {
+    const faqItems = document.querySelectorAll(".faq-item");
+
+    faqItems.forEach((item) => {
+      const question = item.querySelector(".faq-question");
+      const answer = item.querySelector(".faq-answer");
+      const icon = item.querySelector(".faq-icon");
+
+      question.addEventListener("click", function () {
+        const isOpen = !answer.classList.contains("hidden");
+
+        // Close all other FAQ items
+        faqItems.forEach((otherItem) => {
+          if (otherItem !== item) {
+            const otherAnswer =
+              otherItem.querySelector(".faq-answer");
+            const otherIcon = otherItem.querySelector(".faq-icon");
+            otherAnswer.classList.add("hidden");
+            // Replace with Plus icon (Lucide)
+            otherIcon.outerHTML = '<svg class="faq-icon w-6 h-6 transform group-hover:rotate-45 transition-transform duration-300" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 6v6m0 0v6m0-6h6m-6 0H6"/></svg>';
+          }
+        });
+
+        if (isOpen) {
+          // Close current item - show Plus icon
+          answer.classList.add("hidden");
+          icon.outerHTML = '<svg class="faq-icon w-6 h-6 transform group-hover:rotate-45 transition-transform duration-300" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 6v6m0 0v6m0-6h6m-6 0H6"/></svg>';
+        } else {
+          // Open current item - show Minus icon
+          answer.classList.remove("hidden");
+          icon.outerHTML = '<svg class="faq-icon w-6 h-6 transform group-hover:rotate-45 transition-transform duration-300" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 12H6"/></svg>';
+        }
+      });
+    });
+  });
+</script>

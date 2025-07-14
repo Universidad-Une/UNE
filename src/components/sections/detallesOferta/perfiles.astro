@@ -1,0 +1,136 @@
+---
+// PerfilSection.astro
+---
+
+<section class="relative min-h-screen flex items-center justify-center pt-8">
+  <!-- Elemento escalable con fondo -->
+  <div 
+    id="scalingElement"
+    class="relative w-full mx-auto px-6 pt-12 pb-12 text-center text-white will-change-transform transition-transform duration-75 ease-out bg-cover bg-center bg-no-repeat rounded-t-2xl"
+    style="transform: scale(0.8); background-image: url('/src/assets/Imagenes/Middles/Egresos.png');"
+  >
+    <!-- Encabezado -->
+    <div class="mb-6">
+      <a 
+        href="/perfiles" 
+        class="inline-flex items-center gap-2 text-sm font-medium opacity-90 hover:opacity-100 transition-opacity"
+      >
+        Ver oferta
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" class="inline-block">
+          <path 
+            d="M5 12h14M12 5l7 7-7 7" 
+            stroke="currentColor" 
+            stroke-width="2" 
+            stroke-linecap="round" 
+            stroke-linejoin="round"
+          />
+        </svg>
+      </a>
+    </div>
+
+    <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-16 leading-tight">
+      PERFIL
+    </h2>
+
+    <!-- Grid de perfiles -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
+      
+      <!-- Perfil de ingreso -->
+      <div class="bg-black/20 backdrop-blur-sm rounded-lg p-8 border border-white/20">
+        <h3 class="text-2xl md:text-3xl font-bold mb-6 text-white">
+          Perfil de ingreso
+        </h3>
+        <p class="text-lg md:text-xl leading-relaxed opacity-90 text-left">
+          El estudiante que ingresa a secundaria debe haber concluido la primaria y contar con habilidades básicas de comunicación, matemáticas, uso de tecnología, trabajo en equipo y valores como responsabilidad y respeto.
+        </p>
+      </div>
+
+      <!-- Perfil de egreso -->
+      <div class="bg-black/20 backdrop-blur-sm rounded-lg p-8 border border-white/20">
+        <h3 class="text-2xl md:text-3xl font-bold mb-6 text-white">
+          Perfil de egreso
+        </h3>
+        <p class="text-lg md:text-xl leading-relaxed opacity-90 text-left">
+          Al terminar la secundaria, el estudiante se comunica con claridad, piensa de forma crítica, trabaja en equipo, cuida su salud y el ambiente, usa la tecnología y valora la diversidad para continuar su formación.
+        </p>
+      </div>
+
+    </div>
+
+
+  </div>
+</section>
+
+<style>
+  .glassmorphism-btn {
+    border-radius: 7px;
+    border: 1px solid rgba(255, 255, 255, 0.40);
+    background: rgba(255, 255, 255, 0.32);
+    backdrop-filter: blur(10.5px);
+    -webkit-backdrop-filter: blur(10.5px);
+  }
+</style>
+
+<script is:inline>
+  // Función para manejar el scroll
+  function handleScroll() {
+    const scalingElement = document.getElementById('scalingElement');
+    if (!scalingElement) return;
+
+    const windowHeight = window.innerHeight;
+    const elementRect = scalingElement.getBoundingClientRect();
+    
+    // Rango de escala (de 80% a 100%)
+    const minScale = 0.8;
+    const maxScale = 1.0;
+
+    // Calcular el progreso basado en la posición del elemento
+    let scrollProgress = 0;
+    
+    // Cuando el elemento está entrando en la vista desde arriba
+    if (elementRect.top > 0) {
+      // Elemento aún no ha entrado completamente
+      const distanceFromTop = elementRect.top;
+      const maxDistance = windowHeight;
+      scrollProgress = Math.max(0, Math.min(1, 1 - (distanceFromTop / maxDistance)));
+    } 
+    // Cuando el elemento está en la vista o saliendo por abajo
+    else if (elementRect.bottom > 0) {
+      // Elemento está visible, mantener escala máxima
+      scrollProgress = 1;
+    }
+    // Cuando el elemento ya pasó completamente
+    else {
+      // Elemento ha salido de la vista por abajo, mantener escala máxima
+      scrollProgress = 1;
+    }
+
+    const scale = minScale + (maxScale - minScale) * scrollProgress;
+
+    // Aplicar la transformación
+    scalingElement.style.transform = `scale(${scale})`;
+  }
+
+  // Optimización con requestAnimationFrame
+  let ticking = false;
+  function optimizedScrollHandler() {
+    if (!ticking) {
+      requestAnimationFrame(() => {
+        handleScroll();
+        ticking = false;
+      });
+      ticking = true;
+    }
+  }
+
+  // Inicializar cuando la página esté lista
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', function() {
+      window.addEventListener('scroll', optimizedScrollHandler);
+      handleScroll();
+    });
+  } else {
+    window.addEventListener('scroll', optimizedScrollHandler);
+    handleScroll();
+  }
+</script>

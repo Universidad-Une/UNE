@@ -1,0 +1,361 @@
+---
+// Props del componente
+export interface Materia {
+  codigo: string;
+  nombre: string;
+  creditos: number;
+  color?: 'verde' | 'amarillo' | 'naranja' | 'rojo' | 'azul' | 'morado';
+  prerequisitos?: string[];
+}
+
+export interface Semestre {
+  numero: number;
+  materias: Materia[];
+}
+
+export interface Props {
+  titulo?: string;
+  semestres: Semestre[];
+}
+
+const { titulo = "Propuesta Educativa", semestres } = Astro.props;
+
+// Generar ID único para el componente
+const componentId = `plan-estudios-${Math.random().toString(36).substr(2, 9)}`;
+
+// Función para obtener las clases de color
+const getColorClasses = (color: string = 'verde') => {
+  const colorMap = {
+    verde: 'bg-green-100 border-l-4 border-green-500',
+    amarillo: 'bg-yellow-100 border-l-4 border-yellow-500',
+    naranja: 'bg-orange-100 border-l-4 border-orange-500',
+    rojo: 'bg-red-100 border-l-4 border-red-500',
+    azul: 'bg-blue-100 border-l-4 border-blue-500',
+    morado: 'bg-purple-100 border-l-4 border-purple-500'
+  };
+  return colorMap[color] || colorMap.verde;
+};
+
+// Función para obtener el nombre ordinal del semestre
+const getSemestreNombre = (numero: number) => {
+  const nombres = [
+    '', 'PRIMERO', 'SEGUNDO', 'TERCERO', 'CUARTO', 'QUINTO', 
+    'SEXTO', 'SÉPTIMO', 'OCTAVO', 'NOVENO', 'DÉCIMO'
+  ];
+  return nombres[numero] || `${numero}°`;
+};
+
+// Calcular créditos totales por semestre
+const calcularCreditos = (materias: Materia[]) => {
+  return materias.reduce((total, materia) => total + materia.creditos, 0);
+};
+---
+
+<div class="max-w-7xl mx-auto p-6 bg-white" id={componentId}>
+  <!-- Encabezado -->
+  <div class="text-center mb-8">
+    <h2 class="text-sm font-medium text-gray-600 mb-2">PLAN DE ESTUDIOS</h2>
+    <h1 class="text-3xl font-bold text-gray-900">{titulo}</h1>
+  </div>
+
+  <!-- Grid de semestres -->
+  <div class="flex flex-wrap justify-center gap-6" style={`--num-semestres: ${semestres.length}`}>
+    {semestres.map((semestre) => (
+      <div class="flex flex-col space-y-4" style={`min-width: ${Math.max(200, 800 / semestres.length)}px; max-width: 250px;`}>
+        <!-- Encabezado del semestre -->
+        <div class="text-center">
+          <h3 class="text-sm font-bold text-gray-800 mb-1">
+            {getSemestreNombre(semestre.numero)}
+          </h3>
+          <p class="text-xs text-gray-600">
+            Créditos: {calcularCreditos(semestre.materias)}
+          </p>
+        </div>
+
+        <!-- Materias del semestre -->
+        <div class="space-y-3">
+          {semestre.materias.map((materia) => (
+            <div class={`p-3 rounded-lg shadow-sm ${getColorClasses(materia.color)}`}>
+              <!-- Código de la materia -->
+              <div class="text-xs font-bold text-gray-700 mb-1">
+                {materia.codigo}
+              </div>
+              
+              <!-- Nombre de la materia -->
+              <div class="text-sm font-medium text-gray-900 leading-tight mb-2">
+                {materia.nombre}
+              </div>
+              
+              <!-- Círculo con número (simulando prerequisitos) -->
+              <div class="flex justify-end">
+                <div class="w-6 h-6 bg-gray-300 rounded-full flex items-center justify-center">
+                  <span class="text-xs font-bold text-gray-700">
+                    {materia.prerequisitos?.length || 0}
+                  </span>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    ))}
+  </div>
+
+  <!-- Botón de descarga -->
+  <div class="flex justify-center mt-8">
+    <button 
+      id={`download-btn-${componentId}`}
+      class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg shadow-lg transition-colors duration-200 flex items-center space-x-2"
+    >
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+      </svg>
+      <span>Descargar PDF</span>
+    </button>
+  </div>
+</div>
+
+<style>
+  /* Estilos adicionales si necesitas personalización extra */
+  .materia-card {
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  .materia-card:hover {
+    transform: translateY(-2px);
+  }
+
+  /* Ajustar tamaño en pantallas muy pequeñas */
+  @media (max-width: 768px) {
+    .flex-wrap > div {
+      min-width: 280px !important;
+      max-width: 100% !important;
+    }
+  }
+</style>
+
+<script define:vars={{ componentId, titulo, semestres }}>
+  import { PDFDocument, rgb, StandardFonts } from 'pdf-lib';
+
+  // Función para generar el PDF
+  async function generatePDF() {
+    try {
+      // Crear nuevo documento PDF
+      const pdfDoc = await PDFDocument.create();
+      const page = pdfDoc.addPage([842, 595]); // A4 landscape
+      
+      // Fuentes
+      const helveticaBold = await pdfDoc.embedFont(StandardFonts.HelveticaBold);
+      const helvetica = await pdfDoc.embedFont(StandardFonts.Helvetica);
+      
+      // Dimensiones
+      const pageWidth = page.getWidth();
+      const pageHeight = page.getHeight();
+      const margin = 40;
+      const contentWidth = pageWidth - (margin * 2);
+      
+      // Título
+      const titleText = titulo;
+      const titleFontSize = 24;
+      const titleWidth = helveticaBold.widthOfTextAtSize(titleText, titleFontSize);
+      
+      page.drawText('PLAN DE ESTUDIOS', {
+        x: (pageWidth - helveticaBold.widthOfTextAtSize('PLAN DE ESTUDIOS', 12)) / 2,
+        y: pageHeight - 60,
+        size: 12,
+        font: helvetica,
+        color: rgb(0.4, 0.4, 0.4)
+      });
+      
+      page.drawText(titleText, {
+        x: (pageWidth - titleWidth) / 2,
+        y: pageHeight - 85,
+        size: titleFontSize,
+        font: helveticaBold,
+        color: rgb(0, 0, 0)
+      });
+      
+      // Calcular dimensiones de columnas
+      const numSemestres = semestres.length;
+      const columnWidth = contentWidth / numSemestres;
+      const startY = pageHeight - 140;
+      
+      // Colores para las materias
+      const colorMap = {
+        'verde': rgb(0.8, 0.95, 0.8),
+        'amarillo': rgb(1, 0.95, 0.8),
+        'naranja': rgb(1, 0.9, 0.8),
+        'rojo': rgb(1, 0.8, 0.8),
+        'azul': rgb(0.8, 0.9, 1),
+        'morado': rgb(0.9, 0.8, 1)
+      };
+      
+      // Función para obtener el nombre ordinal del semestre
+      const getSemestreNombre = (numero) => {
+        const nombres = ['', 'PRIMERO', 'SEGUNDO', 'TERCERO', 'CUARTO', 'QUINTO', 
+                        'SEXTO', 'SÉPTIMO', 'OCTAVO', 'NOVENO', 'DÉCIMO'];
+        return nombres[numero] || `${numero}°`;
+      };
+      
+      // Calcular créditos totales por semestre
+      const calcularCreditos = (materias) => {
+        return materias.reduce((total, materia) => total + materia.creditos, 0);
+      };
+      
+      // Dibujar cada semestre
+      semestres.forEach((semestre, index) => {
+        const x = margin + (index * columnWidth);
+        let currentY = startY;
+        
+        // Encabezado del semestre
+        const semestreNombre = getSemestreNombre(semestre.numero);
+        const creditosTotal = calcularCreditos(semestre.materias);
+        
+        page.drawText(semestreNombre, {
+          x: x + (columnWidth - helveticaBold.widthOfTextAtSize(semestreNombre, 12)) / 2,
+          y: currentY,
+          size: 12,
+          font: helveticaBold,
+          color: rgb(0, 0, 0)
+        });
+        
+        page.drawText(`Créditos: ${creditosTotal}`, {
+          x: x + (columnWidth - helvetica.widthOfTextAtSize(`Créditos: ${creditosTotal}`, 10)) / 2,
+          y: currentY - 15,
+          size: 10,
+          font: helvetica,
+          color: rgb(0.4, 0.4, 0.4)
+        });
+        
+        currentY -= 40;
+        
+        // Dibujar materias
+        semestre.materias.forEach((materia) => {
+          const boxHeight = 60;
+          const boxWidth = columnWidth - 10;
+          const boxX = x + 5;
+          
+          // Fondo de la materia
+          const bgColor = colorMap[materia.color] || colorMap.verde;
+          page.drawRectangle({
+            x: boxX,
+            y: currentY - boxHeight,
+            width: boxWidth,
+            height: boxHeight,
+            color: bgColor
+          });
+          
+          // Borde izquierdo colorido
+          const borderColors = {
+            'verde': rgb(0.2, 0.7, 0.2),
+            'amarillo': rgb(0.8, 0.6, 0.2),
+            'naranja': rgb(0.9, 0.5, 0.2),
+            'rojo': rgb(0.8, 0.2, 0.2),
+            'azul': rgb(0.2, 0.4, 0.8),
+            'morado': rgb(0.5, 0.2, 0.8)
+          };
+          
+          page.drawRectangle({
+            x: boxX,
+            y: currentY - boxHeight,
+            width: 4,
+            height: boxHeight,
+            color: borderColors[materia.color] || borderColors.verde
+          });
+          
+          // Código de la materia
+          page.drawText(materia.codigo, {
+            x: boxX + 8,
+            y: currentY - 12,
+            size: 8,
+            font: helveticaBold,
+            color: rgb(0.3, 0.3, 0.3)
+          });
+          
+          // Nombre de la materia (con word wrap)
+          const nombreLines = wrapText(materia.nombre, helvetica, 10, boxWidth - 25);
+          nombreLines.forEach((line, lineIndex) => {
+            page.drawText(line, {
+              x: boxX + 8,
+              y: currentY - 25 - (lineIndex * 12),
+              size: 10,
+              font: helvetica,
+              color: rgb(0, 0, 0)
+            });
+          });
+          
+          // Círculo con número de prerequisitos
+          const prerequisitosNum = materia.prerequisitos?.length || 0;
+          const circleX = boxX + boxWidth - 15;
+          const circleY = currentY - 15;
+          
+          page.drawCircle({
+            x: circleX,
+            y: circleY,
+            size: 8,
+            color: rgb(0.7, 0.7, 0.7)
+          });
+          
+          page.drawText(prerequisitosNum.toString(), {
+            x: circleX - 3,
+            y: circleY - 3,
+            size: 8,
+            font: helveticaBold,
+            color: rgb(0, 0, 0)
+          });
+          
+          currentY -= boxHeight + 10;
+        });
+      });
+      
+      // Generar y descargar PDF
+      const pdfBytes = await pdfDoc.save();
+      const blob = new Blob([pdfBytes], { type: 'application/pdf' });
+      const url = URL.createObjectURL(blob);
+      
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = `${titulo.replace(/\s+/g, '_')}_Plan_de_Estudios.pdf`;
+      link.click();
+      
+      URL.revokeObjectURL(url);
+      
+    } catch (error) {
+      console.error('Error al generar PDF:', error);
+      alert('Error al generar el PDF. Por favor, inténtalo de nuevo.');
+    }
+  }
+  
+  // Función para dividir texto en líneas
+  function wrapText(text, font, fontSize, maxWidth) {
+    const words = text.split(' ');
+    const lines = [];
+    let currentLine = '';
+    
+    for (const word of words) {
+      const testLine = currentLine + (currentLine ? ' ' : '') + word;
+      const testWidth = font.widthOfTextAtSize(testLine, fontSize);
+      
+      if (testWidth > maxWidth && currentLine) {
+        lines.push(currentLine);
+        currentLine = word;
+      } else {
+        currentLine = testLine;
+      }
+    }
+    
+    if (currentLine) {
+      lines.push(currentLine);
+    }
+    
+    return lines;
+  }
+  
+  // Agregar event listener al botón
+  document.addEventListener('DOMContentLoaded', () => {
+    const downloadBtn = document.getElementById(`download-btn-${componentId}`);
+    if (downloadBtn) {
+      downloadBtn.addEventListener('click', generatePDF);
+    }
+  });
+</script>
