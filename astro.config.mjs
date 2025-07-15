@@ -18,6 +18,7 @@ export default defineConfig({
         '@layouts': path.resolve('./src/layouts'),
         '@utils': path.resolve('./src/utils'),
         '@pages': path.resolve('./src/pages'),
+        '@helpers': path.resolve('./src/helpers'),
         
         // Alias para subcarpetas de componentes
         '@ui': path.resolve('./src/components/ui'),

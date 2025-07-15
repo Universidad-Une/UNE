@@ -1,6 +1,7 @@
 ---
 import Layout from "@/layouts/Layout.astro";
 import Hero from "@/assets/Imagenes/Heros/Secundaria.jpg";
+import Hero_mobile from "@/assets/Imagenes/Heros/Secundaria_mobile.jpg";
 import ImagenCard from "@/assets/Imagenes/CardsNiveles/Nivel.png";
 import ColegioUNE from "@/assets/Logos/Colegio.png";
 import SecondaryCard from "@components/sections/detallesOferta/card.astro";
@@ -21,8 +22,8 @@ const planteles = [
     ciudad: "Puerto Vallarta",
     url: "/campus/puerto-vallarta",
     imagen: "/src/assets/Imagenes/CardsPlanteles/PuertoVallarta.png",
-    lat: null,
-    lon: null,
+    lat: 20.669418,
+    lon: -105.226917,
   },
   {
     id: "2",
@@ -32,8 +33,8 @@ const planteles = [
     ciudad: "Guadalajara ZMG",
     url: "/campus/plaza-del-sol",
     imagen: "/src/assets/Imagenes/CardsPlanteles/PlazaSol.png",
-    lat: null,
-    lon: null,
+    lat: 20.651805, // Actualizado previamente
+    lon: -103.402918, // Actualizado previamente
   },
   {
     id: "3",
@@ -44,8 +45,8 @@ const planteles = [
     ciudad: "Guadalajara ZMG",
     url: "/campus/tesistan",
     imagen: "/src/assets/Imagenes/CardsPlanteles/Tesistan.png",
-    lat: null,
-    lon: null,
+    lat: 20.806203,
+    lon: -102.763903,
   },
   {
     id: "4",
@@ -56,8 +57,8 @@ const planteles = [
     ciudad: "Guadalajara ZMG",
     url: "/campus/tlajomulco",
     imagen: "/src/assets/Imagenes/CardsPlanteles/Tlajomulco.png",
-    lat: null,
-    lon: null,
+    lat: 20.576464164603113,
+    lon: -103.45243680650722,
   },
   {
     id: "5",
@@ -68,8 +69,8 @@ const planteles = [
     ciudad: "Guadalajara ZMG",
     url: "/campus/tlaquepaque",
     imagen: "/src/assets/Imagenes/CardsPlanteles/Tlaquepaque.jpg",
-    lat: null,
-    lon: null,
+    lat: 20.645650028567157,
+    lon: -103.32094530771215,
   },
   {
     id: "6",
@@ -79,10 +80,11 @@ const planteles = [
     ciudad: "Guadalajara ZMG",
     url: "/campus/tonala",
     imagen: "/src/assets/Imagenes/CardsPlanteles/Tonala.png",
-    lat: null,
-    lon: null,
+    lat: 20.63176692188573,
+    lon: -103.24439406488241,
   },
 ];
+
 
 const ciudades = ["Guadalajara ZMG", "Puerto Vallarta"];
 
@@ -119,8 +121,8 @@ const costosData = {
     { nombre: "Tesistán", inscripcion: 2783 },
     { nombre: "Tlajomulco", inscripcion: 3675 },
     { nombre: "Tlaquepaque", inscripcion: 1848 },
-    { nombre: "Tonalá", inscripcion: 2365 }
-  ]
+    { nombre: "Tonalá", inscripcion: 2365 },
+  ],
 };
 const requisitosSecundaria = {
   items: [
@@ -138,26 +140,80 @@ const semestresDatos = [
     numero: 1,
     materias: [
       {
-        codigo: "ED1021",
-        nombre: "Introducción a la Educación",
+        codigo: "ESP1",
+        nombre: "Español I",
         creditos: 30,
         color: "verde",
       },
       {
-        codigo: "Filosofía y Ética en Educación",
-        nombre: "Filosofía y Ética en Educación",
+        codigo: "MAT1",
+        nombre: "Matemáticas I",
         creditos: 30,
         color: "verde",
       },
       {
-        codigo: "ED1024",
-        nombre: "Desarrollo Infantil y adolescente",
+        codigo: "BIO1",
+        nombre: "Biología",
         creditos: 30,
         color: "verde",
       },
       {
-        codigo: "ED1027",
-        nombre: "Habilidades Básicas de Investigación",
+        codigo: "GEO1",
+        nombre: "Geografía",
+        creditos: 30,
+        color: "verde",
+      },
+      {
+        codigo: "ING1",
+        nombre: "Inglés I",
+        creditos: 30,
+        color: "verde",
+      },
+      {
+        codigo: "EDF1",
+        nombre: "Educación física I",
+        creditos: 30,
+        color: "verde",
+      },
+      {
+        codigo: "FCE1",
+        nombre: "Formación cívica y ética I",
+        creditos: 30,
+        color: "verde",
+      },
+      {
+        codigo: "ART1",
+        nombre: "Artes I",
+        creditos: 30,
+        color: "verde",
+      },
+      {
+        codigo: "HIS1",
+        nombre: "Historia I",
+        creditos: 30,
+        color: "verde",
+      },
+      {
+        codigo: "TSE1",
+        nombre: "Tutoría y educación socio emocional I",
+        creditos: 30,
+        color: "verde",
+      },
+      {
+        codigo: "TEC1",
+        nombre: "Tecnología",
+        creditos: 30,
+        color: "verde",
+      },
+      {
+        codigo: "INT1",
+        nombre: "Integración curricular",
+        creditos: 30,
+        color: "verde",
+      },
+      {
+        codigo: "ROB1",
+        nombre: "Robótica",
         creditos: 30,
         color: "verde",
       },
@@ -167,26 +223,68 @@ const semestresDatos = [
     numero: 2,
     materias: [
       {
-        codigo: "FH1203",
-        nombre: "Pensamiento lógico y tecnológico",
+        codigo: "ESP2",
+        nombre: "Español II",
         creditos: 30,
         color: "amarillo",
       },
       {
-        codigo: "ED2016",
-        nombre: "Desarrollo de la Psicomotricidad",
+        codigo: "MAT2",
+        nombre: "Matemáticas II",
         creditos: 30,
         color: "amarillo",
       },
       {
-        codigo: "HJ2026",
-        nombre: "Ética social cristiana",
+        codigo: "FIS2",
+        nombre: "Física",
         creditos: 30,
         color: "amarillo",
       },
       {
-        codigo: "ED1029",
-        nombre: "Historia de la Pedagogía moderna",
+        codigo: "HIS2",
+        nombre: "Historia II",
+        creditos: 30,
+        color: "amarillo",
+      },
+      {
+        codigo: "FCE2",
+        nombre: "Formación cívica y ética II",
+        creditos: 30,
+        color: "amarillo",
+      },
+      {
+        codigo: "ING2",
+        nombre: "Inglés II",
+        creditos: 30,
+        color: "amarillo",
+      },
+      {
+        codigo: "EDF2",
+        nombre: "Educación física II",
+        creditos: 30,
+        color: "amarillo",
+      },
+      {
+        codigo: "ART2",
+        nombre: "Artes II",
+        creditos: 30,
+        color: "amarillo",
+      },
+      {
+        codigo: "TSE2",
+        nombre: "Tutoría y educación socio emocional II",
+        creditos: 30,
+        color: "amarillo",
+      },
+      {
+        codigo: "TEC2",
+        nombre: "Tecnología",
+        creditos: 30,
+        color: "amarillo",
+      },
+      {
+        codigo: "INT2",
+        nombre: "Integración curricular",
         creditos: 30,
         color: "amarillo",
       },
@@ -196,34 +294,74 @@ const semestresDatos = [
     numero: 3,
     materias: [
       {
-        codigo: "PS1201",
-        nombre: "Fundamentos de Psicología y Bienestar",
+        codigo: "ESP3",
+        nombre: "Español III",
         creditos: 30,
         color: "naranja",
       },
       {
-        codigo: "Gestión educativa institucional",
-        nombre: "Gestión educativa institucional",
+        codigo: "MAT3",
+        nombre: "Matemáticas III",
         creditos: 30,
         color: "naranja",
       },
       {
-        codigo: "ED2012",
-        nombre: "Desarrollo Socioemocional",
+        codigo: "QUI3",
+        nombre: "Química",
         creditos: 30,
         color: "naranja",
       },
       {
-        codigo: "ED3027",
-        nombre: "Administración educativa",
+        codigo: "HIS3",
+        nombre: "Historia III",
+        creditos: 30,
+        color: "naranja",
+      },
+      {
+        codigo: "FCE3",
+        nombre: "Formación cívica y ética III",
+        creditos: 30,
+        color: "naranja",
+      },
+      {
+        codigo: "ING3",
+        nombre: "Inglés III",
+        creditos: 30,
+        color: "naranja",
+      },
+      {
+        codigo: "EDF3",
+        nombre: "Educación física III",
+        creditos: 30,
+        color: "naranja",
+      },
+      {
+        codigo: "ART3",
+        nombre: "Artes III",
+        creditos: 30,
+        color: "naranja",
+      },
+      {
+        codigo: "TSE3",
+        nombre: "Tutoría y educación socio emocional III",
+        creditos: 30,
+        color: "naranja",
+      },
+      {
+        codigo: "TEC3",
+        nombre: "Tecnología",
+        creditos: 30,
+        color: "naranja",
+      },
+      {
+        codigo: "INT3",
+        nombre: "Integración curricular",
         creditos: 30,
         color: "naranja",
       },
     ],
   },
-  // Puedes agregar más semestres según necesites
 ];
-
 const faqs = [
   {
     question: "¿Cuál es la edad mínima para ingresar a primero de primaria?",
@@ -272,23 +410,36 @@ const faqs = [
   <main class="min-h-screen">
     <!-- Hero Section -->
     <section
-      class="relative min-h-[65vh] bg-cover bg-center bg-no-repeat"
-      style={`background-image: url(${Hero.src})`}
+      class="relative min-h-[85vh] md:min-h-[65vh] bg-cover bg-center bg-no-repeat"
     >
-      <!-- Hero Content -->
+      {/* Desktop Background */}
       <div
-        class="relative z-10 container mx-auto px-4 h-full min-h-[65vh] flex flex-col justify-center"
+        class="absolute inset-0 hidden md:block bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: `url(${Hero.src})` }}
+      >
+      </div>
+
+      {/* Mobile Background */}
+      <div
+        class="absolute inset-0 block md:hidden bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: `url(${Hero_mobile.src})` }}
+      >
+      </div>
+
+      {/* Hero Content */}
+      <div
+        class="relative z-10 container mx-auto px-4 h-full min-h-[85vh] md:min-h-[65vh] flex flex-col justify-center"
       >
         <div class="text-center text-white max-w-4xl mx-auto">
-          <!-- Main Title -->
-          <h1 class="text-6xl md:text-7xl font-bold tracking-wider mb-4">
-            SECUNDARIA
+          {/* Main Title */}
+          <h1 class="text-4xl md:text-7xl font-bold tracking-wider mb-4">
+            Secundaria
           </h1>
           <h2 class="text-4xl md:text-5xl font-bold tracking-wider mb-8">
             UNE
           </h2>
 
-          <!-- Description -->
+          {/* Description */}
           <p
             class="text-lg md:text-xl leading-relaxed mb-16 max-w-3xl mx-auto font-light"
           >
@@ -303,7 +454,7 @@ const faqs = [
     <!-- Floating Card - ahora está fuera de la sección hero -->
     <div class="relative -top-28 z-20 px-4">
       <div class="bg-white rounded-2xl px-8 py-6 shadow-2xl max-w-2xl mx-auto">
-        <div class="flex items-center justify-between">
+        <div class="flex flex-col md:flex-row items-center justify-between">
           <!-- Logo section -->
           <div class="flex items-center space-x-4">
             <img
@@ -345,14 +496,20 @@ const faqs = [
       mostrarMasCercano={true}
     />
 
-     <Costos 
-        inscripcionAnual={costosData.inscripcionAnual}
-        seguroEscolar={costosData.seguroEscolar}
-        coberturaEscolar={costosData.coberturaEscolar}
-        uniformeEscolar={costosData.uniformeEscolar}
-        uniformeDiario={costosData.uniformeDiario}
-        planteles={costosData.planteles}
-      />
+    <Costos
+      inscripcionAnual={costosData.inscripcionAnual}
+      seguroEscolar={costosData.seguroEscolar}
+      coberturaEscolar={costosData.coberturaEscolar}
+      uniformeEscolar={costosData.uniformeEscolar}
+      uniformeDiario={costosData.uniformeDiario}
+      planteles={[
+        { nombre: "Plaza del Sol", inscripcion: 2814, colegiatura: 2814 },
+        { nombre: "Tesistán", inscripcion: 2783, colegiatura: 2783 },
+        { nombre: "Tlajomulco", inscripcion: 3675, colegiatura: 3675 },
+        { nombre: "Tlaquepaque", inscripcion: 1848, colegiatura: 1848 },
+        { nombre: "Tonalá", inscripcion: 2365, colegiatura: 2365 },
+      ]}
+    />
 
     <Requisitos nivel="Secundaria" requisitos={requisitosSecundaria} />
 

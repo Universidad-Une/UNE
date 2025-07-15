@@ -108,34 +108,35 @@ const getIconComponent = (iconName) => {
 <!-- Features Section -->
 <div class="p-4 md:p-8 mt-8 md:mt-12 max-w-4xl mx-auto">
   <!-- Layout en estrella para mobile, grid normal para desktop -->
-  <div class="md:hidden">
-    <!-- Layout estrella para mobile -->
-    <div class="relative flex items-center justify-center min-h-[300px]">
-      {
-        features.map((feature, index) => {
-          const IconComponent = getIconComponent(feature.icon);
-          
-          // Posiciones en estrella para 5 elementos
-          const positions = [
-            "top-0 left-1/2 transform -translate-x-1/2", // Arriba centro
-            "top-16 right-4", // Arriba derecha
-            "bottom-16 right-4", // Abajo derecha
-            "bottom-16 left-4", // Abajo izquierda
-            "top-16 left-4", // Arriba izquierda
-          ];
-          
-          return (
-            <div class={`absolute ${positions[index]} flex flex-col items-center text-center space-y-2`}>
-              <div class="w-12 h-12 bg-blue-900 rounded-full flex items-center justify-center">
-                <IconComponent class="text-white w-6 h-6" />
-              </div>
-              <span class="text-xs font-medium text-gray-700 max-w-[60px]">{feature.label}</span>
+<div class="md:hidden">
+  <!-- Layout estrella para mobile -->
+  <div class="relative flex items-center justify-center min-h-[400px]">
+    {
+      features.map((feature, index) => {
+        const IconComponent = getIconComponent(feature.icon);
+        
+        // Posiciones en estrella para 5 elementos con mayor separación
+        const positions = [
+          "top-0 left-1/2 transform -translate-x-1/2", // Arriba centro
+          "top-8 right-0", // Arriba derecha
+          "bottom-8 right-0", // Abajo derecha
+          "bottom-8 left-0", // Abajo izquierda
+          "top-8 left-0", // Arriba izquierda
+        ];
+        
+        return (
+          <div class={`absolute ${positions[index]} flex flex-col items-center text-center space-y-2`}>
+            <div class="w-12 h-12 bg-blue-900 rounded-full flex items-center justify-center">
+              <IconComponent class="text-white w-6 h-6" />
             </div>
-          );
-        })
-      }
-    </div>
+            <span class="text-xs font-medium text-gray-700 max-w-[60px]">{feature.label}</span>
+          </div>
+        );
+      })
+    }
   </div>
+</div>
+
   
   <!-- Layout grid para desktop -->
   <div class="hidden md:grid md:grid-cols-5 gap-6">

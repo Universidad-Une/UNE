@@ -1,5 +1,6 @@
 ---
 import FondoAdmisiones from "@/assets/Imagenes/Heros/Admision.jpg";
+import FondoAdmisiones_mobile from "@/assets/Imagenes/Heros/Admision_mobile.jpg";
 import LogoUNE from "@/assets/Logos/UNE_azul.png";
 import Layout from "@/layouts/Layout.astro";
 import SemiescolarizadaImg from "@/assets/Imagenes/Modalidades/Semiescolarizada.jpg";
@@ -14,31 +15,36 @@ import { CheckCircle, FileDown } from "@lucide/astro";
 
 <Layout>
   <!-- Hero Section -->
- <section
-  class="relative bg-cover bg-center min-h-[70vh]"
-  style={{ backgroundImage: `url(${FondoAdmisiones.src})` }}
->
-    <!-- Overlay para mejorar legibilidad -->
+<section class="relative min-h-[85vh] md:min-h-[65vh] bg-cover bg-center bg-no-repeat">
+      {/* Desktop Background */}
+      <div
+        class="absolute inset-0 hidden md:block bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: `url(${FondoAdmisiones.src})` }}
+      ></div>
 
-    <div
-      class="relative container mx-auto px-4 h-full flex items-center min-h-[65vh]"
-    >
-      <!-- Contenido principal izquierdo -->
-      <div class="text-white max-w-2xl z-10">
-        <h1 class="text-6xl font-bold mb-4 leading-tight">ADMISIONES</h1>
-        <p class="text-lg mb-8 leading-relaxed">
-          En UNE, tus metas son nuestro impulso.<br />
-          ¡Descubre tu mejor versión con nosotros!
-        </p>
-        <button
-          class="bg-red-600 hover:bg-red-700 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-colors duration-300 transform hover:scale-105"
-          onclick="window.location.href='/admisiones/proceso'"
-        >
-          INICIAR PROCESO
-        </button>
+      {/* Mobile Background */}
+      <div
+        class="absolute inset-0 block md:hidden bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: `url(${FondoAdmisiones_mobile.src})` }}
+      ></div>
+
+      {/* Hero Content */}
+      <div class="relative z-10 container mx-auto px-4 h-full min-h-[85vh] md:min-h-[65vh] flex flex-col justify-center">
+        <div class="text-white max-w-2xl">
+          <h1 class="text-4xl md:text-6xl font-bold mb-4 leading-tight">ADMISIONES</h1>
+          <p class="text-lg md:text-xl mb-8 leading-relaxed font-light">
+            En UNE, tus metas son nuestro impulso.<br />
+            ¡Descubre tu mejor versión con nosotros!
+          </p>
+          <button
+            class="bg-red-600 hover:bg-red-700 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-colors duration-300 transform hover:scale-105"
+            onclick="window.location.href='/admisiones/proceso'"
+          >
+            INICIAR PROCESO
+          </button>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
   <!-- Process Steps -->
   <section class="py-16 bg-gray-50">

@@ -14,10 +14,18 @@ interface Props {
     precio: number;
     imagen: string;
   }>;
-  planteles: Array<{
-    nombre: string;
-    inscripcion: number;
-  }>;
+  planteles: {
+    normal: Array<{
+      nombre: string;
+      inscripcion: number;
+      colegiatura: number;
+    }>;
+    sabatina: Array<{
+      nombre: string;
+      inscripcion: number;
+      colegiatura: number;
+    }>;
+  };
 }
 
 const { 
@@ -25,15 +33,29 @@ const {
   seguroEscolar, 
   coberturaEscolar, 
   uniformeEscolar, 
-  uniformeDiario 
+  uniformeDiario,
+  planteles 
 } = Astro.props;
 
 import Uniforme from "@assets/Imagenes/Uniformes/Gral.jpg"
+
+// Función para detectar si los precios son uniformes
+function sonPreciosUniformes(planteles) {
+  const normalPrices = planteles.normal.map(p => p.colegiatura);
+  const sabatinaPrices = planteles.sabatina.map(p => p.colegiatura);
+  
+  const normalUniforme = normalPrices.every(price => price === normalPrices[0]);
+  const sabatinaUniforme = sabatinaPrices.every(price => price === sabatinaPrices[0]);
+  
+  return normalUniforme && sabatinaUniforme;
+}
+
+const preciosUniformes = sonPreciosUniformes(planteles)
 ---
 
-<div class="max-w-6xl mt-32 mx-auto p-6">
+<div class="max-w-6xl  md:mt-32 mx-auto p-6">
   <!-- Header -->
-  <div class="text-center my-20">
+  <div class="text-center my-10 md:my-20">
     <h1 class="text-3xl font-bold text-gray-900 mb-2">CONOCE NUESTROS COSTOS</h1>
     <p class="text-gray-600">Conoce toda la información sobre los costos de</p>
     <p class="text-gray-600">inscripción y mensualidades de nuestros planteles</p>
@@ -47,19 +69,32 @@ import Uniforme from "@assets/Imagenes/Uniformes/Gral.jpg"
       <div class="relative z-10 p-6">
         <!-- Título principal -->
         <div class="text-center mb-8">
-          <h2 class="text-3xl font-bold text-white mb-2">Costos Fijos</h2>
+          <h2 class="text-3xl font-bold text-white mb-2">Costos</h2>
           <p class="text-white text-sm opacity-90">(Todos los Planteles)</p>
         </div>
         
         <div class="space-y-6">
           <!-- Inscripción anual -->
-          <div class="flex justify-between items-center border-b border-gray-400 pb-4">
-            <div>
+           {inscripcionAnual > 0 && (
+  <div class="flex justify-between items-center border-b border-gray-400 pb-4">
+    <div>
               <h3 class="text-white font-bold text-lg">Inscripción:</h3>
               <p class="text-white text-sm">Pago único al inicio del ciclo escolar</p>
             </div>
             <div class="text-right">
               <span class="text-3xl font-bold text-white">${inscripcionAnual.toLocaleString()}</span>
+            </div>
+  </div>
+)}
+       
+
+           <div class="flex justify-between items-center border-b border-gray-400 pb-4">
+            <div>
+              <h3 class="text-white font-bold text-lg">Credencial:</h3>
+              <p class="text-white text-sm">Pago único hasta vigencia</p>
+            </div>
+            <div class="text-right">
+              <span class="text-3xl font-bold text-white">$240</span>
             </div>
           </div>
 
@@ -74,15 +109,67 @@ import Uniforme from "@assets/Imagenes/Uniformes/Gral.jpg"
             </div>
           </div>
 
-          <!-- Cobertura médica -->
-          <div class="flex justify-between items-center">
-            <div>
-              <p class="text-white text-sm">Cobertura médica durante el ciclo escolar</p>
-            </div>
-            <div class="text-right">
-              <span class="text-3xl font-bold text-white">${coberturaEscolar.toLocaleString()}</span>
-            </div>
-          </div>
+         <!-- Selector de Modalidad -->
+<div class="flex flex-col gap-2">
+  <div class="flex justify-between items-center">
+    <div>
+      <h3 class="text-white font-bold text-lg">Modalidad:</h3>
+      <p class="text-white text-sm">Selecciona tu modalidad preferida</p>
+    </div>
+  </div>
+  
+  <select 
+    id="modalidad-select" 
+    class="mt-2 bg-transparent text-white border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 shadow-sm"
+  >
+    <option value="normal" class="text-gray-800 bg-white">Normal</option>
+    <option value="sabatina" class="text-gray-800 bg-white">Sabatina</option>
+  </select>
+</div>
+
+<!-- Colegiatura Mensual -->
+<div class="flex flex-col gap-2">
+  <div class="flex justify-between items-center">
+    <div>
+      <h3 class="text-white font-bold text-lg">Colegiatura Mensual</h3>
+      <p class="text-white text-sm">
+        {preciosUniformes 
+          ? "Mismo precio en todos los planteles" 
+          : "Selecciona tu plantel para ver el costo"
+        }
+      </p>
+    </div>
+    <div class="text-right">
+      <span id="colegiatura-precio" class="text-3xl font-bold text-white">
+        ${planteles.normal[0]?.colegiatura.toLocaleString() ?? 'N/A'}
+      </span>
+    </div>
+  </div>
+  
+  {/* Solo mostrar selector si hay diferencias de precio */}
+  {!preciosUniformes && (
+    <select 
+      id="plantel-select" 
+      class="mt-2 bg-transparent text-white border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 shadow-sm"
+    >
+      {planteles.normal.map((plantel) => (
+        <option 
+          value={plantel.colegiatura} 
+          class="text-gray-800 bg-white"
+        >
+          {plantel.nombre} 
+        </option>
+      ))}
+    </select>
+  )}
+  
+  {/* Si son uniformes, mostrar info de que es igual para todos */}
+  {preciosUniformes && (
+    <div class="mt-2 text-white text-sm opacity-75">
+      <p>✓ Disponible en todos los planteles</p>
+    </div>
+  )}
+</div>
         </div>
       </div>
     </div>
@@ -135,9 +222,21 @@ import Uniforme from "@assets/Imagenes/Uniformes/Gral.jpg"
                           <h3 class="text-2xl font-bold mb-1">{item.nombre}</h3>
                           <p class="text-3xl font-bold">${item.precio.toLocaleString()}</p>
                         </div>
-                        <button class="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors">
-                          ¿Dónde comprar?
-                        </button>
+                       <div class="relative inline-block" id="tooltip-container">
+  <button
+    class="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors focus:outline-none"
+    onclick="toggleTooltip(this)"
+    onblur="hideTooltip(this)"
+  >
+    ¿Dónde comprar?
+  </button>
+  <div
+    class="absolute bottom-full mb-2 left-1/2 transform -translate-x-1/2 bg-gray-800 text-white text-xs rounded px-2 py-1 opacity-0 pointer-events-none transition-opacity duration-200 z-10 whitespace-nowrap"
+    data-tooltip
+  >
+    En tu plantel más cercano
+  </div>
+</div>
                       </div>
                     </div>
                   </div>
@@ -163,6 +262,88 @@ import Uniforme from "@assets/Imagenes/Uniformes/Gral.jpg"
   </div>
 </div>
 
+<script>
+  // Datos de planteles para JavaScript
+  const plantelesData = {
+    normal: [
+      { nombre: "Milenio", inscripcion: 772, colegiatura: 772 },
+      { nombre: "Centro", inscripcion: 772, colegiatura: 772 },
+      { nombre: "Centro Médico", inscripcion: 772, colegiatura: 772 },
+      { nombre: "Tesistán", inscripcion: 772, colegiatura: 772 },
+      { nombre: "Tlajomulco", inscripcion: 772, colegiatura: 772 },
+      { nombre: "Tlaquepaque", inscripcion: 772, colegiatura: 772 },
+      { nombre: "Tonalá", inscripcion: 772, colegiatura: 772 },
+      { nombre: "Chapultepec", inscripcion: 772, colegiatura: 772 },
+      { nombre: "Zapopan", inscripcion: 772, colegiatura: 772 }
+    ],
+    sabatina: [
+      { nombre: "Milenio", inscripcion: 609, colegiatura: 609 },
+      { nombre: "Centro", inscripcion: 609, colegiatura: 609 },
+      { nombre: "Centro Médico", inscripcion: 609, colegiatura: 609 },
+      { nombre: "Tesistán", inscripcion: 609, colegiatura: 609 },
+      { nombre: "Tlajomulco", inscripcion: 609, colegiatura: 609 },
+      { nombre: "Tlaquepaque", inscripcion: 609, colegiatura: 609 },
+      { nombre: "Tonalá", inscripcion: 609, colegiatura: 609 },
+      { nombre: "Chapultepec", inscripcion: 609, colegiatura: 609 },
+      { nombre: "Zapopan", inscripcion: 609, colegiatura: 609 }
+    ]
+  };
+
+  // Función para actualizar planteles según modalidad
+  function updatePlanteles(modalidad) {
+    const plantelSelect = document.getElementById('plantel-select');
+    const colegiaturaPreci = document.getElementById('colegiatura-precio');
+    
+    // Limpiar opciones actuales
+    plantelSelect.innerHTML = '';
+    
+    // Agregar nuevas opciones
+    plantelesData[modalidad].forEach(plantel => {
+      const option = document.createElement('option');
+      option.value = plantel.colegiatura;
+      option.textContent = plantel.nombre;
+      option.className = 'text-gray-800 bg-white';
+      plantelSelect.appendChild(option);
+    });
+    
+    // Actualizar precio mostrado
+    if (plantelesData[modalidad].length > 0) {
+      colegiaturaPreci.textContent = `$${plantelesData[modalidad][0].colegiatura.toLocaleString()}`;
+    }
+  }
+
+  // Event listeners
+  document.addEventListener('DOMContentLoaded', function() {
+    const modalidadSelect = document.getElementById('modalidad-select');
+    const plantelSelect = document.getElementById('plantel-select');
+    const colegiaturaPreci = document.getElementById('colegiatura-precio');
+
+    // Cambio de modalidad
+    modalidadSelect.addEventListener('change', function() {
+      updatePlanteles(this.value);
+    });
+
+    // Cambio de plantel
+    plantelSelect.addEventListener('change', function() {
+      colegiaturaPreci.textContent = `$${parseInt(this.value).toLocaleString()}`;
+    });
+  });
+
+  // Función para tooltip
+  function toggleTooltip(button) {
+    const tooltip = button.nextElementSibling;
+    tooltip.classList.toggle('opacity-0');
+    tooltip.classList.toggle('pointer-events-none');
+  }
+
+  function hideTooltip(button) {
+    const tooltip = button.nextElementSibling;
+    setTimeout(() => {
+      tooltip.classList.add('opacity-0');
+      tooltip.classList.add('pointer-events-none');
+    }, 200);
+  }
+</script>
 <style>
   /* Estilos para el carousel */
   .splide__slide {
@@ -208,10 +389,38 @@ import Uniforme from "@assets/Imagenes/Uniformes/Gral.jpg"
   }
 </style>
 
+<script is:inline>
+  function toggleTooltip(button) {
+    const tooltip = button.parentElement.querySelector('[data-tooltip]');
+    const isVisible = tooltip.classList.contains('opacity-100');
+    tooltip.classList.toggle('opacity-100', !isVisible);
+    tooltip.classList.toggle('opacity-0', isVisible);
+    tooltip.classList.toggle('pointer-events-none', isVisible);
+  }
+
+  function hideTooltip(button) {
+    const tooltip = button.parentElement.querySelector('[data-tooltip]');
+    tooltip.classList.remove('opacity-100');
+    tooltip.classList.add('opacity-0', 'pointer-events-none');
+  }
+</script>
+
 <script>
+  
   import { Splide } from '@splidejs/splide';
   
   document.addEventListener('DOMContentLoaded', function() {
+
+     const plantelSelect = document.getElementById('plantel-select');
+    const colegiaturaPrecio = document.getElementById('colegiatura-precio');
+    
+    if (plantelSelect && colegiaturaPrecio) {
+      plantelSelect.addEventListener('change', function() {
+        const selectedValue = this.value;
+        colegiaturaPrecio.textContent = `$${parseInt(selectedValue).toLocaleString()}`;
+      });
+    }
+
     const splide = new Splide('#uniform-carousel', {
       type: 'loop',
       perPage: 1,

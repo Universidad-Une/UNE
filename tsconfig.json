@@ -18,7 +18,8 @@
       "@images/*": ["src/assets/images/*"],
       "@logos/*": ["src/assets/Logos/*"],
       "@icons/*": ["src/assets/icons/*"],
-      "@types/*": ["src/types/*"]
+      "@types/*": ["src/types/*"],
+      "@helpers/*": ["src/helpers/*"]
     }
   }
 }

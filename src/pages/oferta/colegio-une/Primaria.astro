@@ -295,7 +295,6 @@ const faqs = [
       mostrarMasCercano={true}
     />
 
-    <Demo/>
 
     <Costos
       inscripcionAnual={costosData.inscripcionAnual}
@@ -303,6 +302,10 @@ const faqs = [
       coberturaEscolar={costosData.coberturaEscolar}
       uniformeEscolar={costosData.uniformeEscolar}
       uniformeDiario={costosData.uniformeDiario}
+      planteles={[
+        { nombre: "Plaza del Sol", inscripcion: 2814, colegiatura: 2814 },
+     
+      ]}
     />
 
     <Requisitos nivel="Secundaria" requisitos={requisitosSecundaria} />

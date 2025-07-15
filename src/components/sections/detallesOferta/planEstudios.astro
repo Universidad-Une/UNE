@@ -49,33 +49,92 @@ const getSemestreNombre = (numero: number) => {
 const calcularCreditos = (materias: Materia[]) => {
   return materias.reduce((total, materia) => total + materia.creditos, 0);
 };
+
+// Calcular créditos totales del plan
+const creditosTotales = semestres.reduce((total, sem) => total + calcularCreditos(sem.materias), 0);
 ---
 
-<div class="max-w-7xl mx-auto p-6 bg-white" id={componentId}>
+<div class="max-w-7xl mx-auto p-4 sm:p-6 bg-white" id={componentId}>
   <!-- Encabezado -->
-  <div class="text-center mb-8">
+  <div class="text-center mb-6 sm:mb-8">
     <h2 class="text-sm font-medium text-gray-600 mb-2">PLAN DE ESTUDIOS</h2>
-    <h1 class="text-3xl font-bold text-gray-900">{titulo}</h1>
+    <h1 class="text-2xl sm:text-3xl font-bold text-gray-900">{titulo}</h1>
   </div>
 
-  <!-- Grid de semestres -->
-  <div class="flex flex-wrap justify-center gap-6" style={`--num-semestres: ${semestres.length}`}>
+  <!-- Contenedor responsivo de semestres -->
+  <!-- En mobile: scroll horizontal -->
+  <div class="block sm:hidden">
+    <div class="flex gap-4 overflow-x-auto pb-4 scrollbar-hide" style="scroll-snap-type: x mandatory;">
+      {semestres.map((semestre) => (
+        <div class="flex-shrink-0 w-72 flex flex-col space-y-3" style="scroll-snap-align: start;">
+          <!-- Encabezado del semestre -->
+          <div class="text-center sticky top-0 bg-white pb-2">
+            <h3 class="text-sm font-bold text-gray-800 mb-1">
+              {getSemestreNombre(semestre.numero)}
+            </h3>
+            <div class="text-xs text-gray-600">
+              {calcularCreditos(semestre.materias)} créditos
+            </div>
+          </div>
+
+          <!-- Materias del semestre con scroll vertical limitado -->
+          <div class="space-y-2 max-h-96 overflow-y-auto pr-2 scrollbar-thin">
+            {semestre.materias.map((materia) => (
+              <div class={`p-3 rounded-lg shadow-sm materia-card ${getColorClasses(materia.color)}`}>
+                <!-- Código de la materia -->
+                <div class="text-xs font-bold text-gray-700 mb-1">
+                  {materia.codigo}
+                </div>
+                
+                <!-- Nombre de la materia -->
+                <div class="text-sm font-medium text-gray-900 leading-tight mb-2">
+                  {materia.nombre}
+                </div>
+                
+                <!-- Información adicional -->
+                <div class="flex justify-between items-center">
+                  <div class="text-xs text-gray-600">
+                    {materia.creditos} créditos
+                  </div>
+                  <div class="w-6 h-6 bg-gray-300 rounded-full flex items-center justify-center">
+                    <span class="text-xs font-bold text-gray-700">
+                      {materia.prerequisitos?.length || 0}
+                    </span>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+    
+    <!-- Indicador de scroll en mobile -->
+    <div class="flex justify-center mt-2 space-x-1">
+      {semestres.map((_, index) => (
+        <div class="w-2 h-2 bg-gray-300 rounded-full"></div>
+      ))}
+    </div>
+  </div>
+
+  <!-- En desktop: grid normal -->
+  <div class="hidden sm:grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-4 sm:gap-6">
     {semestres.map((semestre) => (
-      <div class="flex flex-col space-y-4" style={`min-width: ${Math.max(200, 800 / semestres.length)}px; max-width: 250px;`}>
+      <div class="flex flex-col space-y-4">
         <!-- Encabezado del semestre -->
         <div class="text-center">
           <h3 class="text-sm font-bold text-gray-800 mb-1">
             {getSemestreNombre(semestre.numero)}
           </h3>
-          <p class="text-xs text-gray-600">
-            Créditos: {calcularCreditos(semestre.materias)}
-          </p>
+          <div class="text-xs text-gray-600">
+            {calcularCreditos(semestre.materias)} créditos
+          </div>
         </div>
 
         <!-- Materias del semestre -->
         <div class="space-y-3">
           {semestre.materias.map((materia) => (
-            <div class={`p-3 rounded-lg shadow-sm ${getColorClasses(materia.color)}`}>
+            <div class={`p-3 rounded-lg shadow-sm materia-card ${getColorClasses(materia.color)}`}>
               <!-- Código de la materia -->
               <div class="text-xs font-bold text-gray-700 mb-1">
                 {materia.codigo}
@@ -86,8 +145,11 @@ const calcularCreditos = (materias: Materia[]) => {
                 {materia.nombre}
               </div>
               
-              <!-- Círculo con número (simulando prerequisitos) -->
-              <div class="flex justify-end">
+              <!-- Información adicional -->
+              <div class="flex justify-between items-center">
+                <div class="text-xs text-gray-600">
+                  {materia.creditos} créditos
+                </div>
                 <div class="w-6 h-6 bg-gray-300 rounded-full flex items-center justify-center">
                   <span class="text-xs font-bold text-gray-700">
                     {materia.prerequisitos?.length || 0}
@@ -101,11 +163,21 @@ const calcularCreditos = (materias: Materia[]) => {
     ))}
   </div>
 
+  <!-- Información de resumen -->
+  <div class="mt-6 sm:mt-8 text-center bg-gray-50 rounded-lg p-4">
+    <div class="text-sm text-gray-600">
+      <span class="font-medium">Total de créditos:</span> {creditosTotales}
+    </div>
+    <div class="text-sm text-gray-600 mt-1">
+      <span class="font-medium">Total de semestres:</span> {semestres.length}
+    </div>
+  </div>
+
   <!-- Botón de descarga -->
-  <div class="flex justify-center mt-8">
+  <div class="flex justify-center mt-6 sm:mt-8">
     <button 
       id={`download-btn-${componentId}`}
-      class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg shadow-lg transition-colors duration-200 flex items-center space-x-2"
+      class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg shadow-lg transition-colors duration-200 flex items-center space-x-2 w-full sm:w-auto"
     >
       <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
@@ -116,246 +188,305 @@ const calcularCreditos = (materias: Materia[]) => {
 </div>
 
 <style>
-  /* Estilos adicionales si necesitas personalización extra */
+  /* Estilos para hover y transiciones */
   .materia-card {
-    transition: transform 0.2s ease-in-out;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
   }
   
   .materia-card:hover {
     transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   }
 
-  /* Ajustar tamaño en pantallas muy pequeñas */
-  @media (max-width: 768px) {
-    .flex-wrap > div {
-      min-width: 280px !important;
-      max-width: 100% !important;
+  /* Scroll horizontal en mobile */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Scroll vertical personalizado para las materias */
+  .scrollbar-thin {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(156, 163, 175, 0.5) transparent;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background-color: rgba(156, 163, 175, 0.5);
+    border-radius: 2px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(156, 163, 175, 0.7);
+  }
+
+  /* Smooth scroll para mejor experiencia */
+  @media (max-width: 640px) {
+    .overflow-x-auto {
+      scroll-behavior: smooth;
+    }
+  }
+
+  /* Optimización para dispositivos móviles */
+  @media (max-width: 640px) {
+    /* Hacer que el scroll sea más natural en móvil */
+    .overflow-x-auto {
+      -webkit-overflow-scrolling: touch;
+    }
+    
+    /* Asegurar que las materias no sean demasiado anchas en mobile */
+    .materia-card {
+      min-height: 90px;
     }
   }
 </style>
 
-<script define:vars={{ componentId, titulo, semestres }}>
-  import { PDFDocument, rgb, StandardFonts } from 'pdf-lib';
-
-  // Función para generar el PDF
-  async function generatePDF() {
-    try {
-      // Crear nuevo documento PDF
-      const pdfDoc = await PDFDocument.create();
-      const page = pdfDoc.addPage([842, 595]); // A4 landscape
-      
-      // Fuentes
-      const helveticaBold = await pdfDoc.embedFont(StandardFonts.HelveticaBold);
-      const helvetica = await pdfDoc.embedFont(StandardFonts.Helvetica);
-      
-      // Dimensiones
-      const pageWidth = page.getWidth();
-      const pageHeight = page.getHeight();
-      const margin = 40;
-      const contentWidth = pageWidth - (margin * 2);
-      
-      // Título
-      const titleText = titulo;
-      const titleFontSize = 24;
-      const titleWidth = helveticaBold.widthOfTextAtSize(titleText, titleFontSize);
-      
-      page.drawText('PLAN DE ESTUDIOS', {
-        x: (pageWidth - helveticaBold.widthOfTextAtSize('PLAN DE ESTUDIOS', 12)) / 2,
-        y: pageHeight - 60,
-        size: 12,
-        font: helvetica,
-        color: rgb(0.4, 0.4, 0.4)
-      });
-      
-      page.drawText(titleText, {
-        x: (pageWidth - titleWidth) / 2,
-        y: pageHeight - 85,
-        size: titleFontSize,
-        font: helveticaBold,
-        color: rgb(0, 0, 0)
-      });
-      
-      // Calcular dimensiones de columnas
-      const numSemestres = semestres.length;
-      const columnWidth = contentWidth / numSemestres;
-      const startY = pageHeight - 140;
-      
-      // Colores para las materias
-      const colorMap = {
-        'verde': rgb(0.8, 0.95, 0.8),
-        'amarillo': rgb(1, 0.95, 0.8),
-        'naranja': rgb(1, 0.9, 0.8),
-        'rojo': rgb(1, 0.8, 0.8),
-        'azul': rgb(0.8, 0.9, 1),
-        'morado': rgb(0.9, 0.8, 1)
-      };
-      
-      // Función para obtener el nombre ordinal del semestre
-      const getSemestreNombre = (numero) => {
-        const nombres = ['', 'PRIMERO', 'SEGUNDO', 'TERCERO', 'CUARTO', 'QUINTO', 
-                        'SEXTO', 'SÉPTIMO', 'OCTAVO', 'NOVENO', 'DÉCIMO'];
-        return nombres[numero] || `${numero}°`;
-      };
-      
-      // Calcular créditos totales por semestre
-      const calcularCreditos = (materias) => {
-        return materias.reduce((total, materia) => total + materia.creditos, 0);
-      };
-      
-      // Dibujar cada semestre
-      semestres.forEach((semestre, index) => {
-        const x = margin + (index * columnWidth);
-        let currentY = startY;
-        
-        // Encabezado del semestre
-        const semestreNombre = getSemestreNombre(semestre.numero);
-        const creditosTotal = calcularCreditos(semestre.materias);
-        
-        page.drawText(semestreNombre, {
-          x: x + (columnWidth - helveticaBold.widthOfTextAtSize(semestreNombre, 12)) / 2,
-          y: currentY,
-          size: 12,
-          font: helveticaBold,
-          color: rgb(0, 0, 0)
-        });
-        
-        page.drawText(`Créditos: ${creditosTotal}`, {
-          x: x + (columnWidth - helvetica.widthOfTextAtSize(`Créditos: ${creditosTotal}`, 10)) / 2,
-          y: currentY - 15,
-          size: 10,
-          font: helvetica,
-          color: rgb(0.4, 0.4, 0.4)
-        });
-        
-        currentY -= 40;
-        
-        // Dibujar materias
-        semestre.materias.forEach((materia) => {
-          const boxHeight = 60;
-          const boxWidth = columnWidth - 10;
-          const boxX = x + 5;
-          
-          // Fondo de la materia
-          const bgColor = colorMap[materia.color] || colorMap.verde;
-          page.drawRectangle({
-            x: boxX,
-            y: currentY - boxHeight,
-            width: boxWidth,
-            height: boxHeight,
-            color: bgColor
-          });
-          
-          // Borde izquierdo colorido
-          const borderColors = {
-            'verde': rgb(0.2, 0.7, 0.2),
-            'amarillo': rgb(0.8, 0.6, 0.2),
-            'naranja': rgb(0.9, 0.5, 0.2),
-            'rojo': rgb(0.8, 0.2, 0.2),
-            'azul': rgb(0.2, 0.4, 0.8),
-            'morado': rgb(0.5, 0.2, 0.8)
-          };
-          
-          page.drawRectangle({
-            x: boxX,
-            y: currentY - boxHeight,
-            width: 4,
-            height: boxHeight,
-            color: borderColors[materia.color] || borderColors.verde
-          });
-          
-          // Código de la materia
-          page.drawText(materia.codigo, {
-            x: boxX + 8,
-            y: currentY - 12,
-            size: 8,
-            font: helveticaBold,
-            color: rgb(0.3, 0.3, 0.3)
-          });
-          
-          // Nombre de la materia (con word wrap)
-          const nombreLines = wrapText(materia.nombre, helvetica, 10, boxWidth - 25);
-          nombreLines.forEach((line, lineIndex) => {
-            page.drawText(line, {
-              x: boxX + 8,
-              y: currentY - 25 - (lineIndex * 12),
-              size: 10,
-              font: helvetica,
-              color: rgb(0, 0, 0)
-            });
-          });
-          
-          // Círculo con número de prerequisitos
-          const prerequisitosNum = materia.prerequisitos?.length || 0;
-          const circleX = boxX + boxWidth - 15;
-          const circleY = currentY - 15;
-          
-          page.drawCircle({
-            x: circleX,
-            y: circleY,
-            size: 8,
-            color: rgb(0.7, 0.7, 0.7)
-          });
-          
-          page.drawText(prerequisitosNum.toString(), {
-            x: circleX - 3,
-            y: circleY - 3,
-            size: 8,
-            font: helveticaBold,
-            color: rgb(0, 0, 0)
-          });
-          
-          currentY -= boxHeight + 10;
-        });
-      });
-      
-      // Generar y descargar PDF
-      const pdfBytes = await pdfDoc.save();
-      const blob = new Blob([pdfBytes], { type: 'application/pdf' });
-      const url = URL.createObjectURL(blob);
-      
-      const link = document.createElement('a');
-      link.href = url;
-      link.download = `${titulo.replace(/\s+/g, '_')}_Plan_de_Estudios.pdf`;
-      link.click();
-      
-      URL.revokeObjectURL(url);
-      
-    } catch (error) {
-      console.error('Error al generar PDF:', error);
-      alert('Error al generar el PDF. Por favor, inténtalo de nuevo.');
-    }
-  }
-  
-  // Función para dividir texto en líneas
-  function wrapText(text, font, fontSize, maxWidth) {
-    const words = text.split(' ');
-    const lines = [];
-    let currentLine = '';
-    
-    for (const word of words) {
-      const testLine = currentLine + (currentLine ? ' ' : '') + word;
-      const testWidth = font.widthOfTextAtSize(testLine, fontSize);
-      
-      if (testWidth > maxWidth && currentLine) {
-        lines.push(currentLine);
-        currentLine = word;
-      } else {
-        currentLine = testLine;
-      }
-    }
-    
-    if (currentLine) {
-      lines.push(currentLine);
-    }
-    
-    return lines;
-  }
-  
-  // Agregar event listener al botón
+<script define:vars={{ componentId, titulo, semestres, creditosTotales }}>
   document.addEventListener('DOMContentLoaded', () => {
     const downloadBtn = document.getElementById(`download-btn-${componentId}`);
-    if (downloadBtn) {
-      downloadBtn.addEventListener('click', generatePDF);
-    }
+    
+    if (!downloadBtn) return;
+
+    downloadBtn.addEventListener('click', async () => {
+      // Declarar la variable fuera del try para que sea accesible en el catch
+      let originalText = downloadBtn.innerHTML;
+
+      try {
+        // Cambiar texto del botón mientras se genera
+        downloadBtn.innerHTML = '<span>Generando PDF...</span>';
+        downloadBtn.disabled = true;
+
+        // 1. Importar pdf-lib desde un CDN
+        const { PDFDocument, rgb, StandardFonts } = await import('https://cdn.jsdelivr.net/npm/pdf-lib@1.17.1/dist/pdf-lib.esm.js');
+
+        // ... el resto de tu lógica para crear el PDF sigue igual ...
+
+        // Crear nuevo documento PDF
+        const pdfDoc = await PDFDocument.create();
+        
+        // Configurar fuente
+        const font = await pdfDoc.embedFont(StandardFonts.Helvetica);
+        const boldFont = await pdfDoc.embedFont(StandardFonts.HelveticaBold);
+        
+        // Crear página
+        let page = pdfDoc.addPage([595.28, 841.89]); // A4 size
+        const { width, height } = page.getSize();
+        
+        // Configurar colores
+        const colors = {
+          verde: rgb(0.8, 0.95, 0.8),
+          amarillo: rgb(1, 0.97, 0.8),
+          naranja: rgb(1, 0.9, 0.8),
+          rojo: rgb(0.98, 0.8, 0.8),
+          azul: rgb(0.8, 0.9, 1),
+          morado: rgb(0.9, 0.8, 1)
+        };
+
+        // Título principal
+        let yPosition = height - 80;
+        page.drawText('PLAN DE ESTUDIOS', {
+          x: width / 2 - 80,
+          y: yPosition,
+          size: 12,
+          font: font,
+          color: rgb(0.4, 0.4, 0.4)
+        });
+
+        yPosition -= 30;
+        page.drawText(titulo, {
+          x: width / 2 - (titulo.length * 6),
+          y: yPosition,
+          size: 18,
+          font: boldFont,
+          color: rgb(0, 0, 0)
+        });
+
+        yPosition -= 40;
+
+        // Función para obtener nombre ordinal
+        const getSemestreNombre = (numero) => {
+          const nombres = [
+            '', 'PRIMERO', 'SEGUNDO', 'TERCERO', 'CUARTO', 'QUINTO', 
+            'SEXTO', 'SÉPTIMO', 'OCTAVO', 'NOVENO', 'DÉCIMO'
+          ];
+          return nombres[numero] || `${numero}°`;
+        };
+
+        // Calcular layout
+        const semestresPerRow = Math.min(3, semestres.length);
+        const columnWidth = (width - 80) / semestresPerRow;
+        const startX = 40;
+
+        let currentRow = 0;
+        let currentCol = 0;
+
+        // Dibujar semestres
+        for (let i = 0; i < semestres.length; i++) {
+          const semestre = semestres[i];
+          const x = startX + (currentCol * columnWidth);
+          let y = yPosition - (currentRow * 350);
+
+          // Si no cabe en la página actual, crear nueva página
+          if (y < 100 && i > 0) { // Añadido i > 0 para evitar página en blanco al inicio
+            page = pdfDoc.addPage([595.28, 841.89]);
+            yPosition = height - 40;
+            currentRow = 0;
+            y = yPosition;
+          }
+
+          // Título del semestre
+          page.drawText(getSemestreNombre(semestre.numero), {
+            x: x + 10,
+            y: y,
+            size: 10,
+            font: boldFont,
+            color: rgb(0, 0, 0)
+          });
+
+          // Créditos del semestre
+          const creditosSemestre = semestre.materias.reduce((total, materia) => total + materia.creditos, 0);
+          page.drawText(`Créditos: ${creditosSemestre}`, {
+            x: x + 10,
+            y: y - 15,
+            size: 8,
+            font: font,
+            color: rgb(0.4, 0.4, 0.4)
+          });
+
+          // Dibujar materias
+          let materiaY = y - 40;
+          for (const materia of semestre.materias) {
+            const materiaHeight = 50;
+            const materiaWidth = columnWidth - 20;
+            
+            // Fondo de la materia
+            const bgColor = colors[materia.color] || colors.verde;
+            page.drawRectangle({
+              x: x + 5,
+              y: materiaY - materiaHeight + 5,
+              width: materiaWidth,
+              height: materiaHeight,
+              color: bgColor
+            });
+
+            // Borde izquierdo
+            const borderColors = {
+              verde: rgb(0.2, 0.7, 0.2),
+              amarillo: rgb(0.8, 0.8, 0.2),
+              naranja: rgb(0.9, 0.5, 0.2),
+              rojo: rgb(0.8, 0.2, 0.2),
+              azul: rgb(0.2, 0.4, 0.8),
+              morado: rgb(0.6, 0.2, 0.8)
+            };
+            const borderColor = borderColors[materia.color] || borderColors.verde;
+            page.drawRectangle({
+              x: x + 5,
+              y: materiaY - materiaHeight + 5,
+              width: 3,
+              height: materiaHeight,
+              color: borderColor
+            });
+
+            // Código de la materia
+            page.drawText(materia.codigo, {
+              x: x + 12,
+              y: materiaY - 15,
+              size: 8,
+              font: boldFont,
+              color: rgb(0.3, 0.3, 0.3)
+            });
+
+            // Nombre de la materia (con ajuste de texto)
+            const nombreTexto = materia.nombre.length > 25 ? 
+              materia.nombre.substring(0, 22) + '...' : materia.nombre;
+            page.drawText(nombreTexto, {
+              x: x + 12,
+              y: materiaY - 28,
+              size: 8,
+              font: font,
+              color: rgb(0, 0, 0)
+            });
+
+            // Círculo con prerequisitos
+            const prereqCount = materia.prerequisitos?.length || 0;
+            const circleX = x + materiaWidth - 10;
+            const circleY = materiaY - 35; 
+            page.drawCircle({
+                x: circleX,
+                y: circleY,
+                size: 8,
+                color: rgb(0.8, 0.8, 0.8)
+            });
+            page.drawText(prereqCount.toString(), {
+                x: circleX - (prereqCount > 9 ? 5 : 2.5),
+                y: circleY - 2.5,
+                size: 7,
+                font: boldFont,
+                color: rgb(0.3, 0.3, 0.3)
+            });
+            
+            materiaY -= 60;
+          }
+
+          currentCol++;
+          if (currentCol >= semestresPerRow) {
+            currentCol = 0;
+            currentRow++;
+            // Reset yPosition para la nueva fila en la misma página
+            if (currentCol === 0) {
+              yPosition -= 350; 
+            }
+          }
+        }
+
+        // Información adicional en la última página
+        const lastPage = pdfDoc.getPages()[pdfDoc.getPages().length - 1];
+        lastPage.drawText(`Total de créditos: ${creditosTotales}`, {
+          x: 40,
+          y: 60,
+          size: 12,
+          font: boldFont,
+          color: rgb(0, 0, 0)
+        });
+
+        // ... resto de la información y descarga ...
+
+        // Generar y descargar PDF
+        const pdfBytes = await pdfDoc.save();
+        const blob = new Blob([pdfBytes], { type: 'application/pdf' });
+        const url = URL.createObjectURL(blob);
+        
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = `plan-estudios-${titulo.replace(/\s+/g, '-').toLowerCase()}.pdf`;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+
+        // Restaurar botón
+        downloadBtn.innerHTML = originalText;
+        downloadBtn.disabled = false;
+
+      } catch (error) {
+        console.error('Error al generar PDF:', error);
+        alert('Error al generar el PDF. Por favor, intenta nuevamente.');
+        
+        // 2. Restaurar botón en caso de error (ahora funciona)
+        downloadBtn.innerHTML = originalText;
+        downloadBtn.disabled = false;
+      }
+    });
   });
 </script>

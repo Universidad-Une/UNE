@@ -1,15 +1,14 @@
 ---
 // CampusFinder.astro
-
-// Interfaz actualizada para incluir las coordenadas geográficas
 import { CircleArrowRight } from "@lucide/astro";
 
+// Interfaces sin cambios
 export interface Plantel {
   id: string;
   nombre: string;
   direccion: string;
   ciudad: string;
-  url: string;
+  url:string;
   imagen: string;
   lat: number;
   lon: number;
@@ -29,283 +28,332 @@ const {
   mostrarMasCercano = true,
 } = Astro.props;
 
-// Lógica para generar los tabs de ciudades (se ejecuta en el servidor)
+// Lógica de servidor sin cambios
 const ciudadesDisponibles =
   ciudades.length > 0
     ? ciudades.filter((ciudad) => planteles.some((p) => p.ciudad === ciudad))
     : [...new Set(planteles.map((p) => p.ciudad))];
 
-// Verificar si solo hay una ciudad y un plantel
-const soloUnPlantel = planteles.length === 1 && ciudadesDisponibles.length === 1;
+const soloUnPlantel = planteles.length === 1;
+
+// Pasamos los datos al cliente a través de atributos data-*
+const componentProps = {
+    planteles,
+    soloUnPlantel,
+};
 ---
 
-<div class="w-full mx-auto py-6 px-12" client:load>
+<div 
+  id="campus-finder-wrapper" 
+  class="w-full mx-auto py-6 px-4 sm:px-6 md:px-12" 
+  client:load
+  data-props={JSON.stringify(componentProps)}
+>
   <div class="flex justify-between items-center mb-8 flex-wrap gap-4">
     <h1 class="text-3xl font-bold text-gray-800">{titulo}</h1>
-    {
-      mostrarMasCercano && !soloUnPlantel && (
-        <button
-          id="find-nearest-btn"
-          class="flex items-center gap-2 text-gray-600 hover:text-gray-800 transition-colors"
-        >
-          <svg
-            class="w-5 h-5"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-            />
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
-            />
-          </svg>
-          <span>Mostrar el más cercano</span>
-        </button>
-      )
-    }
+    {mostrarMasCercano && !soloUnPlantel && (
+      <button
+        id="find-nearest-btn"
+        class="flex items-center gap-2 text-gray-600 hover:text-gray-800 transition-colors"
+      >
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+        </svg>
+        <span>Mostrar el más cercano</span>
+      </button>
+    )}
   </div>
 
-  <p
-    id="nearest-campus-result"
-    class="mb-6 text-center font-medium text-gray-700"
-  >
-  </p>
+  <p id="nearest-campus-result" class="mb-6 text-center font-medium text-gray-700 h-6"></p>
 
   {!soloUnPlantel && (
-    <div class="flex flex-wrap gap-2 mb-6">
-      <button
-        class="px-4 py-2 rounded-full text-sm font-medium transition-colors"
-        data-ciudad-tab="todos"
-      >
+    <div class="flex flex-wrap justify-center gap-2 mb-6">
+      <button class="px-4 py-2 rounded-full text-sm font-medium transition-colors" data-ciudad-tab="todos">
         Todos
       </button>
-      {
-        ciudadesDisponibles.map((ciudad) => (
-          <button
-            class="px-4 py-2 rounded-full text-sm font-medium transition-colors"
-            data-ciudad-tab={ciudad}
-          >
-            {ciudad}
-          </button>
-        ))
-      }
+      {ciudadesDisponibles.map((ciudad) => (
+        <button class="px-4 py-2 rounded-full text-sm font-medium transition-colors" data-ciudad-tab={ciudad}>
+          {ciudad}
+        </button>
+      ))}
     </div>
   )}
 
-  <div class={`grid gap-12 ${soloUnPlantel ? 'grid-cols-1 max-w-2xl mx-auto' : 'grid-cols-1 md:grid-cols-2'}`}>
-    {
-      planteles.map((plantel) => (
-        <div
-          class="bg-white rounded-3xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow campus-card"
-          data-ciudad-card={plantel.ciudad}
-          data-plantel-id={plantel.id}
-        >
-          <div class="flex">
-            <div class="flex-1 p-6">
-              <div class="flex items-center gap-2 mb-2">
-                <svg
-                  class="w-4 h-4 text-gray-500"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-                  />
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
-                  />
-                </svg>
-                <span class="text-sm text-gray-600 uppercase tracking-wide">
-                  {plantel.ciudad}
-                </span>
-              </div>
-              <h3 class="text-xl font-bold text-gray-800 mb-2">
-                {plantel.nombre}
-              </h3>
-              <p class="text-gray-600 text-sm mb-4 leading-relaxed">
-                {plantel.direccion}
-              </p>
-              <div class="flex gap-3">
-                <a
-                  href={plantel.url}
-                  class="bg-rojo-une text-white px-4 py-2 rounded text-sm font-medium hover:bg-red-700 transition-colors"
-                >
-                  CONOCE EL PLANTEL
-                </a>
-                <a
-                  href="/contacto"
-                  class=" text-blue-500 px-4 py-2 rounded text-sm font-medium hover:bg-gray-50 transition-colors flex items-center gap-2"
-                >
-                  Contactar
-                  <CircleArrowRight />
-                </a>
-              </div>
+  <div 
+    class={`hidden md:grid gap-12 ${soloUnPlantel ? 'grid-cols-1 max-w-2xl mx-auto' : 'grid-cols-1 md:grid-cols-2'}`}
+    id="desktop-grid"
+  >
+    {planteles.map((plantel) => (
+      <div
+        class="bg-white rounded-3xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 campus-card"
+        data-ciudad-card={plantel.ciudad}
+        data-plantel-id={plantel.id}
+      >
+        <div class="flex">
+          <div class="flex-1 p-6">
+            <div class="flex items-center gap-2 mb-2">
+              <svg class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+              <span class="text-sm text-gray-600 uppercase tracking-wide">{plantel.ciudad}</span>
             </div>
-            <div class="w-48 flex-shrink-0 rounded-r-3xl overflow-hidden">
-              <img
-                src={plantel.imagen}
-                alt={`Campus ${plantel.nombre}`}
-                class="w-full h-full object-cover"
-                loading="lazy"
-              />
+            <h3 class="text-xl font-bold text-gray-800 mb-2">{plantel.nombre}</h3>
+            <p class="text-gray-600 text-sm mb-4 leading-relaxed">{plantel.direccion}</p>
+            <div class="flex gap-3">
+              <a href={plantel.url} class="bg-rojo-une text-white px-4 py-2 rounded text-sm font-medium hover:bg-red-700 transition-colors">CONOCE EL PLANTEL</a>
+              <a href="/contacto" class="text-blue-500 px-4 py-2 rounded text-sm font-medium hover:bg-gray-50 transition-colors flex items-center gap-2">Contactar <CircleArrowRight /></a>
             </div>
           </div>
+          <div class="w-48 flex-shrink-0 rounded-r-3xl overflow-hidden">
+            <img src={plantel.imagen} alt={`Campus ${plantel.nombre}`} class="w-full h-full object-cover" loading="lazy" />
+          </div>
         </div>
-      ))
-    }
+      </div>
+    ))}
+  </div>
+
+  <div class="block md:hidden splide" id="mobile-carousel">
+    <div class="splide__track  py-12">
+      <ul class="splide__list">
+        {planteles.map((plantel) => (
+          <li class="splide__slide">
+            <div
+              class="bg-white rounded-3xl shadow-lg overflow-hidden transition-all duration-300 campus-card h-full"
+              data-ciudad-card={plantel.ciudad}
+              data-plantel-id={plantel.id}
+            >
+              <div class="flex flex-col h-full">
+                <div class="w-full h-48 rounded-t-3xl overflow-hidden">
+                  <img src={plantel.imagen} alt={`Campus ${plantel.nombre}`} class="w-full h-full object-cover" loading="lazy" />
+                </div>
+                <div class="flex-1 p-6">
+                    <div class="flex items-center gap-2 mb-2">
+                        <svg class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+                        <span class="text-sm text-gray-600 uppercase tracking-wide">{plantel.ciudad}</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">{plantel.nombre}</h3>
+                    <p class="text-gray-600 text-sm mb-4 leading-relaxed">{plantel.direccion}</p>
+                    <div class="flex flex-col justify-center items-center gap-3">
+                        <a href={plantel.url} class="bg-rojo-une text-white px-4 py-2 rounded text-sm font-medium hover:bg-red-700 transition-colors">CONOCE EL PLANTEL</a>
+                        <a href="/contacto" class=" text-blue-500 px-4 py-2 rounded text-sm font-medium hover:bg-gray-50 transition-colors flex items-center gap-2">Contactar <CircleArrowRight /></a>
+                    </div>
+                </div>
+              </div>
+            </div>
+          </li>
+        ))}
+      </ul>
+    </div>
   </div>
 </div>
 
-<script define:vars={{ planteles, soloUnPlantel }}>
-  // Solo ejecutar la lógica de filtros si hay más de un plantel
-  if (!soloUnPlantel) {
-    // --- Lógica del filtro de ciudades ---
+<style>
+  .bg-rojo-une { background-color: #dc2626; }
+  .hover\:bg-rojo-une:hover { background-color: #b91c1c; }
+  /* Estilos para resaltar la tarjeta */
+  .highlight-card {
+    box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.7) !important;
+    transform: scale(1.02);
+  }
+  /* Estilos Splide */
+  .splide__slide { padding: 0 0.5rem; }
+  .splide__arrow { background: rgba(255, 255, 255, 0.9); border: 1px solid #e2e8f0; }
+  .splide__arrow:hover { background: #ffffff; }
+  .splide__arrow svg { fill: #64748b; }
+  .splide__pagination__page.is-active { background: #dc2626; }
+</style>
+
+<script>
+  import Splide from "@splidejs/splide";
+  import "@splidejs/splide/dist/css/splide.min.css";
+
+  // Función para inicializar toda la lógica del cliente
+  function initCampusFinder() {
+    const wrapper = document.getElementById('campus-finder-wrapper');
+    if (!wrapper) return;
+
+    // 1. Leer las props del atributo data-*
+    const { planteles, soloUnPlantel } = JSON.parse(wrapper.dataset.props);
+    let splideInstance = null;
+
+    // 2. Inicializar el carrusel (Splide) en vistas móviles
+    const mobileCarousel = document.getElementById('mobile-carousel');
+    if (mobileCarousel && window.innerWidth < 768) {
+      splideInstance = new Splide('#mobile-carousel', {
+        type: 'loop',
+        padding: '1.3rem',
+        perPage: 1,
+        gap: '.1rem',
+        arrows: false,
+        pagination: false,
+        autoplay: true,
+        interval: 4000,
+        pauseOnHover: true,
+      }).mount();
+    }
+    
+    // Si solo hay un plantel, no se necesita la lógica de filtros ni de búsqueda
+    if (soloUnPlantel) return;
+
+    // 3. Lógica del filtro de ciudades
     const filterButtons = document.querySelectorAll("[data-ciudad-tab]");
-    const campusCards = document.querySelectorAll("[data-ciudad-card]");
+    const campusCards = document.querySelectorAll(".campus-card");
     const activeClasses = "bg-blue-600 text-white";
     const inactiveClasses = "bg-gray-200 text-gray-700 hover:bg-gray-300";
 
-    function setActiveTab(button) {
+    const setActiveTab = (button) => {
       filterButtons.forEach((btn) => {
         btn.className = `px-4 py-2 rounded-full text-sm font-medium transition-colors ${inactiveClasses}`;
       });
       button.className = `px-4 py-2 rounded-full text-sm font-medium transition-colors ${activeClasses}`;
-    }
+    };
+
+    const filterCards = (targetCiudad) => {
+        let visibleSlides = [];
+        campusCards.forEach((card) => {
+            const cardCiudad = card.dataset.ciudadCard;
+            const parentContainer = card.closest('.splide__slide') || card;
+            const isVisible = targetCiudad === "todos" || cardCiudad === targetCiudad;
+            parentContainer.style.display = isVisible ? "block" : "none";
+            if (isVisible && card.closest('.splide__slide')) {
+                visibleSlides.push(parentContainer);
+            }
+        });
+        
+        // Actualizar el carrusel si existe
+        if (splideInstance) {
+            // Eliminar los slides que no corresponden
+            const list = splideInstance.Components.Elements.list;
+            list.innerHTML = ''; // Limpiar la lista
+            visibleSlides.forEach(slide => list.appendChild(slide)); // Re-agregar los visibles
+            splideInstance.refresh();
+        }
+    };
 
     filterButtons.forEach((button) => {
       button.addEventListener("click", () => {
         const targetCiudad = button.dataset.ciudadTab;
         setActiveTab(button);
-
-        campusCards.forEach((card) => {
-          const cardCiudad = card.dataset.ciudadCard;
-          if (targetCiudad === "todos" || cardCiudad === targetCiudad) {
-            card.style.display = "block";
-          } else {
-            card.style.display = "none";
-          }
-        });
+        filterCards(targetCiudad);
       });
     });
 
-    // Inicia con "Todos" activo
+    // Iniciar con "Todos" activo
     const todosButton = document.querySelector('[data-ciudad-tab="todos"]');
     if (todosButton) {
       setActiveTab(todosButton);
     }
-  }
 
-  // --- Lógica para "Mostrar el más cercano" ---
-  const findNearestBtn = document.getElementById("find-nearest-btn");
-  const resultParagraph = document.getElementById("nearest-campus-result");
+    // 4. Lógica para "Mostrar el más cercano"
+    const findNearestBtn = document.getElementById("find-nearest-btn");
+    const resultParagraph = document.getElementById("nearest-campus-result");
 
-  if (findNearestBtn) {
-    function getUserLocation() {
-      return new Promise((resolve, reject) => {
-        if (!navigator.geolocation) {
-          reject(
-            new Error("La geolocalización no es soportada por tu navegador.")
-          );
+    const highlightCard = (plantelId) => {
+        // Remover resaltado previo
+        document.querySelectorAll('.highlight-card').forEach(c => c.classList.remove('highlight-card'));
+        
+        const cardToHighlight = document.querySelector(`.campus-card[data-plantel-id="${plantelId}"]`);
+        if (cardToHighlight) {
+            // Mostrar la tarjeta si está oculta por un filtro
+            const ciudad = cardToHighlight.dataset.ciudadCard;
+            const tabButton = document.querySelector(`[data-ciudad-tab="${ciudad}"]`);
+            if (tabButton) {
+                setActiveTab(tabButton);
+                filterCards(ciudad);
+            }
+
+            // Mover a la vista y resaltar
+            cardToHighlight.scrollIntoView({ behavior: "smooth", block: "center" });
+            cardToHighlight.classList.add('highlight-card');
+            
+            if (splideInstance && window.innerWidth < 768) {
+                const slideIndex = Array.from(cardToHighlight.closest('.splide__list').children).indexOf(cardToHighlight.closest('.splide__slide'));
+                if (slideIndex > -1) {
+                    splideInstance.go(slideIndex);
+                }
+            }
+
+            setTimeout(() => cardToHighlight.classList.remove('highlight-card'), 3000);
         }
-        navigator.geolocation.getCurrentPosition(resolve, reject);
-      });
     }
 
-    function haversineDistance(coords1, coords2) {
-      function toRad(x) {
-        return (x * Math.PI) / 180;
-      }
-      const R = 6371; // Radio de la Tierra en km
-      const dLat = toRad(coords2.lat - coords1.lat);
-      const dLon = toRad(coords2.lon - coords1.lon);
-      const lat1 = toRad(coords1.lat);
-      const lat2 = toRad(coords2.lat);
-      const a =
-        Math.sin(dLat / 2) * Math.sin(dLat / 2) +
-        Math.sin(dLon / 2) * Math.sin(dLon / 2) * Math.cos(lat1) * Math.cos(lat2);
-      const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-      return R * c;
-    }
+    const haversineDistance = (coords1, coords2) => {
+        const toRad = (x) => (x * Math.PI) / 180;
+        const R = 6371; // Radio de la Tierra en km
+        const dLat = toRad(coords2.lat - coords1.lat);
+        const dLon = toRad(coords2.lon - coords1.lon);
+        const a = Math.sin(dLat / 2) * Math.sin(dLat / 2) + Math.cos(toRad(coords1.lat)) * Math.cos(toRad(coords2.lat)) * Math.sin(dLon / 2) * Math.sin(dLon / 2);
+        const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+        return R * c;
+    };
 
-    findNearestBtn.addEventListener("click", async () => {
+    findNearestBtn.addEventListener("click", () => { // <-- CAMBIO: Ya no es async, manejamos con callbacks
       resultParagraph.textContent = "Buscando tu ubicación...";
       resultParagraph.style.color = "#374151";
 
-      try {
-        const position = await getUserLocation();
-        const userCoords = {
-          lat: position.coords.latitude,
-          lon: position.coords.longitude,
-        };
-        resultParagraph.textContent = "Calculando la sucursal más cercana...";
+      if (!navigator.geolocation) {
+        resultParagraph.textContent = "La geolocalización no es soportada por tu navegador.";
+        resultParagraph.style.color = "#dc2626";
+        return;
+      }
+      
+      // <-- CAMBIO: Opciones para mejorar la precisión y evitar que se cuelgue
+      const geoOptions = {
+        enableHighAccuracy: true, // Solicita la máxima precisión posible (usa GPS si está disponible)
+        timeout: 10000,           // Tiempo máximo de espera en milisegundos (10 segundos)
+        maximumAge: 0             // No usar una ubicación en caché, forzar una nueva lectura
+      };
 
-        let nearestCampus = null;
-        let minDistance = Infinity;
+      // <-- CAMBIO: Función de éxito separada para mayor claridad
+      const successCallback = (position) => {
+        const userCoords = { lat: position.coords.latitude, lon: position.coords.longitude };
+        
+        let nearestCampus = planteles.reduce((nearest, plantel) => {
+            const distance = haversineDistance(userCoords, { lat: plantel.lat, lon: plantel.lon });
+            if (distance < nearest.minDistance) {
+                return { minDistance: distance, plantel };
+            }
+            return nearest;
+        }, { minDistance: Infinity, plantel: null });
 
-        // La variable 'planteles' ya está disponible gracias a define:vars
-        planteles.forEach((plantel) => {
-          const distance = haversineDistance(userCoords, {
-            lat: plantel.lat,
-            lon: plantel.lon,
-          });
-          if (distance < minDistance) {
-            minDistance = distance;
-            nearestCampus = plantel;
-          }
-        });
-
-        if (nearestCampus) {
-          resultParagraph.innerHTML = `📍 Según tu ubicación, el plantel más cercano es <strong>${nearestCampus.nombre}</strong> (a ${minDistance.toFixed(1)} km).`;
-          const nearestCard = document.querySelector(
-            `[data-plantel-id="${nearestCampus.id}"]`
-          );
-          if (nearestCard) {
-            nearestCard.style.display = "block";
-            nearestCard.scrollIntoView({ behavior: "smooth", block: "center" });
-            nearestCard.style.transition = "all 0.3s ease-in-out";
-            nearestCard.style.boxShadow = "0 0 0 3px rgba(59, 130, 246, 0.7)";
-            setTimeout(() => {
-              nearestCard.style.boxShadow = "";
-            }, 3000);
-          }
-        }
-      } catch (error) {
-        console.error("Error de geolocalización:", error);
-        let message = "No se pudo obtener tu ubicación. ";
-        if (error.code === 1) {
-          // PERMISSION_DENIED
-          message +=
-            "Por favor, permite el acceso a tu ubicación para usar esta función.";
+        if (nearestCampus.plantel) {
+          resultParagraph.innerHTML = `📍 El plantel más cercano es <strong>${nearestCampus.plantel.nombre}</strong> (a ${nearestCampus.minDistance.toFixed(1)} km).`;
+          resultParagraph.style.color = "#10b981"; // Color de éxito
+          highlightCard(nearestCampus.plantel.id);
         } else {
-          message += "Inténtalo de nuevo.";
+           resultParagraph.textContent = "No se encontraron planteles para calcular la distancia.";
+           resultParagraph.style.color = "#dc2626";
+        }
+      };
+
+      // <-- CAMBIO: Función de error detallada para depuración
+      const errorCallback = (error) => {
+        let message = "No se pudo obtener tu ubicación. ";
+        // Imprimir el error completo en la consola para depuración
+        console.error("Error de Geolocalización:", error); 
+        
+        switch (error.code) {
+          case error.PERMISSION_DENIED:
+            message += "Permiso denegado. Por favor, permite el acceso a tu ubicación en los ajustes de tu navegador.";
+            break;
+          case error.POSITION_UNAVAILABLE:
+            message += "La información de ubicación no está disponible. Puede que no tengas señal GPS o estés en un lugar sin buena cobertura de red.";
+            break;
+          case error.TIMEOUT:
+            message += "La solicitud de ubicación tardó demasiado en responder. Inténtalo de nuevo en un lugar con mejor señal.";
+            break;
+          default:
+            message += `Ocurrió un error desconocido (Código: ${error.code}).`;
+            break;
         }
         resultParagraph.textContent = message;
         resultParagraph.style.color = "#dc2626";
-      }
+      };
+
+      // Llamada a la API de Geolocalización con los 3 parámetros: éxito, error y opciones
+      navigator.geolocation.getCurrentPosition(successCallback, errorCallback, geoOptions);
     });
   }
-</script>
 
-<style>
-  .bg-rojo-une {
-    background-color: #dc2626;
-  }
-  .hover\:bg-rojo-une:hover {
-    background-color: #b91c1c;
-  }
-</style>
+  // Ejecutar el script una vez el DOM esté listo
+  document.addEventListener("DOMContentLoaded", initCampusFinder);
+</script>

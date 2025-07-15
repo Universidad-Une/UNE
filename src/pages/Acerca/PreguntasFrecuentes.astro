@@ -1,6 +1,7 @@
 ---
 import Layout from "@/layouts/Layout.astro";
 import Hero from "@/assets/Imagenes/Heros/FAQ.jpg";
+import HeroMobile from "@/assets/Imagenes/Heros/FAQ_mobile.jpg";
 import Middle from "@/assets/Imagenes/Middles/Sillas.png";
 import { Search, Plus, Minus } from "@lucide/astro";
 ---
@@ -8,49 +9,42 @@ import { Search, Plus, Minus } from "@lucide/astro";
 <Layout>
     <main class="min-h-screen">
         <!-- Hero Section -->
-        <section
-            class="relative min-h-[65vh] overflow-hidden bg-cover bg-center bg-no-repeat"
-            style={`background-image: url(${Hero.src})`}
-        >
-            <!-- Hero Content -->
-            <div
-                class="relative z-10 container mx-auto px-4 h-full min-h-[65vh] flex items-center justify-end"
-            >
-                <div class="flex items-center justify-between w-full max-w-7xl">
-                    <!-- Left side - FAQ Title -->
-                    <div class="flex items-center space-x-8">
-                        <div class="text-white">
-                            <div class="flex items-center space-x-4 mb-4">
-                                <div
-                                    class="w-16 h-16 bg-white bg-opacity-20 rounded-full flex items-center justify-center"
-                                >
-                                    <Search class="w-8 h-8 text-white" />
-                                </div>
-                                <h1 class="text-6xl font-bold tracking-wider">
-                                    FAQ
-                                </h1>
-                            </div>
-                        </div>
-                    </div>
+       <section class="relative min-h-[65vh] overflow-hidden bg-cover bg-center bg-no-repeat">
+      <!-- Desktop Background -->
+      <div
+        class="absolute inset-0 hidden md:block bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: `url(${Hero.src})` }}
+      ></div>
 
-                    <!-- Right side - Welcome message -->
-                    <div
-                        class="bg-white rounded-lg p-6 max-w-sm shadow-lg ml-auto"
-                    >
-                        <h2 class="text-xl font-bold text-gray-800 mb-3">
-                            ¡Hola! ¿Cómo podemos ayudarte?
-                        </h2>
-                        <p class="text-gray-600 text-sm leading-relaxed">
-                            Esta sección de Preguntas Frecuentes está diseñada
-                            para resolver tus dudas de manera ágil. Navega por
-                            nuestros temas o utiliza el buscador para encontrar
-                            respuestas instantáneas. Si no encuentras lo que
-                            buscas, no dudes en contactarnos
-                        </p>
-                    </div>
-                </div>
+      <!-- Mobile Background -->
+      <div
+        class="absolute inset-0 block md:hidden bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: `url(${HeroMobile.src})` }}
+      ></div>
+
+      <!-- Hero Content -->
+      <div class="relative z-10 container mx-auto px-4 h-full min-h-[65vh] flex flex-col md:flex-row items-center justify-center md:justify-end">
+        <div class="w-full max-w-7xl flex flex-col md:flex-row items-center justify-between">
+          <!-- Left side - FAQ Title -->
+          <div class="flex items-center space-x-4 mb-6 md:mb-0 md:space-x-8 text-white">
+            <div class="w-16 h-16 bg-white bg-opacity-20 rounded-full flex items-center justify-center">
+              <Search class="w-8 h-8 text-white" />
             </div>
-        </section>
+            <h1 class="text-4xl md:text-6xl font-bold tracking-wider">FAQ</h1>
+          </div>
+
+          <!-- Right side - Welcome message -->
+          <div class="bg-white rounded-lg p-6 max-w-sm shadow-lg text-center md:text-left">
+            <h2 class="text-xl font-bold text-gray-800 mb-3">
+              ¡Hola! ¿Cómo podemos ayudarte?
+            </h2>
+            <p class="text-gray-600 text-sm leading-relaxed">
+              Esta sección de Preguntas Frecuentes está diseñada para resolver tus dudas de manera ágil. Navega por nuestros temas o utiliza el buscador para encontrar respuestas instantáneas. Si no encuentras lo que buscas, no dudes en contactarnos.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
 
         <!-- Main Content -->
         <section class="py-16 bg-gray-50">
