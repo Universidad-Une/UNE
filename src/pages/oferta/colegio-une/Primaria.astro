@@ -1,6 +1,7 @@
 ---
 import Layout from "@/layouts/Layout.astro";
 import Hero from "@/assets/Imagenes/Heros/Secundaria.jpg";
+import Hero_mobile from "@/assets/Imagenes/Heros/Secundaria_mobile.jpg";
 import ImagenCard from "@/assets/Imagenes/CardsNiveles/Nivel.png";
 import ColegioUNE from "@/assets/Logos/Colegio.png";
 import SecondaryCard from "@components/sections/detallesOferta/card.astro";
@@ -11,27 +12,22 @@ import PlanEstudios from "@/components/sections/detallesOferta/planEstudios.astr
 import Perfiles from "@/components/sections/detallesOferta/perfiles.astro";
 import FAQComponent from "@/components/sections/detallesOferta/preguntas.astro";
 import CTAinscripcion from "@/components/sections/shared/ctaInscripcion.astro";
+import Demo from "@/components/sections/detallesOferta/demo.astro";
 
 const planteles = [
   {
     id: "1",
     nombre: "Primaria",
-    direccion:
-      "Chimalhuacán #6 Col. Ciudad del Sol Guadalajara, Jalisco",
+    direccion: "Chimalhuacán #6 Col. Ciudad del Sol Guadalajara, Jalisco",
     ciudad: "Guadalajara",
     url: "/campus/centro",
     imagen: "/src/assets/Imagenes/CardsPlanteles/PlazaSol.png",
     lat: 20.651805, // Actualizado
     lon: -103.402918, // Actualizado
-    
   },
-  
 ];
 
-const ciudades = [
-  "Guadalajara",
-
-];
+const ciudades = ["Guadalajara"];
 
 const costosData = {
   inscripcionAnual: 2500,
@@ -206,22 +202,35 @@ const faqs = [
       "Utilizamos un enfoque integral basado en competencias, con apoyo en tecnología educativa, desarrollo socioemocional y aprendizaje significativo.",
   },
 ];
-
 ---
 
 <Layout>
   <main class="min-h-screen">
     <!-- Hero Section -->
+
     <section
-      class="relative min-h-[65vh] bg-cover bg-center bg-no-repeat"
-      style={`background-image: url(${Hero.src})`}
+      class="relative min-h-[85vh] md:min-h-[65vh] bg-cover bg-center bg-no-repeat"
     >
-      <!-- Hero Content -->
+      {/* Desktop Background */}
       <div
-        class="relative z-10 container mx-auto px-4 h-full min-h-[65vh] flex flex-col justify-center"
+        class="absolute inset-0 hidden md:block bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: `url(${Hero.src})` }}
+      >
+      </div>
+
+      {/* Mobile Background */}
+      <div
+        class="absolute inset-0 block md:hidden bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: `url(${Hero_mobile.src})` }}
+      >
+      </div>
+
+      {/* Hero Content */}
+      <div
+        class="relative z-10 container mx-auto px-4 h-full min-h-[85vh] md:min-h-[65vh] flex flex-col justify-center"
       >
         <div class="text-center text-white max-w-4xl mx-auto">
-          <!-- Main Title -->
+          {/* Main Title */}
           <h1 class="text-6xl md:text-7xl font-bold tracking-wider mb-4">
             PRIMARIA
           </h1>
@@ -229,7 +238,7 @@ const faqs = [
             UNE
           </h2>
 
-          <!-- Description -->
+          {/* Description */}
           <p
             class="text-lg md:text-xl leading-relaxed mb-16 max-w-3xl mx-auto font-light"
           >
@@ -286,6 +295,8 @@ const faqs = [
       mostrarMasCercano={true}
     />
 
+    <Demo/>
+
     <Costos
       inscripcionAnual={costosData.inscripcionAnual}
       seguroEscolar={costosData.seguroEscolar}
@@ -306,6 +317,6 @@ const faqs = [
       subtitle="Encuentra respuestas a las dudas más comunes"
     />
 
-    <CTAinscripcion/>
+    <CTAinscripcion />
   </main>
 </Layout>

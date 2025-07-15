@@ -41,15 +41,46 @@ const getIconComponent = (iconName) => {
 };
 ---
 
-<div class="max-w-4xl mx-auto bg-white rounded-lg shadow-lg overflow-hidden">
+<div class="max-w-4xl mx-auto bg-white rounded-lg shadow-lg overflow-hidden px-4 lg:px-0">
   <!-- Header Section -->
-  <div class="relative shadow-2xl ">
-    <!-- Logo -->
-    <div class="absolute top-6 left-6">
+  <div class="relative shadow-2xl">
+    <!-- Logo solo visible en desktop -->
+    <div class="absolute top-6 left-6 z-20 hidden lg:block">
       <img src={logoSrc} alt="Logo" class="h-12 w-auto" />
     </div>
-    <!-- Content Grid -->
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-8">
+    
+    <!-- Mobile y Tablet Layout: Image first, then text -->
+    <div class="lg:hidden">
+      <!-- Student Image - Mobile y Tablet (top) -->
+      <div class="relative pt-6 max-w-md mx-auto md:max-w-2xl">
+        <div class="relative z-10">
+          <img
+            src={studentImageSrc}
+            alt="Estudiante"
+            class="w-full h-auto rounded-tr-lg rounded-tl-lg shadow-md"
+          />
+        </div>
+      </div>
+      
+      <!-- Text Content - Mobile y Tablet (bottom) -->
+      <div class="space-y-6 p-4 md:p-8 max-w-md mx-auto md:max-w-2xl">
+        <!-- Logo debajo de la imagen en mobile y tablet -->
+        <div class="flex justify-center mb-4">
+          <img src={logoSrc} alt="Logo" class="h-12 w-auto" />
+        </div>
+        
+        <div class="flex items-center gap-2 text-blue-900 font-semibold">
+          <span class="text-lg md:text-xl">{title}</span>
+        </div>
+        <div class="space-y-4 text-gray-700">
+          <p class="leading-relaxed text-sm md:text-base">{description}</p>
+          <p class="leading-relaxed text-sm md:text-base">{additionalText}</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Desktop Layout: Text left, image right -->
+    <div class="hidden lg:grid lg:grid-cols-2 gap-8 mt-8">
       <!-- Left Column - Text Content -->
       <div class="space-y-6 p-8">
         <div class="flex items-center gap-2 text-blue-900 font-semibold mt-12">
@@ -75,8 +106,39 @@ const getIconComponent = (iconName) => {
 </div>
 
 <!-- Features Section -->
-<div class="p-8 mt-12 max-w-4xl mx-auto">
-  <div class="grid grid-cols-2 md:grid-cols-5 gap-6">
+<div class="p-4 md:p-8 mt-8 md:mt-12 max-w-4xl mx-auto">
+  <!-- Layout en estrella para mobile, grid normal para desktop -->
+  <div class="md:hidden">
+    <!-- Layout estrella para mobile -->
+    <div class="relative flex items-center justify-center min-h-[300px]">
+      {
+        features.map((feature, index) => {
+          const IconComponent = getIconComponent(feature.icon);
+          
+          // Posiciones en estrella para 5 elementos
+          const positions = [
+            "top-0 left-1/2 transform -translate-x-1/2", // Arriba centro
+            "top-16 right-4", // Arriba derecha
+            "bottom-16 right-4", // Abajo derecha
+            "bottom-16 left-4", // Abajo izquierda
+            "top-16 left-4", // Arriba izquierda
+          ];
+          
+          return (
+            <div class={`absolute ${positions[index]} flex flex-col items-center text-center space-y-2`}>
+              <div class="w-12 h-12 bg-blue-900 rounded-full flex items-center justify-center">
+                <IconComponent class="text-white w-6 h-6" />
+              </div>
+              <span class="text-xs font-medium text-gray-700 max-w-[60px]">{feature.label}</span>
+            </div>
+          );
+        })
+      }
+    </div>
+  </div>
+  
+  <!-- Layout grid para desktop -->
+  <div class="hidden md:grid md:grid-cols-5 gap-6">
     {
       features.map((feature) => {
         const IconComponent = getIconComponent(feature.icon);

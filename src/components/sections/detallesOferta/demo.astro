@@ -1,0 +1,227 @@
+---
+// MobileCardsCarousel.astro
+export interface Props {
+  cards?: Array<{
+    id: string;
+    title: string;
+    description: string;
+    image?: string;
+    badge?: string;
+    link?: string;
+  }>;
+  autoplay?: boolean;
+  interval?: number;
+}
+
+const { 
+  cards = [
+    {
+      id: "1",
+      title: "Card de Ejemplo 1",
+      description: "Esta es una descripción de ejemplo para mostrar cómo se ve el contenido en el card.",
+      image: "https://images.unsplash.com/photo-1557683316-973673baf926?w=400&h=200&fit=crop",
+      badge: "Nuevo",
+      link: "#"
+    },
+    {
+      id: "2", 
+      title: "Card de Ejemplo 2",
+      description: "Otro ejemplo de card con diferente contenido para demostrar la funcionalidad.",
+      image: "https://images.unsplash.com/photo-1557804506-669a67965ba0?w=400&h=200&fit=crop",
+      badge: "Popular",
+      link: "#"
+    },
+    {
+      id: "3",
+      title: "Card de Ejemplo 3", 
+      description: "Tercer ejemplo de card mostrando más contenido en el carrusel móvil.",
+      image: "https://images.unsplash.com/photo-1557683304-673a23048d34?w=400&h=200&fit=crop",
+      badge: "Destacado",
+      link: "#"
+    },
+    {
+      id: "4",
+      title: "Card de Ejemplo 4",
+      description: "Cuarto card para demostrar el desplazamiento horizontal del carrusel.",
+      image: "https://images.unsplash.com/photo-1557682250-33bd709cbe85?w=400&h=200&fit=crop",
+      badge: "Oferta",
+      link: "#"
+    }
+  ],
+  autoplay = false,
+  interval = 3000
+} = Astro.props;
+---
+
+<div class="mobile-cards-carousel w-full max-w-sm mx-auto sm:max-w-full">
+  <div class="splide" id="mobile-cards-splide">
+    <div class="splide__track">
+      <ul class="splide__list">
+        {cards.map((card) => (
+          <li class="splide__slide">
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden mx-2 h-80 flex flex-col">
+              {/* Imagen del card */}
+              {card.image && (
+                <div class="relative h-40 overflow-hidden">
+                  <img 
+                    src={card.image} 
+                    alt={card.title}
+                    class="w-full h-full object-cover"
+                  />
+                  {card.badge && (
+                    <div class="absolute top-2 left-2 bg-blue-500 text-white px-2 py-1 rounded-full text-xs font-medium">
+                      {card.badge}
+                    </div>
+                  )}
+                </div>
+              )}
+              
+              {/* Contenido del card */}
+              <div class="p-4 flex-1 flex flex-col justify-between">
+                <div>
+                  <h3 class="text-lg font-semibold text-gray-800 mb-2 line-clamp-2">
+                    {card.title}
+                  </h3>
+                  <p class="text-gray-600 text-sm line-clamp-3 mb-3">
+                    {card.description}
+                  </p>
+                </div>
+                
+                {card.link && (
+                  <a 
+                    href={card.link}
+                    class="inline-flex items-center justify-center bg-blue-500 hover:bg-blue-600 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-200 text-sm"
+                  >
+                    Ver más
+                    <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                    </svg>
+                  </a>
+                )}
+              </div>
+            </div>
+          </li>
+        ))}
+      </ul>
+    </div>
+    
+    <!-- Indicadores de progreso -->
+    <div class="splide__progress mt-4">
+      <div class="splide__progress__bar bg-blue-500"></div>
+    </div>
+    
+    <!-- Flechas de navegación (opcional para móvil) -->
+    <div class="splide__arrows hidden sm:block">
+      <button class="splide__arrow splide__arrow--prev bg-white shadow-lg hover:bg-gray-50">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+        </svg>
+      </button>
+      <button class="splide__arrow splide__arrow--next bg-white shadow-lg hover:bg-gray-50">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</div>
+
+<style>
+  /* Estilos personalizados para Splide */
+  .splide__progress {
+    background: #e5e7eb;
+    height: 4px;
+    border-radius: 2px;
+  }
+  
+  .splide__progress__bar {
+    height: 100%;
+    border-radius: 2px;
+    transition: width 0.3s ease;
+  }
+  
+  .splide__arrow {
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    color: #374151;
+    transition: all 0.2s ease;
+  }
+  
+  .splide__arrow:hover {
+    transform: scale(1.1);
+  }
+  
+  .splide__arrow--prev {
+    left: -20px;
+  }
+  
+  .splide__arrow--next {
+    right: -20px;
+  }
+  
+  /* Utilidades adicionales para line-clamp */
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  
+  .line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+</style>
+
+<script>
+  import { Splide } from '@splidejs/splide';
+  
+  document.addEventListener('DOMContentLoaded', function() {
+    const splideElement = document.getElementById('mobile-cards-splide');
+    
+    if (splideElement) {
+      const splide = new Splide('#mobile-cards-splide', {
+        type: 'loop',
+        perPage: 1,
+        perMove: 1,
+        gap: '0px',
+        padding: { left: '1rem', right: '1rem' },
+        arrows: false,
+        pagination: false,
+        autoplay: false, // Cambia a true si quieres autoplay
+        interval: 3000,
+        pauseOnHover: true,
+        pauseOnFocus: true,
+        resetProgress: false,
+        breakpoints: {
+          640: {
+            perPage: 1,
+            gap: '0px',
+            padding: { left: '1rem', right: '1rem' }
+          },
+          768: {
+            perPage: 2,
+            gap: '1rem',
+            padding: { left: '2rem', right: '2rem' },
+            arrows: true
+          },
+          1024: {
+            perPage: 3,
+            gap: '1.5rem',
+            padding: { left: '2rem', right: '2rem' },
+            arrows: true
+          }
+        }
+      });
+      
+      splide.mount();
+    }
+  });
+</script>
