@@ -50,7 +50,14 @@ function sonPreciosUniformes(planteles) {
   return normalUniforme && sabatinaUniforme;
 }
 
-const preciosUniformes = sonPreciosUniformes(planteles)
+// Función para detectar si los precios son iguales entre modalidades
+function sonPreciosIgualesEntreModalidades(planteles) {
+  if (planteles.normal.length === 0 || planteles.sabatina.length === 0) return false;
+  return planteles.normal[0].colegiatura === planteles.sabatina[0].colegiatura;
+}
+
+const preciosUniformes = sonPreciosUniformes(planteles);
+const preciosIgualesEntreModalidades = sonPreciosIgualesEntreModalidades(planteles);
 ---
 
 <div class="max-w-6xl  md:mt-32 mx-auto p-6">
@@ -133,8 +140,10 @@ const preciosUniformes = sonPreciosUniformes(planteles)
     <div>
       <h3 class="text-white font-bold text-lg">Colegiatura Mensual</h3>
       <p class="text-white text-sm">
-        {preciosUniformes 
-          ? "Mismo precio en todos los planteles" 
+        {preciosUniformes && preciosIgualesEntreModalidades
+          ? "Mismo precio en todos los planteles y modalidades" 
+          : preciosUniformes
+          ? "Mismo precio en todos los planteles"
           : "Selecciona tu plantel para ver el costo"
         }
       </p>
@@ -262,43 +271,27 @@ const preciosUniformes = sonPreciosUniformes(planteles)
   </div>
 </div>
 
-<script>
-  // Datos de planteles para JavaScript
-  const plantelesData = {
-    normal: [
-      { nombre: "Milenio", inscripcion: 772, colegiatura: 772 },
-      { nombre: "Centro", inscripcion: 772, colegiatura: 772 },
-      { nombre: "Centro Médico", inscripcion: 772, colegiatura: 772 },
-      { nombre: "Tesistán", inscripcion: 772, colegiatura: 772 },
-      { nombre: "Tlajomulco", inscripcion: 772, colegiatura: 772 },
-      { nombre: "Tlaquepaque", inscripcion: 772, colegiatura: 772 },
-      { nombre: "Tonalá", inscripcion: 772, colegiatura: 772 },
-      { nombre: "Chapultepec", inscripcion: 772, colegiatura: 772 },
-      { nombre: "Zapopan", inscripcion: 772, colegiatura: 772 }
-    ],
-    sabatina: [
-      { nombre: "Milenio", inscripcion: 609, colegiatura: 609 },
-      { nombre: "Centro", inscripcion: 609, colegiatura: 609 },
-      { nombre: "Centro Médico", inscripcion: 609, colegiatura: 609 },
-      { nombre: "Tesistán", inscripcion: 609, colegiatura: 609 },
-      { nombre: "Tlajomulco", inscripcion: 609, colegiatura: 609 },
-      { nombre: "Tlaquepaque", inscripcion: 609, colegiatura: 609 },
-      { nombre: "Tonalá", inscripcion: 609, colegiatura: 609 },
-      { nombre: "Chapultepec", inscripcion: 609, colegiatura: 609 },
-      { nombre: "Zapopan", inscripcion: 609, colegiatura: 609 }
-    ]
-  };
+<!-- Pasar los datos de planteles a JavaScript -->
+<script define:vars={{ planteles, preciosUniformes, preciosIgualesEntreModalidades }}>
+  // Datos de planteles disponibles globalmente
+  window.plantelesData = planteles;
+  window.preciosUniformes = preciosUniformes;
+  window.preciosIgualesEntreModalidades = preciosIgualesEntreModalidades;
+</script>
 
+<script>
   // Función para actualizar planteles según modalidad
   function updatePlanteles(modalidad) {
     const plantelSelect = document.getElementById('plantel-select');
     const colegiaturaPreci = document.getElementById('colegiatura-precio');
     
+    if (!plantelSelect || !colegiaturaPreci) return;
+    
     // Limpiar opciones actuales
     plantelSelect.innerHTML = '';
     
     // Agregar nuevas opciones
-    plantelesData[modalidad].forEach(plantel => {
+    window.plantelesData[modalidad].forEach(plantel => {
       const option = document.createElement('option');
       option.value = plantel.colegiatura;
       option.textContent = plantel.nombre;
@@ -307,8 +300,33 @@ const preciosUniformes = sonPreciosUniformes(planteles)
     });
     
     // Actualizar precio mostrado
-    if (plantelesData[modalidad].length > 0) {
-      colegiaturaPreci.textContent = `$${plantelesData[modalidad][0].colegiatura.toLocaleString()}`;
+    if (window.plantelesData[modalidad].length > 0) {
+      colegiaturaPreci.textContent = `$${window.plantelesData[modalidad][0].colegiatura.toLocaleString()}`;
+    }
+  }
+
+  // Función para actualizar precio cuando cambian modalidad o plantel
+  function updatePrecio(modalidad) {
+    const colegiaturaPreci = document.getElementById('colegiatura-precio');
+    const plantelSelect = document.getElementById('plantel-select');
+    
+    if (!colegiaturaPreci) return;
+    
+    // Si los precios son iguales entre modalidades, no cambiar nada
+    if (window.preciosIgualesEntreModalidades) {
+      return;
+    }
+    
+    if (window.preciosUniformes) {
+      // Si los precios son uniformes por modalidad, mostrar el precio de la modalidad seleccionada
+      if (window.plantelesData[modalidad] && window.plantelesData[modalidad].length > 0) {
+        colegiaturaPreci.textContent = `${window.plantelesData[modalidad][0].colegiatura.toLocaleString()}`;
+      }
+    } else {
+      // Si los precios no son uniformes, actualizar el selector y mostrar el primer precio
+      if (plantelSelect) {
+        updatePlanteles(modalidad);
+      }
     }
   }
 
@@ -319,14 +337,18 @@ const preciosUniformes = sonPreciosUniformes(planteles)
     const colegiaturaPreci = document.getElementById('colegiatura-precio');
 
     // Cambio de modalidad
-    modalidadSelect.addEventListener('change', function() {
-      updatePlanteles(this.value);
-    });
+    if (modalidadSelect) {
+      modalidadSelect.addEventListener('change', function() {
+        updatePrecio(this.value);
+      });
+    }
 
-    // Cambio de plantel
-    plantelSelect.addEventListener('change', function() {
-      colegiaturaPreci.textContent = `$${parseInt(this.value).toLocaleString()}`;
-    });
+    // Cambio de plantel (solo si los precios no son uniformes)
+    if (plantelSelect && colegiaturaPreci) {
+      plantelSelect.addEventListener('change', function() {
+        colegiaturaPreci.textContent = `$${parseInt(this.value).toLocaleString()}`;
+      });
+    }
   });
 
   // Función para tooltip
@@ -344,6 +366,7 @@ const preciosUniformes = sonPreciosUniformes(planteles)
     }, 200);
   }
 </script>
+
 <style>
   /* Estilos para el carousel */
   .splide__slide {
@@ -406,21 +429,9 @@ const preciosUniformes = sonPreciosUniformes(planteles)
 </script>
 
 <script>
-  
   import { Splide } from '@splidejs/splide';
   
   document.addEventListener('DOMContentLoaded', function() {
-
-     const plantelSelect = document.getElementById('plantel-select');
-    const colegiaturaPrecio = document.getElementById('colegiatura-precio');
-    
-    if (plantelSelect && colegiaturaPrecio) {
-      plantelSelect.addEventListener('change', function() {
-        const selectedValue = this.value;
-        colegiaturaPrecio.textContent = `$${parseInt(selectedValue).toLocaleString()}`;
-      });
-    }
-
     const splide = new Splide('#uniform-carousel', {
       type: 'loop',
       perPage: 1,
@@ -435,23 +446,10 @@ const preciosUniformes = sonPreciosUniformes(planteles)
       padding: '0',
       width: '100%',
       height: '320px',
-      fixedHeight: true,
       focus: 'center',
       trimSpace: false,
     });
     
     splide.mount();
-    
-    // Controles personalizados
-    const prevBtn = document.getElementById('prev-btn');
-    const nextBtn = document.getElementById('next-btn');
-    
-    prevBtn?.addEventListener('click', () => {
-      splide.go('<');
-    });
-    
-    nextBtn?.addEventListener('click', () => {
-      splide.go('>');
-    });
   });
 </script>

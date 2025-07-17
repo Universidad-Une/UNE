@@ -12,6 +12,7 @@ import PlanEstudios from "@/components/sections/detallesOferta/planEstudios.astr
 import Perfiles from "@/components/sections/detallesOferta/perfiles.astro";
 import FAQComponent from "@/components/sections/detallesOferta/preguntas.astro";
 import CTAinscripcion from "@/components/sections/shared/ctaInscripcion.astro";
+import { crearPlantelesUniformes } from "@helpers/planteles";
 
 const planteles = [
   {
@@ -84,7 +85,6 @@ const planteles = [
     lon: -103.24439406488241,
   },
 ];
-
 
 const ciudades = ["Guadalajara ZMG", "Puerto Vallarta"];
 
@@ -404,6 +404,37 @@ const faqs = [
       "Utilizamos un enfoque integral basado en competencias, con apoyo en tecnología educativa, desarrollo socioemocional y aprendizaje significativo.",
   },
 ];
+
+const costosEspecificos = {
+  normal: {
+    "Plaza del Sol": 2814,
+    Tesistán: 2783,
+    Tlajomulco: 3675,
+    Tlaquepaque: 1848,
+    Tonalá: 2365,
+    // Si quieres agregar más planteles con costos específicos
+    Milenio: 2500,
+    Centro: 2600,
+    "Centro Médico": 2700,
+    Chapultepec: 2400,
+    Zapopan: 2300,
+  },
+  sabatina: {
+    "Plaza del Sol": 2200,
+    Tesistán: 2100,
+    Tlajomulco: 2900,
+    Tlaquepaque: 1400,
+    Tonalá: 1800,
+    // Costos sabatinos para otros planteles
+    Milenio: 1900,
+    Centro: 2000,
+    "Centro Médico": 2100,
+    Chapultepec: 1800,
+    Zapopan: 1700,
+  },
+};
+
+const plantelesData = crearPlantelesEspecificos(costosEspecificos);
 ---
 
 <Layout>
@@ -502,13 +533,7 @@ const faqs = [
       coberturaEscolar={costosData.coberturaEscolar}
       uniformeEscolar={costosData.uniformeEscolar}
       uniformeDiario={costosData.uniformeDiario}
-      planteles={[
-        { nombre: "Plaza del Sol", inscripcion: 2814, colegiatura: 2814 },
-        { nombre: "Tesistán", inscripcion: 2783, colegiatura: 2783 },
-        { nombre: "Tlajomulco", inscripcion: 3675, colegiatura: 3675 },
-        { nombre: "Tlaquepaque", inscripcion: 1848, colegiatura: 1848 },
-        { nombre: "Tonalá", inscripcion: 2365, colegiatura: 2365 },
-      ]}
+      planteles={plantelesData.normal}
     />
 
     <Requisitos nivel="Secundaria" requisitos={requisitosSecundaria} />
