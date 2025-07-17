@@ -1,10 +1,8 @@
 ---
 // src/components/MainSlider.astro
 import ComercialMp4 from "@/assets/Videos/Comercial.mp4";
-import Comercial_mobile from "@/assets/Videos/Comercial.mp4";
+import Comercial_mobile from "@/assets/Videos/UNE_mobile.mp4";
 import ComercialWebm from "@/assets/Videos/Comercial.webm";
-import Oferta from "@/assets/Imagenes/Heros/Admision.jpg";
-import Historia from "@/assets/Imagenes/Heros/historia.jpg";
 import Becas from "@/assets/Imagenes/Heros/Becas.jpg";
 import { ArrowRight } from "@lucide/astro";
 ---
@@ -22,8 +20,21 @@ import { ArrowRight } from "@lucide/astro";
               playsinline
               class="w-full h-full object-cover"
             >
-              <source src={ComercialWebm} type="video/webm" />
-              <source src={ComercialMp4} type="video/mp4" />
+              <source
+                src={ComercialWebm}
+                type="video/webm"
+                media="(min-width: 768px)"
+              />
+              <source
+                src={ComercialMp4}
+                type="video/mp4"
+                media="(min-width: 768px)"
+              />
+              <source
+                src={Comercial_mobile}
+                type="video/mp4"
+                media="(max-width: 767px)"
+              />
               Tu navegador no soporta video HTML5.
             </video>
 
@@ -36,8 +47,7 @@ import { ArrowRight } from "@lucide/astro";
 
         <li class="splide__slide">
           <div
-            class="relative w-full overflow-hidden h-[650px] bg-cover bg-center bg-no-repeat flex flex-col items-center justify-center"
-            style={`background-image: url(${Oferta.src})`}
+            class="oferta-bg relative w-full overflow-hidden h-[650px] bg-cover bg-center bg-no-repeat flex flex-col items-center justify-center"
           >
             <div class="text-center">
               <h2
@@ -51,10 +61,12 @@ import { ArrowRight } from "@lucide/astro";
                 Descubre nuestros programas educativos diseñados para tu éxito
                 profesional
               </p>
-
-
             </div>
-            <a class="bg-rojo-une py-4 px-8 rounded-md mt-12 text-white" href="acerca/oferta-academica">Explorar oferta </a>
+            <a
+              class="bg-rojo-une py-4 px-8 rounded-md mt-12 text-white"
+              href="acerca/oferta-academica"
+              >Explorar oferta
+            </a>
             <div
               class="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent pointer-events-none"
             >
@@ -64,10 +76,9 @@ import { ArrowRight } from "@lucide/astro";
 
         <li class="splide__slide">
           <div
-            class="relative w-full overflow-hidden h-[650px] bg-cover bg-center bg-no-repeat flex items-center justify-center"
-            style={`background-image: url(${Historia.src})`}
+            class="historia-bg w-full overflow-hidden h-[650px] bg-cover bg-center bg-no-repeat flex items-center justify-center"
           >
-            <div class="text-center">
+            <div class="text-center flex flex-col items-center">
               <h2
                 class="text-white text-4xl sm:text-5xl lg:text-6xl font-bold mb-4"
               >
@@ -78,6 +89,11 @@ import { ArrowRight } from "@lucide/astro";
               >
                 30 años construyendo futuro, formando profesionales exitosos
               </p>
+              <a
+                class="bg-rojo-une py-4 px-8 rounded-md mt-24 text-white"
+                href="acerca/oferta-academica"
+                >Conocer más de UNE
+              </a>
             </div>
             <div
               class="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent pointer-events-none"
@@ -88,10 +104,9 @@ import { ArrowRight } from "@lucide/astro";
 
         <li class="splide__slide">
           <div
-            class="relative w-full overflow-hidden h-[650px] bg-cover bg-center bg-no-repeat flex items-center justify-center"
-            style={`background-image: url(${Becas.src})`}
+            class="becas-bg relative w-full overflow-hidden h-[650px] bg-cover bg-center bg-no-repeat flex items-center justify-center"
           >
-            <div class="text-center">
+            <div class="text-center flex flex-col items-center">
               <h2
                 class="text-white text-4xl sm:text-5xl lg:text-6xl font-bold mb-4"
               >
@@ -103,6 +118,11 @@ import { ArrowRight } from "@lucide/astro";
                 Becas y programas de apoyo para hacer realidad tus metas
                 académicas
               </p>
+              <a
+                class="bg-rojo-une py-4 px-8 rounded-md mt-24 text-white"
+                href="acerca/oferta-academica"
+                >Descubrir apoyos
+              </a>
             </div>
             <div
               class="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent pointer-events-none"
@@ -231,6 +251,37 @@ import { ArrowRight } from "@lucide/astro";
 </div>
 
 <style>
+  /* Para Vite */
+  .oferta-bg {
+    background-image: url("/src/assets/Imagenes/Heros/Admision.jpg");
+  }
+
+  @media (max-width: 767px) {
+    .oferta-bg {
+      background-image: url("/src/assets/Imagenes/Heros/Admision_mobile2.jpg");
+    }
+  }
+
+  .historia-bg {
+    background-image: url("/src/assets/Imagenes/Heros/historia.jpg");
+  }
+
+  @media (max-width: 767px) {
+    .historia-bg {
+      background-image: url("/src/assets/Imagenes/Heros/Admision_mobile.jpg");
+    }
+  }
+
+  .becas-bg {
+  background-image: url('/src/assets/Imagenes/Heros/becas.jpg');
+}
+
+@media (max-width: 767px) {
+  .becas-bg {
+    background-image: url('/src/assets/Imagenes/Heros/becas_mobile.jpg');
+  }
+}
+
   /* Estilos base para Splide */
   .splide {
     position: relative;
@@ -621,7 +672,7 @@ import { ArrowRight } from "@lucide/astro";
     if (firstProgressLine) {
       firstProgressLine.style.setProperty(
         "--slide-duration",
-        `${remainingTimeMs / 1000}s`
+        `${remainingTimeMs / 1000}s`,
       );
 
       firstProgressLine.classList.remove("is-active");

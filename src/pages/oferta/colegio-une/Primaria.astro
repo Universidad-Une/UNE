@@ -12,8 +12,7 @@ import PlanEstudios from "@/components/sections/detallesOferta/planEstudios.astr
 import Perfiles from "@/components/sections/detallesOferta/perfiles.astro";
 import FAQComponent from "@/components/sections/detallesOferta/preguntas.astro";
 import CTAinscripcion from "@/components/sections/shared/ctaInscripcion.astro";
-import { crearPlantelesUniformes } from "@helpers/planteles"
-
+import {  crearPlantelUnico } from "@helpers/planteles";
 const planteles = [
   {
     id: "1",
@@ -295,15 +294,13 @@ const faqs = [
       mostrarMasCercano={true}
     />
 
-
     <Costos
       inscripcionAnual={costosData.inscripcionAnual}
       seguroEscolar={costosData.seguroEscolar}
       coberturaEscolar={costosData.coberturaEscolar}
       uniformeEscolar={costosData.uniformeEscolar}
       uniformeDiario={costosData.uniformeDiario}
-        planteles={crearPlantelesUniformes(772, 609)}
-
+      planteles={crearPlantelUnico("Plaza del Sol", 3000, "normal")}
     />
 
     <Requisitos nivel="Secundaria" requisitos={requisitosSecundaria} />

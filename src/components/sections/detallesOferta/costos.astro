@@ -56,8 +56,38 @@ function sonPreciosIgualesEntreModalidades(planteles) {
   return planteles.normal[0].colegiatura === planteles.sabatina[0].colegiatura;
 }
 
+// Función para detectar si hay una sola modalidad
+function esSolaModalidad(planteles) {
+  return (planteles.normal.length === 0 && planteles.sabatina.length > 0) || 
+         (planteles.normal.length > 0 && planteles.sabatina.length === 0);
+}
+
+// Función para detectar si hay un solo plantel
+function esSoloPlantel(planteles) {
+  const totalPlanteles = planteles.normal.length + planteles.sabatina.length;
+  return totalPlanteles === 1;
+}
+
+// Función para obtener la modalidad activa
+function obtenerModalidadActiva(planteles) {
+  if (planteles.normal.length > 0) return 'normal';
+  if (planteles.sabatina.length > 0) return 'sabatina';
+  return 'normal';
+}
+
+// Función para obtener el primer precio disponible
+function obtenerPrimerPrecio(planteles) {
+  if (planteles.normal.length > 0) return planteles.normal[0].colegiatura;
+  if (planteles.sabatina.length > 0) return planteles.sabatina[0].colegiatura;
+  return 0;
+}
+
 const preciosUniformes = sonPreciosUniformes(planteles);
 const preciosIgualesEntreModalidades = sonPreciosIgualesEntreModalidades(planteles);
+const solaModalidad = esSolaModalidad(planteles);
+const soloPlantel = esSoloPlantel(planteles);
+const modalidadActiva = obtenerModalidadActiva(planteles);
+const primerPrecio = obtenerPrimerPrecio(planteles);
 ---
 
 <div class="max-w-6xl  md:mt-32 mx-auto p-6">
@@ -77,25 +107,26 @@ const preciosIgualesEntreModalidades = sonPreciosIgualesEntreModalidades(plantel
         <!-- Título principal -->
         <div class="text-center mb-8">
           <h2 class="text-3xl font-bold text-white mb-2">Costos</h2>
-          <p class="text-white text-sm opacity-90">(Todos los Planteles)</p>
+          <p class="text-white text-sm opacity-90">
+            {soloPlantel ? `(${planteles.normal[0]?.nombre || planteles.sabatina[0]?.nombre})` : "(Todos los Planteles)"}
+          </p>
         </div>
         
         <div class="space-y-6">
           <!-- Inscripción anual -->
-           {inscripcionAnual > 0 && (
-  <div class="flex justify-between items-center border-b border-gray-400 pb-4">
-    <div>
-              <h3 class="text-white font-bold text-lg">Inscripción:</h3>
-              <p class="text-white text-sm">Pago único al inicio del ciclo escolar</p>
+          {inscripcionAnual > 0 && (
+            <div class="flex justify-between items-center border-b border-gray-400 pb-4">
+              <div>
+                <h3 class="text-white font-bold text-lg">Inscripción:</h3>
+                <p class="text-white text-sm">Pago único al inicio del ciclo escolar</p>
+              </div>
+              <div class="text-right">
+                <span class="text-3xl font-bold text-white">${inscripcionAnual.toLocaleString()}</span>
+              </div>
             </div>
-            <div class="text-right">
-              <span class="text-3xl font-bold text-white">${inscripcionAnual.toLocaleString()}</span>
-            </div>
-  </div>
-)}
+          )}
        
-
-           <div class="flex justify-between items-center border-b border-gray-400 pb-4">
+          <div class="flex justify-between items-center border-b border-gray-400 pb-4">
             <div>
               <h3 class="text-white font-bold text-lg">Credencial:</h3>
               <p class="text-white text-sm">Pago único hasta vigencia</p>
@@ -116,69 +147,94 @@ const preciosIgualesEntreModalidades = sonPreciosIgualesEntreModalidades(plantel
             </div>
           </div>
 
-         <!-- Selector de Modalidad -->
-<div class="flex flex-col gap-2">
-  <div class="flex justify-between items-center">
-    <div>
-      <h3 class="text-white font-bold text-lg">Modalidad:</h3>
-      <p class="text-white text-sm">Selecciona tu modalidad preferida</p>
-    </div>
-  </div>
-  
-  <select 
-    id="modalidad-select" 
-    class="mt-2 bg-transparent text-white border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 shadow-sm"
-  >
-    <option value="normal" class="text-gray-800 bg-white">Normal</option>
-    <option value="sabatina" class="text-gray-800 bg-white">Sabatina</option>
-  </select>
-</div>
+          <!-- Selector de Modalidad (solo si hay más de una modalidad) -->
+          {!solaModalidad && (
+            <div class="flex flex-col gap-2">
+              <div class="flex justify-between items-center">
+                <div>
+                  <h3 class="text-white font-bold text-lg">Modalidad:</h3>
+                  <p class="text-white text-sm">Selecciona tu modalidad preferida</p>
+                </div>
+              </div>
+              
+              <select 
+                id="modalidad-select" 
+                class="mt-2 bg-transparent text-white border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 shadow-sm"
+              >
+                {planteles.normal.length > 0 && (
+                  <option value="normal" class="text-gray-800 bg-white">Normal</option>
+                )}
+                {planteles.sabatina.length > 0 && (
+                  <option value="sabatina" class="text-gray-800 bg-white">Sabatina</option>
+                )}
+              </select>
+            </div>
+          )}
 
-<!-- Colegiatura Mensual -->
-<div class="flex flex-col gap-2">
-  <div class="flex justify-between items-center">
-    <div>
-      <h3 class="text-white font-bold text-lg">Colegiatura Mensual</h3>
-      <p class="text-white text-sm">
-        {preciosUniformes && preciosIgualesEntreModalidades
-          ? "Mismo precio en todos los planteles y modalidades" 
-          : preciosUniformes
-          ? "Mismo precio en todos los planteles"
-          : "Selecciona tu plantel para ver el costo"
-        }
-      </p>
-    </div>
-    <div class="text-right">
-      <span id="colegiatura-precio" class="text-3xl font-bold text-white">
-        ${planteles.normal[0]?.colegiatura.toLocaleString() ?? 'N/A'}
-      </span>
-    </div>
-  </div>
-  
-  {/* Solo mostrar selector si hay diferencias de precio */}
-  {!preciosUniformes && (
-    <select 
-      id="plantel-select" 
-      class="mt-2 bg-transparent text-white border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 shadow-sm"
-    >
-      {planteles.normal.map((plantel) => (
-        <option 
-          value={plantel.colegiatura} 
-          class="text-gray-800 bg-white"
-        >
-          {plantel.nombre} 
-        </option>
-      ))}
-    </select>
-  )}
-  
-  {/* Si son uniformes, mostrar info de que es igual para todos */}
-  {preciosUniformes && (
-    <div class="mt-2 text-white text-sm opacity-75">
-      <p>✓ Disponible en todos los planteles</p>
-    </div>
-  )}
-</div>
+          <!-- Mostrar modalidad fija si es solo una -->
+          {solaModalidad && (
+            <div class="flex justify-between items-center border-b border-gray-400 pb-4">
+              <div>
+                <h3 class="text-white font-bold text-lg">Modalidad:</h3>
+                <p class="text-white text-sm">
+                  {modalidadActiva === 'normal' ? 'Normal' : 'Sabatina'}
+                </p>
+              </div>
+            </div>
+          )}
+
+          <!-- Colegiatura Mensual -->
+          <div class="flex flex-col gap-2">
+            <div class="flex justify-between items-center">
+              <div>
+                <h3 class="text-white font-bold text-lg">Colegiatura Mensual</h3>
+                <p class="text-white text-sm">
+                  {soloPlantel
+                    ? "Precio fijo"
+                    : preciosUniformes && preciosIgualesEntreModalidades
+                    ? "Mismo precio en todos los planteles y modalidades" 
+                    : preciosUniformes
+                    ? "Mismo precio en todos los planteles"
+                    : "Selecciona tu plantel para ver el costo"
+                  }
+                </p>
+              </div>
+              <div class="text-right">
+                <span id="colegiatura-precio" class="text-3xl font-bold text-white">
+                  ${primerPrecio.toLocaleString()}
+                </span>
+              </div>
+            </div>
+            
+            {/* Solo mostrar selector si hay diferencias de precio y no es un solo plantel */}
+            {!preciosUniformes && !soloPlantel && (
+              <select 
+                id="plantel-select" 
+                class="mt-2 bg-transparent text-white border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 shadow-sm"
+              >
+                {planteles[modalidadActiva].map((plantel) => (
+                  <option 
+                    value={plantel.colegiatura} 
+                    class="text-gray-800 bg-white"
+                  >
+                    {plantel.nombre} 
+                  </option>
+                ))}
+              </select>
+            )}
+            
+            {/* Si son uniformes o es un solo plantel, mostrar info */}
+            {(preciosUniformes || soloPlantel) && (
+              <div class="mt-2 text-white text-sm opacity-75">
+                <p>
+                  {soloPlantel 
+                    ? `✓ ${planteles.normal[0]?.nombre || planteles.sabatina[0]?.nombre}`
+                    : "✓ Disponible en todos los planteles"
+                  }
+                </p>
+              </div>
+            )}
+          </div>
         </div>
       </div>
     </div>
@@ -231,21 +287,21 @@ const preciosIgualesEntreModalidades = sonPreciosIgualesEntreModalidades(plantel
                           <h3 class="text-2xl font-bold mb-1">{item.nombre}</h3>
                           <p class="text-3xl font-bold">${item.precio.toLocaleString()}</p>
                         </div>
-                       <div class="relative inline-block" id="tooltip-container">
-  <button
-    class="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors focus:outline-none"
-    onclick="toggleTooltip(this)"
-    onblur="hideTooltip(this)"
-  >
-    ¿Dónde comprar?
-  </button>
-  <div
-    class="absolute bottom-full mb-2 left-1/2 transform -translate-x-1/2 bg-gray-800 text-white text-xs rounded px-2 py-1 opacity-0 pointer-events-none transition-opacity duration-200 z-10 whitespace-nowrap"
-    data-tooltip
-  >
-    En tu plantel más cercano
-  </div>
-</div>
+                        <div class="relative inline-block" id="tooltip-container">
+                          <button
+                            class="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors focus:outline-none"
+                            onclick="toggleTooltip(this)"
+                            onblur="hideTooltip(this)"
+                          >
+                            ¿Dónde comprar?
+                          </button>
+                          <div
+                            class="absolute bottom-full mb-2 left-1/2 transform -translate-x-1/2 bg-gray-800 text-white text-xs rounded px-2 py-1 opacity-0 pointer-events-none transition-opacity duration-200 z-10 whitespace-nowrap"
+                            data-tooltip
+                          >
+                            En tu plantel más cercano
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -272,11 +328,14 @@ const preciosIgualesEntreModalidades = sonPreciosIgualesEntreModalidades(plantel
 </div>
 
 <!-- Pasar los datos de planteles a JavaScript -->
-<script define:vars={{ planteles, preciosUniformes, preciosIgualesEntreModalidades }}>
+<script define:vars={{ planteles, preciosUniformes, preciosIgualesEntreModalidades, solaModalidad, soloPlantel, modalidadActiva }}>
   // Datos de planteles disponibles globalmente
   window.plantelesData = planteles;
   window.preciosUniformes = preciosUniformes;
   window.preciosIgualesEntreModalidades = preciosIgualesEntreModalidades;
+  window.solaModalidad = solaModalidad;
+  window.soloPlantel = soloPlantel;
+  window.modalidadActiva = modalidadActiva;
 </script>
 
 <script>
@@ -312,6 +371,11 @@ const preciosIgualesEntreModalidades = sonPreciosIgualesEntreModalidades(plantel
     
     if (!colegiaturaPreci) return;
     
+    // Si es un solo plantel, no hacer nada
+    if (window.soloPlantel) {
+      return;
+    }
+    
     // Si los precios son iguales entre modalidades, no cambiar nada
     if (window.preciosIgualesEntreModalidades) {
       return;
@@ -320,7 +384,7 @@ const preciosIgualesEntreModalidades = sonPreciosIgualesEntreModalidades(plantel
     if (window.preciosUniformes) {
       // Si los precios son uniformes por modalidad, mostrar el precio de la modalidad seleccionada
       if (window.plantelesData[modalidad] && window.plantelesData[modalidad].length > 0) {
-        colegiaturaPreci.textContent = `${window.plantelesData[modalidad][0].colegiatura.toLocaleString()}`;
+        colegiaturaPreci.textContent = `$${window.plantelesData[modalidad][0].colegiatura.toLocaleString()}`;
       }
     } else {
       // Si los precios no son uniformes, actualizar el selector y mostrar el primer precio
@@ -336,15 +400,15 @@ const preciosIgualesEntreModalidades = sonPreciosIgualesEntreModalidades(plantel
     const plantelSelect = document.getElementById('plantel-select');
     const colegiaturaPreci = document.getElementById('colegiatura-precio');
 
-    // Cambio de modalidad
-    if (modalidadSelect) {
+    // Cambio de modalidad (solo si no es una sola modalidad)
+    if (modalidadSelect && !window.solaModalidad) {
       modalidadSelect.addEventListener('change', function() {
         updatePrecio(this.value);
       });
     }
 
-    // Cambio de plantel (solo si los precios no son uniformes)
-    if (plantelSelect && colegiaturaPreci) {
+    // Cambio de plantel (solo si los precios no son uniformes y no es un solo plantel)
+    if (plantelSelect && colegiaturaPreci && !window.soloPlantel) {
       plantelSelect.addEventListener('change', function() {
         colegiaturaPreci.textContent = `$${parseInt(this.value).toLocaleString()}`;
       });
@@ -365,6 +429,48 @@ const preciosIgualesEntreModalidades = sonPreciosIgualesEntreModalidades(plantel
       tooltip.classList.add('pointer-events-none');
     }, 200);
   }
+</script>
+
+<script is:inline>
+  function toggleTooltip(button) {
+    const tooltip = button.parentElement.querySelector('[data-tooltip]');
+    const isVisible = tooltip.classList.contains('opacity-100');
+    tooltip.classList.toggle('opacity-100', !isVisible);
+    tooltip.classList.toggle('opacity-0', isVisible);
+    tooltip.classList.toggle('pointer-events-none', isVisible);
+  }
+
+  function hideTooltip(button) {
+    const tooltip = button.parentElement.querySelector('[data-tooltip]');
+    tooltip.classList.remove('opacity-100');
+    tooltip.classList.add('opacity-0', 'pointer-events-none');
+  }
+</script>
+
+<script>
+  import { Splide } from '@splidejs/splide';
+  
+  document.addEventListener('DOMContentLoaded', function() {
+    const splide = new Splide('#uniform-carousel', {
+      type: 'loop',
+      perPage: 1,
+      perMove: 1,
+      arrows: false,
+      pagination: false,
+      autoplay: true,
+      interval: 4000,
+      pauseOnHover: true,
+      resetProgress: false,
+      gap: '0',
+      padding: '0',
+      width: '100%',
+      height: '320px',
+      focus: 'center',
+      trimSpace: false,
+    });
+    
+    splide.mount();
+  });
 </script>
 
 <style>
@@ -411,45 +517,3 @@ const preciosIgualesEntreModalidades = sonPreciosIgualesEntreModalidades(plantel
     max-width: 100%;
   }
 </style>
-
-<script is:inline>
-  function toggleTooltip(button) {
-    const tooltip = button.parentElement.querySelector('[data-tooltip]');
-    const isVisible = tooltip.classList.contains('opacity-100');
-    tooltip.classList.toggle('opacity-100', !isVisible);
-    tooltip.classList.toggle('opacity-0', isVisible);
-    tooltip.classList.toggle('pointer-events-none', isVisible);
-  }
-
-  function hideTooltip(button) {
-    const tooltip = button.parentElement.querySelector('[data-tooltip]');
-    tooltip.classList.remove('opacity-100');
-    tooltip.classList.add('opacity-0', 'pointer-events-none');
-  }
-</script>
-
-<script>
-  import { Splide } from '@splidejs/splide';
-  
-  document.addEventListener('DOMContentLoaded', function() {
-    const splide = new Splide('#uniform-carousel', {
-      type: 'loop',
-      perPage: 1,
-      perMove: 1,
-      arrows: false,
-      pagination: false,
-      autoplay: true,
-      interval: 4000,
-      pauseOnHover: true,
-      resetProgress: false,
-      gap: '0',
-      padding: '0',
-      width: '100%',
-      height: '320px',
-      focus: 'center',
-      trimSpace: false,
-    });
-    
-    splide.mount();
-  });
-</script>

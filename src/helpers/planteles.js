@@ -75,12 +75,6 @@ function crearPlantelesHibridos(configuracion) {
   return resultado;
 }
 
-// EJEMPLOS DE USO:
-
-
-
-
-
 // OPCIÓN 4: Función más avanzada con validaciones
 function crearPlantelesAvanzado(config) {
   const { 
@@ -110,11 +104,146 @@ function crearPlantelesAvanzado(config) {
   return {};
 }
 
+// OPCIÓN 5: Función para un solo plantel (NUEVA)
+function crearPlantelUnico(nombrePlantel, costo, modalidad = 'normal') {
+  const planteles = {
+    normal: [],
+    sabatina: []
+  };
+  
+  planteles[modalidad] = [{
+    nombre: nombrePlantel,
+    inscripcion: costo,
+    colegiatura: costo
+  }];
+  
+  return planteles;
+}
+
+// OPCIÓN 6: Función personalizada más flexible (NUEVA)
+function crearPlantelPersonalizado(configuracion) {
+  const { 
+    plantel, 
+    costo, 
+    modalidad = 'normal',
+    diferentesPrecios = false,
+    costoInscripcion = null,
+    costoColegiatura = null
+  } = configuracion;
+  
+  const planteles = { normal: [], sabatina: [] };
+  
+  const plantelData = {
+    nombre: plantel,
+    inscripcion: diferentesPrecios ? costoInscripcion : costo,
+    colegiatura: diferentesPrecios ? costoColegiatura : costo
+  };
+  
+  planteles[modalidad].push(plantelData);
+  return planteles;
+}
+
+// OPCIÓN 7: Función para múltiples planteles con configuración individual (NUEVA)
+function crearPlantelesMultiples(configuraciones) {
+  const planteles = { normal: [], sabatina: [] };
+  
+  configuraciones.forEach(config => {
+    const {
+      plantel,
+      costo,
+      modalidad = 'normal',
+      diferentesPrecios = false,
+      costoInscripcion = null,
+      costoColegiatura = null
+    } = config;
+    
+    const plantelData = {
+      nombre: plantel,
+      inscripcion: diferentesPrecios ? costoInscripcion : costo,
+      colegiatura: diferentesPrecios ? costoColegiatura : costo
+    };
+    
+    planteles[modalidad].push(plantelData);
+  });
+  
+  return planteles;
+}
+
+// OPCIÓN 8: Función para filtrar planteles existentes (NUEVA)
+function filtrarPlanteles(planteles, filtros) {
+  const { modalidades = ['normal', 'sabatina'], nombresPlantel = [] } = filtros;
+  const resultado = {};
+  
+  modalidades.forEach(modalidad => {
+    if (planteles[modalidad]) {
+      resultado[modalidad] = nombresPlantel.length > 0 
+        ? planteles[modalidad].filter(p => nombresPlantel.includes(p.nombre))
+        : planteles[modalidad];
+    }
+  });
+  
+  return resultado;
+}
+
+
+
 // Exportar funciones para uso
 export { 
   crearPlantelesUniformes, 
   crearPlantelesEspecificos, 
   crearPlantelesHibridos,
   crearPlantelesAvanzado,
+  crearPlantelUnico,
+  crearPlantelPersonalizado,
+  crearPlantelesMultiples,
+  filtrarPlanteles,
   PLANTELES_NOMBRES 
 };
+
+
+// EJEMPLOS DE USO:
+
+/*
+// Uso básico - todos los planteles con mismo costo
+const planteles1 = crearPlantelesUniformes(772, 609);
+
+// Un solo plantel
+const planteles2 = crearPlantelUnico("Centro", 850, "normal");
+
+// Plantel con diferentes precios para inscripción y colegiatura
+const planteles3 = crearPlantelPersonalizado({
+  plantel: "Centro",
+  diferentesPrecios: true,
+  costoInscripcion: 900,
+  costoColegiatura: 800,
+  modalidad: "normal"
+});
+
+// Múltiples planteles con configuración individual
+const planteles4 = crearPlantelesMultiples([
+  { plantel: "Centro", costo: 850, modalidad: "normal" },
+  { plantel: "Milenio", costo: 750, modalidad: "normal" },
+  { plantel: "Tesistán", costo: 680, modalidad: "sabatina" }
+]);
+
+// Filtrar planteles específicos
+const todosPlanteles = crearPlantelesUniformes(772, 609);
+const plantelesGDL = filtrarPlanteles(todosPlanteles, {
+  modalidades: ['normal'],
+  nombresPlantel: ['Centro', 'Milenio', 'Chapultepec']
+});
+
+// Costos específicos por plantel
+const planteles5 = crearPlantelesEspecificos({
+  normal: {
+    "Centro": 850,
+    "Milenio": 800,
+    "Tesistán": 750
+  },
+  sabatina: {
+    "Centro": 650,
+    "Milenio": 600,
+    "Tesistán": 550
+  }
+});
+*/

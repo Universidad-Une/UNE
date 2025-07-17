@@ -1,6 +1,561 @@
 ---
-import Layout from "@/layouts/Layout.astro"
+import Layout from "@/layouts/Layout.astro";
+import Hero from "@/assets/Imagenes/Heros/UDG.jpg";
+import Hero_mobile from "@/assets/Imagenes/Heros/udg_mobile.jpg";
+import ImagenCard from "@/assets/Imagenes/CardsNiveles/Nivel.png";
+import LogoCard from "@/assets/Logos/UDG.png";
+import InformativeCard from "@components/sections/detallesOferta/card.astro";
+import Planteles from "@components/sections/detallesOferta/planteles.astro";
+import Costos from "@components/sections/detallesOferta/costos.astro";
+import Requisitos from "@/components/sections/detallesOferta/requisitos.astro";
+import PlanEstudios from "@/components/sections/detallesOferta/planEstudios.astro";
+import Perfiles from "@/components/sections/detallesOferta/perfiles.astro";
+import FAQComponent from "@/components/sections/detallesOferta/preguntas.astro";
+import CTAinscripcion from "@/components/sections/shared/ctaInscripcion.astro";
+import { Calendar, UserPlus, Phone } from "@lucide/astro";
+import { crearPlantelesUniformes } from "@helpers/planteles";
+
+const planteles = [
+    {
+        id: "1",
+        nombre: "UNE Centro",
+        codigo: "00015",
+        direccion:
+            "Calle Independencia #100, Col. Centro, Guadalajara, Jalisco",
+        ciudad: "Guadalajara ZMG",
+        url: "/campus/une-centro",
+        imagen: "/src/assets/Imagenes/CardsPlanteles/Centro.jpg",
+        lat: 20.67744801539995,
+        lon: -103.34031672627513,
+    },
+    {
+        id: "2",
+        nombre: "Centro Médico",
+        codigo: "00016",
+        direccion:
+            "Av. Hospital #123, Col. Independencia, Guadalajara, Jalisco",
+        ciudad: "Guadalajara ZMG",
+        url: "/campus/centro-medico",
+        imagen: "/src/assets/Imagenes/CardsPlanteles/CentroMedico.jpg",
+        lat: 20.684590788642307,
+        lon: -103.3256397932448,
+    },
+    {
+        id: "3",
+        nombre: "Milenio",
+        codigo: "00017",
+        direccion:
+            "Av. Naciones Unidas #456, Col. Milenio, Guadalajara, Jalisco",
+        ciudad: "Guadalajara ZMG",
+        url: "/campus/milenio",
+        imagen: "/src/assets/Imagenes/CardsPlanteles/Milenio.jpg",
+        lat: 20.64540739939039,
+        lon: -103.40630313415286,
+    },
+    {
+        id: "4",
+        nombre: "Plaza del Sol",
+        codigo: "00005",
+        direccion: "Chimalhuacán #6, Col. Ciudad del Sol, Guadalajara, Jalisco",
+        ciudad: "Guadalajara ZMG",
+        url: "/campus/plaza-del-sol",
+        imagen: "/src/assets/Imagenes/CardsPlanteles/PlazaSol.png",
+        lat: 20.651805,
+        lon: -103.402918,
+    },
+    {
+        id: "5",
+        nombre: "Zapopan",
+        codigo: "00021",
+        direccion: "Av. Ávila Camacho #1500, Zapopan Centro, Zapopan, Jalisco",
+        ciudad: "Guadalajara ZMG",
+        url: "/campus/zapopan",
+        imagen: "/src/assets/Imagenes/CardsPlanteles/Zapopan.png",
+        lat: 20.720900646775917,
+        lon: -103.38975281813357,
+    },
+    {
+        id: "6",
+        nombre: "Tesistán",
+        codigo: "00010",
+        direccion:
+            "Av. Juan Gil Preciado #3897, Col. Hogares de Nuevo México, Zapopan, Jalisco",
+        ciudad: "Guadalajara ZMG",
+        url: "/campus/tesistan",
+        imagen: "/src/assets/Imagenes/CardsPlanteles/Tesistan.png",
+        lat: 20.806203,
+        lon: -102.763903,
+    },
+    {
+        id: "7",
+        nombre: "Tlajomulco",
+        codigo: "00012",
+        direccion:
+            "Av. López Mateos #10100, Col. Los Gavilanes Poniente, Tlajomulco de Zúñiga, Jalisco",
+        ciudad: "Guadalajara ZMG",
+        url: "/campus/tlajomulco",
+        imagen: "/src/assets/Imagenes/CardsPlanteles/Tlajomulco.png",
+        lat: 20.576464164603113,
+        lon: -103.45243680650722,
+    },
+    {
+        id: "8",
+        nombre: "Tlaquepaque",
+        codigo: "00013",
+        direccion:
+            "Blvd. Marcelino García Barragán #2056, Col. Bosques del Boulevard, Tlaquepaque, Jalisco",
+        ciudad: "Guadalajara ZMG",
+        url: "/campus/tlaquepaque",
+        imagen: "/src/assets/Imagenes/CardsPlanteles/Tlaquepaque.jpg",
+        lat: 20.645650028567157,
+        lon: -103.32094530771215,
+    },
+    {
+        id: "9",
+        nombre: "Tonalá",
+        codigo: "00014",
+        direccion: "Av. Tonaltecas #333, Col. Agua Escondida, Tonalá, Jalisco",
+        ciudad: "Guadalajara ZMG",
+        url: "/campus/tonala",
+        imagen: "/src/assets/Imagenes/CardsPlanteles/Tonala.png",
+        lat: 20.63176692188573,
+        lon: -103.24439406488241,
+    },
+    {
+        id: "10",
+        nombre: "Avenida México",
+        codigo: "00008",
+        direccion:
+            "Av. México #1255, Col. Agua Zarca, Puerto Vallarta, Jalisco",
+        ciudad: "Puerto Vallarta",
+        url: "/campus/puerto-vallarta",
+        imagen: "/src/assets/Imagenes/CardsPlanteles/PuertoVallarta.png",
+        lat: 20.669418,
+        lon: -105.226917,
+    },
+];
+
+const ciudades = ["Guadalajara ZMG", "Puerto Vallarta"];
+
+const requisitosSecundaria = {
+    items: [
+        "Acta de nacimiento",
+        "CURP (formato actualizado)",
+        "Certificado de primaria",
+        "Comprobante de domicilio",
+        "Fotografías tamaño infantil (blanco y negro)",
+    ],
+    pdfUrl: "/public/pdfs/secundaria_req.pdf",
+};
+
+const semestresDatos = [
+    {
+        numero: 1,
+        materias: [
+            {
+                codigo: "ED1021",
+                nombre: "Introducción a la Educación",
+                creditos: 30,
+                color: "verde",
+            },
+            {
+                codigo: "Filosofía y Ética en Educación",
+                nombre: "Filosofía y Ética en Educación",
+                creditos: 30,
+                color: "verde",
+            },
+            {
+                codigo: "ED1024",
+                nombre: "Desarrollo Infantil y adolescente",
+                creditos: 30,
+                color: "verde",
+            },
+            {
+                codigo: "ED1027",
+                nombre: "Habilidades Básicas de Investigación",
+                creditos: 30,
+                color: "verde",
+            },
+        ],
+    },
+    {
+        numero: 2,
+        materias: [
+            {
+                codigo: "FH1203",
+                nombre: "Pensamiento lógico y tecnológico",
+                creditos: 30,
+                color: "amarillo",
+            },
+            {
+                codigo: "ED2016",
+                nombre: "Desarrollo de la Psicomotricidad",
+                creditos: 30,
+                color: "amarillo",
+            },
+            {
+                codigo: "HJ2026",
+                nombre: "Ética social cristiana",
+                creditos: 30,
+                color: "amarillo",
+            },
+            {
+                codigo: "ED1029",
+                nombre: "Historia de la Pedagogía moderna",
+                creditos: 30,
+                color: "amarillo",
+            },
+        ],
+    },
+    {
+        numero: 3,
+        materias: [
+            {
+                codigo: "PS1201",
+                nombre: "Fundamentos de Psicología y Bienestar",
+                creditos: 30,
+                color: "naranja",
+            },
+            {
+                codigo: "Gestión educativa institucional",
+                nombre: "Gestión educativa institucional",
+                creditos: 30,
+                color: "naranja",
+            },
+            {
+                codigo: "ED2012",
+                nombre: "Desarrollo Socioemocional",
+                creditos: 30,
+                color: "naranja",
+            },
+            {
+                codigo: "ED3027",
+                nombre: "Administración educativa",
+                creditos: 30,
+                color: "naranja",
+            },
+        ],
+    },
+    // Puedes agregar más semestres según necesites
+];
+
+const faqs = [
+    {
+        question:
+            "¿Cuál es la edad mínima para ingresar a primero de primaria?",
+        answer: "La edad mínima para ingresar a primero de primaria es de 6 años cumplidos al 31 de diciembre del ciclo escolar en curso, conforme a lo establecido por la SEP.",
+    },
+    {
+        question: "¿Qué documentos necesito para inscribir a mi hijo?",
+        answer: "Necesitas: acta de nacimiento original y copia, CURP, cartilla de vacunación, comprobante de domicilio, identificación del padre o tutor, y certificado de preescolar si aplica.",
+    },
+    {
+        question: "¿Tienen horario extendido o clases extracurriculares?",
+        answer: "Sí, contamos con horario extendido y actividades extracurriculares como arte, deportes, lectura y tecnología, que se ofrecen por las tardes con costo adicional.",
+    },
+    {
+        question: "¿Cuál es el horario de clases regular?",
+        answer: "El horario regular es de lunes a viernes de 8:00 a.m. a 2:00 p.m. con un receso a media mañana para el desayuno o almuerzo ligero.",
+    },
+    {
+        question: "¿La primaria cuenta con servicio de comedor?",
+        answer: "Sí, contamos con un servicio de comedor con menú balanceado supervisado por nutriólogos. El servicio es opcional y se contrata mensualmente.",
+    },
+    {
+        question: "¿Hay transporte escolar disponible?",
+        answer: "Sí, ofrecemos transporte escolar con rutas establecidas. Puedes consultar disponibilidad y costos al momento de la inscripción.",
+    },
+    {
+        question: "¿Cómo puedo conocer las instalaciones?",
+        answer: "Puedes agendar una visita guiada llamando a nuestra línea de atención o enviando un mensaje por nuestras redes sociales oficiales.",
+    },
+    {
+        question: "¿Qué métodos de enseñanza utilizan?",
+        answer: "Utilizamos un enfoque integral basado en competencias, con apoyo en tecnología educativa, desarrollo socioemocional y aprendizaje significativo.",
+    },
+];
+
+const costosData = {
+    // Costos fijos
+    seguroEscolar: 1200,
+    coberturaEscolar: 1200,
+    uniformeEscolar: {
+        kitCompleto: 1380,
+        ahorro: 200,
+    },
+    uniformeDiario: [
+        {
+            id: "1",
+            nombre: "Falda",
+            precio: 510,
+            imagen: "/src/assets/Imagenes/Uniformes/Falda.png",
+        },
+        {
+            id: "2",
+            nombre: "Blusa",
+            precio: 320,
+            imagen: "/src/assets/Imagenes/Uniformes/Falda.png",
+        },
+        {
+            id: "3",
+            nombre: "Suéter",
+            precio: 450,
+            imagen: "/src/assets/Imagenes/Uniformes/Falda.png",
+        },
+    ],
+};
+
+// Datos específicos de precios por plantel
+const COSTOS_POR_PLANTEL = {
+    normal: {
+        Centro: { mensualidad: 2452, inscripcion: 2207 },
+        "Centro Médico": { mensualidad: 1727, inscripcion: 1555 },
+        Milenio: { mensualidad: 3276, inscripcion: 2948 }, // Precio más alto
+        "Plaza del Sol": { mensualidad: 3255, inscripcion: 2930 },
+        Tesistán: { mensualidad: 2315, inscripcion: 2084 },
+        Tlajomulco: { mensualidad: 4074, inscripcion: 3667 }, // Precio más alto
+        Tlaquepaque: { mensualidad: 1953, inscripcion: 1758 },
+        Tonalá: { mensualidad: 2426, inscripcion: 2183 },
+        Zapopan: { mensualidad: 2231, inscripcion: 2008 },
+    },
+    sabatina: {
+        Centro: { mensualidad: 2452, inscripcion: 2207 },
+        "Centro Médico": { mensualidad: 1727, inscripcion: 1555 },
+        Milenio: { mensualidad: 2573, inscripcion: 2315 }, // Precio más bajo
+        "Plaza del Sol": { mensualidad: 3255, inscripcion: 2930 },
+        Tesistán: { mensualidad: 2315, inscripcion: 2084 },
+        Tlajomulco: { mensualidad: 3255, inscripcion: 2930 }, // Precio más bajo
+        Tlaquepaque: { mensualidad: 1953, inscripcion: 1758 },
+        Tonalá: { mensualidad: 2426, inscripcion: 2183 },
+        Zapopan: { mensualidad: 2231, inscripcion: 2008 },
+    },
+};
+
+// Función para crear planteles con los precios específicos
+function crearPlantelesConPreciosReales() {
+    const planteles = { normal: [], sabatina: [] };
+
+    Object.keys(COSTOS_POR_PLANTEL).forEach((modalidad) => {
+        Object.entries(COSTOS_POR_PLANTEL[modalidad]).forEach(
+            ([nombre, costos]) => {
+                planteles[modalidad].push({
+                    nombre,
+                    inscripcion: costos.inscripcion,
+                    colegiatura: costos.mensualidad,
+                });
+            },
+        );
+    });
+
+    return planteles;
+}
+
+// Uso en tu componente
+const planteles = crearPlantelesConPreciosReales();
+
+// Uso del componente actualizado
+/*
+<Costos
+    seguroEscolar={costosData.seguroEscolar}
+    coberturaEscolar={costosData.coberturaEscolar}
+    uniformeEscolar={costosData.uniformeEscolar}
+    uniformeDiario={costosData.uniformeDiario}
+    planteles={planteles}
+/>
+*/
+
+// Alternativamente, si prefieres usar tus helpers existentes:
+// Usando crearPlantelesEspecificos con los datos reales
+const plantelesConHelpers = crearPlantelesEspecificos({
+    normal: {
+        Centro: 2207,
+        "Centro Médico": 1555,
+        Milenio: 2948,
+        "Plaza del Sol": 2930,
+        Tesistán: 2084,
+        Tlajomulco: 3667,
+        Tlaquepaque: 1758,
+        Tonalá: 2183,
+        Zapopan: 2008,
+    },
+    sabatina: {
+        Centro: 2207,
+        "Centro Médico": 1555,
+        Milenio: 2315,
+        "Plaza del Sol": 2930,
+        Tesistán: 2084,
+        Tlajomulco: 2930,
+        Tlaquepaque: 1758,
+        Tonalá: 2183,
+        Zapopan: 2008,
+    },
+});
+
+// O usando crearPlantelesMultiples para casos específicos
+const plantelesMultiples = crearPlantelesMultiples([
+    {
+        plantel: "Centro",
+        diferentesPrecios: true,
+        costoInscripcion: 2207,
+        costoColegiatura: 2452,
+        modalidad: "normal",
+    },
+    {
+        plantel: "Milenio",
+        diferentesPrecios: true,
+        costoInscripcion: 2948,
+        costoColegiatura: 3276,
+        modalidad: "normal",
+    },
+    {
+        plantel: "Milenio",
+        diferentesPrecios: true,
+        costoInscripcion: 2315,
+        costoColegiatura: 2573,
+        modalidad: "sabatina",
+    },
+    // ... más planteles
+]);
+
+export { costosData, COSTOS_POR_PLANTEL, crearPlantelesConPreciosReales };
 ---
+
 <Layout>
-    Contenido
+    <main class="min-h-screen">
+        <!-- Hero Section -->
+
+        <section
+            class="relative min-h-[85vh] md:min-h-[65vh] bg-cover bg-center bg-no-repeat"
+        >
+            {/* Desktop Background */}
+            <div
+                class="absolute inset-0 hidden md:block bg-cover bg-center bg-no-repeat"
+                style={{ backgroundImage: `url(${Hero.src})` }}
+            >
+            </div>
+
+            {/* Mobile Background */}
+            <div
+                class="absolute inset-0 block md:hidden bg-cover bg-center bg-no-repeat"
+                style={{ backgroundImage: `url(${Hero_mobile.src})` }}
+            >
+            </div>
+
+            {/* Hero Content */}
+            <div
+                class="relative z-10 container mx-auto px-4 h-full min-h-[85vh] md:min-h-[65vh] flex flex-col justify-center"
+            >
+                <div class="text-center text-white max-w-4xl mx-auto">
+                    {/* Main Title */}
+                    <h1
+                        class="text-4xl md:text-7xl font-bold tracking-wider mb-4"
+                    >
+                        Bachillerato UDG
+                    </h1>
+                    <h2
+                        class="text-2xl md:text-5xl font-bold tracking-wider mb-8"
+                    >
+                        UNE
+                    </h2>
+
+                    {/* Resumen de UNE */}
+                    <p
+                        class="text-lg md:text-xl leading-relaxed mb-16 max-w-3xl mx-auto font-light"
+                    >
+                        En UNE, formamos estudiantes con visión de futuro.
+                        Ofrecemos calidad académica, becas y orientación para
+                        que alcancen sus metas y lleguen bien preparados a la
+                        universidad.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Floating Card - ahora está fuera de la sección hero -->
+        <div class="relative -top-16 z-20 px-4">
+            <div
+                class="bg-azul-une rounded-2xl px-8 shadow-2xl max-w-4xl mx-auto"
+            >
+                <div
+                    class="flex flex-col sm:flex-row items-center justify-center gap-6"
+                >
+                    <!-- CTA Buttons -->
+                    <div
+                        class="flex flex-col sm:flex-row gap-4 w-full justify-center text-white"
+                    >
+                        <!-- Agenda una Visita -->
+                        <button
+                            class="hover:border-b hover:border-b-cyan-50 font-bold py-6 px-6 text-base transition-colors duration-300 shadow-lg flex flex-col items-center justify-center gap-2 whitespace-nowrap"
+                        >
+                            AGENDA UNA VISITA
+                            <Calendar size={20} />
+                        </button>
+
+                        <!-- Iniciar Inscripción -->
+                        <button
+                            class="hover:border-b hover:border-b-cyan-50 font-bold py-3 px-6 text-base transition-colors duration-300 shadow-lg flex flex-col items-center justify-center gap-2 whitespace-nowrap"
+                        >
+                            INICIAR INSCRIPCIÓN
+                            <UserPlus size={20} />
+                        </button>
+
+                        <!-- Contactar -->
+                        <button
+                            class="hover:border-b hover:border-b-cyan-50 font-bold py-3 px-6 text-base transition-colors duration-300 shadow-lg flex flex-col items-center justify-center gap-2 whitespace-nowrap"
+                        >
+                            CONTACTAR
+                            <Phone size={20} />
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <InformativeCard
+            logoSrc={LogoCard.src}
+            studentImageSrc={ImagenCard.src}
+            title="Bachillerato incorporado a la UDG"
+            description="Forma parte de un bachillerato de tiempo completo con validez oficial, enfocado en una educación de calidad y preparación universitaria."
+            additionalText="Respaldo de la Universidad de Guadalajara y reconocimiento de la SEP. Ideal para jóvenes que desean una formación académica sólida y continua."
+            features={[
+                { icon: "School", label: "Validez oficial SEP" },
+                { icon: "CalendarDays", label: "Clases presenciales diarias" },
+                { icon: "Clock", label: "Horario de tiempo completo" },
+                { icon: "BookOpen", label: "Enfoque académico integral" },
+                {
+                    icon: "BookmarkCheck",
+                    label: "Preparación para universidad",
+                },
+            ]}
+        />
+
+        <Planteles
+            titulo="Encuentra tu campus más cercano"
+            planteles={planteles}
+            ciudades={ciudades}
+            mostrarMasCercano={true}
+        />
+
+        <Costos
+            inscripcionAnual={costosData.inscripcionAnual}
+            seguroEscolar={costosData.seguroEscolar}
+            coberturaEscolar={costosData.coberturaEscolar}
+            uniformeEscolar={costosData.uniformeEscolar}
+            uniformeDiario={costosData.uniformeDiario}
+            planteles={crearPlantelesUniformes(772, 609)}
+        />
+        <Requisitos nivel="Secundaria" requisitos={requisitosSecundaria} />
+
+        <PlanEstudios titulo="Propuesta Educativa" semestres={semestresDatos} />
+
+        <Perfiles />
+
+        <FAQComponent
+            faqs={faqs}
+            title="Preguntas frecuentes"
+            subtitle="Encuentra respuestas a las dudas más comunes"
+        />
+
+        <CTAinscripcion />
+    </main>
 </Layout>

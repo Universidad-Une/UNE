@@ -12,7 +12,7 @@ import PlanEstudios from "@/components/sections/detallesOferta/planEstudios.astr
 import Perfiles from "@/components/sections/detallesOferta/perfiles.astro";
 import FAQComponent from "@/components/sections/detallesOferta/preguntas.astro";
 import CTAinscripcion from "@/components/sections/shared/ctaInscripcion.astro";
-import { crearPlantelesUniformes } from "@helpers/planteles";
+import { crearPlantelesMultiples } from "@helpers/planteles";
 
 const planteles = [
   {
@@ -405,36 +405,35 @@ const faqs = [
   },
 ];
 
-const costosEspecificos = {
-  normal: {
-    "Plaza del Sol": 2814,
-    Tesistán: 2783,
-    Tlajomulco: 3675,
-    Tlaquepaque: 1848,
-    Tonalá: 2365,
-    // Si quieres agregar más planteles con costos específicos
-    Milenio: 2500,
-    Centro: 2600,
-    "Centro Médico": 2700,
-    Chapultepec: 2400,
-    Zapopan: 2300,
+const configuracionPlanteles = [
+  {
+    plantel: "Plaza del Sol",
+    costo: 2814,
+    modalidad: "normal"
   },
-  sabatina: {
-    "Plaza del Sol": 2200,
-    Tesistán: 2100,
-    Tlajomulco: 2900,
-    Tlaquepaque: 1400,
-    Tonalá: 1800,
-    // Costos sabatinos para otros planteles
-    Milenio: 1900,
-    Centro: 2000,
-    "Centro Médico": 2100,
-    Chapultepec: 1800,
-    Zapopan: 1700,
+  {
+    plantel: "Tesistán",
+    costo: 2783,
+    modalidad: "normal"
   },
-};
+  {
+    plantel: "Tlajomulco",
+    costo: 3675,
+    modalidad: "normal"
+  },
+  {
+    plantel: "Tlaquepaque",
+    costo: 1848,
+    modalidad: "normal"
+  },
+  {
+    plantel: "Tonalá",
+    costo: 2365,
+    modalidad: "normal"
+  }
+];
+const plantelesEspecificos = crearPlantelesMultiples(configuracionPlanteles);
 
-const plantelesData = crearPlantelesEspecificos(costosEspecificos);
 ---
 
 <Layout>
@@ -533,7 +532,8 @@ const plantelesData = crearPlantelesEspecificos(costosEspecificos);
       coberturaEscolar={costosData.coberturaEscolar}
       uniformeEscolar={costosData.uniformeEscolar}
       uniformeDiario={costosData.uniformeDiario}
-      planteles={plantelesData.normal}
+       planteles={plantelesEspecificos}
+
     />
 
     <Requisitos nivel="Secundaria" requisitos={requisitosSecundaria} />

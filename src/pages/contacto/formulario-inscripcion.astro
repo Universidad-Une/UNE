@@ -1,7 +1,6 @@
 ---
 import Layout from "@/layouts/Layout.astro";
 import LogoUNEBlanco from "@/assets/Logos/UNE_blanco.webp";
-import Formulario from "@/assets/Imagenes/Heros/Formulario.jpg";
 import { BookOpen, FileText } from "@lucide/astro";
 import Ilustracion from "@/assets/Imagenes/Adaptables/Ilustracion.jpg";
 import Form from "@/components/sections/inscripcion/Form.astro";
@@ -11,8 +10,7 @@ import Form from "@/components/sections/inscripcion/Form.astro";
   <main class="min-h-screen bg-gray-50">
     <!-- Hero Section -->
     <section
-      class="relative bg-cover bg-center min-h-[70vh]"
-      style={{ backgroundImage: `url(${Formulario.src})` }}
+      class="formulario-bg relative bg-cover bg-center min-h-[70vh]"
     >
       <div class="absolute inset-0 opacity-10">
         <div
@@ -112,3 +110,16 @@ import Form from "@/components/sections/inscripcion/Form.astro";
     <Form />
   </main>
 </Layout>
+
+<style>
+  .formulario-bg {
+  background-image: url('/src/assets/Imagenes/Heros/Formulario.jpg');
+
+}
+
+@media (max-width: 767px) {
+  .formulario-bg {
+    background-image: url('/src/assets/Imagenes/Heros/Admision_mobile.jpg');
+  }
+}
+</style>

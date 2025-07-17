@@ -8,26 +8,26 @@ import { Check } from "@lucide/astro";
 <Layout>
     <!-- Hero Section -->
     <section
-        class="relative min-h-[65vh] overflow-hidden bg-cover bg-center bg-no-repeat flex items-center justify-center"
-        style={`background-image: url(${Hero.src})`}
+        class="apoyos-bg relative min-h-[65vh] overflow-hidden bg-cover bg-center bg-no-repeat flex items-center justify-center"
     >
         <div
-            class="relative z-10 text-center text-white max-w-4xl mx-auto px-4"
+            class="relative z-10 container mx-auto px-4 h-full min-h-[85vh] md:min-h-[65vh] flex flex-col justify-center"
         >
-            <h1 class="text-5xl md:text-6xl font-bold mb-4">
-                Programas Académicos
-            </h1>
-            <h2 class="text-3xl md:text-4xl font-semibold mb-6">UNE</h2>
-            <p class="text-xl md:text-2xl mb-8 max-w-2xl mx-auto">
-                Reconocemos tu excelencia académica con apoyos educativos que
-                hacen la diferencia. Conoce nuestro programa y prepárate para la
-                próxima convocatoria
-            </p>
-            <button
-                class="bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-8 rounded-lg text-lg transition-colors"
-            >
-                Próxima Convocatoria 2025- Agosto
-            </button>
+            <div class="text-white max-w-2xl">
+                <h1 class="text-4xl md:text-6xl font-bold mb-4 leading-tight">
+                    Programas Académicos
+                </h1>
+                <p class="text-lg md:text-xl mb-8 leading-relaxed font-light">
+                    Reconocemos tu excelencia académica con apoyos educativos
+                    que hacen la diferencia. Conoce nuestro programa y prepárate
+                    para la próxima convocatoria
+                </p>
+                <button
+                    class="bg-red-600 hover:bg-red-700 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-colors duration-300 transform hover:scale-105"
+                    onclick="window.location.href='/admisiones/proceso'"
+                    >Próxima Convocatoria <br /> 2025- Agosto
+                </button>
+            </div>
         </div>
     </section>
 
@@ -80,118 +80,136 @@ import { Check } from "@lucide/astro";
                                 </p>
                             </div>
 
-                            <div class="">
-                                <!-- Primera fila: 3 elementos -->
-                                <div
-                                    class="grid md:grid-cols-2 lg:grid-cols-3 gap-0"
-                                >
-                                    <!-- Modalidad Matutina -->
-                                    <div
-                                        class="bg-white border-b-2 border-r-2 border-gray-400 p-6 hover:shadow-lg transition-shadow"
+                            <div class="max-w-6xl mx-auto">
+                                <div class="text-center mb-8">
+                                    <h1
+                                        class="text-3xl font-bold text-gray-800 mb-2"
                                     >
-                                        <div
-                                            class="text-red-600 font-bold text-lg mb-2"
-                                        >
-                                            / 01
-                                        </div>
-                                        <h3
-                                            class="text-xl font-bold text-gray-800 mb-4"
-                                        >
-                                            Modalidad Matutina
-                                        </h3>
-                                        <p class="text-gray-600">
-                                            Apoyo del 15% durante el primer
-                                            ciclo para estudiantes de nuevo
-                                            ingreso que mantengan excelencia
-                                            académica.
-                                        </p>
-                                    </div>
-
-                                    <!-- Programa de Excelencia -->
-                                    <div
-                                        class="bg-white border-r-2 border-b-2 border-gray-400 p-6 hover:shadow-lg transition-shadow lg:border-r-2"
-                                    >
-                                        <div
-                                            class="text-red-600 font-bold text-lg mb-2"
-                                        >
-                                            / 02
-                                        </div>
-                                        <h3
-                                            class="text-xl font-bold text-gray-800 mb-4"
-                                        >
-                                            Programa de Excelencia Continua
-                                        </h3>
-                                        <p class="text-gray-600">
-                                            Modalidades Matutina y En Línea
-                                            reciben 30% de apoyo durante todo el
-                                            programa académico.
-                                        </p>
-                                    </div>
-
-                                    <!-- Modalidad Sabatina -->
-                                    <div
-                                        class="bg-white border-b-2 border-gray-400 p-6 hover:shadow-lg transition-shadow"
-                                    >
-                                        <div
-                                            class="text-red-600 font-bold text-lg mb-2"
-                                        >
-                                            / 03
-                                        </div>
-                                        <h3
-                                            class="text-xl font-bold text-gray-800 mb-4"
-                                        >
-                                            Modalidad Sabatina y En Línea
-                                        </h3>
-                                        <p class="text-gray-600">
-                                            Apoyo del 15% en el primer ciclo,
-                                            diseñado para estudiantes que
-                                            balancean trabajo y estudios.
-                                        </p>
-                                    </div>
+                                        Apoyos Disponibles por Modalidad
+                                    </h1>
+                                    <p class="text-gray-600">
+                                        Descubre las oportunidades que UNE tiene
+                                        para ti
+                                    </p>
                                 </div>
 
-                                <!-- Segunda fila: 2 elementos al 50% cada uno -->
-                                <div class="grid grid-cols-2 gap-0">
-                                    <!-- Incentivo por Revalidación -->
+                                <div class="bg-white">
+                                    <!-- Primera fila: 3 elementos en desktop, 1 columna en mobile -->
                                     <div
-                                        class="bg-white border-r-2 border-gray-400 p-6 hover:shadow-lg transition-shadow"
+                                        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-0"
                                     >
+                                        <!-- Modalidad Matutina -->
                                         <div
-                                            class="text-red-600 font-bold text-lg mb-2"
+                                            class="bg-white border-t-2 border-b-2 md:border-b-2 md:border-r-2 border-gray-400 p-6 hover:shadow-lg transition-shadow"
                                         >
-                                            / 04
+                                            <div
+                                                class="text-red-600 font-bold text-lg mb-2"
+                                            >
+                                                / 01
+                                            </div>
+                                            <h3
+                                                class="text-xl font-bold text-gray-800 mb-4"
+                                            >
+                                                Modalidad Matutina
+                                            </h3>
+                                            <p class="text-gray-600">
+                                                Apoyo del 15% durante el primer
+                                                ciclo para estudiantes de nuevo
+                                                ingreso que mantengan excelencia
+                                                académica.
+                                            </p>
                                         </div>
-                                        <h3
-                                            class="text-xl font-bold text-gray-800 mb-4"
+
+                                        <!-- Programa de Excelencia -->
+                                        <div
+                                            class="bg-white border-t-2 border-b-2 md:border-r-2 md:border-b-2 lg:border-r-2 border-gray-400 p-6 hover:shadow-lg transition-shadow"
                                         >
-                                            Incentivo por Revalidación
-                                        </h3>
-                                        <p class="text-gray-600">
-                                            Apoyo adicional del 5% durante el
-                                            primer ciclo para estudiantes que
-                                            revaliden estudios previos.
-                                        </p>
+                                            <div
+                                                class="text-red-600 font-bold text-lg mb-2"
+                                            >
+                                                / 02
+                                            </div>
+                                            <h3
+                                                class="text-xl font-bold text-gray-800 mb-4"
+                                            >
+                                                Programa de Excelencia Continua
+                                            </h3>
+                                            <p class="text-gray-600">
+                                                Modalidades Matutina y En Línea
+                                                reciben 30% de apoyo durante
+                                                todo el programa académico.
+                                            </p>
+                                        </div>
+
+                                        <!-- Modalidad Sabatina -->
+                                        <div
+                                            class="bg-white border-t-2 border-b-2 md:border-b-2 border-gray-400 p-6 hover:shadow-lg transition-shadow"
+                                        >
+                                            <div
+                                                class="text-red-600 font-bold text-lg mb-2"
+                                            >
+                                                / 03
+                                            </div>
+                                            <h3
+                                                class="text-xl font-bold text-gray-800 mb-4"
+                                            >
+                                                Modalidad Sabatina y En Línea
+                                            </h3>
+                                            <p class="text-gray-600">
+                                                Apoyo del 15% en el primer
+                                                ciclo, diseñado para estudiantes
+                                                que balancean trabajo y
+                                                estudios.
+                                            </p>
+                                        </div>
                                     </div>
 
-                                    <!-- Renovación por Mérito -->
+                                    <!-- Segunda fila: 2 elementos al 50% en desktop, 1 columna en mobile -->
                                     <div
-                                        class="bg-white p-6 hover:shadow-lg transition-shadow"
+                                        class="grid grid-cols-1 md:grid-cols-2 gap-0"
                                     >
+                                        <!-- Incentivo por Revalidación -->
                                         <div
-                                            class="text-red-600 font-bold text-lg mb-2"
+                                            class="bg-white border-t-2 border-b-2 md:border-r-2 border-gray-400 p-6 hover:shadow-lg transition-shadow"
                                         >
-                                            / 05
+                                            <div
+                                                class="text-red-600 font-bold text-lg mb-2"
+                                            >
+                                                / 04
+                                            </div>
+                                            <h3
+                                                class="text-xl font-bold text-gray-800 mb-4"
+                                            >
+                                                Incentivo por Revalidación
+                                            </h3>
+                                            <p class="text-gray-600">
+                                                Apoyo adicional del 5% durante
+                                                el primer ciclo para estudiantes
+                                                que revaliden estudios previos.
+                                            </p>
                                         </div>
-                                        <h3
-                                            class="text-xl font-bold text-gray-800 mb-4"
+
+                                        <!-- Renovación por Mérito -->
+                                        <div
+                                            class="bg-white border-t-2 border-b-2 p-6 hover:shadow-lg transition-shadow"
                                         >
-                                            Renovación por Mérito
-                                        </h3>
-                                        <p class="text-gray-600">
-                                            El apoyo se mantiene cumpliendo con
-                                            promedio mínimo de 8.5, puntualidad
-                                            en pagos y regularidad académica.
-                                        </p>
+                                            <div
+                                                class="text-red-600 font-bold text-lg mb-2"
+                                            >
+                                                / 05
+                                            </div>
+                                            <h3
+                                                class="text-xl font-bold text-gray-800 mb-4"
+                                            >
+                                                Renovación por Mérito
+                                            </h3>
+                                            <p class="text-gray-600">
+                                                El apoyo se mantiene cumpliendo
+                                                con promedio mínimo de 8.5,
+                                                puntualidad en pagos y
+                                                regularidad académica.
+                                            </p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -348,28 +366,29 @@ import { Check } from "@lucide/astro";
         style={`background-image: url(${Cover.src})`}
     >
         <div class="container mx-auto px-4 relative z-10">
-            <div class="grid md:grid-cols-2 gap-8 items-center">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center text-white">
                 <div>
-                    <h2 class="text-4xl font-bold text-white mb-6">
+                    <h2 class="text-3xl sm:text-4xl font-bold text-white mb-6">
                         ¿Quieres ser notificado de la próxima convocatoria?
                     </h2>
                 </div>
                 <div class="space-y-4">
-                    <div class="flex flex-col sm:flex-row gap-4 text-white">
+                    <!-- En mobile: inputs en columna uno debajo del otro -->
+                    <div class="flex flex-col gap-4">
                         <input
                             type="text"
                             placeholder="Nombre"
-                            class="flex-1 px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-red-500"
+                            class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-red-500"
                         />
                         <input
                             type="email"
                             placeholder="Correo"
-                            class="flex-1 px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-red-500"
+                            class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-red-500"
                         />
                         <input
                             type="tel"
                             placeholder="Celular"
-                            class="flex-1 px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-red-500"
+                            class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-red-500"
                         />
                     </div>
                     <button
@@ -382,3 +401,15 @@ import { Check } from "@lucide/astro";
         </div>
     </section>
 </Layout>
+
+<style>
+    .apoyos-bg {
+        background-image: url("/src/assets/Imagenes/Heros/Becas.jpg");
+    }
+
+    @media (max-width: 767px) {
+        .apoyos-bg {
+            background-image: url("/src/assets/Imagenes/Heros/Becas_mobile.jpg");
+        }
+    }
+</style>
