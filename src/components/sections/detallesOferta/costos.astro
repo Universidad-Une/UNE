@@ -1,7 +1,6 @@
 ---
-// Props interface
+// Props interface actualizada
 interface Props {
-  inscripcionAnual: number;
   seguroEscolar: number;
   coberturaEscolar: number;
   uniformeEscolar: {
@@ -19,17 +18,18 @@ interface Props {
       nombre: string;
       inscripcion: number;
       colegiatura: number;
+      turno?: string; // 'matutino', 'vespertino', 'ambos'
     }>;
     sabatina: Array<{
       nombre: string;
       inscripcion: number;
       colegiatura: number;
+      turno?: string;
     }>;
   };
 }
 
 const { 
-  inscripcionAnual, 
   seguroEscolar, 
   coberturaEscolar, 
   uniformeEscolar, 
@@ -38,6 +38,12 @@ const {
 } = Astro.props;
 
 import Uniforme from "@assets/Imagenes/Uniformes/Gral.jpg"
+
+// Función para detectar si hay turnos diferentes
+function hayTurnosDiferentes(planteles) {
+  const todosPlanteles = [...planteles.normal, ...planteles.sabatina];
+  return todosPlanteles.some(p => p.turno && p.turno !== 'ambos');
+}
 
 // Función para detectar si los precios son uniformes
 function sonPreciosUniformes(planteles) {
@@ -50,10 +56,27 @@ function sonPreciosUniformes(planteles) {
   return normalUniforme && sabatinaUniforme;
 }
 
+// Función para detectar si las inscripciones son uniformes
+function sonInscripcionesUniformes(planteles) {
+  const normalInscripciones = planteles.normal.map(p => p.inscripcion);
+  const sabatinaInscripciones = planteles.sabatina.map(p => p.inscripcion);
+  
+  const normalUniforme = normalInscripciones.every(price => price === normalInscripciones[0]);
+  const sabatinaUniforme = sabatinaInscripciones.every(price => price === sabatinaInscripciones[0]);
+  
+  return normalUniforme && sabatinaUniforme;
+}
+
 // Función para detectar si los precios son iguales entre modalidades
 function sonPreciosIgualesEntreModalidades(planteles) {
   if (planteles.normal.length === 0 || planteles.sabatina.length === 0) return false;
   return planteles.normal[0].colegiatura === planteles.sabatina[0].colegiatura;
+}
+
+// Función para detectar si las inscripciones son iguales entre modalidades
+function sonInscripcionesIgualesEntreModalidades(planteles) {
+  if (planteles.normal.length === 0 || planteles.sabatina.length === 0) return false;
+  return planteles.normal[0].inscripcion === planteles.sabatina[0].inscripcion;
 }
 
 // Función para detectar si hay una sola modalidad
@@ -82,15 +105,96 @@ function obtenerPrimerPrecio(planteles) {
   return 0;
 }
 
+// Función para obtener el primer precio de inscripción
+function obtenerPrimeraInscripcion(planteles) {
+  if (planteles.normal.length > 0) return planteles.normal[0].inscripcion;
+  if (planteles.sabatina.length > 0) return planteles.sabatina[0].inscripcion;
+  return 0;
+}
+
+// Función para crear opciones del select unificado
+function crearOpcionesSelect(planteles) {
+  const opciones = [];
+  
+  // Agregar opciones de modalidad normal
+  if (planteles.normal.length > 0) {
+    planteles.normal.forEach(plantel => {
+      opciones.push({
+        value: `normal_${plantel.nombre}`,
+        text: ` ${plantel.nombre}`,
+        modalidad: 'normal',
+        plantel: plantel.nombre,
+        inscripcion: plantel.inscripcion,
+        colegiatura: plantel.colegiatura,
+        turno: plantel.turno || 'ambos'
+      });
+    });
+  }
+  
+  // Agregar opciones de modalidad sabatina
+  if (planteles.sabatina.length > 0) {
+    planteles.sabatina.forEach(plantel => {
+      opciones.push({
+        value: `sabatina_${plantel.nombre}`,
+        text: `Sabatina - ${plantel.nombre}`,
+        modalidad: 'sabatina',
+        plantel: plantel.nombre,
+        inscripcion: plantel.inscripcion,
+        colegiatura: plantel.colegiatura,
+        turno: plantel.turno || 'ambos'
+      });
+    });
+  }
+  
+  return opciones;
+}
+
+// Función para determinar si necesita selector
+function necesitaSelector(planteles) {
+  const soloPlantel = esSoloPlantel(planteles);
+  const preciosUniformes = sonPreciosUniformes(planteles);
+  const inscripcionesUniformes = sonInscripcionesUniformes(planteles);
+  const preciosIgualesEntreModalidades = sonPreciosIgualesEntreModalidades(planteles);
+  const inscripcionesIgualesEntreModalidades = sonInscripcionesIgualesEntreModalidades(planteles);
+  const solaModalidad = esSolaModalidad(planteles);
+  
+  // Si es un solo plantel, no necesita selector
+  if (soloPlantel) return false;
+  
+  // Si hay una sola modalidad y precios uniformes, no necesita selector
+  if (solaModalidad && preciosUniformes && inscripcionesUniformes) return false;
+  
+  // Si hay múltiples modalidades pero todos los precios son iguales, no necesita selector
+  if (preciosIgualesEntreModalidades && inscripcionesIgualesEntreModalidades && 
+      preciosUniformes && inscripcionesUniformes) return false;
+  
+  // En cualquier otro caso, necesita selector
+  return true;
+}
+
 const preciosUniformes = sonPreciosUniformes(planteles);
+const inscripcionesUniformes = sonInscripcionesUniformes(planteles);
 const preciosIgualesEntreModalidades = sonPreciosIgualesEntreModalidades(planteles);
+const inscripcionesIgualesEntreModalidades = sonInscripcionesIgualesEntreModalidades(planteles);
 const solaModalidad = esSolaModalidad(planteles);
 const soloPlantel = esSoloPlantel(planteles);
 const modalidadActiva = obtenerModalidadActiva(planteles);
 const primerPrecio = obtenerPrimerPrecio(planteles);
+const primeraInscripcion = obtenerPrimeraInscripcion(planteles);
+const tienenTurnos = hayTurnosDiferentes(planteles);
+const opcionesSelect = crearOpcionesSelect(planteles);
+const necesitaSelectorUnificado = necesitaSelector(planteles);
+
+// Función para obtener descripción del selector
+function obtenerDescripcionSelector() {
+  if (soloPlantel) return "Plantel único";
+  if (solaModalidad) return "Selecciona tu plantel";
+  if (tienenTurnos) return "Selecciona modalidad, plantel y turno";
+  return "Selecciona modalidad y plantel";
+}
 ---
 
-<div class="max-w-6xl  md:mt-32 mx-auto p-6">
+<div class="max-w-6xl md:mt-32 mx-auto p-6">
   <!-- Header -->
   <div class="text-center my-10 md:my-20">
     <h1 class="text-3xl font-bold text-gray-900 mb-2">CONOCE NUESTROS COSTOS</h1>
@@ -113,18 +217,74 @@ const primerPrecio = obtenerPrimerPrecio(planteles);
         </div>
         
         <div class="space-y-6">
-          <!-- Inscripción anual -->
-          {inscripcionAnual > 0 && (
-            <div class="flex justify-between items-center border-b border-gray-400 pb-4">
-              <div>
-                <h3 class="text-white font-bold text-lg">Inscripción:</h3>
-                <p class="text-white text-sm">Pago único al inicio del ciclo escolar</p>
+          <!-- Selector Unificado (solo si es necesario) -->
+          {necesitaSelectorUnificado && (
+            <div class="flex flex-col gap-2">
+              <div class="flex justify-between items-center">
+                <div>
+                  <h3 class="text-white font-bold text-lg">Selecciona tu opción:</h3>
+                  <p class="text-white text-sm">{obtenerDescripcionSelector()}</p>
+                </div>
               </div>
-              <div class="text-right">
-                <span class="text-3xl font-bold text-white">${inscripcionAnual.toLocaleString()}</span>
-              </div>
+              
+              <select 
+                id="opcion-select" 
+                class="mt-2 bg-transparent text-white border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 shadow-sm"
+              >
+                {opcionesSelect.map((opcion) => (
+                  <option 
+                    value={opcion.value}
+                    data-modalidad={opcion.modalidad}
+                    data-plantel={opcion.plantel}
+                    data-inscripcion={opcion.inscripcion}
+                    data-colegiatura={opcion.colegiatura}
+                    data-turno={opcion.turno}
+                    class="text-gray-800 bg-white"
+                  >
+                    {opcion.text}
+                  </option>
+                ))}
+              </select>
             </div>
           )}
+
+          <!-- Inscripción -->
+          <div class="flex flex-col gap-2">
+            <div class="flex justify-between items-center border-b border-gray-400 pb-4">
+              <div>
+                <h3 class="text-white font-bold text-lg">Tramite administrativo:</h3>
+                <p class="text-white text-sm">
+                  {soloPlantel
+                    ? "Pago único al inicio del ciclo escolar"
+                    : inscripcionesUniformes && inscripcionesIgualesEntreModalidades
+                    ? "Mismo precio en todos los planteles y modalidades"
+                    : inscripcionesUniformes
+                    ? "Mismo precio en todos los planteles de la modalidad"
+                    : necesitaSelectorUnificado
+                    ? "Precio según tu selección"
+                    : "Precio fijo"
+                  }
+                </p>
+              </div>
+              <div class="text-right">
+                <span id="inscripcion-precio" class="text-3xl font-bold text-white">
+                  ${primeraInscripcion.toLocaleString()}
+                </span>
+              </div>
+            </div>
+            
+            {/* Información adicional */}
+            {(!necesitaSelectorUnificado || soloPlantel) && (
+              <div class="mt-2 text-white text-sm opacity-75">
+                <p>
+                  {soloPlantel 
+                    ? `✓ ${planteles.normal[0]?.nombre || planteles.sabatina[0]?.nombre}`
+                    : "✓ Disponible en todos los planteles"
+                  }
+                </p>
+              </div>
+            )}
+          </div>
        
           <div class="flex justify-between items-center border-b border-gray-400 pb-4">
             <div>
@@ -146,30 +306,6 @@ const primerPrecio = obtenerPrimerPrecio(planteles);
               <span class="text-3xl font-bold text-white">${seguroEscolar.toLocaleString()}</span>
             </div>
           </div>
-
-          <!-- Selector de Modalidad (solo si hay más de una modalidad) -->
-          {!solaModalidad && (
-            <div class="flex flex-col gap-2">
-              <div class="flex justify-between items-center">
-                <div>
-                  <h3 class="text-white font-bold text-lg">Modalidad:</h3>
-                  <p class="text-white text-sm">Selecciona tu modalidad preferida</p>
-                </div>
-              </div>
-              
-              <select 
-                id="modalidad-select" 
-                class="mt-2 bg-transparent text-white border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 shadow-sm"
-              >
-                {planteles.normal.length > 0 && (
-                  <option value="normal" class="text-gray-800 bg-white">Normal</option>
-                )}
-                {planteles.sabatina.length > 0 && (
-                  <option value="sabatina" class="text-gray-800 bg-white">Sabatina</option>
-                )}
-              </select>
-            </div>
-          )}
 
           <!-- Mostrar modalidad fija si es solo una -->
           {solaModalidad && (
@@ -194,8 +330,10 @@ const primerPrecio = obtenerPrimerPrecio(planteles);
                     : preciosUniformes && preciosIgualesEntreModalidades
                     ? "Mismo precio en todos los planteles y modalidades" 
                     : preciosUniformes
-                    ? "Mismo precio en todos los planteles"
-                    : "Selecciona tu plantel para ver el costo"
+                    ? "Mismo precio en todos los planteles de la modalidad"
+                    : necesitaSelectorUnificado
+                    ? "Precio según tu selección"
+                    : "Precio fijo"
                   }
                 </p>
               </div>
@@ -206,25 +344,8 @@ const primerPrecio = obtenerPrimerPrecio(planteles);
               </div>
             </div>
             
-            {/* Solo mostrar selector si hay diferencias de precio y no es un solo plantel */}
-            {!preciosUniformes && !soloPlantel && (
-              <select 
-                id="plantel-select" 
-                class="mt-2 bg-transparent text-white border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 shadow-sm"
-              >
-                {planteles[modalidadActiva].map((plantel) => (
-                  <option 
-                    value={plantel.colegiatura} 
-                    class="text-gray-800 bg-white"
-                  >
-                    {plantel.nombre} 
-                  </option>
-                ))}
-              </select>
-            )}
-            
-            {/* Si son uniformes o es un solo plantel, mostrar info */}
-            {(preciosUniformes || soloPlantel) && (
+            {/* Información adicional */}
+            {(!necesitaSelectorUnificado || soloPlantel) && (
               <div class="mt-2 text-white text-sm opacity-75">
                 <p>
                   {soloPlantel 
@@ -310,124 +431,84 @@ const primerPrecio = obtenerPrimerPrecio(planteles);
             </ul>
           </div>
         </div>
-
-        <!-- Botones de navegación -->
-        <button class="absolute left-2 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 hover:bg-opacity-75 text-white p-2 rounded-full z-10" id="prev-btn">
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
-          </svg>
-        </button>
-        <button class="absolute right-2 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 hover:bg-opacity-75 text-white p-2 rounded-full z-10" id="next-btn">
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-          </svg>
-        </button>
       </div>
     </div>
   </div>
 </div>
 
-<!-- Pasar los datos de planteles a JavaScript -->
-<script define:vars={{ planteles, preciosUniformes, preciosIgualesEntreModalidades, solaModalidad, soloPlantel, modalidadActiva }}>
-  // Datos de planteles disponibles globalmente
+<!-- Pasar los datos a JavaScript -->
+<script define:vars={{ 
+  planteles, 
+  preciosUniformes,
+  inscripcionesUniformes,
+  preciosIgualesEntreModalidades,
+  inscripcionesIgualesEntreModalidades,
+  solaModalidad, 
+  soloPlantel, 
+  modalidadActiva,
+  tienenTurnos,
+  opcionesSelect,
+  necesitaSelectorUnificado
+}}>
+  // Datos globales
   window.plantelesData = planteles;
   window.preciosUniformes = preciosUniformes;
+  window.inscripcionesUniformes = inscripcionesUniformes;
   window.preciosIgualesEntreModalidades = preciosIgualesEntreModalidades;
+  window.inscripcionesIgualesEntreModalidades = inscripcionesIgualesEntreModalidades;
   window.solaModalidad = solaModalidad;
   window.soloPlantel = soloPlantel;
   window.modalidadActiva = modalidadActiva;
+  window.tienenTurnos = tienenTurnos;
+  window.opcionesSelect = opcionesSelect;
+  window.necesitaSelectorUnificado = necesitaSelectorUnificado;
 </script>
 
 <script>
-  // Función para actualizar planteles según modalidad
-  function updatePlanteles(modalidad) {
-    const plantelSelect = document.getElementById('plantel-select');
+  // Función para actualizar precios basado en la selección
+  function actualizarPrecios() {
+    const opcionSelect = document.getElementById('opcion-select');
     const colegiaturaPreci = document.getElementById('colegiatura-precio');
+    const inscripcionPrecio = document.getElementById('inscripcion-precio');
     
-    if (!plantelSelect || !colegiaturaPreci) return;
+    if (!opcionSelect || !colegiaturaPreci || !inscripcionPrecio) return;
     
-    // Limpiar opciones actuales
-    plantelSelect.innerHTML = '';
+    const selectedOption = opcionSelect.selectedOptions[0];
+    if (!selectedOption) return;
     
-    // Agregar nuevas opciones
-    window.plantelesData[modalidad].forEach(plantel => {
-      const option = document.createElement('option');
-      option.value = plantel.colegiatura;
-      option.textContent = plantel.nombre;
-      option.className = 'text-gray-800 bg-white';
-      plantelSelect.appendChild(option);
-    });
+    const inscripcion = parseInt(selectedOption.dataset.inscripcion);
+    const colegiatura = parseInt(selectedOption.dataset.colegiatura);
     
-    // Actualizar precio mostrado
-    if (window.plantelesData[modalidad].length > 0) {
-      colegiaturaPreci.textContent = `$${window.plantelesData[modalidad][0].colegiatura.toLocaleString()}`;
-    }
-  }
-
-  // Función para actualizar precio cuando cambian modalidad o plantel
-  function updatePrecio(modalidad) {
-    const colegiaturaPreci = document.getElementById('colegiatura-precio');
-    const plantelSelect = document.getElementById('plantel-select');
-    
-    if (!colegiaturaPreci) return;
-    
-    // Si es un solo plantel, no hacer nada
-    if (window.soloPlantel) {
-      return;
-    }
-    
-    // Si los precios son iguales entre modalidades, no cambiar nada
-    if (window.preciosIgualesEntreModalidades) {
-      return;
-    }
-    
-    if (window.preciosUniformes) {
-      // Si los precios son uniformes por modalidad, mostrar el precio de la modalidad seleccionada
-      if (window.plantelesData[modalidad] && window.plantelesData[modalidad].length > 0) {
-        colegiaturaPreci.textContent = `$${window.plantelesData[modalidad][0].colegiatura.toLocaleString()}`;
-      }
-    } else {
-      // Si los precios no son uniformes, actualizar el selector y mostrar el primer precio
-      if (plantelSelect) {
-        updatePlanteles(modalidad);
-      }
-    }
+    // Actualizar los precios mostrados
+    colegiaturaPreci.textContent = `$${colegiatura.toLocaleString()}`;
+    inscripcionPrecio.textContent = `$${inscripcion.toLocaleString()}`;
   }
 
   // Event listeners
   document.addEventListener('DOMContentLoaded', function() {
-    const modalidadSelect = document.getElementById('modalidad-select');
-    const plantelSelect = document.getElementById('plantel-select');
-    const colegiaturaPreci = document.getElementById('colegiatura-precio');
-
-    // Cambio de modalidad (solo si no es una sola modalidad)
-    if (modalidadSelect && !window.solaModalidad) {
-      modalidadSelect.addEventListener('change', function() {
-        updatePrecio(this.value);
-      });
-    }
-
-    // Cambio de plantel (solo si los precios no son uniformes y no es un solo plantel)
-    if (plantelSelect && colegiaturaPreci && !window.soloPlantel) {
-      plantelSelect.addEventListener('change', function() {
-        colegiaturaPreci.textContent = `$${parseInt(this.value).toLocaleString()}`;
-      });
+    const opcionSelect = document.getElementById('opcion-select');
+    
+    // Solo agregar event listener si existe el selector
+    if (opcionSelect && window.necesitaSelectorUnificado) {
+      opcionSelect.addEventListener('change', actualizarPrecios);
     }
   });
 
-  // Función para tooltip
+  // Función para el tooltip (mantener la funcionalidad original)
   function toggleTooltip(button) {
     const tooltip = button.nextElementSibling;
-    tooltip.classList.toggle('opacity-0');
-    tooltip.classList.toggle('pointer-events-none');
+    if (tooltip && tooltip.hasAttribute('data-tooltip')) {
+      tooltip.classList.toggle('opacity-0');
+      tooltip.classList.toggle('pointer-events-none');
+    }
   }
 
   function hideTooltip(button) {
     const tooltip = button.nextElementSibling;
-    setTimeout(() => {
+    if (tooltip && tooltip.hasAttribute('data-tooltip')) {
       tooltip.classList.add('opacity-0');
       tooltip.classList.add('pointer-events-none');
-    }, 200);
+    }
   }
 </script>
 

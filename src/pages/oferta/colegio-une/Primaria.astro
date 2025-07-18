@@ -12,7 +12,7 @@ import PlanEstudios from "@/components/sections/detallesOferta/planEstudios.astr
 import Perfiles from "@/components/sections/detallesOferta/perfiles.astro";
 import FAQComponent from "@/components/sections/detallesOferta/preguntas.astro";
 import CTAinscripcion from "@/components/sections/shared/ctaInscripcion.astro";
-import {  crearPlantelUnico } from "@helpers/planteles";
+import { crearPlantelUnico } from "@helpers/planteles";
 const planteles = [
   {
     id: "1",
@@ -307,7 +307,10 @@ const faqs = [
 
     <PlanEstudios titulo="Propuesta Educativa" semestres={semestresDatos} />
 
-    <Perfiles />
+    <Perfiles
+      perfilIngreso="El estudiante que ingresa a primaria Montessori debe tener curiosidad natural por aprender, capacidad para seguir rutinas básicas, y disposición para explorar el entorno de forma autónoma. Se valora que desarrolle habilidades de comunicación, motricidad y convivencia, así como respeto por sí mismo, los demás y el ambiente."
+      perfilEgreso="El egresado de primaria Montessori es un niño autónomo, responsable y creativo, con habilidades para resolver problemas, expresarse con claridad y trabajar en equipo. Muestra sensibilidad por el entorno natural y social, actúa con empatía y respeto, y mantiene una actitud crítica y reflexiva que lo prepara para nuevos desafíos."
+    />
 
     <FAQComponent
       faqs={faqs}

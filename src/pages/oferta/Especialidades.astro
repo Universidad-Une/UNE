@@ -1,0 +1,192 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Hero from "@/assets/Imagenes/Heros/Licenciaturas_gral.jpg";
+import Hero_mobile from "@/assets/Imagenes/Heros/Licenciaturas_gral_mobile.jpg";
+import ImagenCard from "@/assets/Imagenes/CardsNiveles/Nivel.png";
+import LogoCard from "@/assets/Logos/Licenciatura.png";
+import InformativeCard from "@components/sections/detallesOferta/card.astro";
+import Carreras from "@components/sections/Licenciaturas/Carreras.astro";
+import Estadisticas from "@components/sections/Licenciaturas/Estadisticas.astro";
+
+import Requisitos from "@/components/sections/detallesOferta/requisitos.astro";
+
+import FAQComponent from "@/components/sections/detallesOferta/preguntas.astro";
+import CTAinscripcion from "@/components/sections/shared/ctaInscripcion.astro";
+import { Calendar, UserPlus, Phone } from "@lucide/astro";
+
+
+const requisitosInfo = {
+  items: [
+    "Acta de nacimiento (en buen estado)",
+    "Certificado de secundaria y carta validación del mismo",
+    "Ocho fotografías tamaño infantil blanco y negro de estudio",
+    "Una fotografía tamaño credencial a color",
+    "CURP",
+    "Comprobante de domicilio",
+    "Todos los documentos originales y 3 copias",
+  ],
+  pdfUrl: "/public/pdfs/Bachillerato_req.pdf",
+};
+
+
+const faqs = [
+  {
+    question: "¿Cuáles son los requisitos para ingresar a una licenciatura?",
+    answer:
+      "Debes contar con certificado de bachillerato, acta de nacimiento, CURP, identificación oficial, comprobante de domicilio y fotografías recientes. En algunos casos, puede requerirse el resultado de un examen de admisión.",
+  },
+  {
+    question: "¿Cuál es la duración de una licenciatura?",
+    answer:
+      "Las licenciaturas tienen una duración promedio de 8 a 10 semestres, dependiendo del programa, la institución incorporadora (UDG o SICYT) y la modalidad elegida.",
+  },
+  {
+    question: "¿Qué modalidades de estudio están disponibles?",
+    answer:
+      "Las licenciaturas pueden cursarse en modalidad presencial, en línea, escolarizada o semiescolarizada, según la carrera y el plantel. Algunas combinan clases presenciales con actividades virtuales.",
+  },
+  {
+    question: "¿Puedo trabajar mientras estudio una licenciatura?",
+    answer:
+      "Sí. Las modalidades en línea y semiescolarizada están diseñadas para ofrecer mayor flexibilidad y permitir compatibilizar tus estudios con otras actividades.",
+  },
+  {
+    question: "¿Cómo se evalúa el desempeño académico?",
+    answer:
+      "El sistema de evaluación incluye exámenes, proyectos, participación en clase, trabajos individuales o en equipo y actividades prácticas, según el enfoque de cada licenciatura.",
+  },
+  {
+    question: "¿Qué tipo de apoyo académico se brinda a los estudiantes?",
+    answer:
+      "Ofrecemos tutorías, asesorías académicas presenciales y virtuales, y acceso a plataformas educativas para reforzar el aprendizaje de cada materia.",
+  },
+  {
+    question: "¿Las licenciaturas están incorporadas a alguna institución oficial?",
+    answer:
+      "Sí. Contamos con licenciaturas incorporadas a la Universidad de Guadalajara (UDG) y a la Secretaría de Innovación, Ciencia y Tecnología (SICYT) del Estado de Jalisco, lo que garantiza validez oficial de estudios.",
+  },
+  {
+    question: "¿Dónde puedo obtener más información e inscribirme?",
+    answer:
+      "Puedes acudir directamente a las oficinas del plantel más cercano o visitar nuestro portal web para consultar la oferta académica, requisitos y fechas de inscripción.",
+  },
+];
+
+
+---
+
+<Layout>
+  <main class="min-h-screen">
+    <!-- Hero Section -->
+
+    <section
+      class="relative min-h-[85vh] md:min-h-[65vh] bg-cover bg-center bg-no-repeat"
+    >
+      {/* Desktop Background */}
+      <div
+        class="absolute inset-0 hidden md:block bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: `url(${Hero.src})` }}
+      >
+      </div>
+
+      {/* Mobile Background */}
+      <div
+        class="absolute inset-0 block md:hidden bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: `url(${Hero_mobile.src})` }}
+      >
+      </div>
+
+      {/* Hero Content */}
+      <div
+        class="relative z-10 container mx-auto px-4 h-full min-h-[85vh] md:min-h-[65vh] flex flex-col justify-center"
+      >
+        <div class="text-center text-white max-w-4xl mx-auto">
+          {/* Main Title */}
+          <h1 class="text-4xl md:text-7xl font-bold tracking-wider mb-4">
+            Especialízate en lo que te apasiona
+          </h1>
+          <h2 class="text-2xl md:text-5xl font-bold tracking-wider mb-8">
+            Especialidades UNE
+          </h2>
+
+          {/* Description */}
+          <p
+            class="text-lg md:text-xl leading-relaxed mb-16 max-w-3xl mx-auto font-light"
+          >
+            Tu carrera profesional merece la mejor formación. Descubre el programa que transformará tu conocimiento en liderazgo.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Floating Card - ahora está fuera de la sección hero -->
+    <div class="relative -top-16 z-20 px-4">
+      <div class="bg-azul-une rounded-2xl px-8 shadow-2xl max-w-4xl mx-auto">
+        <div
+          class="flex flex-col sm:flex-row items-center justify-center gap-6"
+        >
+          <!-- CTA Buttons -->
+          <div
+            class="flex flex-col sm:flex-row gap-4 w-full justify-center text-white"
+          >
+            <!-- Agenda una Visita -->
+            <button
+              class="hover:border-b hover:border-b-cyan-50 font-bold py-6 px-6 text-base transition-colors duration-300 shadow-lg flex flex-col items-center justify-center gap-2 whitespace-nowrap"
+            >
+              AGENDA UNA VISITA
+              <Calendar size={20} />
+            </button>
+
+            <!-- Iniciar Inscripción -->
+            <button
+              class="hover:border-b hover:border-b-cyan-50 font-bold py-3 px-6 text-base transition-colors duration-300 shadow-lg flex flex-col items-center justify-center gap-2 whitespace-nowrap"
+            >
+              INICIAR INSCRIPCIÓN
+              <UserPlus size={20} />
+            </button>
+
+            <!-- Contactar -->
+            <button
+              class="hover:border-b hover:border-b-cyan-50 font-bold py-3 px-6 text-base transition-colors duration-300 shadow-lg flex flex-col items-center justify-center gap-2 whitespace-nowrap"
+            >
+              CONTACTAR
+              <Phone size={20} />
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <InformativeCard
+      logoSrc={LogoCard.src}
+      studentImageSrc={ImagenCard.src}
+      title="LICENCIATURAS PARA PROFESIONALES"
+      description="Nuestras licenciaturas UNE te proporcionan la especialización necesaria para desarrollarte como un profesional competitivo."
+      additionalText="Con programas incorporados tanto a la Universidad de Guadalajara como al Sistema de Créditos de Institutos Tecnológicos, obtienes la flexibilidad de elegir la ruta académica que mejor se adapte a tus objetivos profesionales"
+      features={[
+        { icon: "CalendarDays", label: "Sesiones presenciales" },
+        { icon: "BookOpen", label: "Estudio guiado" },
+        { icon: "School", label: "Validez oficial" },
+        { icon: "Clock", label: "Horarios flexibles" },
+        { icon: "BookmarkCheck", label: "Preparación universitaria" },
+      ]}
+    />
+
+    <Carreras/>
+
+    <Estadisticas/>
+
+    
+    <Requisitos nivel="Bachillerato" requisitos={requisitosInfo} />
+
+
+    
+    <FAQComponent
+      faqs={faqs}
+      title="Preguntas frecuentes"
+      subtitle="Encuentra respuestas a las dudas más comunes"
+    />
+
+    <CTAinscripcion />
+  </main>
+</Layout>

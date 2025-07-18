@@ -12,7 +12,7 @@ import PlanEstudios from "@/components/sections/detallesOferta/planEstudios.astr
 import Perfiles from "@/components/sections/detallesOferta/perfiles.astro";
 import FAQComponent from "@/components/sections/detallesOferta/preguntas.astro";
 import CTAinscripcion from "@/components/sections/shared/ctaInscripcion.astro";
-import { crearPlantelesMultiples } from "@helpers/planteles";
+import { crearPlantelesEspecificos } from "@helpers/planteles";
 
 const planteles = [
   {
@@ -115,13 +115,6 @@ const costosData = {
       precio: 450,
       imagen: "/src/assets/Imagenes/Uniformes/Falda.png",
     },
-  ],
-  planteles: [
-    { nombre: "Plaza del Sol", inscripcion: 2814 },
-    { nombre: "Tesistán", inscripcion: 2783 },
-    { nombre: "Tlajomulco", inscripcion: 3675 },
-    { nombre: "Tlaquepaque", inscripcion: 1848 },
-    { nombre: "Tonalá", inscripcion: 2365 },
   ],
 };
 const requisitosSecundaria = {
@@ -364,76 +357,90 @@ const semestresDatos = [
 ];
 const faqs = [
   {
-    question: "¿Cuál es la edad mínima para ingresar a primero de primaria?",
+    question: "¿Cuál es la edad mínima para ingresar a primero de secundaria?",
     answer:
-      "La edad mínima para ingresar a primero de primaria es de 6 años cumplidos al 31 de diciembre del ciclo escolar en curso, conforme a lo establecido por la SEP.",
+      "La edad mínima para ingresar a primero de secundaria es de 12 años cumplidos al 31 de diciembre del ciclo escolar en curso, según lo establecido por la SEP.",
   },
   {
-    question: "¿Qué documentos necesito para inscribir a mi hijo?",
+    question: "¿Qué documentos necesito para inscribir a mi hijo en secundaria?",
     answer:
-      "Necesitas: acta de nacimiento original y copia, CURP, cartilla de vacunación, comprobante de domicilio, identificación del padre o tutor, y certificado de preescolar si aplica.",
+      "Necesitas: certificado de primaria, acta de nacimiento original y copia, CURP, comprobante de domicilio, identificación del padre o tutor y cartilla de vacunación.",
   },
   {
-    question: "¿Tienen horario extendido o clases extracurriculares?",
+    question: "¿Ofrecen apoyo para materias difíciles o tutorías?",
     answer:
-      "Sí, contamos con horario extendido y actividades extracurriculares como arte, deportes, lectura y tecnología, que se ofrecen por las tardes con costo adicional.",
+      "Sí, contamos con programas de tutorías y apoyo académico para estudiantes que requieran reforzamiento en distintas materias.",
   },
   {
-    question: "¿Cuál es el horario de clases regular?",
+    question: "¿Cuál es el horario regular de clases en secundaria?",
     answer:
-      "El horario regular es de lunes a viernes de 8:00 a.m. a 2:00 p.m. con un receso a media mañana para el desayuno o almuerzo ligero.",
+      "El horario regular es de lunes a viernes de 8:00 a.m. a 3:30 p.m., con recesos para comida y descanso según el calendario escolar.",
   },
   {
-    question: "¿La primaria cuenta con servicio de comedor?",
+    question: "¿La secundaria tiene actividades extracurriculares?",
     answer:
-      "Sí, contamos con un servicio de comedor con menú balanceado supervisado por nutriólogos. El servicio es opcional y se contrata mensualmente.",
+      "Sí, ofrecemos actividades deportivas, artísticas, culturales y talleres tecnológicos como parte del desarrollo integral del alumno.",
   },
   {
-    question: "¿Hay transporte escolar disponible?",
+    question: "¿Hay transporte escolar disponible para secundaria?",
     answer:
-      "Sí, ofrecemos transporte escolar con rutas establecidas. Puedes consultar disponibilidad y costos al momento de la inscripción.",
+      "Sí, contamos con rutas de transporte escolar seguras y supervisadas. Consulta disponibilidad y costos al momento de la inscripción.",
   },
   {
-    question: "¿Cómo puedo conocer las instalaciones?",
+    question: "¿Cómo puedo visitar las instalaciones de la secundaria?",
     answer:
-      "Puedes agendar una visita guiada llamando a nuestra línea de atención o enviando un mensaje por nuestras redes sociales oficiales.",
+      "Puedes solicitar una visita guiada contactándonos vía telefónica o por nuestras redes sociales oficiales.",
   },
   {
-    question: "¿Qué métodos de enseñanza utilizan?",
+    question: "¿Qué enfoque pedagógico utiliza la secundaria?",
     answer:
-      "Utilizamos un enfoque integral basado en competencias, con apoyo en tecnología educativa, desarrollo socioemocional y aprendizaje significativo.",
+      "La secundaria se basa en un modelo educativo integral que fomenta el pensamiento crítico, competencias académicas, habilidades socioemocionales y uso responsable de la tecnología.",
   },
 ];
+
 
 const configuracionPlanteles = [
   {
     plantel: "Plaza del Sol",
     costo: 2814,
-    modalidad: "normal"
+    modalidad: "normal",
   },
   {
     plantel: "Tesistán",
     costo: 2783,
-    modalidad: "normal"
+    modalidad: "normal",
   },
   {
     plantel: "Tlajomulco",
     costo: 3675,
-    modalidad: "normal"
+    modalidad: "normal",
   },
   {
     plantel: "Tlaquepaque",
     costo: 1848,
-    modalidad: "normal"
+    modalidad: "normal",
   },
   {
     plantel: "Tonalá",
     costo: 2365,
-    modalidad: "normal"
-  }
+    modalidad: "normal",
+  },
 ];
-const plantelesEspecificos = crearPlantelesMultiples(configuracionPlanteles);
-
+const plantelesEspecificos = crearPlantelesEspecificos([
+  {
+    plantel: "Centro",
+    diferentesPrecios: true,
+    costoColegiatura: 2452,
+    modalidad: "normal",
+  },
+  {
+    plantel: "Centro Médico",
+    diferentesPrecios: true,
+    costoColegiatura: 1727,
+    modalidad: "normal",
+  },
+  // ... resto de tu configuración
+]);
 ---
 
 <Layout>
@@ -532,15 +539,17 @@ const plantelesEspecificos = crearPlantelesMultiples(configuracionPlanteles);
       coberturaEscolar={costosData.coberturaEscolar}
       uniformeEscolar={costosData.uniformeEscolar}
       uniformeDiario={costosData.uniformeDiario}
-       planteles={plantelesEspecificos}
-
+      planteles={plantelesEspecificos}
     />
 
     <Requisitos nivel="Secundaria" requisitos={requisitosSecundaria} />
 
     <PlanEstudios titulo="Propuesta Educativa" semestres={semestresDatos} />
 
-    <Perfiles />
+    <Perfiles
+      perfilIngreso="El estudiante que ingresa a secundaria debe haber concluido la primaria, contar con conocimientos básicos de lectura, escritura y matemáticas, así como habilidades para comunicarse, razonar y trabajar en equipo. Se espera que tenga disposición para aprender, desarrollar su pensamiento crítico y asumir valores como la responsabilidad, el respeto y el compromiso con su entorno."
+      perfilEgreso="El egresado de secundaria se comunica con claridad en su lengua materna, resuelve problemas con pensamiento crítico y toma decisiones responsables. Valora la diversidad, trabaja en equipo, usa herramientas tecnológicas, cuida su salud y el medio ambiente, y se expresa artísticamente. Está preparado para enfrentar retos académicos y sociales con ética, respeto y responsabilidad."
+    />
 
     <FAQComponent
       faqs={faqs}

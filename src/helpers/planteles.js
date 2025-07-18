@@ -27,20 +27,30 @@ function crearPlantelesUniformes(costoNormal, costoSabatina) {
   };
 }
 
-// OPCIÓN 2: Función para costos específicos por plantel
-function crearPlantelesEspecificos(costosEspecificos) {
-  return {
-    normal: PLANTELES_NOMBRES.map(nombre => ({
-      nombre,
-      inscripcion: costosEspecificos.normal[nombre] || 0,
-      colegiatura: costosEspecificos.normal[nombre] || 0
-    })),
-    sabatina: PLANTELES_NOMBRES.map(nombre => ({
-      nombre,
-      inscripcion: costosEspecificos.sabatina[nombre] || 0,
-      colegiatura: costosEspecificos.sabatina[nombre] || 0
-    }))
-  };
+
+// Función adaptada para planteles sin inscripción con mensualidad variable
+function crearPlantelesEspecificos(configuraciones) {
+  const planteles = { normal: [], sabatina: [] };
+  
+  configuraciones.forEach(config => {
+    const {
+      plantel,
+      costoInscripcion = 0,
+      costoColegiatura = 0,
+      modalidad = 'normal',
+      diferentesPrecios = false // Este parámetro no es necesario pero lo mantengo por compatibilidad
+    } = config;
+    
+    const plantelData = {
+      nombre: plantel,
+      inscripcion: costoInscripcion,
+      colegiatura: costoColegiatura
+    };
+    
+    planteles[modalidad].push(plantelData);
+  });
+  
+  return planteles;
 }
 
 // OPCIÓN 3: Función híbrida (algunos uniformes, otros específicos)
@@ -185,6 +195,59 @@ function filtrarPlanteles(planteles, filtros) {
   return resultado;
 }
 
+// OPCIÓN 9: Función para planteles con diferentes precios por turno
+function crearPlantelesConTurnos(configuracion) {
+  const {
+    modalidad = 'normal',
+    planteles = []
+  } = configuracion;
+
+  const resultado = { normal: [], sabatina: [] };
+
+  planteles.forEach(plantel => {
+    const {
+      nombre,
+      precioUnico = null,
+      precioMatutino = null,
+      precioVespertino = null,
+      inscripcionUnica = null,
+      inscripcionMatutina = null,
+      inscripcionVespertina = null
+    } = plantel;
+
+    // Si tiene precio único (no varía por turno)
+    if (precioUnico) {
+      resultado[modalidad].push({
+        nombre,
+        turno: 'ambos',
+        colegiatura: precioUnico,  // ← Cambiar mensualidad por colegiatura
+        inscripcion: inscripcionUnica || precioUnico
+      });
+    }
+
+    // Si tiene precios diferentes por turno
+    else if (precioMatutino && precioVespertino) {
+      // Crear entrada para matutino
+      resultado[modalidad].push({
+        nombre: `${nombre} (Matutino)`,
+        turno: 'matutino',
+        colegiatura: precioMatutino,  // ← Cambiar mensualidad por colegiatura
+        inscripcion: inscripcionMatutina || precioMatutino
+      });
+
+      // Crear entrada para vespertino
+      resultado[modalidad].push({
+        nombre: `${nombre} (Vespertino)`,
+        turno: 'vespertino',
+        colegiatura: precioVespertino,  // ← Cambiar mensualidad por colegiatura
+        inscripcion: inscripcionVespertina || precioVespertino
+      });
+    }
+  });
+
+  return resultado;
+}
+
 
 
 // Exportar funciones para uso
@@ -197,6 +260,7 @@ export {
   crearPlantelPersonalizado,
   crearPlantelesMultiples,
   filtrarPlanteles,
+  crearPlantelesConTurnos,
   PLANTELES_NOMBRES 
 };
 
@@ -204,7 +268,6 @@ export {
 // EJEMPLOS DE USO:
 
 /*
-// Uso básico - todos los planteles con mismo costo
 const planteles1 = crearPlantelesUniformes(772, 609);
 
 // Un solo plantel

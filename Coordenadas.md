@@ -143,3 +143,30 @@ const planteles = [
     lon: -103.38975281813357,
   },
 ];
+
+
+// Datos específicos de precios por plantel
+const COSTOS_POR_PLANTEL = {
+    normal: {
+        Centro: { mensualidad: 2452, inscripcion: 2207 },
+        "Centro Médico": { mensualidad: 1727, inscripcion: 1555 },
+        Milenio: { mensualidad: 3276, inscripcion: 2948 }, // Precio más alto
+        "Plaza del Sol": { mensualidad: 3255, inscripcion: 2930 },
+        Tesistán: { mensualidad: 2315, inscripcion: 2084 },
+        Tlajomulco: { mensualidad: 4074, inscripcion: 3667 }, // Precio más alto
+        Tlaquepaque: { mensualidad: 1953, inscripcion: 1758 },
+        Tonalá: { mensualidad: 2426, inscripcion: 2183 },
+        Zapopan: { mensualidad: 2231, inscripcion: 2008 },
+    },
+    sabatina: {
+        Centro: { mensualidad: 2452, inscripcion: 2207 },
+        "Centro Médico": { mensualidad: 1727, inscripcion: 1555 },
+        Milenio: { mensualidad: 2573, inscripcion: 2315 }, // Precio más bajo
+        "Plaza del Sol": { mensualidad: 3255, inscripcion: 2930 },
+        Tesistán: { mensualidad: 2315, inscripcion: 2084 },
+        Tlajomulco: { mensualidad: 3255, inscripcion: 2930 }, // Precio más bajo
+        Tlaquepaque: { mensualidad: 1953, inscripcion: 1758 },
+        Tonalá: { mensualidad: 2426, inscripcion: 2183 },
+        Zapopan: { mensualidad: 2231, inscripcion: 2008 },
+    },
+};
