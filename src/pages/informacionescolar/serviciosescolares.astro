@@ -1,5 +1,111 @@
 ---
+import Layout from "@/layouts/Layout.astro";
+import InformativeCard from "@components/sections/detallesOferta/card.astro";
+import Accesos from "@components/sections/Escolares/Accesos.astro";
+import ImagenCard from "@/assets/Imagenes/CardsNiveles/Nivel.png";
+import LogoCard from "@/assets/Logos/UNE_30.png";
+import FAQComponent from "@/components/sections/detallesOferta/preguntas.astro";
+import Lineacontacto from "@/components/sections/Escolares/Lineacontacto.astro";
 
+const faqs = [
+    {
+        question:
+            "¿Cuáles son los requisitos para ingresar a una licenciatura?",
+        answer: "Debes contar con certificado de bachillerato, acta de nacimiento, CURP, identificación oficial, comprobante de domicilio y fotografías recientes. En algunos casos, puede requerirse el resultado de un examen de admisión.",
+    },
+    {
+        question: "¿Cuál es la duración de una licenciatura?",
+        answer: "Las licenciaturas tienen una duración promedio de 8 a 10 semestres, dependiendo del programa, la institución incorporadora (UDG o SICYT) y la modalidad elegida.",
+    },
+    {
+        question: "¿Qué modalidades de estudio están disponibles?",
+        answer: "Las licenciaturas pueden cursarse en modalidad presencial, en línea, escolarizada o semiescolarizada, según la carrera y el plantel. Algunas combinan clases presenciales con actividades virtuales.",
+    },
+    {
+        question: "¿Puedo trabajar mientras estudio una licenciatura?",
+        answer: "Sí. Las modalidades en línea y semiescolarizada están diseñadas para ofrecer mayor flexibilidad y permitir compatibilizar tus estudios con otras actividades.",
+    },
+    {
+        question: "¿Cómo se evalúa el desempeño académico?",
+        answer: "El sistema de evaluación incluye exámenes, proyectos, participación en clase, trabajos individuales o en equipo y actividades prácticas, según el enfoque de cada licenciatura.",
+    },
+    {
+        question: "¿Qué tipo de apoyo académico se brinda a los estudiantes?",
+        answer: "Ofrecemos tutorías, asesorías académicas presenciales y virtuales, y acceso a plataformas educativas para reforzar el aprendizaje de cada materia.",
+    },
+    {
+        question:
+            "¿Las licenciaturas están incorporadas a alguna institución oficial?",
+        answer: "Sí. Contamos con licenciaturas incorporadas a la Universidad de Guadalajara (UDG) y a la Secretaría de Innovación, Ciencia y Tecnología (SICYT) del Estado de Jalisco, lo que garantiza validez oficial de estudios.",
+    },
+    {
+        question: "¿Dónde puedo obtener más información e inscribirme?",
+        answer: "Puedes acudir directamente a las oficinas del plantel más cercano o visitar nuestro portal web para consultar la oferta académica, requisitos y fechas de inscripción.",
+    },
+];
 ---
 
-layout
+<Layout>
+    <!-- Hero Section -->
+    <section
+        class="escolares-bg relative min-h-[65vh] overflow-hidden bg-cover bg-center bg-no-repeat flex items-center justify-center"
+    >
+        <div
+            class="relative z-10 container mx-auto px-4 h-full min-h-[85vh] md:min-h-[65vh] flex flex-col justify-center"
+        >
+            <div class="text-white max-w-2xl">
+                <h1 class="text-4xl md:text-6xl font-bold mb-4 leading-tight">
+                    SERVICIOS ESCOLARES
+                </h1>
+                <p class="text-lg md:text-xl mb-8 leading-relaxed font-light">
+                    Desde tu inscripción hasta tu titulación, te acompañamos en
+                    cada paso con servicios digitales y presenciales diseñados
+                    para facilitar tu experiencia educativa.
+                </p>
+                <button
+                    class="bg-red-600 hover:bg-red-700 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-colors duration-300 transform hover:scale-105"
+                    onclick="window.location.href='/admisiones/proceso'"
+                >
+                    Contactar Servicios Escolares
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <InformativeCard
+        logoSrc={LogoCard.src}
+        studentImageSrc={ImagenCard.src}
+        title="Estamos aqui para escucharte"
+        description="Tu experiencia educativa es nuestra prioridad. En Universidad UNE entendemos que cada estudiante tiene necesidades únicas, por eso hemos diseñado servicios escolares pensados en ti."
+        additionalText="Desde trámites digitales hasta atención personalizada, nuestro equipo está disponible para resolver tus dudas, agilizar procesos y garantizar que tengas todo lo necesario para enfocarte en tu formación profesional."
+        features={[
+            { icon: "CalendarDays", label: "Sesiones presenciales" },
+            { icon: "BookOpen", label: "Estudio guiado" },
+            { icon: "School", label: "Validez oficial" },
+            { icon: "Clock", label: "Horarios flexibles" },
+            { icon: "BookmarkCheck", label: "Preparación universitaria" },
+        ]}
+    />
+
+    <Accesos />
+    
+    <FAQComponent
+        faqs={faqs}
+        title="Preguntas frecuentes"
+        subtitle="Encuentra respuestas a las dudas más comunes"
+    />
+
+    <Lineacontacto/>
+</Layout>
+
+<style>
+    .escolares-bg {
+        background-image: url("/src/assets/Imagenes/Heros/Admision.jpg");
+    }
+
+    @media (max-width: 767px) {
+        .escolares-bg {
+            background-image: url("/src/assets/Imagenes/Heros/Admision_mobile5.jpg");
+        }
+    }
+</style>

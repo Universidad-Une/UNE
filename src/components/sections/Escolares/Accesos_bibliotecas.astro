@@ -1,0 +1,111 @@
+---
+import FondoAccesos from "@/assets/Imagenes/Adaptables/Ilustracion_clara.jpg";
+import FondoAccesos_oscuro from "@/assets/Imagenes/Adaptables/Ilustracion_oscura.jpg";
+---
+
+<section class="py-12 px-4">
+  <div class="max-w-6xl mx-auto">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      
+
+      <!-- Tutorías Académicas -->
+      <div class="group">
+        <a
+          href="/tutorias-academicas"
+          class="block relative overflow-hidden rounded-2xl transition-all duration-300 transform hover:scale-105 hover:shadow-xl"
+        >
+          <div
+            class="absolute inset-0 bg-cover bg-center bg-no-repeat"
+            style={`background-image: url(${FondoAccesos.src})`}
+          >
+          </div>
+          <div
+            class="absolute inset-0 opacity-0 dark:opacity-100 bg-cover bg-center bg-no-repeat transition-opacity duration-300"
+            style={`background-image: url(${FondoAccesos_oscuro.src})`}
+          >
+          </div>
+          <div class="relative p-8 h-64 flex flex-col justify-between">
+            <div class="border-t-2 border-white mb-4"></div>
+            <div class="flex-grow flex items-center justify-center">
+              <h3
+                class="text-2xl font-bold text-white text-center leading-tight"
+              >
+                VLEX
+              </h3>
+            </div>
+            <div class="border-t-2 border-white"></div>
+          </div>
+        </a>
+        <p class="text-gray-800 text-sm leading-relaxed mt-4">
+          Jurisprudencia, leyes y casos actualizados para derecho.
+        </p>
+      </div>
+
+      <!-- Trámites en Línea -->
+      <div class="group">
+        <a
+          href="/tramites-en-linea"
+          class="block relative overflow-hidden rounded-2xl transition-all duration-300 transform hover:scale-105 hover:shadow-xl"
+        >
+          <div
+            class="absolute inset-0 bg-cover bg-center bg-no-repeat"
+            style={`background-image: url(${FondoAccesos.src})`}
+          >
+          </div>
+          <div
+            class="absolute inset-0 opacity-0 dark:opacity-100 bg-cover bg-center bg-no-repeat transition-opacity duration-300"
+            style={`background-image: url(${FondoAccesos_oscuro.src})`}
+          >
+          </div>
+          <div class="relative p-8 h-64 flex flex-col justify-between">
+            <div class="border-t-2 border-white mb-4"></div>
+            <div class="flex-grow flex items-center justify-center">
+              <h3
+                class="text-2xl font-bold text-white text-center leading-tight"
+              >
+                ELibro
+              </h3>
+            </div>
+            <div class="border-t-2 border-white"></div>
+          </div>
+        </a>
+        <p class="text-gray-800 text-sm leading-relaxed mt-4">
+          +200,000 libros académicos y científicos en español.
+        </p>
+      </div>
+
+      <!-- Credencialización -->
+      <div class="group">
+        <a
+          href="/credencializacion"
+          class="block relative overflow-hidden rounded-2xl transition-all duration-300 transform hover:scale-105 hover:shadow-xl"
+        >
+          <div
+            class="absolute inset-0 bg-cover bg-center bg-no-repeat"
+            style={`background-image: url(${FondoAccesos.src})`}
+          >
+          </div>
+          <div
+            class="absolute inset-0 opacity-0 dark:opacity-100 bg-cover bg-center bg-no-repeat transition-opacity duration-300"
+            style={`background-image: url(${FondoAccesos_oscuro.src})`}
+          >
+          </div>
+          <div class="relative p-8 h-64 flex flex-col justify-between">
+            <div class="border-t-2 border-white mb-4"></div>
+            <div class="flex-grow flex items-center justify-center">
+              <h3
+                class="text-2xl font-bold text-white text-center leading-tight"
+              >
+                Pearson
+              </h3>
+            </div>
+            <div class="border-t-2 border-white"></div>
+          </div>
+        </a>
+        <p class="text-gray-800 text-sm leading-relaxed mt-4">
+          Simuladores y recursos interactivos para ingeniería y tecnología.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>

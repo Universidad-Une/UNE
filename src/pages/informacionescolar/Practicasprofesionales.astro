@@ -1,0 +1,769 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import InformativeCard from "@components/sections/detallesOferta/card.astro";
+import ImagenCard from "@/assets/Imagenes/CardsNiveles/Nivel.png";
+import LogoCard from "@/assets/Logos/UNE_30.png";
+import LogoUDG from "@/assets/Logos/UDG.png";
+import LogoSicyt from "@/assets/Logos/Sicyt-oscuro.png";
+import LogoUNE from "@/assets/Logos/UNE_blanco.webp";
+import {
+    Users,
+    Calendar,
+    MapPin,
+    GraduationCap,
+    Award,
+    Clock,
+    FileText,
+    Phone,
+    Mail,
+    MapPinIcon,
+    BookOpen,
+    Trophy,
+    UserCheck,
+} from "@lucide/astro";
+---
+
+<Layout>
+    <!-- Hero Section -->
+    <section
+        class="titulacion-bg relative min-h-[65vh] overflow-hidden bg-cover bg-center bg-no-repeat flex items-center justify-center"
+    >
+        <div
+            class="relative z-10 container mx-auto px-4 h-full min-h-[85vh] md:min-h-[65vh] flex flex-col justify-center"
+        >
+            <div class="text-white max-w-2xl">
+                <h1 class="text-4xl md:text-6xl font-bold mb-4 leading-tight">
+                    TITULACIÓN
+                </h1>
+                <p class="text-lg md:text-xl mb-8 leading-relaxed font-light">
+                    Procedimiento académico para demostrar que adquiriste los
+                    conocimientos y habilidades profesionales necesarios para tu
+                    ejercicio profesional.
+                </p>
+                <button
+                    class="bg-rojo-une hover:bg-red-700 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-colors duration-300 transform hover:scale-105"
+                    onclick="window.location.href='#informacion-titulacion'"
+                >
+                    Ver Modalidades y Requisitos
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <InformativeCard
+        logoSrc={LogoCard.src}
+        studentImageSrc={ImagenCard.src}
+        title="Tu Proceso de Titulación con Nosotros"
+        description="La titulación es el último paso de tu formación académica que te acredita como profesional. Te acompañamos en todo el proceso con múltiples modalidades adaptadas a tu perfil y necesidades académicas."
+        additionalText="Nuestro equipo especializado te guiará desde la elección de modalidad hasta la obtención de tu título profesional, asegurando que cumplas con todos los requisitos de tu universidad de origen y logres tu meta profesional."
+        features={[
+            { icon: "BookOpen", label: "Múltiples modalidades" },
+            { icon: "Calendar", label: "Convocatorias semestrales" },
+            { icon: "Trophy", label: "Desempeño sobresaliente" },
+            { icon: "GraduationCap", label: "Título profesional" },
+            { icon: "UserCheck", label: "Asesoría especializada" },
+        ]}
+    />
+
+    <!-- Información por Tipo de Alumno -->
+    <section id="informacion-titulacion" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+                    Información por Universidad
+                </h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+                    Cada universidad tiene modalidades y requisitos específicos
+                    para la titulación. Selecciona tu institución para conocer
+                    los detalles exactos.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <!-- Alumnos UdeG -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                    <div class="bg-azul-une text-white p-6">
+                        <div class="flex items-center justify-between mb-2">
+                            <div class="flex items-center space-x-3">
+                                <div
+                                    class="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center"
+                                >
+                                    <span class="text-sm font-bold">UG</span>
+                                </div>
+                                <h3 class="text-2xl font-bold">Alumnos UdeG</h3>
+                            </div>
+                            <img
+                                src={LogoUDG.src}
+                                alt="Logo UdeG"
+                                class="h-12 w-auto"
+                            />
+                        </div>
+                        <p class="mt-2 text-blue-100">
+                            Universidad de Guadalajara
+                        </p>
+                    </div>
+
+                    <div class="p-6 space-y-4">
+                        <div class="flex items-start space-x-3">
+                            <BookOpen class="w-5 h-5 text-azul-une mt-1" />
+                            <div>
+                                <h4 class="font-semibold text-gray-800 mb-2">
+                                    Modalidades disponibles:
+                                </h4>
+                                <ul class="text-sm text-gray-600 space-y-1">
+                                    <li>• Desempeño Académico Sobresaliente</li>
+                                    <li>• Exámenes</li>
+                                    <li>
+                                        • Producción de Materiales Educativos
+                                    </li>
+                                    <li>• Investigación y Posgrados</li>
+                                    <li>• Tesis, Tesina e Informe</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-3">
+                            <Calendar class="w-5 h-5 text-azul-une mt-1" />
+                            <div>
+                                <h4 class="font-semibold text-gray-800 mb-2">
+                                    Convocatorias:
+                                </h4>
+                                <p class="text-gray-600">
+                                    <strong>Inscripción:</strong> Enero-Febrero y
+                                    Julio-Agosto
+                                </p>
+                                <p class="text-gray-600">
+                                    <strong>Desempeño Académico:</strong> Enero,
+                                    Febrero, Mayo, Julio, Agosto
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-3">
+                            <FileText class="w-5 h-5 text-azul-une mt-1" />
+                            <div>
+                                <h4 class="font-semibold text-gray-800 mb-2">
+                                    Documentos requeridos:
+                                </h4>
+                                <ul class="text-sm text-gray-600 space-y-1">
+                                    <li>• Carta Pasante (Original)</li>
+                                    <li>
+                                        • Carta de Liberación de Servicio Social
+                                        (Original)
+                                    </li>
+                                    <li>
+                                        • Acta de nacimiento (Original, máx. 3
+                                        meses)
+                                    </li>
+                                    <li>
+                                        • Acreditación del idioma (si aplica)
+                                    </li>
+                                    <li>• Constancia CENEVAL (si aplica)</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Alumnos SICyT -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                    <div class="bg-rojo-une text-white p-6">
+                        <div class="flex items-center justify-between mb-2">
+                            <div class="flex items-center space-x-3">
+                                <div
+                                    class="w-8 h-8 bg-red-500 rounded-full flex items-center justify-center"
+                                >
+                                    <span class="text-sm font-bold">ST</span>
+                                </div>
+                                <h3 class="text-2xl font-bold">
+                                    Alumnos SICyT
+                                </h3>
+                            </div>
+                            <img
+                                src={LogoSicyt.src}
+                                alt="Logo SICyT"
+                                class="h-12 w-auto"
+                            />
+                        </div>
+                        <p class="mt-2 text-red-100">Sistema Incorporado</p>
+                    </div>
+
+                    <div class="p-6 space-y-4">
+                        <div class="flex items-start space-x-3">
+                            <BookOpen class="w-5 h-5 text-rojo-une mt-1" />
+                            <div>
+                                <h4 class="font-semibold text-gray-800 mb-2">
+                                    Modalidades disponibles:
+                                </h4>
+                                <ul class="text-sm text-gray-600 space-y-1">
+                                    <li>• Desempeño Académico Sobresaliente</li>
+                                    <li>• Exámenes</li>
+                                    <li>
+                                        • Producción de Materiales Educativos
+                                    </li>
+                                    <li>
+                                        • Investigación / Proyectos / Posgrado
+                                    </li>
+                                    <li>• Tesis, Tesina e Informe</li>
+                                    <li>
+                                        • Titulación Automática (Programas
+                                        ejecutivos ULA)
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-3">
+                            <Calendar class="w-5 h-5 text-rojo-une mt-1" />
+                            <div>
+                                <h4 class="font-semibold text-gray-800 mb-2">
+                                    Convocatorias:
+                                </h4>
+                                <p class="text-gray-600">
+                                    Enero-Febrero y Agosto-Septiembre
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-3">
+                            <FileText class="w-5 h-5 text-rojo-une mt-1" />
+                            <div>
+                                <h4 class="font-semibold text-gray-800 mb-2">
+                                    Documentos requeridos:
+                                </h4>
+                                <ul class="text-sm text-gray-600 space-y-1">
+                                    <li>• Pago por titulación</li>
+                                    <li>• Certificado Total de Estudios</li>
+                                    <li>
+                                        • Copia de Kardex (desempeño
+                                        sobresaliente)
+                                    </li>
+                                    <li>
+                                        • Copia de carta pasante y liberación de
+                                        SS
+                                    </li>
+                                    <li>• Copia de acta de nacimiento</li>
+                                    <li>
+                                        • Constancia de validación de
+                                        bachillerato
+                                    </li>
+                                    <li>
+                                        • Constancia de idioma inglés
+                                        (B1/BULATS/IELTS/TOEIC)
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div
+                            class="bg-yellow-50 p-3 rounded-lg border-l-4 border-yellow-400"
+                        >
+                            <p class="text-sm text-yellow-800">
+                                <strong>Nota:</strong> Requisito de idioma inglés
+                                aplica para alumnos desde ciclo 2016A
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Alumnos SE -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                    <div class="bg-rojo-une text-white p-6">
+                        <div class="flex items-center justify-between mb-2">
+                            <div class="flex items-center space-x-3">
+                                <div
+                                    class="w-8 h-8 bg-gray-500 rounded-full flex items-center justify-center"
+                                >
+                                    <span class="text-sm font-bold">SE</span>
+                                </div>
+                                <h3 class="text-2xl font-bold">Alumnos SE</h3>
+                            </div>
+                            <img
+                                src={LogoUNE.src}
+                                alt="Logo UNE"
+                                class="h-12 w-auto"
+                            />
+                        </div>
+                        <p class="mt-2 text-gray-100">Sistema Estatal</p>
+                    </div>
+
+                    <div class="p-6 space-y-4">
+                        <div class="flex items-start space-x-3">
+                            <BookOpen class="w-5 h-5 text-gray-700 mt-1" />
+                            <div>
+                                <h4 class="font-semibold text-gray-800 mb-2">
+                                    Modalidades disponibles:
+                                </h4>
+                                <ul class="text-sm text-gray-600 space-y-1">
+                                    <li>• Desempeño Académico Sobresaliente</li>
+                                    <li>• Exámenes</li>
+                                    <li>• Investigación y Posgrado</li>
+                                    <li>• Tesis, Tesina e Informe</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-3">
+                            <Calendar class="w-5 h-5 text-gray-700 mt-1" />
+                            <div>
+                                <h4 class="font-semibold text-gray-800 mb-2">
+                                    Convocatorias:
+                                </h4>
+                                <p class="text-gray-600">
+                                    Enero-Febrero y Julio-Agosto
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-3">
+                            <FileText class="w-5 h-5 text-gray-700 mt-1" />
+                            <div>
+                                <h4 class="font-semibold text-gray-800 mb-2">
+                                    Documentos requeridos:
+                                </h4>
+                                <ul class="text-sm text-gray-600 space-y-1">
+                                    <li>• Pago de titulación</li>
+                                    <li>• Carta Pasante (original)</li>
+                                    <li>• Liberación de SS (original)</li>
+                                    <li>
+                                        • Copia reciente y legible del acta de
+                                        nacimiento
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Alumnos de Posgrado -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                    <div class="bg-purple-600 text-white p-6">
+                        <div class="flex items-center justify-between mb-2">
+                            <div class="flex items-center space-x-3">
+                                <div
+                                    class="w-8 h-8 bg-purple-500 rounded-full flex items-center justify-center"
+                                >
+                                    <span class="text-sm font-bold">PG</span>
+                                </div>
+                                <h3 class="text-2xl font-bold">
+                                    Alumnos Posgrado
+                                </h3>
+                            </div>
+                            <img
+                                src={LogoSicyt.src}
+                                alt="Logo SICyT"
+                                class="h-12 w-auto"
+                            />
+                        </div>
+                        <p class="mt-2 text-purple-100">
+                            Maestrías y Doctorados
+                        </p>
+                    </div>
+
+                    <div class="p-6 space-y-4">
+                        <div class="flex items-start space-x-3">
+                            <BookOpen class="w-5 h-5 text-purple-600 mt-1" />
+                            <div>
+                                <h4 class="font-semibold text-gray-800 mb-2">
+                                    Modalidades disponibles:
+                                </h4>
+                                <ul class="text-sm text-gray-600 space-y-1">
+                                    <li>• Desempeño Académico Sobresaliente</li>
+                                    <li>
+                                        • Tesis o Informe de Experiencia
+                                        Profesional
+                                    </li>
+                                    <li>• Créditos de Doctorado</li>
+                                    <li>
+                                        • Titulación Automática (sólo programas
+                                        ejecutivos ULA)
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-3">
+                            <Calendar class="w-5 h-5 text-purple-600 mt-1" />
+                            <div>
+                                <h4 class="font-semibold text-gray-800 mb-2">
+                                    Convocatorias:
+                                </h4>
+                                <p class="text-gray-600">
+                                    Enero-Febrero y Agosto-Septiembre
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-3">
+                            <FileText class="w-5 h-5 text-purple-600 mt-1" />
+                            <div>
+                                <h4 class="font-semibold text-gray-800 mb-2">
+                                    Documentos requeridos:
+                                </h4>
+                                <ul class="text-sm text-gray-600 space-y-1">
+                                    <li>• Pago del proceso</li>
+                                    <li>
+                                        • Acta de nacimiento reciente y legible
+                                    </li>
+                                    <li>
+                                        • Kardex original (modalidad
+                                        sobresaliente)
+                                    </li>
+                                    <li>
+                                        • Carta de no adeudo (económico y
+                                        académico)
+                                    </li>
+                                    <li>
+                                        • Copia de título de licenciatura (ambos
+                                        lados)
+                                    </li>
+                                    <li>
+                                        • Copia de cédula federal (ambos lados)
+                                    </li>
+                                    <li>
+                                        • Paquete de fotografías (según
+                                        especificaciones)
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Información de Contacto -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+                    Información y Contacto
+                </h2>
+                <p class="text-lg text-gray-600">
+                    ¿Tienes dudas sobre tu proceso de titulación? Contáctanos
+                    según tu universidad de origen
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <!-- Contacto UdeG -->
+                <div class="bg-gray-50 rounded-lg p-8">
+                    <h3
+                        class="text-2xl font-bold text-gray-800 mb-6 text-center"
+                    >
+                        UdeG
+                    </h3>
+
+                    <div class="space-y-6">
+                        <div class="flex items-start space-x-4">
+                            <div
+                                class="flex items-center justify-center w-12 h-12 bg-azul-une/10 rounded-full"
+                            >
+                                <MapPinIcon class="w-6 h-6 text-azul-une" />
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-800">
+                                    Dirección
+                                </h4>
+                                <p class="text-gray-600">
+                                    Quetzalcóatl 510, Cd. del Sol, Zapopan
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-4">
+                            <div
+                                class="flex items-center justify-center w-12 h-12 bg-rojo-une/10 rounded-full"
+                            >
+                                <Phone class="w-6 h-6 text-rojo-une" />
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-800">
+                                    Teléfono
+                                </h4>
+                                <p class="text-gray-600">3647 8432 Ext. 3221</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-4">
+                            <div
+                                class="flex items-center justify-center w-12 h-12 bg-rojo-une/10 rounded-full"
+                            >
+                                <Mail class="w-6 h-6 text-rojo-une" />
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-800">
+                                    Email
+                                </h4>
+                                <p class="text-gray-600">
+                                    titulacionudg@universidad-une.com
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-4">
+                            <div
+                                class="flex items-center justify-center w-12 h-12 bg-azul-une/10 rounded-full"
+                            >
+                                <Clock class="w-6 h-6 text-azul-une" />
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-800">
+                                    Horarios
+                                </h4>
+                                <p class="text-gray-600">
+                                    L-V: 9:00-14:00 y 16:00-19:00
+                                </p>
+                                <p class="text-gray-600">Sábados: 9:00-14:00</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contacto SICyT y Posgrado -->
+                <div class="bg-gray-50 rounded-lg p-8">
+                    <h3
+                        class="text-2xl font-bold text-gray-800 mb-6 text-center"
+                    >
+                        SICyT y Posgrado
+                    </h3>
+
+                    <div class="space-y-6">
+                        <div class="flex items-start space-x-4">
+                            <div
+                                class="flex items-center justify-center w-12 h-12 bg-azul-une/10 rounded-full"
+                            >
+                                <MapPinIcon class="w-6 h-6 text-azul-une" />
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-800">
+                                    Dirección
+                                </h4>
+                                <p class="text-gray-600">
+                                    Quetzalcóatl 510, Cd. del Sol, Zapopan
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-4">
+                            <div
+                                class="flex items-center justify-center w-12 h-12 bg-rojo-une/10 rounded-full"
+                            >
+                                <Phone class="w-6 h-6 text-rojo-une" />
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-800">
+                                    Teléfono
+                                </h4>
+                                <p class="text-gray-600">8000 0863 Ext. 3424</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-4">
+                            <div
+                                class="flex items-center justify-center w-12 h-12 bg-rojo-une/10 rounded-full"
+                            >
+                                <Mail class="w-6 h-6 text-rojo-une" />
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-800">
+                                    Email
+                                </h4>
+                                <p class="text-gray-600">
+                                    titulacionsicyt@universidad-une.com
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-4">
+                            <div
+                                class="flex items-center justify-center w-12 h-12 bg-azul-une/10 rounded-full"
+                            >
+                                <Clock class="w-6 h-6 text-azul-une" />
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-800">
+                                    Horarios
+                                </h4>
+                                <p class="text-gray-600">
+                                    L-V: 9:00-14:00 y 15:00-18:00
+                                </p>
+                                <p class="text-gray-600">Sábados: 9:00-14:00</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contacto SE (ocupa toda la fila) -->
+                <div class="bg-gray-50 rounded-lg p-8 lg:col-span-2">
+                    <h3
+                        class="text-2xl font-bold text-gray-800 mb-6 text-center"
+                    >
+                        Sistema Estatal (SE)
+                    </h3>
+
+                    <div
+                        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
+                    >
+                        <div class="flex items-start space-x-4">
+                            <div
+                                class="flex items-center justify-center w-12 h-12 bg-azul-une/10 rounded-full"
+                            >
+                                <MapPinIcon class="w-6 h-6 text-azul-une" />
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-800">
+                                    Dirección
+                                </h4>
+                                <p class="text-gray-600">
+                                    Abasolo 25, Col. Centro
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-4">
+                            <div
+                                class="flex items-center justify-center w-12 h-12 bg-rojo-une/10 rounded-full"
+                            >
+                                <Phone class="w-6 h-6 text-rojo-une" />
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-800">
+                                    Teléfonos
+                                </h4>
+                                <p class="text-gray-600">311-217-1732</p>
+                                <p class="text-gray-600">311-258-0732</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-4">
+                            <div
+                                class="flex items-center justify-center w-12 h-12 bg-azul-une/10 rounded-full"
+                            >
+                                <Clock class="w-6 h-6 text-azul-une" />
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-800">
+                                    Horarios
+                                </h4>
+                                <p class="text-gray-600">
+                                    L-V: 9:00-14:00 y 16:00-19:00
+                                </p>
+                                <p class="text-gray-600">Sábados: 9:00-14:00</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Información Importante -->
+    <section class="py-16 bg-blue-50">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <div class="text-center mb-8">
+                    <h2 class="text-3xl font-bold text-azul-une mb-4">
+                        ℹ️ Información Importante sobre Titulación
+                    </h2>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div
+                        class="bg-white rounded-lg p-6 border-l-4 border-azul-une"
+                    >
+                        <h3 class="font-bold text-gray-800 mb-3">
+                            🎯 Requisitos Previos
+                        </h3>
+                        <p class="text-gray-600">
+                            Debes tener carta de pasante y carta de liberación
+                            de Servicio Social (excepto algunas modalidades
+                            específicas). Verifica tu estatus académico antes de
+                            iniciar el proceso.
+                        </p>
+                    </div>
+
+                    <div
+                        class="bg-white rounded-lg p-6 border-l-4 border-yellow-500"
+                    >
+                        <h3 class="font-bold text-gray-800 mb-3">
+                            📅 Convocatorias Limitadas
+                        </h3>
+                        <p class="text-gray-600">
+                            Las convocatorias son semestrales con fechas
+                            específicas. No dejes pasar las fechas límite para
+                            tu inscripción y mantente al pendiente de los
+                            calendarios.
+                        </p>
+                    </div>
+
+                    <div
+                        class="bg-white rounded-lg p-6 border-l-4 border-green-500"
+                    >
+                        <h3 class="font-bold text-gray-800 mb-3">
+                            🏆 Desempeño Sobresaliente
+                        </h3>
+                        <p class="text-gray-600">
+                            Si tienes promedio de 9.0 o superior sin materias
+                            reprobadas, puedes optar por esta modalidad que te
+                            permite titularte sin examen ni trabajo recepcional.
+                        </p>
+                    </div>
+
+                    <div
+                        class="bg-white rounded-lg p-6 border-l-4 border-purple-500"
+                    >
+                        <h3 class="font-bold text-gray-800 mb-3">
+                            📄 Documentación Completa
+                        </h3>
+                        <p class="text-gray-600">
+                            Asegúrate de tener todos los documentos actualizados
+                            y en original cuando sea requerido. Documentos
+                            incompletos retrasan el proceso significativamente.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Final -->
+    <section class="py-16 bg-rojo-une">
+        <div class="container mx-auto px-4 text-center">
+            <div class="max-w-3xl mx-auto">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
+                    ¿Listo para Iniciar tu Servicio Social?
+                </h2>
+                <p class="text-xl text-red-100 mb-8">
+                    Contáctanos para recibir asesoría personalizada y conocer
+                    las plazas disponibles para tu carrera
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <button
+                        class="bg-white text-rojo-une px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors duration-300"
+                    >
+                        Contactar por WhatsApp
+                    </button>
+                    <button
+                        class="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-rojo-une transition-colors duration-300"
+                    >
+                        Llamar Ahora
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+</Layout>
+
+<style>
+    .titulacion-bg {
+        background-image: url("/src/assets/Imagenes/Heros/Admision.jpg");
+    }
+
+    @media (max-width: 767px) {
+        .titulacion-bg {
+            background-image: url("/src/assets/Imagenes/Heros/Admision_mobile5.jpg");
+        }
+    }
+</style>

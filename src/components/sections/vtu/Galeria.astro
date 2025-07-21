@@ -1,0 +1,431 @@
+---
+import { Fullscreen } from '@lucide/astro';
+
+// Gallery.astro
+export interface Props {
+  images: Array<{
+    src: string;
+    alt: string;
+    title?: string;
+  }>;
+}
+
+const { images } = Astro.props;
+
+// Dividir las imágenes en dos filas
+const midPoint = Math.ceil(images.length / 2);
+const firstRowImages = images.slice(0, midPoint);
+const secondRowImages = images.slice(midPoint);
+---
+
+<div class="gallery-container">
+  <!-- Primera fila del carousel -->
+  <div class="splide carousel-row" id="carousel-1">
+    <div class="splide__track">
+      <ul class="splide__list">
+        {firstRowImages.map((image, index) => (
+          <li class="splide__slide">
+            <div class="gallery-item group cursor-pointer relative overflow-hidden rounded-lg" data-index={index}>
+              <img
+                src={image.src}
+                alt={image.alt}
+                class="w-full h-64 object-cover transition-all duration-300 group-hover:scale-105"
+                loading="lazy"
+              />
+              
+              <div class="absolute inset-0  bg-opacity-0 group-hover:bg-opacity-30 backdrop-blur-sm transition-all duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100">
+                <div class="text-center flex flex-col justify-center items-center text-white transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                  {image.title && (
+                    <h3 class="text-lg font-semibold mb-3 px-4">{image.title}</h3>
+                  )}
+                  <button class="border-b-2 max-w-32 border-white flex justify-center items-center gap-2">
+                    <Fullscreen size={16} />
+                    Ver foto
+                  </button>
+                </div>
+              </div>
+            </div>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </div>
+
+  <!-- Segunda fila del carousel -->
+  <div class="splide carousel-row" id="carousel-2">
+    <div class="splide__track">
+      <ul class="splide__list">
+        {secondRowImages.map((image, index) => (
+          <li class="splide__slide">
+            <div class="gallery-item group cursor-pointer relative overflow-hidden rounded-lg" data-index={index + midPoint}>
+              <img
+                src={image.src}
+                alt={image.alt}
+                class="w-full h-64 object-cover transition-all duration-300 group-hover:scale-105"
+                loading="lazy"
+              />
+              
+              <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 backdrop-blur-sm transition-all duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100">
+                <div class="text-center flex flex-col justify-center items-center text-white transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                  {image.title && (
+                    <h3 class="text-lg font-semibold mb-3 px-4">{image.title}</h3>
+                  )}
+                  <button class="border-b-2 max-w-32 border-white flex justify-center items-center gap-2">
+                    <Fullscreen size={16} />
+                    Ver foto
+                  </button>
+                </div>
+              </div>
+            </div>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div id="gallery-modal" class="modal-overlay">
+    <div class="modal-content">
+      <button id="close-modal" class="close-btn" aria-label="Cerrar modal">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+      
+      <div class="modal-image-container">
+        <button id="prev-btn" class="nav-btn prev-btn" aria-label="Imagen anterior">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="15,18 9,12 15,6"></polyline>
+          </svg>
+        </button>
+        
+        <img id="modal-image" src="" alt="" class="modal-image" />
+        
+        <button id="next-btn" class="nav-btn next-btn" aria-label="Siguiente imagen">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="9,18 15,12 9,6"></polyline>
+          </svg>
+        </button>
+      </div>
+      
+      <div id="modal-title" class="modal-title"></div>
+      <div class="modal-counter">
+        <span id="current-index">1</span> / <span id="total-images">{images.length}</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .gallery-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem;
+  }
+
+  .carousel-row {
+    margin-bottom: 2rem;
+  }
+
+  .carousel-row:last-child {
+    margin-bottom: 0;
+  }
+
+  .splide__slide {
+    padding: 0 0.5rem;
+  }
+
+  .gallery-item {
+    height: 16rem; /* h-64 equivalent */
+    border-radius: 0.5rem;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+  }
+
+  /* Estilos del modal (mantienen los mismos del original) */
+  .modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+  }
+
+  .modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .modal-content {
+    position: relative;
+    max-width: 90vw;
+    max-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .close-btn {
+    position: absolute;
+    top: -50px;
+    right: 0;
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    z-index: 1001;
+  }
+
+  .close-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+  }
+
+  .modal-image-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 100%;
+    max-height: calc(90vh - 100px);
+  }
+
+  .modal-image {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    border-radius: 8px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  }
+
+  .nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    color: white;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+  }
+
+  .nav-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateY(-50%) scale(1.1);
+  }
+
+  .prev-btn {
+    left: -70px;
+  }
+
+  .next-btn {
+    right: -70px;
+  }
+
+  .modal-title {
+    color: white;
+    text-align: center;
+    margin-top: 1rem;
+    font-size: 1.2rem;
+    font-weight: 500;
+  }
+
+  .modal-counter {
+    color: rgba(255, 255, 255, 0.8);
+    text-align: center;
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .modal-content {
+      max-width: 95vw;
+      max-height: 95vh;
+    }
+
+    .nav-btn {
+      width: 40px;
+      height: 40px;
+    }
+
+    .prev-btn {
+      left: -50px;
+    }
+
+    .next-btn {
+      right: -50px;
+    }
+
+    .close-btn {
+      top: -40px;
+      width: 35px;
+      height: 35px;
+    }
+  }
+</style>
+
+<script>
+  import Splide from "@splidejs/splide";
+  import { AutoScroll } from "@splidejs/splide-extension-auto-scroll";
+  import "@splidejs/splide/dist/css/splide.min.css";
+
+  document.addEventListener('DOMContentLoaded', function() {
+    // Inicializar los carousels con Splide
+    const carousel1 = new Splide('#carousel-1', {
+      type: 'loop',
+      perPage: 4,
+      perMove: 1,
+      gap: '1rem',
+      autoScroll: {
+        speed: 0.1,
+        pauseOnHover: true,
+        pauseOnFocus: true,
+      },
+      breakpoints: {
+        768: {
+          perPage: 2,
+        },
+        480: {
+          perPage: 1,
+        },
+      },
+    });
+
+    const carousel2 = new Splide('#carousel-2', {
+      type: 'loop',
+      perPage: 4,
+      perMove: 1,
+      gap: '1rem',
+      direction: 'rtl', // Dirección opuesta para efecto visual
+      autoScroll: {
+        speed: 0.1,
+        pauseOnHover: true,
+        pauseOnFocus: true,
+      },
+      breakpoints: {
+        768: {
+          perPage: 2,
+        },
+        480: {
+          perPage: 1,
+        },
+      },
+    });
+
+    // Montar los carousels con la extensión AutoScroll
+    carousel1.mount({ AutoScroll });
+    carousel2.mount({ AutoScroll });
+
+    // Funcionalidad del modal
+    const galleryItems = document.querySelectorAll('.gallery-item');
+    const modal = document.getElementById('gallery-modal');
+    const modalImage = document.getElementById('modal-image');
+    const modalTitle = document.getElementById('modal-title');
+    const currentIndexSpan = document.getElementById('current-index');
+    const closeBtn = document.getElementById('close-modal');
+    const prevBtn = document.getElementById('prev-btn');
+    const nextBtn = document.getElementById('next-btn');
+    
+    let currentIndex = 0;
+    const images = Array.from(galleryItems).map(item => {
+      const img = item.querySelector('img');
+      const title = img.alt;
+      return {
+        src: img.src,
+        alt: img.alt,
+        title: title
+      };
+    });
+
+    function openModal(index) {
+      currentIndex = index;
+      updateModalContent();
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+      
+      // Pausar ambos carousels cuando se abre el modal
+      carousel1.Components.AutoScroll.pause();
+      carousel2.Components.AutoScroll.pause();
+    }
+
+    function closeModal() {
+      modal.classList.remove('active');
+      document.body.style.overflow = '';
+      
+      // Reanudar ambos carousels cuando se cierra el modal
+      carousel1.Components.AutoScroll.play();
+      carousel2.Components.AutoScroll.play();
+    }
+
+    function updateModalContent() {
+      const image = images[currentIndex];
+      modalImage.src = image.src;
+      modalImage.alt = image.alt;
+      modalTitle.textContent = image.title || '';
+      currentIndexSpan.textContent = currentIndex + 1;
+    }
+
+    function nextImage() {
+      currentIndex = (currentIndex + 1) % images.length;
+      updateModalContent();
+    }
+
+    function prevImage() {
+      currentIndex = (currentIndex - 1 + images.length) % images.length;
+      updateModalContent();
+    }
+
+    // Event listeners
+    galleryItems.forEach((item, index) => {
+      item.addEventListener('click', () => openModal(index));
+    });
+
+    closeBtn.addEventListener('click', closeModal);
+    nextBtn.addEventListener('click', nextImage);
+    prevBtn.addEventListener('click', prevImage);
+
+    // Close modal on ESC key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && modal.classList.contains('active')) {
+        closeModal();
+      }
+      if (e.key === 'ArrowRight' && modal.classList.contains('active')) {
+        nextImage();
+      }
+      if (e.key === 'ArrowLeft' && modal.classList.contains('active')) {
+        prevImage();
+      }
+    });
+
+    // Close modal on overlay click
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        closeModal();
+      }
+    });
+  });
+</script>

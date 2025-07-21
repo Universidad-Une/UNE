@@ -1,0 +1,414 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import InformativeCard from "@components/sections/detallesOferta/card.astro";
+import ImagenCard from "@/assets/Imagenes/CardsNiveles/Nivel.png";
+import LogoCard from "@/assets/Logos/UNE_30.png";
+import LogoUDG from "@/assets/Logos/UDG.png";
+import LogoSicyt from "@/assets/Logos/Sicyt-oscuro.png";
+import LogoUNE from "@/assets/Logos/UNE_blanco.webp";
+import { Users, Calendar, MapPin, GraduationCap, Award, Clock, FileText, Phone, Mail, MapPinIcon } from "@lucide/astro";
+---
+
+<Layout>
+    <!-- Hero Section -->
+    <section
+        class="servicio-social-bg relative min-h-[65vh] overflow-hidden bg-cover bg-center bg-no-repeat flex items-center justify-center"
+    >
+        <div
+            class="relative z-10 container mx-auto px-4 h-full min-h-[85vh] md:min-h-[65vh] flex flex-col justify-center"
+        >
+            <div class="text-white max-w-2xl">
+                <h1 class="text-4xl md:text-6xl font-bold mb-4 leading-tight">
+                    SERVICIO SOCIAL
+                </h1>
+                <p class="text-lg md:text-xl mb-8 leading-relaxed font-light">
+                    Actividad formativa y obligatoria que realizan alumnos o pasantes 
+                    en beneficio de la sociedad. Requisito indispensable para tu titulación.
+                </p>
+                <button
+                    class="bg-rojo-une hover:bg-red-700 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-colors duration-300 transform hover:scale-105"
+                    onclick="window.location.href='#informacion-servicio'"
+                >
+                    Ver Información Completa
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <InformativeCard
+        logoSrc={LogoCard.src}
+        studentImageSrc={ImagenCard.src}
+        title="Tu Servicio Social con Nosotros"
+        description="El Servicio Social es una actividad formativa obligatoria que te permite aplicar tus conocimientos en beneficio de la comunidad, desarrollando tu sentido de responsabilidad social y completando tu formación profesional."
+        additionalText="Te acompañamos en todo el proceso desde la inscripción hasta la liberación, brindándote opciones de plazas acorde a tu carrera y horarios. Nuestro equipo especializado te guiará para cumplir con los requisitos de tu universidad de origen y garantizar tu éxito."
+        features={[
+            { icon: "Users", label: "480 horas de servicio" },
+            { icon: "Calendar", label: "6 meses a 2 años" },
+            { icon: "MapPin", label: "Plazas disponibles" },
+            { icon: "GraduationCap", label: "Requisito de titulación" },
+            { icon: "Award", label: "Experiencia profesional" },
+        ]}
+    />
+
+    <!-- Información por Tipo de Alumno -->
+    <section id="informacion-servicio" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+                    Información por Universidad
+                </h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+                    Cada universidad tiene requisitos específicos. Selecciona tu institución para conocer los detalles exactos.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <!-- Alumnos UdeG -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                    <div class="bg-azul-une text-white p-6">
+                        <div class="flex items-center justify-between mb-2">
+                            <div class="flex items-center space-x-3">
+                                <div class="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center">
+                                    <span class="text-sm font-bold">UG</span>
+                                </div>
+                                <h3 class="text-2xl font-bold">Alumnos UdeG</h3>
+                            </div>
+                            <img src={LogoUDG.src} alt="Logo UdeG" class="h-12 w-auto">
+                        </div>
+                        <p class="mt-2 text-blue-100">Universidad de Guadalajara</p>
+                    </div>
+                    
+                    <div class="p-6 space-y-4">
+                        <div class="flex items-start space-x-3">
+                            <Calendar class="w-5 h-5 text-azul-une mt-1" />
+                            <div>
+                                <h4 class="font-semibold text-gray-800 mb-2">Convocatorias:</h4>
+                                <p class="text-gray-600">Febrero y Septiembre</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start space-x-3">
+                            <GraduationCap class="w-5 h-5 text-azul-une mt-1" />
+                            <div>
+                                <h4 class="font-semibold text-gray-800 mb-2">Inicio del trámite:</h4>
+                                <p class="text-gray-600">Desde 6° semestre (excepto programas con SS en mapa curricular)</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start space-x-3">
+                            <Clock class="w-5 h-5 text-azul-une mt-1" />
+                            <div>
+                                <h4 class="font-semibold text-gray-800 mb-2">Duración:</h4>
+                                <p class="text-gray-600">480 horas • Mínimo 6 meses • Máximo 2 años</p>
+                                <p class="text-sm text-azul-une mt-1"><strong>Ciencias de la Salud:</strong> 1 año (100% créditos)</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start space-x-3">
+                            <FileText class="w-5 h-5 text-azul-une mt-1" />
+                            <div>
+                                <h4 class="font-semibold text-gray-800 mb-2">Documentos requeridos:</h4>
+                                <ul class="text-sm text-gray-600 space-y-1">
+                                    <li>• Pago a UdeG</li>
+                                    <li>• Original y 2 copias de kardex actualizado</li>
+                                    <li>• 2 copias de acta de nacimiento (recientes)</li>
+                                    <li>• 2 fotografías tamaño infantil (formales, B/N)</li>
+                                    <li>• Carta laboral membretada (programas fin de semana)</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Alumnos SICyT -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                    <div class="bg-rojo-une text-white p-6">
+                        <div class="flex items-center justify-between mb-2">
+                            <div class="flex items-center space-x-3">
+                                <div class="w-8 h-8 bg-red-500 rounded-full flex items-center justify-center">
+                                    <span class="text-sm font-bold">ST</span>
+                                </div>
+                                <h3 class="text-2xl font-bold">Alumnos SICyT</h3>
+                            </div>
+                            <img src={LogoSicyt.src} alt="Logo SICyT" class="h-12 w-auto">
+                        </div>
+                        <p class="mt-2 text-red-100">Sistema Incorporado</p>
+                    </div>
+                    
+                    <div class="p-6 space-y-4">
+                        <div class="flex items-start space-x-3">
+                            <Calendar class="w-5 h-5 text-rojo-une mt-1" />
+                            <div>
+                                <h4 class="font-semibold text-gray-800 mb-2">Convocatorias:</h4>
+                                <p class="text-gray-600">Febrero, Mayo y Septiembre</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start space-x-3">
+                            <GraduationCap class="w-5 h-5 text-rojo-une mt-1" />
+                            <div>
+                                <h4 class="font-semibold text-gray-800 mb-2">Inicio del trámite:</h4>
+                                <p class="text-gray-600">A partir de 6° semestre</p>
+                                <p class="text-sm text-rojo-une"><strong>Ciencias de la Salud:</strong> 100% créditos o pasante</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start space-x-3">
+                            <Clock class="w-5 h-5 text-rojo-une mt-1" />
+                            <div>
+                                <h4 class="font-semibold text-gray-800 mb-2">Duración:</h4>
+                                <p class="text-gray-600">480 horas • 6 meses a 2 años</p>
+                                <p class="text-sm text-rojo-une mt-1"><strong>Ciencias de la Salud:</strong> 1 año (plazas por promedio)</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start space-x-3">
+                            <FileText class="w-5 h-5 text-rojo-une mt-1" />
+                            <div>
+                                <h4 class="font-semibold text-gray-800 mb-2">Documentos requeridos:</h4>
+                                <ul class="text-sm text-gray-600 space-y-1">
+                                    <li>• Pago por Servicio Social</li>
+                                    <li>• FI de Solicitud completo</li>
+                                    <li>• 1 copia de kardex actualizado</li>
+                                    <li>• 1 copia de acta de nacimiento</li>
+                                    <li>• 2 fotos infantil + 4 fotos credencial</li>
+                                    <li>• Carta laboral (programas fin de semana)</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Alumnos SE -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden lg:col-span-2">
+                    <div class="bg-gray-700 text-white p-6">
+                        <div class="flex items-center justify-between mb-2">
+                            <div class="flex items-center space-x-3">
+                                <div class="w-8 h-8 bg-gray-500 rounded-full flex items-center justify-center">
+                                    <span class="text-sm font-bold">SE</span>
+                                </div>
+                                <h3 class="text-2xl font-bold">Alumnos SE</h3>
+                            </div>
+                            <img src={LogoUNE.src} alt="Logo UNE" class="h-12 w-auto">
+                        </div>
+                        <p class="mt-2 text-gray-100">Sistema Estatal</p>
+                    </div>
+                    
+                    <div class="p-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                            <div class="flex items-start space-x-3">
+                                <Calendar class="w-5 h-5 text-gray-700 mt-1" />
+                                <div>
+                                    <h4 class="font-semibold text-gray-800 mb-2">Convocatorias:</h4>
+                                    <p class="text-gray-600">Febrero, Mayo y Septiembre</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start space-x-3">
+                                <GraduationCap class="w-5 h-5 text-gray-700 mt-1" />
+                                <div>
+                                    <h4 class="font-semibold text-gray-800 mb-2">Inicio:</h4>
+                                    <p class="text-gray-600">Desde 6° semestre</p>
+                                    <p class="text-xs text-gray-600">Ciencias Salud: 100% créditos</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start space-x-3">
+                                <Clock class="w-5 h-5 text-gray-700 mt-1" />
+                                <div>
+                                    <h4 class="font-semibold text-gray-800 mb-2">Duración:</h4>
+                                    <p class="text-gray-600">480 horas</p>
+                                    <p class="text-xs text-gray-500">6 meses - 2 años</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start space-x-3">
+                                <FileText class="w-5 h-5 text-gray-700 mt-1" />
+                                <div>
+                                    <h4 class="font-semibold text-gray-800 mb-2">Documentos:</h4>
+                                    <p class="text-gray-600 text-sm">Pago SS, FI Solicitud, kardex, acta, fotos, carta laboral</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Información de Contacto -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+                    Información y Contacto
+                </h2>
+                <p class="text-lg text-gray-600">
+                    ¿Tienes dudas? Contáctanos según tu universidad de origen
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <!-- Contacto Principal (UdeG y SICyT) -->
+                <div class="bg-gray-50 rounded-lg p-8">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-6 text-center">
+                        UdeG y SICyT
+                    </h3>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start space-x-4">
+                            <div class="flex items-center justify-center w-12 h-12 bg-azul-une/10 rounded-full">
+                                <MapPinIcon class="w-6 h-6 text-azul-une" />
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-800">Dirección</h4>
+                                <p class="text-gray-600">Quetzalcóatl 510, Cd. del Sol, Zapopan</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-4">
+                            <div class="flex items-center justify-center w-12 h-12 bg-rojo-une/10 rounded-full">
+                                <Phone class="w-6 h-6 text-rojo-une" />
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-800">Teléfono</h4>
+                                <p class="text-gray-600">3647 8432 Ext. 3422</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-4">
+                            <div class="flex items-center justify-center w-12 h-12 bg-rojo-une/10 rounded-full">
+                                <Mail class="w-6 h-6 text-rojo-une" />
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-800">Email</h4>
+                                <p class="text-gray-600">serviciosocial@universidad-une.com</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-4">
+                            <div class="flex items-center justify-center w-12 h-12 bg-azul-une/10 rounded-full">
+                                <Clock class="w-6 h-6 text-azul-une" />
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-800">Horarios</h4>
+                                <p class="text-gray-600">L-V: 9:00-14:00 y 16:00-19:00</p>
+                                <p class="text-gray-600">Sábados: 9:00-14:00</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contacto SE -->
+                <div class="bg-gray-50 rounded-lg p-8">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-6 text-center">
+                        Sistema Estatal (SE)
+                    </h3>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start space-x-4">
+                            <div class="flex items-center justify-center w-12 h-12 bg-azul-une/10 rounded-full">
+                                <MapPinIcon class="w-6 h-6 text-azul-une" />
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-800">Dirección</h4>
+                                <p class="text-gray-600">Abasolo 25, Col. Centro</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-4">
+                            <div class="flex items-center justify-center w-12 h-12 bg-rojo-une/10 rounded-full">
+                                <Phone class="w-6 h-6 text-rojo-une" />
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-800">Teléfonos</h4>
+                                <p class="text-gray-600">311-217-1732</p>
+                                <p class="text-gray-600">311-258-0732</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-4">
+                            <div class="flex items-center justify-center w-12 h-12 bg-azul-une/10 rounded-full">
+                                <Clock class="w-6 h-6 text-azul-une" />
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-800">Horarios</h4>
+                                <p class="text-gray-600">L-V: 9:00-14:00 y 16:00-19:00</p>
+                                <p class="text-gray-600">Sábados: 9:00-14:00</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Información Importante -->
+    <section class="py-16 bg-red-50">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <div class="text-center mb-8">
+                    <h2 class="text-3xl font-bold text-rojo-une mb-4">
+                        ⚠️ Información Importante
+                    </h2>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="bg-white rounded-lg p-6 border-l-4 border-rojo-une">
+                        <h3 class="font-bold text-gray-800 mb-3">🎯 Requisito Obligatorio</h3>
+                        <p class="text-gray-600">El Servicio Social es REQUISITO INDISPENSABLE para tu titulación. No podrás iniciar tu proceso de titulación sin la carta de liberación.</p>
+                    </div>
+
+                    <div class="bg-white rounded-lg p-6 border-l-4 border-yellow-500">
+                        <h3 class="font-bold text-gray-800 mb-3">🏆 Plazas por Concurso</h3>
+                        <p class="text-gray-600">Las plazas se asignan por concurso con base en el promedio académico. Mantén un buen rendimiento para acceder a las mejores opciones.</p>
+                    </div>
+
+                    <div class="bg-white rounded-lg p-6 border-l-4 border-azul-une">
+                        <h3 class="font-bold text-gray-800 mb-3">⏰ Planifica con Tiempo</h3>
+                        <p class="text-gray-600">Las convocatorias son limitadas durante el año. Planifica tu servicio social con anticipación para no retrasar tu titulación.</p>
+                    </div>
+
+                    <div class="bg-white rounded-lg p-6 border-l-4 border-gray-500">
+                        <h3 class="font-bold text-gray-800 mb-3">💼 Experiencia Profesional</h3>
+                        <p class="text-gray-600">Aprovecha esta oportunidad para ganar experiencia en tu área profesional y crear conexiones laborales importantes.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Final -->
+    <section class="py-16 bg-rojo-une">
+        <div class="container mx-auto px-4 text-center">
+            <div class="max-w-3xl mx-auto">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
+                    ¿Listo para Iniciar tu Servicio Social?
+                </h2>
+                <p class="text-xl text-red-100 mb-8">
+                    Contáctanos para recibir asesoría personalizada y conocer las plazas disponibles para tu carrera
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <button class="bg-white text-rojo-une px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors duration-300">
+                        Contactar por WhatsApp
+                    </button>
+                    <button class="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-rojo-une transition-colors duration-300">
+                        Llamar Ahora
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+</Layout>
+
+<style>
+    .servicio-social-bg {
+        background-image: url("/src/assets/Imagenes/Heros/Admision.jpg");
+    }
+
+    @media (max-width: 767px) {
+        .servicio-social-bg {
+            background-image: url("/src/assets/Imagenes/Heros/Admision_mobile5.jpg");
+        }
+    }
+</style>
