@@ -1,0 +1,291 @@
+---
+import Layout from "@/layouts/Layout.astro";
+
+import Planteles from "@components/sections/planteles/Lista.astro";
+
+import FAQComponent from "@/components/sections/detallesOferta/preguntas.astro";
+import CTAinscripcion from "@/components/sections/shared/ctaInscripcion.astro";
+import { Calendar, UserPlus, Phone } from "@lucide/astro";
+
+const planteles = [
+  {
+    id: "1",
+    nombre: "Centro",
+    direccion: "Av. República No.10, Col. San Juan de Dios",
+    ciudad: "Guadalajara ZMG",
+    horario: "Lun a Vie: 9:00-19:00",
+    url: "/planteles/plantel-centro",
+    imagen: "/src/assets/Imagenes/CardsPlanteles/Centro.jpg",
+    lat: 20.67744801539995,
+    lon: -103.34031672627513,
+  },
+  {
+    id: "2",
+    nombre: "Centro Médico",
+    direccion: "José María Lozano #1077, Col. Belisario Domínguez",
+    ciudad: "Guadalajara ZMG",
+    horario: "Lun a Vie: 9:00-19:00",
+
+    url: "/plantel-centro-medico",
+    imagen: "/src/assets/Imagenes/CardsPlanteles/CentroMedico.jpg",
+    lat: 20.684590788642307,
+    lon: -103.3256397932448,
+  },
+  {
+    id: "3",
+    nombre: "Milenio",
+    direccion: "Av. López Mateos Sur #4154, Col. La Giralda",
+    ciudad: "Guadalajara ZMG",
+    horario: "Lun a Vie: 9:00-19:00",
+
+    url: "/plantel-milenio",
+    imagen: "/src/assets/Imagenes/CardsPlanteles/Milenio.jpg",
+    lat: 20.64540739939039,
+    lon: -103.40630313415286,
+  },
+  {
+    id: "4",
+    nombre: "Puerto Vallarta - Plaza Caracol",
+    direccion: "Blvd. Fco. Medina Ascencio #2180, Col. Díaz Ordaz",
+    ciudad: "Puerto Vallarta",
+    horario: "Lun a Vie: 9:00-19:00",
+
+    url: "/plantel-plaza-caracol-puerto-vallarta",
+    imagen: "/src/assets/Imagenes/CardsPlanteles/PuertoVallarta.png",
+    lat: 20.639287162026815,
+    lon: -105.23323589513319,
+  },
+  {
+    id: "5",
+    nombre: "Tlajomulco",
+    direccion: "Av. López Mateos #10100, Col. Los Gavilanes Poniente",
+    ciudad: "Guadalajara ZMG",
+    horario: "Lun a Vie: 9:00-19:00",
+
+    url: "/plantel-tlajomulco",
+    imagen: "/src/assets/Imagenes/CardsPlanteles/Tlajomulco.png",
+    lat: 20.576464164603113,
+    lon: -103.45243680650722,
+  },
+  {
+    id: "6",
+    nombre: "Tesistán",
+    direccion: "Av. Juan Gil Preciado #3897, Col. Hogares de Nuevo México",
+    ciudad: "Guadalajara ZMG",
+    horario: "Lun a Vie: 9:00-19:00",
+
+    url: "/plantel-tesistan",
+    imagen: "/src/assets/Imagenes/CardsPlanteles/Tesistan.png",
+    lat: 20.806203,
+    lon: -102.763903,
+  },
+  {
+    id: "7",
+    nombre: "Tepatitlán",
+    direccion: "Calle Dr. Ricardo Alcalá #505, Av. Matamoros, Centro",
+    ciudad: "Tepatitlán de Morelos",
+    horario: "Lun a Vie: 9:00-19:00",
+
+    url: "/plantel-tepatitlan",
+    imagen: "/src/assets/Imagenes/CardsPlanteles/Tepatitlan.jpg",
+    lat: 20.8062946507024,
+    lon: -102.76382902869392,
+  },
+  {
+    id: "8",
+    nombre: "Tlaquepaque",
+    direccion:
+      "Blvd. Marcelino García Barragán #2056, Col. Bosques del Boulevard",
+    ciudad: "Guadalajara ZMG",
+    horario: "Lun a Vie: 9:00-19:00",
+
+    url: "/plantel-tlaquepaque",
+    imagen: "/src/assets/Imagenes/CardsPlanteles/Tlaquepaque.jpg",
+    lat: 20.645650028567157,
+    lon: -103.32094530771215,
+  },
+  {
+    id: "9",
+    nombre: "Tonalá",
+    direccion: "Av. Tonaltecas #333, Col. Agua Escondida",
+    ciudad: "Guadalajara ZMG",
+    horario: "Lun a Vie: 9:00-19:00",
+
+    url: "/plantel-tonala",
+    imagen: "/src/assets/Imagenes/CardsPlanteles/Tonala.png",
+    lat: 20.63176692188573,
+    lon: -103.24439406488241,
+  },
+  {
+    id: "10",
+    nombre: "Chapultepec",
+    direccion: "Av. Vallarta #1458, Col. Americana",
+    ciudad: "Guadalajara ZMG",
+    horario: "Lun a Vie: 9:00-19:00",
+
+    url: "/plantel-vallarta",
+    imagen: "/src/assets/Imagenes/CardsPlanteles/Chapultepec.png",
+    lat: 20.67471004174908,
+    lon: -103.36909119392195,
+  },
+  {
+    id: "11",
+    nombre: "Zapopan",
+    direccion: "Plaza Caudillos",
+    ciudad: "Guadalajara ZMG",
+    horario: "Lun a Vie: 9:00-19:00",
+
+    url: "/planteles/plantel-zapopan",
+    imagen: "/src/assets/Imagenes/CardsPlanteles/Zapopan.png",
+    lat: 20.720900646775917,
+    lon: -103.38975281813357,
+  },
+];
+
+const ciudades = [
+  "Guadalajara ZMG",
+  "Puerto Vallarta",
+  "Tepatitlán de Morelos",
+];
+
+const faqs = [
+  {
+    question:
+      "¿Cuál es el horario de clases en el bachillerato semiescolarizado?",
+    answer:
+      "Las clases combinan sesiones presenciales y actividades a distancia, con un calendario flexible que permite compatibilizar estudio y trabajo.",
+  },
+  {
+    question: "¿Qué documentos necesito para inscribirme?",
+    answer:
+      "Se requiere certificado de secundaria, acta de nacimiento, CURP, comprobante de domicilio, identificación oficial y fotografías recientes.",
+  },
+  {
+    question: "¿Cómo es el sistema de evaluación?",
+    answer:
+      "Se evalúan conocimientos y habilidades mediante exámenes, trabajos y actividades tanto en línea como presenciales, fomentando el aprendizaje autónomo.",
+  },
+  {
+    question: "¿Qué apoyo académico ofrecen a los estudiantes?",
+    answer:
+      "Se brindan tutorías, asesorías en línea y presenciales para reforzar materias y orientar en el proceso de aprendizaje.",
+  },
+  {
+    question: "¿Puedo trabajar y estudiar al mismo tiempo?",
+    answer:
+      "Sí, el sistema semiescolarizado está diseñado para que combines estudio con actividades laborales o personales.",
+  },
+  {
+    question: "¿Cuál es la duración del programa?",
+    answer:
+      "El bachillerato semiescolarizado tiene una duración de tres años, con módulos organizados para facilitar el aprendizaje gradual.",
+  },
+  {
+    question: "¿Hay requisitos tecnológicos para participar?",
+    answer:
+      "Es necesario contar con acceso a una computadora o dispositivo móvil y conexión a internet para realizar actividades en línea.",
+  },
+  {
+    question: "¿Cómo puedo inscribirme y dónde obtener más información?",
+    answer:
+      "La inscripción se realiza en las oficinas del plantel o a través de su portal web oficial. Para más información, puedes contactar directamente al plantel.",
+  },
+];
+---
+
+<Layout>
+  <main class="min-h-screen">
+    <!-- Hero Section -->
+
+    <section
+      class="planteles-bg relative min-h-[65vh] overflow-hidden bg-cover bg-center bg-no-repeat flex items-center justify-center"
+    >
+      {/* Hero Content */}
+      <div
+        class="relative z-10 container mx-auto px-4 h-full min-h-[85vh] md:min-h-[65vh] flex flex-col justify-center"
+      >
+        <div class="text-center text-white max-w-4xl mx-auto">
+          {/* Main Title */}
+          <h1 class="text-4xl md:text-7xl font-bold tracking-wider mb-4">
+            PLANTELES UNE
+          </h1>
+
+          {/* Description */}
+          <p
+            class="text-lg md:text-xl leading-relaxed mb-16 max-w-3xl mx-auto font-light"
+          >
+            Descubre los distintos planteles del colegio UNE, espacios donde se
+            consolidan hábitos, valores y habilidades esenciales para la vida.
+            Aquí se despierta la curiosidad y se fortalece el pensamiento
+            crítico, formando a los líderes del mañana.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Floating Card - ahora está fuera de la sección hero -->
+    <div class="relative -top-16 z-20 px-4">
+      <div class="bg-azul-une rounded-2xl px-8 shadow-2xl max-w-4xl mx-auto">
+        <div
+          class="flex flex-col sm:flex-row items-center justify-center gap-6"
+        >
+          <!-- CTA Buttons -->
+          <div
+            class="flex flex-col sm:flex-row gap-4 w-full justify-center text-white"
+          >
+            <!-- Agenda una Visita -->
+            <button
+              class="hover:border-b hover:border-b-cyan-50 font-bold py-6 px-6 text-base transition-colors duration-300 shadow-lg flex flex-col items-center justify-center gap-2 whitespace-nowrap"
+            >
+              AGENDA UNA VISITA
+              <Calendar size={20} />
+            </button>
+
+            <!-- Iniciar Inscripción -->
+            <button
+              class="hover:border-b hover:border-b-cyan-50 font-bold py-3 px-6 text-base transition-colors duration-300 shadow-lg flex flex-col items-center justify-center gap-2 whitespace-nowrap"
+            >
+              INICIAR INSCRIPCIÓN
+              <UserPlus size={20} />
+            </button>
+
+            <!-- Contactar -->
+            <button
+              class="hover:border-b hover:border-b-cyan-50 font-bold py-3 px-6 text-base transition-colors duration-300 shadow-lg flex flex-col items-center justify-center gap-2 whitespace-nowrap"
+            >
+              CONTACTAR
+              <Phone size={20} />
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <Planteles
+      titulo="Encuentra tu plantel más cercano"
+      planteles={planteles}
+      ciudades={ciudades}
+      mostrarMasCercano={true}
+    />
+
+    <FAQComponent
+      faqs={faqs}
+      title="Preguntas frecuentes"
+      subtitle="Encuentra respuestas a las dudas más comunes"
+    />
+
+    <CTAinscripcion />
+  </main>
+</Layout>
+
+<style>
+  .planteles-bg {
+    background-image: url("/src/assets/Imagenes/Heros/Planteles/General.jpg");
+  }
+
+  @media (max-width: 767px) {
+    .planteles-bg {
+      background-image: url("/src/assets/Imagenes/Heros/Planteles/General_mobile.jpg");
+    }
+  }
+</style>

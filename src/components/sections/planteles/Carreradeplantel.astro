@@ -1,0 +1,82 @@
+---
+import { CircleArrowRight } from "@lucide/astro";
+
+export interface Carrera {
+  id: string;
+  titulo: string;
+  descripcion: string;
+  duracion: string;
+  modalidad: string;
+  inicio: string;
+  icono: string; // Nombre del icono o clase CSS
+  buttonText: string;
+}
+
+export interface Props {
+  titulo?: string;
+  descripcion?: string;
+  carreras: Carrera[];
+}
+
+const { 
+  titulo = "Nuestras Carreras",
+  descripcion = "Estudia una carrera con visión de futuro, convierte tus ideas en soluciones reales. Ya sea en ingeniería, tecnología, salud o ciencia, aquí encontrarás las herramientas para transformar el mundo",
+  carreras 
+} = Astro.props;
+
+// Función para obtener el icono correspondiente
+const getIconClass = (icono: string) => {
+  const iconMap: Record<string, string> = {
+    'dental': '🦷',
+    'deportes': '⚽',
+    'enfermeria': '🏥',
+    'ingenieria': '⚙️',
+    'medicina': '🩺',
+    'tecnologia': '💻'
+  };
+  return iconMap[icono] || '📚';
+};
+---
+
+<section class="bg-white py-16 px-6 lg:px-12">
+  <div class="max-w-7xl mx-auto">
+    <!-- Header -->
+    <div class="mb-12">
+      <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+        {titulo}
+      </h2>
+      <p class="text-gray-600 text-lg max-w-2xl">
+        {descripcion}
+      </p>
+    </div>
+
+    <!-- Carreras Grid - Mantengo exactamente el mismo estilo de grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+      {carreras.map((carrera, index) => (
+        <div class="relative p-8 border-b border-l border-gray-200 hover:shadow-lg transition-shadow">
+          <div class="absolute left-0 top-1/2 transform -translate-y-1/2 w-1 h-16 bg-red-500 rounded-full"></div>
+          <div class="ml-6">
+            <!-- Icono en lugar del número grande -->
+            <div class="text-5xl font-bold text-gray-900 mb-2">
+              <span class="text-4xl">{getIconClass(carrera.icono)}</span>
+            </div>
+            <h3 class="text-xl font-semibold text-gray-900 mb-3">{carrera.titulo}</h3>
+            
+            <!-- Descripción -->
+            <p class="text-sm text-gray-600 mb-3">{carrera.descripcion}</p>
+            
+            <!-- Detalles -->
+            <div class="text-xs text-gray-500 mb-3">
+              Duración: {carrera.duracion} • Modalidad: {carrera.modalidad} • Inicio: {carrera.inicio}
+            </div>
+            
+            <button class="flex items-center text-gray-600 hover:text-gray-900 transition-colors">
+              <span class="text-sm">{carrera.buttonText}</span>
+              <CircleArrowRight class="ml-2 w-4 h-4"/>
+            </button>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

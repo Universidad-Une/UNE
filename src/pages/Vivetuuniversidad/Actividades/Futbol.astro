@@ -1,0 +1,195 @@
+---
+import Layout from "@/layouts/Layout.astro";
+
+import Winner from "@/assets/Imagenes/vtu/winner.png";
+import Ilustration from "@/assets/Imagenes/VTU/Ilustraciones/General.png";
+import VTULogo from "@/assets/Logos/VTU.png";
+
+import Galeria from "@/components/sections/vtu/Galeria.astro";
+import CTA from "@/components/sections/shared/ctaInscripcion.astro";
+// Configuración de planteles con diferentes casos
+import Cover from "@/assets/Imagenes/Middles/Sillas.png";
+
+const images = [
+  {
+    src: "/src/assets/Imagenes/GaleriaCongresos/Vallarta.jpeg",
+    alt: "Congreso de Derecho 2024",
+    title: "Inauguración del evento",
+  },
+  {
+    src: "/src/assets/Imagenes/GaleriaCongresos/Vallarta.jpeg",
+    alt: "Ponencia principal",
+    title: "Dr. Smith presentando",
+  },
+  {
+    src: "/src/assets/Imagenes/GaleriaCongresos/Vallarta.jpeg",
+    alt: "Mesa redonda",
+    title: "Panel de expertos",
+  },
+  {
+    src: "/src/assets/Imagenes/GaleriaCongresos/Vallarta.jpeg",
+    alt: "Networking",
+    title: "Momento de networking",
+  },
+];
+---
+
+<Layout>
+  <main class="bg-white overflow-hidden min-h-screen">
+    <div class="container mx-auto px-4 h-full">
+      <!-- Mobile Layout (Stack Vertically) -->
+      <div class="lg:hidden flex flex-col items-center space-y-6 py-8">
+        <!-- Logo and Title -->
+        <div class="text-center">
+          <img
+            src={VTULogo.src}
+            alt="Logo de Vive Tu Universidad"
+            class="w-32 mx-auto"
+          />
+        </div>
+
+        <!-- Winner Image -->
+        <div class="w-full max-w-sm">
+          <img
+            src={Winner.src}
+            alt="Estudiante ganador con medallas"
+            class="w-full h-auto rounded-lg shadow-lg"
+          />
+        </div>
+
+        <!-- Text Content -->
+        <div class="text-center space-y-4 px-4">
+          <p class="text-gray-700 text-sm leading-relaxed">
+            En Vive Tu Universidad (VTU), creemos que elegir una universidad es
+            también encontrar un lugar donde puedas ser tú. En UNE te espera una
+            comunidad auténtica, cercana y con propósito. Aquí se valora quién
+            eres, se celebra lo que te hace único y se impulsa tu crecimiento.
+            Porque más que estudiar, en UNE vives, conectas y construyes tu
+            futuro.
+          </p>
+
+          <button
+            class="bg-blue-800 text-white px-6 py-3 rounded-lg font-semibold text-sm hover:bg-blue-900 transition-colors"
+          >
+            ¡Bienvenido a donde sí perteneces!
+          </button>
+        </div>
+
+        <!-- Illustration -->
+        <div class="w-full max-w-md">
+          <img
+            src={Ilustration.src}
+            alt="Ilustración de estudiantes en actividades deportivas"
+            class="w-full h-auto"
+          />
+        </div>
+      </div>
+
+      <!-- Desktop Layout -->
+      <div
+        class="hidden lg:flex lg:items-stretch lg:justify-center lg:gap-8 py-8 min-h-screen"
+      >
+        <!-- Left Content -->
+        <div
+          class="flex flex-col justify-center items-center space-y-6 max-w-md"
+        >
+          <!-- Logo -->
+          <div class="text-center">
+            <img
+              src={VTULogo.src}
+              alt="Logo de Vive Tu Universidad"
+              class="w-64 mx-auto"
+            />
+          </div>
+
+          <!-- Text Content -->
+          <div class="text-center space-y-4 px-4">
+            <p class="text-gray-700 text-sm leading-relaxed">
+              En Vive Tu Universidad (VTU), creemos que elegir una universidad
+              es también encontrar un lugar donde puedas ser tú. En UNE te
+              espera una comunidad auténtica, cercana y con propósito. Aquí se
+              valora quién eres, se celebra lo que te hace único y se impulsa tu
+              crecimiento. Porque más que estudiar, en UNE vives, conectas y
+              construyes tu futuro.
+            </p>
+          </div>
+
+          <!-- Illustration -->
+          <div class="w-full max-w-xs">
+            <img
+              src={Ilustration.src}
+              alt="Ilustración de estudiantes en actividades deportivas"
+              class="w-full h-auto"
+            />
+          </div>
+
+          <!-- Button -->
+          <div class="text-center">
+            <button
+              class="bg-azul-une text-white px-8 py-3 font-bold text-sm hover:bg-blue-900 transition-colors shadow-lg"
+            >
+              ¡Bienvenido a donde sí perteneces!
+            </button>
+          </div>
+        </div>
+
+        <!-- Right Content - Winner Image -->
+        <div class="flex items-center justify-center flex-1">
+          <img
+            src={Winner.src}
+            alt="Estudiante ganador con medallas"
+            class="h-[60vh] w-auto rounded-lg shadow-xl object-cover"
+          />
+        </div>
+      </div>
+    </div>
+
+    
+
+    <Galeria images={images} />
+
+    <!-- Sección de Notificaciones -->
+    <section
+      class="py-16 bg-cover bg-center bg-no-repeat relative"
+      style={`background-image: url(${Cover.src})`}
+    >
+      <div class="container mx-auto px-4 relative z-10">
+        <div
+          class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center text-white"
+        >
+          <div>
+            <h2 class="text-3xl sm:text-4xl font-bold text-white mb-6">
+              ¿Quieres ser notificado de la próxima convocatoria?
+            </h2>
+          </div>
+          <div class="space-y-4">
+            <!-- En mobile: inputs en columna uno debajo del otro -->
+            <div class="flex flex-col gap-4">
+              <input
+                type="text"
+                placeholder="Nombre"
+                class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-red-500"
+              />
+              <input
+                type="email"
+                placeholder="Correo"
+                class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-red-500"
+              />
+              <input
+                type="tel"
+                placeholder="Celular"
+                class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-red-500"
+              />
+            </div>
+            <button
+              class="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-6 rounded-lg transition-colors"
+            >
+              Registrar Interés
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout>
+

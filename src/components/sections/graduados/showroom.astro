@@ -1,0 +1,187 @@
+---
+// Importaciones de imágenes
+import Idea from "@/assets/Imagenes/Ilustraciones/Ideas.png";
+import Graduado1 from "@/assets/Imagenes/Graduados/Zahid.png";
+
+// Datos de ejemplo para las cards
+const graduados = [
+  {
+    id: 1,
+    nombre: "Zahid Campos",
+    titulo: "Fundador y CEO de Igardis Mex",
+    subtitulo: "Ingeniero en sistemas",
+    imagen: Graduado1
+  },
+  {
+    id: 2,
+    nombre: "Martín Herrera",
+    titulo: "Atleta profesional",
+    subtitulo: "Fisioterapeuta y cuidados",
+    imagen: Graduado1
+  },
+  {
+    id: 3,
+    nombre: "Ana García",
+    titulo: "Directora de Innovación",
+    subtitulo: "Ingeniería en Computación",
+    imagen: Graduado1
+  },
+  {
+    id: 4,
+    nombre: "Carlos López",
+    titulo: "Emprendedor Tech",
+    subtitulo: "Desarrollo de Software",
+    imagen: Graduado1
+  }
+];
+---
+
+<section class="w-full min-h-screen bg-gray-50 py-12 px-4">
+  <div class="max-w-7xl mx-auto">
+    <div class="flex flex-col lg:flex-row gap-8 lg:gap-12">
+      
+      <!-- Lado izquierdo - Contenido de texto e ilustración -->
+      <div class="w-full lg:w-1/2 flex flex-col justify-center items-center lg:items-start text-center lg:text-left">
+        <!-- Ilustración de ideas -->
+        <div class="mb-8">
+          <img 
+            src={Idea.src} 
+            alt="Ideas que inspiran" 
+            class="w-48 h-48 lg:w-64 lg:h-64 object-contain"
+          />
+        </div>
+        
+        <!-- Contenido de texto -->
+        <div class="space-y-6">
+          <h2 class="text-4xl lg:text-5xl font-bold text-gray-800 leading-tight">
+            Historias que <br />
+            <span class="text-yellow-500">inspiran</span>, logros que <br />
+            trascienden
+          </h2>
+          
+          <p class="text-lg text-gray-600 max-w-md">
+            La formación integral que ofrece UNE prepara a sus estudiantes no solo en 
+            conocimientos técnicos, sino también para enfrentar con éxito los retos del 
+            mundo empresarial.
+          </p>
+        </div>
+      </div>
+
+      <!-- Lado derecho - Carousel -->
+      <div class="w-full lg:w-1/2">
+        <div class="splide" id="graduados-carousel">
+          <div class="splide__track">
+            <ul class="splide__list">
+              {graduados.map((graduado) => (
+                <li class="splide__slide" key={graduado.id}>
+                  <div class="relative bg-white rounded-2xl shadow-xl overflow-hidden h-[500px] lg:h-[600px] mx-4">
+                    <!-- Imagen de fondo -->
+                    <div class="absolute inset-0">
+                      <img 
+                        src={graduado.imagen.src} 
+                        alt={graduado.nombre}
+                        class="w-full h-full object-cover"
+                      />
+                      <!-- Overlay gradient -->
+                      <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+                    </div>
+                    
+                    <!-- Contenido de la card -->
+                    <div class="relative z-10 p-6 h-full flex flex-col justify-end text-white">
+                      <h3 class="text-2xl font-bold mb-2">{graduado.nombre}</h3>
+                      <p class="text-lg font-semibold text-yellow-300 mb-1">{graduado.titulo}</p>
+                      <p class="text-sm opacity-90">{graduado.subtitulo}</p>
+                      
+                      <!-- Icono decorativo -->
+                      <div class="mt-4 flex justify-end">
+                        <div class="w-8 h-8 bg-yellow-500 rounded-full flex items-center justify-center">
+                          <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                          </svg>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  import Splide from "@splidejs/splide";
+  import { AutoScroll } from "@splidejs/splide-extension-auto-scroll";
+  import "@splidejs/splide/dist/css/splide.min.css";
+
+  document.addEventListener('DOMContentLoaded', function () {
+    const splide = new Splide('#graduados-carousel', {
+      type: 'loop',
+      perPage: 1,
+      perMove: 1,
+      pagination: false,
+      arrows: true,
+      autoScroll: {
+        speed: 1,
+        pauseOnHover: true,
+        pauseOnFocus: true,
+      },
+      breakpoints: {
+        768: {
+          perPage: 1,
+          gap: '1rem',
+        },
+        1024: {
+          perPage: 2,
+          gap: '1.5rem',
+        }
+      },
+      gap: '2rem',
+    });
+
+    splide.mount({ AutoScroll });
+  });
+</script>
+
+<style>
+  /* Estilos personalizados para las flechas del carousel */
+  .splide__arrow {
+    background-color: #eab308; /* bg-yellow-500 */
+    transition: background-color 0.2s;
+    opacity: 0.9;
+    border: none;
+    padding: 0.5rem;
+    border-radius: 0.25rem;
+    cursor: pointer;
+  }
+
+  .splide__arrow:hover {
+    background-color: #ca8a04; /* hover:bg-yellow-600 */
+  }
+
+  .splide__arrow svg {
+    fill: white; /* text-white */
+  }
+
+  .splide__arrow--prev {
+    left: -2rem;
+  }
+
+  .splide__arrow--next {
+    right: -2rem;
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .splide__arrow--prev {
+      left: 0.5rem;
+    }
+
+    .splide__arrow--next {
+      right: 0.5rem;
+    }
+  }
+</style>

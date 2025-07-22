@@ -1,0 +1,693 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Logo from "@assets/Logos/UNE_30.png";
+import Chapu from "@assets/Imagenes/CardsPlanteles/Chapultepec.png";
+import PlantelCentro from "../planteles/plantel-centro.astro";
+import Planteles from "@/components/sections/detallesOferta/planteles.astro";
+import Justicia from "@assets/Imagenes/valores/Justicia.jpg";
+import Templanza from "@assets/Imagenes/valores/Templanza.jpg";
+import Prudencia from "@assets/Imagenes/valores/Prudencia.jpg";
+import { Building2, GraduationCap, MapPin, Sparkles, Calendar, Users, Trophy, Rocket } from "@lucide/astro";
+
+---
+
+<Layout>
+  <main class="bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div
+        class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center min-h-screen py-12"
+      >
+        <!-- Contenido del lado izquierdo -->
+        <div class="space-y-6">
+          <!-- Logo UNE -->
+          <img src={Logo.src} />
+
+          <!-- Texto principal -->
+          <div class="space-y-4">
+            <p class="text-gray-700 text-lg leading-relaxed">
+              En la <span class="font-semibold text-blue-800"
+                >Universidad UNE</span
+              >, llevamos <span class="font-semibold"
+                >30 años creyendo en ti</span
+              > y en tu capacidad de crecer. Con programas flexibles, tu futuro comienza
+              aquí.
+            </p>
+          </div>
+
+          <!-- Call to Action -->
+          <div class="pt-4">
+            <button
+              class="bg-red-500 hover:bg-red-600 text-white font-bold py-4 px-8 text-lg transition-all duration-300 transform hover:scale-105 hover:shadow-lg"
+            >
+              ENCUENTRA TU CARRERA IDEAL
+            </button>
+          </div>
+        </div>
+
+        <!-- Video del lado derecho -->
+        <div class="relative">
+          <div
+            class="aspect-video bg-gray-100 rounded-lg overflow-hidden shadow-2xl"
+          >
+            <!-- Placeholder para el video -->
+            <video
+              class="w-full h-full object-cover"
+              controls
+              poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 450'%3E%3Crect width='800' height='450' fill='%23f3f4f6'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='Arial' font-size='24' fill='%236b7280'%3EAula Universitaria%3C/text%3E%3C/svg%3E"
+            >
+              <source src="tu-video-aqui.mp4" type="video/mp4" />
+              Tu navegador no soporta el elemento de video.
+            </video>
+
+            <!-- Overlay con play button personalizado (opcional) -->
+            <div
+              class="absolute inset-0 bg-black bg-opacity-20 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300"
+            >
+              <div
+                class="w-16 h-16 bg-white bg-opacity-90 rounded-full flex items-center justify-center"
+              >
+                <svg
+                  class="w-6 h-6 text-blue-800 ml-1"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path d="M8 5v10l8-5-8-5z"></path>
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <!-- Elementos decorativos -->
+          <div
+            class="absolute -top-4 -right-4 w-20 h-20 bg-red-500 rounded-full opacity-20"
+          >
+          </div>
+          <div
+            class="absolute -bottom-4 -left-4 w-16 h-16 bg-blue-600 rounded-full opacity-20"
+          >
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <section class="py-16 px-4">
+      <div class="max-w-7xl mx-auto">
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+          <!-- Imagen del plantel -->
+          <div class="relative">
+            <div class="relative z-10">
+              <!-- Reemplaza src con {PLantel} si tienes la imagen importada -->
+              <img
+                src={Chapu.src}
+                alt="Edificio UNE - Campus Chapultepec"
+                class="w-3/4 h-auto rounded-lg shadow-2xl"
+              />
+            </div>
+          </div>
+
+          <!-- Contenido de texto -->
+          <div class="space-y-8">
+            <h2 class="text-3xl lg:text-4xl font-bold mb-6">¿Quiénes somos?</h2>
+
+            <p class="text-lg lg:text-xl leading-relaxed mb-8">
+              Somos una institución educativa líder en Jalisco con más de 30
+              años de experiencia en la formación integral de estudiantes.
+              Ofrecemos una amplia gama de programas formativos que van desde
+              educación básica hasta superior, incluyendo especialidades en el
+              área de la salud y una red de 18 planteles estratégicamente
+              ubicados en diversas zonas de Jalisco.
+            </p>
+
+            <!-- Características destacadas -->
+            <div class="grid sm:grid-cols-2 gap-6">
+              <div class="flex items-start space-x-3">
+                <div class="flex-shrink-0">
+                  <div
+                    class="w-8 h-8 bg-green-400 rounded-full flex items-center justify-center"
+                  >
+                    <svg
+                      class="w-5 h-5 text-white"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                        clip-rule="evenodd"></path>
+                    </svg>
+                  </div>
+                </div>
+                <p class="0 font-medium">Educación humanista y de calidad</p>
+              </div>
+
+              <div class="flex items-start space-x-3">
+                <div class="flex-shrink-0">
+                  <div
+                    class="w-8 h-8 bg-green-400 rounded-full flex items-center justify-center"
+                  >
+                    <svg
+                      class="w-5 h-5 text-white"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                        clip-rule="evenodd"></path>
+                    </svg>
+                  </div>
+                </div>
+                <p class="0 font-medium">
+                  Vinculación con sector productivo y social
+                </p>
+              </div>
+
+              <div class="flex items-start space-x-3">
+                <div class="flex-shrink-0">
+                  <div
+                    class="w-8 h-8 bg-green-400 rounded-full flex items-center justify-center"
+                  >
+                    <svg
+                      class="w-5 h-5 text-white"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                        clip-rule="evenodd"></path>
+                    </svg>
+                  </div>
+                </div>
+                <p class="0 font-medium">Formación integral y competente</p>
+              </div>
+
+              <div class="flex items-start space-x-3">
+                <div class="flex-shrink-0">
+                  <div
+                    class="w-8 h-8 bg-green-400 rounded-full flex items-center justify-center"
+                  >
+                    <svg
+                      class="w-5 h-5 text-white"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                        clip-rule="evenodd"></path>
+                    </svg>
+                  </div>
+                </div>
+                <p class="0 font-medium">Innovación educativa del siglo XXI</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-gray-50 py-16 px-4">
+      <div class="max-w-7xl mx-auto">
+        <!-- Título principal -->
+        <div class="text-center mb-12">
+          <h2 class="text-4xl lg:text-5xl font-bold text-gray-800 mb-8">
+            Estándar de excelencia
+          </h2>
+        </div>
+
+        <!-- Estadísticas principales -->
+        <div class="grid md:grid-cols-3 gap-8 mb-12">
+          <!-- Estudiantes activos -->
+          <div class="text-center">
+            <div class="text-5xl lg:text-6xl font-bold text-black mb-2">
+              +20,000
+            </div>
+            <h3 class="text-xl font-semibold text-red-500 mb-4">
+              Estudiantes activos
+            </h3>
+            <p class="text-gray-600 leading-relaxed">
+              Más que un número es la cantidad de sueños que UNE impulsa
+            </p>
+          </div>
+
+          <!-- Egresados -->
+          <div class="text-center">
+            <div class="text-5xl lg:text-6xl font-bold text-black mb-2">
+              +60,000
+            </div>
+            <h3 class="text-xl font-semibold text-red-500 mb-4">Egresados</h3>
+            <p class="text-gray-600 leading-relaxed">
+              En UNE formamos profesionales altamente capacitados
+            </p>
+          </div>
+
+          <!-- Docentes -->
+          <div class="text-center">
+            <div class="text-5xl lg:text-6xl font-bold text-black mb-2">
+              +12,000
+            </div>
+            <h3 class="text-xl font-semibold text-red-500 mb-4">Docentes</h3>
+            <p class="text-gray-600 leading-relaxed">
+              Personal docente altamente calificado
+            </p>
+          </div>
+        </div>
+
+        <!-- Descripción adicional -->
+        <div class="text-center mb-12">
+          <p class="text-lg text-gray-600 max-w-4xl mx-auto leading-relaxed">
+            Más de 30 años de excelencia educativa en Jalisco, transformando
+            vidas a través de la educación integral con valores humanistas y
+            compromiso social.
+          </p>
+        </div>
+
+        <!-- Tarjetas de Visión y Misión -->
+        <div class="grid lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
+          <!-- Visión -->
+          <div class="bg-rojo-une rounded-2xl p-8 text-white shadow-lg">
+            <h3 class="text-3xl font-bold text-center mb-6">VISIÓN</h3>
+            <p class="text-lg font-light leading-relaxed text-center">
+              Ser la mejor Universidad en Guadalajara, formando integralmente a
+              hombres y mujeres, que lleven a México "Por un camino hacia la
+              excelencia".
+            </p>
+          </div>
+
+          <!-- Misión -->
+          <div class="bg-azul-une rounded-2xl p-8 text-white shadow-lg">
+            <h3 class="text-3xl font-bold text-center mb-6">MISIÓN</h3>
+            <p class="text-lg leading-relaxed text-center">
+              Formar de manera íntegra verdaderos profesionales que le den
+              grandeza y prestigio a México, y dignidad a la familia
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-gray-50 py-16 px-4">
+      <div class="max-w-7xl mx-auto">
+        <!-- Título principal y descripción -->
+        <div class="text-center mb-16">
+          <h2 class="text-4xl lg:text-5xl font-bold text-gray-800 mb-6">
+            Valores Institucionales UNE
+          </h2>
+          <p class="text-lg text-gray-600 max-w-4xl mx-auto leading-relaxed">
+            Los valores que nos definen están representados en nuestra identidad
+            visual y guían cada acción en Universidad UNE. Estos pilares
+            fundamentales forman el corazón de nuestra institución y se reflejan
+            en la formación integral que ofrecemos.
+          </p>
+        </div>
+
+        <!-- Valores en layout alternado -->
+        <div class="space-y-16">
+          <!-- La prudencia -->
+          <div class="bg-white rounded-3xl shadow-lg overflow-hidden">
+            <div class="grid lg:grid-cols-2 items-center">
+              <div class="p-8 lg:p-12 order-2 lg:order-1">
+                <h3 class="text-3xl lg:text-4xl font-bold text-azul-une mb-6">
+                  La prudencia
+                </h3>
+                <p class="text-gray-600 text-lg leading-relaxed">
+                  En UNE, la prudencia guía tanto nuestros procesos educativos
+                  como nuestras decisiones institucionales, formando
+                  profesionales capaces de actuar con criterio y responsabilidad
+                  en cualquier contexto.
+                </p>
+              </div>
+              <div class="order-1 lg:order-2">
+                <img
+                  src={Prudencia.src}
+                  alt="Ilustración representando el valor de la prudencia"
+                  class="w-92 lg:h-80 object-cover"
+                />
+              </div>
+            </div>
+          </div>
+
+          <!-- La justicia/fortaleza -->
+          <div class="bg-white rounded-3xl shadow-lg overflow-hidden">
+            <div class="grid lg:grid-cols-2 items-center">
+              <div class="order-1">
+                <img
+                  src={Justicia.src}
+                  alt="Ilustración representando el valor de la justicia y fortaleza"
+                  class="w-92 lg:h-80 object-cover"
+                />
+              </div>
+              <div class="p-8 lg:p-12 order-2">
+                <h3 class="text-3xl lg:text-4xl font-bold text-azul-une mb-6">
+                  La justicia/fortaleza
+                </h3>
+                <p class="text-gray-600 text-lg leading-relaxed">
+                  Creemos en la importancia de formar individuos justos que
+                  defiendan los derechos y oportunidades para todos, con la
+                  fortaleza necesaria para enfrentar los desafíos del mundo
+                  profesional.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- La templanza -->
+          <div class="bg-white rounded-3xl shadow-lg overflow-hidden">
+            <div class="grid lg:grid-cols-2 items-center">
+              <div class="p-8 lg:p-12 order-2 lg:order-1">
+                <h3 class="text-3xl lg:text-4xl font-bold text-azul-une mb-6">
+                  La templanza
+                </h3>
+                <p class="text-gray-600 text-lg leading-relaxed">
+                  La templanza nos permite mantener la armonía entre el
+                  crecimiento académico, personal y social, preparando a
+                  nuestros estudiantes para una vida plena y exitosa.
+                </p>
+              </div>
+              <div class="order-1 lg:order-2">
+                <img
+                  src={Templanza.src}
+                  alt="Ilustración representando el valor de la templanza"
+                  class="w-92 lg:h-80 lg:h-80 object-cover"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+<div class="timeline-container w-full px-4 py-12 bg-gradient-to-br from-slate-50 to-blue-50">
+  <!-- Header -->
+  <div class="text-center mb-16">
+    <h2 class="text-4xl md:text-5xl font-bold text-gray-800 mb-4">Nosotros</h2>
+    <h3 class="text-2xl md:text-3xl text-blue-600 font-semibold mb-6">- Nuestra historia -</h3>
+    <p class="text-lg text-gray-600 max-w-4xl mx-auto leading-relaxed">
+      Con la misión de formar verdaderos hombres, dispuestos a forjar un México grande, próspero, libre y unido, 
+      el 12 de Diciembre de 1994 nació el Centro Universitario UNE con el nombre de "Instituto Harvard 2000" 
+      ofreciendo cursos de idiomas inglés, francés y asesoría para alumnos de secundaria y preparatoria.
+    </p>
+  </div>
+
+  <!-- Timeline Horizontal -->
+  <div class="relative overflow-x-auto pb-8">
+    <div class="flex items-center min-w-max space-x-8 px-4">
+      
+      <!-- Timeline Item 1994 -->
+      <div class="timeline-item flex flex-col items-center" data-year="1994">
+        <div class="timeline-content bg-white rounded-xl shadow-lg p-6 mb-4 w-64 border-t-4 border-blue-500 hover:shadow-xl transition-all duration-300">
+          <div class="flex items-center justify-center w-12 h-12 bg-blue-100 rounded-full mb-4 mx-auto">
+            <Sparkles class="w-6 h-6 text-blue-600" />
+          </div>
+          <h4 class="text-xl font-bold text-blue-600 mb-2 text-center">1994</h4>
+          <h5 class="text-lg font-semibold text-gray-800 mb-2 text-center">Nacimiento UNE</h5>
+          <p class="text-gray-600 text-center text-sm">"Instituto Harvard 2000"<br>Plantel Pirámide</p>
+        </div>
+        <div class="w-4 h-4 bg-blue-500 rounded-full border-4 border-white shadow-lg z-10"></div>
+      </div>
+
+      <!-- Timeline Item 1995-1998 -->
+      <div class="timeline-item flex flex-col items-center" data-year="1995">
+        <div class="timeline-content bg-white rounded-xl shadow-lg p-6 mb-4 w-64 border-t-4 border-green-500 hover:shadow-xl transition-all duration-300">
+          <div class="flex items-center justify-center w-12 h-12 bg-green-100 rounded-full mb-4 mx-auto">
+            <GraduationCap class="w-6 h-6 text-green-600" />
+          </div>
+          <h4 class="text-xl font-bold text-green-600 mb-2 text-center">1995 - 1998</h4>
+          <h5 class="text-lg font-semibold text-gray-800 mb-2 text-center">RVOE UdeG</h5>
+          <p class="text-gray-600 text-center text-sm">Nivel Medio Superior<br>Plantel Plaza del Sol<br>Plantel Condo Plaza y Centro Médico</p>
+        </div>
+        <div class="w-4 h-4 bg-green-500 rounded-full border-4 border-white shadow-lg z-10"></div>
+      </div>
+
+      <!-- Timeline Item 1999 -->
+      <div class="timeline-item flex flex-col items-center" data-year="1999">
+        <div class="timeline-content bg-white rounded-xl shadow-lg p-6 mb-4 w-64 border-t-4 border-purple-500 hover:shadow-xl transition-all duration-300">
+          <div class="flex items-center justify-center w-12 h-12 bg-purple-100 rounded-full mb-4 mx-auto">
+            <Building2 class="w-6 h-6 text-purple-600" />
+          </div>
+          <h4 class="text-xl font-bold text-purple-600 mb-2 text-center">1999</h4>
+          <p class="text-gray-600 text-center text-sm">Plantel López Mateos<br>y Milenio</p>
+        </div>
+        <div class="w-4 h-4 bg-purple-500 rounded-full border-4 border-white shadow-lg z-10"></div>
+      </div>
+
+      <!-- Timeline Item 2000 -->
+      <div class="timeline-item flex flex-col items-center" data-year="2000">
+        <div class="timeline-content bg-white rounded-xl shadow-lg p-6 mb-4 w-64 border-t-4 border-orange-500 hover:shadow-xl transition-all duration-300">
+          <div class="flex items-center justify-center w-12 h-12 bg-orange-100 rounded-full mb-4 mx-auto">
+            <MapPin class="w-6 h-6 text-orange-600" />
+          </div>
+          <h4 class="text-xl font-bold text-orange-600 mb-2 text-center">2000</h4>
+          <p class="text-gray-600 text-center text-sm">Plantel Centro</p>
+        </div>
+        <div class="w-4 h-4 bg-orange-500 rounded-full border-4 border-white shadow-lg z-10"></div>
+      </div>
+
+      <!-- Timeline Item 2001-2002 -->
+      <div class="timeline-item flex flex-col items-center" data-year="2001">
+        <div class="timeline-content bg-white rounded-xl shadow-lg p-6 mb-4 w-64 border-t-4 border-red-500 hover:shadow-xl transition-all duration-300">
+          <div class="flex items-center justify-center w-12 h-12 bg-red-100 rounded-full mb-4 mx-auto">
+            <Users class="w-6 h-6 text-red-600" />
+          </div>
+          <h4 class="text-xl font-bold text-red-600 mb-2 text-center">2001 - 2002</h4>
+          <p class="text-gray-600 text-center text-sm">Plantel Acacias<br>Plantel Américas</p>
+        </div>
+        <div class="w-4 h-4 bg-red-500 rounded-full border-4 border-white shadow-lg z-10"></div>
+      </div>
+
+      <!-- Timeline Item 2004 -->
+      <div class="timeline-item flex flex-col items-center" data-year="2004">
+        <div class="timeline-content bg-white rounded-xl shadow-lg p-6 mb-4 w-64 border-t-4 border-indigo-500 hover:shadow-xl transition-all duration-300">
+          <div class="flex items-center justify-center w-12 h-12 bg-indigo-100 rounded-full mb-4 mx-auto">
+            <Building2 class="w-6 h-6 text-indigo-600" />
+          </div>
+          <h4 class="text-xl font-bold text-indigo-600 mb-2 text-center">2004</h4>
+          <p class="text-gray-600 text-center text-sm">Plantel Caracol<br>y Torre Quetzal</p>
+        </div>
+        <div class="w-4 h-4 bg-indigo-500 rounded-full border-4 border-white shadow-lg z-10"></div>
+      </div>
+
+      <!-- Timeline Item 2006 -->
+      <div class="timeline-item flex flex-col items-center" data-year="2006">
+        <div class="timeline-content bg-white rounded-xl shadow-lg p-6 mb-4 w-64 border-t-4 border-pink-500 hover:shadow-xl transition-all duration-300">
+          <div class="flex items-center justify-center w-12 h-12 bg-pink-100 rounded-full mb-4 mx-auto">
+            <MapPin class="w-6 h-6 text-pink-600" />
+          </div>
+          <h4 class="text-xl font-bold text-pink-600 mb-2 text-center">2006</h4>
+          <p class="text-gray-600 text-center text-sm">Plantel Tepic</p>
+        </div>
+        <div class="w-4 h-4 bg-pink-500 rounded-full border-4 border-white shadow-lg z-10"></div>
+      </div>
+
+      <!-- Timeline Item 2007-2008 -->
+      <div class="timeline-item flex flex-col items-center" data-year="2007">
+        <div class="timeline-content bg-white rounded-xl shadow-lg p-6 mb-4 w-64 border-t-4 border-teal-500 hover:shadow-xl transition-all duration-300">
+          <div class="flex items-center justify-center w-12 h-12 bg-teal-100 rounded-full mb-4 mx-auto">
+            <Trophy class="w-6 h-6 text-teal-600" />
+          </div>
+          <h4 class="text-xl font-bold text-teal-600 mb-2 text-center">2007 - 2008</h4>
+          <p class="text-gray-600 text-center text-sm">Plantel Vallarta y Torre UNE<br>Plantel Las Juntas</p>
+        </div>
+        <div class="w-4 h-4 bg-teal-500 rounded-full border-4 border-white shadow-lg z-10"></div>
+      </div>
+
+      <!-- Timeline Item 2013 -->
+      <div class="timeline-item flex flex-col items-center" data-year="2013">
+        <div class="timeline-content bg-white rounded-xl shadow-lg p-6 mb-4 w-64 border-t-4 border-cyan-500 hover:shadow-xl transition-all duration-300">
+          <div class="flex items-center justify-center w-12 h-12 bg-cyan-100 rounded-full mb-4 mx-auto">
+            <Building2 class="w-6 h-6 text-cyan-600" />
+          </div>
+          <h4 class="text-xl font-bold text-cyan-600 mb-2 text-center">2013</h4>
+          <p class="text-gray-600 text-center text-sm">Plantel Tlaquepaque<br>y Tlajomulco</p>
+        </div>
+        <div class="w-4 h-4 bg-cyan-500 rounded-full border-4 border-white shadow-lg z-10"></div>
+      </div>
+
+      <!-- Timeline Item 2015-2016 -->
+      <div class="timeline-item flex flex-col items-center" data-year="2015">
+        <div class="timeline-content bg-white rounded-xl shadow-lg p-6 mb-4 w-64 border-t-4 border-emerald-500 hover:shadow-xl transition-all duration-300">
+          <div class="flex items-center justify-center w-12 h-12 bg-emerald-100 rounded-full mb-4 mx-auto">
+            <MapPin class="w-6 h-6 text-emerald-600" />
+          </div>
+          <h4 class="text-xl font-bold text-emerald-600 mb-2 text-center">2015 - 2016</h4>
+          <p class="text-gray-600 text-center text-sm">Plantel Tonalá<br>Plantel Puerto Vallarta<br>y Tesistán</p>
+        </div>
+        <div class="w-4 h-4 bg-emerald-500 rounded-full border-4 border-white shadow-lg z-10"></div>
+      </div>
+
+      <!-- Timeline Item 2021 -->
+      <div class="timeline-item flex flex-col items-center" data-year="2021">
+        <div class="timeline-content bg-white rounded-xl shadow-lg p-6 mb-4 w-64 border-t-4 border-violet-500 hover:shadow-xl transition-all duration-300">
+          <div class="flex items-center justify-center w-12 h-12 bg-violet-100 rounded-full mb-4 mx-auto">
+            <Calendar class="w-6 h-6 text-violet-600" />
+          </div>
+          <h4 class="text-xl font-bold text-violet-600 mb-2 text-center">2021</h4>
+          <p class="text-gray-600 text-center text-sm">Av. México<br>(Pto. Vallarta)</p>
+        </div>
+        <div class="w-4 h-4 bg-violet-500 rounded-full border-4 border-white shadow-lg z-10"></div>
+      </div>
+
+      <!-- Timeline Item 2023 -->
+      <div class="timeline-item flex flex-col items-center" data-year="2023">
+        <div class="timeline-content bg-white rounded-xl shadow-lg p-6 mb-4 w-64 border-t-4 border-amber-500 hover:shadow-xl transition-all duration-300">
+          <div class="flex items-center justify-center w-12 h-12 bg-amber-100 rounded-full mb-4 mx-auto">
+            <Building2 class="w-6 h-6 text-amber-600" />
+          </div>
+          <h4 class="text-xl font-bold text-amber-600 mb-2 text-center">2023</h4>
+          <p class="text-gray-600 text-center text-sm">Zapopan Centro</p>
+        </div>
+        <div class="w-4 h-4 bg-amber-500 rounded-full border-4 border-white shadow-lg z-10"></div>
+      </div>
+
+      <!-- Timeline Item 2024 -->
+      <div class="timeline-item flex flex-col items-center" data-year="2024">
+        <div class="timeline-content bg-white rounded-xl shadow-lg p-6 mb-4 w-64 border-t-4 border-rose-500 hover:shadow-xl transition-all duration-300">
+          <div class="flex items-center justify-center w-12 h-12 bg-rose-100 rounded-full mb-4 mx-auto">
+            <MapPin class="w-6 h-6 text-rose-600" />
+          </div>
+          <h4 class="text-xl font-bold text-rose-600 mb-2 text-center">2024</h4>
+          <p class="text-gray-600 text-center text-sm">Tepatitlán de Morelos</p>
+        </div>
+        <div class="w-4 h-4 bg-rose-500 rounded-full border-4 border-white shadow-lg z-10"></div>
+      </div>
+
+      <!-- Timeline Item 2025 - Special -->
+      <div class="timeline-item flex flex-col items-center" data-year="2025">
+        <div class="timeline-content bg-gradient-to-br from-blue-50 to-purple-50 rounded-xl shadow-lg p-6 mb-4 w-64 border-t-4 border-blue-600 hover:shadow-xl transition-all duration-300 relative overflow-hidden">
+          <div class="absolute inset-0 bg-gradient-to-r from-blue-600/5 to-purple-600/5"></div>
+          <div class="relative z-10">
+            <div class="flex items-center justify-center w-12 h-12 bg-gradient-to-r from-blue-100 to-purple-100 rounded-full mb-4 mx-auto">
+              <Rocket class="w-6 h-6 text-blue-600" />
+            </div>
+            <h4 class="text-xl font-bold text-blue-700 mb-2 text-center">2025</h4>
+            <p class="text-gray-700 font-semibold text-center text-sm">Campus Puerto Vallarta</p>
+            <p class="text-blue-600 text-center text-xs mt-2 font-medium">¡Próxima apertura!</p>
+          </div>
+        </div>
+        <div class="w-6 h-6 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full border-4 border-white shadow-lg animate-pulse z-10"></div>
+      </div>
+
+    </div>
+    
+    <!-- Línea horizontal -->
+    <div class="absolute bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-blue-500 via-purple-500 to-blue-600 mx-4 rounded-full"></div>
+  </div>
+</div>
+
+
+
+  </main>
+</Layout>
+
+<script>
+  // Script para mejorar la experiencia del video
+  const video = document.querySelector("video");
+
+  // Asegurarse de que el video no se reproduzca automáticamente
+  video.autoplay = false;
+  video.muted = false;
+
+  // Opcional: Analytics o tracking cuando se reproduce el video
+  video.addEventListener("play", function () {
+    console.log("Video iniciado");
+  });
+
+  // Opcional: Pausa el video cuando se sale de la vista
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting && !video.paused) {
+        video.pause();
+      }
+    });
+  });
+
+  observer.observe(video);
+</script>
+
+
+<script>
+  // Animación de aparición al hacer scroll horizontal
+  const observerOptions = {
+    threshold: 0.3,
+    rootMargin: '0px -50px 0px -50px'
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0) scale(1)';
+      }
+    });
+  }, observerOptions);
+
+  // Aplicar animación inicial y observar elementos
+  document.addEventListener('DOMContentLoaded', () => {
+    const timelineItems = document.querySelectorAll('.timeline-item');
+    
+    timelineItems.forEach((item, index) => {
+      // Estado inicial
+      item.style.opacity = '0';
+      item.style.transform = 'translateY(30px) scale(0.9)';
+      item.style.transition = 'all 0.8s cubic-bezier(0.4, 0, 0.2, 1)';
+      item.style.transitionDelay = `${index * 0.15}s`;
+      
+      // Observar elemento
+      observer.observe(item);
+    });
+  });
+
+  // Scroll suave para timeline horizontal
+  const timelineContainer = document.querySelector('.overflow-x-auto');
+  if (timelineContainer) {
+    timelineContainer.style.scrollBehavior = 'smooth';
+  }
+</script>
+
+<style>
+  .timeline-container {
+    position: relative;
+  }
+  
+  .timeline-content:hover {
+    transform: translateY(-8px) scale(1.02);
+  }
+
+  /* Scroll personalizado */
+  .overflow-x-auto::-webkit-scrollbar {
+    height: 8px;
+  }
+
+  .overflow-x-auto::-webkit-scrollbar-track {
+    background: #f1f5f9;
+    border-radius: 4px;
+  }
+
+  .overflow-x-auto::-webkit-scrollbar-thumb {
+    background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+    border-radius: 4px;
+  }
+
+  .overflow-x-auto::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(90deg, #2563eb, #7c3aed);
+  }
+
+  @media (max-width: 768px) {
+    .timeline-content {
+      width: 240px;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .timeline-content {
+      width: 200px;
+    }
+    
+    .timeline-content p {
+      font-size: 0.75rem;
+    }
+  }
+</style>

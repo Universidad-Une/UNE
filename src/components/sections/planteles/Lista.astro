@@ -1,6 +1,6 @@
 ---
 // CampusFinder.astro
-import { CircleArrowRight } from "@lucide/astro";
+import { CircleArrowRight, MapPin, Search, X } from "@lucide/astro";
 
 // Interfaces sin cambios
 export interface Plantel {
@@ -8,6 +8,7 @@ export interface Plantel {
   nombre: string;
   direccion: string;
   ciudad: string;
+  horario: string;
   url: string;
   imagen: string;
   lat: number;
@@ -19,13 +20,15 @@ export interface Props {
   planteles: Plantel[];
   ciudades?: string[];
   mostrarMasCercano?: boolean;
+  placeholder?: string;
 }
 
 const {
-  titulo = "Encuentra tu campus más cercano",
+  titulo = "Encuentra tu plantel más cercano",
   planteles,
   ciudades = [],
   mostrarMasCercano = true,
+  placeholder = "Buscar por nombre o ciudad...",
 } = Astro.props;
 
 // Lógica de servidor sin cambios
@@ -40,6 +43,7 @@ const soloUnPlantel = planteles.length === 1;
 const componentProps = {
   planteles,
   soloUnPlantel,
+  placeholder,
 };
 ---
 
@@ -50,7 +54,10 @@ const componentProps = {
   data-props={JSON.stringify(componentProps)}
 >
   <div class="flex justify-between items-center mb-8 flex-wrap gap-4">
-    <h1 class="text-3xl font-bold text-gray-800">{titulo}</h1>
+    <div>
+      <h1 class="text-3xl font-bold text-gray-800">{titulo}</h1>
+      <p class="font-bold">UNE siempre cerca de ti</p>
+    </div>
     {
       mostrarMasCercano && !soloUnPlantel && (
         <button
@@ -82,6 +89,8 @@ const componentProps = {
     }
   </div>
 
+  <!-- Autocomplete Search Input -->
+
   <p
     id="nearest-campus-result"
     class="mb-6 text-center font-medium text-gray-700 h-6"
@@ -90,7 +99,38 @@ const componentProps = {
 
   {
     !soloUnPlantel && (
-      <div class="flex flex-wrap justify-center gap-2 mb-6">
+      <div class="flex   gap-2 mb-6 ">
+        <div class="  ">
+          <div class="w-[400px] ">
+            <Search class="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
+            <input
+              type="text"
+              id="campus-search-input"
+              placeholder={placeholder}
+              class="w-full pl-10 pr-10 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all"
+              autocomplete="off"
+            />
+            <button
+              id="clear-search-btn"
+              class="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600 opacity-0 transition-opacity"
+              type="button"
+            >
+              <X class="w-4 h-4" />
+            </button>
+          </div>
+
+          <div
+            id="autocomplete-dropdown"
+            class="absolute top-full left-0 right-0 bg-white border border-gray-200 rounded-xl shadow-lg z-50 max-h-60 overflow-y-auto hidden"
+          ></div>
+
+          <div
+            id="no-results-message"
+            class="hidden text-center text-gray-500 text-sm mt-2"
+          >
+            No se encontraron planteles
+          </div>
+        </div>
         <button
           class="px-4 py-2 rounded-full text-sm font-medium transition-colors"
           data-ciudad-tab="todos"
@@ -116,59 +156,58 @@ const componentProps = {
     {
       planteles.map((plantel) => (
         <div
-          class="bg-white  max-w-lg rounded-3xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 campus-card"
+          class="bg-white max-w-[550px] rounded-3xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 campus-card"
           data-ciudad-card={plantel.ciudad}
           data-plantel-id={plantel.id}
+          data-plantel-nombre={plantel.nombre.toLowerCase()}
+          data-plantel-direccion={plantel.direccion.toLowerCase()}
         >
-          <div class="flex flex-col ">
-            <div class="">
+          <div class="flex flex-col">
+            <div class="w-full h-64 flex-shrink-0 overflow-hidden">
               <img
                 src={plantel.imagen}
                 alt={`Campus ${plantel.nombre}`}
-                class="w-full h-48 object-cover"
+                class="w-full h-full object-cover"
                 loading="lazy"
               />
             </div>
-            <div class="flex-1 p-6">
-              <div class="flex items-center gap-2 mb-2">
-                <svg
-                  class="w-4 h-4 text-gray-500"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <>
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-                    />
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
-                    />
-                  </>
-                </svg>
-                <span class="text-sm text-gray-600 uppercase tracking-wide">
-                  {plantel.ciudad}
-                </span>
+
+            <div class="flex-1 p-6 flex flex-col justify-between">
+              <div>
+                <div class="flex justify-between gap-2 mb-3">
+                  <div class="flex items-center justify-center gap-3">
+                    <MapPin />
+                    <span class="text-sm font-bold uppercase tracking-wide">
+                      {plantel.ciudad}
+                    </span>
+                  </div>
+
+                  <span class="text-sm text-gray-600">{plantel.horario}</span>
+                </div>
+
+                <h3 class="text-4xl font-light text-gray-900 mb-3">
+                  {plantel.nombre}
+                </h3>
+
+                <p class="text-gray-600 text-sm mb-4 leading-relaxed">
+                  {plantel.direccion}
+                </p>
               </div>
-              <h3 class="text-xl font-bold text-gray-800 mb-2">
-                {plantel.nombre}
-              </h3>
-              <p class="text-gray-600 text-sm mb-4 leading-relaxed">
-                {plantel.direccion}
-              </p>
-              <div class="flex gap-3">
-             
+
+              <div class="">
                 <a
-                  href={plantel.url} 
-                  class="text-blue-500 px-4 py-2 rounded text-sm font-medium hover:bg-gray-50 transition-colors flex items-center gap-2"
+                  href={plantel.url}
+                  class="group relative max-w-52 py-2 text-sm font-medium text-rojo-une 
+         overflow-hidden 
+         flex items-start gap-2"
                 >
-                  Conoce todos los detalles <CircleArrowRight />
+                  Conocer plantel
+                  <CircleArrowRight />
+                  <span
+                    class="absolute bottom-0 left-0 w-full h-0.5 bg-rojo-une 
+           transform translate-y-0 transition-transform duration-300 ease-out 
+           group-hover:-translate-y-full"
+                  />
                 </a>
               </div>
             </div>
@@ -188,6 +227,8 @@ const componentProps = {
                 class="bg-white rounded-3xl shadow-lg overflow-hidden transition-all duration-300 campus-card h-full"
                 data-ciudad-card={plantel.ciudad}
                 data-plantel-id={plantel.id}
+                data-plantel-nombre={plantel.nombre.toLowerCase()}
+                data-plantel-direccion={plantel.direccion.toLowerCase()}
               >
                 <div class="flex flex-col h-full">
                   <div class="w-full h-48 rounded-t-3xl overflow-hidden">
@@ -238,12 +279,6 @@ const componentProps = {
                       >
                         CONOCE EL PLANTEL
                       </a>
-                      <a
-                        href="/contacto"
-                        class=" text-blue-500 px-4 py-2 rounded text-sm font-medium hover:bg-gray-50 transition-colors flex items-center gap-2"
-                      >
-                        Contactar <CircleArrowRight />
-                      </a>
                     </div>
                   </div>
                 </div>
@@ -263,11 +298,22 @@ const componentProps = {
   .hover\:bg-rojo-une:hover {
     background-color: #b91c1c;
   }
+  .text-rojo-une {
+    color: #dc2626;
+  }
+
   /* Estilos para resaltar la tarjeta */
   .highlight-card {
     box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.7) !important;
     transform: scale(1.02);
   }
+
+  /* Estilos para resaltar texto en autocomplete */
+  .highlight-text {
+    background-color: #fef3c7;
+    font-weight: 600;
+  }
+
   /* Estilos Splide */
   .splide__slide {
     padding: 0 0.5rem;
@@ -285,6 +331,21 @@ const componentProps = {
   .splide__pagination__page.is-active {
     background: #dc2626;
   }
+
+  /* Estilos para dropdown de autocomplete */
+  .autocomplete-item {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid #f3f4f6;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  .autocomplete-item:hover,
+  .autocomplete-item.selected {
+    background-color: #f8fafc;
+  }
+  .autocomplete-item:last-child {
+    border-bottom: none;
+  }
 </style>
 
 <script>
@@ -297,8 +358,11 @@ const componentProps = {
     if (!wrapper) return;
 
     // 1. Leer las props del atributo data-*
-    const { planteles, soloUnPlantel } = JSON.parse(wrapper.dataset.props);
+    const { planteles, soloUnPlantel, placeholder } = JSON.parse(
+      wrapper.dataset.props
+    );
     let splideInstance = null;
+    let selectedIndex = -1; // Para navegación con teclado
 
     // 2. Inicializar el carrusel (Splide) en vistas móviles
     const mobileCarousel = document.getElementById("mobile-carousel");
@@ -319,7 +383,13 @@ const componentProps = {
     // Si solo hay un plantel, no se necesita la lógica de filtros ni de búsqueda
     if (soloUnPlantel) return;
 
-    // 3. Lógica del filtro de ciudades
+    // 3. Elementos del autocomplete
+    const searchInput = document.getElementById("campus-search-input");
+    const clearButton = document.getElementById("clear-search-btn");
+    const dropdown = document.getElementById("autocomplete-dropdown");
+    const noResultsMessage = document.getElementById("no-results-message");
+
+    // 4. Lógica del filtro de ciudades
     const filterButtons = document.querySelectorAll("[data-ciudad-tab]");
     const campusCards = document.querySelectorAll(".campus-card");
     const activeClasses = "bg-blue-600 text-white";
@@ -332,34 +402,214 @@ const componentProps = {
       button.className = `px-4 py-2 rounded-full text-sm font-medium transition-colors ${activeClasses}`;
     };
 
-    const filterCards = (targetCiudad) => {
+    const filterCards = (targetCiudad, searchTerm = "") => {
       let visibleSlides = [];
+      let hasVisibleCards = false;
+
       campusCards.forEach((card) => {
         const cardCiudad = card.dataset.ciudadCard;
+        const cardNombre = card.dataset.plantelNombre || "";
+        const cardDireccion = card.dataset.plantelDireccion || "";
         const parentContainer = card.closest(".splide__slide") || card;
-        const isVisible =
+
+        const matchesCiudad =
           targetCiudad === "todos" || cardCiudad === targetCiudad;
+        const matchesSearch =
+          !searchTerm ||
+          cardNombre.includes(searchTerm.toLowerCase()) ||
+          cardCiudad.toLowerCase().includes(searchTerm.toLowerCase()) ||
+          cardDireccion.includes(searchTerm.toLowerCase());
+
+        const isVisible = matchesCiudad && matchesSearch;
+
         parentContainer.style.display = isVisible ? "block" : "none";
-        if (isVisible && card.closest(".splide__slide")) {
-          visibleSlides.push(parentContainer);
+
+        if (isVisible) {
+          hasVisibleCards = true;
+          if (card.closest(".splide__slide")) {
+            visibleSlides.push(parentContainer);
+          }
         }
       });
 
+      // Mostrar/ocultar mensaje de "no encontrado"
+      noResultsMessage.classList.toggle("hidden", hasVisibleCards);
+
       // Actualizar el carrusel si existe
       if (splideInstance) {
-        // Eliminar los slides que no corresponden
         const list = splideInstance.Components.Elements.list;
-        list.innerHTML = ""; // Limpiar la lista
-        visibleSlides.forEach((slide) => list.appendChild(slide)); // Re-agregar los visibles
+        list.innerHTML = "";
+        visibleSlides.forEach((slide) => list.appendChild(slide));
         splideInstance.refresh();
       }
     };
 
+    // 5. Funciones del autocomplete
+    const highlightText = (text, searchTerm) => {
+      if (!searchTerm) return text;
+      const regex = new RegExp(`(${searchTerm})`, "gi");
+      return text.replace(regex, '<span class="highlight-text">$1</span>');
+    };
+
+    const getSuggestions = (searchTerm) => {
+      if (!searchTerm || searchTerm.length < 1) return [];
+
+      const suggestions = [];
+      const lowerSearchTerm = searchTerm.toLowerCase();
+
+      planteles.forEach((plantel) => {
+        const nombre = plantel.nombre.toLowerCase();
+        const ciudad = plantel.ciudad.toLowerCase();
+        const direccion = plantel.direccion.toLowerCase();
+
+        if (
+          nombre.includes(lowerSearchTerm) ||
+          ciudad.includes(lowerSearchTerm) ||
+          direccion.includes(lowerSearchTerm)
+        ) {
+          suggestions.push(plantel);
+        }
+      });
+
+      return suggestions.slice(0, 5); // Máximo 5 sugerencias
+    };
+
+    const showSuggestions = (suggestions, searchTerm) => {
+      if (suggestions.length === 0) {
+        dropdown.classList.add("hidden");
+        return;
+      }
+
+      const suggestionItems = suggestions
+        .map((plantel, index) => {
+          const highlightedNombre = highlightText(plantel.nombre, searchTerm);
+          const highlightedCiudad = highlightText(plantel.ciudad, searchTerm);
+
+          return `
+          <div class="autocomplete-item p-6 border-b border-rojo-une" data-index="${index}" data-plantel-id="${plantel.id}">
+            <div class="font-medium text-gray-900">${highlightedNombre}</div>
+            <div class="text-sm text-gray-600">${highlightedCiudad} • ${plantel.direccion}</div>
+          </div>
+        `;
+        })
+        .join("");
+
+      dropdown.innerHTML = suggestionItems;
+      dropdown.classList.remove("hidden");
+      selectedIndex = -1;
+    };
+
+    const hideSuggestions = () => {
+      dropdown.classList.add("hidden");
+      selectedIndex = -1;
+    };
+
+    const selectSuggestion = (plantel) => {
+      searchInput.value = plantel.nombre;
+      hideSuggestions();
+
+      // Filtrar y resaltar el plantel seleccionado
+      filterCards("todos", plantel.nombre);
+      highlightCard(plantel.id);
+
+      // Mostrar el botón de limpiar
+      clearButton.classList.remove("opacity-0");
+    };
+
+    // 6. Event listeners del autocomplete
+    searchInput.addEventListener("input", (e) => {
+      const searchTerm = e.target.value.trim();
+
+      if (searchTerm.length === 0) {
+        hideSuggestions();
+        clearButton.classList.add("opacity-0");
+        filterCards("todos");
+        return;
+      }
+
+      clearButton.classList.remove("opacity-0");
+
+      const suggestions = getSuggestions(searchTerm);
+      showSuggestions(suggestions, searchTerm);
+
+      // Filtrar tarjetas en tiempo real
+      const currentTab =
+        document.querySelector("[data-ciudad-tab].bg-blue-600")?.dataset
+          .ciudadTab || "todos";
+      filterCards(currentTab, searchTerm);
+    });
+
+    searchInput.addEventListener("keydown", (e) => {
+      const items = dropdown.querySelectorAll(".autocomplete-item");
+
+      switch (e.key) {
+        case "ArrowDown":
+          e.preventDefault();
+          selectedIndex = Math.min(selectedIndex + 1, items.length - 1);
+          updateSelection(items);
+          break;
+
+        case "ArrowUp":
+          e.preventDefault();
+          selectedIndex = Math.max(selectedIndex - 1, -1);
+          updateSelection(items);
+          break;
+
+        case "Enter":
+          e.preventDefault();
+          if (selectedIndex >= 0 && items[selectedIndex]) {
+            const plantelId = items[selectedIndex].dataset.plantelId;
+            const plantel = planteles.find((p) => p.id === plantelId);
+            if (plantel) selectSuggestion(plantel);
+          }
+          break;
+
+        case "Escape":
+          hideSuggestions();
+          searchInput.blur();
+          break;
+      }
+    });
+
+    const updateSelection = (items) => {
+      items.forEach((item, index) => {
+        item.classList.toggle("selected", index === selectedIndex);
+      });
+    };
+
+    // Click en sugerencias
+    dropdown.addEventListener("click", (e) => {
+      const item = e.target.closest(".autocomplete-item");
+      if (item) {
+        const plantelId = item.dataset.plantelId;
+        const plantel = planteles.find((p) => p.id === plantelId);
+        if (plantel) selectSuggestion(plantel);
+      }
+    });
+
+    // Botón de limpiar
+    clearButton.addEventListener("click", () => {
+      searchInput.value = "";
+      clearButton.classList.add("opacity-0");
+      hideSuggestions();
+      filterCards("todos");
+      searchInput.focus();
+    });
+
+    // Cerrar dropdown al hacer click fuera
+    document.addEventListener("click", (e) => {
+      if (!searchInput.contains(e.target) && !dropdown.contains(e.target)) {
+        hideSuggestions();
+      }
+    });
+
+    // 7. Lógica del filtro de ciudades (actualizada)
     filterButtons.forEach((button) => {
       button.addEventListener("click", () => {
         const targetCiudad = button.dataset.ciudadTab;
         setActiveTab(button);
-        filterCards(targetCiudad);
+        const searchTerm = searchInput.value.trim();
+        filterCards(targetCiudad, searchTerm);
       });
     });
 
@@ -369,10 +619,7 @@ const componentProps = {
       setActiveTab(todosButton);
     }
 
-    // 4. Lógica para "Mostrar el más cercano"
-    const findNearestBtn = document.getElementById("find-nearest-btn");
-    const resultParagraph = document.getElementById("nearest-campus-result");
-
+    // 8. Función para resaltar tarjetas
     const highlightCard = (plantelId) => {
       // Remover resaltado previo
       document
@@ -390,7 +637,6 @@ const componentProps = {
         );
         if (tabButton) {
           setActiveTab(tabButton);
-          filterCards(ciudad);
         }
 
         // Mover a la vista y resaltar
@@ -413,6 +659,10 @@ const componentProps = {
       }
     };
 
+    // 9. Lógica para "Mostrar el más cercano"
+    const findNearestBtn = document.getElementById("find-nearest-btn");
+    const resultParagraph = document.getElementById("nearest-campus-result");
+
     const haversineDistance = (coords1, coords2) => {
       const toRad = (x) => (x * Math.PI) / 180;
       const R = 6371; // Radio de la Tierra en km
@@ -429,7 +679,6 @@ const componentProps = {
     };
 
     findNearestBtn.addEventListener("click", () => {
-      // <-- CAMBIO: Ya no es async, manejamos con callbacks
       resultParagraph.textContent = "Buscando tu ubicación...";
       resultParagraph.style.color = "#374151";
 
@@ -440,14 +689,12 @@ const componentProps = {
         return;
       }
 
-      // <-- CAMBIO: Opciones para mejorar la precisión y evitar que se cuelgue
       const geoOptions = {
-        enableHighAccuracy: true, // Solicita la máxima precisión posible (usa GPS si está disponible)
-        timeout: 10000, // Tiempo máximo de espera en milisegundos (10 segundos)
-        maximumAge: 0, // No usar una ubicación en caché, forzar una nueva lectura
+        enableHighAccuracy: true,
+        timeout: 10000,
+        maximumAge: 0,
       };
 
-      // <-- CAMBIO: Función de éxito separada para mayor claridad
       const successCallback = (position) => {
         const userCoords = {
           lat: position.coords.latitude,
@@ -470,7 +717,7 @@ const componentProps = {
 
         if (nearestCampus.plantel) {
           resultParagraph.innerHTML = `📍 El plantel más cercano es <strong>${nearestCampus.plantel.nombre}</strong> (a ${nearestCampus.minDistance.toFixed(1)} km).`;
-          resultParagraph.style.color = "#10b981"; // Color de éxito
+          resultParagraph.style.color = "#10b981";
           highlightCard(nearestCampus.plantel.id);
         } else {
           resultParagraph.textContent =
@@ -479,10 +726,8 @@ const componentProps = {
         }
       };
 
-      // <-- CAMBIO: Función de error detallada para depuración
       const errorCallback = (error) => {
         let message = "No se pudo obtener tu ubicación. ";
-        // Imprimir el error completo en la consola para depuración
         console.error("Error de Geolocalización:", error);
 
         switch (error.code) {
@@ -506,7 +751,6 @@ const componentProps = {
         resultParagraph.style.color = "#dc2626";
       };
 
-      // Llamada a la API de Geolocalización con los 3 parámetros: éxito, error y opciones
       navigator.geolocation.getCurrentPosition(
         successCallback,
         errorCallback,

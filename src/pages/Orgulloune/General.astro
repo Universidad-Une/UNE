@@ -1,0 +1,167 @@
+---
+import Layout from "@/layouts/Layout.astro";
+
+import GaleriaGraduados from "@/components/sections/graduados/GaleriaGraduados.astro";
+import Showroom from "@/components/sections/graduados/showroom.astro";
+import Cover from "@/assets/Imagenes/Middles/Sillas.png";
+
+import Accesos from "@/components/sections/graduados/AccesosGraduados.astro";
+
+---
+
+<Layout>
+  <!-- Hero Section -->
+  <section
+    class="graduados-bg relative min-h-[65vh] overflow-hidden bg-cover bg-center bg-no-repeat flex items-center justify-center"
+  >
+    <div
+      class="relative z-10 container mx-auto px-4 h-full min-h-[85vh] md:min-h-[65vh] flex flex-col justify-center"
+    >
+      <div class="text-white max-w-2xl">
+        <h1 class="text-4xl md:text-6xl font-bold mb-4 leading-tight">
+          Graduados UNE: Líderes que transforman industrias
+        </h1>
+        <p class="text-lg md:text-xl mb-8 leading-relaxed font-light">
+          Más de 60,000 profesionales egresados de UNE están construyendo el
+          futuro en las empresas más importantes de México y el mundo. Tu éxito
+          profesional es nuestra misión cumplida.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-white py-16 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto">
+      <!-- Header -->
+      <div class="text-center mb-12">
+        <h2
+          class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6"
+        >
+          El éxito de nuestros graduados habla por sí solo
+        </h2>
+        <p class="text-lg text-gray-600 max-w-4xl mx-auto leading-relaxed">
+          Tu graduación es más que un cierre: es el reflejo de tu entrega, tu
+          constancia y tus ganas de crecer. En UNE, reconocemos ese esfuerzo con
+          programas que impulsan tu desarrollo profesional, porque sabemos que
+          el éxito se construye con pasión, disciplina y el respaldo de una
+          institución que cree en ti.
+        </p>
+      </div>
+
+      <!-- Stats Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
+        <!-- Stat 1 -->
+        <div class="text-center">
+          <div class="mb-4">
+            <span
+              class="text-5xl sm:text-6xl lg:text-7xl font-bold text-azul-une"
+            >
+              +3,000
+            </span>
+          </div>
+          <p class="text-lg font-semibold text-gray-900 mb-2">
+            Graduados cada año a nivel Licenciatura
+          </p>
+        </div>
+
+        <!-- Stat 2 -->
+        <div class="text-center">
+          <div class="mb-4">
+            <span
+              class="text-5xl sm:text-6xl lg:text-7xl font-bold text-azul-une"
+            >
+              90%
+            </span>
+          </div>
+          <p class="text-lg font-semibold text-gray-900 mb-2">
+            de nuestros egresados consigue empleo en menos de 6 meses.
+          </p>
+        </div>
+
+        <!-- Stat 3 -->
+        <div class="text-center">
+          <div class="mb-4">
+            <span
+              class="text-5xl sm:text-6xl lg:text-7xl font-bold text-azul-une"
+            >
+              +800
+            </span>
+          </div>
+          <p class="text-lg font-semibold text-gray-900 mb-2">
+            Convenios con empresas para prácticas, empleabilidad y desarrollo
+            profesional.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <Showroom/>
+    <GaleriaGraduados/>
+
+    <Accesos/>
+
+    
+    <!-- Sección de Notificaciones -->
+    <section
+        class="py-16 bg-cover bg-center bg-no-repeat relative"
+        style={`background-image: url(${Cover.src})`}
+    >
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center text-white">
+                <div>
+                    <h2 class="text-3xl sm:text-4xl font-bold text-white mb-6">
+                        ¿Quieres ser notificado de la próxima convocatoria?
+                    </h2>
+                </div>
+                <div class="space-y-4">
+                    <!-- En mobile: inputs en columna uno debajo del otro -->
+                    <div class="flex flex-col gap-4">
+                        <input
+                            type="text"
+                            placeholder="Nombre"
+                            class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-red-500"
+                        />
+                        <input
+                            type="email"
+                            placeholder="Correo"
+                            class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-red-500"
+                        />
+                        <input
+                            type="text"
+                            placeholder="Egresado de la carrera:"
+                            class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-red-500"
+                        />
+                        <input
+                            type="text"
+                            placeholder="Plantel"
+                            class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-red-500"
+                        />
+                        <input
+                            type="tel"
+                            placeholder="Celular"
+                            class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-red-500"
+                        />
+                    </div>
+                    <button
+                        class="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-6 rounded-lg transition-colors"
+                    >
+                        Registrar Interés
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+  </section>
+</Layout>
+
+<style>
+  .graduados-bg {
+    background-image: url("/src/assets/Imagenes/Heros/Graduados.jpg");
+  }
+
+  @media (max-width: 767px) {
+    .graduados-bg {
+      background-image: url("/src/assets/Imagenes/Heros/Graduados_mobile.jpg");
+    }
+  }
+</style>
