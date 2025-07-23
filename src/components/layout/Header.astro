@@ -12,11 +12,23 @@ import Clinica from "@logos/Clinica_UNE_blanco.webp";
 <div
   class="hidden md:flex w-full h-14 bg-rojo-une items-center justify-end gap-5 px-4 rounded-b-3xl"
 >
-  <img src={UNE_enlinea.src} alt="UNE" class="h-12 w-auto" />
-  <img src={Clinica.src} alt="UNE" class="h-12 w-auto" />
-  <img src={VTU.src} alt="UNE" class="h-12 w-auto" />
-  <img src={Enjoy.src} alt="UNE" class="h-12 w-auto" />
+  <a href="https://www.une-enlinea.com/">
+    <img src={UNE_enlinea.src} alt="UNE en línea" class="h-12 w-auto" />
+  </a>
+
+  <a href="/ClinicaDentalUne/General">
+    <img src={Clinica.src} alt="Clínica Dental UNE" class="h-12 w-auto" />
+  </a>
+
+  <a href="/Vivetuuniversidad/General">
+    <img src={VTU.src} alt="Vive tu Universidad" class="h-12 w-auto" />
+  </a>
+
+  <a href="https://sites.google.com/universidad-une.com/enjoyenglish">
+    <img src={Enjoy.src} alt="Enjoy English" class="h-12 w-auto" />
+  </a>
 </div>
+
 <header class="bg-white/50 backdrop-blur-[10.2px] shadow-sm sticky top-0 z-50">
   <div class="w-full">
     <div class="flex items-center justify-between h-24">
@@ -325,8 +337,6 @@ import Clinica from "@logos/Clinica_UNE_blanco.webp";
           </p>
         </a>
 
-       
-
         <a
           href="/informacionescolar/Bibliotecas"
           class="group block p-4 rounded-lg hover:bg-blue-50 transition-colors duration-200"
@@ -358,7 +368,7 @@ import Clinica from "@logos/Clinica_UNE_blanco.webp";
           >
             Comunidad UNE
           </h3>
-          <p class="text-sm text-gray-500">Actividades complementarias</p>
+          <p class="text-sm text-gray-500">Descubre todo lo que es UNE</p>
         </a>
         <a
           href="/Vivetuuniversidad/General"
@@ -380,9 +390,9 @@ import Clinica from "@logos/Clinica_UNE_blanco.webp";
           >
             Blog
           </h3>
-          <p class="text-sm text-gray-500">Expresión artística</p>
+          <p class="text-sm text-gray-500">Descubre sobre nuevos temas, </p>
         </a>
-        
+
         <a
           href="/Orgulloune/General"
           class="group block p-4 rounded-lg hover:bg-blue-50 transition-colors duration-200"
@@ -392,11 +402,8 @@ import Clinica from "@logos/Clinica_UNE_blanco.webp";
           >
             Orgullo UNE
           </h3>
-          <p class="text-sm text-gray-500">Calendario de eventos</p>
+          <p class="text-sm text-gray-500">Conoce los egresados más destacados</p>
         </a>
-
-     
-       
       </div>
     </div>
   </div>
@@ -404,71 +411,79 @@ import Clinica from "@logos/Clinica_UNE_blanco.webp";
   <div
     class="dropdown-menu nosotros-dropdown absolute left-0 right-0 top-full bg-white border-t border-gray-200 shadow-lg opacity-0 invisible transform translate-y-2 transition-all duration-300 ease-out z-50"
   >
-   <div class="container mx-auto px-4 py-8">
-  <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
-    <a
-      href="/planteles/general"
-      class="group block p-4 rounded-lg hover:bg-blue-50 transition-colors duration-200"
-    >
-      <h3
-        class="font-semibold text-gray-900 group-hover:text-blue-600 mb-2"
-      >
-        Planteles
-      </h3>
-      <p class="text-sm text-gray-500">Conoce nuestras sedes y su oferta académica.</p>
-    </a>
+    <div class="container mx-auto px-4 py-8">
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+        <a
+          href="/planteles/general"
+          class="group block p-4 rounded-lg hover:bg-blue-50 transition-colors duration-200"
+        >
+          <h3
+            class="font-semibold text-gray-900 group-hover:text-blue-600 mb-2"
+          >
+            Planteles
+          </h3>
+          <p class="text-sm text-gray-500">
+            Conoce nuestras sedes y su oferta académica.
+          </p>
+        </a>
 
-    <a
-      href="/acerca/historia"
-      class="group block p-4 rounded-lg hover:bg-blue-50 transition-colors duration-200"
-    >
-      <h3
-        class="font-semibold text-gray-900 group-hover:text-blue-600 mb-2"
-      >
-        Historia sobre nosotros
-      </h3>
-      <p class="text-sm text-gray-500">Descubre nuestra trayectoria y misión educativa.</p>
-    </a>
+        <a
+          href="/acerca/historia"
+          class="group block p-4 rounded-lg hover:bg-blue-50 transition-colors duration-200"
+        >
+          <h3
+            class="font-semibold text-gray-900 group-hover:text-blue-600 mb-2"
+          >
+            Historia sobre nosotros
+          </h3>
+          <p class="text-sm text-gray-500">
+            Descubre nuestra trayectoria y misión educativa.
+          </p>
+        </a>
 
-    <a
-      href="#"
-      class="group block p-4 rounded-lg hover:bg-blue-50 transition-colors duration-200"
-    >
-      <h3
-        class="font-semibold text-gray-900 group-hover:text-blue-600 mb-2"
-      >
-        Beneficios permanencia
-      </h3>
-      <p class="text-sm text-gray-500">Apoyos y servicios que fortalecen tu experiencia.</p>
-    </a>
+        <a
+          href="/acerca/beneficios"
+          class="group block p-4 rounded-lg hover:bg-blue-50 transition-colors duration-200"
+        >
+          <h3
+            class="font-semibold text-gray-900 group-hover:text-blue-600 mb-2"
+          >
+            Beneficios permanencia
+          </h3>
+          <p class="text-sm text-gray-500">
+            Apoyos y servicios que fortalecen tu experiencia.
+          </p>
+        </a>
 
-    <a
-      href="#"
-      class="group block p-4 rounded-lg hover:bg-blue-50 transition-colors duration-200"
-    >
-      <h3
-        class="font-semibold text-gray-900 group-hover:text-blue-600 mb-2"
-      >
-        Contacto
-      </h3>
-      <p class="text-sm text-gray-500">Canales directos para resolver tus dudas.</p>
-    </a>
+        <a
+          href="/contacto/solicitarinformacion"
+          class="group block p-4 rounded-lg hover:bg-blue-50 transition-colors duration-200"
+        >
+          <h3
+            class="font-semibold text-gray-900 group-hover:text-blue-600 mb-2"
+          >
+            Contacto
+          </h3>
+          <p class="text-sm text-gray-500">
+            Canales directos para resolver tus dudas.
+          </p>
+        </a>
 
-   
-    <a
-      href="#"
-      class="group block p-4 rounded-lg hover:bg-blue-50 transition-colors duration-200"
-    >
-      <h3
-        class="font-semibold text-gray-900 group-hover:text-blue-600 mb-2"
-      >
-        Agendar una visita
-      </h3>
-      <p class="text-sm text-gray-500">Explora nuestro campus de forma personalizada.</p>
-    </a>
-  </div>
-</div>
-
+        <a
+          href="/contacto/solicitarvisita"
+          class="group block p-4 rounded-lg hover:bg-blue-50 transition-colors duration-200"
+        >
+          <h3
+            class="font-semibold text-gray-900 group-hover:text-blue-600 mb-2"
+          >
+            Agendar una visita
+          </h3>
+          <p class="text-sm text-gray-500">
+            Explora nuestro campus de forma personalizada.
+          </p>
+        </a>
+      </div>
+    </div>
   </div>
 
   <div

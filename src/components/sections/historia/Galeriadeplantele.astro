@@ -1,0 +1,169 @@
+---
+// Importar imágenes
+import Centro from '@/assets/Imagenes/Planteles/Centro.jpg';
+import CentroMedico from '@/assets/Imagenes/Planteles/CentroMedico.jpg';
+import Chapultepec from '@/assets/Imagenes/Planteles/Chapultepec.png';
+import Milenio from '@/assets/Imagenes/Planteles/Milenio.jpg';
+import PlazaSol from '@/assets/Imagenes/Planteles/PlazaSol.png';
+import PuertoVallarta from '@/assets/Imagenes/Planteles/PuertoVallarta.png';
+import Tepatitlan from '@/assets/Imagenes/Planteles/Tepatitlan.jpg';
+import Tesistan from '@/assets/Imagenes/Planteles/Tesistan.png';
+import Tlajomulco from '@/assets/Imagenes/Planteles/Tlajomulco.png';
+import Tlaquepaque from '@/assets/Imagenes/Planteles/Tlaquepaque.jpg';
+import Tonala from '@/assets/Imagenes/Planteles/Tonala.png';
+import Zapopan from '@/assets/Imagenes/Planteles/Zapopan.png';
+
+// Lista de planteles
+const planteles = [
+  { nombre: "Centro", imagen: Centro },
+  { nombre: "Centro Médico", imagen: CentroMedico },
+  { nombre: "Chapultepec", imagen: Chapultepec },
+  { nombre: "Milenio", imagen: Milenio },
+  { nombre: "Plaza del Sol", imagen: PlazaSol },
+  { nombre: "Puerto Vallarta", imagen: PuertoVallarta },
+  { nombre: "Tepatitlán", imagen: Tepatitlan },
+  { nombre: "Tesistán", imagen: Tesistan },
+  { nombre: "Tlajomulco", imagen: Tlajomulco },
+  { nombre: "Tlaquepaque", imagen: Tlaquepaque },
+  { nombre: "Tonalá", imagen: Tonala },
+];
+
+// Generar slug
+function generarSlug(nombre) {
+  return (
+    "plantel-" +
+    nombre
+      .toLowerCase()
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "") // elimina acentos
+      .replace(/\s+/g, "-")            // espacios por guiones
+  );
+}
+
+
+// Dividir en grupos: primera fila 4, segunda fila 3, luego bloques de 4
+const fila1 = planteles.slice(0, 4);
+const fila2 = planteles.slice(4, 7);
+const filasExtra = [];
+for (let i = 7; i < planteles.length; i += 4) {
+  filasExtra.push(planteles.slice(i, i + 4));
+}
+---
+<section class="py-12 bg-gray-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Encabezado -->
+    <div class="text-center mb-12">
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+        Nuestros Planteles
+      </h2>
+      <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+        Cada uno lleno de historias, momentos y experiencias, todo concentrado para tu aprendizaje.
+      </p>
+    </div>
+
+    <div class="space-y-6">
+      <!-- Primera fila -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {fila1.map((plantel) => (
+          <a
+            href={`/planteles/${generarSlug(plantel.nombre)}`}
+            class="group relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2"
+          >
+            <div class="aspect-w-4 aspect-h-3 overflow-hidden">
+              <img
+                src={plantel.imagen.src}
+                alt={`Plantel ${plantel.nombre}`}
+                class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-300"
+                loading="lazy"
+              />
+            </div>
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <div class="absolute bottom-4 left-4 right-4">
+                <h3 class="text-white font-semibold text-lg mb-1">
+                  {plantel.nombre}
+                </h3>
+                <p class="text-white/90 text-sm">Ver más detalles</p>
+              </div>
+            </div>
+          </a>
+        ))}
+      </div>
+
+      <!-- Segunda fila centrada -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:max-w-5xl lg:mx-auto">
+        {fila2.map((plantel) => (
+          <a
+            href={`/planteles/${generarSlug(plantel.nombre)}`}
+            class="group relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2"
+          >
+            <div class="aspect-w-4 aspect-h-3 overflow-hidden">
+              <img
+                src={plantel.imagen.src}
+                alt={`Plantel ${plantel.nombre}`}
+                class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-300"
+                loading="lazy"
+              />
+            </div>
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <div class="absolute bottom-4 left-4 right-4">
+                <h3 class="text-white font-semibold text-lg mb-1">
+                  {plantel.nombre}
+                </h3>
+                <p class="text-white/90 text-sm">Ver más detalles</p>
+              </div>
+            </div>
+          </a>
+        ))}
+      </div>
+
+      <!-- Filas extra -->
+      {filasExtra.map((fila) => (
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {fila.map((plantel) => (
+            <a
+              href={`/planteles/${generarSlug(plantel.nombre)}`}
+              class="group relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2"
+            >
+              <div class="aspect-w-4 aspect-h-3 overflow-hidden">
+                <img
+                  src={plantel.imagen.src}
+                  alt={`Plantel ${plantel.nombre}`}
+                  class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-300"
+                  loading="lazy"
+                />
+              </div>
+              <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <div class="absolute bottom-4 left-4 right-4">
+                  <h3 class="text-white font-semibold text-lg mb-1">
+                    {plantel.nombre}
+                  </h3>
+                  <p class="text-white/90 text-sm">Ver más detalles</p>
+                </div>
+              </div>
+            </a>
+          ))}
+        </div>
+      ))}
+    </div>
+
+    <!-- Botón -->
+    <div class="text-center mt-12">
+      <a href="/planteles" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-8 rounded-lg transition-colors duration-200 shadow-lg hover:shadow-xl">
+        Ver todos los planteles
+      </a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .aspect-w-4 {
+    position: relative;
+    padding-bottom: 75%;
+  }
+  .aspect-w-4 > * {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+  }
+</style>

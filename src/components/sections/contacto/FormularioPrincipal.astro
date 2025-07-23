@@ -1,0 +1,310 @@
+---
+// DynamicEducationForm.astro
+---
+
+<form id="education-form" class="space-y-3 lg:space-y-4 flex-1 lg:flex-none">
+  <!-- Nombre -->
+  <div>
+    <input 
+      type="text" 
+      name="nombre"
+      placeholder="Nombre" 
+      class="w-full px-2 lg:px-4 py-1.5 lg:py-2.5 border-b-2 border-gray-200 focus:border-blue-500 outline-none transition-colors bg-transparent text-sm lg:text-base"
+      required
+    />
+  </div>
+  
+  <!-- Apellidos completos -->
+  <div>
+    <input 
+      type="text" 
+      name="apellidos"
+      placeholder="Apellidos completos" 
+      class="w-full px-2 lg:px-4 py-1.5 lg:py-2.5 border-b-2 border-gray-200 focus:border-blue-500 outline-none transition-colors bg-transparent text-sm lg:text-base"
+      required
+    />
+  </div>
+  
+  <!-- Correo electrónico -->
+  <div>
+    <input 
+      type="email" 
+      name="correo"
+      placeholder="Correo electrónico" 
+      class="w-full px-2 lg:px-4 py-1.5 lg:py-2.5 border-b-2 border-gray-200 focus:border-blue-500 outline-none transition-colors bg-transparent text-sm lg:text-base"
+      required
+    />
+  </div>
+  
+  <!-- Teléfono -->
+  <div>
+    <input 
+      type="tel" 
+      name="telefono"
+      placeholder="Teléfono" 
+      class="w-full px-2 lg:px-4 py-1.5 lg:py-2.5 border-b-2 border-gray-200 focus:border-blue-500 outline-none transition-colors bg-transparent text-sm lg:text-base"
+      required
+    />
+  </div>
+  
+  <!-- Nivel educativo -->
+  <div>
+    <label class="text-xs lg:text-sm text-gray-600 mb-2 block">Nivel educativo</label>
+    <select 
+      name="nivelEducativo"
+      id="nivel-educativo"
+      class="w-full px-2 lg:px-4 py-1.5 lg:py-2.5 border-b-2 border-gray-200 focus:border-blue-500 outline-none transition-colors bg-transparent text-gray-500 text-sm lg:text-base"
+      required
+    >
+      <option value="">Selecciona una opción</option>
+      <option value="primaria">Primaria</option>
+      <option value="secundaria">Secundaria</option>
+      <option value="preparatoria">Preparatoria</option>
+      <option value="licenciatura">Licenciatura</option>
+      <option value="maestria">Maestría</option>
+      <option value="doctorado">Doctorado</option>
+    </select>
+  </div>
+  
+  <!-- Programa de interés -->
+  <div id="programa-container" class="hidden">
+    <label class="text-xs lg:text-sm text-gray-600 mb-2 block">Programa de interés</label>
+    <select 
+      name="programaInteres"
+      id="programa-interes"
+      class="w-full px-2 lg:px-4 py-1.5 lg:py-2.5 border-b-2 border-gray-200 focus:border-blue-500 outline-none transition-colors bg-transparent text-gray-500 text-sm lg:text-base"
+    >
+      <option value="">Selecciona una opción</option>
+    </select>
+  </div>
+
+  <!-- Plantel de interés -->
+  <div>
+    <label class="text-xs lg:text-sm text-gray-600 mb-2 block">Plantel de interés</label>
+    <select 
+      name="plantelInteres"
+      id="plantel-interes"
+      class="w-full px-2 lg:px-4 py-1.5 lg:py-2.5 border-b-2 border-gray-200 focus:border-blue-500 outline-none transition-colors bg-transparent text-gray-500 text-sm lg:text-base"
+      required
+      disabled
+    >
+      <option value="">Selecciona una opción</option>
+    </select>
+  </div>
+  
+  <!-- Modalidad -->
+  <div id="modalidad-container" class="hidden">
+    <label class="text-xs lg:text-sm text-gray-600 mb-2 block">Modalidad</label>
+    <div id="modalidad-options" class="flex flex-wrap gap-2">
+      <!-- Las opciones de modalidad se generarán dinámicamente -->
+    </div>
+  </div>
+  
+  <!-- Botón de envío -->
+  <div class="pt-2 lg:pt-4">
+    <button 
+      type="submit"
+      class="w-full bg-red-500 hover:bg-red-600 text-white font-semibold py-2.5 lg:py-3 px-6 rounded-md transition-colors duration-200 text-sm lg:text-base"
+    >
+      ENVIAR MENSAJE
+    </button>
+  </div>
+</form>
+
+<script>
+  // Configuración de datos dinámicos
+  const educationData = {
+    primaria: {
+      programas: [],
+      planteles: ['Plaza del sol'],
+      modalidades: []
+    },
+    secundaria: {
+      programas: [],
+      planteles: ['Plaza del sol ', 'Tesistán', 'Tlajomulco', 'Tonalá', 'Tlaquepaque', 'Puerto vallarta Av. México'],
+      modalidades: []
+    },
+    preparatoria: {
+      programas: ['Bachillerato UDG', 'Bachillerato SICYT', 'Bachillerato en linea'],
+      planteles: {
+        'Bachillerato UDG': ['Plantel Prep A', 'Plantel Prep B', 'Plantel Prep C'],
+        'Bachillerato SICYT': ['Plantel Técnico 1', 'Plantel Técnico 2'],
+        'Bachillerato en linea': ['Plantel Bivalente Central', 'Plantel Bivalente Norte']
+      },
+      modalidades: ['Escolarizada', 'Mixta']
+    },
+    licenciatura: {
+      programas: ['Administración', 'Ingeniería', 'Derecho', 'Medicina', 'Psicología', 'Contaduría'],
+      planteles: {
+        'Administración': ['Campus Centro', 'Campus Norte', 'Campus Sur'],
+        'Ingeniería': ['Campus Tecnológico', 'Campus Industrial'],
+        'Derecho': ['Campus Jurídico', 'Campus Centro'],
+        'Medicina': ['Campus Ciencias de la Salud'],
+        'Psicología': ['Campus Humanidades', 'Campus Centro'],
+        'Contaduría': ['Campus Económico-Administrativo', 'Campus Centro']
+      },
+      modalidades: ['Escolarizada', 'Mixta', 'En línea']
+    },
+    maestria: {
+      programas: ['MBA', 'Maestría en Educación', 'Maestría en Ingeniería', 'Maestría en Derecho'],
+      planteles: {
+        'MBA': ['Campus Posgrados', 'Campus Ejecutivo'],
+        'Maestría en Educación': ['Campus Humanidades'],
+        'Maestría en Ingeniería': ['Campus Tecnológico'],
+        'Maestría en Derecho': ['Campus Jurídico']
+      },
+      modalidades: ['Escolarizada', 'Mixta', 'En línea', 'Fines de semana']
+    },
+    doctorado: {
+      programas: ['Doctorado en Administración', 'Doctorado en Educación', 'Doctorado en Ingeniería'],
+      planteles: {
+        'Doctorado en Administración': ['Campus Posgrados'],
+        'Doctorado en Educación': ['Campus Humanidades'],
+        'Doctorado en Ingeniería': ['Campus Tecnológico']
+      },
+      modalidades: ['Escolarizada', 'Mixta']
+    }
+  };
+
+  // Elementos del DOM
+  const nivelEducativoSelect = document.getElementById('nivel-educativo');
+  const programaContainer = document.getElementById('programa-container');
+  const programaInteresSelect = document.getElementById('programa-interes');
+  const plantelInteresSelect = document.getElementById('plantel-interes');
+  const modalidadContainer = document.getElementById('modalidad-container');
+  const modalidadOptions = document.getElementById('modalidad-options');
+  const form = document.getElementById('education-form');
+
+  // Función para limpiar select
+  function clearSelect(selectElement) {
+    selectElement.innerHTML = '<option value="">Selecciona una opción</option>';
+  }
+
+  // Función para poblar select
+  function populateSelect(selectElement, options) {
+    clearSelect(selectElement);
+    options.forEach(option => {
+      const optionElement = document.createElement('option');
+      optionElement.value = option;
+      optionElement.textContent = option;
+      selectElement.appendChild(optionElement);
+    });
+  }
+
+  // Función para crear opciones de modalidad con el estilo original
+  function createModalidadOptions(modalidades) {
+    modalidadOptions.innerHTML = '';
+    modalidades.forEach(modalidad => {
+      const label = document.createElement('label');
+      label.className = 'flex items-center';
+      
+      const input = document.createElement('input');
+      input.type = 'radio';
+      input.name = 'modalidad';
+      input.value = modalidad.toLowerCase().replace(' ', '_');
+      input.className = 'sr-only peer';
+      input.required = true;
+      
+      const span = document.createElement('span');
+      span.className = 'px-3 py-1.5 text-xs lg:text-sm border border-gray-300 rounded-full cursor-pointer peer-checked:bg-blue-500 peer-checked:text-white peer-checked:border-blue-500 transition-colors';
+      span.textContent = modalidad;
+      
+      label.appendChild(input);
+      label.appendChild(span);
+      modalidadOptions.appendChild(label);
+    });
+  }
+
+  // Event listener para cambio de nivel educativo
+  nivelEducativoSelect.addEventListener('change', function() {
+    const selectedLevel = this.value;
+    
+    // Reset campos dependientes
+    clearSelect(programaInteresSelect);
+    clearSelect(plantelInteresSelect);
+    modalidadOptions.innerHTML = '';
+    
+    if (!selectedLevel) {
+      programaContainer.classList.add('hidden');
+      modalidadContainer.classList.add('hidden');
+      plantelInteresSelect.disabled = true;
+      return;
+    }
+
+    const currentEducationLevel = educationData[selectedLevel];
+    const showPrograms = !['primaria', 'secundaria'].includes(selectedLevel);
+    const showModalities = !['primaria', 'secundaria'].includes(selectedLevel);
+
+    // Mostrar/ocultar programa de interés
+    if (showPrograms && currentEducationLevel.programas.length > 0) {
+      programaContainer.classList.remove('hidden');
+      populateSelect(programaInteresSelect, currentEducationLevel.programas);
+      plantelInteresSelect.disabled = true;
+    } else {
+      programaContainer.classList.add('hidden');
+      // Para primaria y secundaria, poblar directamente los planteles
+      if (Array.isArray(currentEducationLevel.planteles)) {
+        populateSelect(plantelInteresSelect, currentEducationLevel.planteles);
+        plantelInteresSelect.disabled = false;
+      }
+    }
+
+    // Mostrar/ocultar modalidades
+    if (showModalities && currentEducationLevel.modalidades.length > 0) {
+      modalidadContainer.classList.remove('hidden');
+      createModalidadOptions(currentEducationLevel.modalidades);
+    } else {
+      modalidadContainer.classList.add('hidden');
+    }
+  });
+
+  // Event listener para cambio de programa
+  programaInteresSelect.addEventListener('change', function() {
+    const selectedProgram = this.value;
+    const selectedLevel = nivelEducativoSelect.value;
+    
+    clearSelect(plantelInteresSelect);
+    
+    if (!selectedProgram || !selectedLevel) {
+      plantelInteresSelect.disabled = true;
+      return;
+    }
+
+    const currentEducationLevel = educationData[selectedLevel];
+    const availablePlanteles = currentEducationLevel.planteles[selectedProgram] || [];
+    
+    if (availablePlanteles.length > 0) {
+      populateSelect(plantelInteresSelect, availablePlanteles);
+      plantelInteresSelect.disabled = false;
+    } else {
+      plantelInteresSelect.disabled = true;
+    }
+  });
+
+  // Event listener para envío del formulario
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    const formData = new FormData(this);
+    const data = Object.fromEntries(formData);
+    
+    console.log('Datos del formulario:', data);
+    alert('Formulario enviado correctamente');
+  });
+
+  // Event delegation para radio buttons de modalidad
+  modalidadOptions.addEventListener('click', function(e) {
+    if (e.target.tagName === 'SPAN' && e.target.previousElementSibling.type === 'radio') {
+      e.target.previousElementSibling.checked = true;
+    }
+  });
+</script>
+
+<style>
+  /* Estilos para los radio buttons personalizados */
+  input[type="radio"]:checked + span {
+    background-color: #3b82f6;
+    color: white;
+    border-color: #3b82f6;
+  }
+</style>

@@ -1,0 +1,620 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Hero from "@/assets/Imagenes/Heros/Secundaria.jpg";
+import Hero_mobile from "@/assets/Imagenes/Heros/Secundaria_mobile.jpg";
+import ColegioUNE from "@/assets/Logos/Colegio.png";
+import Chapu from "@assets/Imagenes/CardsPlanteles/Chapultepec.png";
+import Fondo from "@/assets/Imagenes/Middles/Fondo-plantel.png";
+
+import CTAinscripcion from "@/components/sections/shared/ctaInscripcion.astro";
+---
+
+<Layout>
+  <main class="min-h-screen">
+    <!-- Hero Section -->
+    <section
+      class="beneficios-bg relative min-h-[85vh] md:min-h-[65vh] bg-cover bg-center bg-no-repeat"
+    >
+      <div
+        class="relative z-10 container mx-auto px-4 h-full min-h-[85vh] md:min-h-[65vh] flex flex-col justify-center"
+      >
+        <div class="text-center text-white max-w-4xl mx-auto">
+          <h1 class="text-6xl md:text-7xl font-bold tracking-wider mb-4">
+            Educación para cada etapa de tu vida
+          </h1>
+          <h2 class="text-4xl md:text-5xl font-bold tracking-wider mb-8">
+            Desde Montessori hasta Posgrados, solo en UNE
+          </h2>
+          <p
+            class="text-lg md:text-xl leading-relaxed mb-16 max-w-3xl mx-auto font-light"
+          >
+            Une tu camino educativo desde la infancia hasta tu vida profesional.
+            Con programas diseñados para acompañarte desde primaria hasta
+            diplomados y maestrías, UNE es más que una escuela: es tu proyecto
+            de vida.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Floating Card -->
+    <div class="relative -top-28 z-20 px-4">
+      <div class="bg-white rounded-2xl px-8 py-6 shadow-2xl max-w-2xl mx-auto">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center space-x-4">
+            <img
+              src={ColegioUNE.src}
+              alt="Colegio UNE"
+              class="w-48 object-contain"
+            />
+          </div>
+          <button
+            class="bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-6 rounded-lg text-base transition-colors duration-300 shadow-lg whitespace-nowrap"
+          >
+            INSCRIBIR A MI HIJO
+          </button>
+        </div>
+      </div>
+    </div>
+
+    
+    <!-- Narrative Section -->
+    <section class="py-16 px-4 bg-white">
+      <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl lg:text-5xl font-bold mb-6 text-gray-800">
+            ¿Por qué elegir UNE para toda la vida?
+          </h2>
+          <p class="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+            En UNE no solo educamos, construimos trayectorias de vida. Desde que
+            tu hijo da sus primeros pasos educativos hasta que alcanza sus metas
+            profesionales más altas, somos su hogar académico.
+          </p>
+        </div>
+
+        <div class="grid lg:grid-cols-2 gap-16 items-center mb-20">
+          <!-- Imagen -->
+          <div class="relative">
+            <div class="relative">
+            <div class="relative z-10">
+              <img
+                src={Chapu.src}
+                alt="Edificio UNE - Campus Chapultepec"
+                class="w-3/4 h-auto rounded-lg shadow-2xl"
+              />
+            </div>
+          </div>
+            <div
+              class="absolute -bottom-4 -right-4 w-24 h-24 bg-red-500 rounded-full opacity-20"
+            >
+            </div>
+            <div
+              class="absolute -top-4 -left-4 w-16 h-16 bg-yellow-400 rounded-full opacity-30"
+            >
+            </div>
+          </div>
+
+          <!-- Narrativa principal -->
+          <div class="space-y-8">
+            <h3 class="text-3xl font-bold text-gray-800">
+              Tu formación, sin interrupciones
+            </h3>
+            <div class="space-y-6">
+              <div class="bg-blue-50 p-6 rounded-lg border-l-4 border-blue-500">
+                <h4 class="font-bold text-lg mb-2 text-blue-900">
+                  Continuidad Educativa
+                </h4>
+                <p class="text-gray-700">
+                  Imagina no tener que cambiar de escuela nunca. En UNE, tu hijo
+                  puede estudiar desde primaria hasta su maestría en el mismo
+                  lugar, con maestros que lo conocen y un enfoque pedagógico
+                  consistente.
+                </p>
+              </div>
+
+              <div
+                class="bg-green-50 p-6 rounded-lg border-l-4 border-green-500"
+              >
+                <h4 class="font-bold text-lg mb-2 text-green-900">
+                  Metodología Integral
+                </h4>
+                <p class="text-gray-700">
+                  Comenzamos con Montessori en primaria, desarrollando autonomía
+                  y amor por el aprendizaje. Esta base sólida se fortalece en
+                  cada etapa hasta llegar a la excelencia profesional.
+                </p>
+              </div>
+
+              <div class="bg-red-50 p-6 rounded-lg border-l-4 border-red-500">
+                <h4 class="font-bold text-lg mb-2 text-red-900">
+                  Comunidad de por Vida
+                </h4>
+                <p class="text-gray-700">
+                  En UNE no solo estudias, te conviertes en parte de una familia
+                  educativa. Tus compañeros de primaria pueden ser tus colegas
+                  profesionales del futuro.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Educational Journey Timeline -->
+    <section class="py-20 bg-gradient-to-br from-gray-50 to-gray-100">
+      <div class="max-w-7xl mx-auto px-4">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl lg:text-5xl font-bold mb-6 text-gray-800">
+            Tu Trayectoria Educativa en UNE
+          </h2>
+          <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+            Descubre cómo cada etapa se conecta perfectamente con la siguiente,
+            creando una experiencia educativa sin precedentes.
+          </p>
+        </div>
+
+        <div class="relative">
+          <!-- Timeline Line -->
+          <div
+            class="absolute left-8 md:left-1/2 transform md:-translate-x-1/2 top-0 bottom-0 w-1 timeline-line"
+          >
+          </div>
+
+          <!-- Timeline Items -->
+          <div class="space-y-12">
+            <!-- Primaria Montessori -->
+            <div class="relative flex flex-col md:flex-row items-center">
+              <div class="flex-1 md:pr-8 md:text-right">
+                <div class="journey-card bg-white p-8 rounded-2xl shadow-lg">
+                  <div class="flex items-center md:justify-end mb-4">
+                    <div
+                      class="w-12 h-12 bg-yellow-400 rounded-full flex items-center justify-center mr-4 md:mr-0 md:ml-4 md:order-2"
+                    >
+                      <span class="text-white font-bold">1°</span>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-800">
+                      Primaria Montessori
+                    </h3>
+                  </div>
+                  <p class="text-gray-600 leading-relaxed mb-4">
+                    <strong>Edades 6-12 años.</strong><br> Desarrollamos la autonomía,
+                    creatividad y amor por el aprendizaje a través del método Montessori.
+                    Aquí nacen los cimientos de su educación integral.
+                  </p>
+                  <div class="flex flex-wrap gap-2">
+                    <span
+                      class="bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-sm font-medium"
+                      >Autonomía</span
+                    >
+                    <span
+                      class="bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-sm font-medium"
+                      >Creatividad</span
+                    >
+                    <span
+                      class="bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-sm font-medium"
+                      >Autoestima</span
+                    >
+                  </div>
+                </div>
+              </div>
+              
+            </div>
+
+            <!-- Secundaria -->
+            <div class="relative flex flex-col md:flex-row items-center">
+              <div class="flex-1 md:pl-8">
+                <div class="journey-card bg-white p-8 rounded-2xl shadow-lg">
+                  <div class="flex items-center mb-4">
+                    <div
+                      class="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center mr-4"
+                    >
+                      <span class="text-white font-bold">2°</span>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-800">Secundaria</h3>
+                  </div>
+                  <p class="text-gray-600 leading-relaxed mb-4">
+                    <strong>Edades 12-15 años.</strong><br> Fortalecemos las bases académicas
+                    mientras desarrollamos habilidades críticas y sociales. El estudiante
+                    ya forma parte de la comunidad UNE.
+                  </p>
+                  <div class="flex flex-wrap gap-2">
+                    <span
+                      class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium"
+                      >Pensamiento Crítico</span
+                    >
+                    <span
+                      class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium"
+                      >Liderazgo</span
+                    >
+                    <span
+                      class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium"
+                      >Valores</span
+                    >
+                  </div>
+                </div>
+              </div>
+              
+            </div>
+
+            <!-- Bachillerato UDG -->
+            <div class="relative flex flex-col md:flex-row items-center">
+              <div class="flex-1 md:pr-8 md:text-right">
+                <div class="journey-card bg-white p-8 rounded-2xl shadow-lg">
+                  <div class="flex items-center md:justify-end mb-4">
+                    <div
+                      class="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center mr-4 md:mr-0 md:ml-4 md:order-2"
+                    >
+                      <span class="text-white font-bold">3°</span>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-800">
+                      Bachillerato UDG
+                    </h3>
+                  </div>
+                  <p class="text-gray-600 leading-relaxed mb-4">
+                    <strong>Edades 15-18 años.</strong><br> Preparatoria escolarizada
+                    con reconocimiento UDG. Preparamos para la universidad con excelencia
+                    académica y madurez personal.
+                  </p>
+                  <div class="flex flex-wrap gap-2 md:justify-end">
+                    <span
+                      class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-medium"
+                      >Reconocimiento UDG</span
+                    >
+                    <span
+                      class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-medium"
+                      >Excelencia</span
+                    >
+                    <span
+                      class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-medium"
+                      >Preparación</span
+                    >
+                  </div>
+                </div>
+              </div>
+              
+            </div>
+
+            <!-- Licenciaturas -->
+            <div class="relative flex flex-col md:flex-row items-center">
+              <div class="flex-1 md:pl-8">
+                <div class="journey-card bg-white p-8 rounded-2xl shadow-lg">
+                  <div class="flex items-center mb-4">
+                    <div
+                      class="w-12 h-12 bg-purple-500 rounded-full flex items-center justify-center mr-4"
+                    >
+                      <span class="text-white font-bold">4°</span>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-800">
+                      Licenciaturas
+                    </h3>
+                  </div>
+                  <p class="text-gray-600 leading-relaxed mb-4">
+                    <strong>Edades 18-22 años.</strong> <br> Diversas carreras profesionales
+                    con enfoque integral. El estudiante ya es parte de la familia
+                    UNE desde hace años.
+                  </p>
+                  <div class="flex flex-wrap gap-2">
+                    <span
+                      class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm font-medium"
+                      >Diversas Áreas</span
+                    >
+                    <span
+                      class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm font-medium"
+                      >Profesionalización</span
+                    >
+                    <span
+                      class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm font-medium"
+                      >Especialización</span
+                    >
+                  </div>
+                </div>
+              </div>
+              
+            </div>
+
+            <!-- Maestrías y Posgrados -->
+            <div class="relative flex flex-col md:flex-row items-center">
+              <div class="flex-1 md:pr-8 md:text-right">
+                <div class="journey-card bg-white p-8 rounded-2xl shadow-lg">
+                  <div class="flex items-center md:justify-end mb-4">
+                    <div
+                      class="w-12 h-12 bg-red-500 rounded-full flex items-center justify-center mr-4 md:mr-0 md:ml-4 md:order-2"
+                    >
+                      <span class="text-white font-bold">5°</span>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-800">
+                      Maestrías y Posgrados
+                    </h3>
+                  </div>
+                  <p class="text-gray-600 leading-relaxed mb-4">
+                    <strong>A partir de los 22 años.</strong><br> Especialización avanzada
+                    y liderazgo profesional. Más de 30 años de formación continua
+                    en UNE.
+                  </p>
+                  <div class="flex flex-wrap gap-2 md:justify-end">
+                    <span
+                      class="bg-red-100 text-red-800 px-3 py-1 rounded-full text-sm font-medium"
+                      >Especialización</span
+                    >
+                    <span
+                      class="bg-red-100 text-red-800 px-3 py-1 rounded-full text-sm font-medium"
+                      >Liderazgo</span
+                    >
+                    <span
+                      class="bg-red-100 text-red-800 px-3 py-1 rounded-full text-sm font-medium"
+                      >Excelencia</span
+                    >
+                  </div>
+                </div>
+              </div>
+              
+            </div>
+
+            <!-- Educación Continua -->
+            <div class="relative flex flex-col md:flex-row items-center">
+              <div class="flex-1 md:pl-8">
+                <div
+                  class="journey-card bg-white p-8 rounded-2xl shadow-lg border-2 border-gold-400"
+                >
+                  <div class="flex items-center mb-4">
+                    <div
+                      class="w-12 h-12 bg-yellow-600 rounded-full flex items-center justify-center mr-4"
+                    >
+                      <span class="text-white font-bold">∞</span>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-800">
+                      Educación Continua
+                    </h3>
+                  </div>
+                  <p class="text-gray-600 leading-relaxed mb-4">
+                    <strong>Toda la vida.</strong> Cursos, diplomados y actualización
+                    profesional constante. UNE es tu hogar educativo para siempre.
+                  </p>
+                  <div class="flex flex-wrap gap-2">
+                    <span
+                      class="bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-sm font-medium"
+                      >Diplomados</span
+                    >
+                    <span
+                      class="bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-sm font-medium"
+                      >Actualización</span
+                    >
+                    <span
+                      class="bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-sm font-medium"
+                      >Vida Completa</span
+                    >
+                  </div>
+                </div>
+              </div>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="py-20 bg-white">
+      <div class="max-w-7xl mx-auto px-4">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl font-bold mb-6 text-gray-800">
+            Los Beneficios de Crecer con UNE
+          </h2>
+          <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+            Ser estudiante de UNE durante toda tu trayectoria educativa te
+            brinda ventajas únicas
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div
+            class="bg-gradient-to-br from-blue-50 to-blue-100 p-8 rounded-2xl"
+          >
+            <div
+              class="w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center mb-6"
+            >
+              <svg
+                class="w-8 h-8 text-white"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+              >
+                <path
+                  d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3z"
+                ></path>
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold mb-4 text-gray-800">
+              Conocimiento Profundo
+            </h3>
+            <p class="text-gray-600">
+              Tus maestros te conocen desde pequeño, entienden tu estilo de
+              aprendizaje y pueden potenciar tus fortalezas únicas.
+            </p>
+          </div>
+
+          <div
+            class="bg-gradient-to-br from-green-50 to-green-100 p-8 rounded-2xl"
+          >
+            <div
+              class="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mb-6"
+            >
+              <svg
+                class="w-8 h-8 text-white"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z"
+                  clip-rule="evenodd"></path>
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold mb-4 text-gray-800">
+              Continuidad Metodológica
+            </h3>
+            <p class="text-gray-600">
+              Cada etapa refuerza la anterior. No hay rupturas ni adaptaciones
+              traumáticas a nuevos sistemas educativos.
+            </p>
+          </div>
+
+          <div
+            class="bg-gradient-to-br from-purple-50 to-purple-100 p-8 rounded-2xl"
+          >
+            <div
+              class="w-16 h-16 bg-purple-500 rounded-full flex items-center justify-center mb-6"
+            >
+              <svg
+                class="w-8 h-8 text-white"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+              >
+                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold mb-4 text-gray-800">
+              Red de Contactos
+            </h3>
+            <p class="text-gray-600">
+              Construyes relaciones duraderas. Tus compañeros de primaria pueden
+              ser tus socios profesionales del futuro.
+            </p>
+          </div>
+
+          <div class="bg-gradient-to-br from-red-50 to-red-100 p-8 rounded-2xl">
+            <div
+              class="w-16 h-16 bg-red-500 rounded-full flex items-center justify-center mb-6"
+            >
+              <svg
+                class="w-8 h-8 text-white"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z"
+                  clip-rule="evenodd"></path>
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold mb-4 text-gray-800">
+              Sentido de Pertenencia
+            </h3>
+            <p class="text-gray-600">
+              UNE no es solo tu escuela, es tu hogar académico. Desarrollas un
+              arraigo y orgullo institucional únicos.
+            </p>
+          </div>
+
+          <div
+            class="bg-gradient-to-br from-yellow-50 to-yellow-100 p-8 rounded-2xl"
+          >
+            <div
+              class="w-16 h-16 bg-yellow-500 rounded-full flex items-center justify-center mb-6"
+            >
+              <svg
+                class="w-8 h-8 text-white"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                  clip-rule="evenodd"></path>
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold mb-4 text-gray-800">
+              Facilidad de Transición
+            </h3>
+            <p class="text-gray-600">
+              Conoces las instalaciones, el personal y los procesos. Cada nueva
+              etapa se vive con confianza y familiaridad.
+            </p>
+          </div>
+
+          <div
+            class="bg-gradient-to-br from-indigo-50 to-indigo-100 p-8 rounded-2xl"
+          >
+            <div
+              class="w-16 h-16 bg-indigo-500 rounded-full flex items-center justify-center mb-6"
+            >
+              <svg
+                class="w-8 h-8 text-white"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+              >
+                <path
+                  d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                ></path>
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold mb-4 text-gray-800">
+              Excelencia Reconocida
+            </h3>
+            <p class="text-gray-600">
+              30+ años de formación integral te posicionan como un profesional
+              excepcional con valores sólidos y preparación integral.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section
+      style={{ backgroundImage: `url(${Fondo.src})` }}
+      class="py-20 text-white"
+    >
+      <div class="max-w-4xl mx-auto px-4 text-center">
+        <h2 class="text-4xl md:text-5xl font-bold mb-6">
+          Inicia la Trayectoria de Vida de tu Hijo
+        </h2>
+        <p class="text-xl mb-8 leading-relaxed opacity-95">
+          No es solo una escuela, es una decisión que marcará toda su vida. Dale
+          la oportunidad de crecer en un lugar donde cada etapa está diseñada
+          para potenciar la siguiente.
+        </p>
+        <div
+          class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8"
+        >
+          <button
+            class=" text-white border-2 border-white hover:text-rojo-une hover:bg-gray-100 font-bold py-4 px-8 rounded-lg text-lg transition-all duration-300 shadow-lg transform hover:scale-105"
+          >
+            AGENDAR VISITA AL CAMPUS
+          </button>
+          <button
+            class="border-2 border-white text-white hover:bg-white hover:text-red-600 font-bold py-4 px-8 rounded-lg text-lg transition-all duration-300"
+          >
+            SOLICITAR INFORMACIÓN
+          </button>
+        </div>
+        <div class="grid sm:grid-cols-3 gap-6 max-w-2xl mx-auto text-center">
+          <div class=" bg-opacity-10 backdrop-blur-sm rounded-lg p-4">
+            <div class="font-bold text-lg mb-1">Método Montessori</div>
+            <div class="text-sm opacity-90">Primaria integral</div>
+          </div>
+          <div class=" bg-opacity-10 backdrop-blur-sm rounded-lg p-4">
+            <div class="font-bold text-lg mb-1">Bachillerato UDG</div>
+            <div class="text-sm opacity-90">Reconocimiento oficial</div>
+          </div>
+          <div class=" bg-opacity-10 backdrop-blur-sm rounded-lg p-4">
+            <div class="font-bold text-lg mb-1">Hasta Maestrías</div>
+            <div class="text-sm opacity-90">Formación completa</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout>
+
+<style>
+  .beneficios-bg {
+    background-image: url("/src/assets/Imagenes/Heros/Planteles/General.jpg");
+  }
+
+  @media (max-width: 767px) {
+    .beneficios-bg {
+      background-image: url("/src/assets/Imagenes/Heros/Planteles/General_mobile.jpg");
+    }
+  }
+</style>

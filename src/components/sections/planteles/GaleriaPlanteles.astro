@@ -1,0 +1,181 @@
+---
+// Importar todas las imágenes
+import Graduado1 from "@/assets/Imagenes/Graduados/Graduaciones/Tepatitlan.jpg";
+import Graduado2 from "@/assets/Imagenes/Graduados/Graduaciones/Graduado2.jpg";
+import Graduado3 from "@/assets/Imagenes/Graduados/Graduaciones/Graduado3.jpg";
+import Graduado4 from "@/assets/Imagenes/Graduados/Graduaciones/Graduado4.jpg";
+import Graduado5 from "@/assets/Imagenes/Graduados/Graduaciones/Graduado5.jpg";
+import Graduado6 from "@/assets/Imagenes/Graduados/Graduaciones/Graduado6.jpg";
+import Graduado7 from "@/assets/Imagenes/Graduados/Graduaciones/Graduado7.jpg";
+
+// Array de imágenes con información
+const graduaciones = [
+  {
+    src: Graduado1,
+    alt: "Ceremonia de graduación - Estudiantes con diplomas",
+    title: "Graduación 2024"
+  },
+  {
+    src: Graduado2,
+    alt: "Entrega de diploma individual",
+    title: "Entrega de Diplomas"
+  },
+  {
+    src: Graduado3,
+    alt: "Graduado recibiendo reconocimiento",
+    title: "Reconocimientos Académicos"
+  },
+  {
+    src: Graduado4,
+    alt: "Grupo de graduados en ceremonia",
+    title: "Ceremonia Oficial"
+  },
+  {
+    src: Graduado5,
+    alt: "Graduados con togas en exterior",
+    title: "Celebración de Logros"
+  },
+  {
+    src: Graduado6,
+    alt: "Momento especial de graduación",
+    title: "Momentos Especiales"
+  },
+  {
+    src: Graduado7,
+    alt: "Graduada con birrete",
+    title: "Nuevos Profesionales"
+  }
+];
+---
+
+<section class="py-12 bg-gray-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Título de la sección -->
+    <div class="text-center mb-12">
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+        Así se viven nuestras graduaciones
+      </h2>
+      <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+        Momentos inolvidables que celebran el esfuerzo y dedicación de nuestros estudiantes
+      </p>
+    </div>
+
+    <!-- Galería de imágenes -->
+    <div class="space-y-6">
+      <!-- Primera fila: 4 imágenes en desktop -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {graduaciones.slice(0, 4).map((graduacion, index) => (
+          <div class="group relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+            <!-- Imagen -->
+            <div class="aspect-w-4 aspect-h-3 overflow-hidden">
+              <img
+                src={graduacion.src.src}
+                alt={graduacion.alt}
+                class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-300"
+                loading="lazy"
+              />
+            </div>
+            
+            <!-- Overlay con información -->
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <div class="absolute bottom-4 left-4 right-4">
+                <h3 class="text-white font-semibold text-lg mb-1">
+                  {graduacion.title}
+                </h3>
+                <p class="text-white/90 text-sm">
+                  {graduacion.alt}
+                </p>
+              </div>
+            </div>
+
+            <!-- Indicador de hover -->
+            <div class="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <div class="bg-white/20 backdrop-blur-sm rounded-full p-2">
+                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                </svg>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <!-- Segunda fila: 3 imágenes centradas en desktop -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:max-w-5xl lg:mx-auto">
+        {graduaciones.slice(4, 7).map((graduacion, index) => (
+          <div class="group relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+            <!-- Imagen -->
+            <div class="aspect-w-4 aspect-h-3 overflow-hidden">
+              <img
+                src={graduacion.src.src}
+                alt={graduacion.alt}
+                class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-300"
+                loading="lazy"
+              />
+            </div>
+            
+            <!-- Overlay con información -->
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <div class="absolute bottom-4 left-4 right-4">
+                <h3 class="text-white font-semibold text-lg mb-1">
+                  {graduacion.title}
+                </h3>
+                <p class="text-white/90 text-sm">
+                  {graduacion.alt}
+                </p>
+              </div>
+            </div>
+
+            <!-- Indicador de hover -->
+            <div class="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <div class="bg-white/20 backdrop-blur-sm rounded-full p-2">
+                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                </svg>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Botón para ver más -->
+    <div class="text-center mt-12">
+      <button class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-8 rounded-lg transition-colors duration-200 shadow-lg hover:shadow-xl">
+        Ver más graduaciones
+      </button>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Estilos adicionales para aspect ratio si no tienes el plugin */
+  .aspect-w-4 {
+    position: relative;
+    padding-bottom: 75%; /* 4:3 aspect ratio */
+  }
+  
+  .aspect-w-4 > * {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+</style>
+
+<script>
+  // Script para manejar clics en las imágenes (opcional)
+  document.addEventListener('DOMContentLoaded', function() {
+    const images = document.querySelectorAll('[data-gallery="graduaciones"] img');
+    
+    images.forEach((img, index) => {
+      img.addEventListener('click', function() {
+        // Aquí puedes agregar lógica para abrir un modal o lightbox
+        console.log(`Imagen ${index + 1} clickeada`);
+      });
+    });
+  });
+</script>
