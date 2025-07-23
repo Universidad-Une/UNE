@@ -9,42 +9,55 @@ import Idiomas from "@/assets/Imagenes/Ingles.png";
 import Continua from "@/assets/Imagenes/E_Continua.png";
 
 // Datos de las cards
+// Datos de las cards actualizados con rutas y primaria
 const cardsData = [
+  {
+    id: "primaria",
+    title: "PRIMARIA",
+    description: "Educación básica integral con valores y excelencia académica.",
+    image: Secundaria.src, // Usando la misma imagen que secundaria
+    alt: "Estudiante de Primaria",
+    bgColor: "#001A71",
+    textColor: "text-white",
+    textSecondary: "text-blue-100",
+    hoverColor: "hover:text-blue-200",
+    href: "http://localhost:4321/oferta/colegio-une/Primaria"
+  },
   {
     id: "secundaria",
     title: "SECUNDARIA",
-    description:
-      "Formación integral con talleres académicos, deportivos y artísticos.",
+    description: "Formación integral con talleres académicos, deportivos y artísticos.",
     image: Secundaria.src,
     alt: "Estudiante de Secundaria",
     bgColor: "#001A71",
     textColor: "text-white",
     textSecondary: "text-blue-100",
     hoverColor: "hover:text-blue-200",
+    href: "http://localhost:4321/oferta/colegio-une/Secundaria"
   },
   {
     id: "bachillerato",
     title: "BACHILLERATO",
-    description:
-      "Educación completa, formación integral. Impulsando tu futuro.",
+    description: "Educación completa, formación integral. Impulsando tu futuro.",
     image: Bachillerato.src,
     alt: "Estudiante de Bachillerato",
     bgColor: "#6D8FFF",
     textColor: "text-white",
     textSecondary: "text-blue-100",
     hoverColor: "hover:text-blue-200",
+    href: "http://localhost:4321/oferta/colegio-une/Bachillerato-sej"
   },
   {
     id: "licenciaturas",
     title: "LICENCIATURAS",
-    description:
-      "Programas de excelencia. Encuentra el programa que impulse tu futuro.",
+    description: "Programas de excelencia. Encuentra el programa que impulse tu futuro.",
     image: Licenciaturas.src,
     alt: "Estudiante de Licenciatura",
     bgColor: "rgb(239 68 68)",
     textColor: "text-white",
     textSecondary: "text-red-100",
     hoverColor: "hover:text-red-200",
+    href: "http://localhost:4321/oferta/Licenciaturas"
   },
   {
     id: "posgrados",
@@ -56,6 +69,7 @@ const cardsData = [
     textColor: "text-gray-900",
     textSecondary: "text-gray-700",
     hoverColor: "hover:text-gray-600",
+    href: "http://localhost:4321/oferta/Maestria"
   },
   {
     id: "idiomas",
@@ -67,6 +81,7 @@ const cardsData = [
     textColor: "text-gray-900",
     textSecondary: "text-gray-700",
     hoverColor: "hover:text-gray-600",
+    href: "http://localhost:4321/oferta/Especialidades"
   },
   {
     id: "continua",
@@ -78,11 +93,24 @@ const cardsData = [
     textColor: "text-gray-900",
     textSecondary: "text-gray-700",
     hoverColor: "hover:text-gray-600",
+    href: "http://localhost:4321/oferta/Continua"
   },
+  {
+    id: "diplomados",
+    title: "DIPLOMADOS",
+    description: "Programas especializados para el desarrollo profesional",
+    image: Continua.src,
+    alt: "Diplomados",
+    bgColor: "#F2F6FE",
+    textColor: "text-gray-900",
+    textSecondary: "text-gray-700",
+    hoverColor: "hover:text-gray-600",
+    href: "http://localhost:4321/oferta/Diplomados"
+  }
 ];
 ---
 
-<div class="max-w-10/12 mx-auto">
+<div class="max-w-11/12 mx-auto"> 
   <div class="text-center mb-12">
     <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
       Niveles Educativos
@@ -137,7 +165,7 @@ const cardsData = [
                           </p>
                           <div class="flex justify-center">
                             <a
-                              href="#"
+                              href={card.href}
                               class={`inline-flex items-center gap-2 ${card.textColor} font-medium ${card.hoverColor} transition-colors group`}
                             >
                               Conocer más
@@ -161,111 +189,59 @@ const cardsData = [
   </section>
 
    <div class="pt-16 sm:pt-20 md:pt-24 hidden sm:block lg:hidden">
-      <div
-        class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-24 lg:gap-8 mb-20 sm:mb-24 lg:mb-32"
-      >
-        {
-          cardsData.slice(0, 4).map((card) => (
-            <div class="group relative">
-              <div class="absolute -top-12 sm:-top-16 md:-top-20 left-1/2 transform -translate-x-1/2 z-10">
-                <div class="relative">
-                  <img
-                    src={card.image}
-                    alt={card.alt}
-                    class="w-auto max-w-none h-[200px] sm:h-[250px] md:h-[280px] lg:h-[300px] object-contain object-top"
-                  />
-                  <div
-                    class="absolute bottom-0 left-0 right-0 h-16 sm:h-18 md:h-20 bg-gradient-to-t to-transparent pointer-events-none"
-                    style={`background: linear-gradient(to top, ${card.bgColor}, transparent)`}
-                  />
-                </div>
-              </div>
+     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-24 lg:gap-8 mb-20 sm:mb-24 lg:mb-32">
+  {
+    cardsData.map((card) => (
+      <div class="group relative">
+        <div class="absolute -top-12 sm:-top-16 md:-top-20 left-1/2 transform -translate-x-1/2 z-10">
+          <div class="relative">
+            <img
+              src={card.image}
+              alt={card.alt}
+              class="w-auto max-w-none h-[200px] sm:h-[250px] md:h-[280px] lg:h-[300px] object-contain object-top"
+            />
+            <div
+              class="absolute bottom-0 left-0 right-0 h-16 sm:h-18 md:h-20 bg-gradient-to-t to-transparent pointer-events-none"
+              style={`background: linear-gradient(to top, ${card.bgColor}, transparent)`} 
+            />
+          </div>
+        </div>
 
-              <div
-                class="rounded-2xl h-96 sm:h-[26rem] md:h-[28rem] cursor-pointer transform transition-all duration-300 hover:scale-105 hover:shadow-2xl pt-8 sm:pt-10 md:pt-12"
-                style={`background-color: ${card.bgColor}`}
+        <div
+          class="rounded-2xl h-96 sm:h-[26rem] md:h-[28rem] cursor-pointer transform transition-all duration-300 hover:scale-105 hover:shadow-2xl pt-8 sm:pt-10 md:pt-12"
+          style={`background-color: ${card.bgColor}`}
+        >
+          <div class="absolute bottom-0 left-0 right-0 p-4 sm:p-5 md:p-6">
+            <div class="h-20 sm:h-24 md:h-28 flex items-end justify-center mb-2 sm:mb-3">
+              <h3
+                class={`text-xl sm:text-2xl font-bold text-center ${card.textColor}`}
               >
-                <div class="absolute bottom-0 left-0 right-0 p-4 sm:p-5 md:p-6">
-                  <div class="h-20 sm:h-24 md:h-28 flex items-end justify-center mb-2 sm:mb-3">
-                    <h3
-                      class={`text-xl sm:text-2xl font-bold text-center ${card.textColor}`}
-                    >
-                      {card.title}
-                    </h3>
-                  </div>
-                  <p
-                    class={`text-xs sm:text-sm ${card.textSecondary} mb-4 sm:mb-5 md:mb-6 leading-relaxed text-center min-h-[2.5rem] sm:min-h-[3rem] md:min-h-[3.5rem] flex items-center justify-center`}
-                  >
-                    {card.description}
-                  </p>
-                  <div class="flex justify-center">
-                    <a
-                      href="#"
-                      class={`inline-flex items-center gap-2 ${card.textColor} font-medium ${card.hoverColor} transition-colors group`}
-                    >
-                      Conocer más
-                      <ArrowRight class="h-4 w-4 sm:h-5 sm:w-5 transform group-hover:translate-x-1 transition-transform" />
-                    </a>
-                  </div>
-                </div>
-              </div>
+                {card.title}
+              </h3>
             </div>
-          ))
-        }
-      </div>
-
-      <div
-        class="grid grid-cols-1 sm:grid-cols-2 gap-6 lg:gap-8 max-w-2xl mx-auto"
-      >
-        {
-          cardsData.slice(4).map((card) => (
-            <div class="group relative">
-              <div class="absolute -top-12 sm:-top-16 md:-top-20 left-1/2 transform -translate-x-1/2 z-10">
-                <div class="relative">
-                  <img
-                    src={card.image}
-                    alt={card.alt}
-                    class="w-auto max-w-none h-[200px] sm:h-[250px] md:h-[280px] lg:h-[300px] object-contain object-top"
-                  />
-                  <div
-                    class="absolute bottom-0 left-0 right-0 h-16 sm:h-18 md:h-20 bg-gradient-to-t to-transparent pointer-events-none"
-                    style={`background: linear-gradient(to top, ${card.bgColor}, transparent)`}
-                  />
-                </div>
-              </div>
-
-              <div
-                class="rounded-2xl h-96 sm:h-[26rem] md:h-[28rem] cursor-pointer transform transition-all duration-300 hover:scale-105 hover:shadow-2xl pt-8 sm:pt-10 md:pt-12"
-                style={`background-color: ${card.bgColor}`}
+            <p
+              class={`text-xs sm:text-sm ${card.textSecondary} mb-4 sm:mb-5 md:mb-6 leading-relaxed text-center min-h-[2.5rem] sm:min-h-[3rem] md:min-h-[3.5rem] flex items-center justify-center`}
+            >
+              {card.description}
+            </p>
+            <div class="flex justify-center">
+              <a
+                href={card.href}
+                class={`inline-flex items-center gap-2 ${card.textColor} font-medium ${card.hoverColor} transition-colors group`}
               >
-                <div class="absolute bottom-0 left-0 right-0 p-4 sm:p-5 md:p-6">
-                  <div class="h-20 sm:h-24 md:h-28 flex items-end justify-center mb-2 sm:mb-3">
-                    <h3
-                      class={`text-xl sm:text-2xl font-bold text-center ${card.textColor}`}
-                    >
-                      {card.title}
-                    </h3>
-                  </div>
-                  <p
-                    class={`text-xs sm:text-sm ${card.textSecondary} mb-4 sm:mb-5 md:mb-6 leading-relaxed text-center min-h-[2.5rem] sm:min-h-[3rem] md:min-h-[3.5rem] flex items-center justify-center`}
-                  >
-                    {card.description}
-                  </p>
-                  <div class="flex justify-center">
-                    <a
-                      href="#"
-                      class={`inline-flex items-center gap-2 ${card.textColor} font-medium ${card.hoverColor} transition-colors group`}
-                    >
-                      Conocer más
-                      <ArrowRight class="h-4 w-4 sm:h-5 sm:w-5 transform group-hover:translate-x-1 transition-transform" />
-                    </a>
-                  </div>
-                </div>
-              </div>
+                Conocer más
+                <ArrowRight class="h-4 w-4 sm:h-5 sm:w-5 transform group-hover:translate-x-1 transition-transform" />
+              </a>
             </div>
-          ))
-        }
+          </div>
+        </div>
       </div>
+    ))
+  }
+</div>
+
+
+     
     </div>
 
     <div class="sm:hidden pt-16">
@@ -310,7 +286,7 @@ const cardsData = [
                     </p>
                     <div class="flex justify-center">
                       <a
-                        href="#"
+                        href={card.href}
                         class={`inline-flex items-center gap-2 ${card.textColor} font-medium ${card.hoverColor} transition-colors group`}
                       >
                         Conocer más
@@ -337,6 +313,7 @@ const cardsData = [
       </div>
     </div>
 </div>
+
 
 <script>
   import Splide from "@splidejs/splide";

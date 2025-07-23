@@ -1,0 +1,375 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import logoBlanco from "@assets/Logos/UNE_blanco.webp";
+import Card3D from "@components/sections/vtu/3Dcard.astro";
+import FAQComponent from "@/components/sections/detallesOferta/preguntas.astro";
+const faqs = [
+  {
+    question: "¿Cuáles son los requisitos para ingresar a una licenciatura?",
+    answer:
+      "Debes contar con certificado de bachillerato, acta de nacimiento, CURP, identificación oficial, comprobante de domicilio y fotografías recientes. En algunos casos, puede requerirse el resultado de un examen de admisión.",
+  },
+  {
+    question: "¿Cuál es la duración de una licenciatura?",
+    answer:
+      "Las licenciaturas tienen una duración promedio de 8 a 10 semestres, dependiendo del programa, la institución incorporadora (UDG o SICYT) y la modalidad elegida.",
+  },
+  {
+    question: "¿Qué modalidades de estudio están disponibles?",
+    answer:
+      "Las licenciaturas pueden cursarse en modalidad presencial, en línea, escolarizada o semiescolarizada, según la carrera y el plantel. Algunas combinan clases presenciales con actividades virtuales.",
+  },
+  {
+    question: "¿Puedo trabajar mientras estudio una licenciatura?",
+    answer:
+      "Sí. Las modalidades en línea y semiescolarizada están diseñadas para ofrecer mayor flexibilidad y permitir compatibilizar tus estudios con otras actividades.",
+  },
+  {
+    question: "¿Cómo se evalúa el desempeño académico?",
+    answer:
+      "El sistema de evaluación incluye exámenes, proyectos, participación en clase, trabajos individuales o en equipo y actividades prácticas, según el enfoque de cada licenciatura.",
+  },
+  {
+    question: "¿Qué tipo de apoyo académico se brinda a los estudiantes?",
+    answer:
+      "Ofrecemos tutorías, asesorías académicas presenciales y virtuales, y acceso a plataformas educativas para reforzar el aprendizaje de cada materia.",
+  },
+  {
+    question:
+      "¿Las licenciaturas están incorporadas a alguna institución oficial?",
+    answer:
+      "Sí. Contamos con licenciaturas incorporadas a la Universidad de Guadalajara (UDG) y a la Secretaría de Innovación, Ciencia y Tecnología (SICYT) del Estado de Jalisco, lo que garantiza validez oficial de estudios.",
+  },
+  {
+    question: "¿Dónde puedo obtener más información e inscribirme?",
+    answer:
+      "Puedes acudir directamente a las oficinas del plantel más cercano o visitar nuestro portal web para consultar la oferta académica, requisitos y fechas de inscripción.",
+  },
+];
+
+const congresos = [
+  {
+    titulo: "Congreso Internacional de Investigación Educativa",
+    fecha: "21-23 de noviembre, 2024",
+    modalidad: "Híbrido",
+    area: "Educación",
+    descripcion:
+      "Espacio para compartir investigaciones innovadoras en pedagogía, didáctica y tecnología educativa.",
+    temas: [
+      "Innovación pedagógica",
+      "Tecnología educativa",
+      "Evaluación del aprendizaje",
+      "Inclusión educativa",
+    ],
+  },
+  {
+    titulo: "Simposio de Ciencias Sociales y Humanidades",
+    fecha: "24-25 de noviembre, 2024",
+    modalidad: "Presencial",
+    area: "Humanidades",
+    descripcion:
+      "Encuentro multidisciplinario para analizar los desafíos sociales contemporáneos.",
+    temas: [
+      "Sociología urbana",
+      "Antropología cultural",
+      "Historia contemporánea",
+      "Filosofía política",
+    ],
+  },
+  {
+    titulo: "Foro de Innovación Tecnológica",
+    fecha: "26-27 de noviembre, 2024",
+    modalidad: "Virtual",
+    area: "Tecnología",
+    descripcion:
+      "Plataforma para presentar desarrollos tecnológicos y soluciones digitales innovadoras.",
+    temas: [
+      "Inteligencia artificial",
+      "Desarrollo sostenible",
+      "Biotecnología",
+      "Ciberseguridad",
+    ],
+  },
+];
+---
+
+<Layout>
+  <section class="general-bg relative bg-cover bg-center min-h-[80vh]">
+    {/* Hero Content */}
+    <div
+      class="relative z-10 container mx-auto px-4 h-full min-h-[85vh] md:min-h-[75vh] flex flex-col justify-center"
+    >
+      <div class="text-center text-white max-w-4xl mx-auto">
+        <img
+          src={logoBlanco.src}
+          alt="UNE Logo"
+          class="mx-auto mb-6 w-32 md:w-48"
+        />
+        {/* Main Title */}
+        <h1 class="text-4xl md:text-7xl font-bold tracking-wider mb-4">
+          Congresos UNE 
+        </h1>
+
+        {/* Resumen de UNE */}
+        <p
+          class="text-lg md:text-xl leading-relaxed mb-8 max-w-3xl mx-auto font-light"
+        >
+          Del 21 al 27 de noviembre
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Introducción a los Congresos -->
+  <section class="py-16 bg-gray-50">
+    <div class="container mx-auto px-4 max-w-6xl">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-6">
+          ¿Qué Son los Congresos Académicos?
+        </h2>
+        <p class="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
+          Los congresos académicos son eventos fundamentales para el intercambio
+          de conocimiento, donde investigadores, estudiantes y profesionales se
+          reúnen para compartir descubrimientos, debatir ideas innovadoras y
+          construir redes de colaboración que impulsen el avance científico y
+          académico.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="bg-white p-6 rounded-lg shadow-md text-center">
+          <div
+            class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4"
+          >
+            <svg
+              class="w-8 h-8 text-blue-600"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold mb-3">
+            Intercambio de Conocimiento
+          </h3>
+          <p class="text-gray-600">
+            Comparte y descubre las últimas investigaciones y avances en tu
+            campo de estudio.
+          </p>
+        </div>
+
+        <div class="bg-white p-6 rounded-lg shadow-md text-center">
+          <div
+            class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4"
+          >
+            <svg
+              class="w-8 h-8 text-green-600"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
+              ></path>
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold mb-3">Networking Profesional</h3>
+          <p class="text-gray-600">
+            Conecta con expertos, colegas y futuros colaboradores en tu área de
+            especialización.
+          </p>
+        </div>
+
+        <div class="bg-white p-6 rounded-lg shadow-md text-center">
+          <div
+            class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4"
+          >
+            <svg
+              class="w-8 h-8 text-purple-600"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"
+              ></path>
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold mb-3">Desarrollo Profesional</h3>
+          <p class="text-gray-600">
+            Participa en talleres, conferencias magistrales y actividades que
+            impulsen tu carrera.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Programa de Congresos -->
+  <section class="py-16">
+    <div class="container mx-auto px-4 max-w-6xl">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-6">
+          Programa de Congresos 2024
+        </h2>
+        <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+          Una semana completa de eventos académicos que abarcan diversas áreas
+          del conocimiento
+        </p>
+      </div>
+
+      <div class="space-y-8">
+        {
+          congresos.map((congreso, index) => (
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+              <div class="md:flex">
+                <div class="md:w-1/3 bg-gradient-to-br from-blue-600 to-purple-700 p-8 text-white">
+                  <div class="text-sm font-semibold mb-2 opacity-90">
+                    {congreso.area}
+                  </div>
+                  <h3 class="text-2xl font-bold mb-4">{congreso.titulo}</h3>
+                  <div class="space-y-2">
+                    <div class="flex items-center">
+                      <svg
+                        class="w-5 h-5 mr-2"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                        />
+                      </svg>
+                      <span>{congreso.fecha}</span>
+                    </div>
+                    <div class="flex items-center">
+                      <svg
+                        class="w-5 h-5 mr-2"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                        />
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+                        />
+                      </svg>
+                      <span>Modalidad {congreso.modalidad}</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="md:w-2/3 p-8">
+                  <p class="text-gray-600 mb-6 leading-relaxed">
+                    {congreso.descripcion}
+                  </p>
+
+                  <div class="mb-6">
+                    <h4 class="font-semibold text-gray-800 mb-3">
+                      Ejes Temáticos:
+                    </h4>
+                    <div class="flex flex-wrap gap-2">
+                      {congreso.temas.map((tema) => (
+                        <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium">
+                          {tema}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div class="flex gap-4">
+                    <button class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg font-medium transition-colors">
+                      Ver Detalles
+                    </button>
+                    <button class="border border-blue-600 text-blue-600 hover:bg-blue-50 px-6 py-2 rounded-lg font-medium transition-colors">
+                      Inscribirse
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Estadísticas de Impacto -->
+  <section
+    class="py-16 bg-gradient-to-r from-blue-600 to-purple-700 text-white"
+  >
+    <div class="container mx-auto px-4 max-w-6xl">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">
+          Impacto de Nuestros Congresos
+        </h2>
+        <p class="text-xl opacity-90">
+          Números que reflejan nuestro compromiso con la excelencia académica
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-4 gap-8 text-center">
+        <div>
+          <div class="text-4xl md:text-5xl font-bold mb-2">500+</div>
+          <div class="text-lg opacity-90">Ponencias Presentadas</div>
+        </div>
+        <div>
+          <div class="text-4xl md:text-5xl font-bold mb-2">1200+</div>
+          <div class="text-lg opacity-90">Participantes</div>
+        </div>
+        <div>
+          <div class="text-4xl md:text-5xl font-bold mb-2">25</div>
+          <div class="text-lg opacity-90">Países Representados</div>
+        </div>
+        <div>
+          <div class="text-4xl md:text-5xl font-bold mb-2">80+</div>
+          <div class="text-lg opacity-90">Instituciones Participantes</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="mt-12 p-6 max-w-4xl mx-auto">
+    <Card3D />
+  </section>
+
+  <FAQComponent
+    faqs={faqs}
+    title="Preguntas frecuentes"
+    subtitle="Encuentra respuestas a las dudas más comunes"
+  />
+</Layout>
+
+<style>
+  .general-bg {
+    background-image: url("/src/assets/Imagenes/Heros/Admision.jpg");
+  }
+
+  @media (max-width: 767px) {
+    .general-bg {
+      background-image: url("/src/assets/Imagenes/Heros/Admision_mobile5.jpg");
+    }
+  }
+</style>

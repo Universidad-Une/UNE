@@ -564,7 +564,7 @@ import { BookOpen, FileText } from "@lucide/astro";
                   type="checkbox"
                   class="rounded border-gray-300 text-blue-600 focus:ring-blue-500"
                 />
-                <span class="text-sm">Facilidad de la U. de G.</span>
+                <span class="text-sm">Facilidad de la U.D.G.</span>
               </label>
               <label class="flex items-center gap-2">
                 <input
@@ -721,7 +721,9 @@ import { BookOpen, FileText } from "@lucide/astro";
           </div>
 
           <!-- Botones de acción -->
-          <div class="text-center mt-8 flex flex-col md:flex-row justify-center gap-4">
+          <div
+            class="text-center mt-8 flex flex-col md:flex-row justify-center gap-4"
+          >
             <button
               id="btnGenerarPDF"
               type="button"
@@ -746,70 +748,99 @@ import { BookOpen, FileText } from "@lucide/astro";
   // Ejemplo de datos - aquí van tus constantes completas
   // Definir los asesores por plantel
   const asesoresPorPlantel = {
-    CENTRO: ["VANIA DENISE GARCÍA ESTRADA", "BRENDA MICHELLE RAMOS RAMÍREZ"],
+    CENTRO: [
+      "NINGUNO",
+      "VANIA DENISE GARCÍA ESTRADA",
+      "BRENDA MICHELLE RAMOS RAMÍREZ",
+    ],
     "CENTRO MÉDICO": [
+      "NINGUNO",
       "NIDIA CARINA LUEVANO CURIEL",
       "TANIA GUADALUPE GONZALEZ SOLORIO",
     ],
     CHAPULTEPEC: [
+      "NINGUNO",
       "JENNIFER SUGUEY MACIEL FONSECA",
       "CRISTINA LISET CARRILLO RAMÍREZ",
       "CYNTHIA MESINOS CARMONA",
     ],
     MILENIO: [
+      "NINGUNO",
       "ERNESTO NOE TORRES JUAREZ",
       "KARLA CECILIA LOMELÍ GONZÁLEZ",
       "VALERIA NARAI DELGADILLO VILLALOBOS",
     ],
-    "PLAZA DEL SOL": ["ANA GRECIA CANELA GUTIÉRREZ"],
+    "PLAZA DEL SOL": ["NINGUNO", "ANA GRECIA CANELA GUTIÉRREZ"],
     TESISTÁN: [
+      "NINGUNO",
       "ERIKA MARCELA ESQUEDA DE ANDA",
       "YANNIRETH GONZÁLEZ LÓPEZ",
       "IMELDA JUÁREZ SANDOVAL",
     ],
     TLAJOMULCO: [
+      "NINGUNO",
       "SONIA ALEJANDRA RODRÍGUEZ GARCÍA",
       "JESÚS EMMANUEL VILLA PRECIADO",
       "ULISES GAMALIEL GÓMEZ JIMÉNEZ",
       "SANDRA GABRIELA LOZA DE LA CRUZ",
     ],
     TLAQUEPAQUE: [
+      "NINGUNO",
       "BELEN EUNICE MEJÍA ZAMBRANO",
       "LILIANA GUILLERMINA DE LA TORRE AGUILAR",
     ],
     TONALÁ: [
+      "NINGUNO",
       "UBALDO ABRAHAM PÉREZ SEGURA",
       "ALEJANDRA MONTSERRAT ALANÍZ REYES",
       "JAVIER JAUREGUI RUIZ",
       "ELEANA JOCELYNE VICENCIO CARRILLO",
     ],
-    "TORRE QUETZAL": ["TOMÁS EFRAÍN FLORES JIMÉNEZ", "ANETT GÓMEZ PÉREZ"],
+    "TORRE QUETZAL": [
+      "NINGUNO",
+      "TOMÁS EFRAÍN FLORES JIMÉNEZ",
+      "ANETT GÓMEZ PÉREZ",
+    ],
     "TORRE UNE MILENIO": [
+      "NINGUNO",
       "BRIANDA A. ESTRADA ARELLANO",
       "MIGUEL ÁNGEL JIMÉNEZ GONZÁLEZ",
       "ELIZABETH BARAJAS GARCÍA",
     ],
     ZAPOPAN: [
+      "NINGUNO",
       "ANDREA FERNANDA CASTRO CHARLES",
       "JOCELYNE PALOMA TORRES CARRILLO",
     ],
     TEPATITLÁN: [
+      "NINGUNO",
       "CAROLINA ELISANDRA CAMPOS BAÑUELOS",
       "MARÍA JOSÉ RAMÍREZ LÓPEZ",
       "ANAHÍ BARBA BARBA",
     ],
-    "AV. MÉXICO": ["MARISOL ROMERO RODRÍGUEZ", "JOSÉ MARÍA ALONSO CASTILLO"],
+    "AV. MÉXICO": [
+      "NINGUNO",
+      "MARISOL ROMERO RODRÍGUEZ",
+      "JOSÉ MARÍA ALONSO CASTILLO",
+    ],
     "CAMPUS PUERTO VALLARTA": [
+      "NINGUNO",
       "JHOSELYN KARELY VILLANUEVA CASTAÑEDA",
       "LESLIE NASHIRA GARCÍA DELGADO",
     ],
-    CARACOL: ["INGRID ALEJANDRA CARVAJAL MARISCAL", "ALMA YADIRA NAVARRO DÍAZ"],
+    CARACOL: [
+      "NINGUNO",
+      "INGRID ALEJANDRA CARVAJAL MARISCAL",
+      "ALMA YADIRA NAVARRO DÍAZ",
+    ],
     "LAS JUNTAS": [
+      "NINGUNO",
       "JONATHAN BARRERA ARIAS",
       "BETSY YAMILETH PÉREZ VIRGEN",
       "NOEMÍ CASTELLANOS RÍOS",
     ],
     "UNE EN LÍNEA": [
+      "NINGUNO",
       "FERNANDA EDITH JIMÉNEZ HERNÁNDEZ",
       "ELENA CAROLINA ORIGEL LOZANO",
       "FABIÁN CHÁVEZ DE LA CRUZ",
@@ -817,8 +848,10 @@ import { BookOpen, FileText } from "@lucide/astro";
       "MARÍA MICHELLE TORRES HERNÁNDEZ",
       "GUILLERMO ARMANDO JARAMILLO VERA",
     ],
-    "CENTRO DE IDIOMAS": ["ASESOR 1", "ASESOR 2"],
-  }; // Definir las carreras por plantel
+    "CENTRO DE IDIOMAS": ["NINGUNO", "ASESOR 1", "ASESOR 2"],
+  };
+
+  // Definir las carreras por plantel
   const carrerasPorPlantel = {
     CENTRO: [
       "BACHILLERATO INTENSIVO SEMIESCOLARIZADO (BIS)", // SEJ - AGREGADO
@@ -1142,7 +1175,7 @@ import { BookOpen, FileText } from "@lucide/astro";
 
     if (!plantelSelect || !carreraSelect || !asesorSelect) {
       console.error(
-        "❌ ERROR: No se encontraron todos los elementos select necesarios",
+        "❌ ERROR: No se encontraron todos los elementos select necesarios"
       );
       console.error("❌ Faltantes:", {
         plantel: !plantelSelect ? "FALTA" : "OK",
@@ -1163,7 +1196,7 @@ import { BookOpen, FileText } from "@lucide/astro";
       const possibleMatches = Object.keys(carrerasPorPlantel).filter(
         (key) =>
           key.toLowerCase().includes(selectedPlantel.toLowerCase()) ||
-          selectedPlantel.toLowerCase().includes(key.toLowerCase()),
+          selectedPlantel.toLowerCase().includes(key.toLowerCase())
       );
     }
 
@@ -1179,11 +1212,11 @@ import { BookOpen, FileText } from "@lucide/astro";
       updateSelectOptions(asesorSelect, asesoresPorPlantel[selectedPlantel]);
     } else {
       console.log(
-        "⚠️ No hay asesores para el plantel seleccionado o plantel vacío",
+        "⚠️ No hay asesores para el plantel seleccionado o plantel vacío"
       );
       console.log(
         "🔍 Razón:",
-        !selectedPlantel ? "Plantel vacío" : "Plantel no encontrado en datos",
+        !selectedPlantel ? "Plantel vacío" : "Plantel no encontrado en datos"
       );
       updateSelectOptions(asesorSelect, []);
     }
@@ -1254,7 +1287,7 @@ import { BookOpen, FileText } from "@lucide/astro";
       });
       alert(
         "Por favor complete todos los campos obligatorios:\n" +
-          errors.join("\n"),
+          errors.join("\n")
       );
     }
 
@@ -1424,7 +1457,7 @@ import { BookOpen, FileText } from "@lucide/astro";
     // Función para obtener checkboxes marcados
     function obtenerCheckboxesMarcados() {
       const checkboxes = document.querySelectorAll(
-        'input[type="checkbox"]:checked',
+        'input[type="checkbox"]:checked'
       );
       return Array.from(checkboxes).map((checkbox) => {
         const label = checkbox.parentElement.querySelector("span");
@@ -1435,11 +1468,11 @@ import { BookOpen, FileText } from "@lucide/astro";
     // Función para obtener valor por posición dentro de una sección específica
     function obtenerPorSeccion(seccionIndex, inputIndex, tipo = "text") {
       const secciones = document.querySelectorAll(
-        ".bg-white.rounded-xl.shadow-sm",
+        ".bg-white.rounded-xl.shadow-sm"
       );
       if (secciones[seccionIndex]) {
         const inputs = secciones[seccionIndex].querySelectorAll(
-          `input[type="${tipo}"]`,
+          `input[type="${tipo}"]`
         );
         return inputs[inputIndex] ? inputs[inputIndex].value : "";
       }
@@ -1448,7 +1481,7 @@ import { BookOpen, FileText } from "@lucide/astro";
 
     function obtenerSelectPorSeccion(seccionIndex, selectIndex) {
       const secciones = document.querySelectorAll(
-        ".bg-white.rounded-xl.shadow-sm",
+        ".bg-white.rounded-xl.shadow-sm"
       );
       if (secciones[seccionIndex]) {
         const selects = secciones[seccionIndex].querySelectorAll("select");
@@ -1535,7 +1568,7 @@ import { BookOpen, FileText } from "@lucide/astro";
       const inscripcionResponse = await fetch(inscripcionPath);
       if (!inscripcionResponse.ok) {
         throw new Error(
-          `Error al cargar ${inscripcionPath}: ${inscripcionResponse.status}`,
+          `Error al cargar ${inscripcionPath}: ${inscripcionResponse.status}`
         );
       }
       const inscripcionBytes = await inscripcionResponse.arrayBuffer();
@@ -1564,7 +1597,7 @@ import { BookOpen, FileText } from "@lucide/astro";
             requisitosBytes = await requisitosResponse.arrayBuffer();
           } else {
             console.warn(
-              `No se pudo cargar ${requisitosPath}, continuando sin requisitos`,
+              `No se pudo cargar ${requisitosPath}, continuando sin requisitos`
             );
           }
         } catch (error) {
@@ -1581,7 +1614,7 @@ import { BookOpen, FileText } from "@lucide/astro";
           const requisitosDoc = await PDFDocument.load(requisitosBytes);
           const requisitosPages = await pdfDoc.copyPages(
             requisitosDoc,
-            requisitosDoc.getPageIndices(),
+            requisitosDoc.getPageIndices()
           );
           requisitosPages.forEach((page) => pdfDoc.addPage(page));
           console.log("Requisitos agregados al PDF");
@@ -1689,7 +1722,7 @@ import { BookOpen, FileText } from "@lucide/astro";
         "Plan de estudios": { x: 325, y: 191 },
         Horarios: { x: 34, y: 172 },
         "Oferta académica": { x: 325, y: 172 },
-        "Facilidad de la U. de G.": { x: 142, y: 191 }, // Costos
+        "Facilidad de la U.D.G.": { x: 142, y: 191 }, // Costos
         Instalaciones: { x: 142, y: 172 },
         "Nivel académico": { x: 418, y: 172 },
         "Rechazo de U. de G.": { x: 418, y: 191 },
@@ -1701,7 +1734,7 @@ import { BookOpen, FileText } from "@lucide/astro";
       if (datosFormulario.mediosSeleccionados?.length > 0) {
         console.log(
           "Medios seleccionados:",
-          datosFormulario.mediosSeleccionados,
+          datosFormulario.mediosSeleccionados
         );
 
         datosFormulario.mediosSeleccionados.forEach((medio) => {
@@ -1757,7 +1790,7 @@ import { BookOpen, FileText } from "@lucide/astro";
       a.download =
         `Inscripcion_UNE_${datosFormulario.nombres || "Formulario"}.pdf`.replace(
           /\s+/g,
-          "_",
+          "_"
         );
 
       // Descargar automáticamente
@@ -1780,7 +1813,7 @@ import { BookOpen, FileText } from "@lucide/astro";
     } catch (error) {
       console.error("Error al generar el PDF:", error);
       alert(
-        `Error al generar el PDF: ${error.message}\nRevisa la consola para más detalles.`,
+        `Error al generar el PDF: ${error.message}\nRevisa la consola para más detalles.`
       );
       return false;
     }

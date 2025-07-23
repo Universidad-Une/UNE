@@ -1,6 +1,4 @@
 ---
-import FondoAdmisiones from "@/assets/Imagenes/Heros/Admision.jpg";
-import FondoAdmisiones_mobile from "@/assets/Imagenes/Heros/Admision_mobile.jpg";
 import LogoUNE from "@/assets/Logos/UNE_azul.png";
 import Layout from "@/layouts/Layout.astro";
 import SemiescolarizadaImg from "@/assets/Imagenes/Modalidades/Semiescolarizada.jpg";
@@ -16,22 +14,8 @@ import { CheckCircle, FileDown } from "@lucide/astro";
 <Layout>
   <!-- Hero Section -->
   <section
-    class="relative min-h-[85vh] md:min-h-[65vh] bg-cover bg-center bg-no-repeat"
+    class="admisiones-bg relative min-h-[85vh] md:min-h-[65vh] bg-cover bg-center bg-no-repeat"
   >
-    {/* Desktop Background */}
-    <div
-      class="absolute inset-0 hidden md:block bg-cover bg-center bg-no-repeat"
-      style={{ backgroundImage: `url(${FondoAdmisiones.src})` }}
-    >
-    </div>
-
-    {/* Mobile Background */}
-    <div
-      class="absolute inset-0 block md:hidden bg-cover bg-center bg-no-repeat"
-      style={{ backgroundImage: `url(${FondoAdmisiones_mobile.src})` }}
-    >
-    </div>
-
     {/* Hero Content */}
     <div
       class="relative z-10 container mx-auto px-4 h-full min-h-[85vh] md:min-h-[65vh] flex flex-col justify-center"
@@ -121,7 +105,7 @@ import { CheckCircle, FileDown } from "@lucide/astro";
 
   <!-- Requisitos  -->
   <section class="py-16 bg-white">
-    <div class="container px-4">
+    <div class="px-4">
       <div class="max-w-7xl mx-auto">
         <p class="text-sm text-gray-600 mb-2">REQUISITOS</p>
         <h2 class="text-3xl font-bold mb-12">
@@ -130,6 +114,12 @@ import { CheckCircle, FileDown } from "@lucide/astro";
 
         <!-- Tabs -->
         <div class="flex flex-wrap gap-2 mb-8 justify-end">
+          <button
+            class="tab-button px-6 py-2 rounded-full font-medium transition-all duration-300 bg-gray-200 text-gray-700 hover:bg-gray-300"
+            data-tab="primaria"
+          >
+            Primaria
+          </button>
           <button
             class="tab-button px-6 py-2 rounded-full font-medium transition-all duration-300 bg-blue-900 text-white"
             data-tab="secundaria"
@@ -244,28 +234,31 @@ import { CheckCircle, FileDown } from "@lucide/astro";
           </div>
           <h3 class="text-xl font-bold mb-4 text-center">SEMIPRESENCIAL</h3>
           <p class="text-sm text-gray-600 mb-4 text-center">
-            Flexibilidad para estudiar a tu ritmo
+            Combina clases presenciales con plataforma digital
           </p>
           <ul class="space-y-2 text-sm px-6">
             <li class="flex items-start space-x-2">
-              <CheckCircle className="w-4 h-4 text-green-600 mt-0.5" />
-              <span>Cuentas con documentación</span>
+              <CheckCircle class="w-4 h-4 text-green-600 mt-0.5" />
+              <span>Asiste solo en bloques horarios definidos</span>
             </li>
             <li class="flex items-start space-x-2">
-              <CheckCircle className="w-4 h-4 text-green-600 mt-0.5" />
-              <span>Estudios flexibles (reconocimiento)</span>
+              <CheckCircle class="w-4 h-4 text-green-600 mt-0.5" />
+              <span
+                >Horarios disponibles: Matutinos y vespertino</span
+              >
             </li>
             <li class="flex items-start space-x-2">
-              <CheckCircle className="w-4 h-4 text-green-600 mt-0.5" />
-              <span>Ideal para trabajar y estudiar</span>
+              <CheckCircle class="w-4 h-4 text-green-600 mt-0.5" />
+              <span>Ideal para quienes trabajan o tienen otras actividades</span
+              >
             </li>
             <li class="flex items-start space-x-2">
-              <CheckCircle className="w-4 h-4 text-green-600 mt-0.5" />
-              <span>Acceso a la plataforma digital</span>
+              <CheckCircle class="w-4 h-4 text-green-600 mt-0.5" />
+              <span>Acceso a plataforma educativa digital</span>
             </li>
             <li class="flex items-start space-x-2">
-              <CheckCircle className="w-4 h-4 text-green-600 mt-0.5" />
-              <span>Apoyo docente especializado</span>
+              <CheckCircle class="w-4 h-4 text-green-600 mt-0.5" />
+              <span>Docentes con acompañamiento constante</span>
             </li>
           </ul>
         </div>
@@ -289,23 +282,23 @@ import { CheckCircle, FileDown } from "@lucide/astro";
           </p>
           <ul class="space-y-2 text-sm px-6">
             <li class="flex items-start space-x-2">
-              <CheckCircle className="w-4 h-4 text-green-600 mt-0.5" />
+              <CheckCircle class="w-4 h-4 text-green-600 mt-0.5" />
               <span>Interacción directa con docentes</span>
             </li>
             <li class="flex items-start space-x-2">
-              <CheckCircle className="w-4 h-4 text-green-600 mt-0.5" />
+              <CheckCircle class="w-4 h-4 text-green-600 mt-0.5" />
               <span>Educación práctica y experimental</span>
             </li>
             <li class="flex items-start space-x-2">
-              <CheckCircle className="w-4 h-4 text-green-600 mt-0.5" />
+              <CheckCircle class="w-4 h-4 text-green-600 mt-0.5" />
               <span>Actividades extracurriculares y club</span>
             </li>
             <li class="flex items-start space-x-2">
-              <CheckCircle className="w-4 h-4 text-green-600 mt-0.5" />
+              <CheckCircle class="w-4 h-4 text-green-600 mt-0.5" />
               <span>Networking estudiantil</span>
             </li>
             <li class="flex items-start space-x-2">
-              <CheckCircle className="w-4 h-4 text-green-600 mt-0.5" />
+              <CheckCircle class="w-4 h-4 text-green-600 mt-0.5" />
               <span>Instalaciones especializadas</span>
             </li>
           </ul>
@@ -330,23 +323,23 @@ import { CheckCircle, FileDown } from "@lucide/astro";
           </p>
           <ul class="space-y-2 text-sm px-6">
             <li class="flex items-start space-x-2">
-              <CheckCircle className="w-4 h-4 text-green-600 mt-0.5" />
+              <CheckCircle class="w-4 h-4 text-green-600 mt-0.5" />
               <span>100% en línea desde casa</span>
             </li>
             <li class="flex items-start space-x-2">
-              <CheckCircle className="w-4 h-4 text-green-600 mt-0.5" />
+              <CheckCircle class="w-4 h-4 text-green-600 mt-0.5" />
               <span>Plataforma educativa de última generación</span>
             </li>
             <li class="flex items-start space-x-2">
-              <CheckCircle className="w-4 h-4 text-green-600 mt-0.5" />
+              <CheckCircle class="w-4 h-4 text-green-600 mt-0.5" />
               <span>Apoyo académico online</span>
             </li>
             <li class="flex items-start space-x-2">
-              <CheckCircle className="w-4 h-4 text-green-600 mt-0.5" />
+              <CheckCircle class="w-4 h-4 text-green-600 mt-0.5" />
               <span>Flexibilidad educativa al 100% personalizada</span>
             </li>
             <li class="flex items-start space-x-2">
-              <CheckCircle className="w-4 h-4 text-green-600 mt-0.5" />
+              <CheckCircle class="w-4 h-4 text-green-600 mt-0.5" />
               <span>Apoyo durante todo el proceso</span>
             </li>
           </ul>
@@ -367,28 +360,28 @@ import { CheckCircle, FileDown } from "@lucide/astro";
           </div>
           <h3 class="text-xl font-bold mb-4 text-center">SABATINA</h3>
           <p class="text-sm text-gray-600 mb-4 text-center">
-            Concilia tu tiempo sin renunciar a tu crecimiento
+            Solo los sábados, sin interrumpir tu semana
           </p>
           <ul class="space-y-2 text-sm px-6">
             <li class="flex items-start space-x-2">
-              <CheckCircle className="w-4 h-4 text-green-600 mt-0.5" />
-              <span>Clases presenciales sólo los sábados</span>
+              <CheckCircle class="w-4 h-4 text-green-600 mt-0.5" />
+              <span>Clases presenciales cada sábado</span>
             </li>
             <li class="flex items-start space-x-2">
-              <CheckCircle className="w-4 h-4 text-green-600 mt-0.5" />
-              <span>Horarios flexibles (mañana/tarde/noche)</span>
+              <CheckCircle class="w-4 h-4 text-green-600 mt-0.5" />
+              <span>Horario: 8:30 a 14:00 horas</span>
             </li>
             <li class="flex items-start space-x-2">
-              <CheckCircle className="w-4 h-4 text-green-600 mt-0.5" />
-              <span>Compromiso con tu horario de lunes a viernes</span>
+              <CheckCircle class="w-4 h-4 text-green-600 mt-0.5" />
+              <span>Ideal si trabajas entre semana</span>
             </li>
             <li class="flex items-start space-x-2">
-              <CheckCircle className="w-4 h-4 text-green-600 mt-0.5" />
-              <span>Apoyo y atención docente</span>
+              <CheckCircle class="w-4 h-4 text-green-600 mt-0.5" />
+              <span>Acceso a recursos digitales de apoyo</span>
             </li>
             <li class="flex items-start space-x-2">
-              <CheckCircle className="w-4 h-4 text-green-600 mt-0.5" />
-              <span>Flexibilidad para hacer prácticas</span>
+              <CheckCircle class="w-4 h-4 text-green-600 mt-0.5" />
+              <span>Docentes disponibles para resolver dudas</span>
             </li>
           </ul>
         </div>
@@ -408,28 +401,28 @@ import { CheckCircle, FileDown } from "@lucide/astro";
           </div>
           <h3 class="text-xl font-bold mb-4 text-center">FINES DE SEMANA</h3>
           <p class="text-sm text-gray-600 mb-4 text-center">
-            Equilibra tu capacitación sin afectar tu rutina
+            Estudia viernes por la tarde y sábado por la mañana
           </p>
           <ul class="space-y-2 text-sm px-6">
             <li class="flex items-start space-x-2">
-              <CheckCircle className="w-4 h-4 text-green-600 mt-0.5" />
-              <span>Clases sábados y domingos</span>
+              <CheckCircle class="w-4 h-4 text-green-600 mt-0.5" />
+              <span>Clases los viernes de 17:00 a 21:00</span>
             </li>
             <li class="flex items-start space-x-2">
-              <CheckCircle className="w-4 h-4 text-green-600 mt-0.5" />
-              <span>Compromiso sin interrumpir tu trabajo</span>
+              <CheckCircle class="w-4 h-4 text-green-600 mt-0.5" />
+              <span>Y sábados de 8:00 a 14:00</span>
             </li>
             <li class="flex items-start space-x-2">
-              <CheckCircle className="w-4 h-4 text-green-600 mt-0.5" />
-              <span>Enfoque empresarial</span>
+              <CheckCircle class="w-4 h-4 text-green-600 mt-0.5" />
+              <span>Ideal para trabajadores o padres de familia</span>
             </li>
             <li class="flex items-start space-x-2">
-              <CheckCircle className="w-4 h-4 text-green-600 mt-0.5" />
-              <span>Docentes especializados</span>
+              <CheckCircle class="w-4 h-4 text-green-600 mt-0.5" />
+              <span>Docentes especializados en formación profesional</span>
             </li>
             <li class="flex items-start space-x-2">
-              <CheckCircle className="w-4 h-4 text-green-600 mt-0.5" />
-              <span>Networking con otros profesionistas</span>
+              <CheckCircle class="w-4 h-4 text-green-600 mt-0.5" />
+              <span>Ambiente académico con enfoque práctico</span>
             </li>
           </ul>
         </div>
@@ -457,111 +450,130 @@ import { CheckCircle, FileDown } from "@lucide/astro";
 <script>
   // Datos de requisitos por nivel educativo
   const requirementsData = {
-    secundaria: {
-      title: "SECUNDARIA",
+    primaria: {
+      title: "PRIMARIA",
       requirements: [
+        { icon: "document", text: "Acta de nacimiento (Original)" },
+        { icon: "document", text: "Certificado total preescolar (Original)" },
         {
           icon: "document",
-          text: "Acta de nacimiento",
+          text: "Boletas oficiales de grados anteriores (si aplica)",
         },
+        { icon: "card", text: "CURP (Formato Renapo)" },
+        { icon: "id", text: "INE del padre, madre o tutor (2 copias)" },
         {
-          icon: "document",
-          text: "Certificado de primaria",
+          icon: "home",
+          text: "Comprobante de domicilio reciente (1 copia, no mayor a 3 meses)",
         },
         {
           icon: "camera",
-          text: "8 fotografías blanco y negro, tamaño infantil de estudio",
+          text: "5 fotografías blanco y negro, papel mate, de estudio",
+        },
+      ],
+    },
+    secundaria: {
+      title: "SECUNDARIA",
+      requirements: [
+        { icon: "document", text: "Acta de nacimiento (Original)" },
+        { icon: "document", text: "Certificado total primaria (Original)" },
+        {
+          icon: "document",
+          text: "Boletas oficiales de grados anteriores (si aplica a 2° o 3°)",
+        },
+        { icon: "card", text: "CURP (Formato Renapo)" },
+        { icon: "id", text: "INE del padre, madre o tutor (2 copias)" },
+        {
+          icon: "home",
+          text: "Comprobante de domicilio reciente (1 copia, no mayor a 3 meses)",
         },
         {
-          icon: "card",
-          text: "CURP",
+          icon: "camera",
+          text: "5 fotografías blanco y negro, papel mate, de estudio",
         },
       ],
     },
     bachillerato: {
-      title: "BACHILLERATO",
+      title: "BACHILLERATO ",
       requirements: [
+        { icon: "document", text: "Acta de nacimiento (Original)" },
+        { icon: "document", text: "Certificado total secundaria (Original)" },
         {
           icon: "document",
-          text: "Acta de nacimiento",
+          text: "Equivalencia o grado superior (Certificado parcial o Kardex)",
+        },
+        { icon: "card", text: "CURP (Formato Renapo)" },
+        {
+          icon: "id",
+          text: "Identificación oficial con fotografía (2 copias)",
         },
         {
-          icon: "document",
-          text: "Certificado de secundaria",
+          icon: "home",
+          text: "Comprobante de domicilio reciente (1 copia, no mayor a 3 meses)",
         },
         {
           icon: "camera",
-          text: "6 fotografías a color, tamaño infantil de estudio",
-        },
-        {
-          icon: "card",
-          text: "CURP",
-        },
-        {
-          icon: "document",
-          text: "Constancia de estudios (si aplica)",
+          text: "5 fotografías blanco y negro, papel mate, de estudio",
         },
       ],
     },
     licenciatura: {
       title: "LICENCIATURA",
       requirements: [
+        { icon: "document", text: "Acta de nacimiento (Original)" },
+        { icon: "document", text: "Certificado total bachillerato (Original)" },
         {
           icon: "document",
-          text: "Acta de nacimiento",
+          text: "Oficio de validación de autenticidad (emitido por autoridad)",
         },
         {
           icon: "document",
-          text: "Certificado de bachillerato",
+          text: "Equivalencia o grado superior (certificado parcial y contenidos temáticos)",
+        },
+        { icon: "card", text: "CURP (Formato Renapo)" },
+        { icon: "id", text: "INE (2 copias)" },
+        {
+          icon: "home",
+          text: "Comprobante de domicilio reciente (1 copia, no mayor a 3 meses)",
         },
         {
           icon: "camera",
-          text: "6 fotografías a color, tamaño infantil de estudio",
-        },
-        {
-          icon: "card",
-          text: "CURP",
-        },
-        {
-          icon: "document",
-          text: "Constancia de servicio social (si aplica)",
-        },
-        {
-          icon: "document",
-          text: "Carta de buena conducta",
+          text: "5 fotografías blanco y negro, papel mate, de estudio",
         },
       ],
     },
     maestria: {
-      title: "MAESTRÍA",
+      title: "MAESTRIAS",
       requirements: [
+        { icon: "document", text: "Acta de nacimiento (Original)" },
         {
           icon: "document",
-          text: "Acta de nacimiento",
+          text: "Título de nivel superior (PDF a color por ambos lados)",
         },
         {
           icon: "document",
-          text: "Título de licenciatura",
+          text: "Cédula Profesional (PDF a color por ambos lados)",
         },
         {
           icon: "document",
-          text: "Cédula profesional",
+          text: "Certificado total de estudios de nivel superior (Original)",
+        },
+        {
+          icon: "document",
+          text: "Oficio de validación de autenticidad del certificado (emitido por autoridad)",
+        },
+        {
+          icon: "document",
+          text: "Equivalencia o grado superior (certificado parcial y contenidos temáticos)",
+        },
+        { icon: "card", text: "CURP (Formato Renapo)" },
+        { icon: "id", text: "INE (2 copias)" },
+        {
+          icon: "home",
+          text: "Comprobante de domicilio reciente (1 copia, no mayor a 3 meses)",
         },
         {
           icon: "camera",
-          text: "6 fotografías a color, tamaño infantil de estudio",
-        },
-        {
-          icon: "card",
-          text: "CURP",
-        },
-        {
-          icon: "document",
-          text: "Curriculum vitae actualizado",
-        },
-        {
-          icon: "document",
-          text: "Carta de motivos",
+          text: "5 fotografías blanco y negro, papel mate, de estudio",
         },
       ],
     },
@@ -587,16 +599,14 @@ import { CheckCircle, FileDown } from "@lucide/astro";
   // Función para renderizar requisitos
   function renderRequirements(levelKey) {
     const data = requirementsData[levelKey];
-    const container = document.getElementById("requirements-content"); // Cambiado aquí
+    const container = document.getElementById("requirements-content");
     const verticalText = document.getElementById("vertical-text");
 
     // Actualizar texto vertical
     verticalText.textContent = data.title;
 
-    // Limpiar contenedor (ahora solo limpia el contenido dinámico, no el logo)
     container.innerHTML = "";
 
-    // Resto del código igual...
     data.requirements.forEach((requirement, index) => {
       const item = document.createElement("div");
       item.className =
@@ -604,8 +614,10 @@ import { CheckCircle, FileDown } from "@lucide/astro";
       item.style.transitionDelay = `${index * 100}ms`;
 
       item.innerHTML = `
-      ${getIcon(requirement.icon)}
-      <span class="text-gray-800 leading-relaxed">${requirement.text}</span>
+      <div class="flex items-center space-x-2">
+        ${getIcon(requirement.icon)}
+        <span class="text-gray-800 leading-relaxed">${requirement.text}</span>
+      </div>
     `;
 
       container.appendChild(item);
@@ -618,15 +630,18 @@ import { CheckCircle, FileDown } from "@lucide/astro";
   }
 
   // Función para cambiar tab activo
+  // Función para cambiar tab activo (CORREGIDA)
   function setActiveTab(activeTab) {
     const buttons = document.querySelectorAll(".tab-button");
 
     buttons.forEach((button) => {
       const tabName = button.getAttribute("data-tab");
       if (tabName === activeTab) {
+        // Usar className en lugar de class
         button.className =
           "tab-button px-6 py-2 rounded-full font-medium transition-all duration-300 bg-blue-900 text-white transform scale-105";
       } else {
+        // Usar className en lugar de class
         button.className =
           "tab-button px-6 py-2 rounded-full font-medium transition-all duration-300 bg-gray-200 text-gray-700 hover:bg-gray-300";
       }
@@ -659,6 +674,9 @@ import { CheckCircle, FileDown } from "@lucide/astro";
       let fileName = "";
 
       switch (tab) {
+        case "primaria":
+          fileName = "primaria-requsitos.pdf";
+          break;
         case "secundaria":
           fileName = "Secundaria-requsitos.pdf";
           break;
@@ -727,5 +745,17 @@ import { CheckCircle, FileDown } from "@lucide/astro";
 
   .fade-in-up {
     animation: fadeInUp 0.6s ease-out;
+  }
+</style>
+
+<style>
+  .admisiones-bg {
+    background-image: url("/src/assets/Imagenes/Heros/Admision.jpg");
+  }
+
+  @media (max-width: 767px) {
+    .admisiones-bg {
+      background-image: url("/src/assets/Imagenes/Heros/Admision_mobile.jpg");
+    }
   }
 </style>

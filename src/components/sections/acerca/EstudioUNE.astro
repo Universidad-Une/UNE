@@ -1,0 +1,192 @@
+---
+// BlogScaleSection.astro
+---
+
+<!-- Sección principal escalable -->
+<section class="relative min-h-89 flex items-center justify-center pt-8">
+  <!-- Elemento escalable con fondo -->
+  <div 
+    id="scalingElement"
+    class="relative w-full mx-auto px-6 pt-12 pb-12 text-center text-white will-change-transform transition-transform duration-75 ease-out bg-cover bg-center bg-no-repeat rounded-t-2xl"
+    style="transform: scale(0.8); background-image: url('/Images/Fondo-plantel.png');"
+  >
+    <!-- Contenido de UNE -->
+    <div class="mb-6">
+      <a 
+        href="/beneficios" 
+        class="inline-flex items-center gap-2 text-sm font-medium opacity-90 hover:opacity-100 transition-opacity"
+      >
+        Ver todos los beneficios
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" class="inline-block">
+          <path 
+            d="M5 12h14M12 5l7 7-7 7" 
+            stroke="currentColor" 
+            stroke-width="2" 
+            stroke-linecap="round" 
+            stroke-linejoin="round"
+          />
+        </svg>
+      </a>
+    </div>
+
+    <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-8 leading-tight">
+      ¿Por qué estudiar en UNE?
+    </h2>
+
+    <p class="text-lg md:text-xl lg:text-2xl mb-8 max-w-3xl mx-auto leading-relaxed opacity-90">
+      Tu formación integral va más allá del aula. Descubre todo lo que tenemos preparado para potenciar tu desarrollo personal y profesional durante tu carrera universitaria.
+    </p>
+
+    <!-- Nuestros beneficios -->
+    <div class="mb-8">
+      <p class="text-white font-semibold text-lg mb-6">
+        Nuestros beneficios:
+      </p>
+
+      <!-- Grid de beneficios -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+        
+        <!-- Beneficio 1: Campus seguro y moderno -->
+        <div class="bg-white/10 backdrop-blur-sm rounded-lg p-6 text-center text-white border border-white/20 hover:bg-white/15 transition-all duration-300">
+          <div class="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
+            <span class="text-2xl font-bold">1</span>
+          </div>
+          <h3 class="text-xl font-bold mb-4">
+            Campus seguro y moderno
+          </h3>
+          <p class="text-sm leading-relaxed opacity-90">
+            Instalaciones de vanguardia con tecnología de seguridad 24/7, espacios diseñados para el bienestar estudiantil y ambientes que favorecen el aprendizaje colaborativo.
+          </p>
+        </div>
+
+        <!-- Beneficio 2: Acompañamiento psicológico -->
+        <div class="bg-white/10 backdrop-blur-sm rounded-lg p-6 text-center text-white border border-white/20 hover:bg-white/15 transition-all duration-300">
+          <div class="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
+            <span class="text-2xl font-bold">2</span>
+          </div>
+          <h3 class="text-xl font-bold mb-4">
+            Acompañamiento psicológico
+          </h3>
+          <p class="text-sm leading-relaxed opacity-90">
+            Servicio de apoyo emocional y académico con profesionales especializados en el desarrollo integral del estudiante universitario.
+          </p>
+        </div>
+
+        <!-- Beneficio 3: Becas y financiamiento -->
+        <div class="bg-white/10 backdrop-blur-sm rounded-lg p-6 text-center text-white border border-white/20 hover:bg-white/15 transition-all duration-300">
+          <div class="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
+            <span class="text-2xl font-bold">3</span>
+          </div>
+          <h3 class="text-xl font-bold mb-4">
+            Becas y financiamiento
+          </h3>
+          <p class="text-sm leading-relaxed opacity-90">
+            Programas de apoyo económico, becas por mérito académico y opciones de financiamiento flexibles para que el dinero no sea un obstáculo en tu formación.
+          </p>
+        </div>
+      </div>
+
+      <!-- Enlace ver todos los beneficios -->
+      <div class="text-center mb-8">
+        <a 
+          href="/beneficios" 
+          class="inline-flex items-center gap-2 text-white text-sm font-medium opacity-90 hover:opacity-100 transition-opacity"
+        >
+          Ver todos los beneficios
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" class="inline-block">
+            <path 
+              d="M5 12h14M12 5l7 7-7 7" 
+              stroke="currentColor" 
+              stroke-width="2" 
+              stroke-linecap="round" 
+              stroke-linejoin="round"
+            />
+          </svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- Botón principal -->
+    <button 
+      class="glassmorphism-btn px-8 py-4 text-lg font-semibold text-white transition-all duration-300 hover:bg-white/40 hover:scale-105 active:scale-95"
+    >
+      Conocer más
+    </button>
+  </div>
+</section>
+
+
+
+<style>
+  .glassmorphism-btn {
+    border-radius: 7px;
+    border: 1px solid rgba(255, 255, 255, 0.40);
+    background: rgba(255, 255, 255, 0.32);
+    backdrop-filter: blur(10.5px);
+    -webkit-backdrop-filter: blur(10.5px);
+  }
+</style>
+
+<script is:inline>
+  // Función para manejar el scroll
+  function handleScroll() {
+    const scalingElement = document.getElementById('scalingElement');
+    if (!scalingElement) return;
+
+    const windowHeight = window.innerHeight;
+    const elementRect = scalingElement.getBoundingClientRect();
+    
+    // Rango de escala (de 80% a 100%)
+    const minScale = 0.8;
+    const maxScale = 1.0;
+
+    // Calcular el progreso basado en la posición del elemento
+    let scrollProgress = 0;
+    
+    // Cuando el elemento está entrando en la vista desde arriba
+    if (elementRect.top > 0) {
+      // Elemento aún no ha entrado completamente
+      const distanceFromTop = elementRect.top;
+      const maxDistance = windowHeight;
+      scrollProgress = Math.max(0, Math.min(1, 1 - (distanceFromTop / maxDistance)));
+    } 
+    // Cuando el elemento está en la vista o saliendo por abajo
+    else if (elementRect.bottom > 0) {
+      // Elemento está visible, mantener escala máxima
+      scrollProgress = 1;
+    }
+    // Cuando el elemento ya pasó completamente
+    else {
+      // Elemento ha salido de la vista por abajo, mantener escala máxima
+      scrollProgress = 1;
+    }
+
+    const scale = minScale + (maxScale - minScale) * scrollProgress;
+
+    // Aplicar la transformación
+    scalingElement.style.transform = `scale(${scale})`;
+  }
+
+  // Optimización con requestAnimationFrame
+  let ticking = false;
+  function optimizedScrollHandler() {
+    if (!ticking) {
+      requestAnimationFrame(() => {
+        handleScroll();
+        ticking = false;
+      });
+      ticking = true;
+    }
+  }
+
+  // Inicializar cuando la página esté lista
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', function() {
+      window.addEventListener('scroll', optimizedScrollHandler);
+      handleScroll();
+    });
+  } else {
+    window.addEventListener('scroll', optimizedScrollHandler);
+    handleScroll();
+  }
+</script>

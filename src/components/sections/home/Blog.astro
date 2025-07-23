@@ -2,6 +2,7 @@
 // BlogScaleSection.astro
 ---
 
+<!-- Sección principal escalable -->
 <section class="relative min-h-89 flex items-center justify-center pt-8">
   <!-- Elemento escalable con fondo -->
   <div 
@@ -37,11 +38,11 @@
     </p>
 
     <!-- Botón con glassmorphism -->
-    <button 
+    <a href="/blog/General" 
       class="glassmorphism-btn px-8 py-4 text-lg font-semibold text-white transition-all duration-300 hover:bg-white/40 hover:scale-105 active:scale-95"
     >
       Descubre más
-    </button>
+    </a>
   </div>
 </section>
 
@@ -118,56 +119,3 @@
     handleScroll();
   }
 </script>
-
-<!-- Sección Newsletter y Compromiso Social -->
-<section class="w-full bg-white">
-  <div class="w-full">
-    <div class="grid grid-cols-1 lg:grid-cols-2 border-b border-gray-200">
-      
-      <!-- Newsletter -->
-      <div class="bg-white p-8 border-r-0 lg:border-r border-gray-200 border-t border-b lg:border-b-0 h-full flex flex-col justify-center">
-        <h3 class="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
-          No te pierdas ningún detalle
-        </h3>
-        <p class="text-gray-600 mb-6">
-          Suscríbete para recibir noticias, eventos y oportunidades académicas de nuestra comunidad universitaria.
-        </p>
-        <div class="flex flex-col sm:flex-row gap-4">
-          <input 
-            type="email" 
-            placeholder="Escribe tu correo" 
-            class="flex-1 px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent"
-          />
-          <button class="px-6 py-3 bg-red-600 text-white font-semibold rounded-lg hover:bg-red-700 transition-colors duration-300 whitespace-nowrap">
-            Suscribirme
-          </button>
-        </div>
-      </div>
-
-      <!-- Compromiso Social -->
-      <div class="bg-white p-8 border-t border-b lg:border-t-0 lg:border-b-0 lg:border-r border-gray-200 flex flex-col justify-center">
-        <div class="flex flex-col lg:flex-row items-center gap-6 h-full">
-          <div class="flex-1">
-            <h3 class="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
-              Compromiso Social
-            </h3>
-            <p class="text-gray-600 mb-6">
-              En UNE, nuestro compromiso social impulsa el desarrollo de comunidades a través de la educación y la acción solidaria.
-            </p>
-            <button class="px-6 py-3 bg-red-600 text-white font-semibold rounded-lg hover:bg-red-700 transition-colors duration-300 whitespace-nowrap">
-              Conocer más
-            </button>
-          </div>
-          <div class="flex-shrink-0">
-            <img 
-              src="/src/assets/Imagenes/Ilustracion.png" 
-              alt="Compromiso Social" 
-              class="rounded-lg w-full max-w-40"
-            />
-          </div>
-        </div>
-      </div>
-      
-    </div>
-  </div>
-</section>

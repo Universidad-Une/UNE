@@ -1,28 +1,33 @@
 ---
 import EstudiantesBachillerato from "@/assets/Imagenes/CardOferta/Bachillerato.png";
+// Importa aquí las demás imágenes que necesites
 ---
 
 <section class="bg-white py-8 md:py-16 px-4 sm:px-6 lg:px-8">
   <div class="max-w-7xl mx-auto">
     <!-- Navegación de tabs/pills -->
-    <div
-      class="flex flex-wrap gap-2 md:gap-4 justify-center md:justify-start mb-8"
-    >
+    <div class="flex flex-wrap gap-2 md:gap-4 justify-center md:justify-start mb-8">
       <button
-        class="px-4 py-2 rounded-full border border-gray-300 text-gray-700 hover:bg-gray-50 transition-colors"
+        class="tab-button px-4 py-2 rounded-full border border-gray-300 text-gray-700 hover:bg-gray-50 transition-colors"
+        data-tab="secundaria"
       >
         Secundaria
       </button>
-      <button class="px-4 py-2 rounded-full bg-blue-600 text-white font-medium">
+      <button 
+        class="tab-button px-4 py-2 rounded-full bg-blue-600 text-white font-medium"
+        data-tab="bachillerato"
+      >
         Bachillerato
       </button>
       <button
-        class="px-4 py-2 rounded-full border border-gray-300 text-gray-700 hover:bg-gray-50 transition-colors"
+        class="tab-button px-4 py-2 rounded-full border border-gray-300 text-gray-700 hover:bg-gray-50 transition-colors"
+        data-tab="licenciatura"
       >
         Licenciatura
       </button>
       <button
-        class="px-4 py-2 rounded-full border border-gray-300 text-gray-700 hover:bg-gray-50 transition-colors"
+        class="tab-button px-4 py-2 rounded-full border border-gray-300 text-gray-700 hover:bg-gray-50 transition-colors"
+        data-tab="maestria"
       >
         Maestría
       </button>
@@ -33,15 +38,14 @@ import EstudiantesBachillerato from "@/assets/Imagenes/CardOferta/Bachillerato.p
       <!-- Columna izquierda: Imagen y título (mobile) / Solo imagen (desktop) -->
       <div class="order-1 lg:order-1">
         <!-- Título visible solo en mobile -->
-        <h2 class="text-3xl font-bold text-gray-900 mb-6 lg:hidden text-center">
+        <h2 id="mobile-title" class="text-3xl font-bold text-gray-900 mb-6 lg:hidden text-center">
           Bachillerato
         </h2>
 
         <!-- Imagen -->
-        <div
-          class="relative overflow-hidden rounded-2xl shadow-lg mb-6 lg:mb-0"
-        >
+        <div class="relative overflow-hidden rounded-2xl shadow-lg mb-6 lg:mb-0">
           <img
+            id="content-image"
             src={EstudiantesBachillerato.src}
             alt="Estudiantes de bachillerato UNE"
             class="w-full h-auto object-cover"
@@ -50,160 +54,36 @@ import EstudiantesBachillerato from "@/assets/Imagenes/CardOferta/Bachillerato.p
         </div>
 
         <!-- Tabs de modalidades (solo mobile) -->
-        <div class="flex justify-center gap-4 mb-6 lg:hidden">
-          <span
-            class="text-sm font-medium text-gray-900 border-b-2 border-blue-600 pb-1"
-          >
-            Presencial UDG
-          </span>
-          <span class="text-sm text-gray-500"> Virtual </span>
+        <div id="mobile-modalities" class="flex justify-center gap-4 mb-6 lg:hidden">
+          <!-- Se llenará dinámicamente -->
         </div>
 
         <!-- Subtítulo modalidad (solo mobile) -->
         <div class="text-center mb-4 lg:hidden">
-          <p class="text-gray-600 font-medium">Semiescolarizado</p>
+          <p id="mobile-subtitle" class="text-gray-600 font-medium">Semiescolarizado</p>
         </div>
       </div>
 
       <!-- Columna derecha: Información -->
       <div class="order-2 lg:order-2">
         <!-- Título visible solo en desktop -->
-        <h2 class="text-4xl font-bold text-gray-900 mb-8 hidden lg:block">
+        <h2 id="desktop-title" class="text-4xl font-bold text-gray-900 mb-8 hidden lg:block">
           Bachillerato
         </h2>
 
         <!-- Tabs de modalidades (solo desktop) -->
-        <div class="hidden lg:flex gap-8 mb-8">
-          <span
-            class="text-base font-medium text-gray-900 border-b-2 border-blue-600 pb-2"
-          >
-            Presencial UDG
-          </span>
-          <span class="text-base text-gray-500"> Semiescolarizado </span>
-          <span class="text-base text-gray-500"> Virtual </span>
+        <div id="desktop-modalities" class="hidden lg:flex gap-8 mb-8">
+          <!-- Se llenará dinámicamente -->
         </div>
 
         <!-- Descripción -->
-        <p class="text-gray-600 mb-8 text-center lg:text-left leading-relaxed">
-          Formación integral de nivel medio superior con enfoque humanista y
-          orientación universitaria
+        <p id="description" class="text-gray-600 mb-8 text-center lg:text-left leading-relaxed">
+          Formación integral de nivel medio superior con enfoque humanista y orientación universitaria
         </p>
 
         <!-- Lista de beneficios -->
-        <div class="space-y-4 mb-8">
-          <div class="flex items-center gap-3">
-            <div
-              class="w-5 h-5 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0"
-            >
-              <svg
-                class="w-3 h-3 text-white"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                  clip-rule="evenodd"></path>
-              </svg>
-            </div>
-            <span class="text-gray-700">Certificación oficial UDG</span>
-          </div>
-
-          <div class="flex items-center gap-3">
-            <div
-              class="w-5 h-5 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0"
-            >
-              <svg
-                class="w-3 h-3 text-white"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                  clip-rule="evenodd"></path>
-              </svg>
-            </div>
-            <span class="text-gray-700"
-              >Enfoque en competencias y constructivismo</span
-            >
-          </div>
-
-          <div class="flex items-center gap-3">
-            <div
-              class="w-5 h-5 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0"
-            >
-              <svg
-                class="w-3 h-3 text-white"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                  clip-rule="evenodd"></path>
-              </svg>
-            </div>
-            <span class="text-gray-700">Instalaciones seguras</span>
-          </div>
-
-          <div class="flex items-center gap-3">
-            <div
-              class="w-5 h-5 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0"
-            >
-              <svg
-                class="w-3 h-3 text-white"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                  clip-rule="evenodd"></path>
-              </svg>
-            </div>
-            <span class="text-gray-700"
-              >Actividades culturales y deportivas</span
-            >
-          </div>
-
-          <div class="flex items-center gap-3">
-            <div
-              class="w-5 h-5 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0"
-            >
-              <svg
-                class="w-3 h-3 text-white"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7-293a1 1 0 011.414 0z"
-                  clip-rule="evenodd"></path>
-              </svg>
-            </div>
-            <span class="text-gray-700">Tutorías psicopedagógicas</span>
-          </div>
-
-          <div class="flex items-center gap-3">
-            <div
-              class="w-5 h-5 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0"
-            >
-              <svg
-                class="w-3 h-3 text-white"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                  clip-rule="evenodd"></path>
-              </svg>
-            </div>
-            <span class="text-gray-700"
-              >Preparación para educación superior</span
-            >
-          </div>
+        <div id="benefits-list" class="space-y-4 mb-8">
+          <!-- Se llenará dinámicamente -->
         </div>
 
         <!-- Botón CTA (solo desktop) -->
@@ -227,3 +107,306 @@ import EstudiantesBachillerato from "@/assets/Imagenes/CardOferta/Bachillerato.p
     </div>
   </div>
 </section>
+
+<script>
+// Datos de contenido para cada sección
+const contentData = {
+  secundaria: {
+    title: 'Secundaria',
+    image: '/src/assets/Imagenes/CardOferta/Bachillerato.png', // Tu imagen actual
+    modalities: {
+      presencial: {
+        name: 'Presencial',
+        subtitle: 'Modalidad presencial',
+        description: 'Educación integral de nivel básico con enfoque en valores y desarrollo académico completo',
+        benefits: [
+          'Certificación oficial SEP',
+          'Metodología activa y participativa',
+          'Instalaciones modernas y seguras',
+          'Actividades extracurriculares',
+          'Orientación vocacional',
+          'Desarrollo de habilidades socioemocionales'
+        ]
+      },
+      virtual: {
+        name: 'Virtual',
+        subtitle: 'Modalidad virtual',
+        description: 'Educación secundaria a distancia con tecnología educativa de vanguardia',
+        benefits: [
+          'Certificación oficial SEP',
+          'Plataforma digital avanzada',
+          'Flexibilidad de horarios',
+          'Acompañamiento personalizado',
+          'Recursos multimedia interactivos',
+          'Evaluación continua en línea'
+        ]
+      }
+    }
+  },
+  bachillerato: {
+    title: 'Bachillerato',
+    image: '/src/assets/Imagenes/CardOferta/Bachillerato.png', // Tu imagen actual
+    modalities: {
+      presencial: {
+        name: 'Presencial UDG',
+        subtitle: 'Semiescolarizado',
+        description: 'Formación integral de nivel medio superior con enfoque humanista y orientación universitaria',
+        benefits: [
+          'Certificación oficial UDG',
+          'Enfoque en competencias y constructivismo',
+          'Instalaciones seguras',
+          'Actividades culturales y deportivas',
+          'Tutorías psicopedagógicas',
+          'Preparación para educación superior'
+        ]
+      },
+      semiescolarizado: {
+        name: 'Semiescolarizado',
+        subtitle: 'Modalidad mixta',
+        description: 'Bachillerato con horarios flexibles que combina clases presenciales y estudio independiente',
+        benefits: [
+          'Certificación oficial UDG',
+          'Horarios flexibles',
+          'Acompañamiento tutorial',
+          'Metodología híbrida',
+          'Evaluación integral',
+          'Preparación universitaria'
+        ]
+      },
+      virtual: {
+        name: 'Virtual',
+        subtitle: 'Modalidad en línea',
+        description: 'Bachillerato completamente virtual con tecnología educativa de última generación',
+        benefits: [
+          'Certificación oficial UDG',
+          'Plataforma educativa avanzada',
+          'Flexibilidad total de horarios',
+          'Tutorías virtuales personalizadas',
+          'Recursos digitales interactivos',
+          'Preparación para la era digital'
+        ]
+      }
+    }
+  },
+  licenciatura: {
+    title: 'Licenciatura',
+    image: '/src/assets/Imagenes/CardOferta/Bachillerato.png', // Tu imagen actual
+    modalities: {
+      presencial: {
+        name: 'Presencial',
+        subtitle: 'Modalidad presencial',
+        description: 'Formación profesional de excelencia con enfoque práctico y vinculación empresarial',
+        benefits: [
+          'Título profesional con validez oficial',
+          'Profesores expertos en la industria',
+          'Laboratorios especializados',
+          'Prácticas profesionales',
+          'Bolsa de trabajo exclusiva',
+          'Certificaciones internacionales'
+        ]
+      },
+      ejecutiva: {
+        name: 'Ejecutiva',
+        subtitle: 'Para profesionales',
+        description: 'Licenciatura diseñada para profesionales en activo con horarios ejecutivos',
+        benefits: [
+          'Título profesional con validez oficial',
+          'Horarios sabatinos y vespertinos',
+          'Metodología case study',
+          'Networking profesional',
+          'Experiencia práctica inmediata',
+          'Titulación acelerada'
+        ]
+      },
+      virtual: {
+        name: 'Virtual',
+        subtitle: 'Modalidad en línea',
+        description: 'Licenciatura virtual con la misma calidad académica y flexibilidad total',
+        benefits: [
+          'Título profesional con validez oficial',
+          'Campus virtual de última generación',
+          'Flexibilidad geográfica y temporal',
+          'Acompañamiento académico',
+          'Simuladores profesionales',
+          'Biblioteca digital especializada'
+        ]
+      }
+    }
+  },
+  maestria: {
+    title: 'Maestría',
+    image: '/src/assets/Imagenes/CardOferta/Bachillerato.png', // Tu imagen actual
+    modalities: {
+      presencial: {
+        name: 'Presencial',
+        subtitle: 'Modalidad presencial',
+        description: 'Posgrado de alta especialización con enfoque en investigación y desarrollo profesional',
+        benefits: [
+          'Grado de maestría con validez oficial',
+          'Líneas de investigación especializadas',
+          'Profesores con doctorado',
+          'Proyectos de investigación aplicada',
+          'Red de egresados especializada',
+          'Convenios internacionales'
+        ]
+      },
+      ejecutiva: {
+        name: 'Ejecutiva',
+        subtitle: 'Para directivos',
+        description: 'Maestría ejecutiva para líderes empresariales con enfoque estratégico',
+        benefits: [
+          'Grado de maestría con validez oficial',
+          'Enfoque directivo y estratégico',
+          'Casos de estudio reales',
+          'Networking de alto nivel',
+          'Horarios ejecutivos',
+          'Metodología action learning'
+        ]
+      },
+      virtual: {
+        name: 'Virtual',
+        subtitle: 'Modalidad en línea',
+        description: 'Maestría virtual con estándares internacionales y flexibilidad completa',
+        benefits: [
+          'Grado de maestría con validez oficial',
+          'Plataforma de posgrado avanzada',
+          'Seminarios virtuales especializados',
+          'Asesoría de tesis personalizada',
+          'Acceso a bases de datos científicas',
+          'Movilidad académica virtual'
+        ]
+      }
+    }
+  }
+};
+
+// Estado actual
+let activeTab = 'bachillerato';
+let activeModalities = {
+  secundaria: 'presencial',
+  bachillerato: 'presencial',
+  licenciatura: 'presencial',
+  maestria: 'presencial'
+};
+
+// Función para crear el ícono de check
+function createCheckIcon() {
+  return `
+    <div class="w-5 h-5 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0">
+      <svg class="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
+        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+      </svg>
+    </div>
+  `;
+}
+
+// Función para actualizar el contenido
+function updateContent() {
+  const currentData = contentData[activeTab];
+  const currentModality = currentData.modalities[activeModalities[activeTab]];
+  
+  // Actualizar títulos
+  document.getElementById('mobile-title').textContent = currentData.title;
+  document.getElementById('desktop-title').textContent = currentData.title;
+  
+  // Actualizar imagen
+  const img = document.getElementById('content-image');
+  img.src = currentData.image;
+  img.alt = `Estudiantes de ${activeTab} UNE`;
+  
+  // Actualizar descripción
+  document.getElementById('description').textContent = currentModality.description;
+  
+  // Actualizar subtítulo móvil
+  document.getElementById('mobile-subtitle').textContent = currentModality.subtitle;
+  
+  // Actualizar modalidades móviles
+  const mobileModalities = document.getElementById('mobile-modalities');
+  mobileModalities.innerHTML = '';
+  Object.keys(currentData.modalities).forEach(modalityKey => {
+    const modality = currentData.modalities[modalityKey];
+    const isActive = activeModalities[activeTab] === modalityKey;
+    const span = document.createElement('span');
+    span.className = `text-sm font-medium cursor-pointer pb-1 ${
+      isActive ? 'text-gray-900 border-b-2 border-blue-600' : 'text-gray-500 hover:text-gray-700'
+    }`;
+    span.textContent = modality.name;
+    span.addEventListener('click', () => changeModality(modalityKey));
+    mobileModalities.appendChild(span);
+  });
+  
+  // Actualizar modalidades desktop
+  const desktopModalities = document.getElementById('desktop-modalities');
+  desktopModalities.innerHTML = '';
+  Object.keys(currentData.modalities).forEach(modalityKey => {
+    const modality = currentData.modalities[modalityKey];
+    const isActive = activeModalities[activeTab] === modalityKey;
+    const span = document.createElement('span');
+    span.className = `text-base font-medium cursor-pointer pb-2 ${
+      isActive ? 'text-gray-900 border-b-2 border-blue-600' : 'text-gray-500 hover:text-gray-700'
+    }`;
+    span.textContent = modality.name;
+    span.addEventListener('click', () => changeModality(modalityKey));
+    desktopModalities.appendChild(span);
+  });
+  
+  // Actualizar beneficios
+  const benefitsList = document.getElementById('benefits-list');
+  benefitsList.innerHTML = '';
+  currentModality.benefits.forEach(benefit => {
+    const div = document.createElement('div');
+    div.className = 'flex items-center gap-3';
+    div.innerHTML = `
+      ${createCheckIcon()}
+      <span class="text-gray-700">${benefit}</span>
+    `;
+    benefitsList.appendChild(div);
+  });
+}
+
+// Función para cambiar tab principal
+function changeTab(newTab) {
+  activeTab = newTab;
+  
+  // Actualizar estilos de botones
+  document.querySelectorAll('.tab-button').forEach(btn => {
+    if (btn.dataset.tab === newTab) {
+      btn.className = 'tab-button px-4 py-2 rounded-full bg-blue-600 text-white font-medium';
+    } else {
+      btn.className = 'tab-button px-4 py-2 rounded-full border border-gray-300 text-gray-700 hover:bg-gray-50 transition-colors';
+    }
+  });
+  
+  updateContent();
+}
+
+// Función para cambiar modalidad
+function changeModality(newModality) {
+  activeModalities[activeTab] = newModality;
+  updateContent();
+}
+
+// Inicializar event listeners
+document.addEventListener('DOMContentLoaded', function() {
+  // Event listeners para tabs principales
+  document.querySelectorAll('.tab-button').forEach(button => {
+    button.addEventListener('click', () => {
+      changeTab(button.dataset.tab);
+    });
+  });
+  
+  // Inicializar contenido
+  updateContent();
+});
+</script>
+
+<style>
+/* Estilos adicionales si necesitas personalización */
+.tab-button {
+  transition: all 0.2s ease-in-out;
+}
+
+.tab-button:hover {
+  transform: translateY(-1px);
+}
+</style>

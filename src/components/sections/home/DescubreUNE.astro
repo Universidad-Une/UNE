@@ -12,80 +12,112 @@ import { Schema } from "astro:schema";
       <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
         Descubre todo lo que UNE te ofrece
       </h2>
-      <p class="text-lg text-gray-600">
-        Puedes visitar
-      </p>
+      <p class="text-lg text-gray-600">Puedes visitar</p>
     </div>
 
     <!-- Grid de tarjetas -->
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-      <!-- Tarjeta 1: Conoce la comunidad UNE -->
-      <div class="relative group overflow-hidden rounded-lg shadow-lg">
-        <div class="aspect-[4/3] flex items-center justify-center relative bg-cover bg-center" style="background-image: url('/Images/Fondo-plantel.png');">
+      <!-- Tarjeta 1: Bibliotecas -->
+      <a
+        href="/informacionescolar/Bibliotecas"
+        class="relative group overflow-hidden rounded-lg shadow-lg block"
+      >
+        <div
+          class="aspect-[4/3] flex items-center justify-center relative bg-cover bg-center"
+          style="background-image: url('/Images/Fondo-plantel.png');"
+        >
           <!-- Overlay oscuro -->
           <div class="absolute inset-0 bg-black/50"></div>
-          
+
           <!-- Contenido -->
           <div class="relative z-10 text-center text-white p-6">
-            <div class="w-16 h-16 bg-orange-500 rounded-full flex items-center justify-center mx-auto mb-4">
-              <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
-                <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z"/>
+            <div
+              class="w-16 h-16 bg-orange-500 rounded-full flex items-center justify-center mx-auto mb-4"
+            >
+              <svg
+                class="w-8 h-8 text-white"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+              >
+                <path
+                  d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z"
+                ></path>
               </svg>
             </div>
             <h3 class="text-xl font-bold mb-6">
-              Conoce la comunidad<br>UNE
+              Consulta nuestras<br />Bibliotecas
             </h3>
-            <button class="border-2 border-white text-white px-6 py-2 rounded hover:bg-white hover:text-blue-800 transition-colors">
-              Ver comunidad
-            </button>
+            <span
+              class="border-2 border-white text-white px-6 py-2 rounded inline-block hover:bg-white hover:text-blue-800 transition-colors"
+            >
+              Ver información
+            </span>
           </div>
         </div>
-      </div>
+      </a>
 
-      <!-- Tarjeta 2: Conoce los apoyos educativos -->
-      <div class="relative group overflow-hidden rounded-lg shadow-lg">
-        <div class="aspect-[4/3] flex items-center justify-center relative bg-cover bg-center" style="background-image: url('/Images/Fondo-plantel.png');">
+      <!-- Tarjeta 2: Solicitar visita -->
+      <a
+        href="/contacto/solicitarvisita"
+        class="relative group overflow-hidden rounded-lg shadow-lg block"
+      >
+        <div
+          class="aspect-[4/3] flex items-center justify-center relative bg-cover bg-center"
+          style="background-image: url('/Images/Fondo-plantel.png');"
+        >
           <!-- Overlay oscuro -->
           <div class="absolute inset-0 bg-black/50"></div>
-          
+
           <!-- Contenido -->
           <div class="relative z-10 text-center text-white p-6">
-            <div class="w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-4">
-              <GraduationCap/>
+            <div
+              class="w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-4"
+            >
+              <GraduationCap />
             </div>
             <h3 class="text-xl font-bold mb-6">
-              Conoce los apoyos<br>educativos
+              Agenda tu<br />visita guiada
             </h3>
-            <button class="border-2 border-white text-white px-6 py-2 rounded hover:bg-white hover:text-gray-800 transition-colors">
-              Ver convocatoria
-            </button>
+            <span
+              class="border-2 border-white text-white px-6 py-2 rounded inline-block hover:bg-white hover:text-gray-800 transition-colors"
+            >
+              Solicitar visita
+            </span>
           </div>
         </div>
-      </div>
+      </a>
 
-      <!-- Tarjeta 3: Trayectoria educativa -->
-      <div class="relative group overflow-hidden rounded-lg shadow-lg">
-        <div class="aspect-[4/3] flex items-center justify-center relative bg-cover bg-center" style="background-image: url('/Images/Fondo-plantel.png');">
+      <!-- Tarjeta 3: Historia de UNE -->
+      <a
+        href="/acerca/historia"
+        class="relative group overflow-hidden rounded-lg shadow-lg block"
+      >
+        <div
+          class="aspect-[4/3] flex items-center justify-center relative bg-cover bg-center"
+          style="background-image: url('/Images/Fondo-plantel.png');"
+        >
           <!-- Overlay oscuro -->
           <div class="absolute inset-0 bg-black/50"></div>
-          
+
           <!-- Contenido -->
           <div class="relative z-10 text-center text-white p-6">
-            <div class="w-16 h-16 bg-pink-500 rounded-full flex items-center justify-center mx-auto mb-4">
-            <School/>
+            <div
+              class="w-16 h-16 bg-pink-500 rounded-full flex items-center justify-center mx-auto mb-4"
+            >
+              <School />
             </div>
             <h3 class="text-xl font-bold mb-6">
-              Trayectoria<br>educativa
+              Conoce la<br />historia UNE
             </h3>
-            <button class="border-2 border-white text-white px-6 py-2 rounded hover:bg-white hover:text-purple-800 transition-colors">
-              Conoce el camino<br>dentro de UNE
-            </button>
+            <span
+              class="border-2 border-white text-white px-6 py-2 rounded inline-block hover:bg-white hover:text-purple-800 transition-colors"
+            >
+              Nuestra historia
+            </span>
           </div>
         </div>
-      </div>
+      </a>
     </div>
-
-   
   </div>
 </section>
 

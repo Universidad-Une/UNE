@@ -15,6 +15,7 @@
     "@splidejs/splide-extension-auto-scroll": "^0.5.3",
     "@tailwindcss/vite": "^4.1.11",
     "astro": "^5.10.1",
+    "atropos": "^2.0.2",
     "gsap": "^3.13.0",
     "pdf-lib": "^1.17.1",
     "tailwindcss": "^4.1.11"
