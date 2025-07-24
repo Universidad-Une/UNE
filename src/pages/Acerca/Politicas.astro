@@ -1,0 +1,341 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import { Shield, FileText, Lock, Users, Mail, Phone } from "@lucide/astro";
+---
+
+<Layout>
+  <main class="min-h-screen">
+    <!-- Hero Section -->
+    <section
+      class="politicas-bg relative min-h-[65vh] overflow-hidden bg-cover bg-center bg-no-repeat"
+    >
+      <!-- Hero Content -->
+      <div
+        class="relative z-10 container mx-auto px-4 h-full min-h-[65vh] flex flex-col md:flex-row items-center justify-center md:justify-end"
+      >
+        <div
+          class="w-full max-w-7xl flex flex-col md:flex-row items-center justify-between"
+        >
+          <!-- Left side - Privacy Title -->
+          <div
+            class="flex items-center space-x-4 mb-6 md:mb-0 md:space-x-8 text-white"
+          >
+            <div
+              class="w-16 h-16 bg-white bg-opacity-20 rounded-full flex items-center justify-center"
+            >
+              <Shield class="w-8 h-8 text-white" />
+            </div>
+            <h1 class="text-3xl md:text-5xl font-bold tracking-wider">POLÍTICAS DE PRIVACIDAD</h1>
+          </div>
+
+          <!-- Right side - Welcome message -->
+          <div
+            class="bg-white rounded-lg p-6 max-w-sm shadow-lg text-center md:text-left"
+          >
+            <h2 class="text-xl font-bold text-gray-800 mb-3">
+              Tu privacidad es importante
+            </h2>
+            <p class="text-gray-600 text-sm leading-relaxed">
+              Protegemos tus datos personales conforme a la Ley Federal de 
+              Protección de Datos Personales en Posesión de Particulares. 
+              Conoce cómo utilizamos y protegemos tu información.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Main Content -->
+    <section class="py-16 bg-gray-50">
+      <div class="container mx-auto px-4 max-w-4xl">
+        
+        <!-- Aviso de Privacidad -->
+        <div class="bg-white rounded-lg shadow-lg p-8 mb-8">
+          <div class="flex items-center mb-6">
+            <FileText class="w-8 h-8 text-blue-600 mr-3" />
+            <h2 class="text-3xl font-bold text-gray-800">Aviso de Privacidad</h2>
+          </div>
+          
+          <div class="prose prose-lg max-w-none">
+            <p class="text-gray-700 leading-relaxed mb-6">
+              Con fundamento en los artículos 15 y 16 de la Ley Federal de Protección de Datos Personales 
+              en Posesión de Particulares hacemos de su conocimiento que <strong>CENTRO UNIVERSITARIO UNE A.C.</strong>, 
+              con domicilio en <strong>CHIMALHUACAN NO. 6 COLONIA CIUDAD DEL SOL ZAPOPAN JALISCO 45050</strong> 
+              México es responsable de recabar sus datos personales, del uso que se le dé a los mismos y de su protección.
+            </p>
+          </div>
+        </div>
+
+        <!-- Finalidades -->
+        <div class="bg-white rounded-lg shadow-lg p-8 mb-8">
+          <div class="flex items-center mb-6">
+            <Users class="w-8 h-8 text-green-600 mr-3" />
+            <h3 class="text-2xl font-bold text-gray-800">Finalidades del Tratamiento</h3>
+          </div>
+          
+          <p class="text-gray-700 leading-relaxed mb-4">
+            Su información personal será utilizada para las siguientes finalidades:
+          </p>
+          
+          <ul class="space-y-3 text-gray-700">
+            <li class="flex items-start">
+              <span class="w-2 h-2 bg-green-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+              Proveer los servicios y productos que ha solicitado
+            </li>
+            <li class="flex items-start">
+              <span class="w-2 h-2 bg-green-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+              Notificarle sobre nuevos servicios o productos relacionados
+            </li>
+            <li class="flex items-start">
+              <span class="w-2 h-2 bg-green-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+              Comunicarle sobre cambios en los servicios
+            </li>
+            <li class="flex items-start">
+              <span class="w-2 h-2 bg-green-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+              Elaborar estudios y programas para determinar hábitos de consumo
+            </li>
+            <li class="flex items-start">
+              <span class="w-2 h-2 bg-green-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+              Realizar evaluaciones periódicas para mejorar la calidad de servicios
+            </li>
+            <li class="flex items-start">
+              <span class="w-2 h-2 bg-green-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+              Evaluar la calidad del servicio que brindamos
+            </li>
+            <li class="flex items-start">
+              <span class="w-2 h-2 bg-green-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+              Dar cumplimiento a las obligaciones contraídas con usted
+            </li>
+          </ul>
+        </div>
+
+        <!-- Datos Requeridos -->
+        <div class="bg-white rounded-lg shadow-lg p-8 mb-8">
+          <div class="flex items-center mb-6">
+            <Lock class="w-8 h-8 text-purple-600 mr-3" />
+            <h3 class="text-2xl font-bold text-gray-800">Datos Personales Requeridos</h3>
+          </div>
+          
+          <p class="text-gray-700 leading-relaxed mb-4">
+            Para las finalidades mencionadas, requerimos obtener los siguientes datos personales:
+          </p>
+          
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="space-y-2">
+              <div class="flex items-center">
+                <span class="w-2 h-2 bg-purple-500 rounded-full mr-3"></span>
+                <span class="text-gray-700">Nombre completo</span>
+              </div>
+              <div class="flex items-center">
+                <span class="w-2 h-2 bg-purple-500 rounded-full mr-3"></span>
+                <span class="text-gray-700">Edad</span>
+              </div>
+              <div class="flex items-center">
+                <span class="w-2 h-2 bg-purple-500 rounded-full mr-3"></span>
+                <span class="text-gray-700">Estado civil</span>
+              </div>
+              <div class="flex items-center">
+                <span class="w-2 h-2 bg-purple-500 rounded-full mr-3"></span>
+                <span class="text-gray-700">Sexo</span>
+              </div>
+              <div class="flex items-center">
+                <span class="w-2 h-2 bg-purple-500 rounded-full mr-3"></span>
+                <span class="text-gray-700">Teléfono fijo y/o celular</span>
+              </div>
+              <div class="flex items-center">
+                <span class="w-2 h-2 bg-purple-500 rounded-full mr-3"></span>
+                <span class="text-gray-700">Correo electrónico</span>
+              </div>
+              <div class="flex items-center">
+                <span class="w-2 h-2 bg-purple-500 rounded-full mr-3"></span>
+                <span class="text-gray-700">ID de redes sociales</span>
+              </div>
+            </div>
+            <div class="space-y-2">
+              <div class="flex items-center">
+                <span class="w-2 h-2 bg-purple-500 rounded-full mr-3"></span>
+                <span class="text-gray-700">Firma autógrafa</span>
+              </div>
+              <div class="flex items-center">
+                <span class="w-2 h-2 bg-purple-500 rounded-full mr-3"></span>
+                <span class="text-gray-700">Dirección</span>
+              </div>
+              <div class="flex items-center">
+                <span class="w-2 h-2 bg-purple-500 rounded-full mr-3"></span>
+                <span class="text-gray-700">Nivel de escolaridad</span>
+              </div>
+              <div class="flex items-center">
+                <span class="w-2 h-2 bg-purple-500 rounded-full mr-3"></span>
+                <span class="text-gray-700">RFC y/o CURP</span>
+              </div>
+              <div class="flex items-center">
+                <span class="w-2 h-2 bg-purple-500 rounded-full mr-3"></span>
+                <span class="text-gray-700">Nivel de ingreso</span>
+              </div>
+              <div class="flex items-center">
+                <span class="w-2 h-2 bg-purple-500 rounded-full mr-3"></span>
+                <span class="text-gray-700">Documentos de escolaridad</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-6 p-4 bg-yellow-50 border-l-4 border-yellow-400">
+            <h4 class="font-semibold text-yellow-800 mb-2">Datos Sensibles</h4>
+            <p class="text-yellow-700 text-sm">
+              Con base en la ley en materia de protección de datos personales, los siguientes datos son considerados sensibles: 
+              <strong>Carrera que les gustaría estudiar</strong> y <strong>dónde les gustaría estudiar</strong>.
+            </p>
+          </div>
+        </div>
+
+      
+
+        <!-- Transferencias -->
+        <div class="bg-white rounded-lg shadow-lg p-8 mb-8">
+          <div class="flex items-center mb-6">
+            <Users class="w-8 h-8 text-indigo-600 mr-3" />
+            <h3 class="text-2xl font-bold text-gray-800">Transferencias de Datos</h3>
+          </div>
+          
+          <p class="text-gray-700 leading-relaxed mb-4">
+            Sus datos podrán ser transferidos a entidades del mismo grupo de interés, nacionales o extranjeras, 
+            con el objetivo de cumplir con las finalidades establecidas.
+          </p>
+
+          <h4 class="font-semibold text-gray-800 mb-3">Propósito específico:</h4>
+          <p class="text-gray-700 mb-4">
+            Validar los estudios realizados para su certificación o comprobación de la existencia de los estudios.
+          </p>
+
+          <h4 class="font-semibold text-gray-800 mb-3">Entidades con las que se comparte información:</h4>
+          <ul class="space-y-2 text-gray-700">
+            <li class="flex items-start">
+              <span class="w-2 h-2 bg-indigo-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+              Universidad de Guadalajara
+            </li>
+            <li class="flex items-start">
+              <span class="w-2 h-2 bg-indigo-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+              Secretaría de Educación Pública
+            </li>
+            <li class="flex items-start">
+              <span class="w-2 h-2 bg-indigo-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+              Secretaría de Educación del Estado de Jalisco
+            </li>
+            <li class="flex items-start">
+              <span class="w-2 h-2 bg-indigo-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+              Secretaría de Educación del Estado de Nayarit
+            </li>
+            <li class="flex items-start">
+              <span class="w-2 h-2 bg-indigo-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+              Dependencias de Servicio Social
+            </li>
+            <li class="flex items-start">
+              <span class="w-2 h-2 bg-indigo-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+              Dirección de Profesiones Federal y de cada Estado
+            </li>
+          </ul>
+
+          <div class="mt-4 p-4 bg-blue-50 border-l-4 border-blue-400">
+            <p class="text-blue-700 text-sm">
+              <strong>Importante:</strong> En caso de que no obtengamos su oposición expresa para que sus datos 
+              personales sean transferidos, entenderemos que ha otorgado su consentimiento en forma tácita.
+            </p>
+          </div>
+        </div>
+
+        <!-- Contacto -->
+        <div class="bg-white rounded-lg shadow-lg p-8 mb-8">
+          <div class="flex items-center mb-6">
+            <Mail class="w-8 h-8 text-green-600 mr-3" />
+            <h3 class="text-2xl font-bold text-gray-800">Contacto y Solicitudes</h3>
+          </div>
+          
+          <p class="text-gray-700 leading-relaxed mb-6">
+            Para ejercer sus derechos ARCO, es necesario que envíe la solicitud en los términos que marca 
+            la Ley en su Art. 29 a la Dirección de Titulación y Control Escolar, responsable de nuestro 
+            Departamento de Protección de Datos Personales.
+          </p>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="space-y-4">
+              <div class="flex items-start">
+                <div class="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center mr-3 mt-1">
+                  <svg class="w-4 h-4 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M10 0C4.48 0 0 4.48 0 10s4.48 10 10 10 10-4.48 10-10S15.52 0 10 0zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm-1-4h2v2H9v-2zm1-9C7.79 5 6 6.79 6 9h2c0-1.1.9-2 2-2s2 .9 2 2c0 2-3 1.75-3 5h2c0-2.25 3-2.5 3-5 0-2.21-1.79-4-4-4z"/>
+                  </svg>
+                </div>
+                <div>
+                  <h4 class="font-semibold text-gray-800">Dirección</h4>
+                  <p class="text-gray-600 text-sm">
+                    Chimalhuacán No. 3569<br>
+                    Colonia Ciudad del Sol<br>
+                    Zapopan, Jalisco 45050<br>
+                    México
+                  </p>
+                </div>
+              </div>
+
+              <div class="flex items-start">
+                <div class="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center mr-3 mt-1">
+                  <Phone class="w-4 h-4 text-green-600" />
+                </div>
+                <div>
+                  <h4 class="font-semibold text-gray-800">Teléfono</h4>
+                  <p class="text-gray-600 text-sm">33 3616 5612</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="space-y-4">
+              <div class="flex items-start">
+                <div class="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center mr-3 mt-1">
+                  <Mail class="w-4 h-4 text-green-600" />
+                </div>
+                <div>
+                  <h4 class="font-semibold text-gray-800">Correo Electrónico</h4>
+                  <p class="text-gray-600 text-sm">
+                    <a href="mailto:informes@universidad-une.com" class="text-blue-600 hover:underline">
+                      informes@universidad-une.com
+                    </a>
+                  </p>
+                  <p class="text-xs text-gray-500 mt-1">
+                    *Confirme vía telefónica para garantizar recepción
+                  </p>
+                </div>
+              </div>
+
+              <div class="p-4 bg-yellow-50 rounded-lg">
+                <h4 class="font-semibold text-yellow-800 mb-2">Mensajes Promocionales</h4>
+                <p class="text-yellow-700 text-sm">
+                  Si no desea recibir mensajes promocionales, puede enviarnos su solicitud al correo mencionado.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+</Layout>
+
+<style>
+  .politicas-bg {
+    background-image: url("/src/assets/Imagenes/Heros/FAQ.jpg");
+  }
+
+  @media (max-width: 767px) {
+    .politicas-bg {
+      background-image: url("/src/assets/Imagenes/Heros/FAQ_mobile.jpg");
+    }
+  }
+
+  .prose {
+    color: #374151;
+  }
+
+  .prose strong {
+    color: #1f2937;
+    font-weight: 600;
+  }
+</style>

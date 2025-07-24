@@ -1,19 +1,26 @@
 ---
-import EstudiantesBachillerato from "@/assets/Imagenes/CardOferta/Bachillerato.png";
-// Importa aquí las demás imágenes que necesites
+import EstudiantesBachillerato from "@/assets/Imagenes/CardOferta/Bachillerato.jpg";
 ---
 
 <section class="bg-white py-8 md:py-16 px-4 sm:px-6 lg:px-8">
   <div class="max-w-7xl mx-auto">
     <!-- Navegación de tabs/pills -->
-    <div class="flex flex-wrap gap-2 md:gap-4 justify-center md:justify-start mb-8">
+    <div
+      class="flex flex-wrap gap-2 md:gap-4 justify-center md:justify-start mb-8"
+    >
+      <button
+        class="tab-button px-4 py-2 rounded-full border border-gray-300 text-gray-700 hover:bg-gray-50 transition-colors"
+        data-tab="primaria"
+      >
+        Primaria
+      </button>
       <button
         class="tab-button px-4 py-2 rounded-full border border-gray-300 text-gray-700 hover:bg-gray-50 transition-colors"
         data-tab="secundaria"
       >
         Secundaria
       </button>
-      <button 
+      <button
         class="tab-button px-4 py-2 rounded-full bg-blue-600 text-white font-medium"
         data-tab="bachillerato"
       >
@@ -38,12 +45,17 @@ import EstudiantesBachillerato from "@/assets/Imagenes/CardOferta/Bachillerato.p
       <!-- Columna izquierda: Imagen y título (mobile) / Solo imagen (desktop) -->
       <div class="order-1 lg:order-1">
         <!-- Título visible solo en mobile -->
-        <h2 id="mobile-title" class="text-3xl font-bold text-gray-900 mb-6 lg:hidden text-center">
+        <h2
+          id="mobile-title"
+          class="text-3xl font-bold text-gray-900 mb-6 lg:hidden text-center"
+        >
           Bachillerato
         </h2>
 
         <!-- Imagen -->
-        <div class="relative overflow-hidden rounded-2xl shadow-lg mb-6 lg:mb-0">
+        <div
+          class="relative overflow-hidden rounded-2xl shadow-lg mb-6 lg:mb-0"
+        >
           <img
             id="content-image"
             src={EstudiantesBachillerato.src}
@@ -54,20 +66,28 @@ import EstudiantesBachillerato from "@/assets/Imagenes/CardOferta/Bachillerato.p
         </div>
 
         <!-- Tabs de modalidades (solo mobile) -->
-        <div id="mobile-modalities" class="flex justify-center gap-4 mb-6 lg:hidden">
+        <div
+          id="mobile-modalities"
+          class="flex justify-center gap-4 mb-6 lg:hidden"
+        >
           <!-- Se llenará dinámicamente -->
         </div>
 
         <!-- Subtítulo modalidad (solo mobile) -->
         <div class="text-center mb-4 lg:hidden">
-          <p id="mobile-subtitle" class="text-gray-600 font-medium">Semiescolarizado</p>
+          <p id="mobile-subtitle" class="text-gray-600 font-medium">
+            Semiescolarizado
+          </p>
         </div>
       </div>
 
       <!-- Columna derecha: Información -->
       <div class="order-2 lg:order-2">
         <!-- Título visible solo en desktop -->
-        <h2 id="desktop-title" class="text-4xl font-bold text-gray-900 mb-8 hidden lg:block">
+        <h2
+          id="desktop-title"
+          class="text-4xl font-bold text-gray-900 mb-8 hidden lg:block"
+        >
           Bachillerato
         </h2>
 
@@ -77,8 +97,12 @@ import EstudiantesBachillerato from "@/assets/Imagenes/CardOferta/Bachillerato.p
         </div>
 
         <!-- Descripción -->
-        <p id="description" class="text-gray-600 mb-8 text-center lg:text-left leading-relaxed">
-          Formación integral de nivel medio superior con enfoque humanista y orientación universitaria
+        <p
+          id="description"
+          class="text-gray-600 mb-8 text-center lg:text-left leading-relaxed"
+        >
+          Formación integral de nivel medio superior con enfoque humanista y
+          orientación universitaria
         </p>
 
         <!-- Lista de beneficios -->
@@ -89,6 +113,7 @@ import EstudiantesBachillerato from "@/assets/Imagenes/CardOferta/Bachillerato.p
         <!-- Botón CTA (solo desktop) -->
         <div class="hidden lg:block">
           <button
+            id="desktop-cta-button"
             class="bg-red-500 hover:bg-red-600 text-white font-medium px-6 py-3 rounded-lg transition-colors"
           >
             Conoce todos los detalles
@@ -100,6 +125,7 @@ import EstudiantesBachillerato from "@/assets/Imagenes/CardOferta/Bachillerato.p
     <!-- Botón CTA (solo mobile) -->
     <div class="lg:hidden mt-8 text-center">
       <button
+        id="mobile-cta-button"
         class="bg-red-500 hover:bg-red-600 text-white font-medium px-8 py-3 rounded-lg transition-colors w-full max-w-xs"
       >
         Conoce todos los detalles
@@ -109,304 +135,429 @@ import EstudiantesBachillerato from "@/assets/Imagenes/CardOferta/Bachillerato.p
 </section>
 
 <script>
-// Datos de contenido para cada sección
-const contentData = {
-  secundaria: {
-    title: 'Secundaria',
-    image: '/src/assets/Imagenes/CardOferta/Bachillerato.png', // Tu imagen actual
-    modalities: {
-      presencial: {
-        name: 'Presencial',
-        subtitle: 'Modalidad presencial',
-        description: 'Educación integral de nivel básico con enfoque en valores y desarrollo académico completo',
-        benefits: [
-          'Certificación oficial SEP',
-          'Metodología activa y participativa',
-          'Instalaciones modernas y seguras',
-          'Actividades extracurriculares',
-          'Orientación vocacional',
-          'Desarrollo de habilidades socioemocionales'
-        ]
+  // Datos de contenido para cada sección
+  const contentData = {
+    primaria: {
+      title: "Primaria Montessori",
+      image: "/src/assets/Imagenes/CardOferta/Primaria.jpg",
+      route: "/oferta/colegio-une/Primaria", // Ruta específica para primaria
+      objective:
+        "Ofrecer una educación integral basada en la filosofía Montessori, que fomente la autonomía, la responsabilidad y el amor por el aprendizaje, respetando el ritmo de cada estudiante.",
+      modalities: {
+        presencial: {
+          name: "Presencial",
+          subtitle: "Modalidad presencial",
+          description:
+            "Educación primaria con enfoque Montessori, centrada en el desarrollo integral del niño a través de experiencias significativas y materiales concretos.",
+          benefits: [
+            "Certificación oficial SEP",
+            "Ambientes preparados según el método Montessori",
+            "Fomento de la autonomía y la autogestión",
+            "Educación emocional y en valores",
+            "Materiales didácticos especializados",
+            "Atención personalizada y grupos reducidos",
+          ],
+        },
       },
-      virtual: {
-        name: 'Virtual',
-        subtitle: 'Modalidad virtual',
-        description: 'Educación secundaria a distancia con tecnología educativa de vanguardia',
-        benefits: [
-          'Certificación oficial SEP',
-          'Plataforma digital avanzada',
-          'Flexibilidad de horarios',
-          'Acompañamiento personalizado',
-          'Recursos multimedia interactivos',
-          'Evaluación continua en línea'
-        ]
-      }
-    }
-  },
-  bachillerato: {
-    title: 'Bachillerato',
-    image: '/src/assets/Imagenes/CardOferta/Bachillerato.png', // Tu imagen actual
-    modalities: {
-      presencial: {
-        name: 'Presencial UDG',
-        subtitle: 'Semiescolarizado',
-        description: 'Formación integral de nivel medio superior con enfoque humanista y orientación universitaria',
-        benefits: [
-          'Certificación oficial UDG',
-          'Enfoque en competencias y constructivismo',
-          'Instalaciones seguras',
-          'Actividades culturales y deportivas',
-          'Tutorías psicopedagógicas',
-          'Preparación para educación superior'
-        ]
+    },
+    secundaria: {
+      title: "Secundaria",
+      image: "/src/assets/Imagenes/CardOferta/Secundaria.png",
+      route: "/oferta/colegio-une/Secundaria", // Ruta específica para secundaria
+      objective:
+        "Brindar a los estudiantes una formación integral que les permita desarrollar conocimientos, habilidades, actitudes y valores fundamentales para su vida personal, social y académica, facilitando su tránsito al nivel medio superior y fomentando el cumplimiento de metas educativas nacionales.",
+      modalities: {
+        presencial: {
+          name: "Presencial",
+          subtitle: "Modalidad presencial",
+          description:
+            "Educación integral de nivel básico con enfoque en valores y desarrollo académico completo",
+          benefits: [
+            "Certificación oficial SEP",
+            "Metodología activa y participativa",
+            "Instalaciones modernas y seguras",
+            "Actividades extracurriculares",
+            "Orientación vocacional",
+            "Desarrollo de habilidades socioemocionales",
+          ],
+        },
       },
-      semiescolarizado: {
-        name: 'Semiescolarizado',
-        subtitle: 'Modalidad mixta',
-        description: 'Bachillerato con horarios flexibles que combina clases presenciales y estudio independiente',
-        benefits: [
-          'Certificación oficial UDG',
-          'Horarios flexibles',
-          'Acompañamiento tutorial',
-          'Metodología híbrida',
-          'Evaluación integral',
-          'Preparación universitaria'
-        ]
+    },
+    bachillerato: {
+      title: "Bachillerato",
+      image: "/src/assets/Imagenes/CardOferta/Bachillerato.jpg",
+      route: "/oferta/colegio-une/Bachillerato-sej", // Ruta específica para bachillerato
+      objective:
+        "Formar estudiantes con una sólida preparación académica, ética y social, desarrollando competencias clave para la vida y el aprendizaje permanente, que les permita acceder exitosamente a estudios superiores o al mundo laboral.",
+      modalities: {
+        presencial: {
+          name: "Presencial UDG",
+          subtitle: "Semiescolarizado",
+          description:
+            "Formación integral de nivel medio superior con enfoque humanista y orientación universitaria",
+          benefits: [
+            "Certificación oficial UDG",
+            "Enfoque en competencias y constructivismo",
+            "Instalaciones seguras",
+            "Actividades culturales y deportivas",
+            "Tutorías psicopedagógicas",
+            "Preparación para educación superior",
+          ],
+        },
+        semiescolarizado: {
+          name: "Semiescolarizado",
+          subtitle: "Modalidad mixta",
+          description:
+            "Bachillerato con horarios flexibles que combina clases presenciales y estudio independiente",
+          benefits: [
+            "Certificación oficial UDG",
+            "Horarios flexibles",
+            "Acompañamiento tutorial",
+            "Metodología híbrida",
+            "Evaluación integral",
+            "Preparación universitaria",
+          ],
+        },
+        virtual: {
+          name: "Virtual",
+          subtitle: "Modalidad en línea",
+          description:
+            "Bachillerato completamente virtual con tecnología educativa de última generación",
+          benefits: [
+            "Certificación oficial UDG",
+            "Plataforma educativa avanzada",
+            "Flexibilidad total de horarios",
+            "Tutorías virtuales personalizadas",
+            "Recursos digitales interactivos",
+            "Preparación para la era digital",
+          ],
+        },
       },
-      virtual: {
-        name: 'Virtual',
-        subtitle: 'Modalidad en línea',
-        description: 'Bachillerato completamente virtual con tecnología educativa de última generación',
-        benefits: [
-          'Certificación oficial UDG',
-          'Plataforma educativa avanzada',
-          'Flexibilidad total de horarios',
-          'Tutorías virtuales personalizadas',
-          'Recursos digitales interactivos',
-          'Preparación para la era digital'
-        ]
-      }
-    }
-  },
-  licenciatura: {
-    title: 'Licenciatura',
-    image: '/src/assets/Imagenes/CardOferta/Bachillerato.png', // Tu imagen actual
-    modalities: {
-      presencial: {
-        name: 'Presencial',
-        subtitle: 'Modalidad presencial',
-        description: 'Formación profesional de excelencia con enfoque práctico y vinculación empresarial',
-        benefits: [
-          'Título profesional con validez oficial',
-          'Profesores expertos en la industria',
-          'Laboratorios especializados',
-          'Prácticas profesionales',
-          'Bolsa de trabajo exclusiva',
-          'Certificaciones internacionales'
-        ]
+    },
+    licenciatura: {
+      title: "Licenciatura",
+      image: "/src/assets/Imagenes/CardOferta/Licenciaturas.jpg",
+      route: "/oferta/Licenciaturas", // Ruta específica para licenciatura
+      objective:
+        "Formar profesionales competentes con sólidos conocimientos disciplinarios, habilidades técnicas y compromiso ético, capaces de responder a las necesidades del mercado laboral y contribuir al desarrollo social y económico del país.",
+      modalities: {
+        presencial: {
+          name: "Presencial",
+          subtitle: "Modalidad presencial",
+          description:
+            "Formación profesional de excelencia con enfoque práctico y vinculación empresarial",
+          benefits: [
+            "Título profesional con validez oficial",
+            "Profesores expertos en la industria",
+            "Laboratorios especializados",
+            "Prácticas profesionales",
+            "Bolsa de trabajo exclusiva",
+            "Certificaciones internacionales",
+          ],
+        },
+        semipresencial: {
+          name: "Semipresencial",
+          subtitle: "Modalidad mixta",
+          description:
+            "Licenciatura que combina clases presenciales con actividades virtuales para mayor flexibilidad",
+          benefits: [
+            "Título profesional con validez oficial",
+            "Flexibilidad de horarios",
+            "Metodología híbrida presencial-virtual",
+            "Acompañamiento personalizado",
+            "Recursos digitales complementarios",
+            "Optimización de tiempo de estudio",
+          ],
+        },
+        sabatina: {
+          name: "Sabatina",
+          subtitle: "Modalidad sabatina",
+          description:
+            "Licenciatura con clases los sábados, ideal para profesionales en activo",
+          benefits: [
+            "Título profesional con validez oficial",
+            "Horarios sabatinos exclusivamente",
+            "Diseñada para profesionales trabajadores",
+            "Metodología intensiva",
+            "Networking profesional",
+            "Compatibilidad con actividad laboral",
+          ],
+        },
+        fines_semana: {
+          name: "Fines de Semana",
+          subtitle: "Modalidad fines de semana",
+          description:
+            "Licenciatura con clases los fines de semana para máxima flexibilidad",
+          benefits: [
+            "Título profesional con validez oficial",
+            "Clases viernes, sábados y domingos",
+            "Ideal para profesionales activos",
+            "Metodología intensiva concentrada",
+            "Compatibilidad total con trabajo",
+            "Grupos reducidos",
+          ],
+        },
+        en_linea: {
+          name: "En Línea",
+          subtitle: "Modalidad en línea",
+          description:
+            "Licenciatura completamente virtual con la misma calidad académica y flexibilidad total",
+          benefits: [
+            "Título profesional con validez oficial",
+            "Campus virtual de última generación",
+            "Flexibilidad geográfica y temporal",
+            "Acompañamiento académico",
+            "Simuladores profesionales",
+            "Biblioteca digital especializada",
+          ],
+        },
       },
-      ejecutiva: {
-        name: 'Ejecutiva',
-        subtitle: 'Para profesionales',
-        description: 'Licenciatura diseñada para profesionales en activo con horarios ejecutivos',
-        benefits: [
-          'Título profesional con validez oficial',
-          'Horarios sabatinos y vespertinos',
-          'Metodología case study',
-          'Networking profesional',
-          'Experiencia práctica inmediata',
-          'Titulación acelerada'
-        ]
-      },
-      virtual: {
-        name: 'Virtual',
-        subtitle: 'Modalidad en línea',
-        description: 'Licenciatura virtual con la misma calidad académica y flexibilidad total',
-        benefits: [
-          'Título profesional con validez oficial',
-          'Campus virtual de última generación',
-          'Flexibilidad geográfica y temporal',
-          'Acompañamiento académico',
-          'Simuladores profesionales',
-          'Biblioteca digital especializada'
-        ]
-      }
-    }
-  },
-  maestria: {
-    title: 'Maestría',
-    image: '/src/assets/Imagenes/CardOferta/Bachillerato.png', // Tu imagen actual
-    modalities: {
-      presencial: {
-        name: 'Presencial',
-        subtitle: 'Modalidad presencial',
-        description: 'Posgrado de alta especialización con enfoque en investigación y desarrollo profesional',
-        benefits: [
-          'Grado de maestría con validez oficial',
-          'Líneas de investigación especializadas',
-          'Profesores con doctorado',
-          'Proyectos de investigación aplicada',
-          'Red de egresados especializada',
-          'Convenios internacionales'
-        ]
-      },
-      ejecutiva: {
-        name: 'Ejecutiva',
-        subtitle: 'Para directivos',
-        description: 'Maestría ejecutiva para líderes empresariales con enfoque estratégico',
-        benefits: [
-          'Grado de maestría con validez oficial',
-          'Enfoque directivo y estratégico',
-          'Casos de estudio reales',
-          'Networking de alto nivel',
-          'Horarios ejecutivos',
-          'Metodología action learning'
-        ]
-      },
-      virtual: {
-        name: 'Virtual',
-        subtitle: 'Modalidad en línea',
-        description: 'Maestría virtual con estándares internacionales y flexibilidad completa',
-        benefits: [
-          'Grado de maestría con validez oficial',
-          'Plataforma de posgrado avanzada',
-          'Seminarios virtuales especializados',
-          'Asesoría de tesis personalizada',
-          'Acceso a bases de datos científicas',
-          'Movilidad académica virtual'
-        ]
-      }
-    }
-  }
-};
+    },
+    maestria: {
+      title: "Maestría",
+      image: "/src/assets/Imagenes/CardOferta/Maestrias.jpg",
+      route: "/oferta/Maestria", // Ruta específica para licenciatura
 
-// Estado actual
-let activeTab = 'bachillerato';
-let activeModalities = {
-  secundaria: 'presencial',
-  bachillerato: 'presencial',
-  licenciatura: 'presencial',
-  maestria: 'presencial'
-};
+      objective:
+        "Formar profesionales de alto nivel con competencias especializadas, visión estratégica y capacidad de liderazgo para generar soluciones innovadoras, impulsar el desarrollo organizacional y contribuir significativamente a la transformación social y económica.",
+      modalities: {
+        presencial: {
+          name: "Presencial",
+          subtitle: "Modalidad presencial",
+          description:
+            "Posgrado de alta especialización con enfoque en investigación y desarrollo profesional",
+          benefits: [
+            "Grado de maestría con validez oficial",
+            "Líneas de investigación especializadas",
+            "Profesores con doctorado",
+            "Proyectos de investigación aplicada",
+            "Red de egresados especializada",
+            "Convenios internacionales",
+          ],
+        },
+        semipresencial: {
+          name: "Semipresencial",
+          subtitle: "Modalidad mixta",
+          description:
+            "Maestría que combina sesiones presenciales con actividades virtuales especializadas",
+          benefits: [
+            "Grado de maestría con validez oficial",
+            "Metodología híbrida avanzada",
+            "Flexibilidad para profesionales",
+            "Investigación aplicada",
+            "Networking académico-profesional",
+            "Optimización de recursos de aprendizaje",
+          ],
+        },
+        sabatina: {
+          name: "Sabatina",
+          subtitle: "Modalidad sabatina",
+          description:
+            "Maestría con clases sabatinas para directivos y profesionales en activo",
+          benefits: [
+            "Grado de maestría con validez oficial",
+            "Horarios sabatinos especializados",
+            "Enfoque directivo y estratégico",
+            "Casos de estudio empresariales",
+            "Networking de alto nivel",
+            "Metodología intensiva de posgrado",
+          ],
+        },
+        fines_semana: {
+          name: "Fines de Semana",
+          subtitle: "Modalidad fines de semana",
+          description:
+            "Maestría con clases los fines de semana para máxima flexibilidad profesional",
+          benefits: [
+            "Grado de maestría con validez oficial",
+            "Sesiones intensivas de fin de semana",
+            "Compatibilidad total con actividad ejecutiva",
+            "Metodología de casos avanzados",
+            "Red de contactos directivos",
+            "Investigación aplicada al sector",
+          ],
+        },
+        en_linea: {
+          name: "En Línea",
+          subtitle: "Modalidad en línea",
+          description:
+            "Maestría completamente virtual con estándares internacionales y flexibilidad completa",
+          benefits: [
+            "Grado de maestría con validez oficial",
+            "Plataforma de posgrado avanzada",
+            "Seminarios virtuales especializados",
+            "Asesoría de tesis personalizada",
+            "Acceso a bases de datos científicas",
+            "Movilidad académica virtual",
+          ],
+        },
+      },
+    },
+  };
 
-// Función para crear el ícono de check
-function createCheckIcon() {
-  return `
+  // Estado actual
+  let activeTab = "bachillerato";
+  let activeModalities = {
+    primaria: "presencial",
+    secundaria: "presencial",
+    bachillerato: "presencial",
+    licenciatura: "presencial",
+    maestria: "presencial",
+  };
+
+  // Función para crear el ícono de check
+  function createCheckIcon() {
+    return `
     <div class="w-5 h-5 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0">
       <svg class="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
         <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
       </svg>
     </div>
   `;
-}
+  }
 
-// Función para actualizar el contenido
-function updateContent() {
-  const currentData = contentData[activeTab];
-  const currentModality = currentData.modalities[activeModalities[activeTab]];
-  
-  // Actualizar títulos
-  document.getElementById('mobile-title').textContent = currentData.title;
-  document.getElementById('desktop-title').textContent = currentData.title;
-  
-  // Actualizar imagen
-  const img = document.getElementById('content-image');
-  img.src = currentData.image;
-  img.alt = `Estudiantes de ${activeTab} UNE`;
-  
-  // Actualizar descripción
-  document.getElementById('description').textContent = currentModality.description;
-  
-  // Actualizar subtítulo móvil
-  document.getElementById('mobile-subtitle').textContent = currentModality.subtitle;
-  
-  // Actualizar modalidades móviles
-  const mobileModalities = document.getElementById('mobile-modalities');
-  mobileModalities.innerHTML = '';
-  Object.keys(currentData.modalities).forEach(modalityKey => {
-    const modality = currentData.modalities[modalityKey];
-    const isActive = activeModalities[activeTab] === modalityKey;
-    const span = document.createElement('span');
-    span.className = `text-sm font-medium cursor-pointer pb-1 ${
-      isActive ? 'text-gray-900 border-b-2 border-blue-600' : 'text-gray-500 hover:text-gray-700'
-    }`;
-    span.textContent = modality.name;
-    span.addEventListener('click', () => changeModality(modalityKey));
-    mobileModalities.appendChild(span);
-  });
-  
-  // Actualizar modalidades desktop
-  const desktopModalities = document.getElementById('desktop-modalities');
-  desktopModalities.innerHTML = '';
-  Object.keys(currentData.modalities).forEach(modalityKey => {
-    const modality = currentData.modalities[modalityKey];
-    const isActive = activeModalities[activeTab] === modalityKey;
-    const span = document.createElement('span');
-    span.className = `text-base font-medium cursor-pointer pb-2 ${
-      isActive ? 'text-gray-900 border-b-2 border-blue-600' : 'text-gray-500 hover:text-gray-700'
-    }`;
-    span.textContent = modality.name;
-    span.addEventListener('click', () => changeModality(modalityKey));
-    desktopModalities.appendChild(span);
-  });
-  
-  // Actualizar beneficios
-  const benefitsList = document.getElementById('benefits-list');
-  benefitsList.innerHTML = '';
-  currentModality.benefits.forEach(benefit => {
-    const div = document.createElement('div');
-    div.className = 'flex items-center gap-3';
-    div.innerHTML = `
+  // Función para actualizar los botones CTA
+  function updateCTAButtons() {
+    const currentData = contentData[activeTab];
+    const desktopButton = document.getElementById("desktop-cta-button");
+    const mobileButton = document.getElementById("mobile-cta-button");
+
+    // Actualizar event listeners para navegar a la ruta correcta
+    const navigateToRoute = () => {
+      window.location.href = currentData.route;
+    };
+
+    // Remover event listeners anteriores y agregar nuevos
+    desktopButton.replaceWith(desktopButton.cloneNode(true));
+    mobileButton.replaceWith(mobileButton.cloneNode(true));
+
+    // Obtener las nuevas referencias después del clonado
+    const newDesktopButton = document.getElementById("desktop-cta-button");
+    const newMobileButton = document.getElementById("mobile-cta-button");
+
+    newDesktopButton.addEventListener("click", navigateToRoute);
+    newMobileButton.addEventListener("click", navigateToRoute);
+  }
+
+  // Función para actualizar el contenido
+  function updateContent() {
+    const currentData = contentData[activeTab];
+    const currentModality = currentData.modalities[activeModalities[activeTab]];
+
+    // Actualizar títulos
+    document.getElementById("mobile-title").textContent = currentData.title;
+    document.getElementById("desktop-title").textContent = currentData.title;
+
+    // Actualizar imagen
+    const img = document.getElementById("content-image");
+    img.src = currentData.image;
+    img.alt = `Estudiantes de ${activeTab} UNE`;
+
+    // Actualizar descripción
+    document.getElementById("description").textContent =
+      currentModality.description;
+
+    // Actualizar subtítulo móvil
+    document.getElementById("mobile-subtitle").textContent =
+      currentModality.subtitle;
+
+    // Limpiar y actualizar modalidades móviles
+    const mobileModalities = document.getElementById("mobile-modalities");
+    mobileModalities.innerHTML = "";
+    Object.keys(currentData.modalities).forEach((modalityKey) => {
+      const modality = currentData.modalities[modalityKey];
+      const isActive = activeModalities[activeTab] === modalityKey;
+      const span = document.createElement("span");
+      span.className = `text-sm font-medium cursor-pointer pb-1 transition-colors ${
+        isActive
+          ? "text-gray-900 border-b-2 border-blue-600"
+          : "text-gray-500 hover:text-gray-700"
+      }`;
+      span.textContent = modality.name;
+      span.addEventListener("click", () => changeModality(modalityKey));
+      mobileModalities.appendChild(span);
+    });
+
+    // Limpiar y actualizar modalidades desktop
+    const desktopModalities = document.getElementById("desktop-modalities");
+    desktopModalities.innerHTML = "";
+    Object.keys(currentData.modalities).forEach((modalityKey) => {
+      const modality = currentData.modalities[modalityKey];
+      const isActive = activeModalities[activeTab] === modalityKey;
+      const span = document.createElement("span");
+      span.className = `text-base font-medium cursor-pointer pb-2 transition-colors ${
+        isActive
+          ? "text-gray-900 border-b-2 border-blue-600"
+          : "text-gray-500 hover:text-gray-700"
+      }`;
+      span.textContent = modality.name;
+      span.addEventListener("click", () => changeModality(modalityKey));
+      desktopModalities.appendChild(span);
+    });
+
+    // Actualizar beneficios
+    const benefitsList = document.getElementById("benefits-list");
+    benefitsList.innerHTML = "";
+    currentModality.benefits.forEach((benefit) => {
+      const div = document.createElement("div");
+      div.className = "flex items-center gap-3";
+      div.innerHTML = `
       ${createCheckIcon()}
       <span class="text-gray-700">${benefit}</span>
     `;
-    benefitsList.appendChild(div);
-  });
-}
-
-// Función para cambiar tab principal
-function changeTab(newTab) {
-  activeTab = newTab;
-  
-  // Actualizar estilos de botones
-  document.querySelectorAll('.tab-button').forEach(btn => {
-    if (btn.dataset.tab === newTab) {
-      btn.className = 'tab-button px-4 py-2 rounded-full bg-blue-600 text-white font-medium';
-    } else {
-      btn.className = 'tab-button px-4 py-2 rounded-full border border-gray-300 text-gray-700 hover:bg-gray-50 transition-colors';
-    }
-  });
-  
-  updateContent();
-}
-
-// Función para cambiar modalidad
-function changeModality(newModality) {
-  activeModalities[activeTab] = newModality;
-  updateContent();
-}
-
-// Inicializar event listeners
-document.addEventListener('DOMContentLoaded', function() {
-  // Event listeners para tabs principales
-  document.querySelectorAll('.tab-button').forEach(button => {
-    button.addEventListener('click', () => {
-      changeTab(button.dataset.tab);
+      benefitsList.appendChild(div);
     });
+
+    // Actualizar botones CTA
+    updateCTAButtons();
+  }
+
+  // Función para cambiar tab principal
+  function changeTab(newTab) {
+    activeTab = newTab;
+
+    // Actualizar estilos de botones
+    document.querySelectorAll(".tab-button").forEach((btn) => {
+      if (btn.dataset.tab === newTab) {
+        btn.className =
+          "tab-button px-4 py-2 rounded-full bg-blue-600 text-white font-medium";
+      } else {
+        btn.className =
+          "tab-button px-4 py-2 rounded-full border border-gray-300 text-gray-700 hover:bg-gray-50 transition-colors";
+      }
+    });
+
+    // Actualizar contenido inmediatamente
+    updateContent();
+  }
+
+  // Función para cambiar modalidad
+  function changeModality(newModality) {
+    activeModalities[activeTab] = newModality;
+    updateContent();
+  }
+
+  // Inicializar event listeners
+  document.addEventListener("DOMContentLoaded", function () {
+    // Event listeners para tabs principales
+    document.querySelectorAll(".tab-button").forEach((button) => {
+      button.addEventListener("click", () => {
+        changeTab(button.dataset.tab);
+      });
+    });
+
+    // Inicializar contenido
+    updateContent();
   });
-  
-  // Inicializar contenido
-  updateContent();
-});
 </script>
 
 <style>
-/* Estilos adicionales si necesitas personalización */
-.tab-button {
-  transition: all 0.2s ease-in-out;
-}
+  /* Estilos adicionales si necesitas personalización */
+  .tab-button {
+    transition: all 0.2s ease-in-out;
+  }
 
-.tab-button:hover {
-  transform: translateY(-1px);
-}
+  .tab-button:hover {
+    transform: translateY(-1px);
+  }
 </style>

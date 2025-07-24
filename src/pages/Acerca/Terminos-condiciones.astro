@@ -1,0 +1,541 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import { FileText, Scale, GraduationCap, Users, AlertTriangle, Phone, Mail, Globe } from "@lucide/astro";
+---
+
+<Layout>
+  <main class="min-h-screen">
+    <section
+      class="politicas-bg relative min-h-[65vh] overflow-hidden bg-cover bg-center bg-no-repeat"
+    >
+      <div
+        class="relative z-10 container mx-auto px-4 h-full min-h-[65vh] flex flex-col md:flex-row items-center justify-center md:justify-end"
+      >
+        <div
+          class="w-full max-w-7xl flex flex-col md:flex-row items-center justify-between"
+        >
+          <div
+            class="flex items-center space-x-4 mb-6 md:mb-0 md:space-x-8 text-white"
+          >
+            <div
+              class="w-16 h-16 bg-white bg-opacity-20 rounded-full flex items-center justify-center"
+            >
+              <Scale class="w-8 h-8 text-white" />
+            </div>
+            <h1 class="text-3xl md:text-5xl font-bold tracking-wider">TÉRMINOS Y CONDICIONES</h1>
+          </div>      <div
+        class="bg-white rounded-lg p-6 max-w-sm shadow-lg text-center md:text-left"
+      >
+        <h2 class="text-xl font-bold text-gray-800 mb-3">
+          Términos de Uso
+        </h2>
+        <p class="text-gray-600 text-sm leading-relaxed">
+          Al utilizar nuestros servicios educativos, plataformas digitales
+          e instalaciones, usted acepta estos términos y condiciones.
+          Lea detenidamente antes de continuar.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-16 bg-gray-50">
+  <div class="container mx-auto px-4 max-w-4xl">
+
+    <div class="bg-white rounded-lg shadow-lg p-8 mb-8">
+      <div class="flex items-center mb-6">
+        <FileText class="w-8 h-8 text-blue-600 mr-3" />
+        <h2 class="text-3xl font-bold text-gray-800">Información General</h2>
+      </div>
+
+      <div class="prose prose-lg max-w-none">
+        <p class="text-gray-700 leading-relaxed mb-4">
+          <strong>CENTRO UNIVERSITARIO UNE A.C.</strong>, con domicilio en
+          <strong>CHIMALHUACÁN NO. 6 COLONIA CIUDAD DEL SOL ZAPOPAN JALISCO 45050</strong>,
+          México, es una institución educativa privada legalmente constituida que ofrece servicios de educación superior.
+        </p>
+        <p class="text-gray-700 leading-relaxed mb-4">
+          Al acceder y utilizar nuestros servicios educativos, plataformas digitales, instalaciones físicas
+          o cualquier otro servicio proporcionado por nuestra institución, usted acepta estos términos y
+          condiciones en su totalidad.
+        </p>
+        <div class="bg-blue-50 border-l-4 border-blue-400 p-4 mt-4">
+          <p class="text-blue-700 text-sm font-semibold">
+            <strong>Fecha de última actualización:</strong> 23 de julio de 2025
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="bg-white rounded-lg shadow-lg p-8 mb-8">
+      <div class="flex items-center mb-6">
+        <Globe class="w-8 h-8 text-green-600 mr-3" />
+        <h3 class="text-2xl font-bold text-gray-800">Definiciones</h3>
+      </div>
+
+      <p class="text-gray-700 leading-relaxed mb-4">
+        Para efectos de estos términos y condiciones, se entenderá por:
+      </p>
+
+      <div class="space-y-4">
+        <div class="flex items-start">
+          <span class="w-2 h-2 bg-green-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+          <div>
+            <strong class="text-gray-800">"La Institución" o "UNE":</strong>
+            <span class="text-gray-700"> Centro Universitario UNE A.C.</span>
+          </div>
+        </div>
+        <div class="flex items-start">
+          <span class="w-2 h-2 bg-green-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+          <div>
+            <strong class="text-gray-800">"Usuario" o "Estudiante":</strong>
+            <span class="text-gray-700"> Persona física que utiliza los servicios educativos</span>
+          </div>
+        </div>
+        <div class="flex items-start">
+          <span class="w-2 h-2 bg-green-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+          <div>
+            <strong class="text-gray-800">"Servicios":</strong>
+            <span class="text-gray-700"> Todos los programas educativos, plataformas digitales, instalaciones y actividades proporcionadas</span>
+          </div>
+        </div>
+        <div class="flex items-start">
+          <span class="w-2 h-2 bg-green-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+          <div>
+            <strong class="text-gray-800">"Plataforma":</strong>
+            <span class="text-gray-700"> Sitio web, aplicaciones móviles y sistemas digitales de la institución</span>
+          </div>
+        </div>
+        <div class="flex items-start">
+          <span class="w-2 h-2 bg-green-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+          <div>
+            <strong class="text-gray-800">"Contenido":</strong>
+            <span class="text-gray-700"> Materiales educativos, información académica y recursos proporcionados</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="bg-white rounded-lg shadow-lg p-8 mb-8">
+      <div class="flex items-center mb-6">
+        <GraduationCap class="w-8 h-8 text-purple-600 mr-3" />
+        <h3 class="text-2xl font-bold text-gray-800">Servicios Educativos</h3>
+      </div>
+
+      <div class="space-y-6">
+        <div>
+          <h4 class="text-lg font-semibold text-gray-800 mb-3">3.1 Programas Académicos</h4>
+          <p class="text-gray-700 leading-relaxed mb-4">
+            La Institución ofrece programas de licenciatura incorporados a la Universidad de Guadalajara (UDG)
+            y a la Secretaría de Innovación, Ciencia y Tecnología (SICYT) del Estado de Jalisco, garantizando
+            la validez oficial de los estudios.
+          </p>
+          <ul class="space-y-2 text-gray-700">
+            <li class="flex items-start">
+              <span class="w-2 h-2 bg-purple-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+              Modalidad presencial, en línea, escolarizada y semiescolarizada
+            </li>
+            <li class="flex items-start">
+              <span class="w-2 h-2 bg-purple-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+              Duración promedio de 8 a 10 semestres según el programa
+            </li>
+            <li class="flex items-start">
+              <span class="w-2 h-2 bg-purple-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+              Plan de estudios actualizado y reconocido oficialmente
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="text-lg font-semibold text-gray-800 mb-3">3.2 Plataformas Digitales</h4>
+          <p class="text-gray-700 leading-relaxed">
+            Los servicios digitales incluyen acceso a plataformas educativas, materiales de estudio,
+            sistemas de gestión académica y herramientas de comunicación institucional.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="text-lg font-semibold text-gray-800 mb-3">3.3 Instalaciones y Recursos</h4>
+          <p class="text-gray-700 leading-relaxed">
+            Uso de instalaciones físicas, bibliotecas, laboratorios, aulas y espacios de estudio,
+            sujeto a disponibilidad y normativas internas.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="bg-white rounded-lg shadow-lg p-8 mb-8">
+      <div class="flex items-center mb-6">
+        <Users class="w-8 h-8 text-indigo-600 mr-3" />
+        <h3 class="text-2xl font-bold text-gray-800">Obligaciones del Usuario</h3>
+      </div>
+
+      <div class="space-y-4">
+        <div>
+          <h4 class="text-lg font-semibold text-gray-800 mb-3">4.1 Requisitos de Admisión</h4>
+          <p class="text-gray-700 leading-relaxed mb-3">
+            El usuario se compromete a proporcionar documentación completa y veraz:
+          </p>
+          <ul class="space-y-2 text-gray-700">
+            <li class="flex items-start">
+              <span class="w-2 h-2 bg-indigo-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+              Certificado de bachillerato
+            </li>
+            <li class="flex items-start">
+              <span class="w-2 h-2 bg-indigo-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+              Acta de nacimiento, CURP e identificación oficial
+            </li>
+            <li class="flex items-start">
+              <span class="w-2 h-2 bg-indigo-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+              Comprobante de domicilio y fotografías recientes
+            </li>
+            <li class="flex items-start">
+              <span class="w-2 h-2 bg-indigo-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+              Resultado de examen de admisión (cuando aplique)
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="text-lg font-semibold text-gray-800 mb-3">4.2 Conducta Académica</h4>
+          <ul class="space-y-2 text-gray-700">
+            <li class="flex items-start">
+              <span class="w-2 h-2 bg-indigo-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+              Cumplir con las actividades académicas programadas
+            </li>
+            <li class="flex items-start">
+              <span class="w-2 h-2 bg-indigo-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+              Respetar las fechas de entrega y evaluaciones
+            </li>
+            <li class="flex items-start">
+              <span class="w-2 h-2 bg-indigo-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+              Mantener conducta ética y profesional
+            </li>
+            <li class="flex items-start">
+              <span class="w-2 h-2 bg-indigo-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+              No incurrir en plagio o fraude académico
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="text-lg font-semibold text-gray-800 mb-3">4.3 Pagos y Colegiaturas</h4>
+          <ul class="space-y-2 text-gray-700">
+            <li class="flex items-start">
+              <span class="w-2 h-2 bg-indigo-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+              Realizar pagos en tiempo y forma según calendario establecido
+            </li>
+            <li class="flex items-start">
+              <span class="w-2 h-2 bg-indigo-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+              Cubrir costos adicionales por servicios especiales
+            </li>
+            <li class="flex items-start">
+              <span class="w-2 h-2 bg-indigo-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+              Mantener al corriente las obligaciones financieras
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="bg-white rounded-lg shadow-lg p-8 mb-8">
+      <div class="flex items-center mb-6">
+        <Scale class="w-8 h-8 text-red-600 mr-3" />
+        <h3 class="text-2xl font-bold text-gray-800">Derechos y Obligaciones de la Institución</h3>
+      </div>
+
+      <div class="space-y-6">
+        <div>
+          <h4 class="text-lg font-semibold text-gray-800 mb-3">5.1 Derechos de la Institución</h4>
+          <ul class="space-y-2 text-gray-700">
+            <li class="flex items-start">
+              <span class="w-2 h-2 bg-red-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+              Modificar planes de estudio conforme a normativas oficiales
+            </li>
+            <li class="flex items-start">
+              <span class="w-2 h-2 bg-red-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+              Suspender servicios por incumplimiento de pagos
+            </li>
+            <li class="flex items-start">
+              <span class="w-2 h-2 bg-red-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+              Aplicar medidas disciplinarias según reglamento interno
+            </li>
+            <li class="flex items-start">
+              <span class="w-2 h-2 bg-red-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+              Verificar la autenticidad de documentos presentados
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="text-lg font-semibold text-gray-800 mb-3">5.2 Obligaciones de la Institución</h4>
+          <ul class="space-y-2 text-gray-700">
+            <li class="flex items-start">
+              <span class="w-2 h-2 bg-red-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+              Proporcionar educación de calidad según programas establecidos
+            </li>
+            <li class="flex items-start">
+              <span class="w-2 h-2 bg-red-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+              Mantener la validez oficial de los estudios
+            </li>
+            <li class="flex items-start">
+              <span class="w-2 h-2 bg-red-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+              Brindar apoyo académico y tutorías
+            </li>
+            <li class="flex items-start">
+              <span class="w-2 h-2 bg-red-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+              Proteger los datos personales conforme a la ley
+            </li>
+            <li class="flex items-start">
+              <span class="w-2 h-2 bg-red-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+              Expedir documentos oficiales una vez cumplidos los requisitos
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="bg-white rounded-lg shadow-lg p-8 mb-8">
+      <div class="flex items-center mb-6">
+        <AlertTriangle class="w-8 h-8 text-yellow-600 mr-3" />
+        <h3 class="text-2xl font-bold text-gray-800">Política de Cancelaciones y Reembolsos</h3>
+      </div>
+
+      <div class="space-y-4">
+        <div>
+          <h4 class="text-lg font-semibold text-gray-800 mb-3">6.1 Cancelación de Servicios</h4>
+          <p class="text-gray-700 leading-relaxed mb-3">
+            El usuario puede solicitar la cancelación de servicios educativos mediante solicitud por escrito
+            con al menos 30 días de anticipación al inicio del siguiente periodo académico.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="text-lg font-semibold text-gray-800 mb-3">6.2 Política de Reembolsos</h4>
+          <ul class="space-y-2 text-gray-700">
+            <li class="flex items-start">
+              <span class="w-2 h-2 bg-yellow-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+              Los pagos realizados no son reembolsables una vez iniciado el periodo académico
+            </li>
+            <li class="flex items-start">
+              <span class="w-2 h-2 bg-yellow-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+              Cancelaciones antes del inicio de clases: reembolso del 80% del pago
+            </li>
+            <li class="flex items-start">
+              <span class="w-2 h-2 bg-yellow-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+              Costos administrativos y de inscripción no son reembolsables
+            </li>
+            <li class="flex items-start">
+              <span class="w-2 h-2 bg-yellow-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+              Casos especiales se evaluarán individualmente
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="bg-white rounded-lg shadow-lg p-8 mb-8">
+      <div class="flex items-center mb-6">
+        <FileText class="w-8 h-8 text-teal-600 mr-3" />
+        <h3 class="text-2xl font-bold text-gray-800">Propiedad Intelectual</h3>
+      </div>
+
+      <div class="space-y-4">
+        <p class="text-gray-700 leading-relaxed">
+          Todos los materiales educativos, contenidos, recursos digitales, marcas, logotipos y demás
+          elementos proporcionados por la Institución son propiedad exclusiva de Centro Universitario UNE A.C.
+          o de sus licenciantes.
+        </p>
+
+        <div>
+          <h4 class="text-lg font-semibold text-gray-800 mb-3">7.1 Uso Permitido</h4>
+          <ul class="space-y-2 text-gray-700">
+            <li class="flex items-start">
+              <span class="w-2 h-2 bg-teal-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+              Uso personal y académico únicamente
+            </li>
+            <li class="flex items-start">
+              <span class="w-2 h-2 bg-teal-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+              No comercialización ni distribución no autorizada
+            </li>
+            <li class="flex items-start">
+              <span class="w-2 h-2 bg-teal-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+              Respeto a derechos de autor y marcas registradas
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="bg-white rounded-lg shadow-lg p-8 mb-8">
+      <div class="flex items-center mb-6">
+        <AlertTriangle class="w-8 h-8 text-orange-600 mr-3" />
+        <h3 class="text-2xl font-bold text-gray-800">Limitación de Responsabilidad</h3>
+      </div>
+
+      <div class="space-y-4">
+        <p class="text-gray-700 leading-relaxed">
+          La Institución no será responsable por daños indirectos, incidentales, especiales o
+          consecuentes que puedan derivarse del uso de los servicios educativos o plataformas digitales.
+        </p>
+
+        <div>
+          <h4 class="text-lg font-semibold text-gray-800 mb-3">8.1 Limitaciones Específicas</h4>
+          <ul class="space-y-2 text-gray-700">
+            <li class="flex items-start">
+              <span class="w-2 h-2 bg-orange-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+              Interrupciones en servicios digitales por mantenimiento o fallas técnicas
+            </li>
+            <li class="flex items-start">
+              <span class="w-2 h-2 bg-orange-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+              Cambios en normativas oficiales que afecten los programas
+            </li>
+            <li class="flex items-start">
+              <span class="w-2 h-2 bg-orange-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+              Situaciones de fuerza mayor o caso fortuito
+            </li>
+            <li class="flex items-start">
+              <span class="w-2 h-2 bg-orange-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+              Pérdida de información por mal uso de plataformas
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="bg-white rounded-lg shadow-lg p-8 mb-8">
+      <div class="flex items-center mb-6">
+        <FileText class="w-8 h-8 text-pink-600 mr-3" />
+        <h3 class="text-2xl font-bold text-gray-800">Modificaciones a los Términos</h3>
+      </div>
+
+      <p class="text-gray-700 leading-relaxed mb-4">
+        La Institución se reserva el derecho de modificar estos términos y condiciones en cualquier momento.
+        Las modificaciones entrarán en vigor a partir de su publicación en el sitio web oficial.
+      </p>
+
+      <div class="bg-pink-50 border-l-4 border-pink-400 p-4">
+        <p class="text-pink-700 text-sm">
+          <strong>Importante:</strong> Es responsabilidad del usuario revisar periódicamente estos términos.
+          El uso continuado de los servicios después de las modificaciones constituye aceptación de los nuevos términos.
+        </p>
+      </div>
+    </div>
+
+    <div class="bg-white rounded-lg shadow-lg p-8 mb-8">
+      <div class="flex items-center mb-6">
+        <Scale class="w-8 h-8 text-gray-600 mr-3" />
+        <h3 class="text-2xl font-bold text-gray-800">Jurisdicción y Ley Aplicable</h3>
+      </div>
+
+      <p class="text-gray-700 leading-relaxed mb-4">
+        Estos términos y condiciones se rigen por las leyes de los Estados Unidos Mexicanos.
+        Cualquier controversia que surja en relación con estos términos será sometida a la
+        jurisdicción de los tribunales competentes en Zapopan, Jalisco, México.
+      </p>
+
+      <div class="space-y-3">
+        <div class="flex items-center">
+          <span class="w-2 h-2 bg-gray-500 rounded-full mr-3"></span>
+          <span class="text-gray-700">Ley Federal de Protección al Consumidor</span>
+        </div>
+        <div class="flex items-center">
+          <span class="w-2 h-2 bg-gray-500 rounded-full mr-3"></span>
+          <span class="text-gray-700">Ley Federal de Protección de Datos Personales</span>
+        </div>
+        <div class="flex items-center">
+          <span class="w-2 h-2 bg-gray-500 rounded-full mr-3"></span>
+          <span class="text-gray-700">Ley General de Educación</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="bg-white rounded-lg shadow-lg p-8 mb-8">
+      <div class="flex items-center mb-6">
+        <Mail class="w-8 h-8 text-green-600 mr-3" />
+        <h3 class="text-2xl font-bold text-gray-800">Contacto</h3>
+      </div>
+
+      <p class="text-gray-700 leading-relaxed mb-6">
+        Para cualquier duda, aclaración o solicitud relacionada con estos términos y condiciones,
+        puede contactarnos a través de los siguientes medios:
+      </p>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="space-y-4">
+          <div class="flex items-start">
+            <div class="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center mr-3 mt-1">
+              <svg class="w-4 h-4 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M10 0C4.48 0 0 4.48 0 10s4.48 10 10 10 10-4.48 10-10S15.52 0 10 0zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm-1-4h2v2H9v-2zm1-9C7.79 5 6 6.79 6 9h2c0-1.1.9-2 2-2s2 .9 2 2c0 2-3 1.75-3 5h2c0-2.25 3-2.5 3-5 0-2.21-1.79-4-4-4z"/>
+              </svg>
+            </div>
+            <div>
+              <h4 class="font-semibold text-gray-800">Dirección</h4>
+              <p class="text-gray-600 text-sm">
+                Chimalhuacán No. 6<br>
+                Colonia Ciudad del Sol<br>
+                Zapopan, Jalisco 45050<br>
+                México
+              </p>
+            </div>
+          </div>
+
+          <div class="flex items-start">
+            <div class="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center mr-3 mt-1">
+              <Phone class="w-4 h-4 text-green-600" />
+            </div>
+            <div>
+              <h4 class="font-semibold text-gray-800">Teléfono</h4>
+              <p class="text-gray-600 text-sm">33 8000 0863</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="space-y-4">
+          <div class="flex items-start">
+            <div class="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center mr-3 mt-1">
+              <Mail class="w-4 h-4 text-green-600" />
+            </div>
+            <div>
+              <h4 class="font-semibold text-gray-800">Correo Electrónico</h4>
+              <p class="text-gray-600 text-sm">contacto@universidad-une.com</p>
+            </div>
+          </div>
+
+          <div class="flex items-start">
+            <div class="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center mr-3 mt-1">
+              <Globe class="w-4 h-4 text-green-600" />
+            </div>
+            <div>
+              <h4 class="font-semibold text-gray-800">Sitio Web</h4>
+              <p class="text-gray-600 text-sm">www.universidad-une.com</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+</Layout>
+
+<style>
+  .politicas-bg {
+    background-image: url("/src/assets/Imagenes/Heros/FAQ.jpg");
+  }
+
+  @media (max-width: 767px) {
+    .politicas-bg {
+      background-image: url("/src/assets/Imagenes/Heros/FAQ_mobile.jpg");
+    }
+  }
+
+  .prose {
+    color: #374151;
+  }
+
+  .prose strong {
+    color: #1f2937;
+    font-weight: 600;
+  }
+</style>

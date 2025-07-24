@@ -1,6 +1,7 @@
 ---
 // Cards_Niveles.astro
 import { ArrowRight } from "@lucide/astro";
+import Primaria from "@/assets/Imagenes/Primaria.png";
 import Secundaria from "@/assets/Imagenes/Secundaria.png";
 import Bachillerato from "@/assets/Imagenes/Bachillerato.png";
 import Licenciaturas from "@/assets/Imagenes/Licenciaturas.png";
@@ -15,13 +16,13 @@ const cardsData = [
     id: "primaria",
     title: "PRIMARIA",
     description: "Educación básica integral con valores y excelencia académica.",
-    image: Secundaria.src, // Usando la misma imagen que secundaria
+    image: Primaria.src, // Usando la misma imagen que secundaria
     alt: "Estudiante de Primaria",
-    bgColor: "#001A71",
+    bgColor: "#0d142e",
     textColor: "text-white",
     textSecondary: "text-blue-100",
     hoverColor: "hover:text-blue-200",
-    href: "http://localhost:4321/oferta/colegio-une/Primaria"
+    href: "/oferta/colegio-une/Primaria"
   },
   {
     id: "secundaria",
@@ -33,7 +34,7 @@ const cardsData = [
     textColor: "text-white",
     textSecondary: "text-blue-100",
     hoverColor: "hover:text-blue-200",
-    href: "http://localhost:4321/oferta/colegio-une/Secundaria"
+    href: "/oferta/colegio-une/Secundaria"
   },
   {
     id: "bachillerato",
@@ -45,7 +46,7 @@ const cardsData = [
     textColor: "text-white",
     textSecondary: "text-blue-100",
     hoverColor: "hover:text-blue-200",
-    href: "http://localhost:4321/oferta/colegio-une/Bachillerato-sej"
+    href: "/oferta/colegio-une/Bachillerato-sej"
   },
   {
     id: "licenciaturas",
@@ -57,7 +58,7 @@ const cardsData = [
     textColor: "text-white",
     textSecondary: "text-red-100",
     hoverColor: "hover:text-red-200",
-    href: "http://localhost:4321/oferta/Licenciaturas"
+    href: "/oferta/Licenciaturas"
   },
   {
     id: "posgrados",
@@ -69,9 +70,9 @@ const cardsData = [
     textColor: "text-gray-900",
     textSecondary: "text-gray-700",
     hoverColor: "hover:text-gray-600",
-    href: "http://localhost:4321/oferta/Maestria"
+    href: "/oferta/Maestria"
   },
-  {
+/*   {
     id: "idiomas",
     title: "IDIOMAS",
     description: "Domina nuevos idiomas y amplía tus horizontes globales",
@@ -81,8 +82,8 @@ const cardsData = [
     textColor: "text-gray-900",
     textSecondary: "text-gray-700",
     hoverColor: "hover:text-gray-600",
-    href: "http://localhost:4321/oferta/Especialidades"
-  },
+    href: "/oferta/Especialidades"
+  }, */
   {
     id: "continua",
     title: "ED. CONTINUA",
@@ -93,19 +94,19 @@ const cardsData = [
     textColor: "text-gray-900",
     textSecondary: "text-gray-700",
     hoverColor: "hover:text-gray-600",
-    href: "http://localhost:4321/oferta/Continua"
+    href: "/oferta/Continua"
   },
   {
     id: "diplomados",
     title: "DIPLOMADOS",
     description: "Programas especializados para el desarrollo profesional",
-    image: Continua.src,
+     image: Idiomas.src,
     alt: "Diplomados",
     bgColor: "#F2F6FE",
     textColor: "text-gray-900",
     textSecondary: "text-gray-700",
     hoverColor: "hover:text-gray-600",
-    href: "http://localhost:4321/oferta/Diplomados"
+    href: "/oferta/Diplomados"
   }
 ];
 ---

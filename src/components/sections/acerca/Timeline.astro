@@ -1,0 +1,442 @@
+---
+import {
+  Building2,
+  GraduationCap,
+  MapPin,
+  Sparkles,
+  Calendar,
+  Users,
+  Trophy,
+  Rocket,
+} from "@lucide/astro";
+---
+
+<div
+  class="timeline-container w-full px-4 py-12 bg-gradient-to-br from-slate-50 to-blue-50"
+>
+  <!-- Header -->
+  <div class="text-center mb-16">
+    <h2 class="text-4xl md:text-5xl font-bold text-gray-800 mb-4">Nosotros</h2>
+    <h3 class="text-2xl md:text-3xl text-blue-600 font-semibold mb-6">
+      - Nuestra historia -
+    </h3>
+    <p class="text-lg text-gray-600 max-w-4xl mx-auto leading-relaxed">
+      Con la misión de formar verdaderos hombres, dispuestos a forjar un México
+      grande, próspero, libre y unido, el 12 de Diciembre de 1994 nació el
+      Centro Universitario UNE con el nombre de "Instituto Harvard 2000"
+      ofreciendo cursos de idiomas inglés, francés y asesoría para alumnos de
+      secundaria y preparatoria.
+    </p>
+  </div>
+
+  <!-- Timeline Horizontal -->
+  <div class="relative overflow-x-auto pb-8">
+   <div class="flex items-center min-w-max space-x-8 px-4">
+      <!-- Timeline Item 1994 -->
+      <div class="timeline-item flex flex-col items-center" data-year="1994">
+        <div
+          class="timeline-content bg-white rounded-xl shadow-lg p-6 mb-4 w-64 border-t-4 border-azul-une hover:shadow-xl transition-all duration-300"
+        >
+          <div
+            class="flex items-center justify-center w-12 h-12 bg-blue-100 rounded-full mb-4 mx-auto"
+          >
+            <Sparkles class="w-6 h-6 text-azul-une" />
+          </div>
+          <h4 class="text-xl font-bold text-azul-une mb-2 text-center">1994</h4>
+          <h5 class="text-lg font-semibold text-gray-800 mb-2 text-center">
+            Nacimiento UNE
+          </h5> 
+          <p class="text-gray-600 text-center text-sm">
+            "Instituto Harvard 2000"<br />Plantel Pirámide
+          </p>
+        </div>
+        <div
+          class="w-4 h-4 bg-azul-une rounded-full border-4 border-white shadow-lg z-10"
+        >
+        </div>
+      </div>
+
+      <!-- Timeline Item 1995-1998 -->
+      <div class="timeline-item flex flex-col items-center" data-year="1995">
+        <div
+          class="timeline-content bg-white rounded-xl shadow-lg p-6 mb-4 w-64 border-t-4 border-rojo-une hover:shadow-xl transition-all duration-300"
+        >
+          <div
+            class="flex items-center justify-center w-12 h-12 bg-red-100 rounded-full mb-4 mx-auto"
+          >
+            <GraduationCap class="w-6 h-6 text-rojo-une" />
+          </div>
+          <h4 class="text-xl font-bold text-rojo-une mb-2 text-center">
+            1995 - 1998
+          </h4>
+          <h5 class="text-lg font-semibold text-gray-800 mb-2 text-center">
+            RVOE UdeG
+          </h5>
+          <p class="text-gray-600 text-center text-sm">
+            Nivel Medio Superior<br />Plantel Plaza del Sol<br />Plantel Condo
+            Plaza y Centro Médico
+          </p>
+        </div>
+        <div
+          class="w-4 h-4 bg-rojo-une rounded-full border-4 border-white shadow-lg z-10"
+        >
+        </div>
+      </div>
+
+      <!-- Timeline Item 1999 -->
+      <div class="timeline-item flex flex-col items-center" data-year="1999">
+        <div
+          class="timeline-content bg-white rounded-xl shadow-lg p-6 mb-4 w-64 border-t-4 border-gray-500 hover:shadow-xl transition-all duration-300"
+        >
+          <div
+            class="flex items-center justify-center w-12 h-12 bg-gray-100 rounded-full mb-4 mx-auto"
+          >
+            <Building2 class="w-6 h-6 text-gray-600" />
+          </div>
+          <h4 class="text-xl font-bold text-gray-600 mb-2 text-center">
+            1999
+          </h4>
+          <p class="text-gray-600 text-center text-sm">
+            Plantel López Mateos<br />y Milenio
+          </p>
+        </div>
+        <div
+          class="w-4 h-4 bg-gray-500 rounded-full border-4 border-white shadow-lg z-10"
+        >
+        </div>
+      </div>
+
+      <!-- Timeline Item 2000 -->
+      <div class="timeline-item flex flex-col items-center" data-year="2000">
+        <div
+          class="timeline-content bg-white rounded-xl shadow-lg p-6 mb-4 w-64 border-t-4 border-azul-une hover:shadow-xl transition-all duration-300"
+        >
+          <div
+            class="flex items-center justify-center w-12 h-12 bg-blue-100 rounded-full mb-4 mx-auto"
+          >
+            <MapPin class="w-6 h-6 text-azul-une" />
+          </div>
+          <h4 class="text-xl font-bold text-azul-une mb-2 text-center">
+            2000
+          </h4>
+          <p class="text-gray-600 text-center text-sm">Plantel Centro</p>
+        </div>
+        <div
+          class="w-4 h-4 bg-azul-une rounded-full border-4 border-white shadow-lg z-10"
+        >
+        </div>
+      </div>
+
+      <!-- Timeline Item 2001-2002 -->
+      <div class="timeline-item flex flex-col items-center" data-year="2001">
+        <div
+          class="timeline-content bg-white rounded-xl shadow-lg p-6 mb-4 w-64 border-t-4 border-rojo-une hover:shadow-xl transition-all duration-300"
+        >
+          <div
+            class="flex items-center justify-center w-12 h-12 bg-red-100 rounded-full mb-4 mx-auto"
+          >
+            <Users class="w-6 h-6 text-rojo-une" />
+          </div>
+          <h4 class="text-xl font-bold text-rojo-une mb-2 text-center">
+            2001 - 2002
+          </h4>
+          <p class="text-gray-600 text-center text-sm">
+            Plantel Acacias<br />Plantel Américas
+          </p>
+        </div>
+        <div
+          class="w-4 h-4 bg-rojo-une rounded-full border-4 border-white shadow-lg z-10"
+        >
+        </div>
+      </div>
+
+      <!-- Timeline Item 2004 -->
+      <div class="timeline-item flex flex-col items-center" data-year="2004">
+        <div
+          class="timeline-content bg-white rounded-xl shadow-lg p-6 mb-4 w-64 border-t-4 border-gray-600 hover:shadow-xl transition-all duration-300"
+        >
+          <div
+            class="flex items-center justify-center w-12 h-12 bg-gray-100 rounded-full mb-4 mx-auto"
+          >
+            <Building2 class="w-6 h-6 text-gray-700" />
+          </div>
+          <h4 class="text-xl font-bold text-gray-700 mb-2 text-center">
+            2004
+          </h4>
+          <p class="text-gray-600 text-center text-sm">
+            Plantel Caracol<br />y Torre Quetzal
+          </p>
+        </div>
+        <div
+          class="w-4 h-4 bg-gray-600 rounded-full border-4 border-white shadow-lg z-10"
+        >
+        </div>
+      </div>
+
+      <!-- Timeline Item 2006 -->
+      <div class="timeline-item flex flex-col items-center" data-year="2006">
+        <div
+          class="timeline-content bg-white rounded-xl shadow-lg p-6 mb-4 w-64 border-t-4 border-azul-une hover:shadow-xl transition-all duration-300"
+        >
+          <div
+            class="flex items-center justify-center w-12 h-12 bg-blue-100 rounded-full mb-4 mx-auto"
+          >
+            <MapPin class="w-6 h-6 text-azul-une" />
+          </div>
+          <h4 class="text-xl font-bold text-azul-une mb-2 text-center">2006</h4>
+          <p class="text-gray-600 text-center text-sm">Plantel Tepic</p>
+        </div>
+        <div
+          class="w-4 h-4 bg-azul-une rounded-full border-4 border-white shadow-lg z-10"
+        >
+        </div>
+      </div>
+
+      <!-- Timeline Item 2007-2008 -->
+      <div class="timeline-item flex flex-col items-center" data-year="2007">
+        <div
+          class="timeline-content bg-white rounded-xl shadow-lg p-6 mb-4 w-64 border-t-4 border-rojo-une hover:shadow-xl transition-all duration-300"
+        >
+          <div
+            class="flex items-center justify-center w-12 h-12 bg-red-100 rounded-full mb-4 mx-auto"
+          >
+            <Trophy class="w-6 h-6 text-rojo-une" />
+          </div>
+          <h4 class="text-xl font-bold text-rojo-une mb-2 text-center">
+            2007 - 2008
+          </h4>
+          <p class="text-gray-600 text-center text-sm">
+            Plantel Vallarta y Torre UNE<br />Plantel Las Juntas
+          </p>
+        </div>
+        <div
+          class="w-4 h-4 bg-rojo-une rounded-full border-4 border-white shadow-lg z-10"
+        >
+        </div>
+      </div>
+
+      <!-- Timeline Item 2013 -->
+      <div class="timeline-item flex flex-col items-center" data-year="2013">
+        <div
+          class="timeline-content bg-white rounded-xl shadow-lg p-6 mb-4 w-64 border-t-4 border-gray-500 hover:shadow-xl transition-all duration-300"
+        >
+          <div
+            class="flex items-center justify-center w-12 h-12 bg-gray-100 rounded-full mb-4 mx-auto"
+          >
+            <Building2 class="w-6 h-6 text-gray-600" />
+          </div>
+          <h4 class="text-xl font-bold text-gray-600 mb-2 text-center">2013</h4>
+          <p class="text-gray-600 text-center text-sm">
+            Plantel Tlaquepaque<br />y Tlajomulco
+          </p>
+        </div>
+        <div
+          class="w-4 h-4 bg-gray-500 rounded-full border-4 border-white shadow-lg z-10"
+        >
+        </div>
+      </div>
+
+      <!-- Timeline Item 2015-2016 -->
+      <div class="timeline-item flex flex-col items-center" data-year="2015">
+        <div
+          class="timeline-content bg-white rounded-xl shadow-lg p-6 mb-4 w-64 border-t-4 border-azul-une hover:shadow-xl transition-all duration-300"
+        >
+          <div
+            class="flex items-center justify-center w-12 h-12 bg-blue-100 rounded-full mb-4 mx-auto"
+          >
+            <MapPin class="w-6 h-6 text-azul-une" />
+          </div>
+          <h4 class="text-xl font-bold text-azul-une mb-2 text-center">
+            2015 - 2016
+          </h4>
+          <p class="text-gray-600 text-center text-sm">
+            Plantel Tonalá<br />Plantel Puerto Vallarta<br />y Tesistán
+          </p>
+        </div>
+        <div
+          class="w-4 h-4 bg-azul-une rounded-full border-4 border-white shadow-lg z-10"
+        >
+        </div>
+      </div>
+
+      <!-- Timeline Item 2021 -->
+      <div class="timeline-item flex flex-col items-center" data-year="2021">
+        <div
+          class="timeline-content bg-white rounded-xl shadow-lg p-6 mb-4 w-64 border-t-4 border-rojo-une hover:shadow-xl transition-all duration-300"
+        >
+          <div
+            class="flex items-center justify-center w-12 h-12 bg-red-100 rounded-full mb-4 mx-auto"
+          >
+            <Calendar class="w-6 h-6 text-rojo-une" />
+          </div>
+          <h4 class="text-xl font-bold text-rojo-une mb-2 text-center">
+            2021
+          </h4>
+          <p class="text-gray-600 text-center text-sm">
+            Av. México<br />(Pto. Vallarta)
+          </p>
+        </div>
+        <div
+          class="w-4 h-4 bg-rojo-une rounded-full border-4 border-white shadow-lg z-10"
+        >
+        </div>
+      </div>
+
+      <!-- Timeline Item 2023 -->
+      <div class="timeline-item flex flex-col items-center" data-year="2023">
+        <div
+          class="timeline-content bg-white rounded-xl shadow-lg p-6 mb-4 w-64 border-t-4 border-gray-600 hover:shadow-xl transition-all duration-300"
+        >
+          <div
+            class="flex items-center justify-center w-12 h-12 bg-gray-100 rounded-full mb-4 mx-auto"
+          >
+            <Building2 class="w-6 h-6 text-gray-700" />
+          </div>
+          <h4 class="text-xl font-bold text-gray-700 mb-2 text-center">
+            2023
+          </h4>
+          <p class="text-gray-600 text-center text-sm">Zapopan Centro</p>
+        </div>
+        <div
+          class="w-4 h-4 bg-gray-600 rounded-full border-4 border-white shadow-lg z-10"
+        >
+        </div>
+      </div>
+
+      <!-- Timeline Item 2024 -->
+      <div class="timeline-item flex flex-col items-center" data-year="2024">
+        <div
+          class="timeline-content bg-white rounded-xl shadow-lg p-6 mb-4 w-64 border-t-4 border-azul-une hover:shadow-xl transition-all duration-300"
+        >
+          <div
+            class="flex items-center justify-center w-12 h-12 bg-blue-100 rounded-full mb-4 mx-auto"
+          >
+            <MapPin class="w-6 h-6 text-azul-une" />
+          </div>
+          <h4 class="text-xl font-bold text-azul-une mb-2 text-center">2024</h4>
+          <p class="text-gray-600 text-center text-sm">Tepatitlán de Morelos</p>
+        </div>
+        <div
+          class="w-4 h-4 bg-azul-une rounded-full border-4 border-white shadow-lg z-10"
+        >
+        </div>
+      </div>
+
+      <!-- Timeline Item 2025 - Special -->
+      <div class="timeline-item flex flex-col items-center" data-year="2025">
+        <div
+          class="timeline-content bg-gradient-to-br from-blue-50 to-red-50 rounded-xl shadow-lg p-6 mb-4 w-64 border-t-4 border-rojo-une hover:shadow-xl transition-all duration-300 relative overflow-hidden"
+        >
+          <div
+            class="absolute inset-0 bg-gradient-to-r from-blue-600/5 to-red-600/5"
+          >
+          </div>
+          <div class="relative z-10">
+            <div
+              class="flex items-center justify-center w-12 h-12 bg-gradient-to-r from-blue-100 to-red-100 rounded-full mb-4 mx-auto"
+            >
+              <Rocket class="w-6 h-6 text-rojo-une" />
+            </div>
+            <h4 class="text-xl font-bold text-rojo-une mb-2 text-center">
+              2025
+            </h4>
+            <p class="text-gray-700 font-semibold text-center text-sm">
+              Campus Puerto Vallarta
+            </p>
+            
+          </div>
+        </div>
+        <div
+          class="w-6 h-6 bg-gradient-to-r from-azul-une to-rojo-une rounded-full border-4 border-white shadow-lg animate-pulse z-10"
+        >
+        </div>
+      </div>
+    </div>
+
+   
+  </div>
+</div>
+
+<script>
+  // Animación de aparición al hacer scroll horizontal
+  const observerOptions = {
+    threshold: 0.3,
+    rootMargin: "0px -50px 0px -50px",
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = "1";
+        entry.target.style.transform = "translateY(0) scale(1)";
+      }
+    });
+  }, observerOptions);
+
+  // Aplicar animación inicial y observar elementos
+  document.addEventListener("DOMContentLoaded", () => {
+    const timelineItems = document.querySelectorAll(".timeline-item");
+
+    timelineItems.forEach((item, index) => {
+      // Estado inicial
+      item.style.opacity = "0";
+      item.style.transform = "translateY(30px) scale(0.9)";
+      item.style.transition = "all 0.8s cubic-bezier(0.4, 0, 0.2, 1)";
+      item.style.transitionDelay = `${index * 0.15}s`;
+
+      // Observar elemento
+      observer.observe(item);
+    });
+  });
+
+  // Scroll suave para timeline horizontal
+  const timelineContainer = document.querySelector(".overflow-x-auto");
+  if (timelineContainer) {
+    timelineContainer.style.scrollBehavior = "smooth";
+  }
+</script>
+
+<style>
+  .timeline-container {
+    position: relative;
+  }
+
+  .timeline-content:hover {
+    transform: translateY(-8px) scale(1.02);
+  }
+
+  /* Scroll personalizado */
+  .overflow-x-auto::-webkit-scrollbar {
+    height: 8px;
+  }
+
+  .overflow-x-auto::-webkit-scrollbar-track {
+    background: #f1f5f9;
+    border-radius: 4px;
+  }
+
+  .overflow-x-auto::-webkit-scrollbar-thumb {
+    background: linear-gradient(90deg, #E22319, #E22319);
+    border-radius: 4px;
+  }
+
+  .overflow-x-auto::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(90deg, #2563eb, #7c3aed);
+  }
+
+  @media (max-width: 768px) {
+    .timeline-content {
+      width: 240px;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .timeline-content {
+      width: 200px;
+    }
+
+    .timeline-content p {
+      font-size: 0.75rem;
+    }
+  }
+</style>

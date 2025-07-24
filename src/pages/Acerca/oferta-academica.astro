@@ -9,40 +9,27 @@ import EstudioUNE from "@/components/sections/acerca/EstudioUNE.astro";
   <main class="min-h-screen">
     <!-- Hero Section -->
     <section
-      class="oferta-bg relative min-h-[65vh] overflow-hidden bg-cover bg-center bg-no-repeat"
+      class="oferta-bg relative min-h-[85vh] md:min-h-[65vh] bg-cover bg-center bg-no-repeat"
     >
-      <!-- Desktop Background -->
-
-      <!-- Hero Content -->
       <div
-        class="relative z-10 container mx-auto px-4 h-full min-h-[65vh] flex flex-col md:flex-row items-center justify-center md:justify-end"
+        class="relative z-10 px-4 h-full min-h-[85vh] md:min-h-[65vh] flex flex-col justify-center items-center md:items-end"
       >
-        <div
-          class="w-full max-w-7xl flex flex-col md:flex-row items-center justify-between"
-        >
-          <!-- Left side - FAQ Title -->
-          <div
-            class="flex items-center space-x-4 mb-6 md:mb-0 md:space-x-8 text-white"
-          >
-            <div
-              class="w-16 h-16 bg-white bg-opacity-20 rounded-full flex items-center justify-center"
-            >
-            </div>
-          </div>
+        <div class="text-center md:text-right text-white max-w-4xl md:pr-8">
+          <!-- Main Title -->
+          <h1 class="text-4xl md:text-7xl font-bold tracking-wider mb-4">
+            Oferta académica
+          </h1>
+          <h2 class="text-2xl md:text-5xl font-bold tracking-wider mb-8">
+            Descubre tu futuro profesional
+          </h2>
 
-          <!-- Right side - Welcome message -->
-          <div
-            class="bg-white rounded-lg p-6 max-w-sm shadow-lg text-center md:text-left"
+          <!-- Description -->
+          <p
+            class="text-lg md:text-xl leading-relaxed mb-16 max-w-3xl mx-auto font-light"
           >
-            <h1 class="text-xl font-bold text-gray-800 mb-3">
-              Descubre tu futuro profesional
-            </h1>
-            <p class="text-gray-600 text-sm leading-relaxed">
-              Encuentra el programa educativo perfecto para ti, con múltiples
-              modalidades y reconocimiento oficial
-            </p>
-            <a>INICIAR INSCRIPCIÓN</a>
-          </div>
+            Encuentra el programa educativo perfecto para ti, con múltiples
+            modalidades y reconocimiento oficial
+          </p>
         </div>
       </div>
     </section>
@@ -101,11 +88,11 @@ import EstudioUNE from "@/components/sections/acerca/EstudioUNE.astro";
       </div>
     </section>
 
-    <Niveles/>
 
-    <EstudioUNE/>
 
-   
+    <Niveles />
+
+    <EstudioUNE />
   </main>
 </Layout>
 
