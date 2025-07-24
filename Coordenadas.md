@@ -71,8 +71,8 @@ const planteles = [
     codigo: "00015",
     direccion: "Calle Independencia #100, Col. Centro, Guadalajara, Jalisco",
     ciudad: "Guadalajara ZMG",
-    url: "/campus/une-centro",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/UneCentro.png",
+    url: "/campus/Centro",
+    imagen: "/src/assets/Imagenes/CardsPlanteles/Centro.jpg",
     lat: 20.67744801539995,
     lon: -103.34031672627513,
   },
@@ -83,7 +83,7 @@ const planteles = [
     direccion: "Av. Hospital #123, Col. Independencia, Guadalajara, Jalisco",
     ciudad: "Guadalajara ZMG",
     url: "/campus/centro-medico",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/CentroMedico.png",
+    imagen: "/src/assets/Imagenes/CardsPlanteles/CentroMedico.jpg",
     lat: 20.684590788642307,
     lon: -103.3256397932448,
   },
@@ -94,7 +94,7 @@ const planteles = [
     direccion: "Av. Naciones Unidas #456, Col. Milenio, Guadalajara, Jalisco",
     ciudad: "Guadalajara ZMG",
     url: "/campus/milenio",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/Milenio.png",
+    imagen: "/src/assets/Imagenes/CardsPlanteles/Milenio.jpg",
     lat: 20.64540739939039,
     lon: -103.40630313415286,
   },
@@ -105,7 +105,7 @@ const planteles = [
     direccion: "Av. Francisco Medina Ascencio #2190, Plaza Caracol, Puerto Vallarta, Jalisco",
     ciudad: "Puerto Vallarta",
     url: "/campus/plaza-caracol",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/PlazaCaracol.png",
+    imagen: "/src/assets/Imagenes/CardsPlanteles/Caracol.jpg",
     lat: 20.639287162026815,
     lon: -105.23323589513319,
   },
@@ -116,7 +116,7 @@ const planteles = [
     direccion: "Av. Hidalgo #300, Centro, Tepatitlán de Morelos, Jalisco",
     ciudad: "Tepatitlán",
     url: "/campus/tepatitlan",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/Tepatitlan.png",
+    imagen: "/src/assets/Imagenes/CardsPlanteles/Tepatitlan.jpg",
     lat: 20.8062946507024,
     lon: -102.76382902869392,
   },
@@ -142,7 +142,206 @@ const planteles = [
     lat: 20.720900646775917,
     lon: -103.38975281813357,
   },
+  // Nuevos planteles agregados
+ 
+  {
+    id: "15",
+    nombre: "Torre UNE Milenio",
+    codigo: "TORRE MILENIO",
+    direccion: "Av. López Mateos Sur #4175 Col. La Giralda Zapopan, Jalisco",
+    ciudad: "Guadalajara ZMG",
+    url:"/campus/Torre-milenio",
+    imagen: "/src/assets/Imagenes/CardsPlanteles/Torre-milenio.png",
+    lat: "20.645336",
+    lon: "-103.405938",
+  },
+  {
+    id: "16",
+    nombre: "Centro",
+    codigo: "pending",
+    direccion: "pending",
+    ciudad: "Guadalajara ZMG",
+    url: "/campus/centro",
+    imagen: "pending",
+    lat: "pending",
+    lon: "pending",
+  },
+  {
+    id: "17",
+    nombre: "Torre Quetzal",
+    codigo: "pending",
+    direccion: "pending",
+    ciudad: "pending",
+    url: "/campus/torre-quetzal",
+    imagen: "pending",
+    lat: "pending",
+    lon: "pending",
+  },
+  {
+    id: "18",
+    nombre: "Campus Puerto Vallarta",
+    codigo: "pending",
+    direccion: "pending",
+    ciudad: "Puerto Vallarta",
+    url: "/campus/campus-puerto-vallarta",
+    imagen: "pending",
+    lat: "pending",
+    lon: "pending",
+  },
+  {
+    id: "19",
+    nombre: "Puerto Vallarta Caracol",
+    codigo: "pending",
+    direccion: "pending",
+    ciudad: "Puerto Vallarta",
+    url: "/campus/puerto-vallarta-caracol",
+    imagen: "pending",
+    lat: "pending",
+    lon: "pending",
+  },
+  {
+    id: "20",
+    nombre: "UNE En Línea",
+    codigo: "pending",
+    direccion: "pending",
+    ciudad: "En Línea",
+    url: "/campus/une-en-linea",
+    imagen: "pending",
+    lat: "pending",
+    lon: "pending",
+  },
+  // Planteles adicionales para completar los 29 (basados en duplicados de Puerto Vallarta en la lista)
+  {
+    id: "21",
+    nombre: "Puerto Vallarta Norte",
+    codigo: "pending",
+    direccion: "pending",
+    ciudad: "Puerto Vallarta",
+    url: "/campus/puerto-vallarta-norte",
+    imagen: "pending",
+    lat: "pending",
+    lon: "pending",
+  },
+  {
+    id: "22",
+    nombre: "Puerto Vallarta Sur",
+    codigo: "pending",
+    direccion: "pending",
+    ciudad: "Puerto Vallarta",
+    url: "/campus/puerto-vallarta-sur",
+    imagen: "pending",
+    lat: "pending",
+    lon: "pending",
+  },
+  {
+    id: "23",
+    nombre: "Puerto Vallarta Centro",
+    codigo: "pending",
+    direccion: "pending",
+    ciudad: "Puerto Vallarta",
+    url: "/campus/puerto-vallarta-centro",
+    imagen: "pending",
+    lat: "pending",
+    lon: "pending",
+  },
+  {
+    id: "24",
+    nombre: "Puerto Vallarta Este",
+    codigo: "pending",
+    direccion: "pending",
+    ciudad: "Puerto Vallarta",
+    url: "/campus/puerto-vallarta-este",
+    imagen: "pending",
+    lat: "pending",
+    lon: "pending",
+  },
+  {
+    id: "25",
+    nombre: "Puerto Vallarta Oeste",
+    codigo: "pending",
+    direccion: "pending",
+    ciudad: "Puerto Vallarta",
+    url: "/campus/puerto-vallarta-oeste",
+    imagen: "pending",
+    lat: "pending",
+    lon: "pending",
+  },
+  {
+    id: "26",
+    nombre: "Puerto Vallarta Marina",
+    codigo: "pending",
+    direccion: "pending",
+    ciudad: "Puerto Vallarta",
+    url: "/campus/puerto-vallarta-marina",
+    imagen: "pending",
+    lat: "pending",
+    lon: "pending",
+  },
+  {
+    id: "27",
+    nombre: "Puerto Vallarta Romántica",
+    codigo: "pending",
+    direccion: "pending",
+    ciudad: "Puerto Vallarta",
+    url: "/campus/puerto-vallarta-romantica",
+    imagen: "pending",
+    lat: "pending",
+    lon: "pending",
+  },
+  {
+    id: "28",
+    nombre: "Puerto Vallarta Versalles",
+    codigo: "pending",
+    direccion: "pending",
+    ciudad: "Puerto Vallarta",
+    url: "/campus/puerto-vallarta-versalles",
+    imagen: "pending",
+    lat: "pending",
+    lon: "pending",
+  },
+  {
+    id: "29",
+    nombre: "Puerto Vallarta Fluvial",
+    codigo: "pending",
+    direccion: "pending",
+    ciudad: "Puerto Vallarta",
+    url: "/campus/puerto-vallarta-fluvial",
+    imagen: "pending",
+    lat: "pending",
+    lon: "pending",
+  },
 ];
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 // Datos específicos de precios por plantel

@@ -1,5 +1,7 @@
 ---
 // DynamicEducationForm.astro
+  import { educationData } from "@helpers/educationData.js";
+
 ---
 
 <form id="education-form" class="space-y-3 lg:space-y-4 flex-1 lg:flex-none">
@@ -9,7 +11,7 @@
       type="text"
       name="nombre"
       placeholder="Nombre"
-      class="w-full px-2 lg:px-4 py-1.5 lg:py-2.5 border-b border-gray-500 focus:border-blue-500 outline-none transition-colors bg-transparent text-sm lg:text-base"
+      class="w-full px-2 lg:px-4 py-1.5 lg:py-2.5 border-b  focus:border-blue-500 outline-none transition-colors bg-transparent text-sm lg:text-base"
       required
     />
   </div>
@@ -20,7 +22,7 @@
       type="text"
       name="apellidos"
       placeholder="Apellidos completos"
-      class="w-full px-2 lg:px-4 py-1.5 lg:py-2.5 border-b border-gray-500 focus:border-blue-500 outline-none transition-colors bg-transparent text-sm lg:text-base"
+      class="w-full px-2 lg:px-4 py-1.5 lg:py-2.5 border-b  focus:border-blue-500 outline-none transition-colors bg-transparent text-sm lg:text-base"
       required
     />
   </div>
@@ -31,7 +33,7 @@
       type="email"
       name="correo"
       placeholder="Correo electrónico"
-      class="w-full px-2 lg:px-4 py-1.5 lg:py-2.5 border-b border-gray-500 focus:border-blue-500 outline-none transition-colors bg-transparent text-sm lg:text-base"
+      class="w-full px-2 lg:px-4 py-1.5 lg:py-2.5 border-b  focus:border-blue-500 outline-none transition-colors bg-transparent text-sm lg:text-base"
       required
     />
   </div>
@@ -42,7 +44,7 @@
       type="tel"
       name="telefono"
       placeholder="Teléfono"
-      class="w-full px-2 lg:px-4 py-1.5 lg:py-2.5 border-b border-gray-500 focus:border-blue-500 outline-none transition-colors bg-transparent text-sm lg:text-base"
+      class="w-full px-2 lg:px-4 py-1.5 lg:py-2.5 border-b  focus:border-blue-500 outline-none transition-colors bg-transparent text-sm lg:text-base"
       required
     />
   </div>
@@ -55,7 +57,7 @@
     <select
       name="nivelEducativo"
       id="nivel-educativo"
-      class="w-full px-2 lg:px-4 py-1.5 lg:py-2.5 border-b border-gray-500 focus:border-blue-500 outline-none transition-colors bg-transparent text-gray-500 text-sm lg:text-base"
+      class="w-full px-2 lg:px-4 py-1.5 lg:py-2.5 border-b  focus:border-blue-500 outline-none transition-colors bg-transparent text-gray-500 text-sm lg:text-base"
       required
     >
       <option value="">Selecciona una opción</option>
@@ -76,7 +78,7 @@
     <select
       name="programaInteres"
       id="programa-interes"
-      class="w-full px-2 lg:px-4 py-1.5 lg:py-2.5 border-b border-gray-500 focus:border-blue-500 outline-none transition-colors bg-transparent text-gray-500 text-sm lg:text-base"
+      class="w-full px-2 lg:px-4 py-1.5 lg:py-2.5 border-b  focus:border-blue-500 outline-none transition-colors bg-transparent text-gray-500 text-sm lg:text-base"
     >
       <option value="">Selecciona una opción</option>
     </select>
@@ -90,7 +92,7 @@
     <select
       name="plantelInteres"
       id="plantel-interes"
-      class="w-full px-2 lg:px-4 py-1.5 lg:py-2.5 border-b border-gray-500 focus:border-blue-500 outline-none transition-colors bg-transparent text-gray-500 text-sm lg:text-base"
+      class="w-full px-2 lg:px-4 py-1.5 lg:py-2.5 border-b  focus:border-blue-500 outline-none transition-colors bg-transparent text-gray-500 text-sm lg:text-base"
       required
       disabled
     >
@@ -118,146 +120,397 @@
 </form>
 
 <script>
-  // Configuración de datos dinámicos
-  import { educationData } from "@helpers/educationData.js";
+  // ==========================================
+// SCRIPT COMPLETO PARA FORMULARIO DINÁMICO
+// ==========================================
 
-  // Elementos del DOM
-  const nivelEducativoSelect = document.getElementById("nivel-educativo");
-  const programaContainer = document.getElementById("programa-container");
-  const programaInteresSelect = document.getElementById("programa-interes");
-  const plantelInteresSelect = document.getElementById("plantel-interes");
-  const modalidadContainer = document.getElementById("modalidad-container");
-  const modalidadOptions = document.getElementById("modalidad-options");
-  const form = document.getElementById("education-form");
+// Importar datos educativos
+import { educationData } from "@helpers/educationData.js";
 
-  // Función para limpiar select
-  function clearSelect(selectElement) {
-    selectElement.innerHTML = '<option value="">Selecciona una opción</option>';
+// Configuración de datos dinámicos adaptada a la nueva estructura
+// Esta función convierte la estructura del JSON generado por Python a formato utilizable
+function processEducationData(estructuraEducativa) {
+  const processedData = {};
+  
+  for (const [nivel, programas] of Object.entries(estructuraEducativa)) {
+    const nivelKey = nivel.toLowerCase().replace(/\s+/g, "_");
+    
+    processedData[nivelKey] = {
+      nombre: nivel,
+      programas: [],
+      planteles: {},
+      modalidadesPorProgramaPlantel: {}, // Nueva estructura para modalidades específicas
+      incorporaciones: new Set()
+    };
+    
+    // Si es primaria o secundaria (niveles básicos sin programas específicos)
+    if (nivel === "Primaria" || nivel === "Secundaria") {
+      const plantelesSet = new Set();
+      const modalidadesPorPlantel = {};
+      
+      // Extraer planteles y modalidades por plantel
+      for (const [programa, planteles] of Object.entries(programas)) {
+        for (const [plantel, info] of Object.entries(planteles)) {
+          plantelesSet.add(plantel);
+          
+          if (!modalidadesPorPlantel[plantel]) {
+            modalidadesPorPlantel[plantel] = new Set();
+          }
+          
+          info.forEach(item => {
+            modalidadesPorPlantel[plantel].add(item.modalidad);
+          });
+        }
+      }
+      
+      processedData[nivelKey].planteles = Array.from(plantelesSet).sort();
+      processedData[nivelKey].modalidadesPorPlantel = {};
+      
+      // Convertir sets a arrays para modalidades por plantel
+      for (const [plantel, modalidades] of Object.entries(modalidadesPorPlantel)) {
+        processedData[nivelKey].modalidadesPorPlantel[plantel] = Array.from(modalidades).sort();
+      }
+    } else {
+      // Para otros niveles (con programas específicos)
+      const programasArray = Object.keys(programas).sort();
+      processedData[nivelKey].programas = programasArray;
+      
+      // Crear estructura de planteles por programa y modalidades por programa-plantel
+      for (const [programa, planteles] of Object.entries(programas)) {
+        processedData[nivelKey].planteles[programa] = Object.keys(planteles).sort();
+        
+        // Crear estructura de modalidades por programa-plantel
+        for (const [plantel, info] of Object.entries(planteles)) {
+          const key = `${programa}|${plantel}`;
+          processedData[nivelKey].modalidadesPorProgramaPlantel[key] = [];
+          
+          info.forEach(item => {
+            processedData[nivelKey].modalidadesPorProgramaPlantel[key].push(item.modalidad);
+            processedData[nivelKey].incorporaciones.add(item.incorporacion);
+          });
+          
+          // Eliminar duplicados y ordenar
+          processedData[nivelKey].modalidadesPorProgramaPlantel[key] = 
+            [...new Set(processedData[nivelKey].modalidadesPorProgramaPlantel[key])].sort();
+        }
+      }
+      
+      // Convertir Sets a Arrays ordenados
+      processedData[nivelKey].incorporaciones = Array.from(processedData[nivelKey].incorporaciones).sort();
+    }
   }
+  
+  return processedData;
+}
 
-  // Función para poblar select
-  function populateSelect(selectElement, options) {
-    clearSelect(selectElement);
-    options.forEach((option) => {
-      const optionElement = document.createElement("option");
-      optionElement.value = option;
-      optionElement.textContent = option;
-      selectElement.appendChild(optionElement);
-    });
+// Procesar datos educativos importados
+const processedEducationData = processEducationData(educationData);
+
+// ==========================================
+// ELEMENTOS DEL DOM
+// ==========================================
+const nivelEducativoSelect = document.getElementById("nivel-educativo");
+const programaContainer = document.getElementById("programa-container");
+const programaInteresSelect = document.getElementById("programa-interes");
+const plantelInteresSelect = document.getElementById("plantel-interes");
+const modalidadContainer = document.getElementById("modalidad-container");
+const modalidadOptions = document.getElementById("modalidad-options");
+const form = document.getElementById("education-form");
+
+// ==========================================
+// FUNCIONES AUXILIARES
+// ==========================================
+
+// Función para limpiar select
+function clearSelect(selectElement) {
+  if (!selectElement) return;
+  selectElement.innerHTML = '<option value="">Selecciona una opción</option>';
+}
+
+// Función para poblar select
+function populateSelect(selectElement, options, placeholder = "Selecciona una opción") {
+  if (!selectElement) return;
+  
+  clearSelect(selectElement);
+  selectElement.querySelector('option').textContent = placeholder;
+  
+  options.forEach((option) => {
+    const optionElement = document.createElement("option");
+    optionElement.value = option;
+    optionElement.textContent = option;
+    selectElement.appendChild(optionElement);
+  });
+}
+
+// Función para poblar el select de nivel educativo
+function populateNivelEducativo() {
+  if (!nivelEducativoSelect) return;
+  
+  // Limpiar opciones existentes (excepto la primera)
+  while (nivelEducativoSelect.children.length > 1) {
+    nivelEducativoSelect.removeChild(nivelEducativoSelect.lastChild);
   }
+  
+  // Agregar niveles educativos en orden específico
+  const ordenNiveles = ["primaria", "secundaria", "bachillerato", "licenciaturas", "maestrías", "educación_continua", "doctorados", "técnico_superior"];
+  
+  ordenNiveles.forEach(nivelKey => {
+    if (processedEducationData[nivelKey]) {
+      const option = document.createElement("option");
+      option.value = nivelKey;
+      option.textContent = processedEducationData[nivelKey].nombre;
+      nivelEducativoSelect.appendChild(option);
+    }
+  });
+}
 
-  // Función para crear opciones de modalidad con el estilo original
-  function createModalidadOptions(modalidades) {
-    modalidadOptions.innerHTML = "";
-    modalidades.forEach((modalidad) => {
-      const label = document.createElement("label");
-      label.className = "flex items-center";
-
-      const input = document.createElement("input");
-      input.type = "radio";
-      input.name = "modalidad";
-      input.value = modalidad.toLowerCase().replace(" ", "_");
-      input.className = "sr-only peer";
-      input.required = true;
-
-      const span = document.createElement("span");
-      span.className =
-        "px-3 py-1.5 text-xs lg:text-sm border border-gray-300 rounded-full cursor-pointer peer-checked:bg-blue-500 peer-checked:text-white peer-checked:border-blue-500 transition-colors";
-      span.textContent = modalidad;
-
-      label.appendChild(input);
-      label.appendChild(span);
-      modalidadOptions.appendChild(label);
-    });
+// Función para obtener modalidades específicas por programa y plantel
+function getModalidadesForProgramaPlantel(nivel, programa, plantel) {
+  if (!processedEducationData[nivel]) return [];
+  
+  const nivelData = processedEducationData[nivel];
+  
+  // Para primaria y secundaria (sin programas)
+  if (nivel === "primaria" || nivel === "secundaria") {
+    return nivelData.modalidadesPorPlantel[plantel] || [];
   }
+  
+  // Para otros niveles (con programas)
+  const key = `${programa}|${plantel}`;
+  return nivelData.modalidadesPorProgramaPlantel[key] || [];
+}
 
-  // Event listener para cambio de nivel educativo
+// Función para crear input hidden con modalidad única
+function createHiddenModalidadInput(modalidad) {
+  // Eliminar cualquier input hidden existente de modalidad
+  const existingHidden = form.querySelector('input[name="modalidad"][type="hidden"]');
+  if (existingHidden) {
+    existingHidden.remove();
+  }
+  
+  const hiddenInput = document.createElement("input");
+  hiddenInput.type = "hidden";
+  hiddenInput.name = "modalidad";
+  hiddenInput.value = modalidad.toLowerCase().replace(/\s+/g, "_");
+  form.appendChild(hiddenInput);
+}
+
+// Función para crear opciones de modalidad (solo cuando hay múltiples opciones)
+function createModalidadOptions(modalidades) {
+  if (!modalidadOptions) return;
+  
+  modalidadOptions.innerHTML = "";
+  
+  modalidades.forEach((modalidad, index) => {
+    const label = document.createElement("label");
+    label.className = "flex items-center";
+
+    const input = document.createElement("input");
+    input.type = "radio";
+    input.name = "modalidad";
+    input.value = modalidad.toLowerCase().replace(/\s+/g, "_");
+    input.className = "sr-only peer";
+    input.required = true;
+    input.id = `modalidad_${index}`;
+
+    const span = document.createElement("span");
+    span.className = "px-3 py-1.5 text-xs lg:text-sm border border-gray-300 rounded-full cursor-pointer peer-checked:bg-blue-500 peer-checked:text-white peer-checked:border-blue-500 transition-colors hover:bg-gray-50";
+    span.textContent = modalidad;
+
+    label.appendChild(input);
+    label.appendChild(span);
+    modalidadOptions.appendChild(label);
+  });
+}
+
+// Función para manejar la visualización de modalidades
+function handleModalidadDisplay(modalidades) {
+  if (!modalidadContainer || !modalidades || modalidades.length === 0) {
+    if (modalidadContainer) modalidadContainer.classList.add("hidden");
+    return;
+  }
+  
+  // Si solo hay una modalidad, crear input hidden y ocultar sección
+  if (modalidades.length === 1) {
+    if (modalidadContainer) modalidadContainer.classList.add("hidden");
+    createHiddenModalidadInput(modalidades[0]);
+    console.log(`Modalidad única seleccionada automáticamente: ${modalidades[0]}`);
+  } 
+  // Si hay múltiples modalidades, mostrar opciones
+  else {
+    // Eliminar cualquier input hidden existente
+    const existingHidden = form.querySelector('input[name="modalidad"][type="hidden"]');
+    if (existingHidden) {
+      existingHidden.remove();
+    }
+    
+    if (modalidadContainer) modalidadContainer.classList.remove("hidden");
+    createModalidadOptions(modalidades);
+  }
+}
+
+// ==========================================
+// EVENT LISTENERS
+// ==========================================
+
+// Event listener para cambio de nivel educativo
+if (nivelEducativoSelect) {
   nivelEducativoSelect.addEventListener("change", function () {
     const selectedLevel = this.value;
 
     // Reset campos dependientes
     clearSelect(programaInteresSelect);
     clearSelect(plantelInteresSelect);
-    modalidadOptions.innerHTML = "";
+    if (modalidadOptions) modalidadOptions.innerHTML = "";
+    
+    // Eliminar input hidden de modalidad si existe
+    const existingHidden = form.querySelector('input[name="modalidad"][type="hidden"]');
+    if (existingHidden) {
+      existingHidden.remove();
+    }
 
-    if (!selectedLevel) {
-      programaContainer.classList.add("hidden");
-      modalidadContainer.classList.add("hidden");
-      plantelInteresSelect.disabled = true;
+    if (!selectedLevel || !processedEducationData[selectedLevel]) {
+      if (programaContainer) programaContainer.classList.add("hidden");
+      if (modalidadContainer) modalidadContainer.classList.add("hidden");
+      if (plantelInteresSelect) plantelInteresSelect.disabled = true;
       return;
     }
 
-    const currentEducationLevel = educationData[selectedLevel];
+    const currentEducationLevel = processedEducationData[selectedLevel];
     const showPrograms = !["primaria", "secundaria"].includes(selectedLevel);
-    const showModalities = !["primaria", "secundaria"].includes(selectedLevel);
 
     // Mostrar/ocultar programa de interés
-    if (showPrograms && currentEducationLevel.programas.length > 0) {
-      programaContainer.classList.remove("hidden");
-      populateSelect(programaInteresSelect, currentEducationLevel.programas);
-      plantelInteresSelect.disabled = true;
+    if (showPrograms && currentEducationLevel.programas && currentEducationLevel.programas.length > 0) {
+      if (programaContainer) programaContainer.classList.remove("hidden");
+      populateSelect(programaInteresSelect, currentEducationLevel.programas, "Selecciona un programa");
+      if (plantelInteresSelect) plantelInteresSelect.disabled = true;
     } else {
-      programaContainer.classList.add("hidden");
+      if (programaContainer) programaContainer.classList.add("hidden");
+      
       // Para primaria y secundaria, poblar directamente los planteles
       if (Array.isArray(currentEducationLevel.planteles)) {
-        populateSelect(plantelInteresSelect, currentEducationLevel.planteles);
-        plantelInteresSelect.disabled = false;
+        populateSelect(plantelInteresSelect, currentEducationLevel.planteles, "Selecciona un plantel");
+        if (plantelInteresSelect) plantelInteresSelect.disabled = false;
       }
     }
 
-    // Mostrar/ocultar modalidades
-    if (showModalities && currentEducationLevel.modalidades.length > 0) {
-      modalidadContainer.classList.remove("hidden");
-      createModalidadOptions(currentEducationLevel.modalidades);
-    } else {
-      modalidadContainer.classList.add("hidden");
-    }
+    // Ocultar modalidades hasta que se seleccione plantel
+    if (modalidadContainer) modalidadContainer.classList.add("hidden");
   });
+}
 
-  // Event listener para cambio de programa
+// Event listener para cambio de programa
+if (programaInteresSelect) {
   programaInteresSelect.addEventListener("change", function () {
     const selectedProgram = this.value;
-    const selectedLevel = nivelEducativoSelect.value;
+    const selectedLevel = nivelEducativoSelect ? nivelEducativoSelect.value : "";
 
     clearSelect(plantelInteresSelect);
+    if (modalidadOptions) modalidadOptions.innerHTML = "";
+    if (modalidadContainer) modalidadContainer.classList.add("hidden");
+    
+    // Eliminar input hidden de modalidad si existe
+    const existingHidden = form.querySelector('input[name="modalidad"][type="hidden"]');
+    if (existingHidden) {
+      existingHidden.remove();
+    }
 
-    if (!selectedProgram || !selectedLevel) {
-      plantelInteresSelect.disabled = true;
+    if (!selectedProgram || !selectedLevel || !processedEducationData[selectedLevel]) {
+      if (plantelInteresSelect) plantelInteresSelect.disabled = true;
       return;
     }
 
-    const currentEducationLevel = educationData[selectedLevel];
-    const availablePlanteles =
-      currentEducationLevel.planteles[selectedProgram] || [];
+    const currentEducationLevel = processedEducationData[selectedLevel];
+    const availablePlanteles = currentEducationLevel.planteles[selectedProgram] || [];
 
     if (availablePlanteles.length > 0) {
-      populateSelect(plantelInteresSelect, availablePlanteles);
-      plantelInteresSelect.disabled = false;
+      populateSelect(plantelInteresSelect, availablePlanteles, "Selecciona un plantel");
+      if (plantelInteresSelect) plantelInteresSelect.disabled = false;
     } else {
-      plantelInteresSelect.disabled = true;
+      if (plantelInteresSelect) plantelInteresSelect.disabled = true;
     }
   });
+}
 
-  // Event listener para envío del formulario
+// Event listener para cambio de plantel (OPTIMIZADO - maneja modalidad única)
+if (plantelInteresSelect) {
+  plantelInteresSelect.addEventListener("change", function () {
+    const selectedPlantel = this.value;
+    const selectedProgram = programaInteresSelect ? programaInteresSelect.value : "";
+    const selectedLevel = nivelEducativoSelect ? nivelEducativoSelect.value : "";
+
+    // Limpiar modalidades y inputs hidden
+    if (modalidadOptions) modalidadOptions.innerHTML = "";
+    if (modalidadContainer) modalidadContainer.classList.add("hidden");
+    
+    const existingHidden = form.querySelector('input[name="modalidad"][type="hidden"]');
+    if (existingHidden) {
+      existingHidden.remove();
+    }
+
+    if (!selectedPlantel || !selectedLevel) {
+      return;
+    }
+
+    // Para niveles sin programa específico (primaria, secundaria)
+    if (selectedLevel === "primaria" || selectedLevel === "secundaria") {
+      const modalidades = getModalidadesForProgramaPlantel(selectedLevel, null, selectedPlantel);
+      handleModalidadDisplay(modalidades);
+    } 
+    // Para niveles con programa específico
+    else if (selectedProgram) {
+      const modalidades = getModalidadesForProgramaPlantel(selectedLevel, selectedProgram, selectedPlantel);
+      handleModalidadDisplay(modalidades);
+    }
+  });
+}
+
+// Event listener para envío del formulario
+if (form) {
   form.addEventListener("submit", function (e) {
     e.preventDefault();
 
     const formData = new FormData(this);
     const data = Object.fromEntries(formData);
 
+    // Enriquecer datos con información adicional
+    const selectedLevel = nivelEducativoSelect ? nivelEducativoSelect.value : "";
+    const selectedProgram = programaInteresSelect ? programaInteresSelect.value : "";
+    
+    if (selectedLevel && processedEducationData[selectedLevel]) {
+      data.nivel_educativo_nombre = processedEducationData[selectedLevel].nombre;
+      
+      if (selectedProgram) {
+        data.programa_nombre = selectedProgram;
+      }
+    }
+
     console.log("Datos del formulario:", data);
     alert("Formulario enviado correctamente");
   });
+}
 
-  // Event delegation para radio buttons de modalidad
+// Event delegation para radio buttons de modalidad
+if (modalidadOptions) {
   modalidadOptions.addEventListener("click", function (e) {
-    if (
-      e.target.tagName === "SPAN" &&
-      e.target.previousElementSibling.type === "radio"
-    ) {
+    if (e.target.tagName === "SPAN" && e.target.previousElementSibling && e.target.previousElementSibling.type === "radio") {
       e.target.previousElementSibling.checked = true;
+      
+      // Disparar evento change para cualquier lógica adicional
+      const changeEvent = new Event('change', { bubbles: true });
+      e.target.previousElementSibling.dispatchEvent(changeEvent);
     }
   });
+}
+
+// ==========================================
+// INICIALIZACIÓN
+// ==========================================
+
+// Inicializar cuando el DOM esté listo
+document.addEventListener("DOMContentLoaded", function() {
+  populateNivelEducativo();
+});
 </script>
 
 <style>

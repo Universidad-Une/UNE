@@ -1,0 +1,1997 @@
+ESTRUCTURA EDUCATIVA - PROGRAMAS POR NIVEL
+============================================================
+
+🎓 NIVEL: BACHILLERATO
+======================
+
+📚 Programa: BIS
+---------------
+  🏫 Plantel: CARACOL
+    📍 Modalidad: Semiescolarizada
+    📜 Incorporación: SEJ
+    📄 Fuente: VALLARTA
+    ------------------------------
+
+  🏫 Plantel: CENTRO
+    📍 Modalidad: Semiescolarizada
+    📜 Incorporación: SEJ
+    📄 Fuente: GDL
+    ------------------------------
+
+  🏫 Plantel: CENTRO 
+MÉDICO
+    📍 Modalidad: Semiescolarizada
+    📜 Incorporación: SEJ
+    📄 Fuente: GDL
+    ------------------------------
+
+  🏫 Plantel: CHAPULTEPEC
+    📍 Modalidad: Semiescolarizada
+    📜 Incorporación: SEJ
+    📄 Fuente: GDL
+    ------------------------------
+
+  🏫 Plantel: MILENIO
+    📍 Modalidad: Semiescolarizada
+    📜 Incorporación: SEJ
+    📄 Fuente: GDL
+    ------------------------------
+
+  🏫 Plantel: TEPATITLÁN
+    📍 Modalidad: Semiescolarizada
+    📜 Incorporación: SEJ
+    📄 Fuente: TEPA
+    ------------------------------
+
+  🏫 Plantel: TESISTÁN
+    📍 Modalidad: Semiescolarizada
+    📜 Incorporación: SEJ
+    📄 Fuente: GDL
+    ------------------------------
+
+  🏫 Plantel: TLAJOMULCO
+    📍 Modalidad: Semiescolarizada
+    📜 Incorporación: SEJ
+    📄 Fuente: GDL
+    ------------------------------
+
+  🏫 Plantel: TLAQUEPAQUE
+    📍 Modalidad: Semiescolarizada
+    📜 Incorporación: SEJ
+    📄 Fuente: GDL
+    ------------------------------
+
+  🏫 Plantel: TONALÁ
+    📍 Modalidad: Semiescolarizada
+    📜 Incorporación: SEJ
+    📄 Fuente: GDL
+    ------------------------------
+
+  🏫 Plantel: ZAPOPAN
+    📍 Modalidad: Semiescolarizada
+    📜 Incorporación: SEJ
+    📄 Fuente: GDL
+    ------------------------------
+
+
+📚 Programa: Bachillerato General
+--------------------------------
+  🏫 Plantel: Av. México
+    📍 Modalidad: Escolarizada
+    📜 Incorporación: UDG
+    📄 Fuente: VALLARTA
+    ------------------------------
+
+  🏫 Plantel: CENTRO
+    📍 Modalidad: Escolarizada
+    📜 Incorporación: UDG
+    📄 Fuente: GDL
+    ------------------------------
+
+  🏫 Plantel: CENTRO 
+MÉDICO
+    📍 Modalidad: Escolarizada
+    📜 Incorporación: UDG
+    📄 Fuente: GDL
+    ------------------------------
+
+  🏫 Plantel: MILENIO
+    📍 Modalidad: Escolarizada
+    📜 Incorporación: UDG
+    📄 Fuente: GDL
+    ------------------------------
+
+  🏫 Plantel: PLAZA DEL SOL
+    📍 Modalidad: Escolarizada
+    📜 Incorporación: UDG
+    📄 Fuente: GDL
+    ------------------------------
+
+  🏫 Plantel: TESISTÁN
+    📍 Modalidad: Escolarizada
+    📜 Incorporación: UDG
+    📄 Fuente: GDL
+    ------------------------------
+
+  🏫 Plantel: TLAJOMULCO
+    📍 Modalidad: Escolarizada
+    📜 Incorporación: UDG
+    📄 Fuente: GDL
+    ------------------------------
+
+  🏫 Plantel: TLAQUEPAQUE
+    📍 Modalidad: Escolarizada
+    📜 Incorporación: UDG
+    📄 Fuente: GDL
+    ------------------------------
+
+  🏫 Plantel: TONALÁ
+    📍 Modalidad: Escolarizada
+    📜 Incorporación: UDG
+    📄 Fuente: GDL
+    ------------------------------
+
+  🏫 Plantel: ZAPOPAN
+    📍 Modalidad: Escolarizada
+    📜 Incorporación: UDG
+    📄 Fuente: GDL
+    ------------------------------
+
+
+============================================================
+
+🎓 NIVEL: EDUCACIÓN CONTINUA
+============================
+
+📚 Programa: Administración de Recursos Humanos
+----------------------------------------------
+  🏫 Plantel: Av. México
+    📍 Modalidad: Escolarizado
+    📜 Incorporación: MAESTRÍA
+    📄 Fuente: VALLARTA
+    ------------------------------
+
+  🏫 Plantel: TORRE QUETZAL
+    📍 Modalidad: Escolarizada
+    📜 Incorporación: MAESTRÍA
+    📄 Fuente: GDL
+    ------------------------------
+
+
+============================================================
+
+🎓 NIVEL: LICENCIATURAS
+=======================
+
+📚 Programa: Abogado
+-------------------
+  🏫 Plantel: TORRE QUETZAL
+    📍 Modalidad: Escolarizada
+    📜 Incorporación: UDG
+    📄 Fuente: GDL
+    ------------------------------
+
+
+📚 Programa: Administración
+--------------------------
+  🏫 Plantel: CAMPUS  PUERTO  VALLARTA
+    📍 Modalidad: Semiescolarizada
+    📜 Incorporación: SICYT
+    📄 Fuente: VALLARTA
+    ------------------------------
+    📍 Modalidad: Sabatimo
+    📜 Incorporación: SICYT
+    📄 Fuente: VALLARTA
+    ------------------------------
+
+  🏫 Plantel: TORRE QUETZAL
+    📍 Modalidad: Escolarizada
+    📜 Incorporación: UDG
+    📄 Fuente: GDL
+    ------------------------------
+
+
+📚 Programa: Administración de Empresas
+--------------------------------------
+  🏫 Plantel: Av. México
+    📍 Modalidad: Semiescolarizada
+    📜 Incorporación: SICYT
+    📄 Fuente: VALLARTA
+    ------------------------------
+    📍 Modalidad: Sabatina
+    📜 Incorporación: SICYT
+    📄 Fuente: VALLARTA
+    ------------------------------
+
+  🏫 Plantel: CARACOL
+    📍 Modalidad: Semiescolarizada
+    📜 Incorporación: SICYT
+    📄 Fuente: VALLARTA
+    ------------------------------
+    📍 Modalidad: Sabatino
+    📜 Incorporación: SICYT
+    📄 Fuente: VALLARTA
+    ------------------------------
+
+  🏫 Plantel: CENTRO
+    📍 Modalidad: Semiescolarizada
+    📜 Incorporación: SICYT
+    📄 Fuente: GDL
+    ------------------------------
+    📍 Modalidad: Sabatino
+    📜 Incorporación: SICYT
+    📄 Fuente: GDL
+    ------------------------------
+
+  🏫 Plantel: CENTRO 
+MÉDICO
+    📍 Modalidad: Semiescolarizada
+    📜 Incorporación: SICYT
+    📄 Fuente: GDL
+    ------------------------------
+    📍 Modalidad: Sabatino
+    📜 Incorporación: SICYT
+    📄 Fuente: GDL
+    ------------------------------
+
+  🏫 Plantel: CHAPULTEPEC
+    📍 Modalidad: Semiescolarizada
+    📜 Incorporación: SICYT
+    📄 Fuente: GDL
+    ------------------------------
+    📍 Modalidad: Sabatino
+    📜 Incorporación: SICYT
+    📄 Fuente: GDL
+    ------------------------------
+
+  🏫 Plantel: MILENIO
+    📍 Modalidad: Sabatino
+    📜 Incorporación: SICYT
+    📄 Fuente: GDL
+    ------------------------------
+
+  🏫 Plantel: TEPATITLÁN
+    📍 Modalidad: Semiescolarizada
+    📜 Incorporación: SICYT
+    📄 Fuente: TEPA
+    ------------------------------
+    📍 Modalidad: Sabatino
+    📜 Incorporación: SICYT
+    📄 Fuente: TEPA
+    ------------------------------
+
+  🏫 Plantel: TESISTÁN
+    📍 Modalidad: Semiescolarizada
+    📜 Incorporación: SICYT
+    📄 Fuente: GDL
+    ------------------------------
+    📍 Modalidad: Sabatino
+    📜 Incorporación: SICYT
+    📄 Fuente: GDL
+    ------------------------------
+
+  🏫 Plantel: TLAJOMULCO
+    📍 Modalidad: Semiescolarizada
+    📜 Incorporación: SICYT
+    📄 Fuente: GDL
+    ------------------------------
+    📍 Modalidad: Sabatino
+    📜 Incorporación: SICYT
+    📄 Fuente: GDL
+    ------------------------------
+
+  🏫 Plantel: TLAQUEPAQUE
+    📍 Modalidad: Semiescolarizada
+    📜 Incorporación: SICYT
+    📄 Fuente: GDL
+    ------------------------------
+    📍 Modalidad: Sabatino
+    📜 Incorporación: SICYT
+    📄 Fuente: GDL
+    ------------------------------
+
+  🏫 Plantel: TONALÁ
+    📍 Modalidad: Semiescolarizada
+    📜 Incorporación: SICYT
+    📄 Fuente: GDL
+    ------------------------------
+    📍 Modalidad: Sabatino
+    📜 Incorporación: SICYT
+    📄 Fuente: GDL
+    ------------------------------
+
+  🏫 Plantel: ZAPOPAN
+    📍 Modalidad: Semiescolarizada
+    📜 Incorporación: SICYT
+    📄 Fuente: GDL
+    ------------------------------
+    📍 Modalidad: Sabatino
+    📜 Incorporación: SICYT
+    📄 Fuente: GDL
+    ------------------------------
+
+
+📚 Programa: Administración de Negocios
+--------------------------------------
+  🏫 Plantel: TORRE QUETZAL
+    📍 Modalidad: Escolarizada
+    📜 Incorporación: ESPECIALIDAD
+    📄 Fuente: GDL
+    ------------------------------
+
+
+📚 Programa: Alta Dirección
+--------------------------
+  🏫 Plantel: Av. México
+    📍 Modalidad: Sabatina
+    📜 Incorporación: SICYT
+    📄 Fuente: VALLARTA
+    ------------------------------
+
+  🏫 Plantel: CENTRO 
+MÉDICO
+    📍 Modalidad: Sabatino
+    📜 Incorporación: SICYT
+    📄 Fuente: GDL
+    ------------------------------
+
+  🏫 Plantel: TORRE QUETZAL
+    📍 Modalidad: Sabatino
+    📜 Incorporación: SICYT
+    📄 Fuente: GDL
+    ------------------------------
+
+
+📚 Programa: Arquitectura
+------------------------
+  🏫 Plantel: CAMPUS  PUERTO  VALLARTA
+    📍 Modalidad: Escolarizada
+    📜 Incorporación: SICYT
+    📄 Fuente: VALLARTA
+    ------------------------------
+
+  🏫 Plantel: CENTRO
+    📍 Modalidad: Escolarizada
+    📜 Incorporación: UDG
+    📄 Fuente: GDL
+    ------------------------------
+    📍 Modalidad: Escolarizada
+    📜 Incorporación: SICYT
+    📄 Fuente: GDL
+    ------------------------------
+
+  🏫 Plantel: TEPATITLÁN
+    📍 Modalidad: Escolarizada
+    📜 Incorporación: SICYT
+    📄 Fuente: TEPA
+    ------------------------------
+
+  🏫 Plantel: TESISTÁN
+    📍 Modalidad: Escolarizada
+    📜 Incorporación: SICYT
+    📄 Fuente: GDL
+    ------------------------------
+
+  🏫 Plantel: TLAJOMULCO
+    📍 Modalidad: Escolarizada
+    📜 Incorporación: SICYT
+    📄 Fuente: GDL
+    ------------------------------
+
+  🏫 Plantel: TONALÁ
+    📍 Modalidad: Escolarizada
+    📜 Incorporación: SICYT
+    📄 Fuente: GDL
+    ------------------------------
+
+  🏫 Plantel: ZAPOPAN
+    📍 Modalidad: Escolarizada
+    📜 Incorporación: SICYT
+    📄 Fuente: GDL
+    ------------------------------
+
+
+📚 Programa: Ciencias de la Comunicación
+---------------------------------------
+  🏫 Plantel: CENTRO
+    📍 Modalidad: Escolarizada
+    📜 Incorporación: SICYT
+    📄 Fuente: GDL
+    ------------------------------
+
+  🏫 Plantel: MILENIO
+    📍 Modalidad: Escolarizada
+    📜 Incorporación: SICYT
+    📄 Fuente: GDL
+    ------------------------------
+
+
+📚 Programa: Ciencias de la Educación
+------------------------------------
+  🏫 Plantel: Av. México
+    📍 Modalidad: Semiescolarizada
+    📜 Incorporación: SICYT
+    📄 Fuente: VALLARTA
+    ------------------------------
+    📍 Modalidad: Sabatina
+    📜 Incorporación: SICYT
+    📄 Fuente: VALLARTA
+    ------------------------------
+
+  🏫 Plantel: CAMPUS  PUERTO  VALLARTA
+    📍 Modalidad: Viernes/Sábado
+    📜 Incorporación: SICYT
+    📄 Fuente: VALLARTA
+    ------------------------------
+    📍 Modalidad: Semiescolarizada
+    📜 Incorporación: SICYT
+    📄 Fuente: VALLARTA
+    ------------------------------
+
+  🏫 Plantel: CARACOL
+    📍 Modalidad: Semiescolarizada
+    📜 Incorporación: SICYT
+    📄 Fuente: VALLARTA
+    ------------------------------
+    📍 Modalidad: Sabatino
+    📜 Incorporación: SICYT
+    📄 Fuente: VALLARTA
+    ------------------------------
+
+  🏫 Plantel: CENTRO 
+MÉDICO
+    📍 Modalidad: Martes y Jueves
+    📜 Incorporación: SICYT
+    📄 Fuente: GDL
+    ------------------------------
+
+  🏫 Plantel: CHAPULTEPEC
+    📍 Modalidad: Semiescolarizada
+    📜 Incorporación: SICYT
+    📄 Fuente: GDL
+    ------------------------------
+    📍 Modalidad: Sabatino
+    📜 Incorporación: SICYT
+    📄 Fuente: GDL
+    ------------------------------
+
+  🏫 Plantel: TORRE QUETZAL
+    📍 Modalidad: Escolarizada
+    📜 Incorporación: ESPECIALIDAD
+    📄 Fuente: GDL
+    ------------------------------
+
+  🏫 Plantel: ZAPOPAN
+    📍 Modalidad: Semiescolarizada
+    📜 Incorporación: SICYT
+    📄 Fuente: GDL
+    ------------------------------
+    📍 Modalidad: Sabatino
+    📜 Incorporación: SICYT
+    📄 Fuente: GDL
+    ------------------------------
+
+
+📚 Programa: Cirujano Dentista
+-----------------------------
+  🏫 Plantel: CHAPULTEPEC
+    📍 Modalidad: Escolarizada
+    📜 Incorporación: UDG
+    📄 Fuente: GDL
+    ------------------------------
+
+  🏫 Plantel: LAS JUNTAS
+    📍 Modalidad: Escolarizada
+    📜 Incorporación: UDG
+    📄 Fuente: VALLARTA
+    ------------------------------
+
+  🏫 Plantel: TEPATITLÁN
+    📍 Modalidad: Escolarizada
+    📜 Incorporación: UDG
+    📄 Fuente: TEPA
+    ------------------------------
+
+  🏫 Plantel: TONALÁ
+    📍 Modalidad: Escolarizada
+    📜 Incorporación: UDG
+    📄 Fuente: GDL
+    ------------------------------
+
+  🏫 Plantel: TORRE UNE
+ MILENIO
+    📍 Modalidad: Escolarizada
+    📜 Incorporación: UDG
+    📄 Fuente: GDL
+    ------------------------------
+
+  🏫 Plantel: ZAPOPAN
+    📍 Modalidad: Escolarizada
+    📜 Incorporación: UDG
+    📄 Fuente: GDL
+    ------------------------------
+
+
+📚 Programa: Contaduría Pública
+------------------------------
+  🏫 Plantel: TORRE QUETZAL
+    📍 Modalidad: Escolarizada
+    📜 Incorporación: UDG
+    📄 Fuente: GDL
+    ------------------------------
+
+
+📚 Programa: Contaduría y Auditoria
+----------------------------------
+  🏫 Plantel: TORRE QUETZAL
+    📍 Modalidad: Sabatino
+    📜 Incorporación: SICYT
+    📄 Fuente: GDL
+    ------------------------------
+
+
+📚 Programa: Contaduría y Auditoría
+----------------------------------
+  🏫 Plantel: Av. México
+    📍 Modalidad: Escolarizada
+    📜 Incorporación: SICYT
+    📄 Fuente: VALLARTA
+    ------------------------------
+    📍 Modalidad: Viernes y Sábado
+    📜 Incorporación: SICYT
+    📄 Fuente: VALLARTA
+    ------------------------------
+
+  🏫 Plantel: CARACOL
+    📍 Modalidad: Escolarizada
+    📜 Incorporación: SICYT
+    📄 Fuente: VALLARTA
+    ------------------------------
+
+  🏫 Plantel: CENTRO 
+MÉDICO
+    📍 Modalidad: Martes y Jueves
+    📜 Incorporación: SICYT
+    📄 Fuente: GDL
+    ------------------------------
+
+  🏫 Plantel: TEPATITLÁN
+    📍 Modalidad: Escolarizada
+    📜 Incorporación: SICYT
+    📄 Fuente: TEPA
+    ------------------------------
+
+  🏫 Plantel: TLAJOMULCO
+    📍 Modalidad: Escolarizada
+    📜 Incorporación: SICYT
+    📄 Fuente: GDL
+    ------------------------------
+
+  🏫 Plantel: TORRE QUETZAL
+    📍 Modalidad: Escolarizada
+    📜 Incorporación: SICYT
+    📄 Fuente: GDL
+    ------------------------------
+
+  🏫 Plantel: ZAPOPAN
+    📍 Modalidad: Escolarizada
+    📜 Incorporación: SICYT
+    📄 Fuente: GDL
+    ------------------------------
+
+
+📚 Programa: Criminología y Criminalística
+-----------------------------------------
+  🏫 Plantel: CHAPULTEPEC
+    📍 Modalidad: Escolarizada
+    📜 Incorporación: SICYT
+    📄 Fuente: GDL
+    ------------------------------
+
+  🏫 Plantel: TESISTÁN
+    📍 Modalidad: Escolarizada
+    📜 Incorporación: SICYT
+    📄 Fuente: GDL
+    ------------------------------
+
+  🏫 Plantel: TLAJOMULCO
+    📍 Modalidad: Escolarizada
+    📜 Incorporación: SICYT
+    📄 Fuente: GDL
+    ------------------------------
+
+  🏫 Plantel: TONALÁ
+    📍 Modalidad: Escolarizada
+    📜 Incorporación: SICYT
+    📄 Fuente: GDL
+    ------------------------------
+
+
+📚 Programa: Cultura Física y del Deporte
+----------------------------------------
+  🏫 Plantel: TESISTÁN
+    📍 Modalidad: Escolarizada
+    📜 Incorporación: SICYT
+    📄 Fuente: GDL
+    ------------------------------
+
+  🏫 Plantel: TLAJOMULCO
+    📍 Modalidad: Escolarizada
+    📜 Incorporación: SICYT
+    📄 Fuente: GDL
+    ------------------------------
+
+  🏫 Plantel: TONALÁ
+    📍 Modalidad: Escolarizada
+    📜 Incorporación: SICYT
+    📄 Fuente: GDL
+    ------------------------------
+
+  🏫 Plantel: TORRE UNE
+ MILENIO
+    📍 Modalidad: Escolarizada
+    📜 Incorporación: SICYT
+    📄 Fuente: GDL
+    ------------------------------
+
+
+📚 Programa: Derecho
+-------------------
+  🏫 Plantel: Av. México
+    📍 Modalidad: Semiescolarizada
+    📜 Incorporación: SICYT
+    📄 Fuente: VALLARTA
+    ------------------------------
+    📍 Modalidad: Sabatina
+    📜 Incorporación: SICYT
+    📄 Fuente: VALLARTA
+    ------------------------------
+
+  🏫 Plantel: CAMPUS  PUERTO  VALLARTA
+    📍 Modalidad: Semiescolarizada
+    📜 Incorporación: SICYT
+    📄 Fuente: VALLARTA
+    ------------------------------
+    📍 Modalidad: Sabatimo
+    📜 Incorporación: SICYT
+    📄 Fuente: VALLARTA
+    ------------------------------
+
+  🏫 Plantel: CARACOL
+    📍 Modalidad: Semiescolarizada
+    📜 Incorporación: SICYT
+    📄 Fuente: VALLARTA
+    ------------------------------
+    📍 Modalidad: Sabatino
+    📜 Incorporación: SICYT
+    📄 Fuente: VALLARTA
+    ------------------------------
+
+  🏫 Plantel: CENTRO
+    📍 Modalidad: Semiescolarizada
+    📜 Incorporación: SICYT
+    📄 Fuente: GDL
+    ------------------------------
+    📍 Modalidad: Sabatino
+    📜 Incorporación: SICYT
+    📄 Fuente: GDL
+    ------------------------------
+
+  🏫 Plantel: CENTRO 
+MÉDICO
+    📍 Modalidad: Semiescolarizada
+    📜 Incorporación: SICYT
+    📄 Fuente: GDL
+    ------------------------------
+    📍 Modalidad: Sabatino
+    📜 Incorporación: SICYT
+    📄 Fuente: GDL
+    ------------------------------
+
+  🏫 Plantel: CHAPULTEPEC
+    📍 Modalidad: Semiescolarizada
+    📜 Incorporación: SICYT
+    📄 Fuente: GDL
+    ------------------------------
+    📍 Modalidad: Sabatino
+    📜 Incorporación: SICYT
+    📄 Fuente: GDL
+    ------------------------------
+
+  🏫 Plantel: MILENIO
+    📍 Modalidad: Sabatino
+    📜 Incorporación: SICYT
+    📄 Fuente: GDL
+    ------------------------------
+
+  🏫 Plantel: TEPATITLÁN
+    📍 Modalidad: Semiescolarizada
+    📜 Incorporación: SICYT
+    📄 Fuente: TEPA
+    ------------------------------
+    📍 Modalidad: Sabatino
+    📜 Incorporación: SICYT
+    📄 Fuente: TEPA
+    ------------------------------
+
+  🏫 Plantel: TESISTÁN
+    📍 Modalidad: Semiescolarizada
+    📜 Incorporación: SICYT
+    📄 Fuente: GDL
+    ------------------------------
+    📍 Modalidad: Sabatino
+    📜 Incorporación: SICYT
+    📄 Fuente: GDL
+    ------------------------------
+
+  🏫 Plantel: TLAJOMULCO
+    📍 Modalidad: Semiescolarizada
+    📜 Incorporación: SICYT
+    📄 Fuente: GDL
+    ------------------------------
+    📍 Modalidad: Sabatino
+    📜 Incorporación: SICYT
+    📄 Fuente: GDL
+    ------------------------------
+
+  🏫 Plantel: TLAQUEPAQUE
+    📍 Modalidad: Semiescolarizada
+    📜 Incorporación: SICYT
+    📄 Fuente: GDL
+    ------------------------------
+    📍 Modalidad: Sabatino
+    📜 Incorporación: SICYT
+    📄 Fuente: GDL
+    ------------------------------
+
+  🏫 Plantel: TONALÁ
+    📍 Modalidad: Semiescolarizada
+    📜 Incorporación: SICYT
+    📄 Fuente: GDL
+    ------------------------------
+    📍 Modalidad: Sabatino
+    📜 Incorporación: SICYT
+    📄 Fuente: GDL
+    ------------------------------
+
+  🏫 Plantel: TORRE QUETZAL
+    📍 Modalidad: Sabatino
+    📜 Incorporación: SICYT
+    📄 Fuente: GDL
+    ------------------------------
+
+  🏫 Plantel: ZAPOPAN
+    📍 Modalidad: Semiescolarizada
+    📜 Incorporación: SICYT
+    📄 Fuente: GDL
+    ------------------------------
+    📍 Modalidad: Sabatino
+    📜 Incorporación: SICYT
+    📄 Fuente: GDL
+    ------------------------------
+
+
+📚 Programa: Diseño Gráfico
+--------------------------
+  🏫 Plantel: CENTRO
+    📍 Modalidad: Escolarizada
+    📜 Incorporación: SICYT
+    📄 Fuente: GDL
+    ------------------------------
+    📍 Modalidad: Viernes y Sábado
+    📜 Incorporación: SICYT
+    📄 Fuente: GDL
+    ------------------------------
+
+  🏫 Plantel: ZAPOPAN
+    📍 Modalidad: Escolarizada
+    📜 Incorporación: SICYT
+    📄 Fuente: GDL
+    ------------------------------
+    📍 Modalidad: Viernes y Sábado
+    📜 Incorporación: SICYT
+    📄 Fuente: GDL
+    ------------------------------
+
+
+📚 Programa: Enfermería
+----------------------
+  🏫 Plantel: CHAPULTEPEC
+    📍 Modalidad: Escolarizada
+    📜 Incorporación: UDG
+    📄 Fuente: GDL
+    ------------------------------
+
+  🏫 Plantel: LAS JUNTAS
+    📍 Modalidad: Escolarizada
+    📜 Incorporación: UDG
+    📄 Fuente: VALLARTA
+    ------------------------------
+
+  🏫 Plantel: TLAJOMULCO
+    📍 Modalidad: Escolarizada
+    📜 Incorporación: UDG
+    📄 Fuente: GDL
+    ------------------------------
+
+  🏫 Plantel: TORRE UNE
+ MILENIO
+    📍 Modalidad: Escolarizada
+    📜 Incorporación: UDG
+    📄 Fuente: GDL
+    ------------------------------
+
+  🏫 Plantel: ZAPOPAN
+    📍 Modalidad: Escolarizada
+    📜 Incorporación: UDG
+    📄 Fuente: GDL
+    ------------------------------
+
+
+📚 Programa: Gastronomía
+-----------------------
+  🏫 Plantel: CHAPULTEPEC
+    📍 Modalidad: Escolarizada
+    📜 Incorporación: SICYT
+    📄 Fuente: GDL
+    ------------------------------
+
+  🏫 Plantel: TLAJOMULCO
+    📍 Modalidad: Escolarizada
+    📜 Incorporación: SICYT
+    📄 Fuente: GDL
+    ------------------------------
+
+  🏫 Plantel: TLAQUEPAQUE
+    📍 Modalidad: Escolarizada
+    📜 Incorporación: SICYT
+    📄 Fuente: GDL
+    ------------------------------
+
+  🏫 Plantel: TONALÁ
+    📍 Modalidad: Escolarizada
+    📜 Incorporación: SICYT
+    📄 Fuente: GDL
+    ------------------------------
+
+
+📚 Programa: Gestión y Creación de PyME’s
+----------------------------------------
+  🏫 Plantel: CENTRO 
+MÉDICO
+    📍 Modalidad: Sabatino
+    📜 Incorporación: SICYT
+    📄 Fuente: GDL
+    ------------------------------
+
+  🏫 Plantel: TORRE QUETZAL
+    📍 Modalidad: Sabatino
+    📜 Incorporación: SICYT
+    📄 Fuente: GDL
+    ------------------------------
+
+
+📚 Programa: Ing. Civil
+----------------------
+  🏫 Plantel: CAMPUS  PUERTO  VALLARTA
+    📍 Modalidad: Escolarizada
+    📜 Incorporación: SICYT
+    📄 Fuente: VALLARTA
+    ------------------------------
+
+
+📚 Programa: Ing. En Desarrollo de Software
+------------------------------------------
+  🏫 Plantel: CAMPUS  PUERTO  VALLARTA
+    📍 Modalidad: Escolarizada
+    📜 Incorporación: SICYT
+    📄 Fuente: VALLARTA
+    ------------------------------
+
+
+📚 Programa: Ing. En Inteligencia de Datos y Ciberseguridad
+----------------------------------------------------------
+  🏫 Plantel: CAMPUS  PUERTO  VALLARTA
+    📍 Modalidad: Escolarizada
+    📜 Incorporación: SICYT
+    📄 Fuente: VALLARTA
+    ------------------------------
+
+
+📚 Programa: Ing. Mecánica
+-------------------------
+  🏫 Plantel: CAMPUS  PUERTO  VALLARTA
+    📍 Modalidad: Escolarizada
+    📜 Incorporación: SICYT
+    📄 Fuente: VALLARTA
+    ------------------------------
+
+
+📚 Programa: Ingenieria Civil
+----------------------------
+  🏫 Plantel: TESISTÁN
+    📍 Modalidad: Escolarizada
+    📜 Incorporación: SICYT
+    📄 Fuente: GDL
+    ------------------------------
+
+  🏫 Plantel: TONALÁ
+    📍 Modalidad: Escolarizada
+    📜 Incorporación: SICYT
+    📄 Fuente: GDL
+    ------------------------------
+
+  🏫 Plantel: ZAPOPAN
+    📍 Modalidad: Escolarizada
+    📜 Incorporación: SICYT
+    📄 Fuente: GDL
+    ------------------------------
+
+
+📚 Programa: Ingenieria Mecánica
+-------------------------------
+  🏫 Plantel: Av. México
+    📍 Modalidad: Escolarizada
+    📜 Incorporación: SICYT
+    📄 Fuente: VALLARTA
+    ------------------------------
+
+  🏫 Plantel: CENTRO
+    📍 Modalidad: Escolarizada
+    📜 Incorporación: SICYT
+    📄 Fuente: GDL
+    ------------------------------
+
+  🏫 Plantel: MILENIO
+    📍 Modalidad: Escolarizada
+    📜 Incorporación: SICYT
+    📄 Fuente: GDL
+    ------------------------------
+
+  🏫 Plantel: TLAJOMULCO
+    📍 Modalidad: Escolarizada
+    📜 Incorporación: SICYT
+    📄 Fuente: GDL
+    ------------------------------
+
+  🏫 Plantel: ZAPOPAN
+    📍 Modalidad: Escolarizada
+    📜 Incorporación: SICYT
+    📄 Fuente: GDL
+    ------------------------------
+
+
+📚 Programa: Ingenieria de Datos y Ciberseguridad
+------------------------------------------------
+  🏫 Plantel: ZAPOPAN
+    📍 Modalidad: Escolarizada
+    📜 Incorporación: SICYT
+    📄 Fuente: GDL
+    ------------------------------
+
+
+📚 Programa: Ingenieria en Comunicaciones y Electronica
+------------------------------------------------------
+  🏫 Plantel: TESISTÁN
+    📍 Modalidad: Escolarizada
+    📜 Incorporación: SICYT
+    📄 Fuente: GDL
+    ------------------------------
+
+
+📚 Programa: Ingenieria en Desarrollo Software
+---------------------------------------------
+  🏫 Plantel: Av. México
+    📍 Modalidad: Escolarizada
+    📜 Incorporación: SICYT
+    📄 Fuente: VALLARTA
+    ------------------------------
+
+  🏫 Plantel: CENTRO
+    📍 Modalidad: Escolarizada
+    📜 Incorporación: SICYT
+    📄 Fuente: GDL
+    ------------------------------
+
+  🏫 Plantel: MILENIO
+    📍 Modalidad: Escolarizada
+    📜 Incorporación: SICYT
+    📄 Fuente: GDL
+    ------------------------------
+
+  🏫 Plantel: TEPATITLÁN
+    📍 Modalidad: Escolarizada
+    📜 Incorporación: SICYT
+    📄 Fuente: TEPA
+    ------------------------------
+
+
+📚 Programa: Ingenieria en Desarrollo de Software
+------------------------------------------------
+  🏫 Plantel: ZAPOPAN
+    📍 Modalidad: Escolarizada
+    📜 Incorporación: SICYT
+    📄 Fuente: GDL
+    ------------------------------
+
+
+📚 Programa: Ingenieria en Inteligencia de Datos y Ciberseguridad
+----------------------------------------------------------------
+  🏫 Plantel: Av. México
+    📍 Modalidad: Escolarizada
+    📜 Incorporación: SICYT
+    📄 Fuente: VALLARTA
+    ------------------------------
+
+  🏫 Plantel: CENTRO
+    📍 Modalidad: Escolarizada
+    📜 Incorporación: SICYT
+    📄 Fuente: GDL
+    ------------------------------
+
+  🏫 Plantel: MILENIO
+    📍 Modalidad: Escolarizada
+    📜 Incorporación: SICYT
+    📄 Fuente: GDL
+    ------------------------------
+
+  🏫 Plantel: TEPATITLÁN
+    📍 Modalidad: Escolarizada
+    📜 Incorporación: SICYT
+    📄 Fuente: TEPA
+    ------------------------------
+
+  🏫 Plantel: TLAJOMULCO
+    📍 Modalidad: Escolarizada
+    📜 Incorporación: SICYT
+    📄 Fuente: GDL
+    ------------------------------
+
+
+📚 Programa: Ingeniería Civil
+----------------------------
+  🏫 Plantel: TEPATITLÁN
+    📍 Modalidad: Escolarizada
+    📜 Incorporación: SICYT
+    📄 Fuente: TEPA
+    ------------------------------
+
+  🏫 Plantel: TLAJOMULCO
+    📍 Modalidad: Escolarizada
+    📜 Incorporación: SICYT
+    📄 Fuente: GDL
+    ------------------------------
+
+
+📚 Programa: Ingeniería Computación
+----------------------------------
+  🏫 Plantel: CENTRO
+    📍 Modalidad: Escolarizada
+    📜 Incorporación: UDG
+    📄 Fuente: GDL
+    ------------------------------
+
+
+📚 Programa: Ingeniería Industrial
+---------------------------------
+  🏫 Plantel: CENTRO
+    📍 Modalidad: Escolarizada
+    📜 Incorporación: SICYT
+    📄 Fuente: GDL
+    ------------------------------
+
+  🏫 Plantel: MILENIO
+    📍 Modalidad: Escolarizada
+    📜 Incorporación: SICYT
+    📄 Fuente: GDL
+    ------------------------------
+
+  🏫 Plantel: ZAPOPAN
+    📍 Modalidad: Escolarizada
+    📜 Incorporación: SICYT
+    📄 Fuente: GDL
+    ------------------------------
+
+
+📚 Programa: Ingeniería Química
+------------------------------
+  🏫 Plantel: CHAPULTEPEC
+    📍 Modalidad: Escolarizada
+    📜 Incorporación: SICYT
+    📄 Fuente: GDL
+    ------------------------------
+
+  🏫 Plantel: TESISTÁN
+    📍 Modalidad: Escolarizada
+    📜 Incorporación: SICYT
+    📄 Fuente: GDL
+    ------------------------------
+
+  🏫 Plantel: TLAJOMULCO
+    📍 Modalidad: Escolarizada
+    📜 Incorporación: SICYT
+    📄 Fuente: GDL
+    ------------------------------
+
+
+📚 Programa: Ingeniería en Comunicaciones y Electrónica
+------------------------------------------------------
+  🏫 Plantel: CENTRO
+    📍 Modalidad: Escolarizada
+    📜 Incorporación: SICYT
+    📄 Fuente: GDL
+    ------------------------------
+
+  🏫 Plantel: MILENIO
+    📍 Modalidad: Escolarizada
+    📜 Incorporación: SICYT
+    📄 Fuente: GDL
+    ------------------------------
+
+  🏫 Plantel: TLAJOMULCO
+    📍 Modalidad: Escolarizada
+    📜 Incorporación: SICYT
+    📄 Fuente: GDL
+    ------------------------------
+
+
+📚 Programa: Mercadotecnia
+-------------------------
+  🏫 Plantel: Av. México
+    📍 Modalidad: Semiescolarizada
+    📜 Incorporación: SICYT
+    📄 Fuente: VALLARTA
+    ------------------------------
+    📍 Modalidad: Sabatina
+    📜 Incorporación: SICYT
+    📄 Fuente: VALLARTA
+    ------------------------------
+
+  🏫 Plantel: CAMPUS  PUERTO  VALLARTA
+    📍 Modalidad: Semiescolarizada
+    📜 Incorporación: SICYT
+    📄 Fuente: VALLARTA
+    ------------------------------
+    📍 Modalidad: Sabatimo
+    📜 Incorporación: SICYT
+    📄 Fuente: VALLARTA
+    ------------------------------
+
+  🏫 Plantel: CARACOL
+    📍 Modalidad: Semiescolarizada
+    📜 Incorporación: SICYT
+    📄 Fuente: VALLARTA
+    ------------------------------
+    📍 Modalidad: Sabatino
+    📜 Incorporación: SICYT
+    📄 Fuente: VALLARTA
+    ------------------------------
+
+  🏫 Plantel: CENTRO
+    📍 Modalidad: Semiescolarizada
+    📜 Incorporación: SICYT
+    📄 Fuente: GDL
+    ------------------------------
+    📍 Modalidad: Sabatino
+    📜 Incorporación: SICYT
+    📄 Fuente: GDL
+    ------------------------------
+
+  🏫 Plantel: CENTRO 
+MÉDICO
+    📍 Modalidad: Semiescolarizada
+    📜 Incorporación: SICYT
+    📄 Fuente: GDL
+    ------------------------------
+    📍 Modalidad: Sabatino
+    📜 Incorporación: SICYT
+    📄 Fuente: GDL
+    ------------------------------
+
+  🏫 Plantel: CHAPULTEPEC
+    📍 Modalidad: Semiescolarizada
+    📜 Incorporación: SICYT
+    📄 Fuente: GDL
+    ------------------------------
+    📍 Modalidad: Sabatino
+    📜 Incorporación: SICYT
+    📄 Fuente: GDL
+    ------------------------------
+
+  🏫 Plantel: MILENIO
+    📍 Modalidad: Sabatino
+    📜 Incorporación: SICYT
+    📄 Fuente: GDL
+    ------------------------------
+
+  🏫 Plantel: TEPATITLÁN
+    📍 Modalidad: Semiescolarizada
+    📜 Incorporación: SICYT
+    📄 Fuente: TEPA
+    ------------------------------
+    📍 Modalidad: Sabatino
+    📜 Incorporación: SICYT
+    📄 Fuente: TEPA
+    ------------------------------
+
+  🏫 Plantel: TESISTÁN
+    📍 Modalidad: Semiescolarizada
+    📜 Incorporación: SICYT
+    📄 Fuente: GDL
+    ------------------------------
+    📍 Modalidad: Sabatino
+    📜 Incorporación: SICYT
+    📄 Fuente: GDL
+    ------------------------------
+
+  🏫 Plantel: TLAJOMULCO
+    📍 Modalidad: Semiescolarizada
+    📜 Incorporación: SICYT
+    📄 Fuente: GDL
+    ------------------------------
+    📍 Modalidad: Sabatino
+    📜 Incorporación: SICYT
+    📄 Fuente: GDL
+    ------------------------------
+
+  🏫 Plantel: TLAQUEPAQUE
+    📍 Modalidad: Semiescolarizada
+    📜 Incorporación: SICYT
+    📄 Fuente: GDL
+    ------------------------------
+    📍 Modalidad: Sabatino
+    📜 Incorporación: SICYT
+    📄 Fuente: GDL
+    ------------------------------
+
+  🏫 Plantel: TONALÁ
+    📍 Modalidad: Semiescolarizada
+    📜 Incorporación: SICYT
+    📄 Fuente: GDL
+    ------------------------------
+    📍 Modalidad: Sabatino
+    📜 Incorporación: SICYT
+    📄 Fuente: GDL
+    ------------------------------
+
+  🏫 Plantel: TORRE QUETZAL
+    📍 Modalidad: Escolarizada
+    📜 Incorporación: UDG
+    📄 Fuente: GDL
+    ------------------------------
+
+  🏫 Plantel: ZAPOPAN
+    📍 Modalidad: Semiescolarizada
+    📜 Incorporación: SICYT
+    📄 Fuente: GDL
+    ------------------------------
+    📍 Modalidad: Sabatino
+    📜 Incorporación: SICYT
+    📄 Fuente: GDL
+    ------------------------------
+
+
+📚 Programa: Mercadotecnia Internacional
+---------------------------------------
+  🏫 Plantel: Av. México
+    📍 Modalidad: Sabatina
+    📜 Incorporación: SICYT
+    📄 Fuente: VALLARTA
+    ------------------------------
+
+  🏫 Plantel: CENTRO 
+MÉDICO
+    📍 Modalidad: Sabatino
+    📜 Incorporación: SICYT
+    📄 Fuente: GDL
+    ------------------------------
+
+
+📚 Programa: Negocios Internacionales
+------------------------------------
+  🏫 Plantel: Av. México
+    📍 Modalidad: Semiescolarizada
+    📜 Incorporación: SICYT
+    📄 Fuente: VALLARTA
+    ------------------------------
+    📍 Modalidad: Sabatina
+    📜 Incorporación: SICYT
+    📄 Fuente: VALLARTA
+    ------------------------------
+
+  🏫 Plantel: CAMPUS  PUERTO  VALLARTA
+    📍 Modalidad: Semiescolarizada
+    📜 Incorporación: SICYT
+    📄 Fuente: VALLARTA
+    ------------------------------
+    📍 Modalidad: Sabatimo
+    📜 Incorporación: SICYT
+    📄 Fuente: VALLARTA
+    ------------------------------
+
+  🏫 Plantel: CARACOL
+    📍 Modalidad: Semiescolarizada
+    📜 Incorporación: SICYT
+    📄 Fuente: VALLARTA
+    ------------------------------
+    📍 Modalidad: Sabatino
+    📜 Incorporación: SICYT
+    📄 Fuente: VALLARTA
+    ------------------------------
+
+  🏫 Plantel: CENTRO
+    📍 Modalidad: Semiescolarizada
+    📜 Incorporación: SICYT
+    📄 Fuente: GDL
+    ------------------------------
+    📍 Modalidad: Sabatino
+    📜 Incorporación: SICYT
+    📄 Fuente: GDL
+    ------------------------------
+
+  🏫 Plantel: CENTRO 
+MÉDICO
+    📍 Modalidad: Semiescolarizada
+    📜 Incorporación: SICYT
+    📄 Fuente: GDL
+    ------------------------------
+    📍 Modalidad: Sabatino
+    📜 Incorporación: SICYT
+    📄 Fuente: GDL
+    ------------------------------
+
+  🏫 Plantel: CHAPULTEPEC
+    📍 Modalidad: Semiescolarizada
+    📜 Incorporación: SICYT
+    📄 Fuente: GDL
+    ------------------------------
+    📍 Modalidad: Sabatino
+    📜 Incorporación: SICYT
+    📄 Fuente: GDL
+    ------------------------------
+
+  🏫 Plantel: MILENIO
+    📍 Modalidad: Sabatino
+    📜 Incorporación: SICYT
+    📄 Fuente: GDL
+    ------------------------------
+
+  🏫 Plantel: TEPATITLÁN
+    📍 Modalidad: Semiescolarizada
+    📜 Incorporación: SICYT
+    📄 Fuente: TEPA
+    ------------------------------
+    📍 Modalidad: Sabatino
+    📜 Incorporación: SICYT
+    📄 Fuente: TEPA
+    ------------------------------
+
+  🏫 Plantel: TESISTÁN
+    📍 Modalidad: Semiescolarizada
+    📜 Incorporación: SICYT
+    📄 Fuente: GDL
+    ------------------------------
+    📍 Modalidad: Sabatino
+    📜 Incorporación: SICYT
+    📄 Fuente: GDL
+    ------------------------------
+
+  🏫 Plantel: TLAJOMULCO
+    📍 Modalidad: Semiescolarizada
+    📜 Incorporación: SICYT
+    📄 Fuente: GDL
+    ------------------------------
+    📍 Modalidad: Sabatino
+    📜 Incorporación: SICYT
+    📄 Fuente: GDL
+    ------------------------------
+
+  🏫 Plantel: TLAQUEPAQUE
+    📍 Modalidad: Semiescolarizada
+    📜 Incorporación: SICYT
+    📄 Fuente: GDL
+    ------------------------------
+    📍 Modalidad: Sabatino
+    📜 Incorporación: SICYT
+    📄 Fuente: GDL
+    ------------------------------
+
+  🏫 Plantel: TONALÁ
+    📍 Modalidad: Semiescolarizada
+    📜 Incorporación: SICYT
+    📄 Fuente: GDL
+    ------------------------------
+    📍 Modalidad: Sabatino
+    📜 Incorporación: SICYT
+    📄 Fuente: GDL
+    ------------------------------
+
+  🏫 Plantel: TORRE QUETZAL
+    📍 Modalidad: Escolarizada
+    📜 Incorporación: UDG
+    📄 Fuente: GDL
+    ------------------------------
+    📍 Modalidad: Semiescolarizada
+    📜 Incorporación: SICYT
+    📄 Fuente: GDL
+    ------------------------------
+
+  🏫 Plantel: ZAPOPAN
+    📍 Modalidad: Semiescolarizada
+    📜 Incorporación: SICYT
+    📄 Fuente: GDL
+    ------------------------------
+    📍 Modalidad: Sabatino
+    📜 Incorporación: SICYT
+    📄 Fuente: GDL
+    ------------------------------
+
+
+📚 Programa: Nutrición
+---------------------
+  🏫 Plantel: Av. México
+    📍 Modalidad: Escolarizada
+    📜 Incorporación: SICYT
+    📄 Fuente: VALLARTA
+    ------------------------------
+    📍 Modalidad: Viernes y Sábado
+    📜 Incorporación: SICYT
+    📄 Fuente: VALLARTA
+    ------------------------------
+
+  🏫 Plantel: CAMPUS  PUERTO  VALLARTA
+    📍 Modalidad: Escolarizada
+    📜 Incorporación: SICYT
+    📄 Fuente: VALLARTA
+    ------------------------------
+    📍 Modalidad: Viernes/Sábado
+    📜 Incorporación: SICYT
+    📄 Fuente: VALLARTA
+    ------------------------------
+
+  🏫 Plantel: CARACOL
+    📍 Modalidad: Escolarizada
+    📜 Incorporación: SICYT
+    📄 Fuente: VALLARTA
+    ------------------------------
+    📍 Modalidad: Viernes y Sábado
+    📜 Incorporación: SICYT
+    📄 Fuente: VALLARTA
+    ------------------------------
+
+  🏫 Plantel: CENTRO
+    📍 Modalidad: Escolarizada
+    📜 Incorporación: SICYT
+    📄 Fuente: GDL
+    ------------------------------
+    📍 Modalidad: Viernes y Sábado
+    📜 Incorporación: SICYT
+    📄 Fuente: GDL
+    ------------------------------
+
+  🏫 Plantel: CHAPULTEPEC
+    📍 Modalidad: Escolarizada
+    📜 Incorporación: SICYT
+    📄 Fuente: GDL
+    ------------------------------
+    📍 Modalidad: Viernes y Sábado
+    📜 Incorporación: SICYT
+    📄 Fuente: GDL
+    ------------------------------
+
+  🏫 Plantel: LAS JUNTAS
+    📍 Modalidad: Viernes y Sabado
+    📜 Incorporación: SICyT
+    📄 Fuente: VALLARTA
+    ------------------------------
+
+  🏫 Plantel: TEPATITLÁN
+    📍 Modalidad: Escolarizada
+    📜 Incorporación: SICYT
+    📄 Fuente: TEPA
+    ------------------------------
+
+  🏫 Plantel: TLAJOMULCO
+    📍 Modalidad: Escolarizada
+    📜 Incorporación: SICYT
+    📄 Fuente: GDL
+    ------------------------------
+
+  🏫 Plantel: TLAQUEPAQUE
+    📍 Modalidad: Escolarizada
+    📜 Incorporación: SICYT
+    📄 Fuente: GDL
+    ------------------------------
+
+  🏫 Plantel: TONALÁ
+    📍 Modalidad: Escolarizada
+    📜 Incorporación: SICYT
+    📄 Fuente: GDL
+    ------------------------------
+
+  🏫 Plantel: TORRE UNE
+ MILENIO
+    📍 Modalidad: Escolarizada
+    📜 Incorporación: UDG
+    📄 Fuente: GDL
+    ------------------------------
+
+  🏫 Plantel: ZAPOPAN
+    📍 Modalidad: Escolarizada
+    📜 Incorporación: SICYT
+    📄 Fuente: GDL
+    ------------------------------
+    📍 Modalidad: Viernes y Sábado
+    📜 Incorporación: SICYT
+    📄 Fuente: GDL
+    ------------------------------
+
+
+📚 Programa: Psicología
+----------------------
+  🏫 Plantel: Av. México
+    📍 Modalidad: Escolarizada
+    📜 Incorporación: SICYT
+    📄 Fuente: VALLARTA
+    ------------------------------
+    📍 Modalidad: Viernes y Sábado
+    📜 Incorporación: SICYT
+    📄 Fuente: VALLARTA
+    ------------------------------
+
+  🏫 Plantel: CAMPUS  PUERTO  VALLARTA
+    📍 Modalidad: Escolarizada
+    📜 Incorporación: SICYT
+    📄 Fuente: VALLARTA
+    ------------------------------
+    📍 Modalidad: Viernes/Sábado
+    📜 Incorporación: SICYT
+    📄 Fuente: VALLARTA
+    ------------------------------
+
+  🏫 Plantel: CARACOL
+    📍 Modalidad: Escolarizada
+    📜 Incorporación: SICYT
+    📄 Fuente: VALLARTA
+    ------------------------------
+    📍 Modalidad: Viernes y Sábado
+    📜 Incorporación: SICYT
+    📄 Fuente: VALLARTA
+    ------------------------------
+
+  🏫 Plantel: CENTRO
+    📍 Modalidad: Escolarizada
+    📜 Incorporación: UDG
+    📄 Fuente: GDL
+    ------------------------------
+    📍 Modalidad: Viernes y Sábado
+    📜 Incorporación: SICYT
+    📄 Fuente: GDL
+    ------------------------------
+
+  🏫 Plantel: CHAPULTEPEC
+    📍 Modalidad: Escolarizada
+    📜 Incorporación: SICYT
+    📄 Fuente: GDL
+    ------------------------------
+    📍 Modalidad: Viernes y Sábado
+    📜 Incorporación: SICYT
+    📄 Fuente: GDL
+    ------------------------------
+
+  🏫 Plantel: MILENIO
+    📍 Modalidad: Escolarizada
+    📜 Incorporación: SICYT
+    📄 Fuente: GDL
+    ------------------------------
+    📍 Modalidad: Viernes y Sábado
+    📜 Incorporación: SICYT
+    📄 Fuente: GDL
+    ------------------------------
+
+  🏫 Plantel: TEPATITLÁN
+    📍 Modalidad: Escolarizada
+    📜 Incorporación: SICYT
+    📄 Fuente: TEPA
+    ------------------------------
+
+  🏫 Plantel: TESISTÁN
+    📍 Modalidad: Escolarizada
+    📜 Incorporación: SICYT
+    📄 Fuente: GDL
+    ------------------------------
+
+  🏫 Plantel: TLAJOMULCO
+    📍 Modalidad: Escolarizada
+    📜 Incorporación: SICYT
+    📄 Fuente: GDL
+    ------------------------------
+    📍 Modalidad: Viernes y Sábado
+    📜 Incorporación: SICYT
+    📄 Fuente: GDL
+    ------------------------------
+
+  🏫 Plantel: TLAQUEPAQUE
+    📍 Modalidad: Escolarizada
+    📜 Incorporación: SICYT
+    📄 Fuente: GDL
+    ------------------------------
+    📍 Modalidad: Viernes y Sábado
+    📜 Incorporación: SICYT
+    📄 Fuente: GDL
+    ------------------------------
+
+  🏫 Plantel: TONALÁ
+    📍 Modalidad: Escolarizada
+    📜 Incorporación: SICYT
+    📄 Fuente: GDL
+    ------------------------------
+
+  🏫 Plantel: TORRE UNE
+ MILENIO
+    📍 Modalidad: Escolarizada
+    📜 Incorporación: UDG
+    📄 Fuente: GDL
+    ------------------------------
+
+  🏫 Plantel: ZAPOPAN
+    📍 Modalidad: Escolarizada
+    📜 Incorporación: SICYT
+    📄 Fuente: GDL
+    ------------------------------
+    📍 Modalidad: Viernes y Sábado
+    📜 Incorporación: SICYT
+    📄 Fuente: GDL
+    ------------------------------
+
+
+📚 Programa: Químico Farmacéutico Biólogo
+----------------------------------------
+  🏫 Plantel: Av. México
+    📍 Modalidad: Escolarizada
+    📜 Incorporación: SICYT
+    📄 Fuente: VALLARTA
+    ------------------------------
+
+  🏫 Plantel: CHAPULTEPEC
+    📍 Modalidad: Escolarizada
+    📜 Incorporación: SICYT
+    📄 Fuente: GDL
+    ------------------------------
+
+  🏫 Plantel: TEPATITLÁN
+    📍 Modalidad: Escolarizada
+    📜 Incorporación: SICYT
+    📄 Fuente: TEPA
+    ------------------------------
+
+  🏫 Plantel: TESISTÁN
+    📍 Modalidad: Escolarizada
+    📜 Incorporación: SICYT
+    📄 Fuente: GDL
+    ------------------------------
+
+  🏫 Plantel: TLAJOMULCO
+    📍 Modalidad: Escolarizada
+    📜 Incorporación: SICYT
+    📄 Fuente: GDL
+    ------------------------------
+
+  🏫 Plantel: TORRE UNE
+ MILENIO
+    📍 Modalidad: Escolarizada
+    📜 Incorporación: SICYT
+    📄 Fuente: GDL
+    ------------------------------
+
+  🏫 Plantel: ZAPOPAN
+    📍 Modalidad: Escolarizada
+    📜 Incorporación: SICYT
+    📄 Fuente: GDL
+    ------------------------------
+
+
+📚 Programa: Terapia Física
+--------------------------
+  🏫 Plantel: CAMPUS  PUERTO  VALLARTA
+    📍 Modalidad: Escolarizada
+    📜 Incorporación: SICYT
+    📄 Fuente: VALLARTA
+    ------------------------------
+
+  🏫 Plantel: CHAPULTEPEC
+    📍 Modalidad: Escolarizada
+    📜 Incorporación: SICYT
+    📄 Fuente: GDL
+    ------------------------------
+
+  🏫 Plantel: TEPATITLÁN
+    📍 Modalidad: Escolarizada
+    📜 Incorporación: SICYT
+    📄 Fuente: TEPA
+    ------------------------------
+
+  🏫 Plantel: TESISTÁN
+    📍 Modalidad: Escolarizada
+    📜 Incorporación: SICYT
+    📄 Fuente: GDL
+    ------------------------------
+
+  🏫 Plantel: TLAJOMULCO
+    📍 Modalidad: Escolarizada
+    📜 Incorporación: SICYT
+    📄 Fuente: GDL
+    ------------------------------
+
+  🏫 Plantel: TONALÁ
+    📍 Modalidad: Escolarizada
+    📜 Incorporación: SICYT
+    📄 Fuente: GDL
+    ------------------------------
+
+  🏫 Plantel: TORRE UNE
+ MILENIO
+    📍 Modalidad: Escolarizada
+    📜 Incorporación: SICYT
+    📄 Fuente: GDL
+    ------------------------------
+
+  🏫 Plantel: ZAPOPAN
+    📍 Modalidad: Escolarizada
+    📜 Incorporación: SICYT
+    📄 Fuente: GDL
+    ------------------------------
+
+
+📚 Programa: Trabajo Social
+--------------------------
+  🏫 Plantel: CARACOL
+    📍 Modalidad: Escolarizada
+    📜 Incorporación: SICYT
+    📄 Fuente: VALLARTA
+    ------------------------------
+    📍 Modalidad: Viernes y Sábado
+    📜 Incorporación: SICYT
+    📄 Fuente: VALLARTA
+    ------------------------------
+
+  🏫 Plantel: CENTRO
+    📍 Modalidad: Viernes y Sábado
+    📜 Incorporación: SICYT
+    📄 Fuente: GDL
+    ------------------------------
+
+  🏫 Plantel: CENTRO 
+MÉDICO
+    📍 Modalidad: Viernes y Sábado
+    📜 Incorporación: SICYT
+    📄 Fuente: GDL
+    ------------------------------
+
+  🏫 Plantel: CHAPULTEPEC
+    📍 Modalidad: Escolarizada
+    📜 Incorporación: SICYT
+    📄 Fuente: GDL
+    ------------------------------
+    📍 Modalidad: Viernes y Sábado
+    📜 Incorporación: SICYT
+    📄 Fuente: GDL
+    ------------------------------
+
+  🏫 Plantel: TLAQUEPAQUE
+    📍 Modalidad: Viernes y Sábado
+    📜 Incorporación: SICYT
+    📄 Fuente: GDL
+    ------------------------------
+
+  🏫 Plantel: ZAPOPAN
+    📍 Modalidad: Escolarizada
+    📜 Incorporación: SICYT
+    📄 Fuente: GDL
+    ------------------------------
+    📍 Modalidad: Viernes y Sábado
+    📜 Incorporación: SICYT
+    📄 Fuente: GDL
+    ------------------------------
+
+
+============================================================
+
+🎓 NIVEL: MAESTRÍAS
+===================
+
+📚 Programa: Administración Hospitalaria
+---------------------------------------
+  🏫 Plantel: LAS JUNTAS
+    📍 Modalidad: Escolarizada
+    📜 Incorporación: MAESTRÍA
+    📄 Fuente: VALLARTA
+    ------------------------------
+
+  🏫 Plantel: TLAJOMULCO
+    📍 Modalidad: Escolarizada
+    📜 Incorporación: MAESTRÍAS
+    📄 Fuente: GDL
+    ------------------------------
+
+  🏫 Plantel: TORRE QUETZAL
+    📍 Modalidad: Escolarizada
+    📜 Incorporación: MAESTRÍA
+    📄 Fuente: GDL
+    ------------------------------
+
+
+📚 Programa: Administración de Negocios
+--------------------------------------
+  🏫 Plantel: TLAJOMULCO
+    📍 Modalidad: Escolarizada
+    📜 Incorporación: MAESTRÍAS
+    📄 Fuente: GDL
+    ------------------------------
+
+  🏫 Plantel: TORRE QUETZAL
+    📍 Modalidad: Escolarizada
+    📜 Incorporación: MAESTRÍA
+    📄 Fuente: GDL
+    ------------------------------
+
+
+📚 Programa: Administración de negocios
+--------------------------------------
+  🏫 Plantel: LAS JUNTAS
+    📍 Modalidad: Escolarizada
+    📜 Incorporación: MAESTRÍA
+    📄 Fuente: VALLARTA
+    ------------------------------
+
+
+📚 Programa: Ciencias de la Educación
+------------------------------------
+  🏫 Plantel: TORRE QUETZAL
+    📍 Modalidad: Escolarizada
+    📜 Incorporación: MAESTRÍA
+    📄 Fuente: GDL
+    ------------------------------
+
+
+📚 Programa: Ciencias penales
+----------------------------
+  🏫 Plantel: LAS JUNTAS
+    📍 Modalidad: Escolarizada
+    📜 Incorporación: MAESTRÍA
+    📄 Fuente: VALLARTA
+    ------------------------------
+
+
+📚 Programa: Derecho Laboral
+---------------------------
+  🏫 Plantel: Av. México
+    📍 Modalidad: Escolarizado
+    📜 Incorporación: MAESTRÍA
+    📄 Fuente: VALLARTA
+    ------------------------------
+
+  🏫 Plantel: TLAJOMULCO
+    📍 Modalidad: Escolarizada
+    📜 Incorporación: MAESTRÍAS
+    📄 Fuente: GDL
+    ------------------------------
+
+
+📚 Programa: Finanzas Estratégicas
+---------------------------------
+  🏫 Plantel: CARACOL
+    📍 Modalidad: Escolarizada
+    📜 Incorporación: MAESTRÍA
+    📄 Fuente: VALLARTA
+    ------------------------------
+
+  🏫 Plantel: TLAJOMULCO
+    📍 Modalidad: Escolarizada
+    📜 Incorporación: MAESTRÍAS
+    📄 Fuente: GDL
+    ------------------------------
+
+  🏫 Plantel: TORRE QUETZAL
+    📍 Modalidad: Escolarizada
+    📜 Incorporación: MAESTRÍA
+    📄 Fuente: GDL
+    ------------------------------
+
+
+📚 Programa: Mtria. En Administración Hospitalaria y Gestión de la Calidad
+-------------------------------------------------------------------------
+  🏫 Plantel: CAMPUS  PUERTO  VALLARTA
+    📍 Modalidad: Escolarizada
+    📜 Incorporación: MAESTRÍA
+    📄 Fuente: VALLARTA
+    ------------------------------
+
+
+📚 Programa: Mtria. En Educación
+-------------------------------
+  🏫 Plantel: CAMPUS  PUERTO  VALLARTA
+    📍 Modalidad: Escolarizada
+    📜 Incorporación: MAESTRÍA
+    📄 Fuente: VALLARTA
+    ------------------------------
+
+
+📚 Programa: Terapia Familiar Sistémica
+--------------------------------------
+  🏫 Plantel: TLAJOMULCO
+    📍 Modalidad: Escolarizada
+    📜 Incorporación: MAESTRÍAS
+    📄 Fuente: GDL
+    ------------------------------
+
+
+📚 Programa: Terapia Familiar y Sistémica
+----------------------------------------
+  🏫 Plantel: TORRE QUETZAL
+    📍 Modalidad: Escolarizada
+    📜 Incorporación: MAESTRÍA
+    📄 Fuente: GDL
+    ------------------------------
+
+
+============================================================
+
+🎓 NIVEL: PRIMARIA
+==================
+
+📚 Programa: Primaria
+--------------------
+  🏫 Plantel: PLAZA DEL SOL
+    📍 Modalidad: Escolarizada
+    📜 Incorporación: SEJ
+    📄 Fuente: GDL
+    ------------------------------
+
+
+============================================================
+
+🎓 NIVEL: SECUNDARIA
+====================
+
+📚 Programa: Secundaria
+----------------------
+  🏫 Plantel: Av. México
+    📍 Modalidad: Escolarizada
+    📜 Incorporación: SEJ
+    📄 Fuente: VALLARTA
+    ------------------------------
+
+  🏫 Plantel: PLAZA DEL SOL
+    📍 Modalidad: Escolarizada
+    📜 Incorporación: SEJ
+    📄 Fuente: GDL
+    ------------------------------
+
+  🏫 Plantel: TESISTÁN
+    📍 Modalidad: Escolarizada
+    📜 Incorporación: SEJ
+    📄 Fuente: GDL
+    ------------------------------
+
+  🏫 Plantel: TLAJOMULCO
+    📍 Modalidad: Escolarizada
+    📜 Incorporación: SEJ
+    📄 Fuente: GDL
+    ------------------------------
+
+  🏫 Plantel: TLAQUEPAQUE
+    📍 Modalidad: Escolarizada
+    📜 Incorporación: SEJ
+    📄 Fuente: GDL
+    ------------------------------
+
+  🏫 Plantel: TONALÁ
+    📍 Modalidad: Escolarizada
+    📜 Incorporación: SEJ
+    📄 Fuente: GDL
+    ------------------------------
+
+
+============================================================
+
