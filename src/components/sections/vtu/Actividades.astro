@@ -10,8 +10,7 @@ export interface Plantel {
   ciudad: string;
   url: string;
   imagen: string;
-  lat: number;
-  lon: number;
+  
 }
 
 export interface Props {
@@ -25,7 +24,7 @@ const {
   titulo = "Encuentra tu campus más cercano",
   planteles,
   ciudades = [],
-  mostrarMasCercano = true,
+  mostrarMasCercano = false, // Cambiado a false por defecto
 } = Astro.props;
 
 // Lógica de servidor sin cambios
@@ -51,52 +50,11 @@ const componentProps = {
 >
   <div class="flex justify-between items-center mb-8 flex-wrap gap-4">
     <h1 class="text-3xl font-bold text-gray-800">{titulo}</h1>
-    {
-      mostrarMasCercano && !soloUnPlantel && (
-        <button
-          id="find-nearest-btn"
-          class="flex items-center gap-2 text-gray-600 hover:text-gray-800 transition-colors"
-        >
-          <svg
-            class="w-5 h-5"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-            />
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
-            />
-          </svg>
-          <span>Mostrar el más cercano</span>
-        </button>
-      )
-    }
   </div>
-
-  <p
-    id="nearest-campus-result"
-    class="mb-6 text-center font-medium text-gray-700 h-6"
-  >
-  </p>
 
   {
     !soloUnPlantel && (
       <div class="flex flex-wrap justify-center gap-2 mb-6">
-        <button
-          class="px-4 py-2 rounded-full text-sm font-medium transition-colors"
-          data-ciudad-tab="todos"
-        >
-          Todos
-        </button>
         {ciudadesDisponibles.map((ciudad) => (
           <button
             class="px-4 py-2 rounded-full text-sm font-medium transition-colors"
@@ -110,7 +68,7 @@ const componentProps = {
   }
 
   <div
-    class={`hidden md:grid gap-6 ${soloUnPlantel ? "grid-cols-1 max-w-2xl mx-auto" : "grid-cols-1 md:grid-cols-3"}`}
+    class={`hidden md:grid gap-6 ${soloUnPlantel ? "grid-cols-1 max-w-2xl mx-auto" : "grid-cols-1 md:grid-cols-4"}`}
     id="desktop-grid"
   >
     {
@@ -119,6 +77,7 @@ const componentProps = {
           class="bg-white  max-w-lg rounded-3xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 campus-card"
           data-ciudad-card={plantel.ciudad}
           data-plantel-id={plantel.id}
+          data-plantel-nombre={plantel.nombre}
         >
           <div class="flex flex-col ">
             <div class="">
@@ -188,6 +147,7 @@ const componentProps = {
                 class="bg-white rounded-3xl shadow-lg overflow-hidden transition-all duration-300 campus-card h-full"
                 data-ciudad-card={plantel.ciudad}
                 data-plantel-id={plantel.id}
+                data-plantel-nombre={plantel.nombre}
               >
                 <div class="flex flex-col h-full">
                   <div class="w-full h-48 rounded-t-3xl overflow-hidden">
@@ -316,7 +276,7 @@ const componentProps = {
       }).mount();
     }
 
-    // Si solo hay un plantel, no se necesita la lógica de filtros ni de búsqueda
+    // Si solo hay un plantel, no se necesita la lógica de filtros
     if (soloUnPlantel) return;
 
     // 3. Lógica del filtro de ciudades
@@ -337,8 +297,7 @@ const componentProps = {
       campusCards.forEach((card) => {
         const cardCiudad = card.dataset.ciudadCard;
         const parentContainer = card.closest(".splide__slide") || card;
-        const isVisible =
-          targetCiudad === "todos" || cardCiudad === targetCiudad;
+        const isVisible = cardCiudad === targetCiudad;
         parentContainer.style.display = isVisible ? "block" : "none";
         if (isVisible && card.closest(".splide__slide")) {
           visibleSlides.push(parentContainer);
@@ -363,156 +322,24 @@ const componentProps = {
       });
     });
 
-    // Iniciar con "Todos" activo
-    const todosButton = document.querySelector('[data-ciudad-tab="todos"]');
-    if (todosButton) {
-      setActiveTab(todosButton);
+    // 4. Buscar y activar el plantel "Milenio" por defecto
+    const milenioCard = document.querySelector('.campus-card[data-plantel-nombre*="Milenio"]');
+    if (milenioCard) {
+      const milenioCiudad = milenioCard.dataset.ciudadCard;
+      const milenioButton = document.querySelector(`[data-ciudad-tab="${milenioCiudad}"]`);
+      
+      if (milenioButton) {
+        setActiveTab(milenioButton);
+        filterCards(milenioCiudad);
+      }
+    } else {
+      // Si no existe "Milenio", mostrar la primera ciudad disponible
+      const firstButton = filterButtons[0];
+      if (firstButton) {
+        setActiveTab(firstButton);
+        filterCards(firstButton.dataset.ciudadTab);
+      }
     }
-
-    // 4. Lógica para "Mostrar el más cercano"
-    const findNearestBtn = document.getElementById("find-nearest-btn");
-    const resultParagraph = document.getElementById("nearest-campus-result");
-
-    const highlightCard = (plantelId) => {
-      // Remover resaltado previo
-      document
-        .querySelectorAll(".highlight-card")
-        .forEach((c) => c.classList.remove("highlight-card"));
-
-      const cardToHighlight = document.querySelector(
-        `.campus-card[data-plantel-id="${plantelId}"]`
-      );
-      if (cardToHighlight) {
-        // Mostrar la tarjeta si está oculta por un filtro
-        const ciudad = cardToHighlight.dataset.ciudadCard;
-        const tabButton = document.querySelector(
-          `[data-ciudad-tab="${ciudad}"]`
-        );
-        if (tabButton) {
-          setActiveTab(tabButton);
-          filterCards(ciudad);
-        }
-
-        // Mover a la vista y resaltar
-        cardToHighlight.scrollIntoView({ behavior: "smooth", block: "center" });
-        cardToHighlight.classList.add("highlight-card");
-
-        if (splideInstance && window.innerWidth < 768) {
-          const slideIndex = Array.from(
-            cardToHighlight.closest(".splide__list").children
-          ).indexOf(cardToHighlight.closest(".splide__slide"));
-          if (slideIndex > -1) {
-            splideInstance.go(slideIndex);
-          }
-        }
-
-        setTimeout(
-          () => cardToHighlight.classList.remove("highlight-card"),
-          3000
-        );
-      }
-    };
-
-    const haversineDistance = (coords1, coords2) => {
-      const toRad = (x) => (x * Math.PI) / 180;
-      const R = 6371; // Radio de la Tierra en km
-      const dLat = toRad(coords2.lat - coords1.lat);
-      const dLon = toRad(coords2.lon - coords1.lon);
-      const a =
-        Math.sin(dLat / 2) * Math.sin(dLat / 2) +
-        Math.cos(toRad(coords1.lat)) *
-          Math.cos(toRad(coords2.lat)) *
-          Math.sin(dLon / 2) *
-          Math.sin(dLon / 2);
-      const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-      return R * c;
-    };
-
-    findNearestBtn.addEventListener("click", () => {
-      // <-- CAMBIO: Ya no es async, manejamos con callbacks
-      resultParagraph.textContent = "Buscando tu ubicación...";
-      resultParagraph.style.color = "#374151";
-
-      if (!navigator.geolocation) {
-        resultParagraph.textContent =
-          "La geolocalización no es soportada por tu navegador.";
-        resultParagraph.style.color = "#dc2626";
-        return;
-      }
-
-      // <-- CAMBIO: Opciones para mejorar la precisión y evitar que se cuelgue
-      const geoOptions = {
-        enableHighAccuracy: true, // Solicita la máxima precisión posible (usa GPS si está disponible)
-        timeout: 10000, // Tiempo máximo de espera en milisegundos (10 segundos)
-        maximumAge: 0, // No usar una ubicación en caché, forzar una nueva lectura
-      };
-
-      // <-- CAMBIO: Función de éxito separada para mayor claridad
-      const successCallback = (position) => {
-        const userCoords = {
-          lat: position.coords.latitude,
-          lon: position.coords.longitude,
-        };
-
-        let nearestCampus = planteles.reduce(
-          (nearest, plantel) => {
-            const distance = haversineDistance(userCoords, {
-              lat: plantel.lat,
-              lon: plantel.lon,
-            });
-            if (distance < nearest.minDistance) {
-              return { minDistance: distance, plantel };
-            }
-            return nearest;
-          },
-          { minDistance: Infinity, plantel: null }
-        );
-
-        if (nearestCampus.plantel) {
-          resultParagraph.innerHTML = `📍 El plantel más cercano es <strong>${nearestCampus.plantel.nombre}</strong> (a ${nearestCampus.minDistance.toFixed(1)} km).`;
-          resultParagraph.style.color = "#10b981"; // Color de éxito
-          highlightCard(nearestCampus.plantel.id);
-        } else {
-          resultParagraph.textContent =
-            "No se encontraron planteles para calcular la distancia.";
-          resultParagraph.style.color = "#dc2626";
-        }
-      };
-
-      // <-- CAMBIO: Función de error detallada para depuración
-      const errorCallback = (error) => {
-        let message = "No se pudo obtener tu ubicación. ";
-        // Imprimir el error completo en la consola para depuración
-        console.error("Error de Geolocalización:", error);
-
-        switch (error.code) {
-          case error.PERMISSION_DENIED:
-            message +=
-              "Permiso denegado. Por favor, permite el acceso a tu ubicación en los ajustes de tu navegador.";
-            break;
-          case error.POSITION_UNAVAILABLE:
-            message +=
-              "La información de ubicación no está disponible. Puede que no tengas señal GPS o estés en un lugar sin buena cobertura de red.";
-            break;
-          case error.TIMEOUT:
-            message +=
-              "La solicitud de ubicación tardó demasiado en responder. Inténtalo de nuevo en un lugar con mejor señal.";
-            break;
-          default:
-            message += `Ocurrió un error desconocido (Código: ${error.code}).`;
-            break;
-        }
-        resultParagraph.textContent = message;
-        resultParagraph.style.color = "#dc2626";
-      };
-
-      // Llamada a la API de Geolocalización con los 3 parámetros: éxito, error y opciones
-      navigator.geolocation.getCurrentPosition(
-        successCallback,
-        errorCallback,
-        geoOptions
-      );
-    });
   }
 
   // Ejecutar el script una vez el DOM esté listo

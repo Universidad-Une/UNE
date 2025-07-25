@@ -25,3 +25,5 @@ pnpm-debug.log*
 .utils/venv
 .utils/oferta/
 .utils/venv/
+.PLANTEL
+.PLANTEL/*

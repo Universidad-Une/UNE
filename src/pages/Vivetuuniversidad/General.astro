@@ -9,33 +9,18 @@ import Galeria from "@/components/sections/vtu/Galeria.astro";
 import Actividades from "@/components/sections/vtu/Actividades.astro";
 // Configuración de planteles con diferentes casos
 
-const planteles = [
-  {
-    id: "1",
-    nombre: "Fútbol",
-    codigo: "00015",
-    direccion: "Torneos, entrenamientos y eventos deportivos",
-    ciudad: "Tonala",
-    url: "/Vivetuuniversidad/Actividades/Futbol",
-    imagen: "/src/assets/Imagenes/VTU/Cards/Futbol.png",
-    lat: 20.67744801539995,
-    lon: -103.34031672627513,
-  },
+import {planteles} from "@helpers/vtuactividades.js";
 
-  {
-    id: "10",
-    nombre: "Futbol Americano UNE",
-    codigo: "00015",
-    direccion: "Torneos, entrenamientos y eventos deportivos",
-    ciudad: "Puerto Vallarta",
-    url: "/campus/une-centro",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/Centro.jpg",
-    lat: 20.67744801539995,
-    lon: -103.34031672627513,
-  },
+const ciudades = [
+  "Tlajomulco",
+  "Milenio",
+  "Tlaquepaque",
+  "Tesistán",
+  "Centro médico",
+  "Tonalá",
+  "Plaza del sol",
+  "Caracol",
 ];
-
-const ciudades = ["Tonala", "Puerto Vallarta"];
 
 const images = [
   {
@@ -85,7 +70,7 @@ const images = [
         </div>
 
         <!-- Text Content -->
-        <div class="text-center space-y-4 px-4">
+        <button class="text-center space-y-4 px-4">
           <p class="text-gray-700 text-sm leading-relaxed">
             En Vive Tu Universidad (VTU), creemos que elegir una universidad es
             también encontrar un lugar donde puedas ser tú. En UNE te espera una
@@ -95,12 +80,11 @@ const images = [
             futuro.
           </p>
 
-          <button
-            class="bg-blue-800 text-white px-6 py-3 rounded-lg font-semibold text-sm hover:bg-blue-900 transition-colors"
-          >
+          <button class="ribbon-button">
+            <span class="shine"></span>
             ¡Bienvenido a donde sí perteneces!
           </button>
-        </div>
+        </button>
 
         <!-- Illustration -->
         <div class="w-full max-w-md">
@@ -152,9 +136,8 @@ const images = [
 
           <!-- Button -->
           <div class="text-center">
-            <button
-              class="bg-azul-une text-white px-8 py-3 font-bold text-sm hover:bg-blue-900 transition-colors shadow-lg"
-            >
+            <button class="ribbon-button">
+              <span class="shine"></span>
               ¡Bienvenido a donde sí perteneces!
             </button>
           </div>
@@ -172,10 +155,10 @@ const images = [
     </div>
 
     <Actividades
-      titulo="Encuentra tu campus más cercano"
+      titulo="Conoce todas las actividades que tenemos"
       planteles={planteles}
       ciudades={ciudades}
-      mostrarMasCercano={true}
+      mostrarMasCercano={false}
     />
 
     <section class="max-w-6xl mx-auto p-6 mt-12">
@@ -391,8 +374,6 @@ const images = [
     </section>
 
     <Galeria images={images} />
-
-
   </main>
 </Layout>
 
@@ -557,3 +538,97 @@ const images = [
     console.log("🎉 Configuración de tabs completada");
   });
 </script>
+
+<style>
+  .ribbon-button {
+    position: relative;
+    background: linear-gradient(135deg, #1e40af, #1e3a8a);
+    color: white;
+    padding: 16px 32px;
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(30, 64, 175, 0.3);
+  }
+
+  .ribbon-button::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -20px;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 28px 20px 28px 0;
+    border-color: transparent #1e40af transparent transparent;
+    transition: border-color 0.3s ease;
+  }
+
+  .ribbon-button::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: -20px;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 28px 0 28px 20px;
+    border-color: transparent transparent transparent #1e40af;
+    transition: border-color 0.3s ease;
+  }
+
+  .ribbon-button:hover {
+    background: linear-gradient(135deg, #1d4ed8, #1e3a8a);
+    box-shadow: 0 6px 20px rgba(30, 64, 175, 0.4);
+    transform: translateY(-2px);
+  }
+
+  .ribbon-button:hover::before {
+    border-right-color: #1d4ed8;
+  }
+
+  .ribbon-button:hover::after {
+    border-left-color: #1d4ed8;
+  }
+
+  .ribbon-button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 10px rgba(30, 64, 175, 0.3);
+  }
+
+  /* Efecto de brillo */
+  .ribbon-button .shine {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.2),
+      transparent
+    );
+    transition: left 0.5s;
+  }
+
+  .ribbon-button:hover .shine {
+    left: 100%;
+  }
+
+  .container {
+    text-align: center;
+  }
+
+  .title {
+    color: white;
+    font-size: 24px;
+    margin-bottom: 30px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  }
+</style>

@@ -63,21 +63,19 @@ const { title, subtitle, facilities } = Astro.props;
   </div>
 </section>
 
-<div class="flex flex-col items-center space-y-4 px-24 mt-12">
-  <!-- Texto alineado a la izquierda y al inicio del contenedor -->
+<div class="flex flex-col items-center space-y-4 px-4 mt-12">
   <div class="w-full max-w-4xl self-start">
-    <p class="text-2xl font-semibold ">Encuentra tu futuro en Torre Milenio</p>
+    <p class="text-2xl font-semibold">Encuentra tu futuro en Torre Milenio</p>
   </div>
 
-  <!-- Mapa centrado -->
   <iframe
+    class="w-full max-w-4xl h-96 rounded-lg shadow-md"
     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3733.589953876011!2d-103.40869892362704!3d20.645564080909562!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8428ac333cb2d3c9%3A0x2d6c2cbc35a8c846!2sUNE!5e0!3m2!1ses!2smx!4v1753125749239!5m2!1ses!2smx"
-    width="600"
-    height="400"
     style="border:0;"
     allowfullscreen=""
     loading="lazy"
-    referrerpolicy="no-referrer-when-downgrade">
+    referrerpolicy="no-referrer-when-downgrade"
+  >
   </iframe>
 </div>
 

@@ -89,8 +89,6 @@ const componentProps = {
     }
   </div>
 
-  <!-- Autocomplete Search Input -->
-
   <p
     id="nearest-campus-result"
     class="mb-6 text-center font-medium text-gray-700 h-6"
@@ -99,9 +97,13 @@ const componentProps = {
 
   {
     !soloUnPlantel && (
-      <div class="flex   gap-2 mb-6 ">
-        <div class="  ">
-          <div class="w-[400px] ">
+      <div class="flex gap-2 mb-6">
+        <div class="relative">
+          {" "}
+          {/* Agregado relative aquí */}
+          <div class="w-[400px] relative">
+            {" "}
+            {/* Agregado relative aquí también */}
             <Search class="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
             <input
               type="text"
@@ -118,12 +120,16 @@ const componentProps = {
               <X class="w-4 h-4" />
             </button>
           </div>
-
           <div
             id="autocomplete-dropdown"
-            class="absolute top-full left-0 right-0 bg-white border border-gray-200 rounded-xl shadow-lg z-50 max-h-60 overflow-y-auto hidden"
-          ></div>
-
+            class="absolute top-full left-0 w-[400px] bg-white border border-gray-200 rounded-xl shadow-lg z-50 max-h-60 overflow-y-auto hidden mt-1"
+          >
+            {/* Cambios importantes:
+              - Removido right-0 y agregado w-[400px] para que coincida con el ancho del input
+              - Agregado mt-1 para separación visual
+              - El contenedor padre ahora tiene position relative
+          */}
+          </div>
           <div
             id="no-results-message"
             class="hidden text-center text-gray-500 text-sm mt-2"
@@ -131,6 +137,7 @@ const componentProps = {
             No se encontraron planteles
           </div>
         </div>
+
         <button
           class="px-4 py-2 rounded-full text-sm font-medium transition-colors"
           data-ciudad-tab="todos"
@@ -716,7 +723,7 @@ const componentProps = {
         );
 
         if (nearestCampus.plantel) {
-          resultParagraph.innerHTML = `📍 El plantel más cercano es <strong>${nearestCampus.plantel.nombre}</strong> (a ${nearestCampus.minDistance.toFixed(1)} km).`;
+          resultParagraph.innerHTML = `📍 El plantel más cercano es <strong>${nearestCampus.plantel.nombre}</strong> (a ${nearestCampus.minDistance.toFixed(1)} km aproximadamente).`;
           resultParagraph.style.color = "#10b981";
           highlightCard(nearestCampus.plantel.id);
         } else {
