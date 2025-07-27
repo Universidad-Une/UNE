@@ -172,122 +172,99 @@ import Clinica from "@logos/Clinica_UNE_blanco.webp";
   <div
     class="dropdown-menu oferta-dropdown absolute left-0 right-0 top-full bg-white border-t border-gray-200 shadow-lg opacity-0 invisible transform translate-y-2 transition-all duration-300 ease-out z-50"
   >
-    <div class="container mx-auto px-4 py-6">
-      <!-- Sección Colegio UNE -->
-      <div class="mb-6">
-        <h2
-          class="text-base font-bold text-gray-800 mb-3 border-b border-gray-200 pb-1"
-        >
-          Colegio UNE
-        </h2>
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-3">
-          <a
-            href="/oferta/colegio-une/Primaria"
-            class="group block p-3 rounded-lg hover:bg-blue-50 transition-colors duration-200"
-          >
-            <h3 class="font-semibold text-gray-900 group-hover:text-blue-600">
-              Primaria
-            </h3>
-          </a>
-          <a
-            href="/oferta/colegio-une/Secundaria"
-            class="group block p-3 rounded-lg hover:bg-blue-50 transition-colors duration-200"
-          >
-            <h3 class="font-semibold text-gray-900 group-hover:text-blue-600">
-              Secundaria
-            </h3>
-          </a>
-          <a
-            href="/oferta/colegio-une/Bachillerato-sej"
-            class="group block p-3 rounded-lg hover:bg-blue-50 transition-colors duration-200"
-          >
-            <h3 class="font-semibold text-gray-900 group-hover:text-blue-600">
-              Bachillerato SEJ
-            </h3>
-          </a>
-          <a
-            href="/oferta/colegio-une/Bachillerato-udg"
-            class="group block p-3 rounded-lg hover:bg-blue-50 transition-colors duration-200"
-          >
-            <h3 class="font-semibold text-gray-900 group-hover:text-blue-600">
-              Bachillerato UDG
-            </h3>
-          </a>
-        </div>
-      </div>
+   <div class="container mx-auto px-4 py-6">
+                <!-- Sección Colegio UNE -->
+                <div class="mb-6">
+                    <div class="grid grid-cols-1 md:grid-cols-4 gap-3 mb-3">
+                        <!-- Encabezado Colegio UNE ocupa 2 columnas -->
+                        <div class="md:col-span-2">
+                            <h2 class="text-base font-bold text-azul-une mb-3 border-b border-gray-200 pb-1">
+                                Colegio UNE
+                            </h2>
+                        </div>
+                        <!-- Encabezado Medio Superior ocupa 2 columnas y está alineado con bachilleratos -->
+                        <div class="md:col-span-2">
+                            <h2 class="text-base font-bold text-azul-une mb-3 border-b border-gray-200 pb-1">
+                                Medio Superior
+                            </h2>
+                        </div>
+                    </div>
 
-      <!-- Sección Educación Superior -->
-      <div>
-        <h2
-          class="text-base font-bold text-gray-800 mb-3 border-b border-gray-200 pb-1"
-        >
-          Educación Superior
-        </h2>
-        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
-          <a
-            href="/oferta/Licenciaturas"
-            class="group block p-3 rounded-lg hover:bg-blue-50 transition-colors duration-200"
-          >
-            <h3
-              class="font-semibold text-gray-900 group-hover:text-blue-600 mb-1"
-            >
-              Licenciaturas
-            </h3>
-            <p class="text-sm text-gray-500">Programas de pregrado</p>
-          </a>
-          <a
-            href="/oferta/Maestria"
-            class="group block p-3 rounded-lg hover:bg-blue-50 transition-colors duration-200"
-          >
-            <h3
-              class="font-semibold text-gray-900 group-hover:text-blue-600 mb-1"
-            >
-              Maestrías
-            </h3>
-            <p class="text-sm text-gray-500">
-              Posgrado académico y profesional
-            </p>
-          </a>
-          <a
-            href="/oferta/Especialidades"
-            class="group block p-3 rounded-lg hover:bg-blue-50 transition-colors duration-200"
-          >
-            <h3
-              class="font-semibold text-gray-900 group-hover:text-blue-600 mb-1"
-            >
-              Especialidades
-            </h3>
-            <p class="text-sm text-gray-500">Posgrado corto y especializado</p>
-          </a>
-          <a
-            href="/oferta/Continua"
-            class="group block p-3 rounded-lg hover:bg-blue-50 transition-colors duration-200"
-          >
-            <h3
-              class="font-semibold text-gray-900 group-hover:text-blue-600 mb-1"
-            >
-              Educación continua
-            </h3>
-            <p class="text-sm text-gray-500">
-              Cursos para actualizar conocimientos
-            </p>
-          </a>
-          <a
-            href="/oferta/Diplomados"
-            class="group block p-3 rounded-lg hover:bg-blue-50 transition-colors duration-200"
-          >
-            <h3
-              class="font-semibold text-gray-900 group-hover:text-blue-600 mb-1"
-            >
-              Diplomados
-            </h3>
-            <p class="text-sm text-gray-500">
-              Programas breves sin grado académico
-            </p>
-          </a>
-        </div>
-      </div>
-    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-4 gap-3">
+                        <a href="/oferta/colegio-une/Primaria" class="group block p-3 rounded-lg hover:bg-blue-50 transition-colors duration-200">
+                            <h3 class="font-semibold text-gray-900 group-hover:text-blue-600">
+                                Primaria
+                            </h3>
+                        </a>
+                        <a href="/oferta/colegio-une/Secundaria" class="group block p-3 rounded-lg hover:bg-blue-50 transition-colors duration-200">
+                            <h3 class="font-semibold text-gray-900 group-hover:text-blue-600">
+                                Secundaria
+                            </h3>
+                        </a>
+                        <a href="/oferta/colegio-une/Bachillerato-sej" class="group block p-3 rounded-lg hover:bg-blue-50 transition-colors duration-200">
+                            <h3 class="font-semibold text-gray-900 group-hover:text-blue-600">
+                                Bachillerato SEJ
+                            </h3>
+                        </a>
+                        <a href="/oferta/colegio-une/Bachillerato-udg" class="group block p-3 rounded-lg hover:bg-blue-50 transition-colors duration-200">
+                            <h3 class="font-semibold text-gray-900 group-hover:text-blue-600">
+                                Bachillerato UDG
+                            </h3>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Sección Educación Superior -->
+                <div class="mb-6">
+                    <div class="grid grid-cols-1 md:grid-cols-5 gap-4 mb-3">
+                        <!-- Encabezado Educación Superior ocupa 3 columnas -->
+                        <div class="md:col-span-3">
+                            <h2 class="text-base font-bold text-azul-une mb-3 border-b border-gray-200 pb-1">
+                                Educación Superior
+                            </h2>
+                        </div>
+                        <!-- Encabezado Educación Continua ocupa 2 columnas -->
+                        <div class="md:col-span-2">
+                            <h2 class="text-base font-bold text-azul-une mb-3 border-b border-gray-200 pb-1">
+                                Educación Continua
+                            </h2>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-5 gap-4">
+                        <a href="/oferta/Licenciaturas" class="group block p-3 rounded-lg hover:bg-blue-50 transition-colors duration-200">
+                            <h3 class="font-semibold text-gray-900 group-hover:text-blue-600 mb-1">
+                                Licenciaturas
+                            </h3>
+                            <p class="text-sm text-gray-500">Programas de pregrado</p>
+                        </a>
+                        <a href="/oferta/Maestria" class="group block p-3 rounded-lg hover:bg-blue-50 transition-colors duration-200">
+                            <h3 class="font-semibold text-gray-900 group-hover:text-blue-600 mb-1">
+                                Maestrías
+                            </h3>
+                            <p class="text-sm text-gray-500">Posgrado académico y profesional</p>
+                        </a>
+                        <a href="/oferta/Especialidades" class="group block p-3 rounded-lg hover:bg-blue-50 transition-colors duration-200">
+                            <h3 class="font-semibold text-gray-900 group-hover:text-blue-600 mb-1">
+                                Especialidades
+                            </h3>
+                            <p class="text-sm text-gray-500">Posgrado corto y especializado</p>
+                        </a>
+                        <a href="/oferta/Continua" class="group block p-3 rounded-lg hover:bg-blue-50 transition-colors duration-200">
+                            <h3 class="font-semibold text-gray-900 group-hover:text-blue-600 mb-1">
+                                Educación continua
+                            </h3>
+                            <p class="text-sm text-gray-500">Cursos para actualizar conocimientos</p>
+                        </a>
+                        <a href="/oferta/Diplomados" class="group block p-3 rounded-lg hover:bg-blue-50 transition-colors duration-200">
+                            <h3 class="font-semibold text-gray-900 group-hover:text-blue-600 mb-1">
+                                Diplomados
+                            </h3>
+                            <p class="text-sm text-gray-500">Programas breves sin grado académico</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
   </div>
 
   <div
@@ -358,7 +335,7 @@ import Clinica from "@logos/Clinica_UNE_blanco.webp";
     class="dropdown-menu vida-dropdown absolute left-0 right-0 top-full bg-white border-t border-gray-200 shadow-lg opacity-0 invisible transform translate-y-2 transition-all duration-300 ease-out z-50"
   >
     <div class="container mx-auto px-4 py-8">
-      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
         <a
           href="/vidaestudiantil/General"
           class="group block p-4 rounded-lg hover:bg-blue-50 transition-colors duration-200"
@@ -390,7 +367,7 @@ import Clinica from "@logos/Clinica_UNE_blanco.webp";
           >
             Blog
           </h3>
-          <p class="text-sm text-gray-500">Descubre sobre nuevos temas, </p>
+          <p class="text-sm text-gray-500">Descubre sobre nuevos temas,</p>
         </a>
 
         <a
@@ -402,7 +379,9 @@ import Clinica from "@logos/Clinica_UNE_blanco.webp";
           >
             Orgullo UNE
           </h3>
-          <p class="text-sm text-gray-500">Conoce los egresados más destacados</p>
+          <p class="text-sm text-gray-500">
+            Conoce los egresados más destacados
+          </p>
         </a>
         <a
           href="/Vivetuuniversidad/Congresos"
@@ -411,9 +390,23 @@ import Clinica from "@logos/Clinica_UNE_blanco.webp";
           <h3
             class="font-semibold text-gray-900 group-hover:text-blue-600 mb-2"
           >
-           Congresos UNE
+            Congresos UNE
           </h3>
-          <p class="text-sm text-gray-500">Conoce los egresados más destacados</p>
+          <p class="text-sm text-gray-500">
+            Conoce los egresados más destacados
+          </p>
+        </a>
+
+        <a
+          href="/contacto/atencion-estudiantes"
+          class="group block p-4 rounded-lg hover:bg-blue-50 transition-colors duration-200"
+        >
+          <h3
+            class="font-semibold text-gray-900 group-hover:text-blue-600 mb-2"
+          >
+            Atención a estudiantes
+          </h3>
+          <p class="text-sm text-gray-500">Apoyo para tramites o problemas</p>
         </a>
       </div>
     </div>

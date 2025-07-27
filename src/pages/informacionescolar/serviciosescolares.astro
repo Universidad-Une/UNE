@@ -8,104 +8,134 @@ import FAQComponent from "@/components/sections/detallesOferta/preguntas.astro";
 import Lineacontacto from "@/components/sections/Escolares/Lineacontacto.astro";
 
 const faqs = [
-    {
-        question:
-            "¿Cuáles son los requisitos para ingresar a una licenciatura?",
-        answer: "Debes contar con certificado de bachillerato, acta de nacimiento, CURP, identificación oficial, comprobante de domicilio y fotografías recientes. En algunos casos, puede requerirse el resultado de un examen de admisión.",
-    },
-    {
-        question: "¿Cuál es la duración de una licenciatura?",
-        answer: "Las licenciaturas tienen una duración promedio de 8 a 10 semestres, dependiendo del programa, la institución incorporadora (UDG o SICYT) y la modalidad elegida.",
-    },
-    {
-        question: "¿Qué modalidades de estudio están disponibles?",
-        answer: "Las licenciaturas pueden cursarse en modalidad presencial, en línea, escolarizada o semiescolarizada, según la carrera y el plantel. Algunas combinan clases presenciales con actividades virtuales.",
-    },
-    {
-        question: "¿Puedo trabajar mientras estudio una licenciatura?",
-        answer: "Sí. Las modalidades en línea y semiescolarizada están diseñadas para ofrecer mayor flexibilidad y permitir compatibilizar tus estudios con otras actividades.",
-    },
-    {
-        question: "¿Cómo se evalúa el desempeño académico?",
-        answer: "El sistema de evaluación incluye exámenes, proyectos, participación en clase, trabajos individuales o en equipo y actividades prácticas, según el enfoque de cada licenciatura.",
-    },
-    {
-        question: "¿Qué tipo de apoyo académico se brinda a los estudiantes?",
-        answer: "Ofrecemos tutorías, asesorías académicas presenciales y virtuales, y acceso a plataformas educativas para reforzar el aprendizaje de cada materia.",
-    },
-    {
-        question:
-            "¿Las licenciaturas están incorporadas a alguna institución oficial?",
-        answer: "Sí. Contamos con licenciaturas incorporadas a la Universidad de Guadalajara (UDG) y a la Secretaría de Innovación, Ciencia y Tecnología (SICYT) del Estado de Jalisco, lo que garantiza validez oficial de estudios.",
-    },
-    {
-        question: "¿Dónde puedo obtener más información e inscribirme?",
-        answer: "Puedes acudir directamente a las oficinas del plantel más cercano o visitar nuestro portal web para consultar la oferta académica, requisitos y fechas de inscripción.",
-    },
+  {
+    question: "¿Cómo puedo inscribirme o reinscribirme a mi carrera?",
+    answer:
+      "Puedes realizar tu inscripción o reinscripción a través de nuestro portal estudiantil en línea o acudiendo presencialmente a servicios escolares. Necesitarás tener al corriente tus pagos y cumplir con los requisitos académicos correspondientes.",
+  },
+  {
+    question: "¿Qué documentos necesito para realizar trámites escolares?",
+    answer:
+      "Los documentos básicos son: identificación oficial vigente, comprobante de inscripción, CURP, y comprobante de pago actualizado. Dependiendo del trámite específico, pueden requerirse documentos adicionales.",
+  },
+  {
+    question:
+      "¿Cómo puedo obtener mi historial académico o certificado de estudios?",
+    answer:
+      "Puedes solicitar tu historial académico y certificados a través del portal estudiantil o en ventanilla de servicios escolares. El tiempo de entrega es de 3 a 5 días hábiles y tiene un costo que varía según el documento.",
+  },
+  {
+    question: "¿Puedo cambiar de carrera o plantel?",
+    answer:
+      "Sí, puedes solicitar cambio de carrera o plantel cumpliendo ciertos requisitos académicos y administrativos. Debes presentar tu solicitud en el período establecido y contar con disponibilidad de cupo en la carrera de destino.",
+  },
+  {
+    question: "¿Cómo consulto mis calificaciones y kardex?",
+    answer:
+      "Tus calificaciones y kárdex están disponibles las 24 horas en el portal estudiantil. También puedes solicitar una copia impresa oficial en servicios escolares con un costo adicional.",
+  },
+  {
+    question:
+      "¿Qué hago si tengo problemas con el registro de una calificación?",
+    answer:
+      "Si detectas algún error en tus calificaciones, debes reportarlo inmediatamente a servicios escolares con evidencia del error. Tenemos un plazo de 30 días naturales después de la publicación oficial para realizar correcciones.",
+  },
+  {
+    question: "¿Cómo puedo solicitar una beca o apoyo económico?",
+    answer:
+      "Las solicitudes de becas se realizan durante períodos específicos del año. Debes cumplir con los requisitos académicos y socioeconómicos establecidos, y presentar la documentación completa en los plazos indicados.",
+  },
+  {
+    question:
+      "¿Puedo dar de baja materias o suspender temporalmente mis estudios?",
+    answer:
+      "Sí, puedes dar de baja materias dentro de los primeros 30% de avance del semestre sin afectar tu promedio. Para suspensión temporal, debes solicitarla formalmente y cumplir con los requisitos administrativos correspondientes.",
+  },
+  {
+    question:
+      "¿Cómo realizo el pago de colegiaturas y cuáles son las fechas límite?",
+    answer:
+      "Puedes realizar tus pagos en línea a través del portal, en bancos afiliados o en cajas de la universidad. Las fechas límite son los primeros 10 días de cada mes, después de esta fecha se aplicarán recargos.",
+  },
+  {
+    question: "¿Qué necesito para el proceso de titulación?",
+    answer:
+      "Para iniciar tu proceso de titulación debes: haber concluido el 100% de créditos, estar al corriente en pagos, no tener adeudos de biblioteca, y elegir tu modalidad de titulación (tesis, examen general, o curso de titulación).",
+  },
+  {
+    question: "¿Cómo puedo obtener constancias de estudios?",
+    answer:
+      "Las constancias de estudios se expiden en 1-2 días hábiles. Puedes solicitarlas en línea o presencialmente, especificando el uso que le darás (trabajo, trámites oficiales, etc.). Tienen un costo que varía según el tipo de constancia.",
+  },
+  {
+    question:
+      "¿Qué horarios tiene servicios escolares para atención presencial?",
+    answer:
+      "Nuestro horario de atención presencial es de lunes a viernes de 8:00 a 18:00 horas, y sábados de 8:00 a 14:00 horas. Para trámites urgentes, también ofrecemos atención en línea las 24 horas a través del portal estudiantil.",
+  },
 ];
 ---
 
 <Layout>
-    <!-- Hero Section -->
-    <section
-        class="escolares-bg relative min-h-[65vh] overflow-hidden bg-cover bg-center bg-no-repeat flex items-center justify-center"
+  <!-- Hero Section -->
+  <section
+    class="escolares-bg relative min-h-[65vh] overflow-hidden bg-cover bg-center bg-no-repeat flex items-center justify-center"
+  >
+    <div
+      class="relative z-10 container mx-auto px-4 h-full min-h-[85vh] md:min-h-[65vh] flex flex-col justify-center"
     >
-        <div
-            class="relative z-10 container mx-auto px-4 h-full min-h-[85vh] md:min-h-[65vh] flex flex-col justify-center"
+      <div class="text-white max-w-2xl">
+        <h1 class="text-4xl md:text-6xl font-bold mb-4 leading-tight">
+          SERVICIOS ESCOLARES
+        </h1>
+        <p class="text-lg md:text-xl mb-8 leading-relaxed font-light">
+          Desde tu inscripción hasta tu titulación, te acompañamos en cada paso
+          con servicios digitales y presenciales diseñados para facilitar tu
+          experiencia educativa.
+        </p>
+        <button
+          class="bg-red-600 hover:bg-red-700 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-colors duration-300 transform hover:scale-105"
+          onclick="window.location.href='/contacto/atencion-estudiantes'"
         >
-            <div class="text-white max-w-2xl">
-                <h1 class="text-4xl md:text-6xl font-bold mb-4 leading-tight">
-                    SERVICIOS ESCOLARES
-                </h1>
-                <p class="text-lg md:text-xl mb-8 leading-relaxed font-light">
-                    Desde tu inscripción hasta tu titulación, te acompañamos en
-                    cada paso con servicios digitales y presenciales diseñados
-                    para facilitar tu experiencia educativa.
-                </p>
-                <button
-                    class="bg-red-600 hover:bg-red-700 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-colors duration-300 transform hover:scale-105"
-                    onclick="window.location.href='/admisiones/proceso'"
-                >
-                    Contactar Servicios Escolares
-                </button>
-            </div>
-        </div>
-    </section>
+          Contactar Servicios Escolares
+        </button>
+      </div>
+    </div>
+  </section>
 
-    <InformativeCard
-        logoSrc={LogoCard.src}
-        studentImageSrc={ImagenCard.src}
-        title="Estamos aqui para escucharte"
-        description="Tu experiencia educativa es nuestra prioridad. En Universidad UNE entendemos que cada estudiante tiene necesidades únicas, por eso hemos diseñado servicios escolares pensados en ti."
-        additionalText="Desde trámites digitales hasta atención personalizada, nuestro equipo está disponible para resolver tus dudas, agilizar procesos y garantizar que tengas todo lo necesario para enfocarte en tu formación profesional."
-        features={[
-            { icon: "CalendarDays", label: "Sesiones presenciales" },
-            { icon: "BookOpen", label: "Estudio guiado" },
-            { icon: "School", label: "Validez oficial" },
-            { icon: "Clock", label: "Horarios flexibles" },
-            { icon: "BookmarkCheck", label: "Preparación universitaria" },
-        ]}
-    />
+  <InformativeCard
+    logoSrc={LogoCard.src}
+    studentImageSrc={ImagenCard.src}
+    title="Tu aliado en cada trámite académico"
+    description="En Universidad UNE, nuestros servicios escolares están diseñados para simplificar tu vida académica. Desde el primer día hasta tu graduación, te ofrecemos atención personalizada y herramientas digitales que agilizan todos tus procesos educativos."
+    additionalText="Nuestro equipo especializado te acompaña en cada etapa: inscripciones, reinscripciones, cambios de carrera, expedición de documentos, becas y todo lo que necesites para mantener tu expediente académico en orden y enfocarte en lo que realmente importa: tu formación profesional."
+    features={[
+      { icon: "FileText", label: "Trámites digitales" },
+      { icon: "Users", label: "Atención personalizada" },
+      { icon: "Clock", label: "Respuesta rápida" },
+      { icon: "Headphones", label: "Soporte continuo" },
+      { icon: "CreditCard", label: "Pagos en línea" },
+    ]}
+  />
+  <Accesos />
 
-    <Accesos />
-    
-    <FAQComponent
-        faqs={faqs}
-        title="Preguntas frecuentes"
-        subtitle="Encuentra respuestas a las dudas más comunes"
-    />
+  <FAQComponent
+    faqs={faqs}
+    title="Preguntas frecuentes"
+    subtitle="Encuentra respuestas a las dudas más comunes"
+  />
 
-    <Lineacontacto/>
+  <Lineacontacto />
 </Layout>
 
 <style>
-    .escolares-bg {
-        background-image: url("/src/assets/Imagenes/Heros/Admision.jpg");
-    }
+  .escolares-bg {
+    background-image: url("/src/assets/Imagenes/Heros/Admision.jpg");
+  }
 
-    @media (max-width: 767px) {
-        .escolares-bg {
-            background-image: url("/src/assets/Imagenes/Heros/Admision_mobile5.jpg");
-        }
+  @media (max-width: 767px) {
+    .escolares-bg {
+      background-image: url("/src/assets/Imagenes/Heros/Admision_mobile5.jpg");
     }
+  }
 </style>

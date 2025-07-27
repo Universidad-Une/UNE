@@ -1,0 +1,255 @@
+---
+// StudentSupportForm.astro
+---
+
+<form id="student-support-form" class="space-y-3 lg:space-y-4 flex-1 lg:flex-none lg:max-h-[calc(84dvh-8rem)] lg:overflow-y-auto lg:pr-2">
+  <!-- Nombre del estudiante -->
+  <div>
+    <input 
+      type="text" 
+      name="nombre_estudiante"
+      placeholder="Nombre completo del estudiante" 
+      class="w-full px-2 lg:px-4 py-1.5 lg:py-2.5 border-b-2 border-gray-200 focus:border-blue-500 outline-none transition-colors bg-transparent text-sm lg:text-base"
+      required
+    />
+  </div>
+
+  <!-- Matrícula -->
+  <div>
+    <input 
+      type="text" 
+      name="matricula"
+      placeholder="Número de matrícula" 
+      class="w-full px-2 lg:px-4 py-1.5 lg:py-2.5 border-b-2 border-gray-200 focus:border-blue-500 outline-none transition-colors bg-transparent text-sm lg:text-base"
+      required
+    />
+  </div>
+
+  <!-- Correo electrónico -->
+  <div>
+    <input 
+      type="email" 
+      name="correo_estudiante"
+      placeholder="Correo electrónico institucional" 
+      class="w-full px-2 lg:px-4 py-1.5 lg:py-2.5 border-b-2 border-gray-200 focus:border-blue-500 outline-none transition-colors bg-transparent text-sm lg:text-base"
+      required
+    />
+  </div>
+
+  <!-- Teléfono -->
+  <div>
+    <input 
+      type="tel" 
+      name="telefono_estudiante"
+      placeholder="Teléfono de contacto" 
+      class="w-full px-2 lg:px-4 py-1.5 lg:py-2.5 border-b-2 border-gray-200 focus:border-blue-500 outline-none transition-colors bg-transparent text-sm lg:text-base"
+      required
+    />
+  </div>
+
+  <!-- Carrera -->
+  <div>
+    <select 
+      name="carrera" 
+      class="w-full px-2 lg:px-4 py-2 border-b-2 border-gray-200 focus:border-blue-500 outline-none transition-colors bg-transparent text-sm lg:text-base"
+      required
+    >
+      <option value="" disabled selected>Selecciona tu carrera</option>
+      <option value="Administración de Empresas">Administración de Empresas</option>
+      <option value="Contaduría Pública">Contaduría Pública</option>
+      <option value="Derecho">Derecho</option>
+      <option value="Psicología">Psicología</option>
+      <option value="Ingeniería Industrial">Ingeniería Industrial</option>
+      <option value="Ingeniería en Sistemas">Ingeniería en Sistemas</option>
+      <option value="Comunicación">Comunicación</option>
+      <option value="Mercadotecnia">Mercadotecnia</option>
+      <option value="Diseño Gráfico">Diseño Gráfico</option>
+      <option value="Arquitectura">Arquitectura</option>
+      <option value="Medicina">Medicina</option>
+      <option value="Enfermería">Enfermería</option>
+      <option value="Odontología">Odontología</option>
+      <option value="Nutrición">Nutrición</option>
+      <option value="Otra">Otra</option>
+    </select>
+  </div>
+
+  <!-- Semestre -->
+  <div>
+    <select 
+      name="semestre" 
+      class="w-full px-2 lg:px-4 py-2 border-b-2 border-gray-200 focus:border-blue-500 outline-none transition-colors bg-transparent text-sm lg:text-base"
+      required
+    >
+      <option value="" disabled selected>Semestre actual</option>
+      <option value="1">1° Semestre</option>
+      <option value="2">2° Semestre</option>
+      <option value="3">3° Semestre</option>
+      <option value="4">4° Semestre</option>
+      <option value="5">5° Semestre</option>
+      <option value="6">6° Semestre</option>
+      <option value="7">7° Semestre</option>
+      <option value="8">8° Semestre</option>
+      <option value="9">9° Semestre</option>
+      <option value="10">10° Semestre</option>
+      <option value="Otro">Otro</option>
+    </select>
+  </div>
+
+  <!-- Plantel -->
+  <div>
+    <select 
+      name="plantel" 
+      class="w-full px-2 lg:px-4 py-2 border-b-2 border-gray-200 focus:border-blue-500 outline-none transition-colors bg-transparent text-sm lg:text-base"
+      required
+    >
+      <option value="" disabled selected>Selecciona tu plantel</option>
+      <option value="Torre UNE Milenio">Torre UNE Milenio</option>
+      <option value="Milenio">Milenio</option>
+      <option value="Plantel Centro">Plantel Centro</option>
+      <option value="Centro Médico">Centro Médico</option>
+      <option value="Plaza del Sol">Plaza del Sol</option>
+      <option value="Tesistán">Tesistán</option>
+      <option value="Tlajomulco">Tlajomulco</option>
+      <option value="Tlaquepaque">Tlaquepaque</option>
+      <option value="Tonalá">Tonalá</option>
+      <option value="Torre Quetzal">Torre Quetzal</option>
+      <option value="Plantel Chapultepec">Plantel Chapultepec</option>
+      <option value="Campus Puerto Vallarta">Campus Puerto Vallarta</option>
+      <option value="Las Juntas Puerto Vallarta">Las Juntas Puerto Vallarta</option>
+      <option value="Puerto Vallarta Avenida México">Puerto Vallarta Avenida México</option>
+      <option value="Plaza Caracol Puerto Vallarta">Plaza Caracol Puerto Vallarta</option>
+      <option value="Tepatitlán">Tepatitlán</option>
+    </select>
+  </div>
+
+  <!-- Tipo de apoyo solicitado -->
+  <div>
+    <select 
+      name="tipo_apoyo"
+      class="w-full px-2 lg:px-4 py-2 border-b-2 border-gray-200 focus:border-blue-500 outline-none transition-colors bg-transparent text-sm lg:text-base"
+      required
+    >
+      <option value="" disabled selected>¿Qué tipo de apoyo necesitas?</option>
+      <option value="Asesoría Académica">Asesoría Académica</option>
+      <option value="Trámites Escolares">Trámites Escolares</option>
+      <option value="Bienestar Estudiantil">Bienestar Estudiantil</option>
+      <option value="Apoyo Psicológico">Apoyo Psicológico</option>
+      <option value="Becas y Financiamiento">Becas y Financiamiento</option>
+      <option value="Servicio Social">Servicio Social</option>
+      <option value="Prácticas Profesionales">Prácticas Profesionales</option>
+      <option value="Titulación">Titulación</option>
+      <option value="Problemas con Profesores">Problemas con Profesores</option>
+      <option value="Problemas Técnicos">Problemas Técnicos</option>
+      <option value="Otro">Otro</option>
+    </select>
+  </div>
+
+
+
+  <!-- Descripción del problema -->
+  <div>
+    <textarea 
+      name="descripcion_problema"
+      placeholder="Describe det alladamente tu situación o el apoyo que necesitas..."
+      rows="4"
+      class="w-full px-2 lg:px-4 py-2 border-b-2 border-gray-200 focus:border-blue-500 outline-none transition-colors bg-transparent text-sm lg:text-base resize-none"
+      required
+    ></textarea>
+  </div>
+
+  <!-- Preferencia de contacto -->
+  <div>
+    <select 
+      name="preferencia_contacto"
+      class="w-full px-2 lg:px-4 py-2 border-b-2 border-gray-200 focus:border-blue-500 outline-none transition-colors bg-transparent text-sm lg:text-base"
+      required
+    >
+      <option value="" disabled selected>¿Cómo prefieres que te contactemos?</option>
+      <option value="Correo electrónico">Correo electrónico</option>
+      <option value="Llamada telefónica">Llamada telefónica</option>
+      <option value="WhatsApp">WhatsApp</option>
+      <option value="Cita presencial">Cita presencial</option>
+      <option value="Videollamada">Videollamada</option>
+    </select>
+  </div>
+
+  <!-- Disponibilidad horaria -->
+  <div>
+    <select 
+      name="disponibilidad_horaria"
+      class="w-full px-2 lg:px-4 py-2 border-b-2 border-gray-200 focus:border-blue-500 outline-none transition-colors bg-transparent text-sm lg:text-base"
+      required
+    >
+      <option value="" disabled selected>¿Cuándo estás disponible?</option>
+      <option value="Mañana (8:00-12:00)">Mañana (8:00 AM - 12:00 PM)</option>
+      <option value="Tarde (12:00-18:00)">Tarde (12:00 PM - 6:00 PM)</option>
+      <option value="Noche (18:00-21:00)">Noche (6:00 PM - 9:00 PM)</option>
+      <option value="Cualquier horario">Cualquier horario</option>
+      <option value="Solo fines de semana">Solo fines de semana</option>
+    </select>
+  </div>
+
+  <!-- Checkbox de términos -->
+  <div class="flex items-start space-x-2 pt-2">
+    <input 
+      type="checkbox" 
+      name="acepta_terminos"
+      id="acepta_terminos"
+      class="mt-1 text-blue-500 focus:ring-blue-500"
+      required
+    />
+    <label for="acepta_terminos" class="text-xs lg:text-sm text-gray-600 leading-relaxed">
+      Autorizo el tratamiento de mis datos personales para fines de apoyo estudiantil y acepto ser contactado por el equipo de UNE
+    </label>
+  </div>
+
+  <!-- Botón de envío -->
+  <div class="pt-2 lg:pt-4">
+    <button 
+      type="submit"
+      class="w-full bg-red-500 hover:bg-red-600 text-white font-semibold py-2.5 lg:py-3 px-6 rounded-md transition-colors duration-200 text-sm lg:text-base"
+    >
+      SOLICITAR APOYO
+    </button>
+  </div>
+</form>
+
+<script>
+  document.getElementById('student-support-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    // Aquí puedes agregar la lógica para enviar el formulario
+    // Por ejemplo, usando fetch para enviar a un endpoint
+    
+    const formData = new FormData(this);
+    
+    // Simulación de envío exitoso
+    alert('Tu solicitud de apoyo ha sido enviada exitosamente. Te contactaremos pronto.');
+    
+    // Opcional: limpiar el formulario
+    this.reset();
+  });
+</script>
+
+<style>
+  /* Estilos para el scroll personalizado en desktop */
+  @media (min-width: 1024px) {
+    #student-support-form::-webkit-scrollbar {
+      width: 6px;
+    }
+    
+    #student-support-form::-webkit-scrollbar-track {
+      background: #f1f5f9;
+      border-radius: 3px;
+    }
+    
+    #student-support-form::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+      border-radius: 3px;
+    }
+    
+    #student-support-form::-webkit-scrollbar-thumb:hover {
+      background: #94a3b8;
+    }
+  }
+</style>
