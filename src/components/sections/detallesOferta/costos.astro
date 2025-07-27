@@ -1,43 +1,13 @@
 ---
-// Props interface actualizada
-interface Props {
-  seguroEscolar: number;
-  coberturaEscolar: number;
-  uniformeEscolar: {
-    kitCompleto: number;
-    ahorro: number;
-  };
-  uniformeDiario: Array<{
-    id: string;
-    nombre: string;
-    precio: number;
-    imagen: string;
-  }>;
-  planteles: {
-    normal: Array<{
-      nombre: string;
-      inscripcion: number;
-      colegiatura: number;
-      turno?: string; // 'matutino', 'vespertino', 'ambos'
-    }>;
-    sabatina: Array<{
-      nombre: string;
-      inscripcion: number;
-      colegiatura: number;
-      turno?: string;
-    }>;
-  };
-}
-
+// Props recibidas desde Astro
 const { 
   seguroEscolar, 
-  coberturaEscolar, 
   uniformeEscolar, 
   uniformeDiario,
   planteles 
 } = Astro.props;
 
-import Uniforme from "@assets/Imagenes/Uniformes/Gral.jpg"
+import Uniforme from "@assets/Imagenes/Uniformes/Gral.jpg";
 
 // Función para detectar si hay turnos diferentes
 function hayTurnosDiferentes(planteles) {
@@ -49,10 +19,10 @@ function hayTurnosDiferentes(planteles) {
 function sonPreciosUniformes(planteles) {
   const normalPrices = planteles.normal.map(p => p.colegiatura);
   const sabatinaPrices = planteles.sabatina.map(p => p.colegiatura);
-  
+
   const normalUniforme = normalPrices.every(price => price === normalPrices[0]);
   const sabatinaUniforme = sabatinaPrices.every(price => price === sabatinaPrices[0]);
-  
+
   return normalUniforme && sabatinaUniforme;
 }
 
@@ -60,10 +30,10 @@ function sonPreciosUniformes(planteles) {
 function sonInscripcionesUniformes(planteles) {
   const normalInscripciones = planteles.normal.map(p => p.inscripcion);
   const sabatinaInscripciones = planteles.sabatina.map(p => p.inscripcion);
-  
+
   const normalUniforme = normalInscripciones.every(price => price === normalInscripciones[0]);
   const sabatinaUniforme = sabatinaInscripciones.every(price => price === sabatinaInscripciones[0]);
-  
+
   return normalUniforme && sabatinaUniforme;
 }
 
@@ -115,8 +85,7 @@ function obtenerPrimeraInscripcion(planteles) {
 // Función para crear opciones del select unificado
 function crearOpcionesSelect(planteles) {
   const opciones = [];
-  
-  // Agregar opciones de modalidad normal
+
   if (planteles.normal.length > 0) {
     planteles.normal.forEach(plantel => {
       opciones.push({
@@ -130,8 +99,7 @@ function crearOpcionesSelect(planteles) {
       });
     });
   }
-  
-  // Agregar opciones de modalidad sabatina
+
   if (planteles.sabatina.length > 0) {
     planteles.sabatina.forEach(plantel => {
       opciones.push({
@@ -145,7 +113,7 @@ function crearOpcionesSelect(planteles) {
       });
     });
   }
-  
+
   return opciones;
 }
 
@@ -157,21 +125,18 @@ function necesitaSelector(planteles) {
   const preciosIgualesEntreModalidades = sonPreciosIgualesEntreModalidades(planteles);
   const inscripcionesIgualesEntreModalidades = sonInscripcionesIgualesEntreModalidades(planteles);
   const solaModalidad = esSolaModalidad(planteles);
-  
-  // Si es un solo plantel, no necesita selector
+
   if (soloPlantel) return false;
-  
-  // Si hay una sola modalidad y precios uniformes, no necesita selector
+
   if (solaModalidad && preciosUniformes && inscripcionesUniformes) return false;
-  
-  // Si hay múltiples modalidades pero todos los precios son iguales, no necesita selector
-  if (preciosIgualesEntreModalidades && inscripcionesIgualesEntreModalidades && 
+
+  if (preciosIgualesEntreModalidades && inscripcionesIgualesEntreModalidades &&
       preciosUniformes && inscripcionesUniformes) return false;
-  
-  // En cualquier otro caso, necesita selector
+
   return true;
 }
 
+// Variables derivadas
 const preciosUniformes = sonPreciosUniformes(planteles);
 const inscripcionesUniformes = sonInscripcionesUniformes(planteles);
 const preciosIgualesEntreModalidades = sonPreciosIgualesEntreModalidades(planteles);
@@ -192,11 +157,12 @@ function obtenerDescripcionSelector() {
   if (tienenTurnos) return "Selecciona modalidad, plantel y turno";
   return "Selecciona modalidad y plantel";
 }
+
 ---
 
-<div class="max-w-6xl md:mt-32 mx-auto p-6">
+<div class="max-w-6xl md:mt-12 mx-auto p-6">
   <!-- Header -->
-  <div class="text-center my-10 md:my-20">
+  <div class="text-center my-4 md:my-20">
     <h1 class="text-3xl font-bold text-gray-900 mb-2">CONOCE NUESTROS COSTOS</h1>
     <p class="text-gray-600">Conoce toda la información sobre los costos de</p>
     <p class="text-gray-600">inscripción y mensualidades de nuestros planteles</p>
@@ -249,42 +215,45 @@ function obtenerDescripcionSelector() {
           )}
 
           <!-- Inscripción -->
-          <div class="flex flex-col gap-2">
-            <div class="flex justify-between items-center border-b border-gray-400 pb-4">
-              <div>
-                <h3 class="text-white font-bold text-lg">Tramite administrativo:</h3>
-                <p class="text-white text-sm">
-                  {soloPlantel
-                    ? "Pago único al inicio del ciclo escolar"
-                    : inscripcionesUniformes && inscripcionesIgualesEntreModalidades
-                    ? "Mismo precio en todos los planteles y modalidades"
-                    : inscripcionesUniformes
-                    ? "Mismo precio en todos los planteles de la modalidad"
-                    : necesitaSelectorUnificado
-                    ? "Precio según tu selección"
-                    : "Precio fijo"
-                  }
-                </p>
-              </div>
-              <div class="text-right">
-                <span id="inscripcion-precio" class="text-3xl font-bold text-white">
-                  ${primeraInscripcion.toLocaleString()}
-                </span>
-              </div>
-            </div>
-            
-            {/* Información adicional */}
-            {(!necesitaSelectorUnificado || soloPlantel) && (
-              <div class="mt-2 text-white text-sm opacity-75">
-                <p>
-                  {soloPlantel 
-                    ? `✓ ${planteles.normal[0]?.nombre || planteles.sabatina[0]?.nombre}`
-                    : "✓ Disponible en todos los planteles"
-                  }
-                </p>
-              </div>
-            )}
-          </div>
+       <div class="flex flex-col gap-2">
+  <div class="flex justify-between items-center border-b border-gray-400 pb-4">
+    <div>
+      <h3 class="text-white font-bold text-lg">Trámite administrativo:</h3>
+      <p class="text-white text-sm">
+        {primeraInscripcion === 0
+          ? "Sin costo de inscripción"
+          : soloPlantel
+          ? "Pago único al inicio del ciclo escolar"
+          : inscripcionesUniformes && inscripcionesIgualesEntreModalidades
+          ? "Mismo precio en todos los planteles y modalidades"
+          : inscripcionesUniformes
+          ? "Mismo precio en todos los planteles de la modalidad"
+          : necesitaSelectorUnificado
+          ? "Precio según tu selección"
+          : "Precio fijo"
+        }
+      </p>
+    </div>
+    <div class="text-right">
+      <span id="inscripcion-precio" class="text-3xl font-bold text-white">
+        {primeraInscripcion === 0 ? "Sin costo" : `$${primeraInscripcion.toLocaleString()}`}
+      </span>
+    </div>
+  </div>
+
+  {/* Información adicional */}
+  {(!necesitaSelectorUnificado || soloPlantel) && (
+    <div class="mt-2 text-white text-sm opacity-75">
+      <p>
+        {soloPlantel 
+          ? `✓ ${planteles.normal[0]?.nombre || planteles.sabatina[0]?.nombre}`
+          : "✓ Disponible en todos los planteles"
+        }
+      </p>
+    </div>
+  )}
+</div>
+
        
           <div class="flex justify-between items-center border-b border-gray-400 pb-4">
             <div>
@@ -494,22 +463,8 @@ function obtenerDescripcionSelector() {
     }
   });
 
-  // Función para el tooltip (mantener la funcionalidad original)
-  function toggleTooltip(button) {
-    const tooltip = button.nextElementSibling;
-    if (tooltip && tooltip.hasAttribute('data-tooltip')) {
-      tooltip.classList.toggle('opacity-0');
-      tooltip.classList.toggle('pointer-events-none');
-    }
-  }
 
-  function hideTooltip(button) {
-    const tooltip = button.nextElementSibling;
-    if (tooltip && tooltip.hasAttribute('data-tooltip')) {
-      tooltip.classList.add('opacity-0');
-      tooltip.classList.add('pointer-events-none');
-    }
-  }
+ 
 </script>
 
 <script is:inline>
@@ -536,7 +491,7 @@ function obtenerDescripcionSelector() {
       type: 'loop',
       perPage: 1,
       perMove: 1,
-      arrows: false,
+      arrows: true,
       pagination: false,
       autoplay: true,
       interval: 4000,
@@ -565,7 +520,7 @@ function obtenerDescripcionSelector() {
   }
   
   .splide__arrows {
-    display: none;
+   display: block; /* CAMBIAR: de none a block */
   }
   
   .splide__pagination {

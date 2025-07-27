@@ -18,9 +18,9 @@ const cardsData = [
     description: "Educación básica integral con valores y excelencia académica.",
     image: Primaria.src, // Usando la misma imagen que secundaria
     alt: "Estudiante de Primaria",
-    bgColor: "#0d142e",
+    bgColor: "#F6B61E",
     textColor: "text-white",
-    textSecondary: "text-blue-100",
+    textSecondary: "text-black",
     hoverColor: "hover:text-blue-200",
     href: "/oferta/colegio-une/Primaria"
   },
@@ -46,7 +46,7 @@ const cardsData = [
     textColor: "text-white",
     textSecondary: "text-blue-100",
     hoverColor: "hover:text-blue-200",
-    href: "/oferta/colegio-une/Bachillerato-sej"
+    href: "/oferta/colegio-une/Bachillerato"
   },
   {
     id: "licenciaturas",
@@ -167,7 +167,7 @@ const cardsData = [
                           <div class="flex justify-center">
                             <a
                               href={card.href}
-                              class={`inline-flex items-center gap-2 ${card.textColor} font-medium ${card.hoverColor} transition-colors group`}
+                              class={`inline-flex items-center gap-2 ${card.textColor} hover:font-bold ${card.hoverColor} transition-colors group`}
                             >
                               Conocer más
                               <ArrowRight class="h-4 w-4 sm:h-5 sm:w-5 transform group-hover:translate-x-1 transition-transform" />

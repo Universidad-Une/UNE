@@ -2,7 +2,7 @@
 import Layout from "@/layouts/Layout.astro";
 import Hero from "@/assets/Imagenes/Heros/BIS.jpg";
 import Hero_mobile from "@/assets/Imagenes/Heros/BIS_mobile.jpg";
-import ImagenCard from "@/assets/Imagenes/CardsNiveles/Nivel.png";
+import ImagenCard from "@/assets/Imagenes/CardsNiveles/BIS.png";
 import LogoCard from "@/assets/Logos/Sicyt2.png";
 import InformativeCard from "@components/sections/detallesOferta/card.astro";
 import Planteles from "@components/sections/detallesOferta/planteles.astro";
@@ -14,6 +14,19 @@ import FAQComponent from "@/components/sections/detallesOferta/preguntas.astro";
 import CTAinscripcion from "@/components/sections/shared/ctaInscripcion.astro";
 import { Calendar, UserPlus, Phone } from "@lucide/astro";
 import { crearPlantelesUniformes } from "@helpers/planteles";
+const nombresPlanteles = [
+  "Centro",
+  "Centro Médico",
+  "Milenio",
+  "Puerto Vallarta - Plaza Caracol",
+  "Tlajomulco",
+  "Tesistán",
+  "Tepatitlán",
+  "Tlaquepaque",
+  "Tonalá",
+  "Chapultepec",
+  "Zapopan",
+];
 
 const planteles = [
   {
@@ -21,7 +34,7 @@ const planteles = [
     nombre: "Centro",
     direccion: "Av. República No.10, Col. San Juan de Dios",
     ciudad: "Guadalajara ZMG",
-    url: "/plantel-centro",
+    url: "/planteles/centro",
     imagen: "/src/assets/Imagenes/CardsPlanteles/Centro.jpg",
     lat: 20.67744801539995,
     lon: -103.34031672627513,
@@ -31,7 +44,7 @@ const planteles = [
     nombre: "Centro Médico",
     direccion: "José María Lozano #1077, Col. Belisario Domínguez",
     ciudad: "Guadalajara ZMG",
-    url: "/plantel-centro-medico",
+    url: "/planteles/centro-medico",
     imagen: "/src/assets/Imagenes/CardsPlanteles/CentroMedico.jpg",
     lat: 20.684590788642307,
     lon: -103.3256397932448,
@@ -41,7 +54,7 @@ const planteles = [
     nombre: "Milenio",
     direccion: "Av. López Mateos Sur #4154, Col. La Giralda",
     ciudad: "Guadalajara ZMG",
-    url: "/plantel-milenio",
+    url: "/planteles/milenio",
     imagen: "/src/assets/Imagenes/CardsPlanteles/Milenio.jpg",
     lat: 20.64540739939039,
     lon: -103.40630313415286,
@@ -51,7 +64,7 @@ const planteles = [
     nombre: "Puerto Vallarta - Plaza Caracol",
     direccion: "Blvd. Fco. Medina Ascencio #2180, Col. Díaz Ordaz",
     ciudad: "Puerto Vallarta",
-    url: "/plantel-plaza-caracol-puerto-vallarta",
+    url: "/planteles/plaza-caracol",
     imagen: "/src/assets/Imagenes/CardsPlanteles/PuertoVallarta.png",
     lat: 20.639287162026815,
     lon: -105.23323589513319,
@@ -61,7 +74,7 @@ const planteles = [
     nombre: "Tlajomulco",
     direccion: "Av. López Mateos #10100, Col. Los Gavilanes Poniente",
     ciudad: "Guadalajara ZMG",
-    url: "/plantel-tlajomulco",
+    url: "/planteles/tlajomulco",
     imagen: "/src/assets/Imagenes/CardsPlanteles/Tlajomulco.png",
     lat: 20.576464164603113,
     lon: -103.45243680650722,
@@ -71,7 +84,7 @@ const planteles = [
     nombre: "Tesistán",
     direccion: "Av. Juan Gil Preciado #3897, Col. Hogares de Nuevo México",
     ciudad: "Guadalajara ZMG",
-    url: "/plantel-tesistan",
+    url: "/planteles/tesistan",
     imagen: "/src/assets/Imagenes/CardsPlanteles/Tesistan.png",
     lat: 20.806203,
     lon: -102.763903,
@@ -81,7 +94,7 @@ const planteles = [
     nombre: "Tepatitlán",
     direccion: "Calle Dr. Ricardo Alcalá #505, Av. Matamoros, Centro",
     ciudad: "Tepatitlán de Morelos",
-    url: "/plantel-tepatitlan",
+    url: "/planteles/tepatitlan",
     imagen: "/src/assets/Imagenes/CardsPlanteles/Tepatitlan.jpg",
     lat: 20.8062946507024,
     lon: -102.76382902869392,
@@ -92,7 +105,7 @@ const planteles = [
     direccion:
       "Blvd. Marcelino García Barragán #2056, Col. Bosques del Boulevard",
     ciudad: "Guadalajara ZMG",
-    url: "/plantel-tlaquepaque",
+    url: "/planteles/tlaquepaque",
     imagen: "/src/assets/Imagenes/CardsPlanteles/Tlaquepaque.jpg",
     lat: 20.645650028567157,
     lon: -103.32094530771215,
@@ -102,7 +115,7 @@ const planteles = [
     nombre: "Tonalá",
     direccion: "Av. Tonaltecas #333, Col. Agua Escondida",
     ciudad: "Guadalajara ZMG",
-    url: "/plantel-tonala",
+    url: "/planteles/tonala",
     imagen: "/src/assets/Imagenes/CardsPlanteles/Tonala.png",
     lat: 20.63176692188573,
     lon: -103.24439406488241,
@@ -112,7 +125,7 @@ const planteles = [
     nombre: "Chapultepec",
     direccion: "Av. Vallarta #1458, Col. Americana",
     ciudad: "Guadalajara ZMG",
-    url: "/plantel-vallarta",
+    url: "/planteles/chapultepec",
     imagen: "/src/assets/Imagenes/CardsPlanteles/Chapultepec.png",
     lat: 20.67471004174908,
     lon: -103.36909119392195,
@@ -122,7 +135,7 @@ const planteles = [
     nombre: "Zapopan",
     direccion: "Plaza Caudillos",
     ciudad: "Guadalajara ZMG",
-    url: "/plantel-zapopan",
+    url: "/planteles/zapopan",
     imagen: "/src/assets/Imagenes/CardsPlanteles/Zapopan.png",
     lat: 20.720900646775917,
     lon: -103.38975281813357,
@@ -182,26 +195,56 @@ const semestresDatos = [
     numero: 1,
     materias: [
       {
-        codigo: "ED1021",
-        nombre: "Introducción a la Educación",
+        codigo: "LC001",
+        nombre: "Lengua y comunicación I",
         creditos: 30,
         color: "verde",
       },
       {
-        codigo: "Filosofía y Ética en Educación",
-        nombre: "Filosofía y Ética en Educación",
+        codigo: "PM001",
+        nombre: "Pensamiento matemático I",
         creditos: 30,
         color: "verde",
       },
       {
-        codigo: "ED1024",
-        nombre: "Desarrollo Infantil y adolescente",
+        codigo: "CS001",
+        nombre: "Ciencias sociales I",
         creditos: 30,
         color: "verde",
       },
       {
-        codigo: "ED1027",
-        nombre: "Habilidades Básicas de Investigación",
+        codigo: "LM001",
+        nombre: "La materia y sus interacciones",
+        creditos: 30,
+        color: "verde",
+      },
+      {
+        codigo: "HU001",
+        nombre: "Humanidades I",
+        creditos: 30,
+        color: "verde",
+      },
+      {
+        codigo: "IN001",
+        nombre: "Inglés I",
+        creditos: 30,
+        color: "verde",
+      },
+      {
+        codigo: "LI001",
+        nombre: "Laboratorio de investigación",
+        creditos: 30,
+        color: "verde",
+      },
+      {
+        codigo: "ES001",
+        nombre: "Educación para la salud",
+        creditos: 30,
+        color: "verde",
+      },
+      {
+        codigo: "CD001",
+        nombre: "Cultura digital I",
         creditos: 30,
         color: "verde",
       },
@@ -211,26 +254,56 @@ const semestresDatos = [
     numero: 2,
     materias: [
       {
-        codigo: "FH1203",
-        nombre: "Pensamiento lógico y tecnológico",
+        codigo: "LC002",
+        nombre: "Lengua y comunicación II",
         creditos: 30,
         color: "amarillo",
       },
       {
-        codigo: "ED2016",
-        nombre: "Desarrollo de la Psicomotricidad",
+        codigo: "PM002",
+        nombre: "Pensamiento matemático II",
         creditos: 30,
         color: "amarillo",
       },
       {
-        codigo: "HJ2026",
-        nombre: "Ética social cristiana",
+        codigo: "CS002",
+        nombre: "Ciencias sociales II",
         creditos: 30,
         color: "amarillo",
       },
       {
-        codigo: "ED1029",
-        nombre: "Historia de la Pedagogía moderna",
+        codigo: "CD002",
+        nombre: "Cultura digital II",
+        creditos: 30,
+        color: "amarillo",
+      },
+      {
+        codigo: "CM001",
+        nombre: "Conservación de la energía y sus interacciones con la materia",
+        creditos: 30,
+        color: "amarillo",
+      },
+      {
+        codigo: "HU002",
+        nombre: "Humanidades II",
+        creditos: 30,
+        color: "amarillo",
+      },
+      {
+        codigo: "IN002",
+        nombre: "Inglés II",
+        creditos: 30,
+        color: "amarillo",
+      },
+      {
+        codigo: "TC001",
+        nombre: "Taller de ciencias I",
+        creditos: 30,
+        color: "amarillo",
+      },
+      {
+        codigo: "ES002",
+        nombre: "Educación para la salud",
         creditos: 30,
         color: "amarillo",
       },
@@ -240,37 +313,238 @@ const semestresDatos = [
     numero: 3,
     materias: [
       {
-        codigo: "PS1201",
-        nombre: "Fundamentos de Psicología y Bienestar",
+        codigo: "LC003",
+        nombre: "Lengua y comunicación III",
         creditos: 30,
         color: "naranja",
       },
       {
-        codigo: "Gestión educativa institucional",
-        nombre: "Gestión educativa institucional",
+        codigo: "PM003",
+        nombre: "Pensamiento matemático III",
         creditos: 30,
         color: "naranja",
       },
       {
-        codigo: "ED2012",
-        nombre: "Desarrollo Socioemocional",
+        codigo: "TI001",
+        nombre: "Tecnologías de la información y la comunicación: módulo I",
         creditos: 30,
         color: "naranja",
       },
       {
-        codigo: "ED3027",
-        nombre: "Administración educativa",
+        codigo: "EI001",
+        nombre: "Ecosistemas, interacciones energía y dinámica",
+        creditos: 30,
+        color: "naranja",
+      },
+      {
+        codigo: "HU003",
+        nombre: "Humanidades III",
+        creditos: 30,
+        color: "naranja",
+      },
+      {
+        codigo: "IN003",
+        nombre: "Inglés III",
+        creditos: 30,
+        color: "naranja",
+      },
+      {
+        codigo: "TC002",
+        nombre: "Taller de ciencias II",
+        creditos: 30,
+        color: "naranja",
+      },
+      {
+        codigo: "ES003",
+        nombre: "Educación para la salud",
         creditos: 30,
         color: "naranja",
       },
     ],
   },
-  // Puedes agregar más semestres según necesites
+  {
+    numero: 4,
+    materias: [
+      {
+        codigo: "PL001",
+        nombre: "Pensamiento literario",
+        creditos: 30,
+        color: "azul",
+      },
+      {
+        codigo: "TM001",
+        nombre: "Tema selectos de matemáticas I",
+        creditos: 30,
+        color: "azul",
+      },
+      {
+        codigo: "TI002",
+        nombre: "Tecnologías de la información y la comunicación: módulo II",
+        creditos: 30,
+        color: "azul",
+      },
+      {
+        codigo: "CS003",
+        nombre: "Ciencias sociales III",
+        creditos: 30,
+        color: "azul",
+      },
+      {
+        codigo: "RQ001",
+        nombre: "Reacciones químicas, conservación de la materia en la formación de nuevas sustancias",
+        creditos: 30,
+        color: "azul",
+      },
+      {
+        codigo: "TCD001",
+        nombre: "Taller de cultura digital",
+        creditos: 30,
+        color: "azul",
+      },
+      {
+        codigo: "ES001",
+        nombre: "Espacio y sociedad",
+        creditos: 30,
+        color: "azul",
+      },
+      {
+        codigo: "IN004",
+        nombre: "Inglés IV",
+        creditos: 30,
+        color: "azul",
+      },
+      {
+        codigo: "CH001",
+        nombre: "Conciencia histórica I: perspectiva del México antiguo, los contextos globales",
+        creditos: 30,
+        color: "azul",
+      },
+      {
+        codigo: "ES004",
+        nombre: "Educación para la salud",
+        creditos: 30,
+        color: "azul",
+      },
+    ],
+  },
+  {
+    numero: 5,
+    materias: [
+      {
+        codigo: "CC001",
+        nombre: "Ciencias de la comunicación I",
+        creditos: 30,
+        color: "morado",
+      },
+      {
+        codigo: "CD001",
+        nombre: "Cálculo diferencial",
+        creditos: 30,
+        color: "morado",
+      },
+      {
+        codigo: "TI003",
+        nombre: "Tecnologías de la información y la comunicación: módulo III",
+        creditos: 30,
+        color: "morado",
+      },
+      {
+        codigo: "EP001",
+        nombre: "La energía en los procesos de la vida diaria",
+        creditos: 30,
+        color: "morado",
+      },
+      {
+        codigo: "CS001",
+        nombre: "Ciencias de la salud I",
+        creditos: 30,
+        color: "morado",
+      },
+      {
+        codigo: "AD001",
+        nombre: "Administración I",
+        creditos: 30,
+        color: "morado",
+      },
+      {
+        codigo: "CH002",
+        nombre: "Conciencia histórica II México, durante el expansionismo capitalista",
+        creditos: 30,
+        color: "morado",
+      },
+      {
+        codigo: "ES005",
+        nombre: "Educación para la salud",
+        creditos: 30,
+        color: "morado",
+      },
+    ],
+  },
+  {
+    numero: 6,
+    materias: [
+      {
+        codigo: "CC002",
+        nombre: "Ciencias de la comunicación II",
+        creditos: 30,
+        color: "rojo",
+      },
+      {
+        codigo: "CI001",
+        nombre: "Cálculo integral",
+        creditos: 30,
+        color: "rojo",
+      },
+      {
+        codigo: "TI004",
+        nombre: "Tecnologías de la información y la comunicación: módulo IV",
+        creditos: 30,
+        color: "rojo",
+      },
+      {
+        codigo: "CH003",
+        nombre: "Conciencia histórica III la realidad actual en perspectiva histórica",
+        creditos: 30,
+        color: "rojo",
+      },
+      {
+        codigo: "TM002",
+        nombre: "Temas selectos de matemáticas II",
+        creditos: 30,
+        color: "rojo",
+      },
+      {
+        codigo: "CS002",
+        nombre: "Ciencias de la salud II",
+        creditos: 30,
+        color: "rojo",
+      },
+      {
+        codigo: "AD002",
+        nombre: "Administración II",
+        creditos: 30,
+        color: "rojo",
+      },
+      {
+        codigo: "OR001",
+        nombre: "Organismos: estructuras y procesos, herencia y evolución biológica",
+        creditos: 30,
+        color: "rojo",
+      },
+      {
+        codigo: "ES006",
+        nombre: "Educación para la salud",
+        creditos: 30,
+        color: "rojo",
+      },
+    ],
+  },
 ];
 
 const faqs = [
   {
-    question: "¿Cuál es el horario de clases en el bachillerato semiescolarizado?",
+    question:
+      "¿Cuál es el horario de clases en el bachillerato semiescolarizado?",
     answer:
       "Las clases combinan sesiones presenciales y actividades a distancia, con un calendario flexible que permite compatibilizar estudio y trabajo.",
   },
@@ -310,7 +584,6 @@ const faqs = [
       "La inscripción se realiza en las oficinas del plantel o a través de su portal web oficial. Para más información, puedes contactar directamente al plantel.",
   },
 ];
-
 ---
 
 <Layout>
@@ -351,9 +624,10 @@ const faqs = [
           <p
             class="text-lg md:text-xl leading-relaxed mb-16 max-w-3xl mx-auto font-light"
           >
-            En el colegio UNE, se consolidan hábitos, valores y habilidades
-            esenciales para la vida. Aquí se despierta la curiosidad, se
-            fortalecen las capacidades de pensamiento crítico.
+            Transforma tu futuro con nuestro programa acelerado de bachillerato.
+            En UNE combinamos la flexibilidad del aprendizaje semiescolarizado
+            con la excelencia académica, preparándote para el éxito
+            universitario y profesional en tiempo récord.
           </p>
         </div>
       </div>
@@ -370,7 +644,8 @@ const faqs = [
             class="flex flex-col sm:flex-row gap-4 w-full justify-center text-white"
           >
             <!-- Agenda una Visita -->
-            <a href="/contacto/solicitarvisita"
+            <a
+              href="/contacto/solicitarvisita"
               class="hover:border-b hover:border-b-cyan-50 font-bold py-6 px-6 text-base transition-colors duration-300 shadow-lg flex flex-col items-center justify-center gap-2 whitespace-nowrap"
             >
               AGENDA UNA VISITA
@@ -378,7 +653,8 @@ const faqs = [
             </a>
 
             <!-- Iniciar Inscripción -->
-            <a href="/contacto/formulario-inscripcion"
+            <a
+              href="/contacto/formulario-inscripcion"
               class="hover:border-b hover:border-b-cyan-50 font-bold py-3 px-6 text-base transition-colors duration-300 shadow-lg flex flex-col items-center justify-center gap-2 whitespace-nowrap"
             >
               INICIAR INSCRIPCIÓN
@@ -386,7 +662,8 @@ const faqs = [
             </a>
 
             <!-- Contactar -->
-             <a href="/contacto/solicitarinformacion"
+            <a
+              href="/contacto/solicitarinformacion"
               class="hover:border-b hover:border-b-cyan-50 font-bold py-3 px-6 text-base transition-colors duration-300 shadow-lg flex flex-col items-center justify-center gap-2 whitespace-nowrap"
             >
               CONTACTAR
@@ -420,12 +697,14 @@ const faqs = [
     />
 
     <Costos
-      inscripcionAnual={costosData.inscripcionAnual}
       seguroEscolar={costosData.seguroEscolar}
-      coberturaEscolar={costosData.coberturaEscolar}
       uniformeEscolar={costosData.uniformeEscolar}
       uniformeDiario={costosData.uniformeDiario}
-      planteles={crearPlantelesUniformes(772, 609)}
+      planteles={crearPlantelesUniformes({
+        planteles: nombresPlanteles,
+        costoNormal: 609,
+        costoSabatina: 772,
+      })}
     />
     <Requisitos nivel="Bachillerato" requisitos={requisitosInfo} />
 

@@ -1,100 +1,101 @@
 ---
 // AreasConocimiento.astro
-import { Computer, Building, Radio, Cog, Heart } from "@lucide/astro";
-const carreras = [
-  {
-    id: 1,
-    nombre: "Lic. en cirujano destista",
-    descripcion:
-      "Desarrolla soluciones tecnológicas innovadoras para el mundo digital.",
-    area: "Todas",
-    categoria: "Ciencias de la educacion",
-    Incorporacion: "UDG",
-    modalidad: "En línea",
-    creditos: "450",
-    icon: "computer",
-    color: "bg-blue-500",
-    slug: "cirujano_dentista",
-    planteles: ["Plantel Norte", "Plantel Sur"],
-    plantelesDisponibles: 5,
-  },
-  {
-    id: 2,
-    nombre: "Ing. Civil",
-    descripcion: "Diseña y construye obras que transforman el entorno.",
-    area: "Ciencias exactas e ingenierías",
-    categoria: "Ciencias exactas e ingenierías",
-    Incorporacion: "UDG",
-    modalidad: "Presencial",
-    creditos: "500",
-    icon: "building",
-    color: "bg-gray-600",
-    slug: "ingenieria-civil",
-    planteles: ["Centro Universitario"],
-    plantelesDisponibles: 3,
-  },
-  {
-    id: 3,
-    nombre: "Ing. en Comunicaciones y Electrónica",
-    descripcion: "Conecta sistemas inteligentes con tecnología de vanguardia.",
-    area: "Ciencias exactas e ingenierías",
-    categoria: "Ciencias exactas e ingenierías",
-    Incorporacion: "UDG",
-    modalidad: "Semiescolarizada",
-    creditos: "475",
-    icon: "radio",
-    color: "bg-red-500",
-    slug: "ingenieria-comunicaciones-electronica",
-    planteles: ["Plantel Este", "Plantel Oeste"],
-    plantelesDisponibles: 4,
-  },
-  {
-    id: 4,
-    nombre: "Ing. Industrial",
-    descripcion: "Mejora procesos y productividad desde cualquier lugar.",
-    area: "Ciencias exactas e ingenierías",
-    categoria: "Ciencias exactas e ingenierías",
-    Incorporacion: "Sicyt",
-    modalidad: "Escolarizada y en línea",
-    creditos: "425",
-    icon: "cog",
-    color: "bg-orange-500",
-    slug: "ingenieria-industrial",
-    planteles: ["Centro Universitario", "Plantel Norte", "Plantel Este"],
-    plantelesDisponibles: 6,
-  },
-  {
-    id: 5,
-    nombre: "Ing. Química",
-    descripcion: "Transforma la materia en productos útiles para la industria.",
-    area: "Ciencias de la salud",
-    categoria: "Ciencias de la salud",
-    Incorporacion: "Sicyt",
-    modalidad: "Escolarizada",
-    creditos: "480",
-    icon: "Heart",
-    color: "bg-green-500",
-    slug: "ingenieria-quimica",
-    planteles: ["Plantel Norte"],
-    plantelesDisponibles: 2,
-  },
-  {
-    id: 6,
-    nombre: "Ing. Químico Farmacéutico Biólogo",
-    descripcion:
-      "Garantiza la calidad y seguridad de productos que cuidan la salud.",
-    area: "Ciencias de la salud",
-    categoria: "Ciencias de la salud",
-    Incorporacion: "Sicyt",
-    modalidad: "Presencial y en línea",
-    creditos: "520",
-    icon: "heart",
-    color: "bg-pink-500",
-    slug: "ingenieria-quimico-farmaceutico-biologo",
-    planteles: ["Centro Universitario", "Plantel Este"],
-    plantelesDisponibles: 3,
-  },
-];
+import { Computer, Building, Radio, Cog, Heart, User, Calculator, Palette, ChefHat } from "@lucide/astro";
+import { programasEducativos } from "@helpers/estructura_educativa";
+
+// Convertir a array de licenciaturas
+const licenciaturas = [];
+
+if (programasEducativos.Licenciaturas) {
+  Object.entries(programasEducativos.Licenciaturas).forEach(([area, programas]) => {
+    Object.entries(programas).forEach(([nombrePrograma, planteles]) => {
+      licenciaturas.push({
+        nombre: nombrePrograma,
+        area: area,
+        planteles: planteles
+      });
+    });
+  });
+}
+
+// Función para obtener el ícono según el área
+function getIconByArea(area) {
+  switch (area) {
+    case "Ciencias exactas e ingenierías":
+      return "cog";
+    case "Ciencias de la salud":
+      return "heart";
+    case "Económico Administrativa":
+      return "calculator";
+    case "Arquitectura y diseño":
+      return "palette";
+    case "Gastronomía":
+      return "chefHat";
+    case "Ciencias Sociales y Humanidades":
+      return "user";
+    default:
+      return "computer";
+  }
+}
+
+// Función para obtener el color según el área
+function getColorByArea(area) {
+  switch (area) {
+    case "Ciencias exactas e ingenierías":
+      return "bg-blue-500";
+    case "Ciencias de la salud":
+      return "bg-green-500";
+    case "Económico Administrativa":
+      return "bg-yellow-500";
+    case "Arquitectura y diseño":
+      return "bg-purple-500";
+    case "Gastronomía":
+      return "bg-orange-500";
+    case "Ciencias Sociales y Humanidades":
+      return "bg-red-500";
+    default:
+      return "bg-gray-500";
+  }
+}
+
+// Procesar datos de licenciaturas
+const carreras = licenciaturas.map((licenciatura, index) => {
+  const planteles = Object.keys(licenciatura.planteles);
+  const todasLasModalidades = [];
+  const todasLasIncorporaciones = [];
+  
+  // Extraer todas las modalidades e incorporaciones
+  Object.values(licenciatura.planteles).forEach(plantelInfo => {
+    plantelInfo.forEach(info => {
+      if (!todasLasModalidades.includes(info.modalidad)) {
+        todasLasModalidades.push(info.modalidad);
+      }
+      if (!todasLasIncorporaciones.includes(info.incorporacion)) {
+        todasLasIncorporaciones.push(info.incorporacion);
+      }
+    });
+  });
+
+  return {
+    id: index + 1,
+    nombre: `Lic. en ${licenciatura.nombre}`,
+    descripcion: `Especialízate en ${licenciatura.nombre} con una formación integral y de calidad.`,
+    area: licenciatura.area,
+    categoria: licenciatura.area,
+    incorporacion: todasLasIncorporaciones.join(", "),
+    modalidad: todasLasModalidades.join(", "),
+    creditos: "450", // Valor por defecto
+    icon: getIconByArea(licenciatura.area),
+    color: getColorByArea(licenciatura.area),
+    slug: licenciatura.nombre.toLowerCase().replace(/\s+/g, "-").replace(/[áéíóú]/g, (match) => {
+      const accents = { 'á': 'a', 'é': 'e', 'í': 'i', 'ó': 'o', 'ú': 'u' };
+      return accents[match];
+    }),
+    planteles: planteles,
+    plantelesDisponibles: planteles.length,
+    plantelesDetalle: licenciatura.planteles
+  };
+});
 
 const areas = [
   "Todas",
@@ -117,10 +118,16 @@ function renderIcon(iconName) {
       return Radio;
     case "cog":
       return Cog;
-    case "Heart":
-      return Heart;
     case "heart":
       return Heart;
+    case "user":
+      return User;
+    case "calculator":
+      return Calculator;
+    case "palette":
+      return Palette;
+    case "chefHat":
+      return ChefHat;
     default:
       return Computer;
   }
@@ -190,7 +197,7 @@ function renderIcon(iconName) {
                 <div
                   class={`absolute top-4 right-4 ${carrera.color} text-white px-2 py-1 rounded text-xs font-semibold`}
                 >
-                  {carrera.Incorporacion}
+                  {carrera.incorporacion.split(", ")[0]}
                 </div>
               </div>
 
@@ -201,14 +208,14 @@ function renderIcon(iconName) {
                 <p class="text-gray-600 text-sm mb-4">{carrera.descripcion}</p>
 
                 <div class="space-y-2 mb-4">
-                  <div class="flex items-center gap-2">
-                    <span class=" text-white text-bold px-2 py-1  text-xs bg-azul-une rounded-2xl ">
-                      {carrera.Incorporacion}
+                  <div class="flex items-center gap-2 flex-wrap">
+                    <span class="text-white text-bold px-2 py-1 text-xs bg-azul-une rounded-2xl">
+                      {carrera.incorporacion}
                     </span>
-                    <span class=" text-white text-bold px-2 py-1  text-xs bg-azul-une rounded-2xl ">
+                    <span class="text-white text-bold px-2 py-1 text-xs bg-azul-une rounded-2xl">
                       {carrera.modalidad}
                     </span>
-                    <span class=" text-white text-bold px-2 py-1  text-xs bg-azul-une rounded-2xl ">
+                    <span class="text-white text-bold px-2 py-1 text-xs bg-azul-une rounded-2xl">
                       {carrera.plantelesDisponibles} planteles disp.
                     </span>
                   </div>
@@ -223,6 +230,7 @@ function renderIcon(iconName) {
                     data-carrera-id={carrera.id}
                     data-carrera-nombre={carrera.nombre}
                     data-planteles={JSON.stringify(carrera.planteles)}
+                    data-planteles-detalle={JSON.stringify(carrera.plantelesDetalle)}
                   >
                     Ver planteles
                   </button>
@@ -263,7 +271,7 @@ function renderIcon(iconName) {
   >
   </div>
   <div
-    class="bg-white rounded-lg p-6 max-w-md w-full mx-4 relative z-10 transform transition-all duration-300 scale-95 opacity-0"
+    class="bg-white rounded-lg p-6 max-w-2xl w-full mx-4 relative z-10 transform transition-all duration-300 scale-95 opacity-0 max-h-96 overflow-y-auto"
     id="modal-content"
   >
     <div class="flex justify-between items-center mb-4">
@@ -288,13 +296,13 @@ function renderIcon(iconName) {
         </svg>
       </button>
     </div>
-    <div id="planteles-list" class="space-y-2">
+    <div id="planteles-list" class="space-y-4">
       <!-- Los planteles se insertan aquí dinámicamente -->
     </div>
   </div>
 </div>
 
-<script>
+<script define:vars={{ carreras }}>
   document.addEventListener("DOMContentLoaded", function () {
     const searchInput = document.getElementById("search-input");
     const autocompleteDropdown = document.getElementById(
@@ -308,14 +316,7 @@ function renderIcon(iconName) {
     let visibleCards = 3; // Límite inicial para mobile
 
     // Datos de carreras para autocomplete
-    const careerNames = [
-      "Ing. en Computación",
-      "Ing. Civil",
-      "Ing. en Comunicaciones y Electrónica",
-      "Ing. Industrial",
-      "Ing. Química",
-      "Ing. Químico Farmacéutico Biólogo",
-    ];
+    const careerNames = carreras.map(carrera => carrera.nombre);
 
     // Función para mostrar cards según área y límite
     function showCards() {
@@ -454,47 +455,73 @@ function renderIcon(iconName) {
     const modalContent = document.getElementById("modal-content");
 
     // Función para abrir modal con animación
-    function openModal(carreraNombre, planteles) {
-      // 1. Título del modal actualizado
-      modalTitle.textContent = `Carrera: ${carreraNombre}`;
-      // 2. Contenido del modal con enlaces y separador
+    function openModal(carreraNombre, planteles, plantelesDetalle) {
+      modalTitle.textContent = `${carreraNombre}`;
+      
+      // Crear contenido del modal con información detallada
       plantelesList.innerHTML = planteles
-        .map(
-          (plantel, index) => `
-        <div 
-          class="p-3 transform transition-all duration-300 translate-y-2 opacity-0 plantel-item" 
-          style="animation-delay: ${index * 100}ms"
-        >
-          <div class="flex items-center justify-between">
-            <span class="font-bold text-lg text-gray-900">${plantel}</span>
-            <span class="text-sm text-green-600 bg-green-100 px-2 py-1 rounded-full font-medium">Disponible</span>
-          </div>
-          <div class="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-3">
-              <a 
-                href="tel:+523312345678" 
-                class="flex items-center justify-center gap-2 py-2 px-3 bg-gray-100 text-gray-800 rounded-lg hover:bg-blue-100 hover:text-blue-700 transition-all duration-200"
-              >
-                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+        .map((plantel, index) => {
+          const detalles = plantelesDetalle[plantel] || [];
+          return `
+            <div class="p-4 border border-gray-200 rounded-lg transform transition-all duration-300 translate-y-2 opacity-0 plantel-item" 
+                 style="animation-delay: ${index * 100}ms">
+              <div class="flex items-center justify-between mb-3">
+                <h4 class="font-bold text-lg text-gray-900">${plantel}</h4>
+                <span class="text-sm text-green-600 bg-green-100 px-2 py-1 rounded-full font-medium">Disponible</span>
+              </div>
+              
+              <!-- Modalidades e incorporaciones -->
+              <div class="mb-4">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                  ${detalles.map(detalle => `
+                    <div class="bg-gray-50 p-2 rounded">
+                      <div class="text-sm">
+                        <span class="font-semibold text-blue-600">${detalle.modalidad}</span>
+                        <br>
+                        <span class="text-gray-600">Incorporación: ${detalle.incorporacion}</span>
+                      </div>
+                    </div>
+                  `).join('')}
+                </div>
+              </div>
+              
+              <!-- Botones de acción -->
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <a 
+                  href="tel:+523312345678" 
+                  class="flex items-center justify-center gap-2 py-2 px-3 bg-gray-100 text-gray-800 rounded-lg hover:bg-blue-100 hover:text-blue-700 transition-all duration-200"
+                >
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                  </svg>
                   <span>Llamar al plantel</span>
-              </a>
-              <a 
-                href="/visitar-plantel/${plantel.toLowerCase().replace(/ /g, "-")}" 
-                class="flex items-center justify-center gap-2 py-2 px-3 bg-gray-100 text-gray-800 rounded-lg hover:bg-red-100 hover:text-red-700 transition-all duration-200"
-              >
-                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                </a>
+                <a 
+                  href="/visitar-plantel/${plantel.toLowerCase().replace(/ /g, "-")}" 
+                  class="flex items-center justify-center gap-2 py-2 px-3 bg-gray-100 text-gray-800 rounded-lg hover:bg-red-100 hover:text-red-700 transition-all duration-200"
+                >
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                  </svg>
                   <span>Visitar plantel</span>
-              </a>
-          </div>
-        </div>
-        ${index < planteles.length - 1 ? '<hr class="border-gray-200" />' : ""}
-        `
-        )
-        .join(""); // Mostrar modal
-      modal.classList.remove("hidden"); // Animar entrada
+                </a>
+              </div>
+            </div>
+          `;
+        })
+        .join("");
+
+      // Mostrar modal
+      modal.classList.remove("hidden");
+      
+      // Animar entrada
       requestAnimationFrame(() => {
         modalBackdrop.classList.add("opacity-100");
         modalContent.classList.add("scale-100", "opacity-100");
-        modalContent.classList.remove("scale-95", "opacity-0"); // Animar items de planteles
+        modalContent.classList.remove("scale-95", "opacity-0");
+        
+        // Animar items de planteles
         setTimeout(() => {
           const items = document.querySelectorAll(".plantel-item");
           items.forEach((item) => {
@@ -521,7 +548,8 @@ function renderIcon(iconName) {
       if (e.target.classList.contains("ver-planteles-btn")) {
         const carreraNombre = e.target.getAttribute("data-carrera-nombre");
         const planteles = JSON.parse(e.target.getAttribute("data-planteles"));
-        openModal(carreraNombre, planteles);
+        const plantelesDetalle = JSON.parse(e.target.getAttribute("data-planteles-detalle"));
+        openModal(carreraNombre, planteles, plantelesDetalle);
       }
     });
 
@@ -561,6 +589,25 @@ function renderIcon(iconName) {
   }
 
   #cards-container::-webkit-scrollbar-thumb:hover {
+    background: #a8a8a8;
+  }
+
+  /* Scroll para el modal */
+  #modal-content::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  #modal-content::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 3px;
+  }
+
+  #modal-content::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 3px;
+  }
+
+  #modal-content::-webkit-scrollbar-thumb:hover {
     background: #a8a8a8;
   }
 

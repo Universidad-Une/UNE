@@ -17,6 +17,11 @@ const {
   title = "Todo lo que necesitas saber, en un solo lugar.",
   subtitle = ""
 } = Astro.props;
+
+// Dividir FAQs en dos columnas
+const midpoint = Math.ceil(faqs.length / 2);
+const leftColumnFaqs = faqs.slice(0, midpoint);
+const rightColumnFaqs = faqs.slice(midpoint);
 ---
 
 <section class="py-16 bg-gray-50">
@@ -30,30 +35,58 @@ const {
     </div>
 
     <!-- FAQ Grid -->
-    <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-4">
-      <!-- FAQ Items dinámicos -->
-      {faqs.map((faq, index) => (
-        <div
-          class="faq-item bg-azul-une text-white rounded-lg cursor-pointer hover:bg-blue-800 transition-colors duration-300 group"
-          key={index}
-        >
+    <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-4 items-start">
+      <!-- Columna Izquierda -->
+      <div class="space-y-4">
+        {leftColumnFaqs.map((faq, index) => (
           <div
-            class="faq-question p-6 flex items-center justify-between"
+            class="faq-item bg-azul-une text-white rounded-lg cursor-pointer hover:bg-blue-800 transition-colors duration-300 group"
+            key={`left-${index}`}
           >
-            <h3 class="text-lg font-semibold">
-              {faq.question}
-            </h3>
-            <Plus
-              class="faq-icon w-6 h-6 transform group-hover:rotate-45 transition-transform duration-300"
-            />
+            <div class="faq-question p-6 flex items-center justify-between">
+              <h3 class="text-lg font-semibold pr-4">
+                {faq.question}
+              </h3>
+              <div class="flex-shrink-0">
+                <Plus class="faq-icon w-6 h-6 transition-transform duration-300" />
+              </div>
+            </div>
+            <div class="faq-answer overflow-hidden transition-all duration-300 ease-in-out max-h-0">
+              <div class="bg-blue-800 p-6">
+                <p class="text-white">
+                  {faq.answer}
+                </p>
+              </div>
+            </div>
           </div>
-          <div class="faq-answer bg-blue-800 p-6 hidden">
-            <p class="text-white">
-              {faq.answer}
-            </p>
+        ))}
+      </div>
+
+      <!-- Columna Derecha -->
+      <div class="space-y-4">
+        {rightColumnFaqs.map((faq, index) => (
+          <div
+            class="faq-item bg-azul-une text-white rounded-lg cursor-pointer hover:bg-blue-800 transition-colors duration-300 group"
+            key={`right-${index}`}
+          >
+            <div class="faq-question p-6 flex items-center justify-between">
+              <h3 class="text-lg font-semibold pr-4">
+                {faq.question}
+              </h3>
+              <div class="flex-shrink-0">
+                <Plus class="faq-icon w-6 h-6 transition-transform duration-300" />
+              </div>
+            </div>
+            <div class="faq-answer overflow-hidden transition-all duration-300 ease-in-out max-h-0">
+              <div class="bg-blue-800 p-6">
+                <p class="text-white">
+                  {faq.answer}
+                </p>
+              </div>
+            </div>
           </div>
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
   </div>
 </section>
@@ -69,28 +102,57 @@ const {
       const icon = item.querySelector(".faq-icon");
 
       question.addEventListener("click", function () {
-        const isOpen = !answer.classList.contains("hidden");
+        const isOpen = answer.style.maxHeight && answer.style.maxHeight !== "0px";
 
         // Close all other FAQ items
         faqItems.forEach((otherItem) => {
           if (otherItem !== item) {
-            const otherAnswer =
-              otherItem.querySelector(".faq-answer");
+            const otherAnswer = otherItem.querySelector(".faq-answer");
             const otherIcon = otherItem.querySelector(".faq-icon");
-            otherAnswer.classList.add("hidden");
-            // Replace with Plus icon (Lucide)
-            otherIcon.outerHTML = '<svg class="faq-icon w-6 h-6 transform group-hover:rotate-45 transition-transform duration-300" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 6v6m0 0v6m0-6h6m-6 0H6"/></svg>';
+            
+            // Close other item
+            otherAnswer.style.maxHeight = "0px";
+            
+            // Change to Plus icon
+            otherIcon.outerHTML = `
+              <svg class="faq-icon w-6 h-6 transition-transform duration-300" 
+                   xmlns="http://www.w3.org/2000/svg" 
+                   width="24" height="24" viewBox="0 0 24 24" 
+                   fill="none" stroke="currentColor" stroke-width="2" 
+                   stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 6v6m0 0v6m0-6h6m-6 0H6"/>
+              </svg>
+            `;
           }
         });
 
         if (isOpen) {
-          // Close current item - show Plus icon
-          answer.classList.add("hidden");
-          icon.outerHTML = '<svg class="faq-icon w-6 h-6 transform group-hover:rotate-45 transition-transform duration-300" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 6v6m0 0v6m0-6h6m-6 0H6"/></svg>';
+          // Close current item
+          answer.style.maxHeight = "0px";
+          icon.outerHTML = `
+            <svg class="faq-icon w-6 h-6 transition-transform duration-300" 
+                 xmlns="http://www.w3.org/2000/svg" 
+                 width="24" height="24" viewBox="0 0 24 24" 
+                 fill="none" stroke="currentColor" stroke-width="2" 
+                 stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 6v6m0 0v6m0-6h6m-6 0H6"/>
+            </svg>
+          `;
         } else {
-          // Open current item - show Minus icon
-          answer.classList.remove("hidden");
-          icon.outerHTML = '<svg class="faq-icon w-6 h-6 transform group-hover:rotate-45 transition-transform duration-300" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 12H6"/></svg>';
+          // Open current item
+          const contentHeight = answer.querySelector("div").scrollHeight;
+          answer.style.maxHeight = contentHeight + "px";
+          
+          // Change to Minus icon
+          icon.outerHTML = `
+            <svg class="faq-icon w-6 h-6 transition-transform duration-300" 
+                 xmlns="http://www.w3.org/2000/svg" 
+                 width="24" height="24" viewBox="0 0 24 24" 
+                 fill="none" stroke="currentColor" stroke-width="2" 
+                 stroke-linecap="round" stroke-linejoin="round">
+              <path d="M18 12H6"/>
+            </svg>
+          `;
         }
       });
     });

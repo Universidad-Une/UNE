@@ -2,7 +2,7 @@
 import Layout from "@/layouts/Layout.astro";
 import Hero from "@/assets/Imagenes/Heros/UDG.jpg";
 import Hero_mobile from "@/assets/Imagenes/Heros/udg_mobile.jpg";
-import ImagenCard from "@/assets/Imagenes/CardsNiveles/BG.jpg";
+import ImagenCard from "@/assets/Imagenes/CardsNiveles/Nivel.png";
 import LogoCard from "@/assets/Logos/UDG.png";
 import InformativeCard from "@components/sections/detallesOferta/card.astro";
 import Planteles from "@components/sections/detallesOferta/planteles.astro";
@@ -103,7 +103,7 @@ const planteles = [
     codigo: "00015",
     direccion: "Calle Independencia #100, Col. Centro, Guadalajara, Jalisco",
     ciudad: "Guadalajara ZMG",
-    url: "/planteles/centro",
+    url: "/campus/une-centro",
     imagen: "/src/assets/Imagenes/CardsPlanteles/Centro.jpg",
     lat: 20.67744801539995,
     lon: -103.34031672627513,
@@ -114,7 +114,7 @@ const planteles = [
     codigo: "00016",
     direccion: "Av. Hospital #123, Col. Independencia, Guadalajara, Jalisco",
     ciudad: "Guadalajara ZMG",
-    url: "/planteles/centro-medico",
+    url: "/campus/centro-medico",
     imagen: "/src/assets/Imagenes/CardsPlanteles/CentroMedico.jpg",
     lat: 20.684590788642307,
     lon: -103.3256397932448,
@@ -125,7 +125,7 @@ const planteles = [
     codigo: "00017",
     direccion: "Av. Naciones Unidas #456, Col. Milenio, Guadalajara, Jalisco",
     ciudad: "Guadalajara ZMG",
-    url: "/planteles/milenio",
+    url: "/campus/milenio",
     imagen: "/src/assets/Imagenes/CardsPlanteles/Milenio.jpg",
     lat: 20.64540739939039,
     lon: -103.40630313415286,
@@ -136,7 +136,7 @@ const planteles = [
     codigo: "00005",
     direccion: "Chimalhuacán #6, Col. Ciudad del Sol, Guadalajara, Jalisco",
     ciudad: "Guadalajara ZMG",
-    url: "/planteles/plaza-del-sol",
+    url: "/campus/plaza-del-sol",
     imagen: "/src/assets/Imagenes/CardsPlanteles/PlazaSol.png",
     lat: 20.651805,
     lon: -103.402918,
@@ -147,7 +147,7 @@ const planteles = [
     codigo: "00021",
     direccion: "Av. Ávila Camacho #1500, Zapopan Centro, Zapopan, Jalisco",
     ciudad: "Guadalajara ZMG",
-    url: "/planteles/zapopan",
+    url: "/campus/zapopan",
     imagen: "/src/assets/Imagenes/CardsPlanteles/Zapopan.png",
     lat: 20.720900646775917,
     lon: -103.38975281813357,
@@ -159,7 +159,7 @@ const planteles = [
     direccion:
       "Av. Juan Gil Preciado #3897, Col. Hogares de Nuevo México, Zapopan, Jalisco",
     ciudad: "Guadalajara ZMG",
-    url: "/planteles/tesistan",
+    url: "/campus/tesistan",
     imagen: "/src/assets/Imagenes/CardsPlanteles/Tesistan.png",
     lat: 20.806203,
     lon: -102.763903,
@@ -171,7 +171,7 @@ const planteles = [
     direccion:
       "Av. López Mateos #10100, Col. Los Gavilanes Poniente, Tlajomulco de Zúñiga, Jalisco",
     ciudad: "Guadalajara ZMG",
-    url: "/planteles/tlajomulco",
+    url: "/campus/tlajomulco",
     imagen: "/src/assets/Imagenes/CardsPlanteles/Tlajomulco.png",
     lat: 20.576464164603113,
     lon: -103.45243680650722,
@@ -183,7 +183,7 @@ const planteles = [
     direccion:
       "Blvd. Marcelino García Barragán #2056, Col. Bosques del Boulevard, Tlaquepaque, Jalisco",
     ciudad: "Guadalajara ZMG",
-    url: "/planteles/tlaquepaque",
+    url: "/campus/tlaquepaque",
     imagen: "/src/assets/Imagenes/CardsPlanteles/Tlaquepaque.jpg",
     lat: 20.645650028567157,
     lon: -103.32094530771215,
@@ -194,7 +194,7 @@ const planteles = [
     codigo: "00014",
     direccion: "Av. Tonaltecas #333, Col. Agua Escondida, Tonalá, Jalisco",
     ciudad: "Guadalajara ZMG",
-    url: "/planteles/tonala",
+    url: "/campus/tonala",
     imagen: "/src/assets/Imagenes/CardsPlanteles/Tonala.png",
     lat: 20.63176692188573,
     lon: -103.24439406488241,
@@ -205,7 +205,7 @@ const planteles = [
     codigo: "00008",
     direccion: "Av. México #1255, Col. Agua Zarca, Puerto Vallarta, Jalisco",
     ciudad: "Puerto Vallarta",
-    url: "/planteles/avenida-mexico",
+    url: "/campus/puerto-vallarta",
     imagen: "/src/assets/Imagenes/CardsPlanteles/PuertoVallarta.png",
     lat: 20.669418,
     lon: -105.226917,
@@ -556,48 +556,46 @@ const semestresDatos = [
 
 const faqs = [
   {
-    question: "¿Cómo es el proceso de inscripción al Bachillerato General?",
+    question: "¿Cuál es la edad mínima para ingresar a primero de primaria?",
     answer:
-      "Debes realizar tu registro en la página oficial de la Universidad de Guadalajara durante el periodo de convocatoria. Posteriormente, presentarás un examen de admisión y deberás entregar la documentación requerida en las fechas indicadas.",
+      "La edad mínima para ingresar a primero de primaria es de 6 años cumplidos al 31 de diciembre del ciclo escolar en curso, conforme a lo establecido por la SEP.",
   },
   {
-    question: "¿Qué documentos necesito para inscribirme?",
+    question: "¿Qué documentos necesito para inscribir a mi hijo?",
     answer:
-      "Debes presentar: certificado de secundaria, acta de nacimiento, CURP, comprobante de domicilio, identificación oficial y fotografía infantil reciente.",
+      "Necesitas: acta de nacimiento original y copia, CURP, cartilla de vacunación, comprobante de domicilio, identificación del padre o tutor, y certificado de preescolar si aplica.",
   },
   {
-    question: "¿Ofrecen materias extracurriculares o talleres?",
+    question: "¿Tienen horario extendido o clases extracurriculares?",
     answer:
-      "Sí, el bachillerato cuenta con talleres culturales, deportivos y académicos como robótica, teatro, música, debate, deportes y emprendimiento social.",
+      "Sí, contamos con horario extendido y actividades extracurriculares como arte, deportes, lectura y tecnología, que se ofrecen por las tardes con costo adicional.",
   },
   {
-    question: "¿Cuál es el horario regular de clases?",
+    question: "¿Cuál es el horario de clases regular?",
     answer:
-      "El horario escolar es de lunes a viernes de 7:00 a.m. a 2:00 p.m., con algunas actividades complementarias en horario vespertino dependiendo del plantel.",
+      "El horario regular es de lunes a viernes de 8:00 a.m. a 2:00 p.m. con un receso a media mañana para el desayuno o almuerzo ligero.",
   },
   {
-    question: "¿El bachillerato ofrece comedor o cafetería?",
+    question: "¿La primaria cuenta con servicio de comedor?",
     answer:
-      "La mayoría de los planteles cuentan con cafetería estudiantil donde se ofrecen alimentos y refrigerios saludables a precios accesibles.",
+      "Sí, contamos con un servicio de comedor con menú balanceado supervisado por nutriólogos. El servicio es opcional y se contrata mensualmente.",
   },
   {
-    question: "¿Cuáles son las opciones al egresar del bachillerato?",
+    question: "¿Hay transporte escolar disponible?",
     answer:
-      "Al concluir el bachillerato, puedes continuar tus estudios superiores en instituciones como la UdeG o universidades privadas, o incorporarte al campo laboral si así lo decides. El programa prepara a los estudiantes para ambas rutas.",
+      "Sí, ofrecemos transporte escolar con rutas establecidas. Puedes consultar disponibilidad y costos al momento de la inscripción.",
   },
   {
-    question: "¿Puedo conocer las instalaciones del bachillerato?",
+    question: "¿Cómo puedo conocer las instalaciones?",
     answer:
-      "Puedes agendar una visita guiada directamente con el plantel o consultar las redes sociales oficiales donde suelen publicar fotos y recorridos virtuales.",
+      "Puedes agendar una visita guiada llamando a nuestra línea de atención o enviando un mensaje por nuestras redes sociales oficiales.",
   },
   {
-    question: "¿Qué modelo educativo utilizan?",
+    question: "¿Qué métodos de enseñanza utilizan?",
     answer:
-      "El Bachillerato General de UDG con UNE se basa en modelos como el constructivismo y el conectivismo, promoviendo el pensamiento crítico, la alfabetización científica y la conciencia social.",
+      "Utilizamos un enfoque integral basado en competencias, con apoyo en tecnología educativa, desarrollo socioemocional y aprendizaje significativo.",
   },
 ];
-
-
 
 const costosData = {
   // Costos fijos

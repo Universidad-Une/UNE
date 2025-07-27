@@ -15,10 +15,16 @@ export interface Semestre {
 
 export interface Props {
   titulo?: string;
+  nivelAcademico?: string;
   semestres: Semestre[];
 }
 
-const { titulo = "Propuesta Educativa", semestres } = Astro.props;
+// ✅ CORRECCIÓN: Destructuración correcta de las props
+const { 
+  titulo = "Propuesta Educativa", 
+  nivelAcademico = "Secundaria", 
+  semestres 
+} = Astro.props;
 
 // Generar ID único para el componente
 const componentId = `plan-estudios-${Math.random().toString(36).substr(2, 9)}`;
@@ -52,6 +58,10 @@ const calcularCreditos = (materias: Materia[]) => {
 
 // Calcular créditos totales del plan
 const creditosTotales = semestres.reduce((total, sem) => total + calcularCreditos(sem.materias), 0);
+
+// ✅ CORRECCIÓN: Import y asignación del logo
+import Logosrc from "@assets/Logos/UNE_30.png"
+const logoUrl = Logosrc.src;
 ---
 <div class="mx-auto p-4 sm:p-6 bg-white" id={componentId}>
   <!-- Encabezado -->
@@ -117,8 +127,9 @@ const creditosTotales = semestres.reduce((total, sem) => total + calcularCredito
   </div>
 
   <!-- En desktop: scroll horizontal para manejar muchos semestres -->
-  <div class="hidden sm:block">
-    <div class="flex gap-4 sm:gap-6 overflow-x-auto pb-4 scrollbar-thin">
+ <div class="hidden sm:block">
+  <div class="max-w-[80%] mx-auto">
+    <div class="flex gap-4 sm:gap-6 overflow-x-auto pb-4 px-4 scrollbar-thin justify-start">
       {semestres.map((semestre) => (
         <div class="flex-shrink-0 w-64 lg:w-72 xl:w-80 flex flex-col space-y-4">
           <!-- Encabezado del semestre -->
@@ -170,6 +181,7 @@ const creditosTotales = semestres.reduce((total, sem) => total + calcularCredito
       ))}
     </div>
   </div>
+</div>
 
   <!-- Información de resumen -->
   <div class="mt-6 sm:mt-8 text-center bg-gray-50 rounded-lg p-4">
@@ -260,7 +272,7 @@ const creditosTotales = semestres.reduce((total, sem) => total + calcularCredito
   }
 </style>
 
-<script define:vars={{ componentId, titulo, semestres, creditosTotales }}>
+<script define:vars={{ componentId, titulo, semestres, creditosTotales, nivelAcademico, logoUrl }}>
   document.addEventListener('DOMContentLoaded', () => {
     const downloadBtn = document.getElementById(`download-btn-${componentId}`);
     
@@ -278,14 +290,38 @@ const creditosTotales = semestres.reduce((total, sem) => total + calcularCredito
         // 1. Importar pdf-lib desde un CDN
         const { PDFDocument, rgb, StandardFonts } = await import('https://cdn.jsdelivr.net/npm/pdf-lib@1.17.1/dist/pdf-lib.esm.js');
 
-        // ... el resto de tu lógica para crear el PDF sigue igual ...
-
         // Crear nuevo documento PDF
         const pdfDoc = await PDFDocument.create();
         
         // Configurar fuente
         const font = await pdfDoc.embedFont(StandardFonts.Helvetica);
         const boldFont = await pdfDoc.embedFont(StandardFonts.HelveticaBold);
+        
+        // Función para cargar imagen
+        const loadImage = async (url) => {
+          try {
+            const response = await fetch(url);
+            const arrayBuffer = await response.arrayBuffer();
+            const uint8Array = new Uint8Array(arrayBuffer);
+            
+            // Detectar tipo de imagen por extensión o content-type
+            const contentType = response.headers.get('content-type');
+            if (contentType?.includes('png') || url.toLowerCase().includes('.png')) {
+              return await pdfDoc.embedPng(uint8Array);
+            } else {
+              return await pdfDoc.embedJpg(uint8Array);
+            }
+          } catch (error) {
+            console.warn('No se pudo cargar el logo:', error);
+            return null;
+          }
+        };
+
+        // Cargar logo si está disponible
+        let logoImage = null;
+        if (logoUrl) {
+          logoImage = await loadImage(logoUrl);
+        }
         
         // Crear página
         let page = pdfDoc.addPage([595.28, 841.89]); // A4 size
@@ -301,8 +337,34 @@ const creditosTotales = semestres.reduce((total, sem) => total + calcularCredito
           morado: rgb(0.9, 0.8, 1)
         };
 
+        // Encabezado con logo y nivel académico
+        let yPosition = height - 60;
+        
+        // Dibujar logo si está disponible
+        if (logoImage) {
+          const logoSize = 60;
+          page.drawImage(logoImage, {
+            x: 40,
+            y: yPosition - logoSize,
+            width: logoSize,
+            height: logoSize
+          });
+        }
+
+        // Nivel académico (alineado a la derecha)
+        if (nivelAcademico) {
+          const nivelText = nivelAcademico.toUpperCase();
+          page.drawText(nivelText, {
+            x: width - 40 - (nivelText.length * 6),
+            y: yPosition - 15,
+            size: 10,
+            font: boldFont,
+            color: rgb(0.4, 0.4, 0.4)
+          });
+        }
+
         // Título principal
-        let yPosition = height - 80;
+        yPosition -= 60;
         page.drawText('PLAN DE ESTUDIOS', {
           x: width / 2 - 80,
           y: yPosition,
@@ -319,6 +381,10 @@ const creditosTotales = semestres.reduce((total, sem) => total + calcularCredito
           font: boldFont,
           color: rgb(0, 0, 0)
         });
+
+        // Información adicional centrada
+        yPosition -= 25;
+       
 
         yPosition -= 40;
 
@@ -346,9 +412,42 @@ const creditosTotales = semestres.reduce((total, sem) => total + calcularCredito
           let y = yPosition - (currentRow * 350);
 
           // Si no cabe en la página actual, crear nueva página
-          if (y < 100 && i > 0) { // Añadido i > 0 para evitar página en blanco al inicio
+          if (y < 100 && i > 0) {
             page = pdfDoc.addPage([595.28, 841.89]);
-            yPosition = height - 40;
+            
+            // Repetir encabezado en páginas adicionales (más pequeño)
+            let headerY = height - 40;
+            
+            if (logoImage) {
+              const logoSize = 25;
+              page.drawImage(logoImage, {
+                x: 40,
+                y: headerY - logoSize,
+                width: logoSize,
+                height: logoSize
+              });
+            }
+
+            if (nivelAcademico) {
+              const nivelText = nivelAcademico.toUpperCase();
+              page.drawText(nivelText, {
+                x: width - 40 - (nivelText.length * 4),
+                y: headerY - 10,
+                size: 8,
+                font: boldFont,
+                color: rgb(0.6, 0.6, 0.6)
+              });
+            }
+
+            page.drawText(titulo, {
+              x: width / 2 - (titulo.length * 4),
+              y: headerY - 15,
+              size: 12,
+              font: boldFont,
+              color: rgb(0.4, 0.4, 0.4)
+            });
+            
+            yPosition = height - 80;
             currentRow = 0;
             y = yPosition;
           }
@@ -458,18 +557,6 @@ const creditosTotales = semestres.reduce((total, sem) => total + calcularCredito
           }
         }
 
-        // Información adicional en la última página
-        const lastPage = pdfDoc.getPages()[pdfDoc.getPages().length - 1];
-        lastPage.drawText(`Total de créditos: ${creditosTotales}`, {
-          x: 40,
-          y: 60,
-          size: 12,
-          font: boldFont,
-          color: rgb(0, 0, 0)
-        });
-
-        // ... resto de la información y descarga ...
-
         // Generar y descargar PDF
         const pdfBytes = await pdfDoc.save();
         const blob = new Blob([pdfBytes], { type: 'application/pdf' });
@@ -491,7 +578,7 @@ const creditosTotales = semestres.reduce((total, sem) => total + calcularCredito
         console.error('Error al generar PDF:', error);
         alert('Error al generar el PDF. Por favor, intenta nuevamente.');
         
-        // 2. Restaurar botón en caso de error (ahora funciona)
+        // Restaurar botón en caso de error
         downloadBtn.innerHTML = originalText;
         downloadBtn.disabled = false;
       }

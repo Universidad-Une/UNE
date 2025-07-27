@@ -2,7 +2,7 @@
 import Layout from "@/layouts/Layout.astro";
 import Hero from "@/assets/Imagenes/Heros/Secundaria.jpg";
 import Hero_mobile from "@/assets/Imagenes/Heros/Secundaria_mobile.jpg";
-import ImagenCard from "@/assets/Imagenes/CardsNiveles/Nivel.png";
+import ImagenCard from "@/assets/Imagenes/CardsNiveles/Primaria.jpg";
 import ColegioUNE from "@/assets/Logos/Colegio.png";
 import SecondaryCard from "@components/sections/detallesOferta/card.astro";
 import Planteles from "@components/sections/detallesOferta/planteles.astro";
@@ -12,14 +12,14 @@ import PlanEstudios from "@/components/sections/detallesOferta/planEstudios.astr
 import Perfiles from "@/components/sections/detallesOferta/perfiles.astro";
 import FAQComponent from "@/components/sections/detallesOferta/preguntas.astro";
 import CTAinscripcion from "@/components/sections/shared/ctaInscripcion.astro";
-import { crearPlantelUnico } from "@helpers/planteles";
+import { crearPlantelPersonalizado } from "@helpers/planteles";
 const planteles = [
   {
     id: "1",
     nombre: "Primaria",
     direccion: "Chimalhuacán #6 Col. Ciudad del Sol Guadalajara, Jalisco",
     ciudad: "Guadalajara",
-    url: "/campus/centro",
+    url: "/planteles/plaza-del-sol",
     imagen: "/src/assets/Imagenes/CardsPlanteles/PlazaSol.png",
     lat: 20.651805, // Actualizado
     lon: -103.402918, // Actualizado
@@ -29,7 +29,7 @@ const planteles = [
 const ciudades = ["Guadalajara"];
 
 const costosData = {
-  inscripcionAnual: 2500,
+  inscripcionAnual: 2000,
   seguroEscolar: 1200,
   coberturaEscolar: 1200,
   uniformeEscolar: {
@@ -57,111 +57,22 @@ const costosData = {
     },
   ],
 };
-const requisitosSecundaria = {
+const requisitosPrimaria = {
   items: [
-    "Acta de nacimiento",
-    "CURP (formato actualizado)",
-    "Certificado de primaria",
-    "Comprobante de domicilio",
-    "Fotografías tamaño infantil (blanco y negro)",
+    "Acta de nacimiento (original)",
+    "Certificado total de preescolar (original)",
+    "Boletas oficiales de grados anteriores (solo para grados superiores o traslados)",
+    "CURP (formato RENAPO actualizado)",
+    "Identificación oficial con fotografía (INE) del padre, madre o tutor – 2 copias",
+    "Comprobante de domicilio reciente (no mayor a 3 meses) – 1 copia",
+    "5 fotografías tamaño infantil, blanco y negro, papel mate, de estudio"
   ],
-  pdfUrl: "/public/pdfs/secundaria_req.pdf",
+  pdfUrl: "/public/pdfs/primaria_req.pdf",
 };
-
-const semestresDatos = [
-  {
-    numero: 1,
-    materias: [
-      {
-        codigo: "ED1021",
-        nombre: "Introducción a la Educación",
-        creditos: 30,
-        color: "verde",
-      },
-      {
-        codigo: "Filosofía y Ética en Educación",
-        nombre: "Filosofía y Ética en Educación",
-        creditos: 30,
-        color: "verde",
-      },
-      {
-        codigo: "ED1024",
-        nombre: "Desarrollo Infantil y adolescente",
-        creditos: 30,
-        color: "verde",
-      },
-      {
-        codigo: "ED1027",
-        nombre: "Habilidades Básicas de Investigación",
-        creditos: 30,
-        color: "verde",
-      },
-    ],
-  },
-  {
-    numero: 2,
-    materias: [
-      {
-        codigo: "FH1203",
-        nombre: "Pensamiento lógico y tecnológico",
-        creditos: 30,
-        color: "amarillo",
-      },
-      {
-        codigo: "ED2016",
-        nombre: "Desarrollo de la Psicomotricidad",
-        creditos: 30,
-        color: "amarillo",
-      },
-      {
-        codigo: "HJ2026",
-        nombre: "Ética social cristiana",
-        creditos: 30,
-        color: "amarillo",
-      },
-      {
-        codigo: "ED1029",
-        nombre: "Historia de la Pedagogía moderna",
-        creditos: 30,
-        color: "amarillo",
-      },
-    ],
-  },
-  {
-    numero: 3,
-    materias: [
-      {
-        codigo: "PS1201",
-        nombre: "Fundamentos de Psicología y Bienestar",
-        creditos: 30,
-        color: "naranja",
-      },
-      {
-        codigo: "Gestión educativa institucional",
-        nombre: "Gestión educativa institucional",
-        creditos: 30,
-        color: "naranja",
-      },
-      {
-        codigo: "ED2012",
-        nombre: "Desarrollo Socioemocional",
-        creditos: 30,
-        color: "naranja",
-      },
-      {
-        codigo: "ED3027",
-        nombre: "Administración educativa",
-        creditos: 30,
-        color: "naranja",
-      },
-    ],
-  },
-  // Puedes agregar más semestres según necesites
-];
 
 const faqs = [
   {
-    question: "¿Cuál es la edad mínima para ingresar a primero de primaria?",
+    question: "¿Cuál es la edad mínima para ingresar a primer año?",
     answer:
       "La edad mínima para ingresar a primero de primaria es de 6 años cumplidos al 31 de diciembre del ciclo escolar en curso, conforme a lo establecido por la SEP.",
   },
@@ -171,7 +82,7 @@ const faqs = [
       "Necesitas: acta de nacimiento original y copia, CURP, cartilla de vacunación, comprobante de domicilio, identificación del padre o tutor, y certificado de preescolar si aplica.",
   },
   {
-    question: "¿Tienen horario extendido o clases extracurriculares?",
+    question: "¿Tienen clases extracurriculares?",
     answer:
       "Sí, contamos con horario extendido y actividades extracurriculares como arte, deportes, lectura y tecnología, que se ofrecen por las tardes con costo adicional.",
   },
@@ -262,12 +173,21 @@ const faqs = [
             />
           </div>
 
-          <!-- CTA Button -->
-          <button
-            class="bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-6 rounded-lg text-base transition-colors duration-300 shadow-lg whitespace-nowrap"
-          >
-            INSCRIBIR A MI HIJO
-          </button>
+          <!-- Botones de CTA -->
+          <div class="flex flex-col items-center space-y-2">
+            <a
+              href="/contacto/formulario-inscripcion"
+              class="bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-6 rounded-lg text-base transition-colors duration-300 shadow-lg whitespace-nowrap"
+            >
+              INSCRIBIR A MI HIJO
+            </a>
+            <a
+              href="/contacto/solicitarinformacion"
+              class="text-sm text-azul-une border-b pb-1 font-bold border-blue-une hover:opacity-80 transition-opacity duration-300"
+            >
+              Solicitar información
+            </a>
+          </div>
         </div>
       </div>
     </div>
@@ -300,12 +220,18 @@ const faqs = [
       coberturaEscolar={costosData.coberturaEscolar}
       uniformeEscolar={costosData.uniformeEscolar}
       uniformeDiario={costosData.uniformeDiario}
-      planteles={crearPlantelUnico("Plaza del Sol", 3000, "normal")}
+      planteles={crearPlantelPersonalizado({
+        plantel: "Plaza del Sol",
+        modalidad: "normal",
+        diferentesPrecios: true,
+        costoInscripcion: 2000,
+        costoColegiatura: 3200,
+      })}
     />
 
-    <Requisitos nivel="Secundaria" requisitos={requisitosSecundaria} />
+    <Requisitos nivel="Primaria" requisitos={requisitosPrimaria} />
 
-    <PlanEstudios titulo="Propuesta Educativa" semestres={semestresDatos} />
+    <!-- <PlanEstudios titulo="Propuesta Educativa" semestres={semestresDatos} /> -->
 
     <Perfiles
       perfilIngreso="El estudiante que ingresa a primaria Montessori debe tener curiosidad natural por aprender, capacidad para seguir rutinas básicas, y disposición para explorar el entorno de forma autónoma. Se valora que desarrolle habilidades de comunicación, motricidad y convivencia, así como respeto por sí mismo, los demás y el ambiente."

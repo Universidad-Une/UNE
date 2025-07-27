@@ -2,7 +2,7 @@
 import Layout from "@/layouts/Layout.astro";
 import Hero from "@/assets/Imagenes/Heros/Secundaria.jpg";
 import Hero_mobile from "@/assets/Imagenes/Heros/Secundaria_mobile.jpg";
-import ImagenCard from "@/assets/Imagenes/CardsNiveles/Nivel.png";
+import ImagenCard from "@/assets/Imagenes/CardsNiveles/Secundaria.png";
 import ColegioUNE from "@/assets/Logos/Colegio.png";
 import SecondaryCard from "@components/sections/detallesOferta/card.astro";
 import Planteles from "@components/sections/detallesOferta/planteles.astro";
@@ -21,7 +21,7 @@ const planteles = [
     codigo: "00008",
     direccion: "Av. México #1255, Col. Agua Zarca, Puerto Vallarta, Jalisco",
     ciudad: "Puerto Vallarta",
-    url: "/campus/puerto-vallarta",
+    url: "/planteles/avenida-mexico",
     imagen: "/src/assets/Imagenes/CardsPlanteles/PuertoVallarta.png",
     lat: 20.669418,
     lon: -105.226917,
@@ -32,10 +32,10 @@ const planteles = [
     codigo: "00005",
     direccion: "Chimalhuacán #6, Col. Ciudad del Sol, Guadalajara, Jalisco",
     ciudad: "Guadalajara ZMG",
-    url: "/campus/plaza-del-sol",
+    url: "/planteles/plaza-del-sol",
     imagen: "/src/assets/Imagenes/CardsPlanteles/PlazaSol.png",
-    lat: 20.651805, // Actualizado previamente
-    lon: -103.402918, // Actualizado previamente
+    lat: 20.651805,
+    lon: -103.402918,
   },
   {
     id: "3",
@@ -44,7 +44,7 @@ const planteles = [
     direccion:
       "Av. Juan Gil Preciado #3897, Col. Hogares de Nuevo México, Zapopan, Jalisco",
     ciudad: "Guadalajara ZMG",
-    url: "/campus/tesistan",
+    url: "/planteles/tesistan",
     imagen: "/src/assets/Imagenes/CardsPlanteles/Tesistan.png",
     lat: 20.806203,
     lon: -102.763903,
@@ -56,7 +56,7 @@ const planteles = [
     direccion:
       "Av. López Mateos #10100, Col. Los Gavilanes Poniente, Tlajomulco de Zúñiga, Jalisco",
     ciudad: "Guadalajara ZMG",
-    url: "/campus/tlajomulco",
+    url: "/planteles/tlajomulco",
     imagen: "/src/assets/Imagenes/CardsPlanteles/Tlajomulco.png",
     lat: 20.576464164603113,
     lon: -103.45243680650722,
@@ -68,7 +68,7 @@ const planteles = [
     direccion:
       "Blvd. Marcelino García Barragán #2056, Col. Bosques del Boulevard, Tlaquepaque, Jalisco",
     ciudad: "Guadalajara ZMG",
-    url: "/campus/tlaquepaque",
+    url: "/planteles/tlaquepaque",
     imagen: "/src/assets/Imagenes/CardsPlanteles/Tlaquepaque.jpg",
     lat: 20.645650028567157,
     lon: -103.32094530771215,
@@ -79,7 +79,7 @@ const planteles = [
     codigo: "00014",
     direccion: "Av. Tonaltecas #333, Col. Agua Escondida, Tonalá, Jalisco",
     ciudad: "Guadalajara ZMG",
-    url: "/campus/tonala",
+    url: "/planteles/tonala",
     imagen: "/src/assets/Imagenes/CardsPlanteles/Tonala.png",
     lat: 20.63176692188573,
     lon: -103.24439406488241,
@@ -362,7 +362,8 @@ const faqs = [
       "La edad mínima para ingresar a primero de secundaria es de 12 años cumplidos al 31 de diciembre del ciclo escolar en curso, según lo establecido por la SEP.",
   },
   {
-    question: "¿Qué documentos necesito para inscribir a mi hijo en secundaria?",
+    question:
+      "¿Qué documentos necesito para inscribir a mi hijo en secundaria?",
     answer:
       "Necesitas: certificado de primaria, acta de nacimiento original y copia, CURP, comprobante de domicilio, identificación del padre o tutor y cartilla de vacunación.",
   },
@@ -398,45 +399,35 @@ const faqs = [
   },
 ];
 
-
-const configuracionPlanteles = [
+const plantelesEspecificos = crearPlantelesEspecificos([
   {
     plantel: "Plaza del Sol",
-    costo: 2814,
+    diferentesPrecios: true,
+    costoColegiatura: 2814,
     modalidad: "normal",
   },
   {
     plantel: "Tesistán",
-    costo: 2783,
+    diferentesPrecios: true,
+    costoColegiatura: 2783,
     modalidad: "normal",
   },
   {
     plantel: "Tlajomulco",
-    costo: 3675,
+    diferentesPrecios: true,
+    costoColegiatura: 3675,
     modalidad: "normal",
   },
   {
     plantel: "Tlaquepaque",
-    costo: 1848,
+    diferentesPrecios: true,
+    costoColegiatura: 1848,
     modalidad: "normal",
   },
   {
     plantel: "Tonalá",
-    costo: 2365,
-    modalidad: "normal",
-  },
-];
-const plantelesEspecificos = crearPlantelesEspecificos([
-  {
-    plantel: "Centro",
     diferentesPrecios: true,
-    costoColegiatura: 2452,
-    modalidad: "normal",
-  },
-  {
-    plantel: "Centro Médico",
-    diferentesPrecios: true,
-    costoColegiatura: 1727,
+    costoColegiatura: 2365,
     modalidad: "normal",
   },
   // ... resto de tu configuración
@@ -502,11 +493,20 @@ const plantelesEspecificos = crearPlantelesEspecificos([
           </div>
 
           <!-- CTA Button -->
-          <button
-            class="bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-6 rounded-lg text-base transition-colors duration-300 shadow-lg whitespace-nowrap"
-          >
-            INSCRIBIR A MI HIJO
-          </button>
+          <div class="flex flex-col items-center space-y-2">
+            <a
+              href="/contacto/formulario-inscripcion"
+              class="bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-6 rounded-lg text-base transition-colors duration-300 shadow-lg whitespace-nowrap"
+            >
+              INSCRIBIR A MI HIJO
+            </a>
+            <a
+              href="/contacto/solicitarinformacion"
+              class="text-sm text-azul-une border-b pb-1 font-bold border-blue-une hover:opacity-80 transition-opacity duration-300"
+            >
+              Solicitar información
+            </a>
+          </div>
         </div>
       </div>
     </div>
@@ -544,7 +544,7 @@ const plantelesEspecificos = crearPlantelesEspecificos([
 
     <Requisitos nivel="Secundaria" requisitos={requisitosSecundaria} />
 
-    <PlanEstudios titulo="Propuesta Educativa" semestres={semestresDatos} />
+    <PlanEstudios titulo="Propuesta Educativa", nivelAcademico="Secundaria", semestres={semestresDatos} />
 
     <Perfiles
       perfilIngreso="El estudiante que ingresa a secundaria debe haber concluido la primaria, contar con conocimientos básicos de lectura, escritura y matemáticas, así como habilidades para comunicarse, razonar y trabajar en equipo. Se espera que tenga disposición para aprender, desarrollar su pensamiento crítico y asumir valores como la responsabilidad, el respeto y el compromiso con su entorno."
