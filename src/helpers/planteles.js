@@ -12,22 +12,28 @@ const PLANTELES_NOMBRES = [
 ];
 
 // OPCIÓN 1: Función para costos uniformes (todos iguales por modalidad)
-function crearPlantelesUniformes(costoNormal, costoSabatina) {
+function crearPlantelesUniformes(configuracion) {
+  const {
+    planteles,
+    costoNormal,
+    costoSabatina,
+    inscripcionNormal = 0,
+    inscripcionSabatina = 0
+  } = configuracion;
+
   return {
-    normal: PLANTELES_NOMBRES.map(nombre => ({
+    normal: planteles.map(nombre => ({
       nombre,
-      inscripcion: costoNormal,
+      inscripcion: inscripcionNormal,
       colegiatura: costoNormal
     })),
-    sabatina: PLANTELES_NOMBRES.map(nombre => ({
+    sabatina: planteles.map(nombre => ({
       nombre,
-      inscripcion: costoSabatina,
+      inscripcion: inscripcionSabatina,
       colegiatura: costoSabatina
     }))
   };
 }
-
-
 // Función adaptada para planteles sin inscripción con mensualidad variable
 function crearPlantelesEspecificos(configuraciones) {
   const planteles = { normal: [], sabatina: [] };
