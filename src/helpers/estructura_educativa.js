@@ -2,1869 +2,1913 @@
 // Generado automáticamente desde datos de Excel
 
 export const programasEducativos = {
-  "Licenciaturas": {
+  Licenciaturas: {
     "Arquitectura y diseño": {
-      "Arquitectura": {
+      Arquitectura: {
         "CAMPUS  PUERTO  VALLARTA": [
           {
-            "modalidad": "Escolarizada",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "VALLARTA"
-          }
+            modalidad: "Escolarizada",
+            incorporacion: "SICYT",
+            descripcion:
+              "Diseña el futuro construyendo espacios funcionales, sostenibles y estéticamente atractivos. Da vida a tus ideas a través de la arquitectura.",
+          },
         ],
-        "CENTRO": [
+        CENTRO: [
           {
-            "modalidad": "Escolarizada",
-            "incorporacion": "UDG",
-            "hoja_fuente": "GDL"
+            modalidad: "Escolarizada",
+            incorporacion: "UDG",
+            descripcion:
+              "Diseña el futuro construyendo espacios funcionales, sostenibles y estéticamente atractivos. Da vida a tus ideas a través de la arquitectura.",
           },
           {
-            "modalidad": "Escolarizada",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "GDL"
-          }
+            modalidad: "Escolarizada",
+            incorporacion: "SICYT",
+            descripcion:
+              "Diseña el futuro construyendo espacios funcionales, sostenibles y estéticamente atractivos. Da vida a tus ideas a través de la arquitectura.",
+          },
         ],
-        "TEPATITLÁN": [
+        TEPATITLÁN: [
           {
-            "modalidad": "Escolarizada",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "TEPA"
-          }
+            modalidad: "Escolarizada",
+            incorporacion: "SICYT",
+            descripcion:
+              "Diseña el futuro construyendo espacios funcionales, sostenibles y estéticamente atractivos. Da vida a tus ideas a través de la arquitectura.",
+          },
         ],
-        "TESISTÁN": [
+        TESISTÁN: [
           {
-            "modalidad": "Escolarizada",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "GDL"
-          }
+            modalidad: "Escolarizada",
+            incorporacion: "SICYT",
+            descripcion:
+              "Diseña el futuro construyendo espacios funcionales, sostenibles y estéticamente atractivos. Da vida a tus ideas a través de la arquitectura.",
+          },
         ],
-        "TLAJOMULCO": [
+        TLAJOMULCO: [
           {
-            "modalidad": "Escolarizada",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "GDL"
-          }
+            modalidad: "Escolarizada",
+            incorporacion: "SICYT",
+            descripcion:
+              "Diseña el futuro construyendo espacios funcionales, sostenibles y estéticamente atractivos. Da vida a tus ideas a través de la arquitectura.",
+          },
         ],
-        "TONALÁ": [
+        TONALÁ: [
           {
-            "modalidad": "Escolarizada",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "GDL"
-          }
+            modalidad: "Escolarizada",
+            incorporacion: "SICYT",
+            descripcion:
+              "Diseña el futuro construyendo espacios funcionales, sostenibles y estéticamente atractivos. Da vida a tus ideas a través de la arquitectura.",
+          },
         ],
-        "ZAPOPAN": [
+        ZAPOPAN: [
           {
-            "modalidad": "Escolarizada",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "GDL"
-          }
-        ]
+            modalidad: "Escolarizada",
+            incorporacion: "SICYT",
+            descripcion:
+              "Diseña el futuro construyendo espacios funcionales, sostenibles y estéticamente atractivos. Da vida a tus ideas a través de la arquitectura.",
+          },
+        ],
       },
       "Diseño Gráfico": {
-        "CENTRO": [
+        CENTRO: [
           {
-            "modalidad": "Escolarizada",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "GDL"
+            modalidad: "Escolarizada",
+            incorporacion: "SICYT",
+            descripcion: "Expresa ideas visuales con impacto. Aprende a crear diseño publicitario, digital y de marca.",
           },
           {
-            "modalidad": "Viernes y Sábado",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "GDL"
-          }
+            modalidad: "Viernes y Sábado",
+            incorporacion: "SICYT",
+            descripcion: "txt",
+          },
         ],
-        "ZAPOPAN": [
+        ZAPOPAN: [
           {
-            "modalidad": "Escolarizada",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "GDL"
+            modalidad: "Escolarizada",
+            incorporacion: "SICYT",
+            descripcion: "txt",
           },
           {
-            "modalidad": "Viernes y Sábado",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "GDL"
-          }
-        ]
+            modalidad: "Viernes y Sábado",
+            incorporacion: "SICYT",
+            descripcion: "txt",
+          },
+        ],
       },
-      "Ingeniería Industrial": {
-        "CENTRO": [
-          {
-            "modalidad": "Escolarizada",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "GDL"
-          }
-        ],
-        "MILENIO": [
-          {
-            "modalidad": "Escolarizada",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "GDL"
-          }
-        ],
-        "ZAPOPAN": [
-          {
-            "modalidad": "Escolarizada",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "GDL"
-          }
-        ]
-      }
     },
     "Ciencias Sociales y Humanidades": {
       "Ciencias de la Comunicación": {
-        "CENTRO": [
+        CENTRO: [
           {
-            "modalidad": "Escolarizada",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "GDL"
-          }
+            modalidad: "Escolarizada",
+            incorporacion: "SICYT",
+            descripcion: "Conviértete en un comunicador versátil y creativo, preparado para impactar en medios digitales, corporativos y sociales.",
+          },
         ],
-        "MILENIO": [
+        MILENIO: [
           {
-            "modalidad": "Escolarizada",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "GDL"
-          }
-        ]
+            modalidad: "Escolarizada",
+            incorporacion: "SICYT",
+            descripcion: "txt",
+          },
+        ],
+      },
+      Abogado: {
+        "TORRE QUETZAL": [
+          {
+            modalidad: "Escolarizada",
+            incorporacion: "UDG",
+            descripcion:
+              "Conviértete en un profesional del derecho con sólida formación jurídica, listo para defender la justicia y asesorar con responsabilidad.",
+          },
+        ],
       },
       "Ciencias de la Educación": {
         "Av. México": [
           {
-            "modalidad": "Semiescolarizada",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "VALLARTA"
+            modalidad: "Semiescolarizada",
+            incorporacion: "SICYT",
+            descripcion: "Transforma el aprendizaje desde el aula con herramientas pedagógicas y compromiso social.",
           },
           {
-            "modalidad": "Sabatina",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "VALLARTA"
-          }
+            modalidad: "Sabatina",
+            incorporacion: "SICYT",
+            descripcion: "txt",
+          },
         ],
         "CAMPUS  PUERTO  VALLARTA": [
           {
-            "modalidad": "Viernes/Sábado",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "VALLARTA"
+            modalidad: "Viernes y Sábado",
+            incorporacion: "SICYT",
+            descripcion: "txt",
           },
           {
-            "modalidad": "Semiescolarizada",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "VALLARTA"
-          }
+            modalidad: "Semiescolarizada",
+            incorporacion: "SICYT",
+            descripcion: "txt",
+          },
         ],
-        "CARACOL": [
+        CARACOL: [
           {
-            "modalidad": "Semiescolarizada",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "VALLARTA"
+            modalidad: "Semiescolarizada",
+            incorporacion: "SICYT",
+            descripcion: "txt",
           },
           {
-            "modalidad": "Sabatino",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "VALLARTA"
-          }
+            modalidad: "Sabatina",
+            incorporacion: "SICYT",
+            descripcion: "txt",
+          },
         ],
         "CENTRO \nMÉDICO": [
           {
-            "modalidad": "Martes y Jueves",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "GDL"
-          }
+            modalidad: "Martes y Jueves",
+            incorporacion: "SICYT",
+            descripcion: "txt",
+          },
         ],
-        "CHAPULTEPEC": [
+        CHAPULTEPEC: [
           {
-            "modalidad": "Semiescolarizada",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "GDL"
+            modalidad: "Semiescolarizada",
+            incorporacion: "SICYT",
+            descripcion: "txt",
           },
           {
-            "modalidad": "Sabatino",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "GDL"
-          }
+            modalidad: "Sabatina",
+            incorporacion: "SICYT",
+            descripcion: "txt",
+          },
         ],
-        "TORRE QUETZAL": [
+
+        ZAPOPAN: [
           {
-            "modalidad": "Escolarizada",
-            "incorporacion": "ESPECIALIDAD",
-            "hoja_fuente": "GDL"
-          }
-        ],
-        "ZAPOPAN": [
-          {
-            "modalidad": "Semiescolarizada",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "GDL"
+            modalidad: "Semiescolarizada",
+            incorporacion: "SICYT",
+            descripcion: "txt",
           },
           {
-            "modalidad": "Sabatino",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "GDL"
-          }
-        ]
+            modalidad: "Sabatina",
+            incorporacion: "SICYT",
+            descripcion: "txt",
+          },
+        ],
       },
       "Criminología y Criminalística": {
-        "CHAPULTEPEC": [
+        CHAPULTEPEC: [
           {
-            "modalidad": "Escolarizada",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "GDL"
-          }
+            modalidad: "Escolarizada",
+            incorporacion: "SICYT",
+            descripcion: "Investiga, analiza y previene el delito con una formación científica y humanista.",
+          },
         ],
-        "TESISTÁN": [
+        TESISTÁN: [
           {
-            "modalidad": "Escolarizada",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "GDL"
-          }
+            modalidad: "Escolarizada",
+            incorporacion: "SICYT",
+            descripcion: "txt",
+          },
         ],
-        "TLAJOMULCO": [
+        TLAJOMULCO: [
           {
-            "modalidad": "Escolarizada",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "GDL"
-          }
+            modalidad: "Escolarizada",
+            incorporacion: "SICYT",
+            descripcion: "txt",
+          },
         ],
-        "TONALÁ": [
+        TONALÁ: [
           {
-            "modalidad": "Escolarizada",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "GDL"
-          }
-        ]
+            modalidad: "Escolarizada",
+            incorporacion: "SICYT",
+            descripcion: "txt",
+          },
+        ],
       },
-      "Derecho": {
+      Derecho: {
         "Av. México": [
           {
-            "modalidad": "Semiescolarizada",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "VALLARTA"
+            modalidad: "Semiescolarizada",
+            incorporacion: "SICYT",
+            descripcion:
+              "Conviértete en un profesional del derecho con sólida formación jurídica, listo para defender la justicia y asesorar con responsabilidad.",
           },
           {
-            "modalidad": "Sabatina",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "VALLARTA"
-          }
+            modalidad: "Sabatina",
+            incorporacion: "SICYT",
+            descripcion:
+              "Conviértete en un profesional del derecho con sólida formación jurídica, listo para defender la justicia y asesorar con responsabilidad.",
+          },
         ],
         "CAMPUS  PUERTO  VALLARTA": [
           {
-            "modalidad": "Semiescolarizada",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "VALLARTA"
+            modalidad: "Semiescolarizada",
+            incorporacion: "SICYT",
+            descripcion:
+              "Conviértete en un profesional del derecho con sólida formación jurídica, listo para defender la justicia y asesorar con responsabilidad.",
           },
           {
-            "modalidad": "Sabatimo",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "VALLARTA"
-          }
+            modalidad: "Sabatina",
+            incorporacion: "SICYT",
+            descripcion: "txt",
+          },
         ],
-        "CARACOL": [
+        CARACOL: [
           {
-            "modalidad": "Semiescolarizada",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "VALLARTA"
+            modalidad: "Semiescolarizada",
+            incorporacion: "SICYT",
+            descripcion: "txt",
           },
           {
-            "modalidad": "Sabatino",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "VALLARTA"
-          }
+            modalidad: "Sabatina",
+            incorporacion: "SICYT",
+            descripcion: "txt",
+          },
         ],
-        "CENTRO": [
+        CENTRO: [
           {
-            "modalidad": "Semiescolarizada",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "GDL"
+            modalidad: "Semiescolarizada",
+            incorporacion: "SICYT",
+            descripcion: "txt",
           },
           {
-            "modalidad": "Sabatino",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "GDL"
-          }
+            modalidad: "Sabatina",
+            incorporacion: "SICYT",
+            descripcion: "txt",
+          },
         ],
         "CENTRO \nMÉDICO": [
           {
-            "modalidad": "Semiescolarizada",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "GDL"
+            modalidad: "Semiescolarizada",
+            incorporacion: "SICYT",
+            descripcion: "txt",
           },
           {
-            "modalidad": "Sabatino",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "GDL"
-          }
+            modalidad: "Sabatina",
+            incorporacion: "SICYT",
+            descripcion: "txt",
+          },
         ],
-        "CHAPULTEPEC": [
+        CHAPULTEPEC: [
           {
-            "modalidad": "Semiescolarizada",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "GDL"
+            modalidad: "Semiescolarizada",
+            incorporacion: "SICYT",
+            descripcion: "txt",
           },
           {
-            "modalidad": "Sabatino",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "GDL"
-          }
+            modalidad: "Sabatina",
+            incorporacion: "SICYT",
+            descripcion: "txt",
+          },
         ],
-        "MILENIO": [
+        MILENIO: [
           {
-            "modalidad": "Sabatino",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "GDL"
-          }
+            modalidad: "Sabatina",
+            incorporacion: "SICYT",
+            descripcion: "txt",
+          },
         ],
-        "TEPATITLÁN": [
+        TEPATITLÁN: [
           {
-            "modalidad": "Semiescolarizada",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "TEPA"
+            modalidad: "Semiescolarizada",
+            incorporacion: "SICYT",
+            descripcion: "txt",
           },
           {
-            "modalidad": "Sabatino",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "TEPA"
-          }
+            modalidad: "Sabatina",
+            incorporacion: "SICYT",
+            descripcion: "txt",
+          },
         ],
-        "TESISTÁN": [
+        TESISTÁN: [
           {
-            "modalidad": "Semiescolarizada",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "GDL"
+            modalidad: "Semiescolarizada",
+            incorporacion: "SICYT",
+            descripcion: "txt",
           },
           {
-            "modalidad": "Sabatino",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "GDL"
-          }
+            modalidad: "Sabatina",
+            incorporacion: "SICYT",
+            descripcion: "txt",
+          },
         ],
-        "TLAJOMULCO": [
+        TLAJOMULCO: [
           {
-            "modalidad": "Semiescolarizada",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "GDL"
+            modalidad: "Semiescolarizada",
+            incorporacion: "SICYT",
+            descripcion: "txt",
           },
           {
-            "modalidad": "Sabatino",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "GDL"
-          }
+            modalidad: "Sabatina",
+            incorporacion: "SICYT",
+            descripcion: "txt",
+          },
         ],
-        "TLAQUEPAQUE": [
+        TLAQUEPAQUE: [
           {
-            "modalidad": "Semiescolarizada",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "GDL"
+            modalidad: "Semiescolarizada",
+            incorporacion: "SICYT",
+            descripcion: "txt",
           },
           {
-            "modalidad": "Sabatino",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "GDL"
-          }
+            modalidad: "Sabatina",
+            incorporacion: "SICYT",
+            descripcion: "txt",
+          },
         ],
-        "TONALÁ": [
+        TONALÁ: [
           {
-            "modalidad": "Semiescolarizada",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "GDL"
+            modalidad: "Semiescolarizada",
+            incorporacion: "SICYT",
+            descripcion: "txt",
           },
           {
-            "modalidad": "Sabatino",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "GDL"
-          }
+            modalidad: "Sabatina",
+            incorporacion: "SICYT",
+            descripcion: "txt",
+          },
         ],
         "TORRE QUETZAL": [
           {
-            "modalidad": "Sabatino",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "GDL"
-          }
+            modalidad: "Sabatina",
+            incorporacion: "SICYT",
+            descripcion: "txt",
+          },
         ],
-        "ZAPOPAN": [
+        ZAPOPAN: [
           {
-            "modalidad": "Semiescolarizada",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "GDL"
+            modalidad: "Semiescolarizada",
+            incorporacion: "SICYT",
+            descripcion: "txt",
           },
           {
-            "modalidad": "Sabatino",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "GDL"
-          }
-        ]
+            modalidad: "Sabatina",
+            incorporacion: "SICYT",
+            descripcion: "txt",
+          },
+        ],
       },
       "Trabajo Social": {
-        "CARACOL": [
+        CARACOL: [
           {
-            "modalidad": "Escolarizada",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "VALLARTA"
+            modalidad: "Escolarizada",
+            incorporacion: "SICYT",
+            descripcion: "Interviene de forma directa en comunidades, familias y organizaciones para mejorar su bienestar.",
           },
           {
-            "modalidad": "Viernes y Sábado",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "VALLARTA"
-          }
+            modalidad: "Viernes y Sábado",
+            incorporacion: "SICYT",
+            descripcion: "txt",
+          },
         ],
-        "CENTRO": [
+        CENTRO: [
           {
-            "modalidad": "Viernes y Sábado",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "GDL"
-          }
+            modalidad: "Viernes y Sábado",
+            incorporacion: "SICYT",
+            descripcion: "txt",
+          },
         ],
         "CENTRO \nMÉDICO": [
           {
-            "modalidad": "Viernes y Sábado",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "GDL"
-          }
+            modalidad: "Viernes y Sábado",
+            incorporacion: "SICYT",
+            descripcion: "txt",
+          },
         ],
-        "CHAPULTEPEC": [
+        CHAPULTEPEC: [
           {
-            "modalidad": "Escolarizada",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "GDL"
+            modalidad: "Escolarizada",
+            incorporacion: "SICYT",
+            descripcion: "txt",
           },
           {
-            "modalidad": "Viernes y Sábado",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "GDL"
-          }
+            modalidad: "Viernes y Sábado",
+            incorporacion: "SICYT",
+            descripcion: "txt",
+          },
         ],
-        "TLAQUEPAQUE": [
+        TLAQUEPAQUE: [
           {
-            "modalidad": "Viernes y Sábado",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "GDL"
-          }
+            modalidad: "Viernes y Sábado",
+            incorporacion: "SICYT",
+            descripcion: "txt",
+          },
         ],
-        "ZAPOPAN": [
+        ZAPOPAN: [
           {
-            "modalidad": "Escolarizada",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "GDL"
+            modalidad: "Escolarizada",
+            incorporacion: "SICYT",
+            descripcion: "txt",
           },
           {
-            "modalidad": "Viernes y Sábado",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "GDL"
-          }
-        ]
-      }
+            modalidad: "Viernes y Sábado",
+            incorporacion: "SICYT",
+            descripcion: "txt",
+          },
+        ],
+      },
     },
     "Ciencias de la salud": {
       "Cirujano Dentista": {
-        "CHAPULTEPEC": [
+        CHAPULTEPEC: [
           {
-            "modalidad": "Escolarizada",
-            "incorporacion": "UDG",
-            "hoja_fuente": "GDL"
-          }
+            modalidad: "Escolarizada",
+            incorporacion: "UDG",
+            descripcion:
+              "Especialízate en salud bucal con una formación práctica y de alto nivel, enfocada en la prevención, diagnóstico y rehabilitación oral.",
+          },
         ],
         "LAS JUNTAS": [
           {
-            "modalidad": "Escolarizada",
-            "incorporacion": "UDG",
-            "hoja_fuente": "VALLARTA"
-          }
+            modalidad: "Escolarizada",
+            incorporacion: "UDG",
+            descripcion:
+              "Especialízate en salud bucal con una formación práctica y de alto nivel, enfocada en la prevención, diagnóstico y rehabilitación oral.",
+          },
         ],
-        "TEPATITLÁN": [
+        TEPATITLÁN: [
           {
-            "modalidad": "Escolarizada",
-            "incorporacion": "UDG",
-            "hoja_fuente": "TEPA"
-          }
+            modalidad: "Escolarizada",
+            incorporacion: "UDG",
+            descripcion:
+              "Especialízate en salud bucal con una formación práctica y de alto nivel, enfocada en la prevención, diagnóstico y rehabilitación oral.",
+          },
         ],
-        "TONALÁ": [
+        TONALÁ: [
           {
-            "modalidad": "Escolarizada",
-            "incorporacion": "UDG",
-            "hoja_fuente": "GDL"
-          }
+            modalidad: "Escolarizada",
+            incorporacion: "UDG",
+            descripcion:
+              "Especialízate en salud bucal con una formación práctica y de alto nivel, enfocada en la prevención, diagnóstico y rehabilitación oral.",
+          },
         ],
         "TORRE UNE\n MILENIO": [
           {
-            "modalidad": "Escolarizada",
-            "incorporacion": "UDG",
-            "hoja_fuente": "GDL"
-          }
+            modalidad: "Escolarizada",
+            incorporacion: "UDG",
+            descripcion:
+              "Especialízate en salud bucal con una formación práctica y de alto nivel, enfocada en la prevención, diagnóstico y rehabilitación oral.",
+          },
         ],
-        "ZAPOPAN": [
+        ZAPOPAN: [
           {
-            "modalidad": "Escolarizada",
-            "incorporacion": "UDG",
-            "hoja_fuente": "GDL"
-          }
-        ]
+            modalidad: "Escolarizada",
+            incorporacion: "UDG",
+            descripcion:
+              "Especialízate en salud bucal con una formación práctica y de alto nivel, enfocada en la prevención, diagnóstico y rehabilitación oral.",
+          },
+        ],
       },
-      "Enfermería": {
-        "CHAPULTEPEC": [
+      "Cultura Física y del Deporte": {
+        TESISTÁN: [
           {
-            "modalidad": "Escolarizada",
-            "incorporacion": "UDG",
-            "hoja_fuente": "GDL"
-          }
+            modalidad: "Escolarizada",
+            incorporacion: "SICYT",
+            descripcion: "Promueve la salud y el rendimiento físico a través de la actividad deportiva y el entrenamiento profesional.",
+          },
+        ],
+        TLAJOMULCO: [
+          {
+            modalidad: "Escolarizada",
+            incorporacion: "SICYT",
+            descripcion: "txt",
+          },
+        ],
+        TONALÁ: [
+          {
+            modalidad: "Escolarizada",
+            incorporacion: "SICYT",
+            descripcion: "txt",
+          },
+        ],
+        "TORRE UNE\n MILENIO": [
+          {
+            modalidad: "Escolarizada",
+            incorporacion: "SICYT",
+            descripcion: "txt",
+          },
+        ],
+      },
+      Enfermería: {
+        CHAPULTEPEC: [
+          {
+            modalidad: "Escolarizada",
+            incorporacion: "UDG",
+            descripcion:
+              "Con vocación y conocimiento, cuida y mejora la salud de las personas en todos los niveles de atención.",
+          },
         ],
         "LAS JUNTAS": [
           {
-            "modalidad": "Escolarizada",
-            "incorporacion": "UDG",
-            "hoja_fuente": "VALLARTA"
-          }
+            modalidad: "Escolarizada",
+            incorporacion: "UDG",
+            descripcion:
+              "Con vocación y conocimiento, cuida y mejora la salud de las personas en todos los niveles de atención.",
+          },
         ],
-        "TLAJOMULCO": [
+        TLAJOMULCO: [
           {
-            "modalidad": "Escolarizada",
-            "incorporacion": "UDG",
-            "hoja_fuente": "GDL"
-          }
+            modalidad: "Escolarizada",
+            incorporacion: "UDG",
+            descripcion:
+              "Con vocación y conocimiento, cuida y mejora la salud de las personas en todos los niveles de atención.",
+          },
         ],
         "TORRE UNE\n MILENIO": [
           {
-            "modalidad": "Escolarizada",
-            "incorporacion": "UDG",
-            "hoja_fuente": "GDL"
-          }
+            modalidad: "Escolarizada",
+            incorporacion: "UDG",
+            descripcion:
+              "Con vocación y conocimiento, cuida y mejora la salud de las personas en todos los niveles de atención.",
+          },
         ],
-        "ZAPOPAN": [
+        ZAPOPAN: [
           {
-            "modalidad": "Escolarizada",
-            "incorporacion": "UDG",
-            "hoja_fuente": "GDL"
-          }
-        ]
+            modalidad: "Escolarizada",
+            incorporacion: "UDG",
+            descripcion:
+              "Con vocación y conocimiento, cuida y mejora la salud de las personas en todos los niveles de atención.",
+          },
+        ],
       },
-      "Nutrición": {
+      Nutrición: {
         "Av. México": [
           {
-            "modalidad": "Escolarizada",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "VALLARTA"
+            modalidad: "Escolarizada",
+            incorporacion: "SICYT",
+            descripcion: "Promueve estilos de vida saludables a través de la alimentación consciente y personalizada.",
           },
           {
-            "modalidad": "Viernes y Sábado",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "VALLARTA"
-          }
+            modalidad: "Viernes y Sábado",
+            incorporacion: "SICYT",
+            descripcion: "Promueve estilos de vida saludables a través de la alimentación consciente y personalizada.",
+          },
         ],
         "CAMPUS  PUERTO  VALLARTA": [
           {
-            "modalidad": "Escolarizada",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "VALLARTA"
+            modalidad: "Escolarizada",
+            incorporacion: "SICYT",
+            descripcion: "Promueve estilos de vida saludables a través de la alimentación consciente y personalizada.",
           },
           {
-            "modalidad": "Viernes/Sábado",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "VALLARTA"
-          }
+            modalidad: "Viernes y Sábado",
+            incorporacion: "SICYT",
+            descripcion: "Promueve estilos de vida saludables a través de la alimentación consciente y personalizada.",
+          },
         ],
-        "CARACOL": [
+        CARACOL: [
           {
-            "modalidad": "Escolarizada",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "VALLARTA"
+            modalidad: "Escolarizada",
+            incorporacion: "SICYT",
+            descripcion: "Promueve estilos de vida saludables a través de la alimentación consciente y personalizada.",
           },
           {
-            "modalidad": "Viernes y Sábado",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "VALLARTA"
-          }
+            modalidad: "Viernes y Sábado",
+            incorporacion: "SICYT",
+            descripcion: "Promueve estilos de vida saludables a través de la alimentación consciente y personalizada.",
+          },
         ],
-        "CENTRO": [
+        CENTRO: [
           {
-            "modalidad": "Escolarizada",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "GDL"
+            modalidad: "Escolarizada",
+            incorporacion: "SICYT",
+            descripcion: "Promueve estilos de vida saludables a través de la alimentación consciente y personalizada.",
           },
           {
-            "modalidad": "Viernes y Sábado",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "GDL"
-          }
+            modalidad: "Viernes y Sábado",
+            incorporacion: "SICYT",
+            descripcion: "Promueve estilos de vida saludables a través de la alimentación consciente y personalizada.",
+          },
         ],
-        "CHAPULTEPEC": [
+        CHAPULTEPEC: [
           {
-            "modalidad": "Escolarizada",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "GDL"
+            modalidad: "Escolarizada",
+            incorporacion: "SICYT",
+            descripcion: "Promueve estilos de vida saludables a través de la alimentación consciente y personalizada.",
           },
           {
-            "modalidad": "Viernes y Sábado",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "GDL"
-          }
+            modalidad: "Viernes y Sábado",
+            incorporacion: "SICYT",
+            descripcion: "Promueve estilos de vida saludables a través de la alimentación consciente y personalizada.",
+          },
         ],
         "LAS JUNTAS": [
           {
-            "modalidad": "Viernes y Sabado",
-            "incorporacion": "SICyT",
-            "hoja_fuente": "VALLARTA"
-          }
+            modalidad: "Viernes y Sábado",
+            incorporacion: "SICYT",
+            descripcion: "Promueve estilos de vida saludables a través de la alimentación consciente y personalizada.",
+          },
         ],
-        "TEPATITLÁN": [
+        TEPATITLÁN: [
           {
-            "modalidad": "Escolarizada",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "TEPA"
-          }
+            modalidad: "Escolarizada",
+            incorporacion: "SICYT",
+            descripcion: "Promueve estilos de vida saludables a través de la alimentación consciente y personalizada.",
+          },
         ],
-        "TLAJOMULCO": [
+        TLAJOMULCO: [
           {
-            "modalidad": "Escolarizada",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "GDL"
-          }
+            modalidad: "Escolarizada",
+            incorporacion: "SICYT",
+            descripcion: "Promueve estilos de vida saludables a través de la alimentación consciente y personalizada.",
+          },
         ],
-        "TLAQUEPAQUE": [
+        TLAQUEPAQUE: [
           {
-            "modalidad": "Escolarizada",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "GDL"
-          }
+            modalidad: "Escolarizada",
+            incorporacion: "SICYT",
+            descripcion: "Promueve estilos de vida saludables a través de la alimentación consciente y personalizada.",
+          },
         ],
-        "TONALÁ": [
+        TONALÁ: [
           {
-            "modalidad": "Escolarizada",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "GDL"
-          }
+            modalidad: "Escolarizada",
+            incorporacion: "SICYT",
+            descripcion: "Promueve estilos de vida saludables a través de la alimentación consciente y personalizada.",
+          },
         ],
         "TORRE UNE\n MILENIO": [
           {
-            "modalidad": "Escolarizada",
-            "incorporacion": "UDG",
-            "hoja_fuente": "GDL"
-          }
+            modalidad: "Escolarizada",
+            incorporacion: "UDG",
+            descripcion: "Promueve estilos de vida saludables a través de la alimentación consciente y personalizada.",
+          },
         ],
-        "ZAPOPAN": [
+        ZAPOPAN: [
           {
-            "modalidad": "Escolarizada",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "GDL"
+            modalidad: "Escolarizada",
+            incorporacion: "SICYT",
+            descripcion: "Promueve estilos de vida saludables a través de la alimentación consciente y personalizada.",
           },
           {
-            "modalidad": "Viernes y Sábado",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "GDL"
-          }
-        ]
+            modalidad: "Viernes y Sábado",
+            incorporacion: "SICYT",
+            descripcion: "Promueve estilos de vida saludables a través de la alimentación consciente y personalizada.",
+          },
+        ],
       },
-      "Psicología": {
+      Psicología: {
         "Av. México": [
           {
-            "modalidad": "Escolarizada",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "VALLARTA"
+            modalidad: "Escolarizada",
+            incorporacion: "SICYT",
+            descripcion: "Comprende la conducta humana y contribuye al bienestar emocional, social y mental de las personas.",
           },
           {
-            "modalidad": "Viernes y Sábado",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "VALLARTA"
-          }
+            modalidad: "Viernes y Sábado",
+            incorporacion: "SICYT",
+            descripcion: "Comprende la conducta humana y contribuye al bienestar emocional, social y mental de las personas.",
+          },
         ],
         "CAMPUS  PUERTO  VALLARTA": [
           {
-            "modalidad": "Escolarizada",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "VALLARTA"
+            modalidad: "Escolarizada",
+            incorporacion: "SICYT",
+            descripcion: "Comprende la conducta humana y contribuye al bienestar emocional, social y mental de las personas.",
           },
           {
-            "modalidad": "Viernes/Sábado",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "VALLARTA"
-          }
+            modalidad: "Viernes y Sábado",
+            incorporacion: "SICYT",
+            descripcion: "Comprende la conducta humana y contribuye al bienestar emocional, social y mental de las personas.",
+          },
         ],
-        "CARACOL": [
+        CARACOL: [
           {
-            "modalidad": "Escolarizada",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "VALLARTA"
+            modalidad: "Escolarizada",
+            incorporacion: "SICYT",
+            descripcion: "Comprende la conducta humana y contribuye al bienestar emocional, social y mental de las personas.",
           },
           {
-            "modalidad": "Viernes y Sábado",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "VALLARTA"
-          }
+            modalidad: "Viernes y Sábado",
+            incorporacion: "SICYT",
+            descripcion: "Comprende la conducta humana y contribuye al bienestar emocional, social y mental de las personas.",
+          },
         ],
-        "CENTRO": [
+        CENTRO: [
           {
-            "modalidad": "Escolarizada",
-            "incorporacion": "UDG",
-            "hoja_fuente": "GDL"
+            modalidad: "Escolarizada",
+            incorporacion: "UDG",
+            descripcion: "Comprende la conducta humana y contribuye al bienestar emocional, social y mental de las personas.",
           },
           {
-            "modalidad": "Viernes y Sábado",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "GDL"
-          }
+            modalidad: "Viernes y Sábado",
+            incorporacion: "SICYT",
+            descripcion: "Comprende la conducta humana y contribuye al bienestar emocional, social y mental de las personas.",
+          },
         ],
-        "CHAPULTEPEC": [
+        CHAPULTEPEC: [
           {
-            "modalidad": "Escolarizada",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "GDL"
+            modalidad: "Escolarizada",
+            incorporacion: "SICYT",
+            descripcion: "Comprende la conducta humana y contribuye al bienestar emocional, social y mental de las personas.",
           },
           {
-            "modalidad": "Viernes y Sábado",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "GDL"
-          }
+            modalidad: "Viernes y Sábado",
+            incorporacion: "SICYT",
+            descripcion: "Comprende la conducta humana y contribuye al bienestar emocional, social y mental de las personas.",
+          },
         ],
-        "MILENIO": [
+        MILENIO: [
           {
-            "modalidad": "Escolarizada",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "GDL"
+            modalidad: "Escolarizada",
+            incorporacion: "SICYT",
+            descripcion: "Comprende la conducta humana y contribuye al bienestar emocional, social y mental de las personas.",
           },
           {
-            "modalidad": "Viernes y Sábado",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "GDL"
-          }
+            modalidad: "Viernes y Sábado",
+            incorporacion: "SICYT",
+            descripcion: "Comprende la conducta humana y contribuye al bienestar emocional, social y mental de las personas.",
+          },
         ],
-        "TEPATITLÁN": [
+        TEPATITLÁN: [
           {
-            "modalidad": "Escolarizada",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "TEPA"
-          }
+            modalidad: "Escolarizada",
+            incorporacion: "SICYT",
+            descripcion: "Comprende la conducta humana y contribuye al bienestar emocional, social y mental de las personas.",
+          },
         ],
-        "TESISTÁN": [
+        TESISTÁN: [
           {
-            "modalidad": "Escolarizada",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "GDL"
-          }
+            modalidad: "Escolarizada",
+            incorporacion: "SICYT",
+            descripcion: "Comprende la conducta humana y contribuye al bienestar emocional, social y mental de las personas.",
+          },
         ],
-        "TLAJOMULCO": [
+        TLAJOMULCO: [
           {
-            "modalidad": "Escolarizada",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "GDL"
+            modalidad: "Escolarizada",
+            incorporacion: "SICYT",
+            descripcion: "Comprende la conducta humana y contribuye al bienestar emocional, social y mental de las personas.",
           },
           {
-            "modalidad": "Viernes y Sábado",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "GDL"
-          }
+            modalidad: "Viernes y Sábado",
+            incorporacion: "SICYT",
+            descripcion: "Comprende la conducta humana y contribuye al bienestar emocional, social y mental de las personas.",
+          },
         ],
-        "TLAQUEPAQUE": [
+        TLAQUEPAQUE: [
           {
-            "modalidad": "Escolarizada",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "GDL"
+            modalidad: "Escolarizada",
+            incorporacion: "SICYT",
+            descripcion: "Comprende la conducta humana y contribuye al bienestar emocional, social y mental de las personas.",
           },
           {
-            "modalidad": "Viernes y Sábado",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "GDL"
-          }
+            modalidad: "Viernes y Sábado",
+            incorporacion: "SICYT",
+            descripcion: "Comprende la conducta humana y contribuye al bienestar emocional, social y mental de las personas.",
+          },
         ],
-        "TONALÁ": [
+        TONALÁ: [
           {
-            "modalidad": "Escolarizada",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "GDL"
-          }
+            modalidad: "Escolarizada",
+            incorporacion: "SICYT",
+            descripcion: "Comprende la conducta humana y contribuye al bienestar emocional, social y mental de las personas.",
+          },
         ],
         "TORRE UNE\n MILENIO": [
           {
-            "modalidad": "Escolarizada",
-            "incorporacion": "UDG",
-            "hoja_fuente": "GDL"
-          }
+            modalidad: "Escolarizada",
+            incorporacion: "UDG",
+            descripcion: "Comprende la conducta humana y contribuye al bienestar emocional, social y mental de las personas.",
+          },
         ],
-        "ZAPOPAN": [
+        ZAPOPAN: [
           {
-            "modalidad": "Escolarizada",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "GDL"
+            modalidad: "Escolarizada",
+            incorporacion: "SICYT",
+            descripcion: "Comprende la conducta humana y contribuye al bienestar emocional, social y mental de las personas.",
           },
           {
-            "modalidad": "Viernes y Sábado",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "GDL"
-          }
-        ]
+            modalidad: "Viernes y Sábado",
+            incorporacion: "SICYT",
+            descripcion: "Comprende la conducta humana y contribuye al bienestar emocional, social y mental de las personas.",
+          },
+        ],
       },
       "Químico Farmacéutico Biólogo": {
         "Av. México": [
           {
-            "modalidad": "Escolarizada",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "VALLARTA"
-          }
+            modalidad: "Escolarizada",
+            incorporacion: "SICYT",
+            descripcion: "Especialista en el diagnóstico clínico, análisis de laboratorio y desarrollo farmacéutico.",
+          },
         ],
-        "CHAPULTEPEC": [
+        CHAPULTEPEC: [
           {
-            "modalidad": "Escolarizada",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "GDL"
-          }
+            modalidad: "Escolarizada",
+            incorporacion: "SICYT",
+            descripcion: "txt",
+          },
         ],
-        "TEPATITLÁN": [
+        TEPATITLÁN: [
           {
-            "modalidad": "Escolarizada",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "TEPA"
-          }
+            modalidad: "Escolarizada",
+            incorporacion: "SICYT",
+            descripcion: "txt",
+          },
         ],
-        "TESISTÁN": [
+        TESISTÁN: [
           {
-            "modalidad": "Escolarizada",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "GDL"
-          }
+            modalidad: "Escolarizada",
+            incorporacion: "SICYT",
+            descripcion: "txt",
+          },
         ],
-        "TLAJOMULCO": [
+        TLAJOMULCO: [
           {
-            "modalidad": "Escolarizada",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "GDL"
-          }
+            modalidad: "Escolarizada",
+            incorporacion: "SICYT",
+            descripcion: "txt",
+          },
         ],
         "TORRE UNE\n MILENIO": [
           {
-            "modalidad": "Escolarizada",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "GDL"
-          }
+            modalidad: "Escolarizada",
+            incorporacion: "SICYT",
+            descripcion: "txt",
+          },
         ],
-        "ZAPOPAN": [
+        ZAPOPAN: [
           {
-            "modalidad": "Escolarizada",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "GDL"
-          }
-        ]
+            modalidad: "Escolarizada",
+            incorporacion: "SICYT",
+            descripcion: "txt",
+          },
+        ],
       },
       "Terapia Física": {
         "CAMPUS  PUERTO  VALLARTA": [
           {
-            "modalidad": "Escolarizada",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "VALLARTA"
-          }
+            modalidad: "Escolarizada",
+            incorporacion: "SICYT",
+            descripcion: "Ayuda a recuperar el movimiento y la funcionalidad corporal con técnicas terapéuticas efectivas.",
+          },
         ],
-        "CHAPULTEPEC": [
+        CHAPULTEPEC: [
           {
-            "modalidad": "Escolarizada",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "GDL"
-          }
+            modalidad: "Escolarizada",
+            incorporacion: "SICYT",
+            descripcion: "txt",
+          },
         ],
-        "TEPATITLÁN": [
+        TEPATITLÁN: [
           {
-            "modalidad": "Escolarizada",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "TEPA"
-          }
+            modalidad: "Escolarizada",
+            incorporacion: "SICYT",
+            descripcion: "txt",
+          },
         ],
-        "TESISTÁN": [
+        TESISTÁN: [
           {
-            "modalidad": "Escolarizada",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "GDL"
-          }
+            modalidad: "Escolarizada",
+            incorporacion: "SICYT",
+            descripcion: "txt",
+          },
         ],
-        "TLAJOMULCO": [
+        TLAJOMULCO: [
           {
-            "modalidad": "Escolarizada",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "GDL"
-          }
+            modalidad: "Escolarizada",
+            incorporacion: "SICYT",
+            descripcion: "txt",
+          },
         ],
-        "TONALÁ": [
+        TONALÁ: [
           {
-            "modalidad": "Escolarizada",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "GDL"
-          }
+            modalidad: "Escolarizada",
+            incorporacion: "SICYT",
+            descripcion: "txt",
+          },
         ],
         "TORRE UNE\n MILENIO": [
           {
-            "modalidad": "Escolarizada",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "GDL"
-          }
+            modalidad: "Escolarizada",
+            incorporacion: "SICYT",
+            descripcion: "txt",
+          },
         ],
-        "ZAPOPAN": [
+        ZAPOPAN: [
           {
-            "modalidad": "Escolarizada",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "GDL"
-          }
-        ]
-      }
+            modalidad: "Escolarizada",
+            incorporacion: "SICYT",
+            descripcion: "txt",
+          },
+        ],
+      },
     },
     "Ciencias exactas e ingenierías": {
-      "Cultura Física y del Deporte": {
-        "TESISTÁN": [
+      "Ingeniería Industrial": {
+        CENTRO: [
           {
-            "modalidad": "Escolarizada",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "GDL"
-          }
-        ],
-        "TLAJOMULCO": [
-          {
-            "modalidad": "Escolarizada",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "GDL"
-          }
-        ],
-        "TONALÁ": [
-          {
-            "modalidad": "Escolarizada",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "GDL"
-          }
-        ],
-        "TORRE UNE\n MILENIO": [
-          {
-            "modalidad": "Escolarizada",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "GDL"
-          }
-        ]
-      },
-      "Ing. Civil": {
-        "CAMPUS  PUERTO  VALLARTA": [
-          {
-            "modalidad": "Escolarizada",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "VALLARTA"
-          }
-        ]
-      },
-      "Ing. En Desarrollo de Software": {
-        "CAMPUS  PUERTO  VALLARTA": [
-          {
-            "modalidad": "Escolarizada",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "VALLARTA"
-          }
-        ]
-      },
-      "Ing. Mecánica": {
-        "CAMPUS  PUERTO  VALLARTA": [
-          {
-            "modalidad": "Escolarizada",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "VALLARTA"
-          }
-        ]
-      },
-      "Ingenieria Civil": {
-        "TESISTÁN": [
-          {
-            "modalidad": "Escolarizada",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "GDL"
-          }
-        ],
-        "TONALÁ": [
-          {
-            "modalidad": "Escolarizada",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "GDL"
-          }
-        ],
-        "ZAPOPAN": [
-          {
-            "modalidad": "Escolarizada",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "GDL"
-          }
-        ]
-      },
-      "Ingenieria Mecánica": {
-        "Av. México": [
-          {
-            "modalidad": "Escolarizada",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "VALLARTA"
-          }
-        ],
-        "CENTRO": [
-          {
-            "modalidad": "Escolarizada",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "GDL"
-          }
-        ],
-        "MILENIO": [
-          {
-            "modalidad": "Escolarizada",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "GDL"
-          }
-        ],
-        "TLAJOMULCO": [
-          {
-            "modalidad": "Escolarizada",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "GDL"
-          }
-        ],
-        "ZAPOPAN": [
-          {
-            "modalidad": "Escolarizada",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "GDL"
-          }
-        ]
-      },
-      "Ingenieria en Desarrollo Software": {
-        "Av. México": [
-          {
-            "modalidad": "Escolarizada",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "VALLARTA"
-          }
-        ],
-        "CENTRO": [
-          {
-            "modalidad": "Escolarizada",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "GDL"
-          }
-        ],
-        "MILENIO": [
-          {
-            "modalidad": "Escolarizada",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "GDL"
-          }
-        ],
-        "TEPATITLÁN": [
-          {
-            "modalidad": "Escolarizada",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "TEPA"
-          }
-        ]
-      },
-      "Ingenieria en Desarrollo de Software": {
-        "ZAPOPAN": [
-          {
-            "modalidad": "Escolarizada",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "GDL"
-          }
-        ]
-      },
-      "Ingeniería Civil": {
-        "TEPATITLÁN": [
-          {
-            "modalidad": "Escolarizada",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "TEPA"
-          }
-        ],
-        "TLAJOMULCO": [
-          {
-            "modalidad": "Escolarizada",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "GDL"
-          }
-        ]
-      },
-      "Ingeniería Computación": {
-        "CENTRO": [
-          {
-            "modalidad": "Escolarizada",
-            "incorporacion": "UDG",
-            "hoja_fuente": "GDL"
-          }
-        ]
-      },
-      "Ingeniería Química": {
-        "CHAPULTEPEC": [
-          {
-            "modalidad": "Escolarizada",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "GDL"
-          }
-        ],
-        "TESISTÁN": [
-          {
-            "modalidad": "Escolarizada",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "GDL"
-          }
-        ],
-        "TLAJOMULCO": [
-          {
-            "modalidad": "Escolarizada",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "GDL"
-          }
-        ]
-      },
-      "Ingeniería en Comunicaciones y Electrónica": {
-        "CENTRO": [
-          {
-            "modalidad": "Escolarizada",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "GDL"
-          }
-        ],
-        "MILENIO": [
-          {
-            "modalidad": "Escolarizada",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "GDL"
-          }
-        ],
-        "TLAJOMULCO": [
-          {
-            "modalidad": "Escolarizada",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "GDL"
-          }
-        ]
-      }
-    },
-    "Económico Administrativa": {
-      "Administración": {
-        "CAMPUS  PUERTO  VALLARTA": [
-          {
-            "modalidad": "Semiescolarizada",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "VALLARTA"
+            modalidad: "Escolarizada",
+            incorporacion: "SICYT",
+            descripcion: "Optimiza recursos, mejora procesos y lidera la eficiencia en cualquier tipo de organización.",
           },
-          {
-            "modalidad": "Sabatimo",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "VALLARTA"
-          }
         ],
-        "TORRE QUETZAL": [
+        MILENIO: [
           {
-            "modalidad": "Escolarizada",
-            "incorporacion": "UDG",
-            "hoja_fuente": "GDL"
-          }
-        ]
-      },
-      "Administración de Empresas": {
-        "Av. México": [
-          {
-            "modalidad": "Semiescolarizada",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "VALLARTA"
+            modalidad: "Escolarizada",
+            incorporacion: "SICYT",
+            descripcion: "txt",
           },
-          {
-            "modalidad": "Sabatina",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "VALLARTA"
-          }
         ],
-        "CARACOL": [
+        ZAPOPAN: [
           {
-            "modalidad": "Semiescolarizada",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "VALLARTA"
+            modalidad: "Escolarizada",
+            incorporacion: "SICYT",
+            descripcion: "txt",
           },
-          {
-            "modalidad": "Sabatino",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "VALLARTA"
-          }
         ],
-        "CENTRO": [
-          {
-            "modalidad": "Semiescolarizada",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "GDL"
-          },
-          {
-            "modalidad": "Sabatino",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "GDL"
-          }
-        ],
-        "CENTRO \nMÉDICO": [
-          {
-            "modalidad": "Semiescolarizada",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "GDL"
-          },
-          {
-            "modalidad": "Sabatino",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "GDL"
-          }
-        ],
-        "CHAPULTEPEC": [
-          {
-            "modalidad": "Semiescolarizada",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "GDL"
-          },
-          {
-            "modalidad": "Sabatino",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "GDL"
-          }
-        ],
-        "MILENIO": [
-          {
-            "modalidad": "Sabatino",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "GDL"
-          }
-        ],
-        "TEPATITLÁN": [
-          {
-            "modalidad": "Semiescolarizada",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "TEPA"
-          },
-          {
-            "modalidad": "Sabatino",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "TEPA"
-          }
-        ],
-        "TESISTÁN": [
-          {
-            "modalidad": "Semiescolarizada",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "GDL"
-          },
-          {
-            "modalidad": "Sabatino",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "GDL"
-          }
-        ],
-        "TLAJOMULCO": [
-          {
-            "modalidad": "Semiescolarizada",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "GDL"
-          },
-          {
-            "modalidad": "Sabatino",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "GDL"
-          }
-        ],
-        "TLAQUEPAQUE": [
-          {
-            "modalidad": "Semiescolarizada",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "GDL"
-          },
-          {
-            "modalidad": "Sabatino",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "GDL"
-          }
-        ],
-        "TONALÁ": [
-          {
-            "modalidad": "Semiescolarizada",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "GDL"
-          },
-          {
-            "modalidad": "Sabatino",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "GDL"
-          }
-        ],
-        "ZAPOPAN": [
-          {
-            "modalidad": "Semiescolarizada",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "GDL"
-          },
-          {
-            "modalidad": "Sabatino",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "GDL"
-          }
-        ]
-      },
-      "Administración de Negocios": {
-        "TORRE QUETZAL": [
-          {
-            "modalidad": "Escolarizada",
-            "incorporacion": "ESPECIALIDAD",
-            "hoja_fuente": "GDL"
-          }
-        ]
-      },
-      "Contaduría Pública": {
-        "TORRE QUETZAL": [
-          {
-            "modalidad": "Escolarizada",
-            "incorporacion": "UDG",
-            "hoja_fuente": "GDL"
-          }
-        ]
-      },
-      "Contaduría y Auditoria": {
-        "TORRE QUETZAL": [
-          {
-            "modalidad": "Sabatino",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "GDL"
-          }
-        ]
-      },
-      "Contaduría y Auditoría": {
-        "Av. México": [
-          {
-            "modalidad": "Escolarizada",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "VALLARTA"
-          },
-          {
-            "modalidad": "Viernes y Sábado",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "VALLARTA"
-          }
-        ],
-        "CARACOL": [
-          {
-            "modalidad": "Escolarizada",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "VALLARTA"
-          }
-        ],
-        "CENTRO \nMÉDICO": [
-          {
-            "modalidad": "Martes y Jueves",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "GDL"
-          }
-        ],
-        "TEPATITLÁN": [
-          {
-            "modalidad": "Escolarizada",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "TEPA"
-          }
-        ],
-        "TLAJOMULCO": [
-          {
-            "modalidad": "Escolarizada",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "GDL"
-          }
-        ],
-        "TORRE QUETZAL": [
-          {
-            "modalidad": "Escolarizada",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "GDL"
-          }
-        ],
-        "ZAPOPAN": [
-          {
-            "modalidad": "Escolarizada",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "GDL"
-          }
-        ]
-      },
-      "Gestión y Creación de PyME’s": {
-        "CENTRO \nMÉDICO": [
-          {
-            "modalidad": "Sabatino",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "GDL"
-          }
-        ],
-        "TORRE QUETZAL": [
-          {
-            "modalidad": "Sabatino",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "GDL"
-          }
-        ]
-      },
-      "Mercadotecnia": {
-        "Av. México": [
-          {
-            "modalidad": "Semiescolarizada",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "VALLARTA"
-          },
-          {
-            "modalidad": "Sabatina",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "VALLARTA"
-          }
-        ],
-        "CAMPUS  PUERTO  VALLARTA": [
-          {
-            "modalidad": "Semiescolarizada",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "VALLARTA"
-          },
-          {
-            "modalidad": "Sabatimo",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "VALLARTA"
-          }
-        ],
-        "CARACOL": [
-          {
-            "modalidad": "Semiescolarizada",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "VALLARTA"
-          },
-          {
-            "modalidad": "Sabatino",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "VALLARTA"
-          }
-        ],
-        "CENTRO": [
-          {
-            "modalidad": "Semiescolarizada",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "GDL"
-          },
-          {
-            "modalidad": "Sabatino",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "GDL"
-          }
-        ],
-        "CENTRO \nMÉDICO": [
-          {
-            "modalidad": "Semiescolarizada",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "GDL"
-          },
-          {
-            "modalidad": "Sabatino",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "GDL"
-          }
-        ],
-        "CHAPULTEPEC": [
-          {
-            "modalidad": "Semiescolarizada",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "GDL"
-          },
-          {
-            "modalidad": "Sabatino",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "GDL"
-          }
-        ],
-        "MILENIO": [
-          {
-            "modalidad": "Sabatino",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "GDL"
-          }
-        ],
-        "TEPATITLÁN": [
-          {
-            "modalidad": "Semiescolarizada",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "TEPA"
-          },
-          {
-            "modalidad": "Sabatino",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "TEPA"
-          }
-        ],
-        "TESISTÁN": [
-          {
-            "modalidad": "Semiescolarizada",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "GDL"
-          },
-          {
-            "modalidad": "Sabatino",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "GDL"
-          }
-        ],
-        "TLAJOMULCO": [
-          {
-            "modalidad": "Semiescolarizada",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "GDL"
-          },
-          {
-            "modalidad": "Sabatino",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "GDL"
-          }
-        ],
-        "TLAQUEPAQUE": [
-          {
-            "modalidad": "Semiescolarizada",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "GDL"
-          },
-          {
-            "modalidad": "Sabatino",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "GDL"
-          }
-        ],
-        "TONALÁ": [
-          {
-            "modalidad": "Semiescolarizada",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "GDL"
-          },
-          {
-            "modalidad": "Sabatino",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "GDL"
-          }
-        ],
-        "TORRE QUETZAL": [
-          {
-            "modalidad": "Escolarizada",
-            "incorporacion": "UDG",
-            "hoja_fuente": "GDL"
-          }
-        ],
-        "ZAPOPAN": [
-          {
-            "modalidad": "Semiescolarizada",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "GDL"
-          },
-          {
-            "modalidad": "Sabatino",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "GDL"
-          }
-        ]
-      },
-      "Mercadotecnia Internacional": {
-        "Av. México": [
-          {
-            "modalidad": "Sabatina",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "VALLARTA"
-          }
-        ],
-        "CENTRO \nMÉDICO": [
-          {
-            "modalidad": "Sabatino",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "GDL"
-          }
-        ]
-      },
-      "Negocios Internacionales": {
-        "Av. México": [
-          {
-            "modalidad": "Semiescolarizada",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "VALLARTA"
-          },
-          {
-            "modalidad": "Sabatina",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "VALLARTA"
-          }
-        ],
-        "CAMPUS  PUERTO  VALLARTA": [
-          {
-            "modalidad": "Semiescolarizada",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "VALLARTA"
-          },
-          {
-            "modalidad": "Sabatimo",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "VALLARTA"
-          }
-        ],
-        "CARACOL": [
-          {
-            "modalidad": "Semiescolarizada",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "VALLARTA"
-          },
-          {
-            "modalidad": "Sabatino",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "VALLARTA"
-          }
-        ],
-        "CENTRO": [
-          {
-            "modalidad": "Semiescolarizada",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "GDL"
-          },
-          {
-            "modalidad": "Sabatino",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "GDL"
-          }
-        ],
-        "CENTRO \nMÉDICO": [
-          {
-            "modalidad": "Semiescolarizada",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "GDL"
-          },
-          {
-            "modalidad": "Sabatino",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "GDL"
-          }
-        ],
-        "CHAPULTEPEC": [
-          {
-            "modalidad": "Semiescolarizada",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "GDL"
-          },
-          {
-            "modalidad": "Sabatino",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "GDL"
-          }
-        ],
-        "MILENIO": [
-          {
-            "modalidad": "Sabatino",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "GDL"
-          }
-        ],
-        "TEPATITLÁN": [
-          {
-            "modalidad": "Semiescolarizada",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "TEPA"
-          },
-          {
-            "modalidad": "Sabatino",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "TEPA"
-          }
-        ],
-        "TESISTÁN": [
-          {
-            "modalidad": "Semiescolarizada",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "GDL"
-          },
-          {
-            "modalidad": "Sabatino",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "GDL"
-          }
-        ],
-        "TLAJOMULCO": [
-          {
-            "modalidad": "Semiescolarizada",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "GDL"
-          },
-          {
-            "modalidad": "Sabatino",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "GDL"
-          }
-        ],
-        "TLAQUEPAQUE": [
-          {
-            "modalidad": "Semiescolarizada",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "GDL"
-          },
-          {
-            "modalidad": "Sabatino",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "GDL"
-          }
-        ],
-        "TONALÁ": [
-          {
-            "modalidad": "Semiescolarizada",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "GDL"
-          },
-          {
-            "modalidad": "Sabatino",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "GDL"
-          }
-        ],
-        "TORRE QUETZAL": [
-          {
-            "modalidad": "Escolarizada",
-            "incorporacion": "UDG",
-            "hoja_fuente": "GDL"
-          },
-          {
-            "modalidad": "Semiescolarizada",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "GDL"
-          }
-        ],
-        "ZAPOPAN": [
-          {
-            "modalidad": "Semiescolarizada",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "GDL"
-          },
-          {
-            "modalidad": "Sabatino",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "GDL"
-          }
-        ]
-      }
-    },
-    "Gastronomía": {
-      "Gastronomía": {
-        "CHAPULTEPEC": [
-          {
-            "modalidad": "Escolarizada",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "GDL"
-          }
-        ],
-        "TLAJOMULCO": [
-          {
-            "modalidad": "Escolarizada",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "GDL"
-          }
-        ],
-        "TLAQUEPAQUE": [
-          {
-            "modalidad": "Escolarizada",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "GDL"
-          }
-        ],
-        "TONALÁ": [
-          {
-            "modalidad": "Escolarizada",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "GDL"
-          }
-        ]
-      }
-    },
-    "Sin clasificar": {
-      "Abogado": {
-        "TORRE QUETZAL": [
-          {
-            "modalidad": "Escolarizada",
-            "incorporacion": "UDG",
-            "hoja_fuente": "GDL"
-          }
-        ]
-      },
-      "Alta Dirección": {
-        "Av. México": [
-          {
-            "modalidad": "Sabatina",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "VALLARTA"
-          }
-        ],
-        "CENTRO \nMÉDICO": [
-          {
-            "modalidad": "Sabatino",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "GDL"
-          }
-        ],
-        "TORRE QUETZAL": [
-          {
-            "modalidad": "Sabatino",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "GDL"
-          }
-        ]
       },
       "Ing. En Inteligencia de Datos y Ciberseguridad": {
         "CAMPUS  PUERTO  VALLARTA": [
           {
-            "modalidad": "Escolarizada",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "VALLARTA"
-          }
-        ]
-      },
-      "Ingenieria de Datos y Ciberseguridad": {
-        "ZAPOPAN": [
+            modalidad: "Escolarizada",
+            incorporacion: "SICYT",
+            descripcion: "Protege la información y toma decisiones con base en datos. Prepárate para el futuro digital.",
+          },
+        ],
+         "Av. México": [
           {
-            "modalidad": "Escolarizada",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "GDL"
-          }
-        ]
-      },
-      "Ingenieria en Comunicaciones y Electronica": {
-        "TESISTÁN": [
+            modalidad: "Escolarizada",
+            incorporacion: "SICYT",
+            descripcion: "txt",
+          },
+        ],
+        CENTRO: [
           {
-            "modalidad": "Escolarizada",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "GDL"
-          }
-        ]
+            modalidad: "Escolarizada",
+            incorporacion: "SICYT",
+            descripcion: "txt",
+          },
+        ],
+        MILENIO: [
+          {
+            modalidad: "Escolarizada",
+            incorporacion: "SICYT",
+            descripcion: "txt",
+          },
+        ],
+        TEPATITLÁN: [
+          {
+            modalidad: "Escolarizada",
+            incorporacion: "SICYT",
+            descripcion: "txt",
+          },
+        ],
+        TLAJOMULCO: [
+          {
+            modalidad: "Escolarizada",
+            incorporacion: "SICYT",
+            descripcion: "txt",
+          },
+        ],
+        ZAPOPAN: [
+          {
+            modalidad: "Escolarizada",
+            incorporacion: "SICYT",
+            descripcion: "txt",
+          },
+        ],
       },
-      "Ingenieria en Inteligencia de Datos y Ciberseguridad": {
+
+      "Ingenieria Mecánica": {
         "Av. México": [
           {
-            "modalidad": "Escolarizada",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "VALLARTA"
-          }
+            modalidad: "Escolarizada",
+            incorporacion: "SICYT",
+            descripcion: "Diseña y mantiene sistemas mecánicos innovadores aplicados a la industria y la tecnología.",
+          },
         ],
-        "CENTRO": [
+        "CAMPUS  PUERTO  VALLARTA": [
           {
-            "modalidad": "Escolarizada",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "GDL"
-          }
+            modalidad: "Escolarizada",
+            incorporacion: "SICYT",
+            descripcion: "txt",
+          },
         ],
-        "MILENIO": [
+        CENTRO: [
           {
-            "modalidad": "Escolarizada",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "GDL"
-          }
+            modalidad: "Escolarizada",
+            incorporacion: "SICYT",
+            descripcion: "txt",
+          },
         ],
-        "TEPATITLÁN": [
+        MILENIO: [
           {
-            "modalidad": "Escolarizada",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "TEPA"
-          }
+            modalidad: "Escolarizada",
+            incorporacion: "SICYT",
+            descripcion: "txt",
+          },
         ],
-        "TLAJOMULCO": [
+        TLAJOMULCO: [
           {
-            "modalidad": "Escolarizada",
-            "incorporacion": "SICYT",
-            "hoja_fuente": "GDL"
-          }
-        ]
-      }
-    }
-  }
-};
+            modalidad: "Escolarizada",
+            incorporacion: "SICYT",
+            descripcion: "txt",
+          },
+        ],
+        ZAPOPAN: [
+          {
+            modalidad: "Escolarizada",
+            incorporacion: "SICYT",
+            descripcion: "txt",
+          },
+        ],
+      },
+      "Ingenieria en Desarrollo Software": {
+        "Av. México": [
+          {
+            modalidad: "Escolarizada",
+            incorporacion: "SICYT",
+            descripcion: "Crea soluciones digitales desde cero. Aprende a programar, diseñar y desarrollar aplicaciones tecnológicas con impacto global.",
+          },
+        ],
+        "CAMPUS  PUERTO  VALLARTA": [
+          {
+            modalidad: "Escolarizada",
+            incorporacion: "SICYT",
+            descripcion: "txt",
+          },
+        ],
+        ZAPOPAN: [
+          {
+            modalidad: "Escolarizada",
+            incorporacion: "SICYT",
+            descripcion: "txt",
+          },
+        ],
+        CENTRO: [
+          {
+            modalidad: "Escolarizada",
+            incorporacion: "SICYT",
+            descripcion: "txt",
+          },
+        ],
+        MILENIO: [
+          {
+            modalidad: "Escolarizada",
+            incorporacion: "SICYT",
+            descripcion: "txt",
+          },
+        ],
+        TEPATITLÁN: [
+          {
+            modalidad: "Escolarizada",
+            incorporacion: "SICYT",
+            descripcion: "txt",
+          },
+        ],
+      },
 
+      "Ingeniería Civil": {
+        TEPATITLÁN: [
+          {
+            modalidad: "Escolarizada",
+            incorporacion: "SICYT",
+            descripcion: "Construye el futuro mediante proyectos de infraestructura, diseño estructural y desarrollo urbano.",
+          },
+        ],
+        TLAJOMULCO: [
+          {
+            modalidad: "Escolarizada",
+            incorporacion: "SICYT",
+            descripcion: "txt",
+          },
+        ],
+        TESISTÁN: [
+          {
+            modalidad: "Escolarizada",
+            incorporacion: "SICYT",
+            descripcion: "txt",
+          },
+        ],
+        "CAMPUS  PUERTO  VALLARTA": [
+          {
+            modalidad: "Escolarizada",
+            incorporacion: "SICYT",
+            descripcion: "txt",
+          },
+        ],
+        TONALÁ: [
+          {
+            modalidad: "Escolarizada",
+            incorporacion: "SICYT",
+            descripcion: "txt",
+          },
+        ],
+        ZAPOPAN: [
+          {
+            modalidad: "Escolarizada",
+            incorporacion: "SICYT",
+            descripcion: "txt",
+          },
+        ],
+      },
+      "Ingeniería Computación": {
+        CENTRO: [
+          {
+            modalidad: "Escolarizada",
+            incorporacion: "UDG",
+            descripcion:
+              "Diseña sistemas, redes y soluciones tecnológicas para enfrentar los retos del mundo digital.",
+          },
+        ],
+      },
+      "Ingeniería Química": {
+        CHAPULTEPEC: [
+          {
+            modalidad: "Escolarizada",
+            incorporacion: "SICYT",
+            descripcion: "Transforma materias primas en soluciones útiles con responsabilidad ambiental y técnica.",
+          },
+        ],
+        TESISTÁN: [
+          {
+            modalidad: "Escolarizada",
+            incorporacion: "SICYT",
+            descripcion: "txt",
+          },
+        ],
+        TLAJOMULCO: [
+          {
+            modalidad: "Escolarizada",
+            incorporacion: "SICYT",
+            descripcion: "txt",
+          },
+        ],
+      },
+      "Ingeniería en Comunicaciones y Electrónica": {
+        CENTRO: [
+          {
+            modalidad: "Escolarizada",
+            incorporacion: "SICYT",
+            descripcion: "txt",
+          },
+        ],
+        TESISTÁN: [
+          {
+            modalidad: "Escolarizada",
+            incorporacion: "SICYT",
+            descripcion: "Domina tecnologías de vanguardia en sistemas de comunicación, electrónica y automatización.",
+          },
+        ],
+        MILENIO: [
+          {
+            modalidad: "Escolarizada",
+            incorporacion: "SICYT",
+            descripcion: "txt",
+          },
+        ],
+        TLAJOMULCO: [
+          {
+            modalidad: "Escolarizada",
+            incorporacion: "SICYT",
+            descripcion: "txt",
+          },
+        ],
+      },
+    },
+    "Económico Administrativa": {
+      "administración de sistemas de información": {
+        "UNE en línea": [
+          {
+            modalidad: "En linea",
+            incorporacion: "SICYT",
+            descripcion: "Integra tecnología y negocios para mejorar procesos y tomar decisiones estratégicas basadas en datos.",
+          },
+        ],
+      },
+      "Alta Dirección": {
+        "Av. México": [
+          {
+            modalidad: "Sabatina",
+            incorporacion: "SICYT",
+            descripcion: "Integra tecnología y negocios para mejorar procesos y tomar decisiones estratégicas basadas en datos.",
+          },
+        ],
+        "CENTRO \nMÉDICO": [
+          {
+            modalidad: "Sabatina",
+            incorporacion: "SICYT",
+            descripcion: "txt",
+          },
+        ],
+        "TORRE QUETZAL": [
+          {
+            modalidad: "Sabatina",
+            incorporacion: "SICYT",
+            descripcion: "txt",
+          },
+        ],
+      },
+      administración: {
+        "CAMPUS  PUERTO  VALLARTA": [
+          {
+            modalidad: "Semiescolarizada",
+            incorporacion: "SICYT",
+            descripcion:
+              "Forma parte del motor que mueve a las organizaciones. Aprende a liderar equipos, optimizar recursos y tomar decisiones con impacto.",
+          },
+          {
+            modalidad: "Sabatina",
+            incorporacion: "SICYT",
+            descripcion:
+              "Forma parte del motor que mueve a las organizaciones. Aprende a liderar equipos, optimizar recursos y tomar decisiones con impacto.",
+          },
+        ],
+        "TORRE QUETZAL": [
+          {
+            modalidad: "Escolarizada",
+            incorporacion: "UDG",
+            descripcion:
+              "Forma parte del motor que mueve a las organizaciones. Aprende a liderar equipos, optimizar recursos y tomar decisiones con impacto.",
+          },
+        ],
+      },
+      "administración de Empresas": {
+        "Av. México": [
+          {
+            modalidad: "Semiescolarizada",
+            incorporacion: "SICYT",
+            descripcion: "Gestiona recursos, lidera proyectos y transforma organizaciones con una formación integral y moderna.",
+          },
+          {
+            modalidad: "Sabatina",
+            incorporacion: "SICYT",
+            descripcion: "Gestiona recursos, lidera proyectos y transforma organizaciones con una formación integral y moderna.",
+          },
+        ],
+        CARACOL: [
+          {
+            modalidad: "Semiescolarizada",
+            incorporacion: "SICYT",
+            descripcion: "Gestiona recursos, lidera proyectos y transforma organizaciones con una formación integral y moderna.",
+          },
+          {
+            modalidad: "Sabatina",
+            incorporacion: "SICYT",
+            descripcion: "Gestiona recursos, lidera proyectos y transforma organizaciones con una formación integral y moderna.",
+          },
+        ],
+        CENTRO: [
+          {
+            modalidad: "Semiescolarizada",
+            incorporacion: "SICYT",
+            descripcion: "Gestiona recursos, lidera proyectos y transforma organizaciones con una formación integral y moderna.",
+          },
+          {
+            modalidad: "Sabatina",
+            incorporacion: "SICYT",
+            descripcion: "Gestiona recursos, lidera proyectos y transforma organizaciones con una formación integral y moderna.",
+          },
+        ],
+        "CENTRO \nMÉDICO": [
+          {
+            modalidad: "Semiescolarizada",
+            incorporacion: "SICYT",
+            descripcion: "Gestiona recursos, lidera proyectos y transforma organizaciones con una formación integral y moderna.",
+          },
+          {
+            modalidad: "Sabatina",
+            incorporacion: "SICYT",
+            descripcion: "Gestiona recursos, lidera proyectos y transforma organizaciones con una formación integral y moderna.",
+          },
+        ],
+        CHAPULTEPEC: [
+          {
+            modalidad: "Semiescolarizada",
+            incorporacion: "SICYT",
+            descripcion: "Gestiona recursos, lidera proyectos y transforma organizaciones con una formación integral y moderna.",
+          },
+          {
+            modalidad: "Sabatina",
+            incorporacion: "SICYT",
+            descripcion: "Gestiona recursos, lidera proyectos y transforma organizaciones con una formación integral y moderna.",
+          },
+        ],
+        MILENIO: [
+          {
+            modalidad: "Sabatina",
+            incorporacion: "SICYT",
+            descripcion: "Gestiona recursos, lidera proyectos y transforma organizaciones con una formación integral y moderna.",
+          },
+        ],
+        TEPATITLÁN: [
+          {
+            modalidad: "Semiescolarizada",
+            incorporacion: "SICYT",
+            descripcion: "Gestiona recursos, lidera proyectos y transforma organizaciones con una formación integral y moderna.",
+          },
+          {
+            modalidad: "Sabatina",
+            incorporacion: "SICYT",
+            descripcion: "Gestiona recursos, lidera proyectos y transforma organizaciones con una formación integral y moderna.",
+          },
+        ],
+        TESISTÁN: [
+          {
+            modalidad: "Semiescolarizada",
+            incorporacion: "SICYT",
+            descripcion: "Gestiona recursos, lidera proyectos y transforma organizaciones con una formación integral y moderna.",
+          },
+          {
+            modalidad: "Sabatina",
+            incorporacion: "SICYT",
+            descripcion: "Gestiona recursos, lidera proyectos y transforma organizaciones con una formación integral y moderna.",
+          },
+        ],
+        TLAJOMULCO: [
+          {
+            modalidad: "Semiescolarizada",
+            incorporacion: "SICYT",
+            descripcion: "Gestiona recursos, lidera proyectos y transforma organizaciones con una formación integral y moderna.",
+          },
+          {
+            modalidad: "Sabatina",
+            incorporacion: "SICYT",
+            descripcion: "Gestiona recursos, lidera proyectos y transforma organizaciones con una formación integral y moderna.",
+          },
+        ],
+        TLAQUEPAQUE: [
+          {
+            modalidad: "Semiescolarizada",
+            incorporacion: "SICYT",
+            descripcion: "Gestiona recursos, lidera proyectos y transforma organizaciones con una formación integral y moderna.",
+          },
+          {
+            modalidad: "Sabatina",
+            incorporacion: "SICYT",
+            descripcion: "Gestiona recursos, lidera proyectos y transforma organizaciones con una formación integral y moderna.",
+          },
+        ],
+        TONALÁ: [
+          {
+            modalidad: "Semiescolarizada",
+            incorporacion: "SICYT",
+            descripcion: "Gestiona recursos, lidera proyectos y transforma organizaciones con una formación integral y moderna.",
+          },
+          {
+            modalidad: "Sabatina",
+            incorporacion: "SICYT",
+            descripcion: "Gestiona recursos, lidera proyectos y transforma organizaciones con una formación integral y moderna.",
+          },
+        ],
+        ZAPOPAN: [
+          {
+            modalidad: "Semiescolarizada",
+            incorporacion: "SICYT",
+            descripcion: "Gestiona recursos, lidera proyectos y transforma organizaciones con una formación integral y moderna.",
+          },
+          {
+            modalidad: "Sabatina",
+            incorporacion: "SICYT",
+            descripcion: "Gestiona recursos, lidera proyectos y transforma organizaciones con una formación integral y moderna.",
+          },
+        ],
+      },
+
+      "Contaduría Pública": {
+        "TORRE QUETZAL": [
+          {
+            modalidad: "Escolarizada",
+            incorporacion: "UDG",
+            descripcion:
+              "Domina la información financiera con precisión y responsabilidad. Aprende a gestionar, auditar y tomar decisiones contables clave.",
+          },
+        ],
+      },
+
+      "Contaduría y Auditoría": {
+        "Av. México": [
+          {
+            modalidad: "Escolarizada",
+            incorporacion: "SICYT",
+            descripcion:
+              "Domina la información financiera con precisión y responsabilidad. Aprende a gestionar, auditar y tomar decisiones contables clave.",
+          },
+          {
+            modalidad: "Viernes y Sábado",
+            incorporacion: "SICYT",
+            descripcion:
+              "Domina la información financiera con precisión y responsabilidad. Aprende a gestionar, auditar y tomar decisiones contables clave.",
+          },
+        ],
+
+        "TORRE QUETZAL": [
+          {
+            modalidad: "Sabatina",
+            incorporacion: "SICYT",
+            descripcion:
+              "Domina la información financiera con precisión y responsabilidad. Aprende a gestionar, auditar y tomar decisiones contables clave.",
+          },
+        ],
+
+        CARACOL: [
+          {
+            modalidad: "Escolarizada",
+            incorporacion: "SICYT",
+            descripcion:
+              "Domina la información financiera con precisión y responsabilidad. Aprende a gestionar, auditar y tomar decisiones contables clave.",
+          },
+        ],
+        "CENTRO \nMÉDICO": [
+          {
+            modalidad: "Martes y Jueves",
+            incorporacion: "SICYT",
+            descripcion:
+              "Domina la información financiera con precisión y responsabilidad. Aprende a gestionar, auditar y tomar decisiones contables clave.",
+          },
+        ],
+        TEPATITLÁN: [
+          {
+            modalidad: "Escolarizada",
+            incorporacion: "SICYT",
+            descripcion:
+              "Domina la información financiera con precisión y responsabilidad. Aprende a gestionar, auditar y tomar decisiones contables clave.",
+          },
+        ],
+        TLAJOMULCO: [
+          {
+            modalidad: "Escolarizada",
+            incorporacion: "SICYT",
+            descripcion:
+              "Domina la información financiera con precisión y responsabilidad. Aprende a gestionar, auditar y tomar decisiones contables clave.",
+          },
+        ],
+        "TORRE QUETZAL": [
+          {
+            modalidad: "Escolarizada",
+            incorporacion: "SICYT",
+            descripcion:
+              "Domina la información financiera con precisión y responsabilidad. Aprende a gestionar, auditar y tomar decisiones contables clave.",
+          },
+        ],
+        ZAPOPAN: [
+          {
+            modalidad: "Escolarizada",
+            incorporacion: "SICYT",
+            descripcion:
+              "Domina la información financiera con precisión y responsabilidad. Aprende a gestionar, auditar y tomar decisiones contables clave.",
+          },
+        ],
+      },
+      "Gestión y Creación de PyME’s": {
+        "CENTRO \nMÉDICO": [
+          {
+            modalidad: "Sabatina",
+            incorporacion: "SICYT",
+            descripcion: "Desarrolla habilidades empresariales para crear, gestionar y hacer crecer pequeñas y medianas empresas con estrategias innovadoras y sostenibles.",
+          },
+        ],
+        "TORRE QUETZAL": [
+          {
+            modalidad: "Sabatina",
+            incorporacion: "SICYT",
+            descripcion: "txt",
+          },
+        ],
+      },
+      Mercadotecnia: {
+        "Av. México": [
+          {
+            modalidad: "Semiescolarizada",
+            incorporacion: "SICYT",
+            descripcion:
+              "Desarrolla estrategias creativas para posicionar marcas, conectar con consumidores y expandir negocios a nivel global.",
+          },
+          {
+            modalidad: "Sabatina",
+            incorporacion: "SICYT",
+            descripcion:
+              "Desarrolla estrategias creativas para posicionar marcas, conectar con consumidores y expandir negocios a nivel global.",
+          },
+        ],
+        "CAMPUS  PUERTO  VALLARTA": [
+          {
+            modalidad: "Semiescolarizada",
+            incorporacion: "SICYT",
+            descripcion:
+              "Desarrolla estrategias creativas para posicionar marcas, conectar con consumidores y expandir negocios a nivel global.",
+          },
+          {
+            modalidad: "Sabatina",
+            incorporacion: "SICYT",
+            descripcion:
+              "Desarrolla estrategias creativas para posicionar marcas, conectar con consumidores y expandir negocios a nivel global.",
+          },
+        ],
+        CARACOL: [
+          {
+            modalidad: "Semiescolarizada",
+            incorporacion: "SICYT",
+            descripcion:
+              "Desarrolla estrategias creativas para posicionar marcas, conectar con consumidores y expandir negocios a nivel global.",
+          },
+          {
+            modalidad: "Sabatina",
+            incorporacion: "SICYT",
+            descripcion:
+              "Desarrolla estrategias creativas para posicionar marcas, conectar con consumidores y expandir negocios a nivel global.",
+          },
+        ],
+        CENTRO: [
+          {
+            modalidad: "Semiescolarizada",
+            incorporacion: "SICYT",
+            descripcion:
+              "Desarrolla estrategias creativas para posicionar marcas, conectar con consumidores y expandir negocios a nivel global.",
+          },
+          {
+            modalidad: "Sabatina",
+            incorporacion: "SICYT",
+            descripcion:
+              "Desarrolla estrategias creativas para posicionar marcas, conectar con consumidores y expandir negocios a nivel global.",
+          },
+        ],
+        "CENTRO \nMÉDICO": [
+          {
+            modalidad: "Semiescolarizada",
+            incorporacion: "SICYT",
+            descripcion:
+              "Desarrolla estrategias creativas para posicionar marcas, conectar con consumidores y expandir negocios a nivel global.",
+          },
+          {
+            modalidad: "Sabatina",
+            incorporacion: "SICYT",
+            descripcion:
+              "Desarrolla estrategias creativas para posicionar marcas, conectar con consumidores y expandir negocios a nivel global.",
+          },
+        ],
+        CHAPULTEPEC: [
+          {
+            modalidad: "Semiescolarizada",
+            incorporacion: "SICYT",
+            descripcion:
+              "Desarrolla estrategias creativas para posicionar marcas, conectar con consumidores y expandir negocios a nivel global.",
+          },
+          {
+            modalidad: "Sabatina",
+            incorporacion: "SICYT",
+            descripcion:
+              "Desarrolla estrategias creativas para posicionar marcas, conectar con consumidores y expandir negocios a nivel global.",
+          },
+        ],
+        MILENIO: [
+          {
+            modalidad: "Sabatina",
+            incorporacion: "SICYT",
+            descripcion:
+              "Desarrolla estrategias creativas para posicionar marcas, conectar con consumidores y expandir negocios a nivel global.",
+          },
+        ],
+        TEPATITLÁN: [
+          {
+            modalidad: "Semiescolarizada",
+            incorporacion: "SICYT",
+            descripcion:
+              "Desarrolla estrategias creativas para posicionar marcas, conectar con consumidores y expandir negocios a nivel global.",
+          },
+          {
+            modalidad: "Sabatina",
+            descripcion:
+              "Desarrolla estrategias creativas para posicionar marcas, conectar con consumidores y expandir negocios a nivel global.",
+            descripcion: "txt",
+          },
+        ],
+        TESISTÁN: [
+          {
+            modalidad: "Semiescolarizada",
+            incorporacion: "SICYT",
+            descripcion:
+              "Desarrolla estrategias creativas para posicionar marcas, conectar con consumidores y expandir negocios a nivel global.",
+          },
+          {
+            modalidad: "Sabatina",
+            incorporacion: "SICYT",
+            descripcion:
+              "Desarrolla estrategias creativas para posicionar marcas, conectar con consumidores y expandir negocios a nivel global.",
+          },
+        ],
+        TLAJOMULCO: [
+          {
+            modalidad: "Semiescolarizada",
+            incorporacion: "SICYT",
+            descripcion:
+              "Desarrolla estrategias creativas para posicionar marcas, conectar con consumidores y expandir negocios a nivel global.",
+          },
+          {
+            modalidad: "Sabatina",
+            incorporacion: "SICYT",
+            descripcion:
+              "Desarrolla estrategias creativas para posicionar marcas, conectar con consumidores y expandir negocios a nivel global.",
+          },
+        ],
+        TLAQUEPAQUE: [
+          {
+            modalidad: "Semiescolarizada",
+            incorporacion: "SICYT",
+            descripcion:
+              "Desarrolla estrategias creativas para posicionar marcas, conectar con consumidores y expandir negocios a nivel global.",
+          },
+          {
+            modalidad: "Sabatina",
+            incorporacion: "SICYT",
+            descripcion:
+              "Desarrolla estrategias creativas para posicionar marcas, conectar con consumidores y expandir negocios a nivel global.",
+          },
+        ],
+        TONALÁ: [
+          {
+            modalidad: "Semiescolarizada",
+            incorporacion: "SICYT",
+            descripcion:
+              "Desarrolla estrategias creativas para posicionar marcas, conectar con consumidores y expandir negocios a nivel global.",
+          },
+          {
+            modalidad: "Sabatina",
+            incorporacion: "SICYT",
+            descripcion:
+              "Desarrolla estrategias creativas para posicionar marcas, conectar con consumidores y expandir negocios a nivel global.",
+          },
+        ],
+        "TORRE QUETZAL": [
+          {
+            modalidad: "Escolarizada",
+            incorporacion: "UDG",
+            descripcion:
+              "Desarrolla estrategias creativas para posicionar marcas, conectar con consumidores y expandir negocios a nivel global.",
+          },
+        ],
+        ZAPOPAN: [
+          {
+            modalidad: "Semiescolarizada",
+            incorporacion: "SICYT",
+            descripcion:
+              "Desarrolla estrategias creativas para posicionar marcas, conectar con consumidores y expandir negocios a nivel global.",
+          },
+          {
+            modalidad: "Sabatina",
+            incorporacion: "SICYT",
+            descripcion:
+              "Desarrolla estrategias creativas para posicionar marcas, conectar con consumidores y expandir negocios a nivel global.",
+          },
+        ],
+      },
+      "Mercadotecnia Internacional": {
+        "Av. México": [
+          {
+            modalidad: "Sabatina",
+            incorporacion: "SICYT",
+            descripcion:
+              "Desarrolla estrategias creativas para posicionar marcas, conectar con consumidores y expandir negocios a nivel global.",
+          },
+        ],
+        "CENTRO \nMÉDICO": [
+          {
+            modalidad: "Sabatina",
+            incorporacion: "SICYT",
+            descripcion: "Desarrolla estrategias creativas para posicionar marcas, conectar con consumidores y expandir negocios a nivel global.",
+          },
+        ],
+      },
+      "Negocios Internacionales": {
+        "Av. México": [
+          {
+            modalidad: "Semiescolarizada",
+            incorporacion: "SICYT",
+            descripcion: "Adquiere una visión global del comercio, la logística y las relaciones empresariales internacionales.",
+          },
+          {
+            modalidad: "Sabatina",
+            incorporacion: "SICYT",
+            descripcion: "Adquiere una visión global del comercio, la logística y las relaciones empresariales internacionales.",
+          },
+        ],
+        "CAMPUS  PUERTO  VALLARTA": [
+          {
+            modalidad: "Semiescolarizada",
+            incorporacion: "SICYT",
+            descripcion: "Adquiere una visión global del comercio, la logística y las relaciones empresariales internacionales.",
+          },
+          {
+            modalidad: "Sabatina",
+            incorporacion: "SICYT",
+            descripcion: "Adquiere una visión global del comercio, la logística y las relaciones empresariales internacionales.",
+          },
+        ],
+        CARACOL: [
+          {
+            modalidad: "Semiescolarizada",
+            incorporacion: "SICYT",
+            descripcion: "Adquiere una visión global del comercio, la logística y las relaciones empresariales internacionales.",
+          },
+          {
+            modalidad: "Sabatina",
+            incorporacion: "SICYT",
+            descripcion: "Adquiere una visión global del comercio, la logística y las relaciones empresariales internacionales.",
+          },
+        ],
+        CENTRO: [
+          {
+            modalidad: "Semiescolarizada",
+            incorporacion: "SICYT",
+            descripcion: "Adquiere una visión global del comercio, la logística y las relaciones empresariales internacionales.",
+          },
+          {
+            modalidad: "Sabatina",
+            incorporacion: "SICYT",
+            descripcion: "Adquiere una visión global del comercio, la logística y las relaciones empresariales internacionales.",
+          },
+        ],
+        "CENTRO \nMÉDICO": [
+          {
+            modalidad: "Semiescolarizada",
+            incorporacion: "SICYT",
+            descripcion: "Adquiere una visión global del comercio, la logística y las relaciones empresariales internacionales.",
+          },
+          {
+            modalidad: "Sabatina",
+            incorporacion: "SICYT",
+            descripcion: "Adquiere una visión global del comercio, la logística y las relaciones empresariales internacionales.",
+          },
+        ],
+        CHAPULTEPEC: [
+          {
+            modalidad: "Semiescolarizada",
+            incorporacion: "SICYT",
+            descripcion: "Adquiere una visión global del comercio, la logística y las relaciones empresariales internacionales.",
+          },
+          {
+            modalidad: "Sabatina",
+            incorporacion: "SICYT",
+            descripcion: "Adquiere una visión global del comercio, la logística y las relaciones empresariales internacionales.",
+          },
+        ],
+        MILENIO: [
+          {
+            modalidad: "Sabatina",
+            incorporacion: "SICYT",
+            descripcion: "Adquiere una visión global del comercio, la logística y las relaciones empresariales internacionales.",
+          },
+        ],
+        TEPATITLÁN: [
+          {
+            modalidad: "Semiescolarizada",
+            incorporacion: "SICYT",
+            descripcion: "Adquiere una visión global del comercio, la logística y las relaciones empresariales internacionales.",
+          },
+          {
+            modalidad: "Sabatina",
+            incorporacion: "SICYT",
+            descripcion: "Adquiere una visión global del comercio, la logística y las relaciones empresariales internacionales.",
+          },
+        ],
+        TESISTÁN: [
+          {
+            modalidad: "Semiescolarizada",
+            incorporacion: "SICYT",
+            descripcion: "Adquiere una visión global del comercio, la logística y las relaciones empresariales internacionales.",
+          },
+          {
+            modalidad: "Sabatina",
+            incorporacion: "SICYT",
+            descripcion: "Adquiere una visión global del comercio, la logística y las relaciones empresariales internacionales.",
+          },
+        ],
+        TLAJOMULCO: [
+          {
+            modalidad: "Semiescolarizada",
+            incorporacion: "SICYT",
+            descripcion: "Adquiere una visión global del comercio, la logística y las relaciones empresariales internacionales.",
+          },
+          {
+            modalidad: "Sabatina",
+            incorporacion: "SICYT",
+            descripcion: "Adquiere una visión global del comercio, la logística y las relaciones empresariales internacionales.",
+          },
+        ],
+        TLAQUEPAQUE: [
+          {
+            modalidad: "Semiescolarizada",
+            incorporacion: "SICYT",
+            descripcion: "Adquiere una visión global del comercio, la logística y las relaciones empresariales internacionales.",
+          },
+          {
+            modalidad: "Sabatina",
+            incorporacion: "SICYT",
+            descripcion: "Adquiere una visión global del comercio, la logística y las relaciones empresariales internacionales.",
+          },
+        ],
+        TONALÁ: [
+          {
+            modalidad: "Semiescolarizada",
+            incorporacion: "SICYT",
+            descripcion: "Adquiere una visión global del comercio, la logística y las relaciones empresariales internacionales.",
+          },
+          {
+            modalidad: "Sabatina",
+            incorporacion: "SICYT",
+            descripcion: "Adquiere una visión global del comercio, la logística y las relaciones empresariales internacionales.",
+          },
+        ],
+        "TORRE QUETZAL": [
+          {
+            modalidad: "Escolarizada",
+            incorporacion: "UDG",
+            descripcion: "Adquiere una visión global del comercio, la logística y las relaciones empresariales internacionales.",
+          },
+          {
+            modalidad: "Semiescolarizada",
+            incorporacion: "SICYT",
+            descripcion: "Adquiere una visión global del comercio, la logística y las relaciones empresariales internacionales.",
+          },
+        ],
+        ZAPOPAN: [
+          {
+            modalidad: "Semiescolarizada",
+            incorporacion: "SICYT",
+            descripcion: "Adquiere una visión global del comercio, la logística y las relaciones empresariales internacionales.",
+          },
+          {
+            modalidad: "Sabatina",
+            incorporacion: "SICYT",
+            descripcion: "Adquiere una visión global del comercio, la logística y las relaciones empresariales internacionales.",
+          },
+        ],
+      },
+    },
+    Gastronomía: {
+      Gastronomía: {
+        CHAPULTEPEC: [
+          {
+            modalidad: "Escolarizada",
+            incorporacion: "SICYT",
+            descripcion: "Desarrolla tu pasión por la cocina con fundamentos técnicos, culturales y de innovación culinaria.",
+          },
+        ],
+        TLAJOMULCO: [
+          {
+            modalidad: "Escolarizada",
+            incorporacion: "SICYT",
+            descripcion: "txt",
+          },
+        ],
+        TLAQUEPAQUE: [
+          {
+            modalidad: "Escolarizada",
+            incorporacion: "SICYT",
+            descripcion: "txt",
+          },
+        ],
+        TONALÁ: [
+          {
+            modalidad: "Escolarizada",
+            incorporacion: "SICYT",
+            descripcion: "txt",
+          },
+        ],
+      },
+    },
+   
+  },
+};
 
 // Funciones de utilidad para consultar los datos
 
@@ -1875,7 +1919,7 @@ export const areas = [
   "Arquitectura y diseño",
   "Gastronomía",
   "Ciencias Sociales y Humanidades",
-  "Ciencias exactas e ingenierías"
+  "Ciencias exactas e ingenierías",
 ];
 
 export const niveles = Object.keys(programasEducativos);
@@ -1897,17 +1941,17 @@ export function obtenerProgramasPorNivel(nivel) {
  */
 export function obtenerProgramasPorArea(area, nivel = null) {
   const resultado = {};
-  
+
   if (nivel) {
     return programasEducativos[nivel]?.[area] || {};
   }
-  
+
   for (const nivelKey in programasEducativos) {
     if (programasEducativos[nivelKey][area]) {
       resultado[nivelKey] = programasEducativos[nivelKey][area];
     }
   }
-  
+
   return resultado;
 }
 
@@ -1919,7 +1963,7 @@ export function obtenerProgramasPorArea(area, nivel = null) {
 export function buscarProgramas(termino) {
   const resultados = [];
   const terminoLower = termino.toLowerCase();
-  
+
   for (const nivel in programasEducativos) {
     for (const area in programasEducativos[nivel]) {
       for (const programa in programasEducativos[nivel][area]) {
@@ -1928,13 +1972,13 @@ export function buscarProgramas(termino) {
             programa,
             nivel,
             area,
-            planteles: Object.keys(programasEducativos[nivel][area][programa])
+            planteles: Object.keys(programasEducativos[nivel][area][programa]),
           });
         }
       }
     }
   }
-  
+
   return resultados;
 }
 
@@ -1953,7 +1997,7 @@ export function obtenerDetallePrograma(programa, plantel) {
           nivel,
           area,
           plantel,
-          detalles: programasEducativos[nivel][area][programa][plantel]
+          detalles: programasEducativos[nivel][area][programa][plantel],
         };
       }
     }
@@ -1970,27 +2014,27 @@ export function obtenerEstadisticas() {
   const planteles = new Set();
   const estadisticasPorNivel = {};
   const estadisticasPorArea = {};
-  
+
   for (const nivel in programasEducativos) {
     estadisticasPorNivel[nivel] = 0;
-    
+
     for (const area in programasEducativos[nivel]) {
       if (!estadisticasPorArea[area]) {
         estadisticasPorArea[area] = 0;
       }
-      
+
       for (const programa in programasEducativos[nivel][area]) {
         totalProgramas++;
         estadisticasPorNivel[nivel]++;
         estadisticasPorArea[area]++;
-        
+
         for (const plantel in programasEducativos[nivel][area][programa]) {
           planteles.add(plantel);
         }
       }
     }
   }
-  
+
   return {
     totalProgramas,
     totalPlanteles: planteles.size,
@@ -1998,6 +2042,6 @@ export function obtenerEstadisticas() {
     totalAreas: Object.keys(estadisticasPorArea).length,
     estadisticasPorNivel,
     estadisticasPorArea,
-    planteles: Array.from(planteles).sort()
+    planteles: Array.from(planteles).sort(),
   };
 }
