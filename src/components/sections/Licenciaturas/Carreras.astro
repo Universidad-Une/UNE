@@ -17,6 +17,19 @@ if (programasEducativos.Licenciaturas) {
     });
   });
 }
+function getDescripcionFromPlanteles(planteles) {
+  // Buscar la primera descripción no vacía en todos los planteles
+  for (const plantelInfo of Object.values(planteles)) {
+    for (const info of plantelInfo) {
+      if (info.descripcion  && info.descripcion.trim() !== "") {
+        return info.descripcion;
+      }
+    }
+  }
+  // Si no encuentra descripción, retorna una genérica
+  return "Programa educativo de nivel licenciatura";
+}
+
 
 // Función para obtener el ícono según el área
 function getIconByArea(area) {
@@ -79,12 +92,11 @@ const carreras = licenciaturas.map((licenciatura, index) => {
   return {
     id: index + 1,
     nombre: `Lic. en ${licenciatura.nombre}`,
-    descripcion: `Especialízate en ${licenciatura.nombre} con una formación integral y de calidad.`,
+    descripcion:  getDescripcionFromPlanteles(licenciatura.planteles), // Aquí está la corrección
     area: licenciatura.area,
     categoria: licenciatura.area,
     incorporacion: todasLasIncorporaciones.join(", "),
     modalidad: todasLasModalidades.join(", "),
-    creditos: "450", // Valor por defecto
     icon: getIconByArea(licenciatura.area),
     color: getColorByArea(licenciatura.area),
     slug: licenciatura.nombre.toLowerCase().replace(/\s+/g, "-").replace(/[áéíóú]/g, (match) => {
@@ -102,9 +114,9 @@ const areas = [
   "Económico Administrativa",
   "Ciencias de la salud",
   "Arquitectura y diseño",
-  "Gastronomía",
   "Ciencias Sociales y Humanidades",
   "Ciencias exactas e ingenierías",
+  "Gastronomía",
 ];
 
 // Helper function to render the correct icon
@@ -134,7 +146,7 @@ function renderIcon(iconName) {
 }
 ---
 
-<div class="max-w-7xl mx-auto px-4 py-8">
+<div class="max-w-9/12  mx-auto px-4 py-8">
   <div class="mb-8">
     <h1 class="text-3xl font-bold text-gray-900 mb-2">ÁREAS DE CONOCIMIENTO</h1>
     <p class="text-gray-600">Encuentra tu área de especialización</p>
@@ -179,7 +191,7 @@ function renderIcon(iconName) {
   <div class="relative">
     <div
       id="cards-container"
-      class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-h-96 md:max-h-[500px] lg:max-h-[600px] overflow-y-auto pr-2"
+      class=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  py-8 px-4 gap-6 max-h-96 md:max-h-[500px] lg:max-h-[900px] overflow-y-auto "
     >
       {
         carreras.map((carrera) => {
@@ -202,7 +214,7 @@ function renderIcon(iconName) {
               </div>
 
               <div class="p-6">
-                <h3 class="text-lg font-bold text-gray-900 mb-2">
+                <h3 class=" font-bold mb-2">
                   {carrera.nombre}
                 </h3>
                 <p class="text-gray-600 text-sm mb-4">{carrera.descripcion}</p>
@@ -220,7 +232,6 @@ function renderIcon(iconName) {
                     </span>
                   </div>
                   <div class="text-xs text-gray-500">
-                    {carrera.creditos} créditos
                   </div>
                 </div>
 
@@ -497,7 +508,7 @@ function renderIcon(iconName) {
                   <span>Llamar al plantel</span>
                 </a>
                 <a 
-                  href="/visitar-plantel/${plantel.toLowerCase().replace(/ /g, "-")}" 
+                  href="/planteles/${plantel.toLowerCase().replace(/ /g, "-")}" 
                   class="flex items-center justify-center gap-2 py-2 px-3 bg-gray-100 text-gray-800 rounded-lg hover:bg-red-100 hover:text-red-700 transition-all duration-200"
                 >
                   <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -574,9 +585,7 @@ function renderIcon(iconName) {
 
 <style>
   /* Estilos para el scroll personalizado */
-  #cards-container::-webkit-scrollbar {
-    width: 6px;
-  }
+ 
 
   #cards-container::-webkit-scrollbar-track {
     background: #f1f1f1;
@@ -611,10 +620,7 @@ function renderIcon(iconName) {
     background: #a8a8a8;
   }
 
-  /* Animaciones suaves */
-  .career-card {
-    transition: all 0.3s ease;
-  }
+
 
   .tab-button {
     transition: all 0.2s ease;
