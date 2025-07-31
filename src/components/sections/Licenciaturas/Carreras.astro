@@ -1,27 +1,57 @@
 ---
-// AreasConocimiento.astro
-import { Computer, Building, Radio, Cog, Heart, User, Calculator, Palette, ChefHat } from "@lucide/astro";
+
 import { programasEducativos } from "@helpers/estructura_educativa";
+
+// Función para obtener la primera imagen disponible de los planteles
+function getPrimeraImagenDePlanteles(planteles) {
+  for (const plantelInfo of Object.values(planteles)) {
+    for (const info of plantelInfo) {
+      if (info.imagen && info.imagen.trim() !== "") {
+        return info.imagen;
+      }
+    }
+  }
+  return null;
+}
+
+// Función para obtener el color del badge según la incorporación
+function getColorBadge(incorporacion) {
+  switch (incorporacion) {
+    case "UDG":
+      return "bg-red-500";
+    case "SICYT":
+      return "bg-green-600";
+    default:
+      return "bg-blue-500"; // Color por defecto
+  }
+}
 
 // Convertir a array de licenciaturas
 const licenciaturas = [];
 
 if (programasEducativos.Licenciaturas) {
-  Object.entries(programasEducativos.Licenciaturas).forEach(([area, programas]) => {
-    Object.entries(programas).forEach(([nombrePrograma, planteles]) => {
-      licenciaturas.push({
-        nombre: nombrePrograma,
-        area: area,
-        planteles: planteles
+  Object.entries(programasEducativos.Licenciaturas).forEach(
+    ([area, programas]) => {
+      Object.entries(programas).forEach(([nombrePrograma, datosPrograma]) => {
+        const planteles = datosPrograma.planteles || datosPrograma;
+        const imagen = getPrimeraImagenDePlanteles(planteles);
+        
+        licenciaturas.push({
+          nombre: nombrePrograma,
+          area: area,
+          planteles: planteles,
+          imagen: imagen,
+        });
       });
-    });
-  });
+    }
+  );
 }
+
 function getDescripcionFromPlanteles(planteles) {
   // Buscar la primera descripción no vacía en todos los planteles
   for (const plantelInfo of Object.values(planteles)) {
     for (const info of plantelInfo) {
-      if (info.descripcion  && info.descripcion.trim() !== "") {
+      if (info.descripcion && info.descripcion.trim() !== "") {
         return info.descripcion;
       }
     }
@@ -30,56 +60,15 @@ function getDescripcionFromPlanteles(planteles) {
   return "Programa educativo de nivel licenciatura";
 }
 
-
-// Función para obtener el ícono según el área
-function getIconByArea(area) {
-  switch (area) {
-    case "Ciencias exactas e ingenierías":
-      return "cog";
-    case "Ciencias de la salud":
-      return "heart";
-    case "Económico Administrativa":
-      return "calculator";
-    case "Arquitectura y diseño":
-      return "palette";
-    case "Gastronomía":
-      return "chefHat";
-    case "Ciencias Sociales y Humanidades":
-      return "user";
-    default:
-      return "computer";
-  }
-}
-
-// Función para obtener el color según el área
-function getColorByArea(area) {
-  switch (area) {
-    case "Ciencias exactas e ingenierías":
-      return "bg-blue-500";
-    case "Ciencias de la salud":
-      return "bg-green-500";
-    case "Económico Administrativa":
-      return "bg-yellow-500";
-    case "Arquitectura y diseño":
-      return "bg-purple-500";
-    case "Gastronomía":
-      return "bg-orange-500";
-    case "Ciencias Sociales y Humanidades":
-      return "bg-red-500";
-    default:
-      return "bg-gray-500";
-  }
-}
-
 // Procesar datos de licenciaturas
 const carreras = licenciaturas.map((licenciatura, index) => {
   const planteles = Object.keys(licenciatura.planteles);
   const todasLasModalidades = [];
   const todasLasIncorporaciones = [];
-  
+
   // Extraer todas las modalidades e incorporaciones
-  Object.values(licenciatura.planteles).forEach(plantelInfo => {
-    plantelInfo.forEach(info => {
+  Object.values(licenciatura.planteles).forEach((plantelInfo) => {
+    plantelInfo.forEach((info) => {
       if (!todasLasModalidades.includes(info.modalidad)) {
         todasLasModalidades.push(info.modalidad);
       }
@@ -89,23 +78,32 @@ const carreras = licenciaturas.map((licenciatura, index) => {
     });
   });
 
+  // Usar la imagen tal como viene, o el nombre del programa como fallback
+  const imagenNombre = licenciatura.imagen || licenciatura.nombre;
+  
+  // Obtener el color para el badge principal (primera incorporación)
+  const colorBadge = getColorBadge(todasLasIncorporaciones[0]);
+
   return {
     id: index + 1,
     nombre: `Lic. en ${licenciatura.nombre}`,
-    descripcion:  getDescripcionFromPlanteles(licenciatura.planteles), // Aquí está la corrección
+    descripcion: getDescripcionFromPlanteles(licenciatura.planteles),
     area: licenciatura.area,
+    imagen: imagenNombre, // Mantener la imagen sin cambios
     categoria: licenciatura.area,
     incorporacion: todasLasIncorporaciones.join(", "),
     modalidad: todasLasModalidades.join(", "),
-    icon: getIconByArea(licenciatura.area),
-    color: getColorByArea(licenciatura.area),
-    slug: licenciatura.nombre.toLowerCase().replace(/\s+/g, "-").replace(/[áéíóú]/g, (match) => {
-      const accents = { 'á': 'a', 'é': 'e', 'í': 'i', 'ó': 'o', 'ú': 'u' };
-      return accents[match];
-    }),
+    colorBadge: colorBadge, // Agregar color del badge
+    slug: licenciatura.nombre
+      .toLowerCase()
+      .replace(/\s+/g, "-")
+      .replace(/[áéíóú]/g, (match) => {
+        const accents = { á: "a", é: "e", í: "i", ó: "o", ú: "u" };
+        return accents[match];
+      }),
     planteles: planteles,
     plantelesDisponibles: planteles.length,
-    plantelesDetalle: licenciatura.planteles
+    plantelesDetalle: licenciatura.planteles,
   };
 });
 
@@ -119,34 +117,13 @@ const areas = [
   "Gastronomía",
 ];
 
-// Helper function to render the correct icon
-function renderIcon(iconName) {
-  switch (iconName) {
-    case "computer":
-      return Computer;
-    case "building":
-      return Building;
-    case "radio":
-      return Radio;
-    case "cog":
-      return Cog;
-    case "heart":
-      return Heart;
-    case "user":
-      return User;
-    case "calculator":
-      return Calculator;
-    case "palette":
-      return Palette;
-    case "chefHat":
-      return ChefHat;
-    default:
-      return Computer;
-  }
-}
+export { carreras, areas };
+
 ---
 
-<div class="max-w-9/12  mx-auto px-4 py-8">
+
+
+<div class="max-w-9/12 mx-auto px-4 py-8">
   <div class="mb-8">
     <h1 class="text-3xl font-bold text-gray-900 mb-2">ÁREAS DE CONOCIMIENTO</h1>
     <p class="text-gray-600">Encuentra tu área de especialización</p>
@@ -191,32 +168,32 @@ function renderIcon(iconName) {
   <div class="relative">
     <div
       id="cards-container"
-      class=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  py-8 px-4 gap-6 max-h-96 md:max-h-[500px] lg:max-h-[900px] overflow-y-auto "
+      class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 py-8 px-4 gap-6 max-h-96 md:max-h-[500px] lg:max-h-[900px] overflow-y-auto"
     >
       {
         carreras.map((carrera) => {
-          const IconComponent = renderIcon(carrera.icon);
           return (
             <div
               class={`career-card bg-white rounded-lg shadow-lg overflow-hidden transition-transform hover:scale-105 ${carrera.area !== "Todas" ? "hidden" : ""}`}
               data-area={carrera.categoria}
               data-name={carrera.nombre.toLowerCase()}
             >
-              <div class="relative">
-                <div class="h-48 bg-gradient-to-br from-gray-800 to-gray-900 flex items-center justify-center">
-                  <IconComponent class="w-16 h-16 text-white" />
+                <div class="relative">
+                <div class="h-48 flex items-center justify-center">
+                  <img
+                    src={`/src/assets/Imagenes/CardsLicenciaturas/${carrera.imagen}.jpg`}
+                    alt={carrera.imagen}
+                    class="w-full h-full object-cover"
+                  />
                 </div>
                 <div
-                  class={`absolute top-4 right-4 ${carrera.color} text-white px-2 py-1 rounded text-xs font-semibold`}
+                  class={`absolute top-4 right-4 ${carrera.colorBadge} text-white px-2 py-1 rounded text-xs font-semibold`}
                 >
                   {carrera.incorporacion.split(", ")[0]}
                 </div>
               </div>
-
               <div class="p-6">
-                <h3 class=" font-bold mb-2">
-                  {carrera.nombre}
-                </h3>
+                <h3 class="mb-2">{carrera.nombre}</h3>
                 <p class="text-gray-600 text-sm mb-4">{carrera.descripcion}</p>
 
                 <div class="space-y-2 mb-4">
@@ -231,8 +208,7 @@ function renderIcon(iconName) {
                       {carrera.plantelesDisponibles} planteles disp.
                     </span>
                   </div>
-                  <div class="text-xs text-gray-500">
-                  </div>
+                  <div class="text-xs text-gray-500" />
                 </div>
 
                 <div class="space-y-2">
@@ -241,7 +217,9 @@ function renderIcon(iconName) {
                     data-carrera-id={carrera.id}
                     data-carrera-nombre={carrera.nombre}
                     data-planteles={JSON.stringify(carrera.planteles)}
-                    data-planteles-detalle={JSON.stringify(carrera.plantelesDetalle)}
+                    data-planteles-detalle={JSON.stringify(
+                      carrera.plantelesDetalle
+                    )}
                   >
                     Ver planteles
                   </button>
@@ -271,7 +249,7 @@ function renderIcon(iconName) {
   </div>
 </div>
 
-<!-- Modal para mostrar planteles -->
+<!-- Modal de planteles -->
 <div
   id="planteles-modal"
   class="fixed inset-0 z-50 hidden flex items-center justify-center modal-overlay"
@@ -327,7 +305,7 @@ function renderIcon(iconName) {
     let visibleCards = 3; // Límite inicial para mobile
 
     // Datos de carreras para autocomplete
-    const careerNames = carreras.map(carrera => carrera.nombre);
+    const careerNames = carreras.map((carrera) => carrera.nombre);
 
     // Función para mostrar cards según área y límite
     function showCards() {
@@ -468,7 +446,7 @@ function renderIcon(iconName) {
     // Función para abrir modal con animación
     function openModal(carreraNombre, planteles, plantelesDetalle) {
       modalTitle.textContent = `${carreraNombre}`;
-      
+
       // Crear contenido del modal con información detallada
       plantelesList.innerHTML = planteles
         .map((plantel, index) => {
@@ -484,7 +462,9 @@ function renderIcon(iconName) {
               <!-- Modalidades e incorporaciones -->
               <div class="mb-4">
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                  ${detalles.map(detalle => `
+                  ${detalles
+                    .map(
+                      (detalle) => `
                     <div class="bg-gray-50 p-2 rounded">
                       <div class="text-sm">
                         <span class="font-semibold text-blue-600">${detalle.modalidad}</span>
@@ -492,7 +472,9 @@ function renderIcon(iconName) {
                         <span class="text-gray-600">Incorporación: ${detalle.incorporacion}</span>
                       </div>
                     </div>
-                  `).join('')}
+                  `
+                    )
+                    .join("")}
                 </div>
               </div>
               
@@ -525,13 +507,13 @@ function renderIcon(iconName) {
 
       // Mostrar modal
       modal.classList.remove("hidden");
-      
+
       // Animar entrada
       requestAnimationFrame(() => {
         modalBackdrop.classList.add("opacity-100");
         modalContent.classList.add("scale-100", "opacity-100");
         modalContent.classList.remove("scale-95", "opacity-0");
-        
+
         // Animar items de planteles
         setTimeout(() => {
           const items = document.querySelectorAll(".plantel-item");
@@ -559,7 +541,9 @@ function renderIcon(iconName) {
       if (e.target.classList.contains("ver-planteles-btn")) {
         const carreraNombre = e.target.getAttribute("data-carrera-nombre");
         const planteles = JSON.parse(e.target.getAttribute("data-planteles"));
-        const plantelesDetalle = JSON.parse(e.target.getAttribute("data-planteles-detalle"));
+        const plantelesDetalle = JSON.parse(
+          e.target.getAttribute("data-planteles-detalle")
+        );
         openModal(carreraNombre, planteles, plantelesDetalle);
       }
     });
@@ -585,7 +569,6 @@ function renderIcon(iconName) {
 
 <style>
   /* Estilos para el scroll personalizado */
- 
 
   #cards-container::-webkit-scrollbar-track {
     background: #f1f1f1;
@@ -619,8 +602,6 @@ function renderIcon(iconName) {
   #modal-content::-webkit-scrollbar-thumb:hover {
     background: #a8a8a8;
   }
-
-
 
   .tab-button {
     transition: all 0.2s ease;

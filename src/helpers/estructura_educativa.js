@@ -9,6 +9,7 @@ export const programasEducativos = {
           {
             modalidad: "Escolarizada",
             incorporacion: "SICYT",
+            imagen: "Arquitectura",
             descripcion:
               "Diseña el futuro construyendo espacios funcionales, sostenibles y estéticamente atractivos. Da vida a tus ideas a través de la arquitectura.",
           },
@@ -73,7 +74,9 @@ export const programasEducativos = {
           {
             modalidad: "Escolarizada",
             incorporacion: "SICYT",
-            descripcion: "Expresa ideas visuales con impacto. Aprende a crear diseño publicitario, digital y de marca.",
+            imagen: "Disenografico",
+            descripcion:
+              "Expresa ideas visuales con impacto. Aprende a crear diseño publicitario, digital y de marca.",
           },
           {
             modalidad: "Viernes y Sábado",
@@ -85,11 +88,15 @@ export const programasEducativos = {
           {
             modalidad: "Escolarizada",
             incorporacion: "SICYT",
+            imagen: "Disenografico",
+
             descripcion: "txt",
           },
           {
             modalidad: "Viernes y Sábado",
             incorporacion: "SICYT",
+            imagen: "Disenografico",
+
             descripcion: "txt",
           },
         ],
@@ -101,7 +108,9 @@ export const programasEducativos = {
           {
             modalidad: "Escolarizada",
             incorporacion: "SICYT",
-            descripcion: "Conviértete en un comunicador versátil y creativo, preparado para impactar en medios digitales, corporativos y sociales.",
+            imagen: "Cienciascomunicacion",
+            descripcion:
+              "Conviértete en un comunicador versátil y creativo, preparado para impactar en medios digitales, corporativos y sociales.",
           },
         ],
         MILENIO: [
@@ -117,6 +126,7 @@ export const programasEducativos = {
           {
             modalidad: "Escolarizada",
             incorporacion: "UDG",
+            imagen: "Abogado",
             descripcion:
               "Conviértete en un profesional del derecho con sólida formación jurídica, listo para defender la justicia y asesorar con responsabilidad.",
           },
@@ -127,7 +137,9 @@ export const programasEducativos = {
           {
             modalidad: "Semiescolarizada",
             incorporacion: "SICYT",
-            descripcion: "Transforma el aprendizaje desde el aula con herramientas pedagógicas y compromiso social.",
+            imagen: "CienciasEducacion",
+            descripcion:
+              "Transforma el aprendizaje desde el aula con herramientas pedagógicas y compromiso social.",
           },
           {
             modalidad: "Sabatina",
@@ -197,7 +209,9 @@ export const programasEducativos = {
           {
             modalidad: "Escolarizada",
             incorporacion: "SICYT",
-            descripcion: "Investiga, analiza y previene el delito con una formación científica y humanista.",
+            imagen: "Criminologia",
+            descripcion:
+              "Investiga, analiza y previene el delito con una formación científica y humanista.",
           },
         ],
         TESISTÁN: [
@@ -227,6 +241,7 @@ export const programasEducativos = {
           {
             modalidad: "Semiescolarizada",
             incorporacion: "SICYT",
+            imagen: "Derecho",
             descripcion:
               "Conviértete en un profesional del derecho con sólida formación jurídica, listo para defender la justicia y asesorar con responsabilidad.",
           },
@@ -390,7 +405,9 @@ export const programasEducativos = {
           {
             modalidad: "Escolarizada",
             incorporacion: "SICYT",
-            descripcion: "Interviene de forma directa en comunidades, familias y organizaciones para mejorar su bienestar.",
+            imagen: "TrabajoSocial",
+            descripcion:
+              "Interviene de forma directa en comunidades, familias y organizaciones para mejorar su bienestar.",
           },
           {
             modalidad: "Viernes y Sábado",
@@ -451,6 +468,7 @@ export const programasEducativos = {
           {
             modalidad: "Escolarizada",
             incorporacion: "UDG",
+            imagen: "CirujanoDentista",
             descripcion:
               "Especialízate en salud bucal con una formación práctica y de alto nivel, enfocada en la prevención, diagnóstico y rehabilitación oral.",
           },
@@ -501,7 +519,9 @@ export const programasEducativos = {
           {
             modalidad: "Escolarizada",
             incorporacion: "SICYT",
-            descripcion: "Promueve la salud y el rendimiento físico a través de la actividad deportiva y el entrenamiento profesional.",
+            imagen: "CulturaFisica",
+            descripcion:
+              "Promueve la salud y el rendimiento físico a través de la actividad deportiva y el entrenamiento profesional.",
           },
         ],
         TLAJOMULCO: [
@@ -531,6 +551,7 @@ export const programasEducativos = {
           {
             modalidad: "Escolarizada",
             incorporacion: "UDG",
+            imagen: "Enfermeria",
             descripcion:
               "Con vocación y conocimiento, cuida y mejora la salud de las personas en todos los niveles de atención.",
           },
@@ -573,114 +594,133 @@ export const programasEducativos = {
           {
             modalidad: "Escolarizada",
             incorporacion: "SICYT",
-            descripcion: "Promueve estilos de vida saludables a través de la alimentación consciente y personalizada.",
+            imagen: "Nutricion",
+            descripcion:
+              "Promueve estilos de vida saludables a través de la alimentación consciente y personalizada.",
           },
           {
             modalidad: "Viernes y Sábado",
             incorporacion: "SICYT",
-            descripcion: "Promueve estilos de vida saludables a través de la alimentación consciente y personalizada.",
+            descripcion:
+              "Promueve estilos de vida saludables a través de la alimentación consciente y personalizada.",
           },
         ],
         "CAMPUS  PUERTO  VALLARTA": [
           {
             modalidad: "Escolarizada",
             incorporacion: "SICYT",
-            descripcion: "Promueve estilos de vida saludables a través de la alimentación consciente y personalizada.",
+            descripcion:
+              "Promueve estilos de vida saludables a través de la alimentación consciente y personalizada.",
           },
           {
             modalidad: "Viernes y Sábado",
             incorporacion: "SICYT",
-            descripcion: "Promueve estilos de vida saludables a través de la alimentación consciente y personalizada.",
+            descripcion:
+              "Promueve estilos de vida saludables a través de la alimentación consciente y personalizada.",
           },
         ],
         CARACOL: [
           {
             modalidad: "Escolarizada",
             incorporacion: "SICYT",
-            descripcion: "Promueve estilos de vida saludables a través de la alimentación consciente y personalizada.",
+            descripcion:
+              "Promueve estilos de vida saludables a través de la alimentación consciente y personalizada.",
           },
           {
             modalidad: "Viernes y Sábado",
             incorporacion: "SICYT",
-            descripcion: "Promueve estilos de vida saludables a través de la alimentación consciente y personalizada.",
+            descripcion:
+              "Promueve estilos de vida saludables a través de la alimentación consciente y personalizada.",
           },
         ],
         CENTRO: [
           {
             modalidad: "Escolarizada",
             incorporacion: "SICYT",
-            descripcion: "Promueve estilos de vida saludables a través de la alimentación consciente y personalizada.",
+            descripcion:
+              "Promueve estilos de vida saludables a través de la alimentación consciente y personalizada.",
           },
           {
             modalidad: "Viernes y Sábado",
             incorporacion: "SICYT",
-            descripcion: "Promueve estilos de vida saludables a través de la alimentación consciente y personalizada.",
+            descripcion:
+              "Promueve estilos de vida saludables a través de la alimentación consciente y personalizada.",
           },
         ],
         CHAPULTEPEC: [
           {
             modalidad: "Escolarizada",
             incorporacion: "SICYT",
-            descripcion: "Promueve estilos de vida saludables a través de la alimentación consciente y personalizada.",
+            descripcion:
+              "Promueve estilos de vida saludables a través de la alimentación consciente y personalizada.",
           },
           {
             modalidad: "Viernes y Sábado",
             incorporacion: "SICYT",
-            descripcion: "Promueve estilos de vida saludables a través de la alimentación consciente y personalizada.",
+            descripcion:
+              "Promueve estilos de vida saludables a través de la alimentación consciente y personalizada.",
           },
         ],
         "LAS JUNTAS": [
           {
             modalidad: "Viernes y Sábado",
             incorporacion: "SICYT",
-            descripcion: "Promueve estilos de vida saludables a través de la alimentación consciente y personalizada.",
+            descripcion:
+              "Promueve estilos de vida saludables a través de la alimentación consciente y personalizada.",
           },
         ],
         TEPATITLÁN: [
           {
             modalidad: "Escolarizada",
             incorporacion: "SICYT",
-            descripcion: "Promueve estilos de vida saludables a través de la alimentación consciente y personalizada.",
+            descripcion:
+              "Promueve estilos de vida saludables a través de la alimentación consciente y personalizada.",
           },
         ],
         TLAJOMULCO: [
           {
             modalidad: "Escolarizada",
             incorporacion: "SICYT",
-            descripcion: "Promueve estilos de vida saludables a través de la alimentación consciente y personalizada.",
+            descripcion:
+              "Promueve estilos de vida saludables a través de la alimentación consciente y personalizada.",
           },
         ],
         TLAQUEPAQUE: [
           {
             modalidad: "Escolarizada",
             incorporacion: "SICYT",
-            descripcion: "Promueve estilos de vida saludables a través de la alimentación consciente y personalizada.",
+            descripcion:
+              "Promueve estilos de vida saludables a través de la alimentación consciente y personalizada.",
           },
         ],
         TONALÁ: [
           {
             modalidad: "Escolarizada",
             incorporacion: "SICYT",
-            descripcion: "Promueve estilos de vida saludables a través de la alimentación consciente y personalizada.",
+            descripcion:
+              "Promueve estilos de vida saludables a través de la alimentación consciente y personalizada.",
           },
         ],
         "TORRE UNE\n MILENIO": [
           {
             modalidad: "Escolarizada",
             incorporacion: "UDG",
-            descripcion: "Promueve estilos de vida saludables a través de la alimentación consciente y personalizada.",
+            descripcion:
+              "Promueve estilos de vida saludables a través de la alimentación consciente y personalizada.",
           },
         ],
         ZAPOPAN: [
           {
             modalidad: "Escolarizada",
             incorporacion: "SICYT",
-            descripcion: "Promueve estilos de vida saludables a través de la alimentación consciente y personalizada.",
+            descripcion:
+              "Promueve estilos de vida saludables a través de la alimentación consciente y personalizada.",
           },
           {
             modalidad: "Viernes y Sábado",
             incorporacion: "SICYT",
-            descripcion: "Promueve estilos de vida saludables a través de la alimentación consciente y personalizada.",
+            descripcion:
+              "Promueve estilos de vida saludables a través de la alimentación consciente y personalizada.",
           },
         ],
       },
@@ -689,136 +729,159 @@ export const programasEducativos = {
           {
             modalidad: "Escolarizada",
             incorporacion: "SICYT",
-            descripcion: "Comprende la conducta humana y contribuye al bienestar emocional, social y mental de las personas.",
+            imagen: "Psicologia",
+            descripcion:
+              "Comprende la conducta humana y contribuye al bienestar emocional, social y mental de las personas.",
           },
           {
             modalidad: "Viernes y Sábado",
             incorporacion: "SICYT",
-            descripcion: "Comprende la conducta humana y contribuye al bienestar emocional, social y mental de las personas.",
+            descripcion:
+              "Comprende la conducta humana y contribuye al bienestar emocional, social y mental de las personas.",
           },
         ],
         "CAMPUS  PUERTO  VALLARTA": [
           {
             modalidad: "Escolarizada",
             incorporacion: "SICYT",
-            descripcion: "Comprende la conducta humana y contribuye al bienestar emocional, social y mental de las personas.",
+            descripcion:
+              "Comprende la conducta humana y contribuye al bienestar emocional, social y mental de las personas.",
           },
           {
             modalidad: "Viernes y Sábado",
             incorporacion: "SICYT",
-            descripcion: "Comprende la conducta humana y contribuye al bienestar emocional, social y mental de las personas.",
+            descripcion:
+              "Comprende la conducta humana y contribuye al bienestar emocional, social y mental de las personas.",
           },
         ],
         CARACOL: [
           {
             modalidad: "Escolarizada",
             incorporacion: "SICYT",
-            descripcion: "Comprende la conducta humana y contribuye al bienestar emocional, social y mental de las personas.",
+            descripcion:
+              "Comprende la conducta humana y contribuye al bienestar emocional, social y mental de las personas.",
           },
           {
             modalidad: "Viernes y Sábado",
             incorporacion: "SICYT",
-            descripcion: "Comprende la conducta humana y contribuye al bienestar emocional, social y mental de las personas.",
+            descripcion:
+              "Comprende la conducta humana y contribuye al bienestar emocional, social y mental de las personas.",
           },
         ],
         CENTRO: [
           {
             modalidad: "Escolarizada",
             incorporacion: "UDG",
-            descripcion: "Comprende la conducta humana y contribuye al bienestar emocional, social y mental de las personas.",
+            descripcion:
+              "Comprende la conducta humana y contribuye al bienestar emocional, social y mental de las personas.",
           },
           {
             modalidad: "Viernes y Sábado",
             incorporacion: "SICYT",
-            descripcion: "Comprende la conducta humana y contribuye al bienestar emocional, social y mental de las personas.",
+            descripcion:
+              "Comprende la conducta humana y contribuye al bienestar emocional, social y mental de las personas.",
           },
         ],
         CHAPULTEPEC: [
           {
             modalidad: "Escolarizada",
             incorporacion: "SICYT",
-            descripcion: "Comprende la conducta humana y contribuye al bienestar emocional, social y mental de las personas.",
+            descripcion:
+              "Comprende la conducta humana y contribuye al bienestar emocional, social y mental de las personas.",
           },
           {
             modalidad: "Viernes y Sábado",
             incorporacion: "SICYT",
-            descripcion: "Comprende la conducta humana y contribuye al bienestar emocional, social y mental de las personas.",
+            descripcion:
+              "Comprende la conducta humana y contribuye al bienestar emocional, social y mental de las personas.",
           },
         ],
         MILENIO: [
           {
             modalidad: "Escolarizada",
             incorporacion: "SICYT",
-            descripcion: "Comprende la conducta humana y contribuye al bienestar emocional, social y mental de las personas.",
+            descripcion:
+              "Comprende la conducta humana y contribuye al bienestar emocional, social y mental de las personas.",
           },
           {
             modalidad: "Viernes y Sábado",
             incorporacion: "SICYT",
-            descripcion: "Comprende la conducta humana y contribuye al bienestar emocional, social y mental de las personas.",
+            descripcion:
+              "Comprende la conducta humana y contribuye al bienestar emocional, social y mental de las personas.",
           },
         ],
         TEPATITLÁN: [
           {
             modalidad: "Escolarizada",
             incorporacion: "SICYT",
-            descripcion: "Comprende la conducta humana y contribuye al bienestar emocional, social y mental de las personas.",
+            descripcion:
+              "Comprende la conducta humana y contribuye al bienestar emocional, social y mental de las personas.",
           },
         ],
         TESISTÁN: [
           {
             modalidad: "Escolarizada",
             incorporacion: "SICYT",
-            descripcion: "Comprende la conducta humana y contribuye al bienestar emocional, social y mental de las personas.",
+            descripcion:
+              "Comprende la conducta humana y contribuye al bienestar emocional, social y mental de las personas.",
           },
         ],
         TLAJOMULCO: [
           {
             modalidad: "Escolarizada",
             incorporacion: "SICYT",
-            descripcion: "Comprende la conducta humana y contribuye al bienestar emocional, social y mental de las personas.",
+            descripcion:
+              "Comprende la conducta humana y contribuye al bienestar emocional, social y mental de las personas.",
           },
           {
             modalidad: "Viernes y Sábado",
             incorporacion: "SICYT",
-            descripcion: "Comprende la conducta humana y contribuye al bienestar emocional, social y mental de las personas.",
+            descripcion:
+              "Comprende la conducta humana y contribuye al bienestar emocional, social y mental de las personas.",
           },
         ],
         TLAQUEPAQUE: [
           {
             modalidad: "Escolarizada",
             incorporacion: "SICYT",
-            descripcion: "Comprende la conducta humana y contribuye al bienestar emocional, social y mental de las personas.",
+            descripcion:
+              "Comprende la conducta humana y contribuye al bienestar emocional, social y mental de las personas.",
           },
           {
             modalidad: "Viernes y Sábado",
             incorporacion: "SICYT",
-            descripcion: "Comprende la conducta humana y contribuye al bienestar emocional, social y mental de las personas.",
+            descripcion:
+              "Comprende la conducta humana y contribuye al bienestar emocional, social y mental de las personas.",
           },
         ],
         TONALÁ: [
           {
             modalidad: "Escolarizada",
             incorporacion: "SICYT",
-            descripcion: "Comprende la conducta humana y contribuye al bienestar emocional, social y mental de las personas.",
+            descripcion:
+              "Comprende la conducta humana y contribuye al bienestar emocional, social y mental de las personas.",
           },
         ],
         "TORRE UNE\n MILENIO": [
           {
             modalidad: "Escolarizada",
             incorporacion: "UDG",
-            descripcion: "Comprende la conducta humana y contribuye al bienestar emocional, social y mental de las personas.",
+            descripcion:
+              "Comprende la conducta humana y contribuye al bienestar emocional, social y mental de las personas.",
           },
         ],
         ZAPOPAN: [
           {
             modalidad: "Escolarizada",
             incorporacion: "SICYT",
-            descripcion: "Comprende la conducta humana y contribuye al bienestar emocional, social y mental de las personas.",
+            descripcion:
+              "Comprende la conducta humana y contribuye al bienestar emocional, social y mental de las personas.",
           },
           {
             modalidad: "Viernes y Sábado",
             incorporacion: "SICYT",
-            descripcion: "Comprende la conducta humana y contribuye al bienestar emocional, social y mental de las personas.",
+            descripcion:
+              "Comprende la conducta humana y contribuye al bienestar emocional, social y mental de las personas.",
           },
         ],
       },
@@ -827,7 +890,9 @@ export const programasEducativos = {
           {
             modalidad: "Escolarizada",
             incorporacion: "SICYT",
-            descripcion: "Especialista en el diagnóstico clínico, análisis de laboratorio y desarrollo farmacéutico.",
+            imagen: "QuimicoFarmaceutico",
+            descripcion:
+              "Especialista en el diagnóstico clínico, análisis de laboratorio y desarrollo farmacéutico.",
           },
         ],
         CHAPULTEPEC: [
@@ -878,7 +943,9 @@ export const programasEducativos = {
           {
             modalidad: "Escolarizada",
             incorporacion: "SICYT",
-            descripcion: "Ayuda a recuperar el movimiento y la funcionalidad corporal con técnicas terapéuticas efectivas.",
+            imagen: "TerapiaFisica",
+            descripcion:
+              "Ayuda a recuperar el movimiento y la funcionalidad corporal con técnicas terapéuticas efectivas.",
           },
         ],
         CHAPULTEPEC: [
@@ -938,7 +1005,9 @@ export const programasEducativos = {
           {
             modalidad: "Escolarizada",
             incorporacion: "SICYT",
-            descripcion: "Optimiza recursos, mejora procesos y lidera la eficiencia en cualquier tipo de organización.",
+            imagen: "Industrial",
+            descripcion:
+              "Optimiza recursos, mejora procesos y lidera la eficiencia en cualquier tipo de organización.",
           },
         ],
         MILENIO: [
@@ -961,10 +1030,12 @@ export const programasEducativos = {
           {
             modalidad: "Escolarizada",
             incorporacion: "SICYT",
-            descripcion: "Protege la información y toma decisiones con base en datos. Prepárate para el futuro digital.",
+            imagen: "DatosCiberseguridad",
+            descripcion:
+              "Protege la información y toma decisiones con base en datos. Prepárate para el futuro digital.",
           },
         ],
-         "Av. México": [
+        "Av. México": [
           {
             modalidad: "Escolarizada",
             incorporacion: "SICYT",
@@ -1013,7 +1084,9 @@ export const programasEducativos = {
           {
             modalidad: "Escolarizada",
             incorporacion: "SICYT",
-            descripcion: "Diseña y mantiene sistemas mecánicos innovadores aplicados a la industria y la tecnología.",
+            imagen: "Mecanica",
+            descripcion:
+              "Diseña y mantiene sistemas mecánicos innovadores aplicados a la industria y la tecnología.",
           },
         ],
         "CAMPUS  PUERTO  VALLARTA": [
@@ -1057,7 +1130,9 @@ export const programasEducativos = {
           {
             modalidad: "Escolarizada",
             incorporacion: "SICYT",
-            descripcion: "Crea soluciones digitales desde cero. Aprende a programar, diseñar y desarrollar aplicaciones tecnológicas con impacto global.",
+            imagen: "Software",
+            descripcion:
+              "Crea soluciones digitales desde cero. Aprende a programar, diseñar y desarrollar aplicaciones tecnológicas con impacto global.",
           },
         ],
         "CAMPUS  PUERTO  VALLARTA": [
@@ -1102,7 +1177,9 @@ export const programasEducativos = {
           {
             modalidad: "Escolarizada",
             incorporacion: "SICYT",
-            descripcion: "Construye el futuro mediante proyectos de infraestructura, diseño estructural y desarrollo urbano.",
+            imagen: "Civil",
+            descripcion:
+              "Construye el futuro mediante proyectos de infraestructura, diseño estructural y desarrollo urbano.",
           },
         ],
         TLAJOMULCO: [
@@ -1146,6 +1223,7 @@ export const programasEducativos = {
           {
             modalidad: "Escolarizada",
             incorporacion: "UDG",
+            imagen: "Computacion",
             descripcion:
               "Diseña sistemas, redes y soluciones tecnológicas para enfrentar los retos del mundo digital.",
           },
@@ -1156,7 +1234,9 @@ export const programasEducativos = {
           {
             modalidad: "Escolarizada",
             incorporacion: "SICYT",
-            descripcion: "Transforma materias primas en soluciones útiles con responsabilidad ambiental y técnica.",
+            imagen: "Quimica",
+            descripcion:
+              "Transforma materias primas en soluciones útiles con responsabilidad ambiental y técnica.",
           },
         ],
         TESISTÁN: [
@@ -1179,6 +1259,7 @@ export const programasEducativos = {
           {
             modalidad: "Escolarizada",
             incorporacion: "SICYT",
+            imagen: "ComunicacionesElectronica",
             descripcion: "txt",
           },
         ],
@@ -1186,7 +1267,8 @@ export const programasEducativos = {
           {
             modalidad: "Escolarizada",
             incorporacion: "SICYT",
-            descripcion: "Domina tecnologías de vanguardia en sistemas de comunicación, electrónica y automatización.",
+            descripcion:
+              "Domina tecnologías de vanguardia en sistemas de comunicación, electrónica y automatización.",
           },
         ],
         MILENIO: [
@@ -1211,7 +1293,9 @@ export const programasEducativos = {
           {
             modalidad: "En linea",
             incorporacion: "SICYT",
-            descripcion: "Integra tecnología y negocios para mejorar procesos y tomar decisiones estratégicas basadas en datos.",
+            imagen: "sistemasdeinformacion",
+            descripcion:
+              "Integra tecnología y negocios para mejorar procesos y tomar decisiones estratégicas basadas en datos.",
           },
         ],
       },
@@ -1220,7 +1304,9 @@ export const programasEducativos = {
           {
             modalidad: "Sabatina",
             incorporacion: "SICYT",
-            descripcion: "Integra tecnología y negocios para mejorar procesos y tomar decisiones estratégicas basadas en datos.",
+            imagen: "altadireccion",
+            descripcion:
+              "Integra tecnología y negocios para mejorar procesos y tomar decisiones estratégicas basadas en datos.",
           },
         ],
         "CENTRO \nMÉDICO": [
@@ -1243,6 +1329,7 @@ export const programasEducativos = {
           {
             modalidad: "Semiescolarizada",
             incorporacion: "SICYT",
+            imagen: "administracion",
             descripcion:
               "Forma parte del motor que mueve a las organizaciones. Aprende a liderar equipos, optimizar recursos y tomar decisiones con impacto.",
           },
@@ -1267,139 +1354,163 @@ export const programasEducativos = {
           {
             modalidad: "Semiescolarizada",
             incorporacion: "SICYT",
-            descripcion: "Gestiona recursos, lidera proyectos y transforma organizaciones con una formación integral y moderna.",
+            imagen: "administracionempresas",
+            descripcion:
+              "Gestiona recursos, lidera proyectos y transforma organizaciones con una formación integral y moderna.",
           },
           {
             modalidad: "Sabatina",
             incorporacion: "SICYT",
-            descripcion: "Gestiona recursos, lidera proyectos y transforma organizaciones con una formación integral y moderna.",
+            descripcion:
+              "Gestiona recursos, lidera proyectos y transforma organizaciones con una formación integral y moderna.",
           },
         ],
         CARACOL: [
           {
             modalidad: "Semiescolarizada",
             incorporacion: "SICYT",
-            descripcion: "Gestiona recursos, lidera proyectos y transforma organizaciones con una formación integral y moderna.",
+            descripcion:
+              "Gestiona recursos, lidera proyectos y transforma organizaciones con una formación integral y moderna.",
           },
           {
             modalidad: "Sabatina",
             incorporacion: "SICYT",
-            descripcion: "Gestiona recursos, lidera proyectos y transforma organizaciones con una formación integral y moderna.",
+            descripcion:
+              "Gestiona recursos, lidera proyectos y transforma organizaciones con una formación integral y moderna.",
           },
         ],
         CENTRO: [
           {
             modalidad: "Semiescolarizada",
             incorporacion: "SICYT",
-            descripcion: "Gestiona recursos, lidera proyectos y transforma organizaciones con una formación integral y moderna.",
+            descripcion:
+              "Gestiona recursos, lidera proyectos y transforma organizaciones con una formación integral y moderna.",
           },
           {
             modalidad: "Sabatina",
             incorporacion: "SICYT",
-            descripcion: "Gestiona recursos, lidera proyectos y transforma organizaciones con una formación integral y moderna.",
+            descripcion:
+              "Gestiona recursos, lidera proyectos y transforma organizaciones con una formación integral y moderna.",
           },
         ],
         "CENTRO \nMÉDICO": [
           {
             modalidad: "Semiescolarizada",
             incorporacion: "SICYT",
-            descripcion: "Gestiona recursos, lidera proyectos y transforma organizaciones con una formación integral y moderna.",
+            descripcion:
+              "Gestiona recursos, lidera proyectos y transforma organizaciones con una formación integral y moderna.",
           },
           {
             modalidad: "Sabatina",
             incorporacion: "SICYT",
-            descripcion: "Gestiona recursos, lidera proyectos y transforma organizaciones con una formación integral y moderna.",
+            descripcion:
+              "Gestiona recursos, lidera proyectos y transforma organizaciones con una formación integral y moderna.",
           },
         ],
         CHAPULTEPEC: [
           {
             modalidad: "Semiescolarizada",
             incorporacion: "SICYT",
-            descripcion: "Gestiona recursos, lidera proyectos y transforma organizaciones con una formación integral y moderna.",
+            descripcion:
+              "Gestiona recursos, lidera proyectos y transforma organizaciones con una formación integral y moderna.",
           },
           {
             modalidad: "Sabatina",
             incorporacion: "SICYT",
-            descripcion: "Gestiona recursos, lidera proyectos y transforma organizaciones con una formación integral y moderna.",
+            descripcion:
+              "Gestiona recursos, lidera proyectos y transforma organizaciones con una formación integral y moderna.",
           },
         ],
         MILENIO: [
           {
             modalidad: "Sabatina",
             incorporacion: "SICYT",
-            descripcion: "Gestiona recursos, lidera proyectos y transforma organizaciones con una formación integral y moderna.",
+            descripcion:
+              "Gestiona recursos, lidera proyectos y transforma organizaciones con una formación integral y moderna.",
           },
         ],
         TEPATITLÁN: [
           {
             modalidad: "Semiescolarizada",
             incorporacion: "SICYT",
-            descripcion: "Gestiona recursos, lidera proyectos y transforma organizaciones con una formación integral y moderna.",
+            descripcion:
+              "Gestiona recursos, lidera proyectos y transforma organizaciones con una formación integral y moderna.",
           },
           {
             modalidad: "Sabatina",
             incorporacion: "SICYT",
-            descripcion: "Gestiona recursos, lidera proyectos y transforma organizaciones con una formación integral y moderna.",
+            descripcion:
+              "Gestiona recursos, lidera proyectos y transforma organizaciones con una formación integral y moderna.",
           },
         ],
         TESISTÁN: [
           {
             modalidad: "Semiescolarizada",
             incorporacion: "SICYT",
-            descripcion: "Gestiona recursos, lidera proyectos y transforma organizaciones con una formación integral y moderna.",
+            descripcion:
+              "Gestiona recursos, lidera proyectos y transforma organizaciones con una formación integral y moderna.",
           },
           {
             modalidad: "Sabatina",
             incorporacion: "SICYT",
-            descripcion: "Gestiona recursos, lidera proyectos y transforma organizaciones con una formación integral y moderna.",
+            descripcion:
+              "Gestiona recursos, lidera proyectos y transforma organizaciones con una formación integral y moderna.",
           },
         ],
         TLAJOMULCO: [
           {
             modalidad: "Semiescolarizada",
             incorporacion: "SICYT",
-            descripcion: "Gestiona recursos, lidera proyectos y transforma organizaciones con una formación integral y moderna.",
+            descripcion:
+              "Gestiona recursos, lidera proyectos y transforma organizaciones con una formación integral y moderna.",
           },
           {
             modalidad: "Sabatina",
             incorporacion: "SICYT",
-            descripcion: "Gestiona recursos, lidera proyectos y transforma organizaciones con una formación integral y moderna.",
+            descripcion:
+              "Gestiona recursos, lidera proyectos y transforma organizaciones con una formación integral y moderna.",
           },
         ],
         TLAQUEPAQUE: [
           {
             modalidad: "Semiescolarizada",
             incorporacion: "SICYT",
-            descripcion: "Gestiona recursos, lidera proyectos y transforma organizaciones con una formación integral y moderna.",
+            descripcion:
+              "Gestiona recursos, lidera proyectos y transforma organizaciones con una formación integral y moderna.",
           },
           {
             modalidad: "Sabatina",
             incorporacion: "SICYT",
-            descripcion: "Gestiona recursos, lidera proyectos y transforma organizaciones con una formación integral y moderna.",
+            descripcion:
+              "Gestiona recursos, lidera proyectos y transforma organizaciones con una formación integral y moderna.",
           },
         ],
         TONALÁ: [
           {
             modalidad: "Semiescolarizada",
             incorporacion: "SICYT",
-            descripcion: "Gestiona recursos, lidera proyectos y transforma organizaciones con una formación integral y moderna.",
+            descripcion:
+              "Gestiona recursos, lidera proyectos y transforma organizaciones con una formación integral y moderna.",
           },
           {
             modalidad: "Sabatina",
             incorporacion: "SICYT",
-            descripcion: "Gestiona recursos, lidera proyectos y transforma organizaciones con una formación integral y moderna.",
+            descripcion:
+              "Gestiona recursos, lidera proyectos y transforma organizaciones con una formación integral y moderna.",
           },
         ],
         ZAPOPAN: [
           {
             modalidad: "Semiescolarizada",
             incorporacion: "SICYT",
-            descripcion: "Gestiona recursos, lidera proyectos y transforma organizaciones con una formación integral y moderna.",
+            descripcion:
+              "Gestiona recursos, lidera proyectos y transforma organizaciones con una formación integral y moderna.",
           },
           {
             modalidad: "Sabatina",
             incorporacion: "SICYT",
-            descripcion: "Gestiona recursos, lidera proyectos y transforma organizaciones con una formación integral y moderna.",
+            descripcion:
+              "Gestiona recursos, lidera proyectos y transforma organizaciones con una formación integral y moderna.",
           },
         ],
       },
@@ -1409,6 +1520,7 @@ export const programasEducativos = {
           {
             modalidad: "Escolarizada",
             incorporacion: "UDG",
+            imagen: "ContaduriaPublica",
             descripcion:
               "Domina la información financiera con precisión y responsabilidad. Aprende a gestionar, auditar y tomar decisiones contables clave.",
           },
@@ -1420,6 +1532,7 @@ export const programasEducativos = {
           {
             modalidad: "Escolarizada",
             incorporacion: "SICYT",
+            imagen: "contaduriaAuditoria",
             descripcion:
               "Domina la información financiera con precisión y responsabilidad. Aprende a gestionar, auditar y tomar decisiones contables clave.",
           },
@@ -1494,7 +1607,9 @@ export const programasEducativos = {
           {
             modalidad: "Sabatina",
             incorporacion: "SICYT",
-            descripcion: "Desarrolla habilidades empresariales para crear, gestionar y hacer crecer pequeñas y medianas empresas con estrategias innovadoras y sostenibles.",
+            imagen: "Pymes",
+            descripcion:
+              "Desarrolla habilidades empresariales para crear, gestionar y hacer crecer pequeñas y medianas empresas con estrategias innovadoras y sostenibles.",
           },
         ],
         "TORRE QUETZAL": [
@@ -1510,6 +1625,7 @@ export const programasEducativos = {
           {
             modalidad: "Semiescolarizada",
             incorporacion: "SICYT",
+            imagen: "Mercadotecnia",
             descripcion:
               "Desarrolla estrategias creativas para posicionar marcas, conectar con consumidores y expandir negocios a nivel global.",
           },
@@ -1696,6 +1812,7 @@ export const programasEducativos = {
           {
             modalidad: "Sabatina",
             incorporacion: "SICYT",
+            imagen: "MercadotecniaInternacional",
             descripcion:
               "Desarrolla estrategias creativas para posicionar marcas, conectar con consumidores y expandir negocios a nivel global.",
           },
@@ -1704,7 +1821,8 @@ export const programasEducativos = {
           {
             modalidad: "Sabatina",
             incorporacion: "SICYT",
-            descripcion: "Desarrolla estrategias creativas para posicionar marcas, conectar con consumidores y expandir negocios a nivel global.",
+            descripcion:
+              "Desarrolla estrategias creativas para posicionar marcas, conectar con consumidores y expandir negocios a nivel global.",
           },
         ],
       },
@@ -1713,163 +1831,191 @@ export const programasEducativos = {
           {
             modalidad: "Semiescolarizada",
             incorporacion: "SICYT",
-            descripcion: "Adquiere una visión global del comercio, la logística y las relaciones empresariales internacionales.",
+            imagen: "NegociosInternacionales",
+            descripcion:
+              "Adquiere una visión global del comercio, la logística y las relaciones empresariales internacionales.",
           },
           {
             modalidad: "Sabatina",
             incorporacion: "SICYT",
-            descripcion: "Adquiere una visión global del comercio, la logística y las relaciones empresariales internacionales.",
+            descripcion:
+              "Adquiere una visión global del comercio, la logística y las relaciones empresariales internacionales.",
           },
         ],
         "CAMPUS  PUERTO  VALLARTA": [
           {
             modalidad: "Semiescolarizada",
             incorporacion: "SICYT",
-            descripcion: "Adquiere una visión global del comercio, la logística y las relaciones empresariales internacionales.",
+            descripcion:
+              "Adquiere una visión global del comercio, la logística y las relaciones empresariales internacionales.",
           },
           {
             modalidad: "Sabatina",
             incorporacion: "SICYT",
-            descripcion: "Adquiere una visión global del comercio, la logística y las relaciones empresariales internacionales.",
+            descripcion:
+              "Adquiere una visión global del comercio, la logística y las relaciones empresariales internacionales.",
           },
         ],
         CARACOL: [
           {
             modalidad: "Semiescolarizada",
             incorporacion: "SICYT",
-            descripcion: "Adquiere una visión global del comercio, la logística y las relaciones empresariales internacionales.",
+            descripcion:
+              "Adquiere una visión global del comercio, la logística y las relaciones empresariales internacionales.",
           },
           {
             modalidad: "Sabatina",
             incorporacion: "SICYT",
-            descripcion: "Adquiere una visión global del comercio, la logística y las relaciones empresariales internacionales.",
+            descripcion:
+              "Adquiere una visión global del comercio, la logística y las relaciones empresariales internacionales.",
           },
         ],
         CENTRO: [
           {
             modalidad: "Semiescolarizada",
             incorporacion: "SICYT",
-            descripcion: "Adquiere una visión global del comercio, la logística y las relaciones empresariales internacionales.",
+            descripcion:
+              "Adquiere una visión global del comercio, la logística y las relaciones empresariales internacionales.",
           },
           {
             modalidad: "Sabatina",
             incorporacion: "SICYT",
-            descripcion: "Adquiere una visión global del comercio, la logística y las relaciones empresariales internacionales.",
+            descripcion:
+              "Adquiere una visión global del comercio, la logística y las relaciones empresariales internacionales.",
           },
         ],
         "CENTRO \nMÉDICO": [
           {
             modalidad: "Semiescolarizada",
             incorporacion: "SICYT",
-            descripcion: "Adquiere una visión global del comercio, la logística y las relaciones empresariales internacionales.",
+            descripcion:
+              "Adquiere una visión global del comercio, la logística y las relaciones empresariales internacionales.",
           },
           {
             modalidad: "Sabatina",
             incorporacion: "SICYT",
-            descripcion: "Adquiere una visión global del comercio, la logística y las relaciones empresariales internacionales.",
+            descripcion:
+              "Adquiere una visión global del comercio, la logística y las relaciones empresariales internacionales.",
           },
         ],
         CHAPULTEPEC: [
           {
             modalidad: "Semiescolarizada",
             incorporacion: "SICYT",
-            descripcion: "Adquiere una visión global del comercio, la logística y las relaciones empresariales internacionales.",
+            descripcion:
+              "Adquiere una visión global del comercio, la logística y las relaciones empresariales internacionales.",
           },
           {
             modalidad: "Sabatina",
             incorporacion: "SICYT",
-            descripcion: "Adquiere una visión global del comercio, la logística y las relaciones empresariales internacionales.",
+            descripcion:
+              "Adquiere una visión global del comercio, la logística y las relaciones empresariales internacionales.",
           },
         ],
         MILENIO: [
           {
             modalidad: "Sabatina",
             incorporacion: "SICYT",
-            descripcion: "Adquiere una visión global del comercio, la logística y las relaciones empresariales internacionales.",
+            descripcion:
+              "Adquiere una visión global del comercio, la logística y las relaciones empresariales internacionales.",
           },
         ],
         TEPATITLÁN: [
           {
             modalidad: "Semiescolarizada",
             incorporacion: "SICYT",
-            descripcion: "Adquiere una visión global del comercio, la logística y las relaciones empresariales internacionales.",
+            descripcion:
+              "Adquiere una visión global del comercio, la logística y las relaciones empresariales internacionales.",
           },
           {
             modalidad: "Sabatina",
             incorporacion: "SICYT",
-            descripcion: "Adquiere una visión global del comercio, la logística y las relaciones empresariales internacionales.",
+            descripcion:
+              "Adquiere una visión global del comercio, la logística y las relaciones empresariales internacionales.",
           },
         ],
         TESISTÁN: [
           {
             modalidad: "Semiescolarizada",
             incorporacion: "SICYT",
-            descripcion: "Adquiere una visión global del comercio, la logística y las relaciones empresariales internacionales.",
+            descripcion:
+              "Adquiere una visión global del comercio, la logística y las relaciones empresariales internacionales.",
           },
           {
             modalidad: "Sabatina",
             incorporacion: "SICYT",
-            descripcion: "Adquiere una visión global del comercio, la logística y las relaciones empresariales internacionales.",
+            descripcion:
+              "Adquiere una visión global del comercio, la logística y las relaciones empresariales internacionales.",
           },
         ],
         TLAJOMULCO: [
           {
             modalidad: "Semiescolarizada",
             incorporacion: "SICYT",
-            descripcion: "Adquiere una visión global del comercio, la logística y las relaciones empresariales internacionales.",
+            descripcion:
+              "Adquiere una visión global del comercio, la logística y las relaciones empresariales internacionales.",
           },
           {
             modalidad: "Sabatina",
             incorporacion: "SICYT",
-            descripcion: "Adquiere una visión global del comercio, la logística y las relaciones empresariales internacionales.",
+            descripcion:
+              "Adquiere una visión global del comercio, la logística y las relaciones empresariales internacionales.",
           },
         ],
         TLAQUEPAQUE: [
           {
             modalidad: "Semiescolarizada",
             incorporacion: "SICYT",
-            descripcion: "Adquiere una visión global del comercio, la logística y las relaciones empresariales internacionales.",
+            descripcion:
+              "Adquiere una visión global del comercio, la logística y las relaciones empresariales internacionales.",
           },
           {
             modalidad: "Sabatina",
             incorporacion: "SICYT",
-            descripcion: "Adquiere una visión global del comercio, la logística y las relaciones empresariales internacionales.",
+            descripcion:
+              "Adquiere una visión global del comercio, la logística y las relaciones empresariales internacionales.",
           },
         ],
         TONALÁ: [
           {
             modalidad: "Semiescolarizada",
             incorporacion: "SICYT",
-            descripcion: "Adquiere una visión global del comercio, la logística y las relaciones empresariales internacionales.",
+            descripcion:
+              "Adquiere una visión global del comercio, la logística y las relaciones empresariales internacionales.",
           },
           {
             modalidad: "Sabatina",
             incorporacion: "SICYT",
-            descripcion: "Adquiere una visión global del comercio, la logística y las relaciones empresariales internacionales.",
+            descripcion:
+              "Adquiere una visión global del comercio, la logística y las relaciones empresariales internacionales.",
           },
         ],
         "TORRE QUETZAL": [
           {
             modalidad: "Escolarizada",
             incorporacion: "UDG",
-            descripcion: "Adquiere una visión global del comercio, la logística y las relaciones empresariales internacionales.",
+            descripcion:
+              "Adquiere una visión global del comercio, la logística y las relaciones empresariales internacionales.",
           },
           {
             modalidad: "Semiescolarizada",
             incorporacion: "SICYT",
-            descripcion: "Adquiere una visión global del comercio, la logística y las relaciones empresariales internacionales.",
+            descripcion:
+              "Adquiere una visión global del comercio, la logística y las relaciones empresariales internacionales.",
           },
         ],
         ZAPOPAN: [
           {
             modalidad: "Semiescolarizada",
             incorporacion: "SICYT",
-            descripcion: "Adquiere una visión global del comercio, la logística y las relaciones empresariales internacionales.",
+            descripcion:
+              "Adquiere una visión global del comercio, la logística y las relaciones empresariales internacionales.",
           },
           {
             modalidad: "Sabatina",
             incorporacion: "SICYT",
-            descripcion: "Adquiere una visión global del comercio, la logística y las relaciones empresariales internacionales.",
+            descripcion:
+              "Adquiere una visión global del comercio, la logística y las relaciones empresariales internacionales.",
           },
         ],
       },
@@ -1880,7 +2026,9 @@ export const programasEducativos = {
           {
             modalidad: "Escolarizada",
             incorporacion: "SICYT",
-            descripcion: "Desarrolla tu pasión por la cocina con fundamentos técnicos, culturales y de innovación culinaria.",
+            imagen: "Gastronomia",
+            descripcion:
+              "Desarrolla tu pasión por la cocina con fundamentos técnicos, culturales y de innovación culinaria.",
           },
         ],
         TLAJOMULCO: [
@@ -1906,7 +2054,6 @@ export const programasEducativos = {
         ],
       },
     },
-   
   },
 };
 
