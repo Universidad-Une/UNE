@@ -1,12 +1,10 @@
 ---
 import Layout from "@/layouts/Layout.astro";
-import Hero from "@/assets/Imagenes/Heros/Cirujano_dentista.jpg";
-import Hero_mobile from "@/assets/Imagenes/Heros/Cirujano_dentista_mobile.jpg";
+import Hero from "@/assets/Imagenes/Heros/Carreras/TrabajoSocial.jpg";
+import Hero_mobile from "@/assets/Imagenes/Heros/Carreras/TrabajoSocial_mobile.jpg";
 import ImagenCard from "@/assets/Imagenes/CardsNiveles/Nivel.png";
 import LogoCard from "@/assets/Logos/Licenciatura.png";
 import InformativeCard from "@components/sections/detallesOferta/card.astro";
-import Carreras from "@components/sections/Licenciaturas/Carreras.astro";
-import Estadisticas from "@components/sections/Licenciaturas/Estadisticas.astro";
 
 import Requisitos from "@/components/sections/detallesOferta/requisitos.astro";
 
@@ -25,7 +23,7 @@ const requisitosInfo = {
     "CURP (formato RENAPO)",
     "Identificación oficial con fotografía (INE) - dos copias",
     "Comprobante de domicilio reciente (no mayor a 3 meses) - una copia",
-    "Cinco fotografías tamaño infantil, blanco y negro, papel mate, de estudio"
+    "Cinco fotografías tamaño infantil, blanco y negro, papel mate, de estudio",
   ],
   pdfUrl: "/public/pdfs/licenciatura_req.pdf",
 };
@@ -79,27 +77,45 @@ const semestresDatos = [
     numero: 1,
     materias: [
       {
-        codigo: "ED1021",
-        nombre: "Introducción a la Educación",
-        creditos: 30,
+        codigo: "LTS101",
+        nombre: "Desarrollo de Habilidades para el Aprendizaje",
+        creditos: 3,
         color: "verde",
       },
       {
-        codigo: "Filosofía y Ética en Educación",
-        nombre: "Filosofía y Ética en Educación",
-        creditos: 30,
+        codigo: "LTS102",
+        nombre: "Desarrollo Histórico del Trabajo Social",
+        creditos: 5,
         color: "verde",
       },
       {
-        codigo: "ED1024",
-        nombre: "Desarrollo Infantil y adolescente",
-        creditos: 30,
+        codigo: "LTS103",
+        nombre: "Teoría Social I",
+        creditos: 6,
         color: "verde",
       },
       {
-        codigo: "ED1027",
-        nombre: "Habilidades Básicas de Investigación",
-        creditos: 30,
+        codigo: "LTS104",
+        nombre: "Teoría Económica I",
+        creditos: 6,
+        color: "verde",
+      },
+      {
+        codigo: "LTS105",
+        nombre: "Análisis del Estado Mexicano",
+        creditos: 5,
+        color: "verde",
+      },
+      {
+        codigo: "LTS106",
+        nombre: "Problemática Social",
+        creditos: 5,
+        color: "verde",
+      },
+      {
+        codigo: "LTS107",
+        nombre: "Inglés I",
+        creditos: 4,
         color: "verde",
       },
     ],
@@ -108,27 +124,45 @@ const semestresDatos = [
     numero: 2,
     materias: [
       {
-        codigo: "FH1203",
-        nombre: "Pensamiento lógico y tecnológico",
-        creditos: 30,
+        codigo: "LTS201",
+        nombre: "Comunicación Oral y Escrita",
+        creditos: 3,
         color: "amarillo",
       },
       {
-        codigo: "ED2016",
-        nombre: "Desarrollo de la Psicomotricidad",
-        creditos: 30,
+        codigo: "LTS202",
+        nombre: "Teoría del Trabajo Social Comunitario",
+        creditos: 5,
         color: "amarillo",
       },
       {
-        codigo: "HJ2026",
-        nombre: "Ética social cristiana",
-        creditos: 30,
+        codigo: "LTS203",
+        nombre: "Teoría Social II",
+        creditos: 6,
         color: "amarillo",
       },
       {
-        codigo: "ED1029",
-        nombre: "Historia de la Pedagogía moderna",
-        creditos: 30,
+        codigo: "LTS204",
+        nombre: "Teoría Económica II",
+        creditos: 6,
+        color: "amarillo",
+      },
+      {
+        codigo: "LTS205",
+        nombre: "Situación Nacional Contemporánea",
+        creditos: 5,
+        color: "amarillo",
+      },
+      {
+        codigo: "LTS206",
+        nombre: "Política Social",
+        creditos: 5,
+        color: "amarillo",
+      },
+      {
+        codigo: "LTS207",
+        nombre: "Inglés II",
+        creditos: 4,
         color: "amarillo",
       },
     ],
@@ -137,32 +171,313 @@ const semestresDatos = [
     numero: 3,
     materias: [
       {
-        codigo: "PS1201",
-        nombre: "Fundamentos de Psicología y Bienestar",
-        creditos: 30,
+        codigo: "LTS301",
+        nombre: "Metodología de la Investigación",
+        creditos: 3,
         color: "naranja",
       },
       {
-        codigo: "Gestión educativa institucional",
-        nombre: "Gestión educativa institucional",
-        creditos: 30,
+        codigo: "LTS302",
+        nombre: "Teoría de Grupos y Trabajo Social",
+        creditos: 5,
         color: "naranja",
       },
       {
-        codigo: "ED2012",
-        nombre: "Desarrollo Socioemocional",
-        creditos: 30,
+        codigo: "LTS303",
+        nombre: "Teoría Social III",
+        creditos: 6,
         color: "naranja",
       },
       {
-        codigo: "ED3027",
-        nombre: "Administración educativa",
-        creditos: 30,
+        codigo: "LTS304",
+        nombre: "Problemática Rural",
+        creditos: 5,
+        color: "naranja",
+      },
+      {
+        codigo: "LTS305",
+        nombre: "Psicología del Desarrollo Humano I",
+        creditos: 6,
+        color: "naranja",
+      },
+      {
+        codigo: "LTS306",
+        nombre: "Estadística Aplicada a la Investigación Social I",
+        creditos: 6,
+        color: "naranja",
+      },
+      {
+        codigo: "LTS307",
+        nombre: "Inglés III",
+        creditos: 4,
         color: "naranja",
       },
     ],
   },
-  // Puedes agregar más semestres según necesites
+  {
+    numero: 4,
+    materias: [
+      {
+        codigo: "LTS401",
+        nombre: "Desarrollo Humano",
+        creditos: 3,
+        color: "rojo",
+      },
+      {
+        codigo: "LTS402",
+        nombre: "Programación Social",
+        creditos: 5,
+        color: "rojo",
+      },
+      {
+        codigo: "LTS403",
+        nombre: "Estadística Aplicada a la Investigación Social II",
+        creditos: 6,
+        color: "rojo",
+      },
+      {
+        codigo: "LTS404",
+        nombre: "Psicología del Desarrollo Humano II",
+        creditos: 6,
+        color: "rojo",
+      },
+      {
+        codigo: "LTS405",
+        nombre: "Organización y Promoción Social",
+        creditos: 5,
+        color: "rojo",
+      },
+      {
+        codigo: "LTS406",
+        nombre: "Práctica Comunitaria I",
+        creditos: 6,
+        color: "rojo",
+      },
+      {
+        codigo: "LTS407",
+        nombre: "Inglés IV",
+        creditos: 4,
+        color: "rojo",
+      },
+    ],
+  },
+  {
+    numero: 5,
+    materias: [
+      {
+        codigo: "LTS501",
+        nombre: "Bioética y Normatividad",
+        creditos: 3,
+        color: "morado",
+      },
+      {
+        codigo: "LTS502",
+        nombre: "Movimiento y Participación Social",
+        creditos: 5,
+        color: "morado",
+      },
+      {
+        codigo: "LTS503",
+        nombre: "Planeación y Desarrollo Social",
+        creditos: 5,
+        color: "morado",
+      },
+      {
+        codigo: "LTS504",
+        nombre: "Salud Pública",
+        creditos: 5,
+        color: "morado",
+      },
+      {
+        codigo: "LTS505",
+        nombre: "Trabajo Social en la Atención Individualizada",
+        creditos: 5,
+        color: "morado",
+      },
+      {
+        codigo: "LTS506",
+        nombre: "Práctica Comunitaria II",
+        creditos: 6,
+        color: "morado",
+      },
+      {
+        codigo: "LTS507",
+        nombre: "Inglés V",
+        creditos: 4,
+        color: "morado",
+      },
+    ],
+  },
+  {
+    numero: 6,
+    materias: [
+      {
+        codigo: "LTS601",
+        nombre: "Informática",
+        creditos: 3,
+        color: "azul",
+      },
+      {
+        codigo: "LTS602",
+        nombre: "Práctica Regional I",
+        creditos: 6,
+        color: "azul",
+      },
+      {
+        codigo: "LTS603",
+        nombre: "Evaluación de Proyectos Sociales",
+        creditos: 6,
+        color: "azul",
+      },
+      {
+        codigo: "LTS604",
+        nombre: "Salud Mental",
+        creditos: 5,
+        color: "azul",
+      },
+      {
+        codigo: "LTS605",
+        nombre: "Familia y Vida Cotidiana",
+        creditos: 5,
+        color: "azul",
+      },
+      {
+        codigo: "LTS606",
+        nombre: "Educación Social",
+        creditos: 5,
+        color: "azul",
+      },
+      {
+        codigo: "LTS607",
+        nombre: "Inglés VI",
+        creditos: 4,
+        color: "azul",
+      },
+    ],
+  },
+  {
+    numero: 7,
+    materias: [
+      {
+        codigo: "LTS701",
+        nombre: "Redacción de Documentos Académicos",
+        creditos: 3,
+        color: "rosa",
+      },
+      {
+        codigo: "LTS702",
+        nombre: "Práctica Regional II",
+        creditos: 6,
+        color: "rosa",
+      },
+      {
+        codigo: "LTS703",
+        nombre: "Derechos Humanos",
+        creditos: 5,
+        color: "rosa",
+      },
+      {
+        codigo: "LTS704",
+        nombre: "Bienestar Social",
+        creditos: 6,
+        color: "rosa",
+      },
+      {
+        codigo: "LTS705",
+        nombre: "Procuración y Administración de Justicia",
+        creditos: 5,
+        color: "rosa",
+      },
+      {
+        codigo: "LTS706",
+        nombre: "Psicología Social",
+        creditos: 5,
+        color: "rosa",
+      },
+      {
+        codigo: "LTS707",
+        nombre: "Inglés VII",
+        creditos: 4,
+        color: "rosa",
+      },
+    ],
+  },
+  {
+    numero: 8,
+    materias: [
+      {
+        codigo: "LTS801",
+        nombre: "Seminario de Investigación en Trabajo Social I",
+        creditos: 6,
+        color: "gris",
+      },
+      {
+        codigo: "LTS802",
+        nombre: "Práctica de Especialización I",
+        creditos: 6,
+        color: "gris",
+      },
+      {
+        codigo: "LTS803",
+        nombre: "Situación Jurídica de la Familia",
+        creditos: 5,
+        color: "gris",
+      },
+      {
+        codigo: "LTS804",
+        nombre: "Administración Social",
+        creditos: 5,
+        color: "gris",
+      },
+      {
+        codigo: "LTS805",
+        nombre: "Comunicación Social",
+        creditos: 5,
+        color: "gris",
+      },
+      {
+        codigo: "LTS806",
+        nombre: "Inglés VIII",
+        creditos: 4,
+        color: "gris",
+      },
+    ],
+  },
+  {
+    numero: 9,
+    materias: [
+      {
+        codigo: "LTS901",
+        nombre: "Seminario de Investigación en Trabajo Social II",
+        creditos: 6,
+        color: "negro",
+      },
+      {
+        codigo: "LTS902",
+        nombre: "Práctica de Especialización II",
+        creditos: 6,
+        color: "negro",
+      },
+      {
+        codigo: "LTS903",
+        nombre: "Identidad y Cultura",
+        creditos: 6,
+        color: "negro",
+      },
+      {
+        codigo: "LTS904",
+        nombre: "Análisis Institucional",
+        creditos: 6,
+        color: "negro",
+      },
+      {
+        codigo: "LTS905",
+        nombre: "Población y Medio Ambiente",
+        creditos: 6,
+        color: "negro",
+      },
+    ],
+  },
 ];
 
 const planteles = [
@@ -186,16 +501,7 @@ const planteles = [
     lat: 20.684590788642307,
     lon: -103.3256397932448,
   },
-  {
-    id: "3",
-    nombre: "Milenio",
-    direccion: "Av. López Mateos Sur #4154, Col. La Giralda",
-    ciudad: "Guadalajara ZMG",
-    url: "/plantel-milenio",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/Milenio.jpg",
-    lat: 20.64540739939039,
-    lon: -103.40630313415286,
-  },
+
   {
     id: "4",
     nombre: "Puerto Vallarta - Plaza Caracol",
@@ -206,36 +512,8 @@ const planteles = [
     lat: 20.639287162026815,
     lon: -105.23323589513319,
   },
-  {
-    id: "5",
-    nombre: "Tlajomulco",
-    direccion: "Av. López Mateos #10100, Col. Los Gavilanes Poniente",
-    ciudad: "Guadalajara ZMG",
-    url: "/plantel-tlajomulco",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/Tlajomulco.png",
-    lat: 20.576464164603113,
-    lon: -103.45243680650722,
-  },
-  {
-    id: "6",
-    nombre: "Tesistán",
-    direccion: "Av. Juan Gil Preciado #3897, Col. Hogares de Nuevo México",
-    ciudad: "Guadalajara ZMG",
-    url: "/plantel-tesistan",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/Tesistan.png",
-    lat: 20.806203,
-    lon: -102.763903,
-  },
-  {
-    id: "7",
-    nombre: "Tepatitlán",
-    direccion: "Calle Dr. Ricardo Alcalá #505, Av. Matamoros, Centro",
-    ciudad: "Tepatitlán de Morelos",
-    url: "/plantel-tepatitlan",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/Tepatitlan.jpg",
-    lat: 20.8062946507024,
-    lon: -102.76382902869392,
-  },
+ 
+ 
   {
     id: "8",
     nombre: "Tlaquepaque",
@@ -247,16 +525,7 @@ const planteles = [
     lat: 20.645650028567157,
     lon: -103.32094530771215,
   },
-  {
-    id: "9",
-    nombre: "Tonalá",
-    direccion: "Av. Tonaltecas #333, Col. Agua Escondida",
-    ciudad: "Guadalajara ZMG",
-    url: "/plantel-tonala",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/Tonala.png",
-    lat: 20.63176692188573,
-    lon: -103.24439406488241,
-  },
+  
   {
     id: "10",
     nombre: "Chapultepec",
@@ -282,7 +551,6 @@ const planteles = [
 const ciudades = [
   "Guadalajara ZMG",
   "Puerto Vallarta",
-  "Tepatitlán de Morelos",
 ];
 ---
 
@@ -314,19 +582,15 @@ const ciudades = [
         <div class="text-center text-white max-w-4xl mx-auto">
           {/* Main Title */}
           <h1 class="text-4xl md:text-7xl font-bold tracking-wider mb-4">
-            Lic. en Cirujano Dentista
+            Lic. en trabajo social
           </h1>
-          <h2 class="text-2xl md:text-5xl font-bold tracking-wider mb-8">
-            Licenciaturas UNE
-          </h2>
 
           {/* Description */}
           <p
             class="text-lg md:text-xl leading-relaxed mb-16 max-w-3xl mx-auto font-light"
           >
-            Transforma sonrisas y mejora la calidad de vida a través del estudio
-            y la práctica de la odontología, en una carrera donde la ciencia, la
-            salud y la vocación por el bienestar se unen.
+            Interviene de forma directa en comunidades, familias y
+            organizaciones para mejorar su bienestar.
           </p>
         </div>
       </div>
@@ -343,7 +607,8 @@ const ciudades = [
             class="flex flex-col sm:flex-row gap-4 w-full justify-center text-white"
           >
             <!-- Agenda una Visita -->
-            <a href="/contacto/solicitarvisita"
+            <a
+              href="/contacto/solicitarvisita"
               class="hover:border-b hover:border-b-cyan-50 font-bold py-6 px-6 text-base transition-colors duration-300 shadow-lg flex flex-col items-center justify-center gap-2 whitespace-nowrap"
             >
               AGENDA UNA VISITA
@@ -351,7 +616,8 @@ const ciudades = [
             </a>
 
             <!-- Iniciar Inscripción -->
-            <a href="/contacto/formulario-inscripcion"
+            <a
+              href="/contacto/formulario-inscripcion"
               class="hover:border-b hover:border-b-cyan-50 font-bold py-3 px-6 text-base transition-colors duration-300 shadow-lg flex flex-col items-center justify-center gap-2 whitespace-nowrap"
             >
               INICIAR INSCRIPCIÓN
@@ -359,7 +625,8 @@ const ciudades = [
             </a>
 
             <!-- Contactar -->
-             <a href="/contacto/solicitarinformacion"
+            <a
+              href="/contacto/solicitarinformacion"
               class="hover:border-b hover:border-b-cyan-50 font-bold py-3 px-6 text-base transition-colors duration-300 shadow-lg flex flex-col items-center justify-center gap-2 whitespace-nowrap"
             >
               CONTACTAR
@@ -374,27 +641,39 @@ const ciudades = [
       logoSrc={LogoCard.src}
       studentImageSrc={ImagenCard.src}
       title="Objetivo"
-      description="La Licenciatura en Cirujano Dentista te forma como un profesionista altamente capacitado para prevenir, diagnosticar y tratar enfermedades bucales con un enfoque integral y humano."
-      additionalText="Con una sólida formación teórico-práctica y un alto compromiso ético y social, estarás preparado para promover la salud bucodental, brindar atención personalizada y colaborar con instituciones de salud para transformar positivamente la calidad de vida de las personas."
+      description="Formar profesionales en trabajo social con competencias teóricas, metodológicas y éticas para intervenir en problemáticas sociales complejas, promoviendo la inclusión, la equidad y el bienestar de individuos y comunidades, con un fuerte compromiso con los derechos humanos y la transformación social."
       features={[
-        { icon: "CalendarDays", label: "Prácticas clínicas presenciales" },
-        { icon: "BookOpen", label: "Bases científicas sólidas" },
-        { icon: "School", label: "Validez oficial" },
-        { icon: "Clock", label: "Horarios accesibles" },
-        { icon: "BookmarkCheck", label: "Enfoque profesionalizante" },
+        {
+          icon: "Users",
+          label: "Intervención en problemáticas sociales complejas",
+        },
+        {
+          icon: "HeartHandshake",
+          label: "Compromiso con la equidad y la inclusión",
+        },
+        {
+          icon: "Globe",
+          label: "Transformación social con enfoque comunitario",
+        },
+        {
+          icon: "BadgeCheck",
+          label: "Ética profesional centrada en los derechos humanos",
+        },
+        {
+          icon: "BookOpenCheck",
+          label: "Fundamentación teórico-metodológica sólida",
+        },
       ]}
     />
 
-     <PlanEstudios titulo="Propuesta Educativa" semestres={semestresDatos} />
+    <PlanEstudios titulo="Propuesta Educativa" semestres={semestresDatos} />
 
-     <Planteles
+    <Planteles
       titulo="Encuentra tu campus más cercano"
       planteles={planteles}
       ciudades={ciudades}
       mostrarMasCercano={true}
     />
-
-    
 
     <Requisitos nivel="Licenciatura" requisitos={requisitosInfo} />
 

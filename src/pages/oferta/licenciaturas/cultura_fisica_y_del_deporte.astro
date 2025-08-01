@@ -1,0 +1,664 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Hero from "@/assets/Imagenes/Heros/Carreras/CulturaFisica.jpg";
+import Hero_mobile from "@/assets/Imagenes/Heros/Carreras/CulturaFisica_mobile.jpg";
+import ImagenCard from "@/assets/Imagenes/CardsNiveles/Nivel.png";
+import LogoCard from "@/assets/Logos/Licenciatura.png";
+import InformativeCard from "@components/sections/detallesOferta/card.astro";
+import Requisitos from "@/components/sections/detallesOferta/requisitos.astro";
+
+import FAQComponent from "@/components/sections/detallesOferta/preguntas.astro";
+import CTAinscripcion from "@/components/sections/shared/ctaInscripcion.astro";
+import { Calendar, UserPlus, Phone } from "@lucide/astro";
+import PlanEstudios from "@/components/sections/detallesOferta/planEstudios.astro";
+import Planteles from "@/components/sections/detallesOferta/planteles.astro";
+
+const requisitosInfo = {
+  items: [
+    "Acta de nacimiento (original)",
+    "Certificado total de bachillerato (original)",
+    "Oficio de validación de autenticidad del certificado de estudios (emitido por la autoridad correspondiente)",
+    "Equivalencia o grado superior, certificado parcial y contenidos temáticos",
+    "CURP (formato RENAPO)",
+    "Identificación oficial con fotografía (INE) - dos copias",
+    "Comprobante de domicilio reciente (no mayor a 3 meses) - una copia",
+    "Cinco fotografías tamaño infantil, blanco y negro, papel mate, de estudio",
+  ],
+  pdfUrl: "/public/pdfs/licenciatura_req.pdf",
+};
+
+const faqs = [
+  {
+    question: "¿Cuáles son los requisitos para ingresar a una licenciatura?",
+    answer:
+      "Debes contar con certificado de bachillerato, acta de nacimiento, CURP, identificación oficial, comprobante de domicilio y fotografías recientes. En algunos casos, puede requerirse el resultado de un examen de admisión.",
+  },
+  {
+    question: "¿Cuál es la duración de una licenciatura?",
+    answer:
+      "Las licenciaturas tienen una duración promedio de 8 a 10 semestres, dependiendo del programa, la institución incorporadora (UDG o SICYT) y la modalidad elegida.",
+  },
+  {
+    question: "¿Qué modalidades de estudio están disponibles?",
+    answer:
+      "Las licenciaturas pueden cursarse en modalidad presencial, en línea, escolarizada o semiescolarizada, según la carrera y el plantel. Algunas combinan clases presenciales con actividades virtuales.",
+  },
+  {
+    question: "¿Puedo trabajar mientras estudio una licenciatura?",
+    answer:
+      "Sí. Las modalidades en línea y semiescolarizada están diseñadas para ofrecer mayor flexibilidad y permitir compatibilizar tus estudios con otras actividades.",
+  },
+  {
+    question: "¿Cómo se evalúa el desempeño académico?",
+    answer:
+      "El sistema de evaluación incluye exámenes, proyectos, participación en clase, trabajos individuales o en equipo y actividades prácticas, según el enfoque de cada licenciatura.",
+  },
+  {
+    question: "¿Qué tipo de apoyo académico se brinda a los estudiantes?",
+    answer:
+      "Ofrecemos tutorías, asesorías académicas presenciales y virtuales, y acceso a plataformas educativas para reforzar el aprendizaje de cada materia.",
+  },
+  {
+    question:
+      "¿Las licenciaturas están incorporadas a alguna institución oficial?",
+    answer:
+      "Sí. Contamos con licenciaturas incorporadas a la Universidad de Guadalajara (UDG) y a la Secretaría de Innovación, Ciencia y Tecnología (SICYT) del Estado de Jalisco, lo que garantiza validez oficial de estudios.",
+  },
+  {
+    question: "¿Dónde puedo obtener más información e inscribirme?",
+    answer:
+      "Puedes acudir directamente a las oficinas del plantel más cercano o visitar nuestro portal web para consultar la oferta académica, requisitos y fechas de inscripción.",
+  },
+];
+
+const semestresDatos = [
+  {
+    numero: 1,
+    materias: [
+      {
+        codigo: "LCF101",
+        nombre: "Desarrollo de Habilidades para el Aprendizaje",
+        creditos: 3,
+        color: "verde",
+      },
+      {
+        codigo: "LCF102",
+        nombre: "Morfología",
+        creditos: 7,
+        color: "verde",
+      },
+      {
+        codigo: "LCF103",
+        nombre: "Introducción a la Cultura Física y Deportes",
+        creditos: 6,
+        color: "verde",
+      },
+      {
+        codigo: "LCF104",
+        nombre: "Actividad Física y Salud",
+        creditos: 7,
+        color: "verde",
+      },
+      {
+        codigo: "LCF105",
+        nombre: "Salud Pública",
+        creditos: 3,
+        color: "verde",
+      },
+      {
+        codigo: "LCF106",
+        nombre: "Informática",
+        creditos: 5,
+        color: "verde",
+      },
+      {
+        codigo: "LCF107",
+        nombre: "Inglés I",
+        creditos: 4,
+        color: "verde",
+      },
+    ],
+  },
+  {
+    numero: 2,
+    materias: [
+      {
+        codigo: "LCF201",
+        nombre: "Comunicación Oral y Escrita",
+        creditos: 3,
+        color: "amarillo",
+      },
+      {
+        codigo: "LCF202",
+        nombre: "Bioquímica",
+        creditos: 7,
+        color: "amarillo",
+      },
+      {
+        codigo: "LCF203",
+        nombre: "Fisiología",
+        creditos: 7,
+        color: "amarillo",
+      },
+      {
+        codigo: "LCF204",
+        nombre: "Fundamentos del Entrenamiento Deportivo",
+        creditos: 6,
+        color: "amarillo",
+      },
+      {
+        codigo: "LCF205",
+        nombre: "Sociología del Deporte",
+        creditos: 5,
+        color: "amarillo",
+      },
+      {
+        codigo: "LCF206",
+        nombre: "Psicología y Pedagogía del Deporte",
+        creditos: 5,
+        color: "amarillo",
+      },
+      {
+        codigo: "LCF207",
+        nombre: "Inglés II",
+        creditos: 4,
+        color: "amarillo",
+      },
+    ],
+  },
+  {
+    numero: 3,
+    materias: [
+      {
+        codigo: "LCF301",
+        nombre: "Metodología de la Investigación",
+        creditos: 3,
+        color: "naranja",
+      },
+      {
+        codigo: "LCF302",
+        nombre: "Fisiología del Ejercicio Físico",
+        creditos: 7,
+        color: "naranja",
+      },
+      {
+        codigo: "LCF303",
+        nombre: "Farmacología",
+        creditos: 6,
+        color: "naranja",
+      },
+      {
+        codigo: "LCF304",
+        nombre: "Educación Física",
+        creditos: 5,
+        color: "naranja",
+      },
+      {
+        codigo: "LCF305",
+        nombre: "Fundamentos de Deportes Individuales I",
+        creditos: 6,
+        color: "naranja",
+      },
+      {
+        codigo: "LCF306",
+        nombre: "Fundamentos de Deporte de Conjunto I",
+        creditos: 6,
+        color: "naranja",
+      },
+      {
+        codigo: "LCF307",
+        nombre: "Inglés III",
+        creditos: 4,
+        color: "naranja",
+      },
+    ],
+  },
+  {
+    numero: 4,
+    materias: [
+      {
+        codigo: "LCF401",
+        nombre: "Bioética y Normatividad",
+        creditos: 3,
+        color: "rojo",
+      },
+      {
+        codigo: "LCF402",
+        nombre: "Introducción al Movimiento Humano",
+        creditos: 6,
+        color: "rojo",
+      },
+      {
+        codigo: "LCF403",
+        nombre: "Métrica Deportiva",
+        creditos: 6,
+        color: "rojo",
+      },
+      {
+        codigo: "LCF404",
+        nombre: "Psicomotricidad de la Educación Física",
+        creditos: 6,
+        color: "rojo",
+      },
+      {
+        codigo: "LCF405",
+        nombre: "Fundamentos de Deportes Individuales II",
+        creditos: 6,
+        color: "rojo",
+      },
+      {
+        codigo: "LCF406",
+        nombre: "Fundamentos de Deportes de Conjunto II",
+        creditos: 6,
+        color: "rojo",
+      },
+      {
+        codigo: "LCF407",
+        nombre: "Inglés IV",
+        creditos: 4,
+        color: "rojo",
+      },
+    ],
+  },
+  {
+    numero: 5,
+    materias: [
+      {
+        codigo: "LCF501",
+        nombre:
+          "Fundamentos Legales de la Práctica en las Ciencias de la Salud",
+        creditos: 3,
+        color: "morado",
+      },
+      {
+        codigo: "LCF502",
+        nombre: "Nutrición de la Actividad Física y del Deporte",
+        creditos: 6,
+        color: "morado",
+      },
+      {
+        codigo: "LCF503",
+        nombre: "Genética de la Actividad Física",
+        creditos: 6,
+        color: "morado",
+      },
+      {
+        codigo: "LCF504",
+        nombre: "Legislación de la Educación Física y Deporte",
+        creditos: 5,
+        color: "morado",
+      },
+      {
+        codigo: "LCF505",
+        nombre:
+          "Planeación y Administración de la Actividad Física y el Deporte",
+        creditos: 6,
+        color: "morado",
+      },
+      {
+        codigo: "LCF506",
+        nombre: "Fundamentos del Deporte Artístico",
+        creditos: 7,
+        color: "morado",
+      },
+      {
+        codigo: "LCF507",
+        nombre: "Inglés V",
+        creditos: 4,
+        color: "morado",
+      },
+    ],
+  },
+  {
+    numero: 6,
+    materias: [
+      {
+        codigo: "LCF601",
+        nombre: "Desarrollo de Habilidades Directivas",
+        creditos: 3,
+        color: "azul",
+      },
+      {
+        codigo: "LCF602",
+        nombre: "Dopaje en el Deporte",
+        creditos: 6,
+        color: "azul",
+      },
+      {
+        codigo: "LCF603",
+        nombre: "Biomecánica",
+        creditos: 7,
+        color: "azul",
+      },
+      {
+        codigo: "LCF604",
+        nombre: "Psicología del Entrenamiento",
+        creditos: 6,
+        color: "azul",
+      },
+      {
+        codigo: "LCF605",
+        nombre: "Planeación del Entrenamiento Deportivo",
+        creditos: 6,
+        color: "azul",
+      },
+      {
+        codigo: "LCF606",
+        nombre: "Fundamentos de los Deportes de Raqueta",
+        creditos: 7,
+        color: "azul",
+      },
+      {
+        codigo: "LCF607",
+        nombre: "Inglés VI",
+        creditos: 4,
+        color: "azul",
+      },
+    ],
+  },
+  {
+    numero: 7,
+    materias: [
+      {
+        codigo: "LCF701",
+        nombre: "Redacción de Documentos Académicos Escritos",
+        creditos: 3,
+        color: "rosa",
+      },
+      {
+        codigo: "LCF702",
+        nombre: "Kinesiología",
+        creditos: 7,
+        color: "rosa",
+      },
+      {
+        codigo: "LCF703",
+        nombre: "Entrenamiento Deportivo de Alto Rendimiento",
+        creditos: 7,
+        color: "rosa",
+      },
+      {
+        codigo: "LCF704",
+        nombre: "Lesiones del Deporte",
+        creditos: 6,
+        color: "rosa",
+      },
+      {
+        codigo: "LCF705",
+        nombre: "Medicina del Deporte",
+        creditos: 6,
+        color: "rosa",
+      },
+      {
+        codigo: "LCF706",
+        nombre: "Fundamentos de los Deportes de Combate",
+        creditos: 6,
+        color: "rosa",
+      },
+      {
+        codigo: "LCF707",
+        nombre: "Inglés VII",
+        creditos: 4,
+        color: "rosa",
+      },
+    ],
+  },
+  {
+    numero: 8,
+    materias: [
+      {
+        codigo: "LCF801",
+        nombre: "Planeación, Gestión y Aplicación de Programas Deportivos",
+        creditos: 7,
+        color: "gris",
+      },
+      {
+        codigo: "LCF802",
+        nombre: "Traumatología Deportiva",
+        creditos: 7,
+        color: "gris",
+      },
+      {
+        codigo: "LCF803",
+        nombre: "Instalaciones Deportivas",
+        creditos: 6,
+        color: "gris",
+      },
+      {
+        codigo: "LCF804",
+        nombre: "Fundamentos de los Deportes Emergentes o Extremos",
+        creditos: 7,
+        color: "gris",
+      },
+      {
+        codigo: "LCF805",
+        nombre: "Seminario de Investigación en el Deporte I",
+        creditos: 5,
+        color: "gris",
+      },
+      {
+        codigo: "LCF806",
+        nombre: "Inglés VIII",
+        creditos: 4,
+        color: "gris",
+      },
+    ],
+  },
+  {
+    numero: 9,
+    materias: [
+      {
+        codigo: "LCF901",
+        nombre: "Rehabilitación",
+        creditos: 7,
+        color: "negro",
+      },
+      {
+        codigo: "LCF902",
+        nombre: "Bases de Organización Empresarial",
+        creditos: 7,
+        color: "negro",
+      },
+      {
+        codigo: "LCF903",
+        nombre: "Fundamentos de los Deportes Acuáticos",
+        creditos: 7,
+        color: "negro",
+      },
+      {
+        codigo: "LCF904",
+        nombre: "Seminario de Investigación en el Deporte II",
+        creditos: 5,
+        color: "negro",
+      },
+      {
+        codigo: "LCF905",
+        nombre: "Prácticas de Especialidad Deportiva",
+        creditos: 7,
+        color: "negro",
+      },
+    ],
+  },
+];
+
+const planteles = [
+   {
+    id: "14",
+    nombre: "Torre UNE Milenio",
+    codigo: "TORRE MILENIO",
+    direccion: "Av. López Mateos Sur #4175 Col. La Giralda Zapopan, Jalisco",
+    ciudad: "Guadalajara ZMG",
+    url: "/campus/Torre-milenio",
+    imagen: "/src/assets/Imagenes/CardsPlanteles/Torre-milenio.png",
+    lat: "20.645336",
+    lon: "-103.405938",
+  },
+  {
+    id: "5",
+    nombre: "Tlajomulco",
+    direccion: "Av. López Mateos #10100, Col. Los Gavilanes Poniente",
+    ciudad: "Guadalajara ZMG",
+    url: "/plantel-tlajomulco",
+    imagen: "/src/assets/Imagenes/CardsPlanteles/Tlajomulco.png",
+    lat: 20.576464164603113,
+    lon: -103.45243680650722,
+  },
+  {
+    id: "6",
+    nombre: "Tesistán",
+    direccion: "Av. Juan Gil Preciado #3897, Col. Hogares de Nuevo México",
+    ciudad: "Guadalajara ZMG",
+    url: "/plantel-tesistan",
+    imagen: "/src/assets/Imagenes/CardsPlanteles/Tesistan.png",
+    lat: 20.806203,
+    lon: -102.763903,
+  },
+
+  {
+    id: "9",
+    nombre: "Tonalá",
+    direccion: "Av. Tonaltecas #333, Col. Agua Escondida",
+    ciudad: "Guadalajara ZMG",
+    url: "/plantel-tonala",
+    imagen: "/src/assets/Imagenes/CardsPlanteles/Tonala.png",
+    lat: 20.63176692188573,
+    lon: -103.24439406488241,
+  },
+
+ 
+];
+
+const ciudades = [
+  "Guadalajara ZMG",
+  "Puerto Vallarta",
+  "Tepatitlán de Morelos",
+];
+---
+
+<Layout>
+  <main class="min-h-screen">
+    <!-- Hero Section -->
+
+    <section
+      class="relative min-h-[85vh] md:min-h-[65vh] bg-cover bg-center bg-no-repeat"
+    >
+      {/* Desktop Background */}
+      <div
+        class="absolute inset-0 hidden md:block bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: `url(${Hero.src})` }}
+      >
+      </div>
+
+      {/* Mobile Background */}
+      <div
+        class="absolute inset-0 block md:hidden bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: `url(${Hero_mobile.src})` }}
+      >
+      </div>
+
+      {/* Hero Content */}
+      <div
+        class="relative z-10 container mx-auto px-4 h-full min-h-[85vh] md:min-h-[65vh] flex flex-col justify-center"
+      >
+        <div class="text-center text-white max-w-4xl mx-auto">
+          {/* Main Title */}
+          <h1 class="text-4xl md:text-7xl font-bold tracking-wider mb-4">
+            Cultura Física y del Deporte
+          </h1>
+
+          {/* Description */}
+          <p
+            class="text-lg md:text-xl leading-relaxed mb-16 max-w-3xl mx-auto font-light"
+          >
+            Promueve la salud y el rendimiento físico a través de la actividad
+            deportiva y el entrenamiento profesional.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Floating Card - ahora está fuera de la sección hero -->
+    <div class="relative -top-16 z-20 px-4">
+      <div class="bg-azul-une rounded-2xl px-8 shadow-2xl max-w-4xl mx-auto">
+        <div
+          class="flex flex-col sm:flex-row items-center justify-center gap-6"
+        >
+          <!-- CTA Buttons -->
+          <div
+            class="flex flex-col sm:flex-row gap-4 w-full justify-center text-white"
+          >
+            <!-- Agenda una Visita -->
+            <a
+              href="/contacto/solicitarvisita"
+              class="hover:border-b hover:border-b-cyan-50 font-bold py-6 px-6 text-base transition-colors duration-300 shadow-lg flex flex-col items-center justify-center gap-2 whitespace-nowrap"
+            >
+              AGENDA UNA VISITA
+              <Calendar size={20} />
+            </a>
+
+            <!-- Iniciar Inscripción -->
+            <a
+              href="/contacto/formulario-inscripcion"
+              class="hover:border-b hover:border-b-cyan-50 font-bold py-3 px-6 text-base transition-colors duration-300 shadow-lg flex flex-col items-center justify-center gap-2 whitespace-nowrap"
+            >
+              INICIAR INSCRIPCIÓN
+              <UserPlus size={20} />
+            </a>
+
+            <!-- Contactar -->
+            <a
+              href="/contacto/solicitarinformacion"
+              class="hover:border-b hover:border-b-cyan-50 font-bold py-3 px-6 text-base transition-colors duration-300 shadow-lg flex flex-col items-center justify-center gap-2 whitespace-nowrap"
+            >
+              CONTACTAR
+              <Phone size={20} />
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <InformativeCard
+      logoSrc={LogoCard.src}
+      studentImageSrc={ImagenCard.src}
+      title="Objetivo"
+      description="Desarrollar profesionales con competencias en actividad física, entrenamiento deportivo y promoción de estilos de vida saludables, capaces de intervenir en contextos educativos, recreativos y de alto rendimiento, fomentando el bienestar integral y el impacto social positivo a través del deporte."
+      additionalText=""
+      features={[
+        {
+          icon: "Dumbbell",
+          label: "Entrenamiento deportivo de alto rendimiento",
+        },
+        {
+          icon: "HeartPulse",
+          label: "Fomento de la salud y el bienestar integral",
+        },
+        {
+          icon: "UsersRound",
+          label: "Intervención en ámbitos educativos y comunitarios",
+        },
+        { icon: "Medal", label: "Promoción del deporte con impacto social" },
+        { icon: "Activity", label: "Estilos de vida activos y saludables" },
+      ]}
+    />
+
+    <PlanEstudios titulo="Propuesta Educativa" semestres={semestresDatos} />
+
+    <Planteles
+      titulo="Encuentra tu campus más cercano"
+      planteles={planteles}
+      ciudades={ciudades}
+      mostrarMasCercano={true}
+    />
+
+    <Requisitos nivel="Licenciatura" requisitos={requisitosInfo} />
+
+    <FAQComponent
+      faqs={faqs}
+      title="Preguntas frecuentes"
+      subtitle="Encuentra respuestas a las dudas más comunes"
+    />
+
+    <CTAinscripcion />
+  </main>
+</Layout>

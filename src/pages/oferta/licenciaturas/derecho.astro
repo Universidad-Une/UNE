@@ -1,12 +1,10 @@
 ---
 import Layout from "@/layouts/Layout.astro";
-import Hero from "@/assets/Imagenes/Heros/Cirujano_dentista.jpg";
-import Hero_mobile from "@/assets/Imagenes/Heros/Cirujano_dentista_mobile.jpg";
+import Hero from "@/assets/Imagenes/Heros/Carreras/Abogado.jpg";
+import Hero_mobile from "@/assets/Imagenes/Heros/Carreras/Abogado_mobile.jpg";
 import ImagenCard from "@/assets/Imagenes/CardsNiveles/Nivel.png";
 import LogoCard from "@/assets/Logos/Licenciatura.png";
 import InformativeCard from "@components/sections/detallesOferta/card.astro";
-import Carreras from "@components/sections/Licenciaturas/Carreras.astro";
-import Estadisticas from "@components/sections/Licenciaturas/Estadisticas.astro";
 
 import Requisitos from "@/components/sections/detallesOferta/requisitos.astro";
 
@@ -25,7 +23,7 @@ const requisitosInfo = {
     "CURP (formato RENAPO)",
     "Identificación oficial con fotografía (INE) - dos copias",
     "Comprobante de domicilio reciente (no mayor a 3 meses) - una copia",
-    "Cinco fotografías tamaño infantil, blanco y negro, papel mate, de estudio"
+    "Cinco fotografías tamaño infantil, blanco y negro, papel mate, de estudio",
   ],
   pdfUrl: "/public/pdfs/licenciatura_req.pdf",
 };
@@ -79,27 +77,33 @@ const semestresDatos = [
     numero: 1,
     materias: [
       {
-        codigo: "ED1021",
-        nombre: "Introducción a la Educación",
-        creditos: 30,
+        codigo: "LDR101",
+        nombre: "Derecho Romano",
+        creditos: 8,
         color: "verde",
       },
       {
-        codigo: "Filosofía y Ética en Educación",
-        nombre: "Filosofía y Ética en Educación",
-        creditos: 30,
+        codigo: "LDR102",
+        nombre: "Introducción al Estudio del Derecho",
+        creditos: 8,
         color: "verde",
       },
       {
-        codigo: "ED1024",
-        nombre: "Desarrollo Infantil y adolescente",
-        creditos: 30,
+        codigo: "LDR103",
+        nombre: "Teoría Política del Estado",
+        creditos: 8,
         color: "verde",
       },
       {
-        codigo: "ED1027",
-        nombre: "Habilidades Básicas de Investigación",
-        creditos: 30,
+        codigo: "LDR104",
+        nombre: "Investigación y Análisis Jurídico",
+        creditos: 6,
+        color: "verde",
+      },
+      {
+        codigo: "LDR105",
+        nombre: "Sociología General y Jurídica",
+        creditos: 4,
         color: "verde",
       },
     ],
@@ -108,27 +112,33 @@ const semestresDatos = [
     numero: 2,
     materias: [
       {
-        codigo: "FH1203",
-        nombre: "Pensamiento lógico y tecnológico",
-        creditos: 30,
+        codigo: "LDR201",
+        nombre: "Derecho Constitucional",
+        creditos: 7,
         color: "amarillo",
       },
       {
-        codigo: "ED2016",
-        nombre: "Desarrollo de la Psicomotricidad",
-        creditos: 30,
+        codigo: "LDR202",
+        nombre: "Teoría del Derecho",
+        creditos: 8,
         color: "amarillo",
       },
       {
-        codigo: "HJ2026",
-        nombre: "Ética social cristiana",
-        creditos: 30,
+        codigo: "LDR203",
+        nombre: "Acto Jurídico y Personas",
+        creditos: 7,
         color: "amarillo",
       },
       {
-        codigo: "ED1029",
-        nombre: "Historia de la Pedagogía moderna",
-        creditos: 30,
+        codigo: "LDR204",
+        nombre: "Argumentación Jurídica",
+        creditos: 8,
+        color: "amarillo",
+      },
+      {
+        codigo: "LDR205",
+        nombre: "Teoría General del Proceso",
+        creditos: 8,
         color: "amarillo",
       },
     ],
@@ -137,32 +147,247 @@ const semestresDatos = [
     numero: 3,
     materias: [
       {
-        codigo: "PS1201",
-        nombre: "Fundamentos de Psicología y Bienestar",
-        creditos: 30,
+        codigo: "LDR301",
+        nombre: "Derechos Fundamentales y Garantías",
+        creditos: 6,
         color: "naranja",
       },
       {
-        codigo: "Gestión educativa institucional",
-        nombre: "Gestión educativa institucional",
-        creditos: 30,
+        codigo: "LDR302",
+        nombre: "Derecho Procesal Civil",
+        creditos: 6,
         color: "naranja",
       },
       {
-        codigo: "ED2012",
-        nombre: "Desarrollo Socioemocional",
-        creditos: 30,
+        codigo: "LDR303",
+        nombre: "Teoría General de las Obligaciones",
+        creditos: 7,
         color: "naranja",
       },
       {
-        codigo: "ED3027",
-        nombre: "Administración educativa",
-        creditos: 30,
+        codigo: "LDR304",
+        nombre: "Teoría General del Derecho Penal",
+        creditos: 7,
+        color: "naranja",
+      },
+      {
+        codigo: "LDR305",
+        nombre: "Sociedades Mercantiles",
+        creditos: 7,
         color: "naranja",
       },
     ],
   },
-  // Puedes agregar más semestres según necesites
+  {
+    numero: 4,
+    materias: [
+      {
+        codigo: "LDR401",
+        nombre: "Derecho Administrativo",
+        creditos: 6,
+        color: "rojo",
+      },
+      {
+        codigo: "LDR402",
+        nombre: "Lógica Jurídica",
+        creditos: 8,
+        color: "rojo",
+      },
+      {
+        codigo: "LDR403",
+        nombre: "Contratos Civiles",
+        creditos: 7,
+        color: "rojo",
+      },
+      {
+        codigo: "LDR404",
+        nombre: "Estudio Particular del Delito",
+        creditos: 8,
+        color: "rojo",
+      },
+      {
+        codigo: "LDR405",
+        nombre: "Títulos y Operaciones de Crédito",
+        creditos: 7,
+        color: "rojo",
+      },
+    ],
+  },
+  {
+    numero: 5,
+    materias: [
+      {
+        codigo: "LDR501",
+        nombre: "Derecho Individual del Trabajo",
+        creditos: 6,
+        color: "morado",
+      },
+      {
+        codigo: "LDR502",
+        nombre: "Derecho Procesal Mercantil",
+        creditos: 7,
+        color: "morado",
+      },
+      {
+        codigo: "LDR503",
+        nombre: "Derecho Familiar",
+        creditos: 7,
+        color: "morado",
+      },
+      {
+        codigo: "LDR504",
+        nombre: "Derecho Procesal Penal",
+        creditos: 8,
+        color: "morado",
+      },
+      {
+        codigo: "LDR505",
+        nombre: "Contratos Mercantiles",
+        creditos: 7,
+        color: "morado",
+      },
+    ],
+  },
+  {
+    numero: 6,
+    materias: [
+      {
+        codigo: "LDR601",
+        nombre: "Derecho Colectivo del Trabajo",
+        creditos: 7,
+        color: "azul",
+      },
+      {
+        codigo: "LDR602",
+        nombre: "Derecho Fiscal",
+        creditos: 6,
+        color: "azul",
+      },
+      {
+        codigo: "LDR603",
+        nombre: "Bienes y Sucesiones",
+        creditos: 6,
+        color: "azul",
+      },
+      {
+        codigo: "LDR604",
+        nombre: "Juicios Orales en Materia Penal",
+        creditos: 7,
+        color: "azul",
+      },
+      {
+        codigo: "LDR605",
+        nombre: "Derecho Bancario y Bursátil",
+        creditos: 8,
+        color: "azul",
+      },
+    ],
+  },
+  {
+    numero: 7,
+    materias: [
+      {
+        codigo: "LDR701",
+        nombre: "Derecho de la Propiedad Intelectual",
+        creditos: 6,
+        color: "rosa",
+      },
+      {
+        codigo: "LDR702",
+        nombre: "Medios Alternativos de Solución a Controversias",
+        creditos: 6,
+        color: "rosa",
+      },
+      {
+        codigo: "LDR703",
+        nombre: "Juicios Orales en Materia Civil",
+        creditos: 6,
+        color: "rosa",
+      },
+      {
+        codigo: "LDR704",
+        nombre: "Derecho Procesal Fiscal",
+        creditos: 8,
+        color: "rosa",
+      },
+      {
+        codigo: "LDR705",
+        nombre: "Derecho de Comercio Internacional",
+        creditos: 7,
+        color: "rosa",
+      },
+    ],
+  },
+  {
+    numero: 8,
+    materias: [
+      {
+        codigo: "LDR801",
+        nombre: "Juicio de Amparo",
+        creditos: 6,
+        color: "gris",
+      },
+      {
+        codigo: "LDR802",
+        nombre: "Derecho Ambiental y Desarrollo Sustentable",
+        creditos: 7,
+        color: "gris",
+      },
+      {
+        codigo: "LDR803",
+        nombre: "Administración de Despacho Notarial y Registral",
+        creditos: 6,
+        color: "gris",
+      },
+      {
+        codigo: "LDR804",
+        nombre: "Derecho Corporativo",
+        creditos: 8,
+        color: "gris",
+      },
+      {
+        codigo: "LDR805",
+        nombre: "Derecho Internacional Público",
+        creditos: 7,
+        color: "gris",
+      },
+    ],
+  },
+  {
+    numero: 9,
+    materias: [
+      {
+        codigo: "LDR901",
+        nombre: "Seminario en Derecho",
+        creditos: 6,
+        color: "negro",
+      },
+      {
+        codigo: "LDR902",
+        nombre: "Filosofía del Derecho",
+        creditos: 6,
+        color: "negro",
+      },
+      {
+        codigo: "LDR903",
+        nombre: "Actualización Integral en Temas Selectos de Derecho",
+        creditos: 6,
+        color: "negro",
+      },
+      {
+        codigo: "LDR904",
+        nombre: "Ética Profesional",
+        creditos: 6,
+        color: "negro",
+      },
+      {
+        codigo: "LDR905",
+        nombre: "Derecho Internacional Privado",
+        creditos: 7,
+        color: "negro",
+      },
+    ],
+  },
 ];
 
 const planteles = [
@@ -277,6 +502,28 @@ const planteles = [
     lat: 20.720900646775917,
     lon: -103.38975281813357,
   },
+  {
+    id: "16",
+    nombre: "Campus Puerto Vallarta",
+    codigo: "Campus",
+    direccion: "Carretera a Tepic No. 5657 Col. las Juntas C.P 48291",
+    ciudad: "Puerto Vallarta",
+    url: "/campus/campus-puerto-vallarta",
+    imagen: "/src/assets/Imagenes/CardsPlanteles/Campus-Puerto-Vallarta.jpg",
+    lat: "20.69715126066295",
+    lon: ", -105.23759816941552",
+  },
+  {
+    id: "1",
+    nombre: "Avenida México",
+    codigo: "00008",
+    direccion: "Av. México #1255, Col. Agua Zarca, Puerto Vallarta, Jalisco",
+    ciudad: "Puerto Vallarta",
+    url: "/campus/puerto-vallarta",
+    imagen: "/src/assets/Imagenes/CardsPlanteles/PuertoVallarta.png",
+    lat: 20.669418,
+    lon: -105.226917,
+  },
 ];
 
 const ciudades = [
@@ -314,19 +561,16 @@ const ciudades = [
         <div class="text-center text-white max-w-4xl mx-auto">
           {/* Main Title */}
           <h1 class="text-4xl md:text-7xl font-bold tracking-wider mb-4">
-            Lic. en Cirujano Dentista
+            Lic. en Derecho
           </h1>
-          <h2 class="text-2xl md:text-5xl font-bold tracking-wider mb-8">
-            Licenciaturas UNE
-          </h2>
 
           {/* Description */}
           <p
             class="text-lg md:text-xl leading-relaxed mb-16 max-w-3xl mx-auto font-light"
           >
-            Transforma sonrisas y mejora la calidad de vida a través del estudio
-            y la práctica de la odontología, en una carrera donde la ciencia, la
-            salud y la vocación por el bienestar se unen.
+            Conviértete en un profesional del derecho con sólida formación
+            jurídica, listo para defender la justicia y asesorar con
+            responsabilidad.
           </p>
         </div>
       </div>
@@ -343,7 +587,8 @@ const ciudades = [
             class="flex flex-col sm:flex-row gap-4 w-full justify-center text-white"
           >
             <!-- Agenda una Visita -->
-            <a href="/contacto/solicitarvisita"
+            <a
+              href="/contacto/solicitarvisita"
               class="hover:border-b hover:border-b-cyan-50 font-bold py-6 px-6 text-base transition-colors duration-300 shadow-lg flex flex-col items-center justify-center gap-2 whitespace-nowrap"
             >
               AGENDA UNA VISITA
@@ -351,7 +596,8 @@ const ciudades = [
             </a>
 
             <!-- Iniciar Inscripción -->
-            <a href="/contacto/formulario-inscripcion"
+            <a
+              href="/contacto/formulario-inscripcion"
               class="hover:border-b hover:border-b-cyan-50 font-bold py-3 px-6 text-base transition-colors duration-300 shadow-lg flex flex-col items-center justify-center gap-2 whitespace-nowrap"
             >
               INICIAR INSCRIPCIÓN
@@ -359,7 +605,8 @@ const ciudades = [
             </a>
 
             <!-- Contactar -->
-             <a href="/contacto/solicitarinformacion"
+            <a
+              href="/contacto/solicitarinformacion"
               class="hover:border-b hover:border-b-cyan-50 font-bold py-3 px-6 text-base transition-colors duration-300 shadow-lg flex flex-col items-center justify-center gap-2 whitespace-nowrap"
             >
               CONTACTAR
@@ -374,27 +621,31 @@ const ciudades = [
       logoSrc={LogoCard.src}
       studentImageSrc={ImagenCard.src}
       title="Objetivo"
-      description="La Licenciatura en Cirujano Dentista te forma como un profesionista altamente capacitado para prevenir, diagnosticar y tratar enfermedades bucales con un enfoque integral y humano."
-      additionalText="Con una sólida formación teórico-práctica y un alto compromiso ético y social, estarás preparado para promover la salud bucodental, brindar atención personalizada y colaborar con instituciones de salud para transformar positivamente la calidad de vida de las personas."
+      description="Formar profesionales del Derecho con sólidas competencias jurídicas, éticas y sociales, capaces de interpretar, aplicar y proponer soluciones legales con base en el marco normativo vigente, promoviendo la justicia, la equidad y el respeto a los derechos humanos, con una alta capacidad de empleabilidad y compromiso con el bienestar social."
+      additionalText=""
       features={[
-        { icon: "CalendarDays", label: "Prácticas clínicas presenciales" },
-        { icon: "BookOpen", label: "Bases científicas sólidas" },
-        { icon: "School", label: "Validez oficial" },
-        { icon: "Clock", label: "Horarios accesibles" },
-        { icon: "BookmarkCheck", label: "Enfoque profesionalizante" },
+        { icon: "Gavel", label: "Dominio del marco jurídico vigente" },
+        { icon: "Scale", label: "Compromiso con la justicia y la equidad" },
+        {
+          icon: "Handshake",
+          label: "Promoción y defensa de los derechos humanos",
+        },
+        {
+          icon: "UserCheck",
+          label: "Alta empleabilidad y responsabilidad social",
+        },
+        { icon: "ShieldCheck", label: "Formación ética y profesional sólida" },
       ]}
     />
 
-     <PlanEstudios titulo="Propuesta Educativa" semestres={semestresDatos} />
+    <PlanEstudios titulo="Propuesta Educativa" semestres={semestresDatos} />
 
-     <Planteles
+    <Planteles
       titulo="Encuentra tu campus más cercano"
       planteles={planteles}
       ciudades={ciudades}
       mostrarMasCercano={true}
     />
-
-    
 
     <Requisitos nivel="Licenciatura" requisitos={requisitosInfo} />
 

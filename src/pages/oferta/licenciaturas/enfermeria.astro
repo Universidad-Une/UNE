@@ -1,13 +1,10 @@
 ---
 import Layout from "@/layouts/Layout.astro";
-import Hero from "@/assets/Imagenes/Heros/Cirujano_dentista.jpg";
-import Hero_mobile from "@/assets/Imagenes/Heros/Cirujano_dentista_mobile.jpg";
+import Hero from "@/assets/Imagenes/Heros/Carreras/Enfermeria.jpg";
+import Hero_mobile from "@/assets/Imagenes/Heros/Carreras/Enfermeria_mobile.jpg";
 import ImagenCard from "@/assets/Imagenes/CardsNiveles/Nivel.png";
 import LogoCard from "@/assets/Logos/Licenciatura.png";
 import InformativeCard from "@components/sections/detallesOferta/card.astro";
-import Carreras from "@components/sections/Licenciaturas/Carreras.astro";
-import Estadisticas from "@components/sections/Licenciaturas/Estadisticas.astro";
-
 import Requisitos from "@/components/sections/detallesOferta/requisitos.astro";
 
 import FAQComponent from "@/components/sections/detallesOferta/preguntas.astro";
@@ -25,7 +22,7 @@ const requisitosInfo = {
     "CURP (formato RENAPO)",
     "Identificación oficial con fotografía (INE) - dos copias",
     "Comprobante de domicilio reciente (no mayor a 3 meses) - una copia",
-    "Cinco fotografías tamaño infantil, blanco y negro, papel mate, de estudio"
+    "Cinco fotografías tamaño infantil, blanco y negro, papel mate, de estudio",
   ],
   pdfUrl: "/public/pdfs/licenciatura_req.pdf",
 };
@@ -79,27 +76,63 @@ const semestresDatos = [
     numero: 1,
     materias: [
       {
-        codigo: "ED1021",
-        nombre: "Introducción a la Educación",
-        creditos: 30,
+        codigo: "ENF101",
+        nombre: "Alimentación, Nutrición y Sociedad",
+        creditos: 5,
         color: "verde",
       },
       {
-        codigo: "Filosofía y Ética en Educación",
-        nombre: "Filosofía y Ética en Educación",
-        creditos: 30,
+        codigo: "ENF102",
+        nombre: "Análisis de Problemas Globales del Siglo XXI",
+        creditos: 0,
         color: "verde",
       },
       {
-        codigo: "ED1024",
-        nombre: "Desarrollo Infantil y adolescente",
-        creditos: 30,
+        codigo: "ENF103",
+        nombre: "Bioética y Normatividad",
+        creditos: 7,
         color: "verde",
       },
       {
-        codigo: "ED1027",
-        nombre: "Habilidades Básicas de Investigación",
-        creditos: 30,
+        codigo: "ENF104",
+        nombre: "Bioquímica Humana",
+        creditos: 12,
+        color: "verde",
+      },
+      {
+        codigo: "ENF105",
+        nombre: "Comunicación y Tecnologías de la Información",
+        creditos: 3,
+        color: "verde",
+      },
+      {
+        codigo: "ENF106",
+        nombre: "Fundamentos de Anatomía",
+        creditos: 12,
+        color: "verde",
+      },
+      {
+        codigo: "ENF107",
+        nombre: "Metodología de la Investigación",
+        creditos: 7,
+        color: "verde",
+      },
+      {
+        codigo: "ENF108",
+        nombre: "Salud Pública",
+        creditos: 7,
+        color: "verde",
+      },
+      {
+        codigo: "ENF109",
+        nombre: "Sociedad y Salud",
+        creditos: 4,
+        color: "verde",
+      },
+      {
+        codigo: "ENF110",
+        nombre: "Teorías y Procesos de Enfermería",
+        creditos: 10,
         color: "verde",
       },
     ],
@@ -108,27 +141,45 @@ const semestresDatos = [
     numero: 2,
     materias: [
       {
-        codigo: "FH1203",
-        nombre: "Pensamiento lógico y tecnológico",
-        creditos: 30,
+        codigo: "ENF201",
+        nombre: "Biología Molecular",
+        creditos: 10,
         color: "amarillo",
       },
       {
-        codigo: "ED2016",
-        nombre: "Desarrollo de la Psicomotricidad",
-        creditos: 30,
+        codigo: "ENF202",
+        nombre: "Fundamentos de Fisiología",
+        creditos: 12,
         color: "amarillo",
       },
       {
-        codigo: "HJ2026",
-        nombre: "Ética social cristiana",
-        creditos: 30,
+        codigo: "ENF203",
+        nombre: "Psicología",
+        creditos: 7,
         color: "amarillo",
       },
       {
-        codigo: "ED1029",
-        nombre: "Historia de la Pedagogía moderna",
-        creditos: 30,
+        codigo: "ENF204",
+        nombre: "Epidemiología",
+        creditos: 6,
+        color: "amarillo",
+      },
+      {
+        codigo: "ENF205",
+        nombre: "Fundamentos de Enfermería",
+        creditos: 11,
+        color: "amarillo",
+      },
+      {
+        codigo: "ENF206",
+        nombre: "Parasitología y Microbiología",
+        creditos: 10,
+        color: "amarillo",
+      },
+      {
+        codigo: "ENF207",
+        nombre: "Salud y Sustentabilidad Ambiental",
+        creditos: 6,
         color: "amarillo",
       },
     ],
@@ -137,75 +188,265 @@ const semestresDatos = [
     numero: 3,
     materias: [
       {
-        codigo: "PS1201",
-        nombre: "Fundamentos de Psicología y Bienestar",
-        creditos: 30,
+        codigo: "ENF301",
+        nombre: "Enfermería Comunitaria",
+        creditos: 10,
         color: "naranja",
       },
       {
-        codigo: "Gestión educativa institucional",
-        nombre: "Gestión educativa institucional",
-        creditos: 30,
+        codigo: "ENF302",
+        nombre: "Enfermería del Adulto",
+        creditos: 11,
         color: "naranja",
       },
       {
-        codigo: "ED2012",
-        nombre: "Desarrollo Socioemocional",
-        creditos: 30,
+        codigo: "ENF303",
+        nombre: "Enfermería en Salud Mental",
+        creditos: 9,
         color: "naranja",
       },
       {
-        codigo: "ED3027",
-        nombre: "Administración educativa",
-        creditos: 30,
+        codigo: "ENF304",
+        nombre: "Enfermería y Regulación Profesional",
+        creditos: 9,
+        color: "naranja",
+      },
+      {
+        codigo: "ENF305",
+        nombre: "Farmacología Clínica",
+        creditos: 12,
+        color: "naranja",
+      },
+      {
+        codigo: "ENF306",
+        nombre: "Fisiopatología Clínica",
+        creditos: 12,
+        color: "naranja",
+      },
+      {
+        codigo: "ENF307",
+        nombre: "Estadística Avanzada",
+        creditos: 6,
+        color: "naranja",
+      },
+      {
+        codigo: "ENF308",
+        nombre: "Proyecto de Vida",
+        creditos: 4,
         color: "naranja",
       },
     ],
   },
-  // Puedes agregar más semestres según necesites
+  {
+    numero: 4,
+    materias: [
+      {
+        codigo: "ENF401",
+        nombre: "Enfermería del Adulto Mayor",
+        creditos: 9,
+        color: "rojo",
+      },
+      {
+        codigo: "ENF402",
+        nombre: "Práctica Profesional de Enfermería Comunitaria",
+        creditos: 14,
+        color: "rojo",
+      },
+      {
+        codigo: "ENF403",
+        nombre: "Práctica Profesional de Enfermería del Adulto",
+        creditos: 19,
+        color: "rojo",
+      },
+      {
+        codigo: "ENF404",
+        nombre: "Habilidades Gerenciales",
+        creditos: 3,
+        color: "rojo",
+      },
+      {
+        codigo: "ENF405",
+        nombre: "Enfermería y el Cuidado Quirúrgico",
+        creditos: 11,
+        color: "rojo",
+      },
+      {
+        codigo: "ENF406",
+        nombre: "Gestión y Administración de los Servicios en Enfermería",
+        creditos: 12,
+        color: "rojo",
+      },
+      {
+        codigo: "ENF407",
+        nombre: "Enfermería Avanzada",
+        creditos: 9,
+        color: "rojo",
+      },
+      {
+        codigo: "ENF408",
+        nombre: "Enfermería en el Cuidado Crítico",
+        creditos: 9,
+        color: "rojo",
+      },
+      {
+        codigo: "ENF409",
+        nombre: "Enfermería en Obstetricia",
+        creditos: 9,
+        color: "rojo",
+      },
+    ],
+  },
+  {
+    numero: 5,
+    materias: [
+      {
+        codigo: "ENF501",
+        nombre: "Enfermería de la Mujer y el Recién Nacido",
+        creditos: 12,
+        color: "morado",
+      },
+      {
+        codigo: "ENF502",
+        nombre: "Enfermería en Urgencias Clínicas",
+        creditos: 7,
+        color: "morado",
+      },
+      {
+        codigo: "ENF503",
+        nombre: "Enfermería y Educación para la Salud",
+        creditos: 10,
+        color: "morado",
+      },
+      {
+        codigo: "ENF504",
+        nombre: "Enfermería y el Cuidado Paliativo",
+        creditos: 9,
+        color: "morado",
+      },
+      {
+        codigo: "ENF505",
+        nombre: "Orientador, Asesoría y Tutoría",
+        creditos: 7,
+        color: "morado",
+      },
+      {
+        codigo: "ENF506",
+        nombre:
+          "Práctica en Gestión y Administración de los Servicios de Enfermería",
+        creditos: 11,
+        color: "morado",
+      },
+      {
+        codigo: "ENF507",
+        nombre: "Enfermería en Neonatología",
+        creditos: 9,
+        color: "morado",
+      },
+    ],
+  },
+  {
+    numero: 6,
+    materias: [
+      {
+        codigo: "ENF601",
+        nombre: "Gestión de la Calidad en Enfermería",
+        creditos: 7,
+        color: "azul",
+      },
+      {
+        codigo: "ENF602",
+        nombre:
+          "Práctica Profesional de Enfermería de la Mujer y el Recién Nacido",
+        creditos: 14,
+        color: "azul",
+      },
+      {
+        codigo: "ENF603",
+        nombre: "Práctica Profesional de Enfermería Quirúrgica",
+        creditos: 14,
+        color: "azul",
+      },
+      {
+        codigo: "ENF604",
+        nombre: "Práctica de Enfermería Avanzada",
+        creditos: 6,
+        color: "azul",
+      },
+      {
+        codigo: "ENF605",
+        nombre: "Investigación Clínica en Enfermería",
+        creditos: 7,
+        color: "azul",
+      },
+    ],
+  },
+  {
+    numero: 7,
+    materias: [
+      {
+        codigo: "ENF701",
+        nombre: "Desastres y Emergencias Sanitarias",
+        creditos: 7,
+        color: "rosa",
+      },
+      {
+        codigo: "ENF702",
+        nombre: "Enfermería del Niño y Adolescente",
+        creditos: 12,
+        color: "rosa",
+      },
+      {
+        codigo: "ENF703",
+        nombre: "Enfermería en el Cuidado Psiquiátrico",
+        creditos: 9,
+        color: "rosa",
+      },
+      {
+        codigo: "ENF704",
+        nombre: "Enfermería en la Investigación Comunitaria",
+        creditos: 7,
+        color: "rosa",
+      },
+      {
+        codigo: "ENF705",
+        nombre: "Terapéutica Farmacológica",
+        creditos: 11,
+        color: "rosa",
+      },
+    ],
+  },
+  {
+    numero: 8,
+    materias: [
+      {
+        codigo: "ENF801",
+        nombre: "Práctica Profesional de Enfermería del Niño y Adolescente",
+        creditos: 14,
+        color: "gris",
+      },
+      {
+        codigo: "ENF802",
+        nombre: "Práctica Profesional de Rotación Hospitalaria",
+        creditos: 14,
+        color: "gris",
+      },
+      {
+        codigo: "ENF803",
+        nombre: "Práctica en Enfermería Obstétrica",
+        creditos: 6,
+        color: "gris",
+      },
+      {
+        codigo: "ENF804",
+        nombre: "Actualidades en Salud",
+        creditos: 4,
+        color: "gris",
+      },
+    ],
+  },
 ];
 
 const planteles = [
-  {
-    id: "1",
-    nombre: "Centro",
-    direccion: "Av. República No.10, Col. San Juan de Dios",
-    ciudad: "Guadalajara ZMG",
-    url: "/plantel-centro",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/Centro.jpg",
-    lat: 20.67744801539995,
-    lon: -103.34031672627513,
-  },
-  {
-    id: "2",
-    nombre: "Centro Médico",
-    direccion: "José María Lozano #1077, Col. Belisario Domínguez",
-    ciudad: "Guadalajara ZMG",
-    url: "/plantel-centro-medico",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/CentroMedico.jpg",
-    lat: 20.684590788642307,
-    lon: -103.3256397932448,
-  },
-  {
-    id: "3",
-    nombre: "Milenio",
-    direccion: "Av. López Mateos Sur #4154, Col. La Giralda",
-    ciudad: "Guadalajara ZMG",
-    url: "/plantel-milenio",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/Milenio.jpg",
-    lat: 20.64540739939039,
-    lon: -103.40630313415286,
-  },
-  {
-    id: "4",
-    nombre: "Puerto Vallarta - Plaza Caracol",
-    direccion: "Blvd. Fco. Medina Ascencio #2180, Col. Díaz Ordaz",
-    ciudad: "Puerto Vallarta",
-    url: "/plantel-plaza-caracol-puerto-vallarta",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/PuertoVallarta.png",
-    lat: 20.639287162026815,
-    lon: -105.23323589513319,
-  },
   {
     id: "5",
     nombre: "Tlajomulco",
@@ -216,47 +457,7 @@ const planteles = [
     lat: 20.576464164603113,
     lon: -103.45243680650722,
   },
-  {
-    id: "6",
-    nombre: "Tesistán",
-    direccion: "Av. Juan Gil Preciado #3897, Col. Hogares de Nuevo México",
-    ciudad: "Guadalajara ZMG",
-    url: "/plantel-tesistan",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/Tesistan.png",
-    lat: 20.806203,
-    lon: -102.763903,
-  },
-  {
-    id: "7",
-    nombre: "Tepatitlán",
-    direccion: "Calle Dr. Ricardo Alcalá #505, Av. Matamoros, Centro",
-    ciudad: "Tepatitlán de Morelos",
-    url: "/plantel-tepatitlan",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/Tepatitlan.jpg",
-    lat: 20.8062946507024,
-    lon: -102.76382902869392,
-  },
-  {
-    id: "8",
-    nombre: "Tlaquepaque",
-    direccion:
-      "Blvd. Marcelino García Barragán #2056, Col. Bosques del Boulevard",
-    ciudad: "Guadalajara ZMG",
-    url: "/plantel-tlaquepaque",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/Tlaquepaque.jpg",
-    lat: 20.645650028567157,
-    lon: -103.32094530771215,
-  },
-  {
-    id: "9",
-    nombre: "Tonalá",
-    direccion: "Av. Tonaltecas #333, Col. Agua Escondida",
-    ciudad: "Guadalajara ZMG",
-    url: "/plantel-tonala",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/Tonala.png",
-    lat: 20.63176692188573,
-    lon: -103.24439406488241,
-  },
+
   {
     id: "10",
     nombre: "Chapultepec",
@@ -277,13 +478,31 @@ const planteles = [
     lat: 20.720900646775917,
     lon: -103.38975281813357,
   },
+  {
+    id: "20",
+    nombre: "Las juntas",
+    direccion:
+      "Francisco Murguía #523 Col. Las Juntas Puerto Vallarta, Jalisco",
+    ciudad: "Guadalajara ZMG",
+    url: "/planteles/Las-juntas",
+    imagen: "/src/assets/Imagenes/CardsPlanteles/Lasjuntas.jpg",
+    lat: 20.696982077577214,
+    lon: -105.23748669247418,
+  },
+  {
+id: "14",
+nombre: "Torre UNE Milenio",
+codigo: "TORRE MILENIO",
+direccion: "Av. López Mateos Sur #4175 Col. La Giralda Zapopan, Jalisco",
+ciudad: "Guadalajara ZMG",
+url:"/campus/Torre-milenio",
+imagen: "/src/assets/Imagenes/CardsPlanteles/Torre-milenio.png",
+lat: "20.645336",
+lon: "-103.405938",
+},
 ];
 
-const ciudades = [
-  "Guadalajara ZMG",
-  "Puerto Vallarta",
-  "Tepatitlán de Morelos",
-];
+const ciudades = ["Guadalajara ZMG", "Puerto Vallarta"];
 ---
 
 <Layout>
@@ -314,19 +533,15 @@ const ciudades = [
         <div class="text-center text-white max-w-4xl mx-auto">
           {/* Main Title */}
           <h1 class="text-4xl md:text-7xl font-bold tracking-wider mb-4">
-            Lic. en Cirujano Dentista
+            Enfermeria
           </h1>
-          <h2 class="text-2xl md:text-5xl font-bold tracking-wider mb-8">
-            Licenciaturas UNE
-          </h2>
 
           {/* Description */}
           <p
             class="text-lg md:text-xl leading-relaxed mb-16 max-w-3xl mx-auto font-light"
           >
-            Transforma sonrisas y mejora la calidad de vida a través del estudio
-            y la práctica de la odontología, en una carrera donde la ciencia, la
-            salud y la vocación por el bienestar se unen.
+            Con vocación y conocimiento, cuida y mejora la salud de las personas
+            en todos los niveles de atención.
           </p>
         </div>
       </div>
@@ -343,7 +558,8 @@ const ciudades = [
             class="flex flex-col sm:flex-row gap-4 w-full justify-center text-white"
           >
             <!-- Agenda una Visita -->
-            <a href="/contacto/solicitarvisita"
+            <a
+              href="/contacto/solicitarvisita"
               class="hover:border-b hover:border-b-cyan-50 font-bold py-6 px-6 text-base transition-colors duration-300 shadow-lg flex flex-col items-center justify-center gap-2 whitespace-nowrap"
             >
               AGENDA UNA VISITA
@@ -351,7 +567,8 @@ const ciudades = [
             </a>
 
             <!-- Iniciar Inscripción -->
-            <a href="/contacto/formulario-inscripcion"
+            <a
+              href="/contacto/formulario-inscripcion"
               class="hover:border-b hover:border-b-cyan-50 font-bold py-3 px-6 text-base transition-colors duration-300 shadow-lg flex flex-col items-center justify-center gap-2 whitespace-nowrap"
             >
               INICIAR INSCRIPCIÓN
@@ -359,7 +576,8 @@ const ciudades = [
             </a>
 
             <!-- Contactar -->
-             <a href="/contacto/solicitarinformacion"
+            <a
+              href="/contacto/solicitarinformacion"
               class="hover:border-b hover:border-b-cyan-50 font-bold py-3 px-6 text-base transition-colors duration-300 shadow-lg flex flex-col items-center justify-center gap-2 whitespace-nowrap"
             >
               CONTACTAR
@@ -374,27 +592,40 @@ const ciudades = [
       logoSrc={LogoCard.src}
       studentImageSrc={ImagenCard.src}
       title="Objetivo"
-      description="La Licenciatura en Cirujano Dentista te forma como un profesionista altamente capacitado para prevenir, diagnosticar y tratar enfermedades bucales con un enfoque integral y humano."
-      additionalText="Con una sólida formación teórico-práctica y un alto compromiso ético y social, estarás preparado para promover la salud bucodental, brindar atención personalizada y colaborar con instituciones de salud para transformar positivamente la calidad de vida de las personas."
+      description="Formar profesionales de enfermería con competencias científicas, técnicas y humanas para brindar atención integral, segura y de calidad en los distintos niveles del sistema de salud, promoviendo el bienestar de la población y contribuyendo a la mejora de los servicios sanitarios con responsabilidad social y ética profesional."
+      additionalText=""
       features={[
-        { icon: "CalendarDays", label: "Prácticas clínicas presenciales" },
-        { icon: "BookOpen", label: "Bases científicas sólidas" },
-        { icon: "School", label: "Validez oficial" },
-        { icon: "Clock", label: "Horarios accesibles" },
-        { icon: "BookmarkCheck", label: "Enfoque profesionalizante" },
+        {
+          icon: "Stethoscope",
+          label: "Atención integral y centrada en el paciente",
+        },
+        {
+          icon: "HeartPulse",
+          label: "Promoción del bienestar y prevención de enfermedades",
+        },
+        {
+          icon: "Hospital",
+          label: "Intervención en todos los niveles del sistema de salud",
+        },
+        {
+          icon: "ShieldCheck",
+          label: "Ética profesional y responsabilidad social",
+        },
+        {
+          icon: "FlaskConical",
+          label: "Fundamento científico y técnico en el cuidado",
+        },
       ]}
     />
 
-     <PlanEstudios titulo="Propuesta Educativa" semestres={semestresDatos} />
+    <PlanEstudios titulo="Propuesta Educativa" semestres={semestresDatos} />
 
-     <Planteles
+    <Planteles
       titulo="Encuentra tu campus más cercano"
       planteles={planteles}
       ciudades={ciudades}
       mostrarMasCercano={true}
     />
-
-    
 
     <Requisitos nivel="Licenciatura" requisitos={requisitosInfo} />
 

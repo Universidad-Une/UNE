@@ -1,15 +1,11 @@
 ---
 import Layout from "@/layouts/Layout.astro";
-import Hero from "@/assets/Imagenes/Heros/Cirujano_dentista.jpg";
-import Hero_mobile from "@/assets/Imagenes/Heros/Cirujano_dentista_mobile.jpg";
+import Hero from "@/assets/Imagenes/Heros/Carreras/Abogado.jpg";
+import Hero_mobile from "@/assets/Imagenes/Heros/Carreras/Abogado_mobile.jpg";
 import ImagenCard from "@/assets/Imagenes/CardsNiveles/Nivel.png";
 import LogoCard from "@/assets/Logos/Licenciatura.png";
 import InformativeCard from "@components/sections/detallesOferta/card.astro";
-import Carreras from "@components/sections/Licenciaturas/Carreras.astro";
-import Estadisticas from "@components/sections/Licenciaturas/Estadisticas.astro";
-
 import Requisitos from "@/components/sections/detallesOferta/requisitos.astro";
-
 import FAQComponent from "@/components/sections/detallesOferta/preguntas.astro";
 import CTAinscripcion from "@/components/sections/shared/ctaInscripcion.astro";
 import { Calendar, UserPlus, Phone } from "@lucide/astro";
@@ -77,212 +73,553 @@ const faqs = [
 const semestresDatos = [
   {
     numero: 1,
+    nombre: "PRIMER SEMESTRE",
     materias: [
       {
-        codigo: "ED1021",
-        nombre: "Introducción a la Educación",
-        creditos: 30,
+        codigo: "DER001",
+        nombre: "Análisis de Problemas Globales del Siglo XXI",
+        creditos: 0,
         color: "verde",
       },
       {
-        codigo: "Filosofía y Ética en Educación",
-        nombre: "Filosofía y Ética en Educación",
-        creditos: 30,
+        codigo: "DER002",
+        nombre: "Derecho Romano",
+        creditos: 6,
         color: "verde",
       },
       {
-        codigo: "ED1024",
-        nombre: "Desarrollo Infantil y adolescente",
-        creditos: 30,
+        codigo: "DER003",
+        nombre: "Economía y Derecho",
+        creditos: 7,
         color: "verde",
       },
       {
-        codigo: "ED1027",
-        nombre: "Habilidades Básicas de Investigación",
-        creditos: 30,
+        codigo: "DER004",
+        nombre: "Historia del Derecho Universal Mexicano",
+        creditos: 7,
+        color: "verde",
+      },
+      {
+        codigo: "DER005",
+        nombre: "Lengua Extranjera I",
+        creditos: 4,
+        color: "verde",
+      },
+      {
+        codigo: "DER006",
+        nombre: "Sociología Jurídica",
+        creditos: 7,
+        color: "verde",
+      },
+      {
+        codigo: "DER007",
+        nombre: "Tecnologías en Gestión de la Información",
+        creditos: 6,
+        color: "verde",
+      },
+      {
+        codigo: "DER008",
+        nombre: "Teoría del Derecho",
+        creditos: 7,
+        color: "verde",
+      },
+      {
+        codigo: "DER009",
+        nombre: "Epistemología y Metodología Jurídica",
+        creditos: 8,
         color: "verde",
       },
     ],
   },
   {
     numero: 2,
+    nombre: "SEGUNDO SEMESTRE",
     materias: [
       {
-        codigo: "FH1203",
-        nombre: "Pensamiento lógico y tecnológico",
-        creditos: 30,
+        codigo: "DER010",
+        nombre: "Estudio de Caso de Instituciones Jurídicas I",
+        creditos: 3,
         color: "amarillo",
       },
       {
-        codigo: "ED2016",
-        nombre: "Desarrollo de la Psicomotricidad",
-        creditos: 30,
+        codigo: "DER011",
+        nombre: "Interpretación y Argumentación Jurídica",
+        creditos: 6,
         color: "amarillo",
       },
       {
-        codigo: "HJ2026",
-        nombre: "Ética social cristiana",
-        creditos: 30,
+        codigo: "DER012",
+        nombre: "Lengua Extranjera II",
+        creditos: 4,
         color: "amarillo",
       },
       {
-        codigo: "ED1029",
-        nombre: "Historia de la Pedagogía moderna",
-        creditos: 30,
+        codigo: "DER013",
+        nombre: "Teoría de las Estructuras Políticas y de Gobierno",
+        creditos: 7,
+        color: "amarillo",
+      },
+      {
+        codigo: "DER014",
+        nombre: "Derecho Civil I",
+        creditos: 7,
+        color: "amarillo",
+      },
+      {
+        codigo: "DER015",
+        nombre: "Derecho Constitucional I",
+        creditos: 7,
+        color: "amarillo",
+      },
+      {
+        codigo: "DER016",
+        nombre: "Sistemas Jurídicos Contemporáneos",
+        creditos: 6,
+        color: "amarillo",
+      },
+      {
+        codigo: "DER017",
+        nombre: "Teoría General del Proceso",
+        creditos: 7,
         color: "amarillo",
       },
     ],
   },
   {
     numero: 3,
+    nombre: "TERCER SEMESTRE",
     materias: [
       {
-        codigo: "PS1201",
-        nombre: "Fundamentos de Psicología y Bienestar",
-        creditos: 30,
+        codigo: "DER018",
+        nombre: "Filosofía del Derecho",
+        creditos: 7,
         color: "naranja",
       },
       {
-        codigo: "Gestión educativa institucional",
-        nombre: "Gestión educativa institucional",
-        creditos: 30,
+        codigo: "DER019",
+        nombre: "Lengua Extranjera III",
+        creditos: 4,
         color: "naranja",
       },
       {
-        codigo: "ED2012",
-        nombre: "Desarrollo Socioemocional",
-        creditos: 30,
+        codigo: "DER020",
+        nombre: "Derecho Administrativo",
+        creditos: 7,
         color: "naranja",
       },
       {
-        codigo: "ED3027",
-        nombre: "Administración educativa",
-        creditos: 30,
+        codigo: "DER021",
+        nombre: "Derecho Civil",
+        creditos: 7,
+        color: "naranja",
+      },
+      {
+        codigo: "DER022",
+        nombre: "Derecho Constitucional",
+        creditos: 7,
+        color: "naranja",
+      },
+      {
+        codigo: "DER023",
+        nombre: "Derecho Mercantil I",
+        creditos: 7,
+        color: "naranja",
+      },
+      {
+        codigo: "DER024",
+        nombre: "Estudio de Caso de Instituciones Jurídicas II",
+        creditos: 3,
+        color: "naranja",
+      },
+      {
+        codigo: "DER025",
+        nombre: "Teoría del Acto Administrativo",
+        creditos: 8,
         color: "naranja",
       },
     ],
   },
-  // Puedes agregar más semestres según necesites
+  {
+    numero: 4,
+    nombre: "CUARTO SEMESTRE",
+    materias: [
+      {
+        codigo: "DER026",
+        nombre: "Ética Jurídica",
+        creditos: 6,
+        color: "rojo",
+      },
+      {
+        codigo: "DER027",
+        nombre: "Lengua Extranjera Especializada I",
+        creditos: 4,
+        color: "rojo",
+      },
+      {
+        codigo: "DER028",
+        nombre: "Teoría de los Derechos Humanos",
+        creditos: 7,
+        color: "rojo",
+      },
+      {
+        codigo: "DER029",
+        nombre: "Derecho Civil III",
+        creditos: 7,
+        color: "rojo",
+      },
+      {
+        codigo: "DER030",
+        nombre: "Derecho Mercantil II",
+        creditos: 7,
+        color: "rojo",
+      },
+      {
+        codigo: "DER031",
+        nombre: "Derecho Penal",
+        creditos: 8,
+        color: "rojo",
+      },
+      {
+        codigo: "DER032",
+        nombre: "Estudio de Caso de Instituciones Jurídicas III",
+        creditos: 3,
+        color: "rojo",
+      },
+      {
+        codigo: "DER033",
+        nombre: "Prácticas Profesionales",
+        creditos: 8,
+        color: "rojo",
+      },
+      {
+        codigo: "DER034",
+        nombre: "Tópicos Selectos",
+        creditos: 6,
+        color: "rojo",
+      },
+      {
+        codigo: "DER035",
+        nombre: "Optativa I",
+        creditos: 6,
+        color: "rojo",
+      },
+    ],
+  },
+  {
+    numero: 5,
+    nombre: "QUINTO SEMESTRE",
+    materias: [
+      {
+        codigo: "DER036",
+        nombre: "Lengua Extranjera Especializada II",
+        creditos: 4,
+        color: "morado",
+      },
+      {
+        codigo: "DER037",
+        nombre: "Derecho Civil IV",
+        creditos: 7,
+        color: "morado",
+      },
+      {
+        codigo: "DER038",
+        nombre: "Derecho Individual del Trabajo",
+        creditos: 7,
+        color: "morado",
+      },
+      {
+        codigo: "DER039",
+        nombre: "Derecho Mercantil III",
+        creditos: 7,
+        color: "morado",
+      },
+      {
+        codigo: "DER040",
+        nombre: "Derecho Penal II",
+        creditos: 8,
+        color: "morado",
+      },
+      {
+        codigo: "DER041",
+        nombre: "Derechos Humanos y sus Garantías",
+        creditos: 7,
+        color: "morado",
+      },
+      {
+        codigo: "DER042",
+        nombre: "Estudio de Caso de Instituciones Jurídicas IV",
+        creditos: 3,
+        color: "morado",
+      },
+      {
+        codigo: "DER043",
+        nombre: "Optativa II",
+        creditos: 6,
+        color: "morado",
+      },
+    ],
+  },
+  {
+    numero: 6,
+    nombre: "SEXTO SEMESTRE",
+    materias: [
+      {
+        codigo: "DER044",
+        nombre: "Derecho Colectivo del Trabajo",
+        creditos: 7,
+        color: "azul",
+      },
+      {
+        codigo: "DER045",
+        nombre: "Derecho Procesal Civil",
+        creditos: 7,
+        color: "azul",
+      },
+      {
+        codigo: "DER046",
+        nombre: "Derecho Procesal Mercantil",
+        creditos: 7,
+        color: "azul",
+      },
+      {
+        codigo: "DER047",
+        nombre: "Derecho Procesal Penal",
+        creditos: 7,
+        color: "azul",
+      },
+      {
+        codigo: "DER048",
+        nombre: "Estudio de Caso de Instituciones Jurídicas V",
+        creditos: 3,
+        color: "azul",
+      },
+      {
+        codigo: "DER049",
+        nombre: "Justicia Constitucional",
+        creditos: 8,
+        color: "azul",
+      },
+      {
+        codigo: "DER050",
+        nombre: "Formación Integral",
+        creditos: 4,
+        color: "azul",
+      },
+      {
+        codigo: "DER051",
+        nombre: "Optativa III",
+        creditos: 6,
+        color: "azul",
+      },
+    ],
+  },
+  {
+    numero: 7,
+    nombre: "SÉPTIMO SEMESTRE",
+    materias: [
+      {
+        codigo: "DER052",
+        nombre: "Mecanismos Alternativos de Solución de Controversias",
+        creditos: 6,
+        color: "cian",
+      },
+      {
+        codigo: "DER053",
+        nombre: "Ámparo",
+        creditos: 8,
+        color: "cian",
+      },
+      {
+        codigo: "DER054",
+        nombre: "Derecho de la Seguridad Social",
+        creditos: 7,
+        color: "cian",
+      },
+      {
+        codigo: "DER055",
+        nombre: "Derecho Internacional Público",
+        creditos: 7,
+        color: "cian",
+      },
+      {
+        codigo: "DER056",
+        nombre: "Estudio de Caso Disciplinar en Derecho Civil",
+        creditos: 4,
+        color: "cian",
+      },
+      {
+        codigo: "DER057",
+        nombre: "Estudio de Caso Disciplinar en Derecho Penal",
+        creditos: 4,
+        color: "cian",
+      },
+      {
+        codigo: "DER058",
+        nombre: "Tópicos Selectos II",
+        creditos: 6,
+        color: "cian",
+      },
+    ],
+  },
+  {
+    numero: 8,
+    nombre: "OCTAVO SEMESTRE",
+    materias: [
+      {
+        codigo: "DER059",
+        nombre: "Derecho Fiscal",
+        creditos: 8,
+        color: "rosa",
+      },
+      {
+        codigo: "DER060",
+        nombre: "Derecho Internacional Privado",
+        creditos: 7,
+        color: "rosa",
+      },
+      {
+        codigo: "DER061",
+        nombre: "Derecho Notarial y Correduría Pública",
+        creditos: 7,
+        color: "rosa",
+      },
+      {
+        codigo: "DER062",
+        nombre: "Derecho Procesal Laboral",
+        creditos: 7,
+        color: "rosa",
+      },
+      {
+        codigo: "DER063",
+        nombre: "Estudio de Caso Disciplinar en Derecho Constitucional",
+        creditos: 4,
+        color: "rosa",
+      },
+      {
+        codigo: "DER064",
+        nombre: "Estudio de Caso Disciplinar en Derecho Mercantil",
+        creditos: 4,
+        color: "rosa",
+      },
+      {
+        codigo: "DER065",
+        nombre: "Tópicos Selectos III",
+        creditos: 6,
+        color: "rosa",
+      },
+    ],
+  },
+  {
+    numero: 9,
+    nombre: "NOVENO CUATRIMESTRE",
+    materias: [
+      {
+        codigo: "DER066",
+        nombre: "Derecho de Autor y de la Propiedad Industrial",
+        creditos: 7,
+        color: "gris",
+      },
+      {
+        codigo: "DER067",
+        nombre: "Estudio de Caso Disciplinar en Derecho Laboral y de la Seguridad Social",
+        creditos: 4,
+        color: "gris",
+      },
+      {
+        codigo: "DER068",
+        nombre: "Justicia Internacional",
+        creditos: 7,
+        color: "gris",
+      },
+      {
+        codigo: "DER069",
+        nombre: "Procedimiento Contencioso Administrativo",
+        creditos: 7,
+        color: "gris",
+      },
+      {
+        codigo: "DER070",
+        nombre: "Seminario de Investigación Jurídica I",
+        creditos: 6,
+        color: "gris",
+      },
+      {
+        codigo: "DER071",
+        nombre: "Tópicos Selectos IV",
+        creditos: 6,
+        color: "gris",
+      },
+      {
+        codigo: "DER072",
+        nombre: "Optativa IV",
+        creditos: 6,
+        color: "gris",
+      },
+    ],
+  },
+  {
+    numero: 10,
+    nombre: "DÉCIMO CUATRIMESTRE",
+    materias: [
+      {
+        codigo: "DER073",
+        nombre: "Litigación Oral",
+        creditos: 6,
+        color: "negro",
+      },
+      {
+        codigo: "DER074",
+        nombre: "Derecho Agrario",
+        creditos: 7,
+        color: "negro",
+      },
+      {
+        codigo: "DER075",
+        nombre: "Estudio de Caso Disciplinar en Derecho Administrativo y Fiscal",
+        creditos: 4,
+        color: "negro",
+      },
+      {
+        codigo: "DER076",
+        nombre: "Seminario de Investigación Jurídica II",
+        creditos: 6,
+        color: "negro",
+      },
+      {
+        codigo: "DER077",
+        nombre: "Tópicos Selectos V",
+        creditos: 6,
+        color: "negro",
+      },
+      {
+        codigo: "DER078",
+        nombre: "Optativa V",
+        creditos: 6,
+        color: "negro",
+      },
+    ],
+  },
 ];
 
+
+
 const planteles = [
-  {
-    id: "1",
-    nombre: "Centro",
-    direccion: "Av. República No.10, Col. San Juan de Dios",
+ {
+    id: "15",
+    nombre: "Torre Quetzal",
+    codigo: "Torre Quetzak",
+    direccion: "Chimalhuacán #3569 Col. Ciudad del Sol Zapopan, Jalisco",
     ciudad: "Guadalajara ZMG",
-    url: "/plantel-centro",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/Centro.jpg",
-    lat: 20.67744801539995,
-    lon: -103.34031672627513,
-  },
-  {
-    id: "2",
-    nombre: "Centro Médico",
-    direccion: "José María Lozano #1077, Col. Belisario Domínguez",
-    ciudad: "Guadalajara ZMG",
-    url: "/plantel-centro-medico",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/CentroMedico.jpg",
-    lat: 20.684590788642307,
-    lon: -103.3256397932448,
-  },
-  {
-    id: "3",
-    nombre: "Milenio",
-    direccion: "Av. López Mateos Sur #4154, Col. La Giralda",
-    ciudad: "Guadalajara ZMG",
-    url: "/plantel-milenio",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/Milenio.jpg",
-    lat: 20.64540739939039,
-    lon: -103.40630313415286,
-  },
-  {
-    id: "4",
-    nombre: "Puerto Vallarta - Plaza Caracol",
-    direccion: "Blvd. Fco. Medina Ascencio #2180, Col. Díaz Ordaz",
-    ciudad: "Puerto Vallarta",
-    url: "/plantel-plaza-caracol-puerto-vallarta",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/PuertoVallarta.png",
-    lat: 20.639287162026815,
-    lon: -105.23323589513319,
-  },
-  {
-    id: "5",
-    nombre: "Tlajomulco",
-    direccion: "Av. López Mateos #10100, Col. Los Gavilanes Poniente",
-    ciudad: "Guadalajara ZMG",
-    url: "/plantel-tlajomulco",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/Tlajomulco.png",
-    lat: 20.576464164603113,
-    lon: -103.45243680650722,
-  },
-  {
-    id: "6",
-    nombre: "Tesistán",
-    direccion: "Av. Juan Gil Preciado #3897, Col. Hogares de Nuevo México",
-    ciudad: "Guadalajara ZMG",
-    url: "/plantel-tesistan",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/Tesistan.png",
-    lat: 20.806203,
-    lon: -102.763903,
-  },
-  {
-    id: "7",
-    nombre: "Tepatitlán",
-    direccion: "Calle Dr. Ricardo Alcalá #505, Av. Matamoros, Centro",
-    ciudad: "Tepatitlán de Morelos",
-    url: "/plantel-tepatitlan",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/Tepatitlan.jpg",
-    lat: 20.8062946507024,
-    lon: -102.76382902869392,
-  },
-  {
-    id: "8",
-    nombre: "Tlaquepaque",
-    direccion:
-      "Blvd. Marcelino García Barragán #2056, Col. Bosques del Boulevard",
-    ciudad: "Guadalajara ZMG",
-    url: "/plantel-tlaquepaque",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/Tlaquepaque.jpg",
-    lat: 20.645650028567157,
-    lon: -103.32094530771215,
-  },
-  {
-    id: "9",
-    nombre: "Tonalá",
-    direccion: "Av. Tonaltecas #333, Col. Agua Escondida",
-    ciudad: "Guadalajara ZMG",
-    url: "/plantel-tonala",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/Tonala.png",
-    lat: 20.63176692188573,
-    lon: -103.24439406488241,
-  },
-  {
-    id: "10",
-    nombre: "Chapultepec",
-    direccion: "Av. Vallarta #1458, Col. Americana",
-    ciudad: "Guadalajara ZMG",
-    url: "/plantel-vallarta",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/Chapultepec.png",
-    lat: 20.67471004174908,
-    lon: -103.36909119392195,
-  },
-  {
-    id: "11",
-    nombre: "Zapopan",
-    direccion: "Plaza Caudillos",
-    ciudad: "Guadalajara ZMG",
-    url: "/plantel-zapopan",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/Zapopan.png",
-    lat: 20.720900646775917,
-    lon: -103.38975281813357,
+    url: "/planteles/torre-quetzal",
+    imagen: "/src/assets/Imagenes/CardsPlanteles/Torre-quetzal.png",
+    lat: "20.651860618451966",
+    lon: "-103.40329340052432",
   },
 ];
 
 const ciudades = [
   "Guadalajara ZMG",
-  "Puerto Vallarta",
-  "Tepatitlán de Morelos",
+ 
 ];
 ---
 
@@ -314,19 +651,15 @@ const ciudades = [
         <div class="text-center text-white max-w-4xl mx-auto">
           {/* Main Title */}
           <h1 class="text-4xl md:text-7xl font-bold tracking-wider mb-4">
-            Lic. en Cirujano Dentista
+            Lic. en Abogado
           </h1>
-          <h2 class="text-2xl md:text-5xl font-bold tracking-wider mb-8">
-            Licenciaturas UNE
-          </h2>
+          
 
           {/* Description */}
           <p
             class="text-lg md:text-xl leading-relaxed mb-16 max-w-3xl mx-auto font-light"
           >
-            Transforma sonrisas y mejora la calidad de vida a través del estudio
-            y la práctica de la odontología, en una carrera donde la ciencia, la
-            salud y la vocación por el bienestar se unen.
+            Conviértete en un profesional del derecho con sólida formación jurídica, listo para defender la justicia y asesorar con responsabilidad.
           </p>
         </div>
       </div>
@@ -370,20 +703,21 @@ const ciudades = [
       </div>
     </div>
 
-    <InformativeCard
-      logoSrc={LogoCard.src}
-      studentImageSrc={ImagenCard.src}
-      title="Objetivo"
-      description="La Licenciatura en Cirujano Dentista te forma como un profesionista altamente capacitado para prevenir, diagnosticar y tratar enfermedades bucales con un enfoque integral y humano."
-      additionalText="Con una sólida formación teórico-práctica y un alto compromiso ético y social, estarás preparado para promover la salud bucodental, brindar atención personalizada y colaborar con instituciones de salud para transformar positivamente la calidad de vida de las personas."
-      features={[
-        { icon: "CalendarDays", label: "Prácticas clínicas presenciales" },
-        { icon: "BookOpen", label: "Bases científicas sólidas" },
-        { icon: "School", label: "Validez oficial" },
-        { icon: "Clock", label: "Horarios accesibles" },
-        { icon: "BookmarkCheck", label: "Enfoque profesionalizante" },
-      ]}
-    />
+   <InformativeCard
+  logoSrc={LogoCard.src}
+  studentImageSrc={ImagenCard.src}
+  title="Objetivo"
+  description="Formar profesionales del Derecho con sólidas competencias jurídicas, éticas y sociales, capaces de interpretar, aplicar y proponer soluciones legales con base en el marco normativo vigente, promoviendo la justicia, la equidad y el respeto a los derechos humanos, con una alta capacidad de empleabilidad y compromiso con el bienestar social."
+  additionalText=""
+  features={[
+    { icon: "Scale", label: "Ética y justicia como pilares formativos" },
+    { icon: "Gavel", label: "Dominio del marco jurídico nacional" },
+    { icon: "Handshake", label: "Compromiso con los derechos humanos" },
+    { icon: "Briefcase", label: "Alta empleabilidad y campo laboral amplio" },
+    { icon: "UserCheck", label: "Responsabilidad social y profesionalismo" },
+  ]}
+/>
+
 
      <PlanEstudios titulo="Propuesta Educativa" semestres={semestresDatos} />
 

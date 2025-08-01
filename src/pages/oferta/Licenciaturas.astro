@@ -16,16 +16,18 @@ import { Calendar, UserPlus, Phone } from "@lucide/astro";
 
 const requisitosInfo = {
   items: [
-    "Acta de nacimiento (en buen estado)",
-    "Certificado de secundaria y carta validación del mismo",
-    "Ocho fotografías tamaño infantil blanco y negro de estudio",
-    "Una fotografía tamaño credencial a color",
-    "CURP",
-    "Comprobante de domicilio",
-    "Todos los documentos originales y 3 copias",
+    "Acta de nacimiento (original)",
+    "Certificado total de bachillerato (original)",
+    "Oficio de validación de autenticidad del certificado de estudios (emitido por la autoridad correspondiente)",
+    "Equivalencia o grado superior (certificado parcial y contenidos temáticos)",
+    "CURP (formato Renapo)",
+    "Identificación oficial con fotografía (INE, dos copias)",
+    "Comprobante de domicilio reciente (no mayor a 3 meses, una copia)",
+    "5 fotografías tamaño infantil, blanco y negro, papel mate, de estudio"
   ],
-  pdfUrl: "/public/pdfs/Bachillerato_req.pdf",
+  pdfUrl: "/public/pdfs/Licenciatura_req.pdf"
 };
+
 
 const faqs = [
   {
@@ -177,7 +179,7 @@ const faqs = [
 
     <Estadisticas />
 
-    <Requisitos nivel="Bachillerato" requisitos={requisitosInfo} />
+    <Requisitos nivel="Licenciaturas" requisitos={requisitosInfo} />
 
     <FAQComponent
       faqs={faqs}

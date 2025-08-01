@@ -118,12 +118,7 @@ const logoUrl = Logosrc.src;
       ))}
     </div>
     
-    <!-- Indicador de scroll en mobile -->
-    <div class="flex justify-center mt-2 space-x-1">
-      {semestres.map((_, index) => (
-        <div class="w-2 h-2 bg-gray-300 rounded-full"></div>
-      ))}
-    </div>
+    
   </div>
 
   <!-- En desktop: scroll horizontal para manejar muchos semestres -->
@@ -174,12 +169,7 @@ const logoUrl = Logosrc.src;
       ))}
     </div>
     
-    <!-- Indicador de scroll en desktop -->
-    <div class="flex justify-center mt-2 space-x-1">
-      {semestres.map((_, index) => (
-        <div class="w-2 h-2 bg-gray-300 rounded-full opacity-50"></div>
-      ))}
-    </div>
+    
   </div>
 </div>
 
@@ -271,7 +261,6 @@ const logoUrl = Logosrc.src;
     }
   }
 </style>
-
 <script define:vars={{ componentId, titulo, semestres, creditosTotales, nivelAcademico, logoUrl }}>
   document.addEventListener('DOMContentLoaded', () => {
     const downloadBtn = document.getElementById(`download-btn-${componentId}`);
@@ -323,8 +312,8 @@ const logoUrl = Logosrc.src;
           logoImage = await loadImage(logoUrl);
         }
         
-        // Crear página
-        let page = pdfDoc.addPage([595.28, 841.89]); // A4 size
+        // Crear página en orientación horizontal (landscape)
+        let page = pdfDoc.addPage([841.89, 595.28]); // A4 horizontal
         const { width, height } = page.getSize();
         
         // Configurar colores
@@ -338,11 +327,11 @@ const logoUrl = Logosrc.src;
         };
 
         // Encabezado con logo y nivel académico
-        let yPosition = height - 60;
+        let yPosition = height - 40;
         
         // Dibujar logo si está disponible
         if (logoImage) {
-          const logoSize = 60;
+          const logoSize = 50;
           page.drawImage(logoImage, {
             x: 40,
             y: yPosition - logoSize,
@@ -363,28 +352,38 @@ const logoUrl = Logosrc.src;
           });
         }
 
-        // Título principal
-        yPosition -= 60;
-        page.drawText('PLAN DE ESTUDIOS', {
-          x: width / 2 - 80,
+        // Título principal centrado
+        yPosition -= 50;
+        const planText = 'PLAN DE ESTUDIOS';
+        page.drawText(planText, {
+          x: width / 2 - (planText.length * 3.5),
           y: yPosition,
           size: 12,
           font: font,
           color: rgb(0.4, 0.4, 0.4)
         });
 
-        yPosition -= 30;
+        yPosition -= 25;
         page.drawText(titulo, {
-          x: width / 2 - (titulo.length * 6),
+          x: width / 2 - (titulo.length * 5),
           y: yPosition,
-          size: 18,
+          size: 16,
           font: boldFont,
           color: rgb(0, 0, 0)
         });
 
-        // Información adicional centrada
-        yPosition -= 25;
-       
+        // Información de créditos totales
+        yPosition -= 20;
+        if (creditosTotales) {
+          const creditosText = `Total de Créditos: ${creditosTotales}`;
+          page.drawText(creditosText, {
+            x: width / 2 - (creditosText.length * 3),
+            y: yPosition,
+            size: 10,
+            font: font,
+            color: rgb(0.5, 0.5, 0.5)
+          });
+        }
 
         yPosition -= 40;
 
@@ -397,8 +396,8 @@ const logoUrl = Logosrc.src;
           return nombres[numero] || `${numero}°`;
         };
 
-        // Calcular layout
-        const semestresPerRow = Math.min(3, semestres.length);
+        // Calcular layout para orientación horizontal
+        const semestresPerRow = Math.min(5, semestres.length); // Más semestres por fila
         const columnWidth = (width - 80) / semestresPerRow;
         const startX = 40;
 
@@ -409,14 +408,14 @@ const logoUrl = Logosrc.src;
         for (let i = 0; i < semestres.length; i++) {
           const semestre = semestres[i];
           const x = startX + (currentCol * columnWidth);
-          let y = yPosition - (currentRow * 350);
+          let y = yPosition - (currentRow * 280); // Menor espaciado vertical
 
           // Si no cabe en la página actual, crear nueva página
-          if (y < 100 && i > 0) {
-            page = pdfDoc.addPage([595.28, 841.89]);
+          if (y < 80 && i > 0) {
+            page = pdfDoc.addPage([841.89, 595.28]); // Nueva página horizontal
             
-            // Repetir encabezado en páginas adicionales (más pequeño)
-            let headerY = height - 40;
+            // Repetir encabezado en páginas adicionales (más compacto)
+            let headerY = height - 30;
             
             if (logoImage) {
               const logoSize = 25;
@@ -440,23 +439,24 @@ const logoUrl = Logosrc.src;
             }
 
             page.drawText(titulo, {
-              x: width / 2 - (titulo.length * 4),
+              x: width / 2 - (titulo.length * 3.5),
               y: headerY - 15,
-              size: 12,
+              size: 11,
               font: boldFont,
               color: rgb(0.4, 0.4, 0.4)
             });
             
-            yPosition = height - 80;
+            yPosition = height - 60;
             currentRow = 0;
             y = yPosition;
           }
 
           // Título del semestre
-          page.drawText(getSemestreNombre(semestre.numero), {
+          const semestreNombre = getSemestreNombre(semestre.numero);
+          page.drawText(semestreNombre, {
             x: x + 10,
             y: y,
-            size: 10,
+            size: 9,
             font: boldFont,
             color: rgb(0, 0, 0)
           });
@@ -465,16 +465,16 @@ const logoUrl = Logosrc.src;
           const creditosSemestre = semestre.materias.reduce((total, materia) => total + materia.creditos, 0);
           page.drawText(`Créditos: ${creditosSemestre}`, {
             x: x + 10,
-            y: y - 15,
-            size: 8,
+            y: y - 12,
+            size: 7,
             font: font,
             color: rgb(0.4, 0.4, 0.4)
           });
 
           // Dibujar materias
-          let materiaY = y - 40;
+          let materiaY = y - 30;
           for (const materia of semestre.materias) {
-            const materiaHeight = 50;
+            const materiaHeight = 40; // Altura reducida para orientación horizontal
             const materiaWidth = columnWidth - 20;
             
             // Fondo de la materia
@@ -508,42 +508,51 @@ const logoUrl = Logosrc.src;
             // Código de la materia
             page.drawText(materia.codigo, {
               x: x + 12,
-              y: materiaY - 15,
-              size: 8,
+              y: materiaY - 12,
+              size: 7,
               font: boldFont,
               color: rgb(0.3, 0.3, 0.3)
             });
 
             // Nombre de la materia (con ajuste de texto)
-            const nombreTexto = materia.nombre.length > 25 ? 
-              materia.nombre.substring(0, 22) + '...' : materia.nombre;
+            const nombreTexto = materia.nombre.length > 30 ? 
+              materia.nombre.substring(0, 27) + '...' : materia.nombre;
             page.drawText(nombreTexto, {
               x: x + 12,
-              y: materiaY - 28,
-              size: 8,
+              y: materiaY - 22,
+              size: 7,
               font: font,
               color: rgb(0, 0, 0)
             });
 
+            // Créditos de la materia
+            page.drawText(`${materia.creditos} cr`, {
+              x: x + 12,
+              y: materiaY - 32,
+              size: 6,
+              font: font,
+              color: rgb(0.5, 0.5, 0.5)
+            });
+
             // Círculo con prerequisitos
             const prereqCount = materia.prerequisitos?.length || 0;
-            const circleX = x + materiaWidth - 10;
-            const circleY = materiaY - 35; 
+            const circleX = x + materiaWidth - 8;
+            const circleY = materiaY - 25; 
             page.drawCircle({
                 x: circleX,
                 y: circleY,
-                size: 8,
+                size: 6,
                 color: rgb(0.8, 0.8, 0.8)
             });
             page.drawText(prereqCount.toString(), {
-                x: circleX - (prereqCount > 9 ? 5 : 2.5),
-                y: circleY - 2.5,
-                size: 7,
+                x: circleX - (prereqCount > 9 ? 3 : 2),
+                y: circleY - 2,
+                size: 6,
                 font: boldFont,
                 color: rgb(0.3, 0.3, 0.3)
             });
             
-            materiaY -= 60;
+            materiaY -= 45; // Espaciado reducido entre materias
           }
 
           currentCol++;
@@ -552,7 +561,7 @@ const logoUrl = Logosrc.src;
             currentRow++;
             // Reset yPosition para la nueva fila en la misma página
             if (currentCol === 0) {
-              yPosition -= 350; 
+              yPosition -= 280; 
             }
           }
         }
@@ -564,7 +573,7 @@ const logoUrl = Logosrc.src;
         
         const a = document.createElement('a');
         a.href = url;
-        a.download = `plan-estudios-${titulo.replace(/\s+/g, '-').toLowerCase()}.pdf`;
+        a.download = `plan-estudios-${titulo.replace(/\s+/g, '-').toLowerCase()}-horizontal.pdf`;
         document.body.appendChild(a);
         a.click();
         document.body.removeChild(a);

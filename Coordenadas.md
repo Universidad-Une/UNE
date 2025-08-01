@@ -188,6 +188,18 @@ const planteles = [
     lat: "20.63927815810884",
     lon: "-105.23320503196068",
   },
+
+
+   {
+    id: "20",
+    nombre: "Las juntas",
+    direccion: "Francisco Murguía #523 Col. Las Juntas Puerto Vallarta, Jalisco",
+    ciudad: "Guadalajara ZMG",
+    url: "/planteles/Las-juntas",
+    imagen: "/src/assets/Imagenes/CardsPlanteles/Lasjuntas.jpg",
+    lat: 20.696982077577214,
+    lon:  -105.23748669247418,
+  },
  
  
   

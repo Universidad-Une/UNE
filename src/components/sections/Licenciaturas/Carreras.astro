@@ -1,5 +1,4 @@
 ---
-
 import { programasEducativos } from "@helpers/estructura_educativa";
 
 // Función para obtener la primera imagen disponible de los planteles
@@ -35,7 +34,7 @@ if (programasEducativos.Licenciaturas) {
       Object.entries(programas).forEach(([nombrePrograma, datosPrograma]) => {
         const planteles = datosPrograma.planteles || datosPrograma;
         const imagen = getPrimeraImagenDePlanteles(planteles);
-        
+
         licenciaturas.push({
           nombre: nombrePrograma,
           area: area,
@@ -80,7 +79,7 @@ const carreras = licenciaturas.map((licenciatura, index) => {
 
   // Usar la imagen tal como viene, o el nombre del programa como fallback
   const imagenNombre = licenciatura.imagen || licenciatura.nombre;
-  
+
   // Obtener el color para el badge principal (primera incorporación)
   const colorBadge = getColorBadge(todasLasIncorporaciones[0]);
 
@@ -96,9 +95,9 @@ const carreras = licenciaturas.map((licenciatura, index) => {
     colorBadge: colorBadge, // Agregar color del badge
     slug: licenciatura.nombre
       .toLowerCase()
-      .replace(/\s+/g, "-")
-      .replace(/[áéíóú]/g, (match) => {
-        const accents = { á: "a", é: "e", í: "i", ó: "o", ú: "u" };
+      .replace(/\s+/g, "_")
+      .replace(/[áéíóúñ]/g, (match) => {
+        const accents = { á: "a", é: "e", í: "i", ó: "o", ú: "u", ñ: "n" };
         return accents[match];
       }),
     planteles: planteles,
@@ -118,10 +117,7 @@ const areas = [
 ];
 
 export { carreras, areas };
-
 ---
-
-
 
 <div class="max-w-9/12 mx-auto px-4 py-8">
   <div class="mb-8">
@@ -178,7 +174,7 @@ export { carreras, areas };
               data-area={carrera.categoria}
               data-name={carrera.nombre.toLowerCase()}
             >
-                <div class="relative">
+              <div class="relative">
                 <div class="h-48 flex items-center justify-center">
                   <img
                     src={`/src/assets/Imagenes/CardsLicenciaturas/${carrera.imagen}.jpg`}
@@ -260,11 +256,11 @@ export { carreras, areas };
   >
   </div>
   <div
-    class="bg-white rounded-lg p-6 max-w-2xl w-full mx-4 relative z-10 transform transition-all duration-300 scale-95 opacity-0 max-h-96 overflow-y-auto"
+    class="bg-white rounded-lg p-6 max-w-2xl w-full mx-4 relative z-10 transform transition-all duration-300 scale-95 opacity-0 max-h-10/12 overflow-y-auto"
     id="modal-content"
   >
     <div class="flex justify-between items-center mb-4">
-      <h3 id="modal-title" class="text-lg font-bold text-gray-900">
+      <h3 id="modal-title" class="text-lg font-medium text-gray-900">
         Planteles disponibles
       </h3>
       <button
@@ -481,7 +477,7 @@ export { carreras, areas };
               <!-- Botones de acción -->
               <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <a 
-                  href="tel:+523312345678" 
+                  href="tel:+3380000863" 
                   class="flex items-center justify-center gap-2 py-2 px-3 bg-gray-100 text-gray-800 rounded-lg hover:bg-blue-100 hover:text-blue-700 transition-all duration-200"
                 >
                   <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -490,7 +486,11 @@ export { carreras, areas };
                   <span>Llamar al plantel</span>
                 </a>
                 <a 
-                  href="/planteles/${plantel.toLowerCase().replace(/ /g, "-")}" 
+                  href="/planteles/${plantel
+                    .toLowerCase()
+                    .normalize("NFD")
+                    .replace(/[\u0300-\u036f]/g, "") // elimina tildes
+                    .replace(/ /g, "-")}"
                   class="flex items-center justify-center gap-2 py-2 px-3 bg-gray-100 text-gray-800 rounded-lg hover:bg-red-100 hover:text-red-700 transition-all duration-200"
                 >
                   <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">

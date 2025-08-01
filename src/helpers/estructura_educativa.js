@@ -5,7 +5,7 @@ export const programasEducativos = {
   Licenciaturas: {
     "Arquitectura y diseño": {
       Arquitectura: {
-        "CAMPUS  PUERTO  VALLARTA": [
+        "CAMPUS PUERTO VALLARTA": [
           {
             modalidad: "Escolarizada",
             incorporacion: "SICYT",
@@ -133,7 +133,7 @@ export const programasEducativos = {
         ],
       },
       "Ciencias de la Educación": {
-        "Av. México": [
+        "Avenida México": [
           {
             modalidad: "Semiescolarizada",
             incorporacion: "SICYT",
@@ -147,7 +147,7 @@ export const programasEducativos = {
             descripcion: "txt",
           },
         ],
-        "CAMPUS  PUERTO  VALLARTA": [
+        "CAMPUS PUERTO VALLARTA": [
           {
             modalidad: "Viernes y Sábado",
             incorporacion: "SICYT",
@@ -237,7 +237,7 @@ export const programasEducativos = {
         ],
       },
       Derecho: {
-        "Av. México": [
+        "Avenida México": [
           {
             modalidad: "Semiescolarizada",
             incorporacion: "SICYT",
@@ -252,7 +252,7 @@ export const programasEducativos = {
               "Conviértete en un profesional del derecho con sólida formación jurídica, listo para defender la justicia y asesorar con responsabilidad.",
           },
         ],
-        "CAMPUS  PUERTO  VALLARTA": [
+        "CAMPUS PUERTO VALLARTA": [
           {
             modalidad: "Semiescolarizada",
             incorporacion: "SICYT",
@@ -590,7 +590,7 @@ export const programasEducativos = {
         ],
       },
       Nutrición: {
-        "Av. México": [
+        "Avenida México": [
           {
             modalidad: "Escolarizada",
             incorporacion: "SICYT",
@@ -605,7 +605,7 @@ export const programasEducativos = {
               "Promueve estilos de vida saludables a través de la alimentación consciente y personalizada.",
           },
         ],
-        "CAMPUS  PUERTO  VALLARTA": [
+        "CAMPUS PUERTO VALLARTA": [
           {
             modalidad: "Escolarizada",
             incorporacion: "SICYT",
@@ -725,7 +725,7 @@ export const programasEducativos = {
         ],
       },
       Psicología: {
-        "Av. México": [
+        "Avenida México": [
           {
             modalidad: "Escolarizada",
             incorporacion: "SICYT",
@@ -740,7 +740,7 @@ export const programasEducativos = {
               "Comprende la conducta humana y contribuye al bienestar emocional, social y mental de las personas.",
           },
         ],
-        "CAMPUS  PUERTO  VALLARTA": [
+        "CAMPUS PUERTO VALLARTA": [
           {
             modalidad: "Escolarizada",
             incorporacion: "SICYT",
@@ -886,7 +886,7 @@ export const programasEducativos = {
         ],
       },
       "Químico Farmacéutico Biólogo": {
-        "Av. México": [
+        "Avenida México": [
           {
             modalidad: "Escolarizada",
             incorporacion: "SICYT",
@@ -939,7 +939,7 @@ export const programasEducativos = {
         ],
       },
       "Terapia Física": {
-        "CAMPUS  PUERTO  VALLARTA": [
+        "CAMPUS PUERTO VALLARTA": [
           {
             modalidad: "Escolarizada",
             incorporacion: "SICYT",
@@ -1025,8 +1025,8 @@ export const programasEducativos = {
           },
         ],
       },
-      "Ing. En Inteligencia de Datos y Ciberseguridad": {
-        "CAMPUS  PUERTO  VALLARTA": [
+      "ingenieria En Inteligencia de Datos y Ciberseguridad": {
+        "CAMPUS PUERTO VALLARTA": [
           {
             modalidad: "Escolarizada",
             incorporacion: "SICYT",
@@ -1035,7 +1035,7 @@ export const programasEducativos = {
               "Protege la información y toma decisiones con base en datos. Prepárate para el futuro digital.",
           },
         ],
-        "Av. México": [
+        "Avenida México": [
           {
             modalidad: "Escolarizada",
             incorporacion: "SICYT",
@@ -1080,7 +1080,7 @@ export const programasEducativos = {
       },
 
       "Ingenieria Mecánica": {
-        "Av. México": [
+        "Avenida México": [
           {
             modalidad: "Escolarizada",
             incorporacion: "SICYT",
@@ -1089,7 +1089,7 @@ export const programasEducativos = {
               "Diseña y mantiene sistemas mecánicos innovadores aplicados a la industria y la tecnología.",
           },
         ],
-        "CAMPUS  PUERTO  VALLARTA": [
+        "CAMPUS PUERTO VALLARTA": [
           {
             modalidad: "Escolarizada",
             incorporacion: "SICYT",
@@ -1126,7 +1126,7 @@ export const programasEducativos = {
         ],
       },
       "Ingenieria en Desarrollo Software": {
-        "Av. México": [
+        "Avenida México": [
           {
             modalidad: "Escolarizada",
             incorporacion: "SICYT",
@@ -1135,7 +1135,7 @@ export const programasEducativos = {
               "Crea soluciones digitales desde cero. Aprende a programar, diseñar y desarrollar aplicaciones tecnológicas con impacto global.",
           },
         ],
-        "CAMPUS  PUERTO  VALLARTA": [
+        "CAMPUS PUERTO VALLARTA": [
           {
             modalidad: "Escolarizada",
             incorporacion: "SICYT",
@@ -1196,7 +1196,7 @@ export const programasEducativos = {
             descripcion: "txt",
           },
         ],
-        "CAMPUS  PUERTO  VALLARTA": [
+        "CAMPUS PUERTO VALLARTA": [
           {
             modalidad: "Escolarizada",
             incorporacion: "SICYT",
@@ -1260,7 +1260,7 @@ export const programasEducativos = {
             modalidad: "Escolarizada",
             incorporacion: "SICYT",
             imagen: "ComunicacionesElectronica",
-            descripcion: "txt",
+            descripcion: "Domina tecnologías de vanguardia en sistemas de comunicación, electrónica y automatización.",
           },
         ],
         TESISTÁN: [
@@ -1300,7 +1300,7 @@ export const programasEducativos = {
         ],
       },
       "Alta Dirección": {
-        "Av. México": [
+        "Avenida México": [
           {
             modalidad: "Sabatina",
             incorporacion: "SICYT",
@@ -1325,7 +1325,7 @@ export const programasEducativos = {
         ],
       },
       administración: {
-        "CAMPUS  PUERTO  VALLARTA": [
+        "CAMPUS PUERTO VALLARTA": [
           {
             modalidad: "Semiescolarizada",
             incorporacion: "SICYT",
@@ -1350,7 +1350,7 @@ export const programasEducativos = {
         ],
       },
       "administración de Empresas": {
-        "Av. México": [
+        "Avenida México": [
           {
             modalidad: "Semiescolarizada",
             incorporacion: "SICYT",
@@ -1528,7 +1528,7 @@ export const programasEducativos = {
       },
 
       "Contaduría y Auditoría": {
-        "Av. México": [
+        "Avenida México": [
           {
             modalidad: "Escolarizada",
             incorporacion: "SICYT",
@@ -1621,7 +1621,7 @@ export const programasEducativos = {
         ],
       },
       Mercadotecnia: {
-        "Av. México": [
+        "Avenida México": [
           {
             modalidad: "Semiescolarizada",
             incorporacion: "SICYT",
@@ -1636,7 +1636,7 @@ export const programasEducativos = {
               "Desarrolla estrategias creativas para posicionar marcas, conectar con consumidores y expandir negocios a nivel global.",
           },
         ],
-        "CAMPUS  PUERTO  VALLARTA": [
+        "CAMPUS PUERTO VALLARTA": [
           {
             modalidad: "Semiescolarizada",
             incorporacion: "SICYT",
@@ -1808,7 +1808,7 @@ export const programasEducativos = {
         ],
       },
       "Mercadotecnia Internacional": {
-        "Av. México": [
+        "Avenida México": [
           {
             modalidad: "Sabatina",
             incorporacion: "SICYT",
@@ -1827,7 +1827,7 @@ export const programasEducativos = {
         ],
       },
       "Negocios Internacionales": {
-        "Av. México": [
+        "Avenida México": [
           {
             modalidad: "Semiescolarizada",
             incorporacion: "SICYT",
@@ -1842,7 +1842,7 @@ export const programasEducativos = {
               "Adquiere una visión global del comercio, la logística y las relaciones empresariales internacionales.",
           },
         ],
-        "CAMPUS  PUERTO  VALLARTA": [
+        "CAMPUS PUERTO VALLARTA": [
           {
             modalidad: "Semiescolarizada",
             incorporacion: "SICYT",

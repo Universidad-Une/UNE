@@ -1,0 +1,620 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Hero from "@/assets/Imagenes/Heros/Carreras/CienciasComunicacion.jpg";
+import Hero_mobile from "@/assets/Imagenes/Heros/Carreras/CienciasComunicacion_mobile.jpg";
+import ImagenCard from "@/assets/Imagenes/CardsNiveles/Nivel.png";
+import LogoCard from "@/assets/Logos/Licenciatura.png";
+import InformativeCard from "@components/sections/detallesOferta/card.astro";
+
+import Requisitos from "@/components/sections/detallesOferta/requisitos.astro";
+
+import FAQComponent from "@/components/sections/detallesOferta/preguntas.astro";
+import CTAinscripcion from "@/components/sections/shared/ctaInscripcion.astro";
+import { Calendar, UserPlus, Phone } from "@lucide/astro";
+import PlanEstudios from "@/components/sections/detallesOferta/planEstudios.astro";
+import Planteles from "@/components/sections/detallesOferta/planteles.astro";
+
+const requisitosInfo = {
+  items: [
+    "Acta de nacimiento (original)",
+    "Certificado total de bachillerato (original)",
+    "Oficio de validación de autenticidad del certificado de estudios (emitido por la autoridad correspondiente)",
+    "Equivalencia o grado superior, certificado parcial y contenidos temáticos",
+    "CURP (formato RENAPO)",
+    "Identificación oficial con fotografía (INE) - dos copias",
+    "Comprobante de domicilio reciente (no mayor a 3 meses) - una copia",
+    "Cinco fotografías tamaño infantil, blanco y negro, papel mate, de estudio"
+  ],
+  pdfUrl: "/public/pdfs/licenciatura_req.pdf",
+};
+
+const faqs = [
+  {
+    question: "¿Cuáles son los requisitos para ingresar a una licenciatura?",
+    answer:
+      "Debes contar con certificado de bachillerato, acta de nacimiento, CURP, identificación oficial, comprobante de domicilio y fotografías recientes. En algunos casos, puede requerirse el resultado de un examen de admisión.",
+  },
+  {
+    question: "¿Cuál es la duración de una licenciatura?",
+    answer:
+      "Las licenciaturas tienen una duración promedio de 8 a 10 semestres, dependiendo del programa, la institución incorporadora (UDG o SICYT) y la modalidad elegida.",
+  },
+  {
+    question: "¿Qué modalidades de estudio están disponibles?",
+    answer:
+      "Las licenciaturas pueden cursarse en modalidad presencial, en línea, escolarizada o semiescolarizada, según la carrera y el plantel. Algunas combinan clases presenciales con actividades virtuales.",
+  },
+  {
+    question: "¿Puedo trabajar mientras estudio una licenciatura?",
+    answer:
+      "Sí. Las modalidades en línea y semiescolarizada están diseñadas para ofrecer mayor flexibilidad y permitir compatibilizar tus estudios con otras actividades.",
+  },
+  {
+    question: "¿Cómo se evalúa el desempeño académico?",
+    answer:
+      "El sistema de evaluación incluye exámenes, proyectos, participación en clase, trabajos individuales o en equipo y actividades prácticas, según el enfoque de cada licenciatura.",
+  },
+  {
+    question: "¿Qué tipo de apoyo académico se brinda a los estudiantes?",
+    answer:
+      "Ofrecemos tutorías, asesorías académicas presenciales y virtuales, y acceso a plataformas educativas para reforzar el aprendizaje de cada materia.",
+  },
+  {
+    question:
+      "¿Las licenciaturas están incorporadas a alguna institución oficial?",
+    answer:
+      "Sí. Contamos con licenciaturas incorporadas a la Universidad de Guadalajara (UDG) y a la Secretaría de Innovación, Ciencia y Tecnología (SICYT) del Estado de Jalisco, lo que garantiza validez oficial de estudios.",
+  },
+  {
+    question: "¿Dónde puedo obtener más información e inscribirme?",
+    answer:
+      "Puedes acudir directamente a las oficinas del plantel más cercano o visitar nuestro portal web para consultar la oferta académica, requisitos y fechas de inscripción.",
+  },
+];
+
+const semestresDatos = [
+  {
+    numero: 1,
+    materias: [
+      {
+        codigo: "LCC101",
+        nombre: "Cabina de Audio I",
+        creditos: 5,
+        color: "verde",
+      },
+      {
+        codigo: "LCC102",
+        nombre: "Taller de Lectura y Redacción",
+        creditos: 5,
+        color: "verde",
+      },
+      {
+        codigo: "LCC103",
+        nombre: "Lingüística",
+        creditos: 5,
+        color: "verde",
+      },
+      {
+        codigo: "LCC104",
+        nombre: "Comunicación Gráfica I",
+        creditos: 6,
+        color: "verde",
+      },
+      {
+        codigo: "LCC105",
+        nombre: "Literatura",
+        creditos: 5,
+        color: "verde",
+      },
+      {
+        codigo: "LCC106",
+        nombre: "Historia de la Comunicación",
+        creditos: 0,
+        color: "verde",
+      },
+      {
+        codigo: "LCC107",
+        nombre: "Antecedentes del Periodismo Moderno",
+        creditos: 4,
+        color: "verde",
+      },
+    ],
+  },
+  {
+    numero: 2,
+    materias: [
+      {
+        codigo: "LCC201",
+        nombre: "Cabina de Audio II",
+        creditos: 5,
+        color: "amarillo",
+      },
+      {
+        codigo: "LCC202",
+        nombre: "Desarrollo de Habilidades del Pensamiento",
+        creditos: 4,
+        color: "amarillo",
+      },
+      {
+        codigo: "LCC203",
+        nombre: "Filosofía de la Comunicación",
+        creditos: 4,
+        color: "amarillo",
+      },
+      {
+        codigo: "LCC204",
+        nombre: "Comunicación Gráfica II",
+        creditos: 6,
+        color: "amarillo",
+      },
+      {
+        codigo: "LCC205",
+        nombre: "Teoría de la Comunicación I",
+        creditos: 5,
+        color: "amarillo",
+      },
+      {
+        codigo: "LCC206",
+        nombre: "Economía Política",
+        creditos: 4,
+        color: "amarillo",
+      },
+      {
+        codigo: "LCC207",
+        nombre: "Taller de Expresión Oral",
+        creditos: 6,
+        color: "amarillo",
+      },
+    ],
+  },
+  {
+    numero: 3,
+    materias: [
+      {
+        codigo: "LCC301",
+        nombre: "Edición de Video",
+        creditos: 7,
+        color: "naranja",
+      },
+      {
+        codigo: "LCC302",
+        nombre: "Psicología de la Comunicación",
+        creditos: 5,
+        color: "naranja",
+      },
+      {
+        codigo: "LCC303",
+        nombre: "Semiótica",
+        creditos: 6,
+        color: "naranja",
+      },
+      {
+        codigo: "LCC304",
+        nombre: "Lenguaje y Sociedad",
+        creditos: 5,
+        color: "naranja",
+      },
+      {
+        codigo: "LCC305",
+        nombre: "Taller de Investigación y Redacción",
+        creditos: 4,
+        color: "naranja",
+      },
+      {
+        codigo: "LCC306",
+        nombre: "Teoría de la Comunicación II",
+        creditos: 5,
+        color: "naranja",
+      },
+      {
+        codigo: "LCC307",
+        nombre: "Comunicación Verbal y No verbal",
+        creditos: 5,
+        color: "naranja",
+      },
+    ],
+  },
+  {
+    numero: 4,
+    materias: [
+      {
+        codigo: "LCC401",
+        nombre: "Narrativa",
+        creditos: 7,
+        color: "rojo",
+      },
+      {
+        codigo: "LCC402",
+        nombre: "Sociología de la Comunicación",
+        creditos: 5,
+        color: "rojo",
+      },
+      {
+        codigo: "LCC403",
+        nombre: "Legislación de los Medios de Comunicación",
+        creditos: 0,
+        color: "rojo",
+      },
+      {
+        codigo: "LCC404",
+        nombre: "Principios de Administración",
+        creditos: 4,
+        color: "rojo",
+      },
+      {
+        codigo: "LCC405",
+        nombre: "Redes Digitales",
+        creditos: 6,
+        color: "rojo",
+      },
+      {
+        codigo: "LCC406",
+        nombre: "Géneros Periodísticos Informativos",
+        creditos: 7,
+        color: "rojo",
+      },
+      {
+        codigo: "LCC407",
+        nombre: "Crítica y Comunicación",
+        creditos: 6,
+        color: "rojo",
+      },
+    ],
+  },
+  {
+    numero: 5,
+    materias: [
+      {
+        codigo: "LCC501",
+        nombre: "Apreciación Cinematográfica",
+        creditos: 6,
+        color: "purpura",
+      },
+      {
+        codigo: "LCC502",
+        nombre: "Fotografía I",
+        creditos: 6,
+        color: "purpura",
+      },
+      {
+        codigo: "LCC503",
+        nombre: "Géneros Periodísticos Interpretativos",
+        creditos: 7,
+        color: "purpura",
+      },
+      {
+        codigo: "LCC504",
+        nombre: "Estadísticas Aplicadas a la Comunicación",
+        creditos: 6,
+        color: "purpura",
+      },
+      {
+        codigo: "LCC505",
+        nombre: "Taller de Guionismo: cine, radio y tv",
+        creditos: 7,
+        color: "purpura",
+      },
+      {
+        codigo: "LCC506",
+        nombre: "Comunicación Organizacional",
+        creditos: 5,
+        color: "purpura",
+      },
+    ],
+  },
+  {
+    numero: 6,
+    materias: [
+      {
+        codigo: "LCC601",
+        nombre: "Fotografía II",
+        creditos: 6,
+        color: "azul",
+      },
+      {
+        codigo: "LCC602",
+        nombre: "Géneros Periodísticos de Opinión",
+        creditos: 6,
+        color: "azul",
+      },
+      {
+        codigo: "LCC603",
+        nombre: "Comunicación Estratégica",
+        creditos: 6,
+        color: "azul",
+      },
+      {
+        codigo: "LCC604",
+        nombre: "Ética y Comunicación",
+        creditos: 5,
+        color: "azul",
+      },
+      {
+        codigo: "LCC605",
+        nombre: "Relaciones Públicas y Protocolo",
+        creditos: 6,
+        color: "azul",
+      },
+      {
+        codigo: "LCC606",
+        nombre: "Opinión Pública y Propaganda",
+        creditos: 6,
+        color: "azul",
+      },
+    ],
+  },
+  {
+    numero: 7,
+    materias: [
+      {
+        codigo: "LCC701",
+        nombre: "Metodología de la Investigación",
+        creditos: 5,
+        color: "rosa",
+      },
+      {
+        codigo: "LCC702",
+        nombre: "Televisión I",
+        creditos: 7,
+        color: "rosa",
+      },
+      {
+        codigo: "LCC703",
+        nombre: "Comunicación Política",
+        creditos: 6,
+        color: "rosa",
+      },
+      {
+        codigo: "LCC704",
+        nombre: "Mercadotecnia",
+        creditos: 5,
+        color: "rosa",
+      },
+      {
+        codigo: "LCC705",
+        nombre: "Periodismo Multimedia",
+        creditos: 7,
+        color: "rosa",
+      },
+      {
+        codigo: "LCC706",
+        nombre: "Oficinas de Comunicación",
+        creditos: 5,
+        color: "rosa",
+      },
+    ],
+  },
+  {
+    numero: 8,
+    materias: [
+      {
+        codigo: "LCC801",
+        nombre: "Conducción en Radio y Televisión I",
+        creditos: 7,
+        color: "cyan",
+      },
+      {
+        codigo: "LCC802",
+        nombre: "Televisión II",
+        creditos: 7,
+        color: "cyan",
+      },
+      {
+        codigo: "LCC803",
+        nombre: "Fundamentos de Multimedia",
+        creditos: 6,
+        color: "cyan",
+      },
+      {
+        codigo: "LCC804",
+        nombre: "Publicidad",
+        creditos: 6,
+        color: "cyan",
+      },
+      {
+        codigo: "LCC805",
+        nombre: "Métodos y Técnicas de Investigación",
+        creditos: 5,
+        color: "cyan",
+      },
+      {
+        codigo: "LCC806",
+        nombre: "Producción Editorial",
+        creditos: 7,
+        color: "cyan",
+      },
+    ],
+  },
+  {
+    numero: 9,
+    materias: [
+      {
+        codigo: "LCC901",
+        nombre: "Producción Multimedia",
+        creditos: 7,
+        color: "gris",
+      },
+      {
+        codigo: "LCC902",
+        nombre: "Diseño y Desarrollo de Proyectos",
+        creditos: 5,
+        color: "gris",
+      },
+      {
+        codigo: "LCC903",
+        nombre: "Responsabilidad Social",
+        creditos: 5,
+        color: "gris",
+      },
+      {
+        codigo: "LCC904",
+        nombre: "Conducción en Radio y Televisión II",
+        creditos: 7,
+        color: "gris",
+      },
+      {
+        codigo: "LCC905",
+        nombre: "Agencias Informativas",
+        creditos: 6,
+        color: "gris",
+      },
+      {
+        codigo: "LCC906",
+        nombre: "Seminario de Titulación en Ciencias de la Comunicación",
+        creditos: 5,
+        color: "gris",
+      },
+    ],
+  },
+];
+const planteles = [
+  {
+    id: "1",
+    nombre: "Centro",
+    direccion: "Av. República No.10, Col. San Juan de Dios",
+    ciudad: "Guadalajara ZMG",
+    url: "/plantel-centro",
+    imagen: "/src/assets/Imagenes/CardsPlanteles/Centro.jpg",
+    lat: 20.67744801539995,
+    lon: -103.34031672627513,
+  },
+  
+  {
+    id: "3",
+    nombre: "Milenio",
+    direccion: "Av. López Mateos Sur #4154, Col. La Giralda",
+    ciudad: "Guadalajara ZMG",
+    url: "/plantel-milenio",
+    imagen: "/src/assets/Imagenes/CardsPlanteles/Milenio.jpg",
+    lat: 20.64540739939039,
+    lon: -103.40630313415286,
+  },
+ 
+  
+];
+
+const ciudades = [
+  "Guadalajara ZMG",
+  "Puerto Vallarta",
+  "Tepatitlán de Morelos",
+];
+---
+
+<Layout>
+  <main class="min-h-screen">
+    <!-- Hero Section -->
+
+    <section
+      class="relative min-h-[85vh] md:min-h-[65vh] bg-cover bg-center bg-no-repeat"
+    >
+      {/* Desktop Background */}
+      <div
+        class="absolute inset-0 hidden md:block bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: `url(${Hero.src})` }}
+      >
+      </div>
+
+      {/* Mobile Background */}
+      <div
+        class="absolute inset-0 block md:hidden bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: `url(${Hero_mobile.src})` }}
+      >
+      </div>
+
+      {/* Hero Content */}
+      <div
+        class="relative z-10 container mx-auto px-4 h-full min-h-[85vh] md:min-h-[65vh] flex flex-col justify-center"
+      >
+        <div class="text-center text-white max-w-4xl mx-auto">
+          {/* Main Title */}
+          <h1 class="text-4xl md:text-7xl font-bold tracking-wider mb-4">
+            Ciencias de la comunicacion
+          </h1>
+         
+
+          {/* Description */}
+          <p
+            class="text-lg md:text-xl leading-relaxed mb-16 max-w-3xl mx-auto font-light"
+          >
+           Conviértete en un comunicador versátil y creativo, preparado para impactar en medios digitales, corporativos y sociales.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Floating Card - ahora está fuera de la sección hero -->
+    <div class="relative -top-16 z-20 px-4">
+      <div class="bg-azul-une rounded-2xl px-8 shadow-2xl max-w-4xl mx-auto">
+        <div
+          class="flex flex-col sm:flex-row items-center justify-center gap-6"
+        >
+          <!-- CTA Buttons -->
+          <div
+            class="flex flex-col sm:flex-row gap-4 w-full justify-center text-white"
+          >
+            <!-- Agenda una Visita -->
+            <a href="/contacto/solicitarvisita"
+              class="hover:border-b hover:border-b-cyan-50 font-bold py-6 px-6 text-base transition-colors duration-300 shadow-lg flex flex-col items-center justify-center gap-2 whitespace-nowrap"
+            >
+              AGENDA UNA VISITA
+              <Calendar size={20} />
+            </a>
+
+            <!-- Iniciar Inscripción -->
+            <a href="/contacto/formulario-inscripcion"
+              class="hover:border-b hover:border-b-cyan-50 font-bold py-3 px-6 text-base transition-colors duration-300 shadow-lg flex flex-col items-center justify-center gap-2 whitespace-nowrap"
+            >
+              INICIAR INSCRIPCIÓN
+              <UserPlus size={20} />
+            </a>
+
+            <!-- Contactar -->
+             <a href="/contacto/solicitarinformacion"
+              class="hover:border-b hover:border-b-cyan-50 font-bold py-3 px-6 text-base transition-colors duration-300 shadow-lg flex flex-col items-center justify-center gap-2 whitespace-nowrap"
+            >
+              CONTACTAR
+              <Phone size={20} />
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  <InformativeCard
+  logoSrc={LogoCard.src}
+  studentImageSrc={ImagenCard.src}
+  title="Objetivo"
+  description="Formar comunicadores con competencias analíticas, creativas y tecnológicas para diseñar, producir y evaluar mensajes eficaces en medios tradicionales y digitales, promoviendo la libertad de expresión, la responsabilidad social y la transformación de su entorno mediante una práctica ética y profesionalmente sólida."
+  additionalText=""
+  features={[
+    { icon: "Mic", label: "Producción en medios tradicionales y digitales" },
+    { icon: "Lightbulb", label: "Creatividad aplicada a la comunicación" },
+    { icon: "Cpu", label: "Integración de herramientas tecnológicas" },
+    { icon: "Quote", label: "Compromiso con la libertad de expresión" },
+    { icon: "UserCheck", label: "Ética y responsabilidad social" },
+  ]}
+/>
+
+
+     <PlanEstudios titulo="Propuesta Educativa" semestres={semestresDatos} />
+
+     <Planteles
+      titulo="Encuentra tu campus más cercano"
+      planteles={planteles}
+      ciudades={ciudades}
+      mostrarMasCercano={true}
+    />
+
+    
+
+    <Requisitos nivel="Licenciatura" requisitos={requisitosInfo} />
+
+    <FAQComponent
+      faqs={faqs}
+      title="Preguntas frecuentes"
+      subtitle="Encuentra respuestas a las dudas más comunes"
+    />
+
+    <CTAinscripcion />
+  </main>
+</Layout>

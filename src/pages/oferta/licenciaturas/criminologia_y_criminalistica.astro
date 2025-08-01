@@ -1,0 +1,605 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Hero from "@/assets/Imagenes/Heros/Carreras/Criminologia.jpg";
+import Hero_mobile from "@/assets/Imagenes/Heros/Carreras/Criminologia_mobile.jpg";
+import ImagenCard from "@/assets/Imagenes/CardsNiveles/Nivel.png";
+import LogoCard from "@/assets/Logos/Licenciatura.png";
+import InformativeCard from "@components/sections/detallesOferta/card.astro";
+import Requisitos from "@/components/sections/detallesOferta/requisitos.astro";
+import FAQComponent from "@/components/sections/detallesOferta/preguntas.astro";
+import CTAinscripcion from "@/components/sections/shared/ctaInscripcion.astro";
+import { Calendar, UserPlus, Phone } from "@lucide/astro";
+import PlanEstudios from "@/components/sections/detallesOferta/planEstudios.astro";
+import Planteles from "@/components/sections/detallesOferta/planteles.astro";
+
+const requisitosInfo = {
+  items: [
+    "Acta de nacimiento (original)",
+    "Certificado total de bachillerato (original)",
+    "Oficio de validación de autenticidad del certificado de estudios (emitido por la autoridad correspondiente)",
+    "Equivalencia o grado superior, certificado parcial y contenidos temáticos",
+    "CURP (formato RENAPO)",
+    "Identificación oficial con fotografía (INE) - dos copias",
+    "Comprobante de domicilio reciente (no mayor a 3 meses) - una copia",
+    "Cinco fotografías tamaño infantil, blanco y negro, papel mate, de estudio",
+  ],
+  pdfUrl: "/public/pdfs/licenciatura_req.pdf",
+};
+
+const faqs = [
+  {
+    question: "¿Cuáles son los requisitos para ingresar a una licenciatura?",
+    answer:
+      "Debes contar con certificado de bachillerato, acta de nacimiento, CURP, identificación oficial, comprobante de domicilio y fotografías recientes. En algunos casos, puede requerirse el resultado de un examen de admisión.",
+  },
+  {
+    question: "¿Cuál es la duración de una licenciatura?",
+    answer:
+      "Las licenciaturas tienen una duración promedio de 8 a 10 semestres, dependiendo del programa, la institución incorporadora (UDG o SICYT) y la modalidad elegida.",
+  },
+  {
+    question: "¿Qué modalidades de estudio están disponibles?",
+    answer:
+      "Las licenciaturas pueden cursarse en modalidad presencial, en línea, escolarizada o semiescolarizada, según la carrera y el plantel. Algunas combinan clases presenciales con actividades virtuales.",
+  },
+  {
+    question: "¿Puedo trabajar mientras estudio una licenciatura?",
+    answer:
+      "Sí. Las modalidades en línea y semiescolarizada están diseñadas para ofrecer mayor flexibilidad y permitir compatibilizar tus estudios con otras actividades.",
+  },
+  {
+    question: "¿Cómo se evalúa el desempeño académico?",
+    answer:
+      "El sistema de evaluación incluye exámenes, proyectos, participación en clase, trabajos individuales o en equipo y actividades prácticas, según el enfoque de cada licenciatura.",
+  },
+  {
+    question: "¿Qué tipo de apoyo académico se brinda a los estudiantes?",
+    answer:
+      "Ofrecemos tutorías, asesorías académicas presenciales y virtuales, y acceso a plataformas educativas para reforzar el aprendizaje de cada materia.",
+  },
+  {
+    question:
+      "¿Las licenciaturas están incorporadas a alguna institución oficial?",
+    answer:
+      "Sí. Contamos con licenciaturas incorporadas a la Universidad de Guadalajara (UDG) y a la Secretaría de Innovación, Ciencia y Tecnología (SICYT) del Estado de Jalisco, lo que garantiza validez oficial de estudios.",
+  },
+  {
+    question: "¿Dónde puedo obtener más información e inscribirme?",
+    answer:
+      "Puedes acudir directamente a las oficinas del plantel más cercano o visitar nuestro portal web para consultar la oferta académica, requisitos y fechas de inscripción.",
+  },
+];
+
+const semestresDatos = [
+  {
+    numero: 1,
+    materias: [
+      {
+        codigo: "LCR101",
+        nombre: "Introducción a la Criminología",
+        creditos: 7,
+        color: "verde",
+      },
+      {
+        codigo: "LCR102",
+        nombre: "Introducción al Estudio del Derecho",
+        creditos: 5,
+        color: "verde",
+      },
+      {
+        codigo: "LCR103",
+        nombre: "Química General",
+        creditos: 6,
+        color: "verde",
+      },
+      {
+        codigo: "LCR104",
+        nombre: "Fundamentos de Psicología",
+        creditos: 5,
+        color: "verde",
+      },
+      {
+        codigo: "LCR105",
+        nombre: "Metodología de la Investigación",
+        creditos: 5,
+        color: "verde",
+      },
+      {
+        codigo: "LCR106",
+        nombre: "Sociología",
+        creditos: 5,
+        color: "verde",
+      },
+    ],
+  },
+  {
+    numero: 2,
+    materias: [
+      {
+        codigo: "LCR201",
+        nombre: "Física",
+        creditos: 5,
+        color: "amarillo",
+      },
+      {
+        codigo: "LCR202",
+        nombre: "Teoría General del Proceso",
+        creditos: 5,
+        color: "amarillo",
+      },
+      {
+        codigo: "LCR203",
+        nombre: "Psicología del Crimen I",
+        creditos: 6,
+        color: "amarillo",
+      },
+      {
+        codigo: "LCR204",
+        nombre: "Criminología I",
+        creditos: 6,
+        color: "amarillo",
+      },
+      {
+        codigo: "LCR205",
+        nombre: "Criminalística I",
+        creditos: 6,
+        color: "amarillo",
+      },
+      {
+        codigo: "LCR206",
+        nombre: "Comunicación Oral y Escrita",
+        creditos: 4,
+        color: "amarillo",
+      },
+    ],
+  },
+  {
+    numero: 3,
+    materias: [
+      {
+        codigo: "LCR301",
+        nombre: "Criminología II",
+        creditos: 6,
+        color: "naranja",
+      },
+      {
+        codigo: "LCR302",
+        nombre: "Derecho Penal I",
+        creditos: 5,
+        color: "naranja",
+      },
+      {
+        codigo: "LCR303",
+        nombre: "Criminalística II",
+        creditos: 6,
+        color: "naranja",
+      },
+      {
+        codigo: "LCR304",
+        nombre: "Informática Aplicada",
+        creditos: 5,
+        color: "naranja",
+      },
+      {
+        codigo: "LCR305",
+        nombre: "Psicología del Crimen II",
+        creditos: 5,
+        color: "naranja",
+      },
+      {
+        codigo: "LCR306",
+        nombre: "Lógica Jurídica",
+        creditos: 5,
+        color: "naranja",
+      },
+    ],
+  },
+  {
+    numero: 4,
+    materias: [
+      {
+        codigo: "LCR401",
+        nombre: "Técnicas de la Entrevista",
+        creditos: 5,
+        color: "rojo",
+      },
+      {
+        codigo: "LCR402",
+        nombre: "Argumentación Jurídica",
+        creditos: 5,
+        color: "rojo",
+      },
+      {
+        codigo: "LCR403",
+        nombre: "Fotografía Forense",
+        creditos: 6,
+        color: "rojo",
+      },
+      {
+        codigo: "LCR404",
+        nombre: "Derecho Penal II",
+        creditos: 5,
+        color: "rojo",
+      },
+      {
+        codigo: "LCR405",
+        nombre: "Derecho Constitucional",
+        creditos: 5,
+        color: "rojo",
+      },
+      {
+        codigo: "LCR406",
+        nombre: "Química Forense",
+        creditos: 6,
+        color: "rojo",
+      },
+    ],
+  },
+  {
+    numero: 5,
+    materias: [
+      {
+        codigo: "LCR501",
+        nombre: "Psiquiatría Forense",
+        creditos: 6,
+        color: "morado",
+      },
+      {
+        codigo: "LCR502",
+        nombre: "Sistemas de Identificación",
+        creditos: 6,
+        color: "morado",
+      },
+      {
+        codigo: "LCR503",
+        nombre: "Antropología Forense",
+        creditos: 5,
+        color: "morado",
+      },
+      {
+        codigo: "LCR504",
+        nombre: "Juicios Orales en Materia Penal I",
+        creditos: 5,
+        color: "morado",
+      },
+      {
+        codigo: "LCR505",
+        nombre: "Medicina Forense I",
+        creditos: 6,
+        color: "morado",
+      },
+      {
+        codigo: "LCR506",
+        nombre: "Derecho Administrativo",
+        creditos: 5,
+        color: "morado",
+      },
+    ],
+  },
+  {
+    numero: 6,
+    materias: [
+      {
+        codigo: "LCR601",
+        nombre: "Victimología",
+        creditos: 6,
+        color: "azul",
+      },
+      {
+        codigo: "LCR602",
+        nombre: "Estadística",
+        creditos: 6,
+        color: "azul",
+      },
+      {
+        codigo: "LCR603",
+        nombre: "Juicios Orales en Materia Penal II",
+        creditos: 5,
+        color: "azul",
+      },
+      {
+        codigo: "LCR604",
+        nombre: "Medicina Forense II",
+        creditos: 6,
+        color: "azul",
+      },
+      {
+        codigo: "LCR605",
+        nombre: "Dactiloscopia",
+        creditos: 7,
+        color: "azul",
+      },
+      {
+        codigo: "LCR606",
+        nombre: "Métodos Alternativos de Solución a Controversias",
+        creditos: 5,
+        color: "azul",
+      },
+    ],
+  },
+  {
+    numero: 7,
+    materias: [
+      {
+        codigo: "LCR701",
+        nombre: "Amparo I",
+        creditos: 5,
+        color: "rosa",
+      },
+      {
+        codigo: "LCR702",
+        nombre: "Derechos Humanos",
+        creditos: 5,
+        color: "rosa",
+      },
+      {
+        codigo: "LCR703",
+        nombre: "Odontología Forense",
+        creditos: 6,
+        color: "rosa",
+      },
+      {
+        codigo: "LCR704",
+        nombre: "Toxicología Forense",
+        creditos: 6,
+        color: "rosa",
+      },
+      {
+        codigo: "LCR705",
+        nombre: "Grafología y Grafoscopía Forense",
+        creditos: 6,
+        color: "rosa",
+      },
+      {
+        codigo: "LCR706",
+        nombre: "Perfilación Criminal",
+        creditos: 5,
+        color: "rosa",
+      },
+    ],
+  },
+  {
+    numero: 8,
+    materias: [
+      {
+        codigo: "LCR801",
+        nombre: "Sistemas Penitenciarios",
+        creditos: 5,
+        color: "gris",
+      },
+      {
+        codigo: "LCR802",
+        nombre: "Armas y Explosivos",
+        creditos: 6,
+        color: "gris",
+      },
+      {
+        codigo: "LCR803",
+        nombre: "Poligrafía Forense",
+        creditos: 6,
+        color: "gris",
+      },
+      {
+        codigo: "LCR804",
+        nombre: "Ética Profesional",
+        creditos: 5,
+        color: "gris",
+      },
+      {
+        codigo: "LCR805",
+        nombre: "Delitos Cibernéticos",
+        creditos: 5,
+        color: "gris",
+      },
+      {
+        codigo: "LCR806",
+        nombre: "Balística",
+        creditos: 5,
+        color: "gris",
+      },
+      {
+        codigo: "LCR807",
+        nombre: "Amparo II",
+        creditos: 4,
+        color: "gris",
+      },
+    ],
+  },
+  {
+    numero: 9,
+    materias: [
+      {
+        codigo: "LCR901",
+        nombre: "Genética Forense",
+        creditos: 6,
+        color: "negro",
+      },
+      {
+        codigo: "LCR902",
+        nombre: "Seminario de Investigación",
+        creditos: 6,
+        color: "negro",
+      },
+      {
+        codigo: "LCR903",
+        nombre: "Práctica Forense",
+        creditos: 22,
+        color: "negro",
+      },
+    ],
+  },
+];
+
+const planteles = [
+  {
+    id: "6",
+    nombre: "Tesistán",
+    direccion: "Av. Juan Gil Preciado #3897, Col. Hogares de Nuevo México",
+    ciudad: "Guadalajara ZMG",
+    url: "/planteles/tesistan",
+    imagen: "/src/assets/Imagenes/CardsPlanteles/Tesistan.png",
+    lat: 20.806203,
+    lon: -102.763903,
+  },
+
+  {
+    id: "4",
+    nombre: "Tlajomulco",
+    codigo: "00012",
+    direccion:
+      "Av. López Mateos #10100, Col. Los Gavilanes Poniente, Tlajomulco de Zúñiga, Jalisco",
+    ciudad: "Guadalajara ZMG",
+    url: "/planteles/tlajomulco",
+    imagen: "/src/assets/Imagenes/CardsPlanteles/Tlajomulco.png",
+    lat: 20.576464164603113,
+    lon: -103.45243680650722,
+  },
+  {
+    id: "9",
+    nombre: "Tonalá",
+    direccion: "Av. Tonaltecas #333, Col. Agua Escondida",
+    ciudad: "Guadalajara ZMG",
+    url: "/planteles/tonala",
+    imagen: "/src/assets/Imagenes/CardsPlanteles/Tonala.png",
+    lat: 20.63176692188573,
+    lon: -103.24439406488241,
+  },
+  {
+    id: "10",
+    nombre: "Chapultepec",
+    direccion: "Av. Vallarta #1458, Col. Americana",
+    ciudad: "Guadalajara ZMG",
+    url: "/planteles/chapultepec",
+    imagen: "/src/assets/Imagenes/CardsPlanteles/Chapultepec.png",
+    lat: 20.67471004174908,
+    lon: -103.36909119392195,
+  },
+];
+
+const ciudades = ["Guadalajara ZMG"];
+---
+
+<Layout>
+  <main class="min-h-screen">
+    <!-- Hero Section -->
+
+    <section
+      class="relative min-h-[85vh] md:min-h-[65vh] bg-cover bg-center bg-no-repeat"
+    >
+      {/* Desktop Background */}
+      <div
+        class="absolute inset-0 hidden md:block bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: `url(${Hero.src})` }}
+      >
+      </div>
+
+      {/* Mobile Background */}
+      <div
+        class="absolute inset-0 block md:hidden bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: `url(${Hero_mobile.src})` }}
+      >
+      </div>
+
+      {/* Hero Content */}
+      <div
+        class="relative z-10 container mx-auto px-4 h-full min-h-[85vh] md:min-h-[65vh] flex flex-col justify-center"
+      >
+        <div class="text-center text-white max-w-4xl mx-auto">
+          {/* Main Title */}
+          <h1 class="text-4xl md:text-7xl font-bold tracking-wider mb-4">
+            Criminología y Criminalística
+          </h1>
+
+          {/* Description */}
+          <p
+            class="text-lg md:text-xl leading-relaxed mb-16 max-w-3xl mx-auto font-light"
+          >
+            Investiga, analiza y previene el delito con una formación científica
+            y humanista.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Floating Card - ahora está fuera de la sección hero -->
+    <div class="relative -top-16 z-20 px-4">
+      <div class="bg-azul-une rounded-2xl px-8 shadow-2xl max-w-4xl mx-auto">
+        <div
+          class="flex flex-col sm:flex-row items-center justify-center gap-6"
+        >
+          <!-- CTA Buttons -->
+          <div
+            class="flex flex-col sm:flex-row gap-4 w-full justify-center text-white"
+          >
+            <!-- Agenda una Visita -->
+            <a
+              href="/contacto/solicitarvisita"
+              class="hover:border-b hover:border-b-cyan-50 font-bold py-6 px-6 text-base transition-colors duration-300 shadow-lg flex flex-col items-center justify-center gap-2 whitespace-nowrap"
+            >
+              AGENDA UNA VISITA
+              <Calendar size={20} />
+            </a>
+
+            <!-- Iniciar Inscripción -->
+            <a
+              href="/contacto/formulario-inscripcion"
+              class="hover:border-b hover:border-b-cyan-50 font-bold py-3 px-6 text-base transition-colors duration-300 shadow-lg flex flex-col items-center justify-center gap-2 whitespace-nowrap"
+            >
+              INICIAR INSCRIPCIÓN
+              <UserPlus size={20} />
+            </a>
+
+            <!-- Contactar -->
+            <a
+              href="/contacto/solicitarinformacion"
+              class="hover:border-b hover:border-b-cyan-50 font-bold py-3 px-6 text-base transition-colors duration-300 shadow-lg flex flex-col items-center justify-center gap-2 whitespace-nowrap"
+            >
+              CONTACTAR
+              <Phone size={20} />
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <InformativeCard
+      logoSrc={LogoCard.src}
+      studentImageSrc={ImagenCard.src}
+      title="Objetivo"
+      description="Formar especialistas con conocimientos científicos, jurídicos y técnicos para analizar, investigar y prevenir conductas delictivas, con enfoque en la seguridad pública, la justicia penal y el respeto a los derechos humanos, contribuyendo a la paz social desde una perspectiva ética y profesional."
+      additionalText=""
+      features={[
+        {
+          icon: "ShieldCheck",
+          label: "Prevención del delito y seguridad pública",
+        },
+        {
+          icon: "Search",
+          label: "Investigación científica de conductas delictivas",
+        },
+        { icon: "Gavel", label: "Dominio del marco jurídico penal" },
+        { icon: "Users", label: "Respeto y promoción de los derechos humanos" },
+        { icon: "Scale", label: "Ética profesional y justicia social" },
+      ]}
+    />
+
+    <PlanEstudios titulo="Propuesta Educativa" semestres={semestresDatos} />
+
+    <Planteles
+      titulo="Encuentra tu campus más cercano"
+      planteles={planteles}
+      ciudades={ciudades}
+      mostrarMasCercano={true}
+    />
+
+    <Requisitos nivel="Licenciatura" requisitos={requisitosInfo} />
+
+    <FAQComponent
+      faqs={faqs}
+      title="Preguntas frecuentes"
+      subtitle="Encuentra respuestas a las dudas más comunes"
+    />
+
+    <CTAinscripcion />
+  </main>
+</Layout>

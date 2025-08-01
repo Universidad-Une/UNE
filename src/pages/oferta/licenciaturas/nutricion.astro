@@ -1,13 +1,10 @@
 ---
 import Layout from "@/layouts/Layout.astro";
-import Hero from "@/assets/Imagenes/Heros/Cirujano_dentista.jpg";
-import Hero_mobile from "@/assets/Imagenes/Heros/Cirujano_dentista_mobile.jpg";
+import Hero from "@/assets/Imagenes/Heros/Carreras/Nutricion.jpg";
+import Hero_mobile from "@/assets/Imagenes/Heros/Carreras/Nutricion_mobile.jpg";
 import ImagenCard from "@/assets/Imagenes/CardsNiveles/Nivel.png";
 import LogoCard from "@/assets/Logos/Licenciatura.png";
 import InformativeCard from "@components/sections/detallesOferta/card.astro";
-import Carreras from "@components/sections/Licenciaturas/Carreras.astro";
-import Estadisticas from "@components/sections/Licenciaturas/Estadisticas.astro";
-
 import Requisitos from "@/components/sections/detallesOferta/requisitos.astro";
 
 import FAQComponent from "@/components/sections/detallesOferta/preguntas.astro";
@@ -25,7 +22,7 @@ const requisitosInfo = {
     "CURP (formato RENAPO)",
     "Identificación oficial con fotografía (INE) - dos copias",
     "Comprobante de domicilio reciente (no mayor a 3 meses) - una copia",
-    "Cinco fotografías tamaño infantil, blanco y negro, papel mate, de estudio"
+    "Cinco fotografías tamaño infantil, blanco y negro, papel mate, de estudio",
   ],
   pdfUrl: "/public/pdfs/licenciatura_req.pdf",
 };
@@ -79,27 +76,63 @@ const semestresDatos = [
     numero: 1,
     materias: [
       {
-        codigo: "ED1021",
-        nombre: "Introducción a la Educación",
-        creditos: 30,
+        codigo: "NU1001",
+        nombre: "Análisis de Problemas Globales del Siglo XXI",
+        creditos: 0,
         color: "verde",
       },
       {
-        codigo: "Filosofía y Ética en Educación",
-        nombre: "Filosofía y Ética en Educación",
-        creditos: 30,
+        codigo: "NU1002",
+        nombre: "Bioética y Normatividad",
+        creditos: 7,
         color: "verde",
       },
       {
-        codigo: "ED1024",
-        nombre: "Desarrollo Infantil y adolescente",
-        creditos: 30,
+        codigo: "NU1003",
+        nombre: "Bioquímica Humana",
+        creditos: 12,
         color: "verde",
       },
       {
-        codigo: "ED1027",
-        nombre: "Habilidades Básicas de Investigación",
-        creditos: 30,
+        codigo: "NU1004",
+        nombre: "Comunicación y Tecnologías de la Información",
+        creditos: 3,
+        color: "verde",
+      },
+      {
+        codigo: "NU1005",
+        nombre: "Fundamentos de Anatomía",
+        creditos: 12,
+        color: "verde",
+      },
+      {
+        codigo: "NU1006",
+        nombre: "Sociedad y Salud",
+        creditos: 4,
+        color: "verde",
+      },
+      {
+        codigo: "NU1007",
+        nombre: "Alimentación y Salud Pública",
+        creditos: 8,
+        color: "verde",
+      },
+      {
+        codigo: "NU1008",
+        nombre: "Economía y Política Alimentaria",
+        creditos: 8,
+        color: "verde",
+      },
+      {
+        codigo: "NU1009",
+        nombre: "Historia y Epistemología de la Nutriología",
+        creditos: 2,
+        color: "verde",
+      },
+      {
+        codigo: "NU1010",
+        nombre: "Prácticas en Actividades Físicas",
+        creditos: 3,
         color: "verde",
       },
     ],
@@ -108,27 +141,51 @@ const semestresDatos = [
     numero: 2,
     materias: [
       {
-        codigo: "FH1203",
-        nombre: "Pensamiento lógico y tecnológico",
-        creditos: 30,
+        codigo: "NU2001",
+        nombre: "Biología Molecular",
+        creditos: 10,
         color: "amarillo",
       },
       {
-        codigo: "ED2016",
-        nombre: "Desarrollo de la Psicomotricidad",
-        creditos: 30,
+        codigo: "NU2002",
+        nombre: "Metodología de la Investigación",
+        creditos: 7,
         color: "amarillo",
       },
       {
-        codigo: "HJ2026",
-        nombre: "Ética social cristiana",
-        creditos: 30,
+        codigo: "NU2003",
+        nombre: "Bioquímica de los Alimentos",
+        creditos: 7,
         color: "amarillo",
       },
       {
-        codigo: "ED1029",
-        nombre: "Historia de la Pedagogía moderna",
-        creditos: 30,
+        codigo: "NU2004",
+        nombre: "Cálculo Dietético y Planeación de Menús",
+        creditos: 5,
+        color: "amarillo",
+      },
+      {
+        codigo: "NU2005",
+        nombre: "Evaluación del Estado Nutricional",
+        creditos: 10,
+        color: "amarillo",
+      },
+      {
+        codigo: "NU2006",
+        nombre: "Fisiología Humana",
+        creditos: 20,
+        color: "amarillo",
+      },
+      {
+        codigo: "NU2007",
+        nombre: "Selección y Preparación de Alimentos",
+        creditos: 5,
+        color: "amarillo",
+      },
+      {
+        codigo: "NU2008",
+        nombre: "Socio-Antropología de la Alimentación",
+        creditos: 7,
         color: "amarillo",
       },
     ],
@@ -137,145 +194,447 @@ const semestresDatos = [
     numero: 3,
     materias: [
       {
-        codigo: "PS1201",
-        nombre: "Fundamentos de Psicología y Bienestar",
-        creditos: 30,
+        codigo: "NU3001",
+        nombre: "Educación y Comunicación Social en Alimentación y Nutrición",
+        creditos: 5,
         color: "naranja",
       },
       {
-        codigo: "Gestión educativa institucional",
-        nombre: "Gestión educativa institucional",
-        creditos: 30,
+        codigo: "NU3002",
+        nombre: "Fisiopatología y Nutrición",
+        creditos: 7,
         color: "naranja",
       },
       {
-        codigo: "ED2012",
-        nombre: "Desarrollo Socioemocional",
-        creditos: 30,
+        codigo: "NU3003",
+        nombre: "Fundamentación de un Proyecto de Nutrición",
+        creditos: 5,
         color: "naranja",
       },
       {
-        codigo: "ED3027",
-        nombre: "Administración educativa",
-        creditos: 30,
+        codigo: "NU3004",
+        nombre: "Inocuidad de los Alimentos",
+        creditos: 5,
+        color: "naranja",
+      },
+      {
+        codigo: "NU3005",
+        nombre: "Proceso Alimentario Nutricio en el Ciclo de la Vida",
+        creditos: 7,
+        color: "naranja",
+      },
+      {
+        codigo: "NU3006",
+        nombre: "Producción y Disponibilidad de Alimentos",
+        creditos: 5,
+        color: "naranja",
+      },
+      {
+        codigo: "NU3007",
+        nombre: "Nutrigenética y Nutrigenómica",
+        creditos: 8,
+        color: "naranja",
+      },
+      {
+        codigo: "NU3008",
+        nombre: "Protocolo de Investigación en Nutrición",
+        creditos: 5,
+        color: "naranja",
+      },
+      {
+        codigo: "NU3009",
+        nombre: "Fisiología de la Actividad Física y el Ejercicio",
+        creditos: 7,
         color: "naranja",
       },
     ],
   },
-  // Puedes agregar más semestres según necesites
+  {
+    numero: 4,
+    materias: [
+      {
+        codigo: "NU4001",
+        nombre: "Abordaje Psicológico del Proceso Alimentario Nutricio",
+        creditos: 3,
+        color: "rojo",
+      },
+      {
+        codigo: "NU4002",
+        nombre: "Bromatología",
+        creditos: 5,
+        color: "rojo",
+      },
+      {
+        codigo: "NU4003",
+        nombre:
+          "Cuidado Alimentario Nutricio en la Actividad Física y el Deporte",
+        creditos: 7,
+        color: "rojo",
+      },
+      {
+        codigo: "NU4004",
+        nombre: "Dietética",
+        creditos: 7,
+        color: "rojo",
+      },
+      {
+        codigo: "NU4005",
+        nombre: "Epidemiología del Proceso Alimentario Nutricio",
+        creditos: 7,
+        color: "rojo",
+      },
+      {
+        codigo: "NU4006",
+        nombre: "Gestión Organizacional de Servicios de Alimentos",
+        creditos: 10,
+        color: "rojo",
+      },
+      {
+        codigo: "NU4007",
+        nombre: "Respuesta Inmune y Nutrición",
+        creditos: 7,
+        color: "rojo",
+      },
+      {
+        codigo: "NU4008",
+        nombre: "Actualidades en Salud",
+        creditos: 4,
+        color: "rojo",
+      },
+      {
+        codigo: "NU4009",
+        nombre: "Nutrición Enteral y Endovenosa",
+        creditos: 7,
+        color: "rojo",
+      },
+    ],
+  },
+  {
+    numero: 5,
+    materias: [
+      {
+        codigo: "NU5001",
+        nombre: "Análisis e Interpretación de Datos de Investigación",
+        creditos: 5,
+        color: "morado",
+      },
+      {
+        codigo: "NU5002",
+        nombre: "Cuidado Alimentario Nutricio en el Adulto y Anciano Enfermo",
+        creditos: 10,
+        color: "morado",
+      },
+      {
+        codigo: "NU5003",
+        nombre: "Gestión de Programas en Alimentación y Nutrición",
+        creditos: 7,
+        color: "morado",
+      },
+      {
+        codigo: "NU5004",
+        nombre: "Gestión de Servicios de Alimentos en Instituciones de Salud",
+        creditos: 10,
+        color: "morado",
+      },
+      {
+        codigo: "NU5005",
+        nombre: "Tecnología Alimentaria Apropiada a Poblaciones",
+        creditos: 10,
+        color: "morado",
+      },
+      {
+        codigo: "NU5006",
+        nombre: "Dietas Alternativas",
+        creditos: 7,
+        color: "morado",
+      },
+      {
+        codigo: "NU5007",
+        nombre: "Proyecto de Vida",
+        creditos: 4,
+        color: "morado",
+      },
+    ],
+  },
+  {
+    numero: 6,
+    materias: [
+      {
+        codigo: "NU6001",
+        nombre: "Alimentación y Nutrición Aplicada a Poblaciones",
+        creditos: 5,
+        color: "azul",
+      },
+      {
+        codigo: "NU6002",
+        nombre: "Comunicación Científica en Nutrición",
+        creditos: 5,
+        color: "azul",
+      },
+      {
+        codigo: "NU6003",
+        nombre:
+          "Cuidado Alimentario Nutricio en el Niño y el Adolescente Enfermo",
+        creditos: 10,
+        color: "azul",
+      },
+      {
+        codigo: "NU6004",
+        nombre: "Gestión de Proyectos Productivos",
+        creditos: 5,
+        color: "azul",
+      },
+      {
+        codigo: "NU6005",
+        nombre:
+          "Mercadotecnia de Servicios y Productos Alimentario Nutrimentales",
+        creditos: 5,
+        color: "azul",
+      },
+      {
+        codigo: "NU6006",
+        nombre: "Prevención y Terapéutica con Alimentos",
+        creditos: 3,
+        color: "azul",
+      },
+    ],
+  },
+  {
+    numero: 7,
+    materias: [
+      {
+        codigo: "NU7001",
+        nombre: "Práctica Profesional en Alimentación y Nutrición Poblacional",
+        creditos: 12,
+        color: "cian",
+      },
+      {
+        codigo: "NU7002",
+        nombre: "Práctica Profesional en Ciencias de los Alimentos",
+        creditos: 12,
+        color: "cian",
+      },
+      {
+        codigo: "NU7003",
+        nombre: "Práctica Profesional en Gestión de Servicios de Alimentos",
+        creditos: 12,
+        color: "cian",
+      },
+      {
+        codigo: "NU7004",
+        nombre: "Práctica Profesional en Nutrición Clínica",
+        creditos: 12,
+        color: "cian",
+      },
+      {
+        codigo: "NU7005",
+        nombre:
+          "Práctica Profesional Supervisada en Alimentación y Nutrición Poblacional",
+        creditos: 12,
+        color: "cian",
+      },
+      {
+        codigo: "NU7006",
+        nombre: "Práctica Profesional Supervisada en Ciencias de los Alimentos",
+        creditos: 12,
+        color: "cian",
+      },
+      {
+        codigo: "NU7007",
+        nombre:
+          "Práctica Profesional Supervisada en Gestión de Servicios de Alimentos",
+        creditos: 12,
+        color: "cian",
+      },
+      {
+        codigo: "NU7008",
+        nombre: "Práctica Profesional Supervisada en Nutrición Clínica",
+        creditos: 12,
+        color: "cian",
+      },
+    ],
+  },
+  {
+    numero: 8,
+    materias: [
+      {
+        codigo: "NU8001",
+        nombre:
+          "Aplicación Profesional en Alimentación y Nutrición Poblacional",
+        creditos: 12,
+        color: "rosa",
+      },
+      {
+        codigo: "NU8002",
+        nombre: "Aplicación Profesional en Ciencias de los Alimentos",
+        creditos: 12,
+        color: "rosa",
+      },
+      {
+        codigo: "NU8003",
+        nombre: "Aplicación Profesional en Gestión de Servicios de Alimentos",
+        creditos: 12,
+        color: "rosa",
+      },
+      {
+        codigo: "NU8004",
+        nombre: "Aplicación Profesional en Nutrición Clínica",
+        creditos: 12,
+        color: "rosa",
+      },
+    ],
+  },
 ];
 
 const planteles = [
   {
-    id: "1",
-    nombre: "Centro",
-    direccion: "Av. República No.10, Col. San Juan de Dios",
+    id: "14",
+    nombre: "Torre UNE Milenio",
+    codigo: "TORRE MILENIO",
+    direccion: "Av. López Mateos Sur #4175 Col. La Giralda Zapopan, Jalisco",
     ciudad: "Guadalajara ZMG",
-    url: "/plantel-centro",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/Centro.jpg",
-    lat: 20.67744801539995,
-    lon: -103.34031672627513,
+    url: "/campus/Torre-milenio",
+    imagen: "/src/assets/Imagenes/CardsPlanteles/Torre-milenio.png",
+    lat: "20.645336",
+    lon: "-103.405938",
   },
   {
-    id: "2",
-    nombre: "Centro Médico",
-    direccion: "José María Lozano #1077, Col. Belisario Domínguez",
-    ciudad: "Guadalajara ZMG",
-    url: "/plantel-centro-medico",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/CentroMedico.jpg",
-    lat: 20.684590788642307,
-    lon: -103.3256397932448,
-  },
-  {
-    id: "3",
-    nombre: "Milenio",
-    direccion: "Av. López Mateos Sur #4154, Col. La Giralda",
-    ciudad: "Guadalajara ZMG",
-    url: "/plantel-milenio",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/Milenio.jpg",
-    lat: 20.64540739939039,
-    lon: -103.40630313415286,
-  },
-  {
-    id: "4",
-    nombre: "Puerto Vallarta - Plaza Caracol",
-    direccion: "Blvd. Fco. Medina Ascencio #2180, Col. Díaz Ordaz",
-    ciudad: "Puerto Vallarta",
-    url: "/plantel-plaza-caracol-puerto-vallarta",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/PuertoVallarta.png",
-    lat: 20.639287162026815,
-    lon: -105.23323589513319,
-  },
-  {
-    id: "5",
-    nombre: "Tlajomulco",
-    direccion: "Av. López Mateos #10100, Col. Los Gavilanes Poniente",
-    ciudad: "Guadalajara ZMG",
-    url: "/plantel-tlajomulco",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/Tlajomulco.png",
-    lat: 20.576464164603113,
-    lon: -103.45243680650722,
-  },
-  {
-    id: "6",
-    nombre: "Tesistán",
-    direccion: "Av. Juan Gil Preciado #3897, Col. Hogares de Nuevo México",
-    ciudad: "Guadalajara ZMG",
-    url: "/plantel-tesistan",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/Tesistan.png",
-    lat: 20.806203,
-    lon: -102.763903,
-  },
-  {
-    id: "7",
-    nombre: "Tepatitlán",
-    direccion: "Calle Dr. Ricardo Alcalá #505, Av. Matamoros, Centro",
-    ciudad: "Tepatitlán de Morelos",
-    url: "/plantel-tepatitlan",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/Tepatitlan.jpg",
-    lat: 20.8062946507024,
-    lon: -102.76382902869392,
-  },
-  {
-    id: "8",
-    nombre: "Tlaquepaque",
+    id: "17",
+    nombre: "Puerto Vallarta Caracol",
+    codigo: "Caracol",
     direccion:
-      "Blvd. Marcelino García Barragán #2056, Col. Bosques del Boulevard",
-    ciudad: "Guadalajara ZMG",
-    url: "/plantel-tlaquepaque",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/Tlaquepaque.jpg",
-    lat: 20.645650028567157,
-    lon: -103.32094530771215,
+      "Blvd. Francisco Medina Ascencio #2180 Col. Díaz Ordaz Puerto Vallarta, Jalisco",
+    ciudad: "Puerto Vallarta",
+    url: "/campus/puerto-vallarta-caracol",
+    imagen: "/src/assets/Imagenes/CardsPlanteles/Caracol.jpg",
+    lat: "20.63927815810884",
+    lon: "-105.23320503196068",
   },
   {
-    id: "9",
-    nombre: "Tonalá",
-    direccion: "Av. Tonaltecas #333, Col. Agua Escondida",
-    ciudad: "Guadalajara ZMG",
-    url: "/plantel-tonala",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/Tonala.png",
-    lat: 20.63176692188573,
-    lon: -103.24439406488241,
-  },
-  {
-    id: "10",
+    id: "12",
     nombre: "Chapultepec",
-    direccion: "Av. Vallarta #1458, Col. Americana",
+    codigo: "00020",
+    direccion: "Av. Chapultepec #200, Col. Americana, Guadalajara, Jalisco",
     ciudad: "Guadalajara ZMG",
-    url: "/plantel-vallarta",
+    url: "/campus/chapultepec",
     imagen: "/src/assets/Imagenes/CardsPlanteles/Chapultepec.png",
     lat: 20.67471004174908,
     lon: -103.36909119392195,
   },
   {
+id: "5",
+nombre: "Tlaquepaque",
+codigo: "00013",
+direccion: "Blvd. Marcelino García Barragán #2056, Col. Bosques del Boulevard, Tlaquepaque, Jalisco",
+ciudad: "Guadalajara ZMG",
+url: "/campus/tlaquepaque",
+imagen: "/src/assets/Imagenes/CardsPlanteles/Tlaquepaque.jpg",
+lat: 20.645650028567157,
+lon: -103.32094530771215,
+},
+{
+id: "13",
+nombre: "Zapopan",
+codigo: "00021",
+direccion: "Av. Ávila Camacho #1500, Zapopan Centro, Zapopan, Jalisco",
+ciudad: "Guadalajara ZMG",
+url: "/campus/zapopan",
+imagen: "/src/assets/Imagenes/CardsPlanteles/Zapopan.png",
+lat: 20.720900646775917,
+lon: -103.38975281813357,
+},
+{
+id: "17",
+nombre: "Puerto Vallarta Caracol",
+codigo: "Caracol",
+direccion: "Blvd. Francisco Medina Ascencio #2180 Col. Díaz Ordaz Puerto Vallarta, Jalisco",
+ciudad: "Puerto Vallarta",
+url: "/campus/puerto-vallarta-caracol",
+imagen: "/src/assets/Imagenes/CardsPlanteles/Caracol.jpg",
+lat: "20.63927815810884",
+lon: "-105.23320503196068",
+},
+
+
+  {
+    id: "16",
+    nombre: "Campus Puerto Vallarta",
+    codigo: "Campus",
+    direccion: "Carretera a Tepic No. 5657 Col. las Juntas C.P 48291",
+    ciudad: "Puerto Vallarta",
+    url: "/campus/campus-puerto-vallarta",
+    imagen: "/src/assets/Imagenes/CardsPlanteles/Campus-Puerto-Vallarta.jpg",
+    lat: "20.69715126066295",
+    lon: ", -105.23759816941552",
+  },
+
+  {
+    id: "1",
+    nombre: "Avenida México",
+    codigo: "00008",
+    direccion: "Av. México #1255, Col. Agua Zarca, Puerto Vallarta, Jalisco",
+    ciudad: "Puerto Vallarta",
+    url: "/campus/puerto-vallarta",
+    imagen: "/src/assets/Imagenes/CardsPlanteles/PuertoVallarta.png",
+    lat: 20.669418,
+    lon: -105.226917,
+  },
+  {
     id: "11",
-    nombre: "Zapopan",
-    direccion: "Plaza Caudillos",
+    nombre: "Tepatitlán",
+    codigo: "00019",
+    direccion: "Av. Hidalgo #300, Centro, Tepatitlán de Morelos, Jalisco",
+    ciudad: "Tepatitlán",
+    url: "/campus/tepatitlan",
+    imagen: "/src/assets/Imagenes/CardsPlanteles/Tepatitlan.jpg",
+    lat: 20.8062946507024,
+    lon: -102.76382902869392,
+  },
+  {
+    id: "7",
+    nombre: "UNE Centro",
+    codigo: "00015",
+    direccion: "Calle Independencia #100, Col. Centro, Guadalajara, Jalisco",
     ciudad: "Guadalajara ZMG",
-    url: "/plantel-zapopan",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/Zapopan.png",
-    lat: 20.720900646775917,
-    lon: -103.38975281813357,
+    url: "/campus/Centro",
+    imagen: "/src/assets/Imagenes/CardsPlanteles/Centro.jpg",
+    lat: 20.67744801539995,
+    lon: -103.34031672627513,
+  },
+  {
+    id: "4",
+    nombre: "Tlajomulco",
+    codigo: "00012",
+    direccion:
+      "Av. López Mateos #10100, Col. Los Gavilanes Poniente, Tlajomulco de Zúñiga, Jalisco",
+    ciudad: "Guadalajara ZMG",
+    url: "/campus/tlajomulco",
+    imagen: "/src/assets/Imagenes/CardsPlanteles/Tlajomulco.png",
+    lat: 20.576464164603113,
+    lon: -103.45243680650722,
+  },
+  {
+    id: "5",
+    nombre: "Tlaquepaque",
+    codigo: "00013",
+    direccion:
+      "Blvd. Marcelino García Barragán #2056, Col. Bosques del Boulevard, Tlaquepaque, Jalisco",
+    ciudad: "Guadalajara ZMG",
+    url: "/campus/tlaquepaque",
+    imagen: "/src/assets/Imagenes/CardsPlanteles/Tlaquepaque.jpg",
+    lat: 20.645650028567157,
+    lon: -103.32094530771215,
+  },
+  {
+    id: "6",
+    nombre: "Tonalá",
+    codigo: "00014",
+    direccion: "Av. Tonaltecas #333, Col. Agua Escondida, Tonalá, Jalisco",
+    ciudad: "Guadalajara ZMG",
+    url: "/campus/tonala",
+    imagen: "/src/assets/Imagenes/CardsPlanteles/Tonala.png",
+    lat: 20.63176692188573,
+    lon: -103.24439406488241,
   },
 ];
 
@@ -314,19 +673,15 @@ const ciudades = [
         <div class="text-center text-white max-w-4xl mx-auto">
           {/* Main Title */}
           <h1 class="text-4xl md:text-7xl font-bold tracking-wider mb-4">
-            Lic. en Cirujano Dentista
+            Lic. en Nutrición
           </h1>
-          <h2 class="text-2xl md:text-5xl font-bold tracking-wider mb-8">
-            Licenciaturas UNE
-          </h2>
 
           {/* Description */}
           <p
             class="text-lg md:text-xl leading-relaxed mb-16 max-w-3xl mx-auto font-light"
           >
-            Transforma sonrisas y mejora la calidad de vida a través del estudio
-            y la práctica de la odontología, en una carrera donde la ciencia, la
-            salud y la vocación por el bienestar se unen.
+            Promueve estilos de vida saludables a través de la alimentación
+            consciente y personalizada.
           </p>
         </div>
       </div>
@@ -343,7 +698,8 @@ const ciudades = [
             class="flex flex-col sm:flex-row gap-4 w-full justify-center text-white"
           >
             <!-- Agenda una Visita -->
-            <a href="/contacto/solicitarvisita"
+            <a
+              href="/contacto/solicitarvisita"
               class="hover:border-b hover:border-b-cyan-50 font-bold py-6 px-6 text-base transition-colors duration-300 shadow-lg flex flex-col items-center justify-center gap-2 whitespace-nowrap"
             >
               AGENDA UNA VISITA
@@ -351,7 +707,8 @@ const ciudades = [
             </a>
 
             <!-- Iniciar Inscripción -->
-            <a href="/contacto/formulario-inscripcion"
+            <a
+              href="/contacto/formulario-inscripcion"
               class="hover:border-b hover:border-b-cyan-50 font-bold py-3 px-6 text-base transition-colors duration-300 shadow-lg flex flex-col items-center justify-center gap-2 whitespace-nowrap"
             >
               INICIAR INSCRIPCIÓN
@@ -359,7 +716,8 @@ const ciudades = [
             </a>
 
             <!-- Contactar -->
-             <a href="/contacto/solicitarinformacion"
+            <a
+              href="/contacto/solicitarinformacion"
               class="hover:border-b hover:border-b-cyan-50 font-bold py-3 px-6 text-base transition-colors duration-300 shadow-lg flex flex-col items-center justify-center gap-2 whitespace-nowrap"
             >
               CONTACTAR
@@ -374,27 +732,40 @@ const ciudades = [
       logoSrc={LogoCard.src}
       studentImageSrc={ImagenCard.src}
       title="Objetivo"
-      description="La Licenciatura en Cirujano Dentista te forma como un profesionista altamente capacitado para prevenir, diagnosticar y tratar enfermedades bucales con un enfoque integral y humano."
-      additionalText="Con una sólida formación teórico-práctica y un alto compromiso ético y social, estarás preparado para promover la salud bucodental, brindar atención personalizada y colaborar con instituciones de salud para transformar positivamente la calidad de vida de las personas."
+      description="Formar nutriólogos con conocimientos científicos, habilidades clínicas y compromiso ético para evaluar, diseñar y aplicar planes de alimentación adecuados a las necesidades individuales y colectivas, promoviendo la salud, la prevención de enfermedades y el bienestar social, con una sólida proyección profesional."
+      additionalText=""
       features={[
-        { icon: "CalendarDays", label: "Prácticas clínicas presenciales" },
-        { icon: "BookOpen", label: "Bases científicas sólidas" },
-        { icon: "School", label: "Validez oficial" },
-        { icon: "Clock", label: "Horarios accesibles" },
-        { icon: "BookmarkCheck", label: "Enfoque profesionalizante" },
+        {
+          icon: "UtensilsCrossed",
+          label: "Planes de alimentación personalizados y colectivos",
+        },
+        {
+          icon: "HeartPulse",
+          label: "Promoción de la salud y prevención de enfermedades",
+        },
+        {
+          icon: "UserHeart",
+          label: "Atención clínica con enfoque ético y humanista",
+        },
+        {
+          icon: "FlaskConical",
+          label: "Formación basada en evidencia científica",
+        },
+        {
+          icon: "Briefcase",
+          label: "Alta proyección profesional en diversos sectores",
+        },
       ]}
     />
 
-     <PlanEstudios titulo="Propuesta Educativa" semestres={semestresDatos} />
+    <PlanEstudios titulo="Propuesta Educativa" semestres={semestresDatos} />
 
-     <Planteles
+    <Planteles
       titulo="Encuentra tu campus más cercano"
       planteles={planteles}
       ciudades={ciudades}
       mostrarMasCercano={true}
     />
-
-    
 
     <Requisitos nivel="Licenciatura" requisitos={requisitosInfo} />
 

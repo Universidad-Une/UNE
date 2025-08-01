@@ -1,12 +1,10 @@
 ---
 import Layout from "@/layouts/Layout.astro";
-import Hero from "@/assets/Imagenes/Heros/Cirujano_dentista.jpg";
-import Hero_mobile from "@/assets/Imagenes/Heros/Cirujano_dentista_mobile.jpg";
+import Hero from "@/assets/Imagenes/Heros/Carreras/Arquitectura.jpg";
+import Hero_mobile from "@/assets/Imagenes/Heros/Carreras/Arquitectura_mobile.jpg";
 import ImagenCard from "@/assets/Imagenes/CardsNiveles/Nivel.png";
 import LogoCard from "@/assets/Logos/Licenciatura.png";
 import InformativeCard from "@components/sections/detallesOferta/card.astro";
-import Carreras from "@components/sections/Licenciaturas/Carreras.astro";
-import Estadisticas from "@components/sections/Licenciaturas/Estadisticas.astro";
 
 import Requisitos from "@/components/sections/detallesOferta/requisitos.astro";
 
@@ -79,27 +77,57 @@ const semestresDatos = [
     numero: 1,
     materias: [
       {
-        codigo: "ED1021",
-        nombre: "Introducción a la Educación",
-        creditos: 30,
+        codigo: "ARQ1001",
+        nombre: "Análisis de Problemas Globales del Siglo XXI",
+        creditos: 0,
         color: "verde",
       },
       {
-        codigo: "Filosofía y Ética en Educación",
-        nombre: "Filosofía y Ética en Educación",
-        creditos: 30,
+        codigo: "ARQ1002",
+        nombre: "Formación Universitaria",
+        creditos: 5,
         color: "verde",
       },
       {
-        codigo: "ED1024",
-        nombre: "Desarrollo Infantil y adolescente",
-        creditos: 30,
+        codigo: "ARQ1003",
+        nombre: "Configuración del Espacio Tridimensional a partir Geometría Descriptiva",
+        creditos: 6,
         color: "verde",
       },
       {
-        codigo: "ED1027",
-        nombre: "Habilidades Básicas de Investigación",
-        creditos: 30,
+        codigo: "ARQ1004",
+        nombre: "Educación Visual",
+        creditos: 5,
+        color: "verde",
+      },
+      {
+        codigo: "ARQ1005",
+        nombre: "Fundamentos de Edificación",
+        creditos: 6,
+        color: "verde",
+      },
+      {
+        codigo: "ARQ1006",
+        nombre: "Matemáticas para Arquitectura",
+        creditos: 6,
+        color: "verde",
+      },
+      {
+        codigo: "ARQ1007",
+        nombre: "Representación Técnica Arquitectónica",
+        creditos: 6,
+        color: "verde",
+      },
+      {
+        codigo: "ARQ1008",
+        nombre: "Taller Desarrollo de Grafías para la Arquitectura",
+        creditos: 4,
+        color: "verde",
+      },
+      {
+        codigo: "ARQ1009",
+        nombre: "Proyecto 1: Contextualización Arquitectónica",
+        creditos: 12,
         color: "verde",
       },
     ],
@@ -108,27 +136,57 @@ const semestresDatos = [
     numero: 2,
     materias: [
       {
-        codigo: "FH1203",
-        nombre: "Pensamiento lógico y tecnológico",
-        creditos: 30,
+        codigo: "ARQ2001",
+        nombre: "Análisis e Interpretación de las Teorías de la Arquitectura",
+        creditos: 5,
         color: "amarillo",
       },
       {
-        codigo: "ED2016",
-        nombre: "Desarrollo de la Psicomotricidad",
-        creditos: 30,
+        codigo: "ARQ2002",
+        nombre: "Aplicación de la Topografía para la Arquitectura",
+        creditos: 4,
         color: "amarillo",
       },
       {
-        codigo: "HJ2026",
-        nombre: "Ética social cristiana",
-        creditos: 30,
+        codigo: "ARQ2003",
+        nombre: "Fundamentación y Procesos de Investigación",
+        creditos: 3,
         color: "amarillo",
       },
       {
-        codigo: "ED1029",
-        nombre: "Historia de la Pedagogía moderna",
-        creditos: 30,
+        codigo: "ARQ2004",
+        nombre: "Fundamentos de Estructuras",
+        creditos: 7,
+        color: "amarillo",
+      },
+      {
+        codigo: "ARQ2005",
+        nombre: "Fundamentos del Diseño Bidimensional",
+        creditos: 5,
+        color: "amarillo",
+      },
+      {
+        codigo: "ARQ2006",
+        nombre: "Perspectiva Aplicada a la Arquitectura y Expresión Gráfica Arquitectónica",
+        creditos: 6,
+        color: "amarillo",
+      },
+      {
+        codigo: "ARQ2007",
+        nombre: "Procesos Normativos para el Proyecto Arquitectónico y Urbano",
+        creditos: 3,
+        color: "amarillo",
+      },
+      {
+        codigo: "ARQ2008",
+        nombre: "Representación Digital",
+        creditos: 5,
+        color: "amarillo",
+      },
+      {
+        codigo: "ARQ2009",
+        nombre: "Proyecto 2: Análisis de Proyectos de Espacio Arquitectónico",
+        creditos: 12,
         color: "amarillo",
       },
     ],
@@ -137,33 +195,409 @@ const semestresDatos = [
     numero: 3,
     materias: [
       {
-        codigo: "PS1201",
-        nombre: "Fundamentos de Psicología y Bienestar",
-        creditos: 30,
+        codigo: "ARQ3001",
+        nombre: "Estructuras Estáticamente Determinadas",
+        creditos: 7,
         color: "naranja",
       },
       {
-        codigo: "Gestión educativa institucional",
-        nombre: "Gestión educativa institucional",
-        creditos: 30,
+        codigo: "ARQ3002",
+        nombre: "Fundamentos del Diseño Tridimensional",
+        creditos: 5,
         color: "naranja",
       },
       {
-        codigo: "ED2012",
-        nombre: "Desarrollo Socioemocional",
-        creditos: 30,
+        codigo: "ARQ3003",
+        nombre: "Investigación y Contextualización de la Arquitectura y el Urbanismo desde sus Inicios al Fin del Medioevo",
+        creditos: 5,
         color: "naranja",
       },
       {
-        codigo: "ED3027",
-        nombre: "Administración educativa",
-        creditos: 30,
+        codigo: "ARQ3004",
+        nombre: "Principios Urbanos Aplicables al Proyecto Arquitectónico y Urbano",
+        creditos: 5,
+        color: "naranja",
+      },
+      {
+        codigo: "ARQ3005",
+        nombre: "Procesos Edificatorios Tradicionales",
+        creditos: 6,
+        color: "naranja",
+      },
+      {
+        codigo: "ARQ3006",
+        nombre: "Representación Digital Tridimensional",
+        creditos: 5,
+        color: "naranja",
+      },
+      {
+        codigo: "ARQ3007",
+        nombre: "Taller de Creatividad Gráfica y Volumétrica",
+        creditos: 5,
+        color: "naranja",
+      },
+      {
+        codigo: "ARQ3008",
+        nombre: "Proyecto 3: Argumentación de Propuestas Espaciales Volumétricas",
+        creditos: 12,
         color: "naranja",
       },
     ],
   },
-  // Puedes agregar más semestres según necesites
-];
+  {
+    numero: 4,
+    materias: [
+      {
+        codigo: "ARQ4001",
+        nombre: "Análisis e Interpretación de la Realidad Nacional",
+        creditos: 3,
+        color: "rojo",
+      },
+      {
+        codigo: "ARQ4002",
+        nombre: "Diseño Urbano y Gestión de Espacios Abiertos y Vecinales",
+        creditos: 6,
+        color: "rojo",
+      },
+      {
+        codigo: "ARQ4003",
+        nombre: "Estructuras Estáticamente Indeterminadas",
+        creditos: 7,
+        color: "rojo",
+      },
+      {
+        codigo: "ARQ4004",
+        nombre: "Investigación y Contextualización de la Arquitectura y el Urbanismo del Renacimiento a la Ciudad Industrial",
+        creditos: 5,
+        color: "rojo",
+      },
+      {
+        codigo: "ARQ4005",
+        nombre: "Procesos Regulatorios para el Proyecto Arquitectónico y Urbano",
+        creditos: 4,
+        color: "rojo",
+      },
+      {
+        codigo: "ARQ4006",
+        nombre: "Sistemas Integrales Hidrosanitarios y Eléctricos",
+        creditos: 6,
+        color: "rojo",
+      },
+      {
+        codigo: "ARQ4007",
+        nombre: "Taller de Creatividad Arquitectónica",
+        creditos: 4,
+        color: "rojo",
+      },
+      {
+        codigo: "ARQ4008",
+        nombre: "Proyecto 4: Propuestas Arquitectónicas Funcionales y Formales Fundamentadas",
+        creditos: 12,
+        color: "rojo",
+      },
+    ],
+  },
+  {
+    numero: 5,
+    materias: [
+      {
+        codigo: "ARQ5001",
+        nombre: "Formación Integral",
+        creditos: 5,
+        color: "purpura",
+      },
+      {
+        codigo: "ARQ5002",
+        nombre: "Diseño Estructural en Concreto",
+        creditos: 7,
+        color: "purpura",
+      },
+      {
+        codigo: "ARQ5003",
+        nombre: "Investigación y Contextualización de la Arquitectura y el Urbanismo de la Ciudad Industrial a la Actualidad",
+        creditos: 5,
+        color: "purpura",
+      },
+      {
+        codigo: "ARQ5004",
+        nombre: "Principios Sociológicos del Proyecto Arquitectónico y Urbano",
+        creditos: 3,
+        color: "purpura",
+      },
+      {
+        codigo: "ARQ5005",
+        nombre: "Procesos Edificatorios Integrales Contemporáneos",
+        creditos: 6,
+        color: "purpura",
+      },
+      {
+        codigo: "ARQ5006",
+        nombre: "Procesos Legales para el Proyecto Arquitectónico y Urbano",
+        creditos: 3,
+        color: "purpura",
+      },
+      {
+        codigo: "ARQ5007",
+        nombre: "Proyecto 5: Propuestas Arquitectónicas con Criterios Constructivos",
+        creditos: 12,
+        color: "purpura",
+      },
+      {
+        codigo: "ARQ5008",
+        nombre: "Optativa Abierta II",
+        creditos: 4,
+        color: "purpura",
+      },
+    ],
+  },
+  {
+    numero: 6,
+    materias: [
+      {
+        codigo: "ARQ6001",
+        nombre: "Crítica de la Arquitectura",
+        creditos: 4,
+        color: "azul",
+      },
+      {
+        codigo: "ARQ6002",
+        nombre: "Diseño Estructural en Acero y Mampostería Confinada",
+        creditos: 7,
+        color: "azul",
+      },
+      {
+        codigo: "ARQ6003",
+        nombre: "Diseño Urbano y Gestión a Escala Barrial y Distrital",
+        creditos: 6,
+        color: "azul",
+      },
+      {
+        codigo: "ARQ6004",
+        nombre: "Investigación y Análisis de la Arquitectura Mexicana Precolombina",
+        creditos: 3,
+        color: "azul",
+      },
+      {
+        codigo: "ARQ6005",
+        nombre: "Procesos Edificatorios Sustentables",
+        creditos: 6,
+        color: "azul",
+      },
+      {
+        codigo: "ARQ6006",
+        nombre: "Proyecto 6: Propuestas Arquitectónicas Funcionales, Formales y Constructivas",
+        creditos: 12,
+        color: "azul",
+      },
+      {
+        codigo: "ARQ6007",
+        nombre: "Optativa Abierta III",
+        creditos: 4,
+        color: "azul",
+      },
+      {
+        codigo: "ARQ6008",
+        nombre: "Optativa Abierta IV",
+        creditos: 4,
+        color: "azul",
+      },
+    ],
+  },
+  {
+    numero: 7,
+    materias: [
+      {
+        codigo: "ARQ7001",
+        nombre: "Seminario de Investigación",
+        creditos: 4,
+        color: "rosa",
+      },
+      {
+        codigo: "ARQ7002",
+        nombre: "Administración Técnica de Obra y Gestión Empresarial",
+        creditos: 6,
+        color: "rosa",
+      },
+      {
+        codigo: "ARQ7003",
+        nombre: "Investigación y Análisis de la Arquitectura Mexicana de la Colonia a las Instituciones",
+        creditos: 3,
+        color: "rosa",
+      },
+      {
+        codigo: "ARQ7004",
+        nombre: "Sistemas Integrales Mecánicos y Especiales",
+        creditos: 6,
+        color: "rosa",
+      },
+      {
+        codigo: "ARQ7005",
+        nombre: "Taller de Gestión y Gerencia de Proyectos Arquitectónicos",
+        creditos: 5,
+        color: "rosa",
+      },
+      {
+        codigo: "ARQ7006",
+        nombre: "Diseño de Tenso Estructuras",
+        creditos: 4,
+        color: "rosa",
+      },
+      {
+        codigo: "ARQ7007",
+        nombre: "Ecología Urbana",
+        creditos: 6,
+        color: "rosa",
+      },
+      {
+        codigo: "ARQ7008",
+        nombre: "Proyecto 7: Propuestas Arquitectónicas y Propuesta de Proyecto Ejecutivo",
+        creditos: 12,
+        color: "rosa",
+      },
+    ],
+  },
+  {
+    numero: 8,
+    materias: [
+      {
+        codigo: "ARQ8001",
+        nombre: "Control Técnico de Obra",
+        creditos: 6,
+        color: "cyan",
+      },
+      {
+        codigo: "ARQ8002",
+        nombre: "Diseño Urbano y Gestión a Escala de Centros de Población",
+        creditos: 6,
+        color: "cyan",
+      },
+      {
+        codigo: "ARQ8003",
+        nombre: "Investigación y Análisis de la Arquitectura y el Urbanismo Mexicano de las Instituciones a la Actualidad",
+        creditos: 3,
+        color: "cyan",
+      },
+      {
+        codigo: "ARQ8004",
+        nombre: "Diseño de Elementos Auxiliares Prefabricados",
+        creditos: 4,
+        color: "cyan",
+      },
+      {
+        codigo: "ARQ8005",
+        nombre: "Proyecto Bioclimático",
+        creditos: 4,
+        color: "cyan",
+      },
+      {
+        codigo: "ARQ8006",
+        nombre: "Proyecto 8: Proyecto Arquitectónico y Ejecutivo",
+        creditos: 12,
+        color: "cyan",
+      },
+      {
+        codigo: "ARQ8007",
+        nombre: "Tópico Selecto II",
+        creditos: 3,
+        color: "cyan",
+      },
+      {
+        codigo: "ARQ8008",
+        nombre: "Tópico Selecto I",
+        creditos: 3,
+        color: "cyan",
+      },
+    ],
+  },
+  {
+    numero: 9,
+    materias: [
+      {
+        codigo: "ARQ9001",
+        nombre: "Taller de Costos y Presupuestos",
+        creditos: 6,
+        color: "gris",
+      },
+      {
+        codigo: "ARQ9002",
+        nombre: "Taller Integral de Edificación Conceptual",
+        creditos: 3,
+        color: "gris",
+      },
+      {
+        codigo: "ARQ9003",
+        nombre: "Taller Integral de Urbanismo Conceptual",
+        creditos: 4,
+        color: "gris",
+      },
+      {
+        codigo: "ARQ9004",
+        nombre: "Proceso del Diseño Bioclimático",
+        creditos: 4,
+        color: "gris",
+      },
+      {
+        codigo: "ARQ9005",
+        nombre: "Riesgo Sísmico",
+        creditos: 4,
+        color: "gris",
+      },
+      {
+        codigo: "ARQ9006",
+        nombre: "Proyecto 9: Proyecto Arquitectónico Integral Conceptual",
+        creditos: 6,
+        color: "gris",
+      },
+      {
+        codigo: "ARQ9007",
+        nombre: "Optativa Abierta VI",
+        creditos: 5,
+        color: "gris",
+      },
+      {
+        codigo: "ARQ9008",
+        nombre: "Optativa Abierta V",
+        creditos: 5,
+        color: "gris",
+      },
+    ],
+  },
+  {
+    numero: 10,
+    materias: [
+      {
+        codigo: "ARQ10001",
+        nombre: "Taller Integral de Edificación",
+        creditos: 4,
+        color: "negro",
+      },
+      {
+        codigo: "ARQ10002",
+        nombre: "Taller Integral de Urbanismo",
+        creditos: 4,
+        color: "negro",
+      },
+      {
+        codigo: "ARQ10003",
+        nombre: "Patologías Edificatorias y Estructurales",
+        creditos: 4,
+        color: "negro",
+      },
+      {
+        codigo: "ARQ10004",
+        nombre: "Proceso del Diseño Bioclimático y Término de Edificios",
+        creditos: 4,
+        color: "negro",
+      },
+      {
+        codigo: "ARQ10005",
+        nombre: "Proyecto 10: Desarrollo de Proyecto Terminal",
+        creditos: 8,
+        color: "negro",
+      },
+    ],
+  },
+];;
 
 const planteles = [
   {
@@ -176,36 +610,8 @@ const planteles = [
     lat: 20.67744801539995,
     lon: -103.34031672627513,
   },
-  {
-    id: "2",
-    nombre: "Centro Médico",
-    direccion: "José María Lozano #1077, Col. Belisario Domínguez",
-    ciudad: "Guadalajara ZMG",
-    url: "/plantel-centro-medico",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/CentroMedico.jpg",
-    lat: 20.684590788642307,
-    lon: -103.3256397932448,
-  },
-  {
-    id: "3",
-    nombre: "Milenio",
-    direccion: "Av. López Mateos Sur #4154, Col. La Giralda",
-    ciudad: "Guadalajara ZMG",
-    url: "/plantel-milenio",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/Milenio.jpg",
-    lat: 20.64540739939039,
-    lon: -103.40630313415286,
-  },
-  {
-    id: "4",
-    nombre: "Puerto Vallarta - Plaza Caracol",
-    direccion: "Blvd. Fco. Medina Ascencio #2180, Col. Díaz Ordaz",
-    ciudad: "Puerto Vallarta",
-    url: "/plantel-plaza-caracol-puerto-vallarta",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/PuertoVallarta.png",
-    lat: 20.639287162026815,
-    lon: -105.23323589513319,
-  },
+ 
+  
   {
     id: "5",
     nombre: "Tlajomulco",
@@ -236,17 +642,7 @@ const planteles = [
     lat: 20.8062946507024,
     lon: -102.76382902869392,
   },
-  {
-    id: "8",
-    nombre: "Tlaquepaque",
-    direccion:
-      "Blvd. Marcelino García Barragán #2056, Col. Bosques del Boulevard",
-    ciudad: "Guadalajara ZMG",
-    url: "/plantel-tlaquepaque",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/Tlaquepaque.jpg",
-    lat: 20.645650028567157,
-    lon: -103.32094530771215,
-  },
+  
   {
     id: "9",
     nombre: "Tonalá",
@@ -258,15 +654,17 @@ const planteles = [
     lon: -103.24439406488241,
   },
   {
-    id: "10",
-    nombre: "Chapultepec",
-    direccion: "Av. Vallarta #1458, Col. Americana",
-    ciudad: "Guadalajara ZMG",
-    url: "/plantel-vallarta",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/Chapultepec.png",
-    lat: 20.67471004174908,
-    lon: -103.36909119392195,
+    id: "16",
+    nombre: "Campus Puerto Vallarta",
+    codigo: "Campus",
+    direccion: "Carretera a Tepic No. 5657 Col. las Juntas C.P 48291",
+    ciudad: "Puerto Vallarta",
+    url: "/campus/campus-puerto-vallarta",
+    imagen: "/src/assets/Imagenes/CardsPlanteles/Campus-Puerto-Vallarta.jpg",
+    lat: "20.69715126066295",
+    lon: ", -105.23759816941552",
   },
+  
   {
     id: "11",
     nombre: "Zapopan",
@@ -314,19 +712,15 @@ const ciudades = [
         <div class="text-center text-white max-w-4xl mx-auto">
           {/* Main Title */}
           <h1 class="text-4xl md:text-7xl font-bold tracking-wider mb-4">
-            Lic. en Cirujano Dentista
+           Arquitectura
           </h1>
-          <h2 class="text-2xl md:text-5xl font-bold tracking-wider mb-8">
-            Licenciaturas UNE
-          </h2>
+        
 
           {/* Description */}
           <p
             class="text-lg md:text-xl leading-relaxed mb-16 max-w-3xl mx-auto font-light"
           >
-            Transforma sonrisas y mejora la calidad de vida a través del estudio
-            y la práctica de la odontología, en una carrera donde la ciencia, la
-            salud y la vocación por el bienestar se unen.
+          Diseña el futuro construyendo espacios funcionales, sostenibles y estéticamente atractivos. Da vida a tus ideas a través de la arquitectura.
           </p>
         </div>
       </div>
@@ -370,20 +764,21 @@ const ciudades = [
       </div>
     </div>
 
-    <InformativeCard
-      logoSrc={LogoCard.src}
-      studentImageSrc={ImagenCard.src}
-      title="Objetivo"
-      description="La Licenciatura en Cirujano Dentista te forma como un profesionista altamente capacitado para prevenir, diagnosticar y tratar enfermedades bucales con un enfoque integral y humano."
-      additionalText="Con una sólida formación teórico-práctica y un alto compromiso ético y social, estarás preparado para promover la salud bucodental, brindar atención personalizada y colaborar con instituciones de salud para transformar positivamente la calidad de vida de las personas."
-      features={[
-        { icon: "CalendarDays", label: "Prácticas clínicas presenciales" },
-        { icon: "BookOpen", label: "Bases científicas sólidas" },
-        { icon: "School", label: "Validez oficial" },
-        { icon: "Clock", label: "Horarios accesibles" },
-        { icon: "BookmarkCheck", label: "Enfoque profesionalizante" },
-      ]}
-    />
+   <InformativeCard
+  logoSrc={LogoCard.src}
+  studentImageSrc={ImagenCard.src}
+  title="Objetivo"
+  description="Formar arquitectos con competencias técnicas, creativas y éticas para diseñar, proyectar y construir espacios habitables funcionales, sostenibles y estéticamente integrados al entorno social y ambiental, contribuyendo al desarrollo urbano responsable y fomentando su inserción efectiva en el ámbito profesional."
+  additionalText=""
+  features={[
+    { icon: "PenTool", label: "Diseño arquitectónico con enfoque creativo" },
+    { icon: "TreeDeciduous", label: "Sostenibilidad ambiental en los proyectos" },
+    { icon: "LayoutGrid", label: "Planeación urbana responsable" },
+    { icon: "Building2", label: "Integración estética y funcional del entorno" },
+    { icon: "Briefcase", label: "Inserción profesional efectiva" },
+  ]}
+/>
+
 
      <PlanEstudios titulo="Propuesta Educativa" semestres={semestresDatos} />
 

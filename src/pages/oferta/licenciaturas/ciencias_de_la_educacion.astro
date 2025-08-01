@@ -1,0 +1,565 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Hero from "@/assets/Imagenes/Heros/Carreras/CienciasEducacion.jpg";
+import Hero_mobile from "@/assets/Imagenes/Heros/Carreras/CienciasEducacion_mobile.jpg";
+import ImagenCard from "@/assets/Imagenes/CardsNiveles/Nivel.png";
+import LogoCard from "@/assets/Logos/Licenciatura.png";
+import InformativeCard from "@components/sections/detallesOferta/card.astro";
+
+import Requisitos from "@/components/sections/detallesOferta/requisitos.astro";
+
+import FAQComponent from "@/components/sections/detallesOferta/preguntas.astro";
+import CTAinscripcion from "@/components/sections/shared/ctaInscripcion.astro";
+import { Calendar, UserPlus, Phone } from "@lucide/astro";
+import PlanEstudios from "@/components/sections/detallesOferta/planEstudios.astro";
+import Planteles from "@/components/sections/detallesOferta/planteles.astro";
+
+const requisitosInfo = {
+  items: [
+    "Acta de nacimiento (original)",
+    "Certificado total de bachillerato (original)",
+    "Oficio de validación de autenticidad del certificado de estudios (emitido por la autoridad correspondiente)",
+    "Equivalencia o grado superior, certificado parcial y contenidos temáticos",
+    "CURP (formato RENAPO)",
+    "Identificación oficial con fotografía (INE) - dos copias",
+    "Comprobante de domicilio reciente (no mayor a 3 meses) - una copia",
+    "Cinco fotografías tamaño infantil, blanco y negro, papel mate, de estudio"
+  ],
+  pdfUrl: "/public/pdfs/licenciatura_req.pdf",
+};
+
+const faqs = [
+  {
+    question: "¿Cuáles son los requisitos para ingresar a una licenciatura?",
+    answer:
+      "Debes contar con certificado de bachillerato, acta de nacimiento, CURP, identificación oficial, comprobante de domicilio y fotografías recientes. En algunos casos, puede requerirse el resultado de un examen de admisión.",
+  },
+  {
+    question: "¿Cuál es la duración de una licenciatura?",
+    answer:
+      "Las licenciaturas tienen una duración promedio de 8 a 10 semestres, dependiendo del programa, la institución incorporadora (UDG o SICYT) y la modalidad elegida.",
+  },
+  {
+    question: "¿Qué modalidades de estudio están disponibles?",
+    answer:
+      "Las licenciaturas pueden cursarse en modalidad presencial, en línea, escolarizada o semiescolarizada, según la carrera y el plantel. Algunas combinan clases presenciales con actividades virtuales.",
+  },
+  {
+    question: "¿Puedo trabajar mientras estudio una licenciatura?",
+    answer:
+      "Sí. Las modalidades en línea y semiescolarizada están diseñadas para ofrecer mayor flexibilidad y permitir compatibilizar tus estudios con otras actividades.",
+  },
+  {
+    question: "¿Cómo se evalúa el desempeño académico?",
+    answer:
+      "El sistema de evaluación incluye exámenes, proyectos, participación en clase, trabajos individuales o en equipo y actividades prácticas, según el enfoque de cada licenciatura.",
+  },
+  {
+    question: "¿Qué tipo de apoyo académico se brinda a los estudiantes?",
+    answer:
+      "Ofrecemos tutorías, asesorías académicas presenciales y virtuales, y acceso a plataformas educativas para reforzar el aprendizaje de cada materia.",
+  },
+  {
+    question:
+      "¿Las licenciaturas están incorporadas a alguna institución oficial?",
+    answer:
+      "Sí. Contamos con licenciaturas incorporadas a la Universidad de Guadalajara (UDG) y a la Secretaría de Innovación, Ciencia y Tecnología (SICYT) del Estado de Jalisco, lo que garantiza validez oficial de estudios.",
+  },
+  {
+    question: "¿Dónde puedo obtener más información e inscribirme?",
+    answer:
+      "Puedes acudir directamente a las oficinas del plantel más cercano o visitar nuestro portal web para consultar la oferta académica, requisitos y fechas de inscripción.",
+  },
+];
+
+const semestresDatos = [
+  {
+    numero: 1,
+    materias: [
+      {
+        codigo: "LCE101",
+        nombre: "Filosofía Educativa I",
+        creditos: 7,
+        color: "verde",
+      },
+      {
+        codigo: "LCE102",
+        nombre: "Metodología de la Investigación Educativa I",
+        creditos: 7,
+        color: "verde",
+      },
+      {
+        codigo: "LCE103",
+        nombre: "Sociología de la Educación",
+        creditos: 6,
+        color: "verde",
+      },
+      {
+        codigo: "LCE104",
+        nombre: "Historia Universal de la Educación",
+        creditos: 6,
+        color: "verde",
+      },
+      {
+        codigo: "LCE105",
+        nombre: "Desarrollo de Habilidades para el Aprendizaje",
+        creditos: 7,
+        color: "verde",
+      },
+    ],
+  },
+  {
+    numero: 2,
+    materias: [
+      {
+        codigo: "LCE201",
+        nombre: "Filosofía Educativa II",
+        creditos: 7,
+        color: "amarillo",
+      },
+      {
+        codigo: "LCE202",
+        nombre: "Estadística Aplicada a la Educación",
+        creditos: 6,
+        color: "amarillo",
+      },
+      {
+        codigo: "LCE203",
+        nombre: "Política Educativa en México",
+        creditos: 6,
+        color: "amarillo",
+      },
+      {
+        codigo: "LCE204",
+        nombre: "Pedagogía I",
+        creditos: 9,
+        color: "amarillo",
+      },
+      {
+        codigo: "LCE205",
+        nombre: "Producción Digital y Recursos Didácticos",
+        creditos: 9,
+        color: "amarillo",
+      },
+    ],
+  },
+  {
+    numero: 3,
+    materias: [
+      {
+        codigo: "LCE301",
+        nombre: "Epistemología de la Educación",
+        creditos: 6,
+        color: "naranja",
+      },
+      {
+        codigo: "LCE302",
+        nombre: "Didáctica General",
+        creditos: 9,
+        color: "naranja",
+      },
+      {
+        codigo: "LCE303",
+        nombre: "Psicología Evolutiva I",
+        creditos: 6,
+        color: "naranja",
+      },
+      {
+        codigo: "LCE304",
+        nombre: "Pedagogía II",
+        creditos: 7,
+        color: "naranja",
+      },
+      {
+        codigo: "LCE305",
+        nombre: "Innovación y Tecnología Aplicada a la Educación",
+        creditos: 7,
+        color: "naranja",
+      },
+    ],
+  },
+  {
+    numero: 4,
+    materias: [
+      {
+        codigo: "LCE401",
+        nombre: "Psicología de la Educación",
+        creditos: 6,
+        color: "rojo",
+      },
+      {
+        codigo: "LCE402",
+        nombre: "Metodología de la Investigación Educativa II",
+        creditos: 6,
+        color: "rojo",
+      },
+      {
+        codigo: "LCE403",
+        nombre: "Psicología Evolutiva II",
+        creditos: 6,
+        color: "rojo",
+      },
+      {
+        codigo: "LCE404",
+        nombre: "Modelos de Enseñanza y Creatividad",
+        creditos: 7,
+        color: "rojo",
+      },
+      {
+        codigo: "LCE405",
+        nombre: "Educación Socioemocional",
+        creditos: 6,
+        color: "rojo",
+      },
+    ],
+  },
+  {
+    numero: 5,
+    materias: [
+      {
+        codigo: "LCE501",
+        nombre: "Teoría de la Comunicación Humana",
+        creditos: 6,
+        color: "purpura",
+      },
+      {
+        codigo: "LCE502",
+        nombre: "Psicología del Aprendizaje y la Motivación",
+        creditos: 8,
+        color: "purpura",
+      },
+      {
+        codigo: "LCE503",
+        nombre: "Planeación de la Enseñanza",
+        creditos: 7,
+        color: "purpura",
+      },
+      {
+        codigo: "LCE504",
+        nombre: "Observación de la Práctica Docente",
+        creditos: 7,
+        color: "purpura",
+      },
+      {
+        codigo: "LCE505",
+        nombre: "Administración, Capacitación y Desarrollo",
+        creditos: 6,
+        color: "purpura",
+      },
+    ],
+  },
+  {
+    numero: 6,
+    materias: [
+      {
+        codigo: "LCE601",
+        nombre: "Psicotécnica Educativa",
+        creditos: 7,
+        color: "azul",
+      },
+      {
+        codigo: "LCE602",
+        nombre: "Diseño Curricular",
+        creditos: 6,
+        color: "azul",
+      },
+      {
+        codigo: "LCE603",
+        nombre: "Metodología de la Enseñanza y el Aprendizaje",
+        creditos: 7,
+        color: "azul",
+      },
+      {
+        codigo: "LCE604",
+        nombre: "Gestión Escolar",
+        creditos: 7,
+        color: "azul",
+      },
+      {
+        codigo: "LCE605",
+        nombre: "Diseño de Programas de Capacitación Empresarial",
+        creditos: 6,
+        color: "azul",
+      },
+    ],
+  },
+  {
+    numero: 7,
+    materias: [
+      {
+        codigo: "LCE701",
+        nombre: "Situaciones de Riesgo en el Educando",
+        creditos: 7,
+        color: "rosa",
+      },
+      {
+        codigo: "LCE702",
+        nombre: "Pedagogía de la Inclusión",
+        creditos: 7,
+        color: "rosa",
+      },
+      {
+        codigo: "LCE703",
+        nombre: "Evaluación Educativa",
+        creditos: 7,
+        color: "rosa",
+      },
+      {
+        codigo: "LCE704",
+        nombre: "Sistematización de la Práctica Docente I",
+        creditos: 7,
+        color: "rosa",
+      },
+      {
+        codigo: "LCE705",
+        nombre: "Práctica y Evaluación de la Capacitación Empresarial",
+        creditos: 7,
+        color: "rosa",
+      },
+    ],
+  },
+  {
+    numero: 8,
+    materias: [
+      {
+        codigo: "LCE801",
+        nombre: "Orientación Educativa Familiar",
+        creditos: 6,
+        color: "cyan",
+      },
+      {
+        codigo: "LCE802",
+        nombre: "Modelos de Diseño Instruccional",
+        creditos: 6,
+        color: "cyan",
+      },
+      {
+        codigo: "LCE803",
+        nombre: "Gestión y Calidad Educativa",
+        creditos: 6,
+        color: "cyan",
+      },
+      {
+        codigo: "LCE804",
+        nombre: "Sistematización de la Práctica Docente II",
+        creditos: 7,
+        color: "cyan",
+      },
+      {
+        codigo: "LCE805",
+        nombre: "Didáctica de la Enseñanza de Segunda Lengua I",
+        creditos: 6,
+        color: "cyan",
+      },
+    ],
+  },
+  {
+    numero: 9,
+    materias: [
+      {
+        codigo: "LCE901",
+        nombre: "Ética, Humanismo y Educación",
+        creditos: 5,
+        color: "gris",
+      },
+      {
+        codigo: "LCE902",
+        nombre: "Formación y Evaluación Docente",
+        creditos: 7,
+        color: "gris",
+      },
+      {
+        codigo: "LCE903",
+        nombre: "Proyectos de Investigación Educativa",
+        creditos: 6,
+        color: "gris",
+      },
+      {
+        codigo: "LCE904",
+        nombre: "Evaluación de la Práctica Docente",
+        creditos: 6,
+        color: "gris",
+      },
+      {
+        codigo: "LCE905",
+        nombre: "Didáctica de la Enseñanza de Segunda Lengua II",
+        creditos: 7,
+        color: "gris",
+      },
+    ],
+  },
+];
+
+const planteles = [
+  {
+    id: "10",
+    nombre: "Chapultepec",
+    direccion: "Av. Vallarta #1458, Col. Americana",
+    ciudad: "Guadalajara ZMG",
+    url: "/plantel-vallarta",
+    imagen: "/src/assets/Imagenes/CardsPlanteles/Chapultepec.png",
+    lat: 20.67471004174908,
+    lon: -103.36909119392195,
+  },
+  {
+    id: "11",
+    nombre: "Zapopan",
+    direccion: "Plaza Caudillos",
+    ciudad: "Guadalajara ZMG",
+    url: "/plantel-zapopan",
+    imagen: "/src/assets/Imagenes/CardsPlanteles/Zapopan.png",
+    lat: 20.720900646775917,
+    lon: -103.38975281813357,
+  },
+
+   {
+    id: "15",
+    nombre: "Torre Quetzal",
+    codigo: "Torre Quetzak",
+    direccion: "Chimalhuacán #3569 Col. Ciudad del Sol Zapopan, Jalisco",
+    ciudad: "Guadalajara ZMG",
+    url: "/campus/torre-quetzal",
+    imagen: "/src/assets/Imagenes/CardsPlanteles/Torre-quetzal.png",
+    lat: "20.651860618451966",
+    lon: "-103.40329340052432",
+  },
+  
+  {
+    id: "4",
+    nombre: "Puerto Vallarta - Plaza Caracol",
+    direccion: "Blvd. Fco. Medina Ascencio #2180, Col. Díaz Ordaz",
+    ciudad: "Puerto Vallarta",
+    url: "/plantel-plaza-caracol-puerto-vallarta",
+    imagen: "/src/assets/Imagenes/CardsPlanteles/PuertoVallarta.png",
+    lat: 20.639287162026815,
+    lon: -105.23323589513319,
+  },
+  
+ 
+  
+];
+
+const ciudades = [
+  "Guadalajara ZMG",
+  "Puerto Vallarta",
+  "Tepatitlán de Morelos",
+];
+---
+
+<Layout>
+  <main class="min-h-screen">
+    <!-- Hero Section -->
+
+    <section
+      class="relative min-h-[85vh] md:min-h-[65vh] bg-cover bg-center bg-no-repeat"
+    >
+      {/* Desktop Background */}
+      <div
+        class="absolute inset-0 hidden md:block bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: `url(${Hero.src})` }}
+      >
+      </div>
+
+      {/* Mobile Background */}
+      <div
+        class="absolute inset-0 block md:hidden bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: `url(${Hero_mobile.src})` }}
+      >
+      </div>
+
+      {/* Hero Content */}
+      <div
+        class="relative z-10 container mx-auto px-4 h-full min-h-[85vh] md:min-h-[65vh] flex flex-col justify-center"
+      >
+        <div class="text-center text-white max-w-4xl mx-auto">
+          {/* Main Title */}
+          <h1 class="text-4xl md:text-7xl font-bold tracking-wider mb-4">
+            Ciencias de la educación
+          </h1>
+         
+
+          {/* Description */}
+          <p
+            class="text-lg md:text-xl leading-relaxed mb-16 max-w-3xl mx-auto font-light"
+          >
+           Transforma el aprendizaje desde el aula con herramientas pedagógicas y compromiso social.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Floating Card - ahora está fuera de la sección hero -->
+    <div class="relative -top-16 z-20 px-4">
+      <div class="bg-azul-une rounded-2xl px-8 shadow-2xl max-w-4xl mx-auto">
+        <div
+          class="flex flex-col sm:flex-row items-center justify-center gap-6"
+        >
+          <!-- CTA Buttons -->
+          <div
+            class="flex flex-col sm:flex-row gap-4 w-full justify-center text-white"
+          >
+            <!-- Agenda una Visita -->
+            <a href="/contacto/solicitarvisita"
+              class="hover:border-b hover:border-b-cyan-50 font-bold py-6 px-6 text-base transition-colors duration-300 shadow-lg flex flex-col items-center justify-center gap-2 whitespace-nowrap"
+            >
+              AGENDA UNA VISITA
+              <Calendar size={20} />
+            </a>
+
+            <!-- Iniciar Inscripción -->
+            <a href="/contacto/formulario-inscripcion"
+              class="hover:border-b hover:border-b-cyan-50 font-bold py-3 px-6 text-base transition-colors duration-300 shadow-lg flex flex-col items-center justify-center gap-2 whitespace-nowrap"
+            >
+              INICIAR INSCRIPCIÓN
+              <UserPlus size={20} />
+            </a>
+
+            <!-- Contactar -->
+             <a href="/contacto/solicitarinformacion"
+              class="hover:border-b hover:border-b-cyan-50 font-bold py-3 px-6 text-base transition-colors duration-300 shadow-lg flex flex-col items-center justify-center gap-2 whitespace-nowrap"
+            >
+              CONTACTAR
+              <Phone size={20} />
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <InformativeCard
+      logoSrc={LogoCard.src}
+      studentImageSrc={ImagenCard.src}
+      title="Objetivo"
+      description="Desarrollar profesionales con conocimientos pedagógicos, habilidades didácticas y visión crítica para planear, gestionar e innovar procesos educativos en distintos niveles y contextos, favoreciendo la equidad, la inclusión y el desarrollo social mediante una práctica educativa comprometida y competente."
+      additionalText=""
+      features={[
+        { icon: "CalendarDays", label: "Prácticas clínicas presenciales" },
+        { icon: "BookOpen", label: "Bases científicas sólidas" },
+        { icon: "School", label: "Validez oficial" },
+        { icon: "Clock", label: "Horarios accesibles" },
+        { icon: "BookmarkCheck", label: "Enfoque profesionalizante" },
+      ]}
+    />
+
+     <PlanEstudios titulo="Propuesta Educativa" semestres={semestresDatos} />
+
+     <Planteles
+      titulo="Encuentra tu campus más cercano"
+      planteles={planteles}
+      ciudades={ciudades}
+      mostrarMasCercano={true}
+    />
+
+    
+
+    <Requisitos nivel="Licenciatura" requisitos={requisitosInfo} />
+
+    <FAQComponent
+      faqs={faqs}
+      title="Preguntas frecuentes"
+      subtitle="Encuentra respuestas a las dudas más comunes"
+    />
+
+    <CTAinscripcion />
+  </main>
+</Layout>

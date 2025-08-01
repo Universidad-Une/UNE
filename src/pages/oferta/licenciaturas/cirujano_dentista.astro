@@ -25,7 +25,7 @@ const requisitosInfo = {
     "CURP (formato RENAPO)",
     "Identificación oficial con fotografía (INE) - dos copias",
     "Comprobante de domicilio reciente (no mayor a 3 meses) - una copia",
-    "Cinco fotografías tamaño infantil, blanco y negro, papel mate, de estudio"
+    "Cinco fotografías tamaño infantil, blanco y negro, papel mate, de estudio",
   ],
   pdfUrl: "/public/pdfs/licenciatura_req.pdf",
 };
@@ -79,27 +79,51 @@ const semestresDatos = [
     numero: 1,
     materias: [
       {
-        codigo: "ED1021",
-        nombre: "Introducción a la Educación",
-        creditos: 30,
+        codigo: "ODO101",
+        nombre: "Análisis de Problemas Globales del Siglo XXI",
+        creditos: 0,
         color: "verde",
       },
       {
-        codigo: "Filosofía y Ética en Educación",
-        nombre: "Filosofía y Ética en Educación",
-        creditos: 30,
+        codigo: "ODO102",
+        nombre: "Bioética y Universidad",
+        creditos: 7,
         color: "verde",
       },
       {
-        codigo: "ED1024",
-        nombre: "Desarrollo Infantil y adolescente",
-        creditos: 30,
+        codigo: "ODO103",
+        nombre: "Bioquímica Humana",
+        creditos: 12,
         color: "verde",
       },
       {
-        codigo: "ED1027",
-        nombre: "Habilidades Básicas de Investigación",
-        creditos: 30,
+        codigo: "ODO104",
+        nombre: "Anatomía Bucal",
+        creditos: 8,
+        color: "verde",
+      },
+      {
+        codigo: "ODO105",
+        nombre: "Anatomía de Cabeza y Cuello",
+        creditos: 13,
+        color: "verde",
+      },
+      {
+        codigo: "ODO106",
+        nombre: "Histología y Embriología Bucal",
+        creditos: 11,
+        color: "verde",
+      },
+      {
+        codigo: "ODO107",
+        nombre: "Materiales Dentales I",
+        creditos: 6,
+        color: "verde",
+      },
+      {
+        codigo: "ODO108",
+        nombre: "Historia de la Odontología",
+        creditos: 2,
         color: "verde",
       },
     ],
@@ -108,27 +132,57 @@ const semestresDatos = [
     numero: 2,
     materias: [
       {
-        codigo: "FH1203",
-        nombre: "Pensamiento lógico y tecnológico",
-        creditos: 30,
+        codigo: "ODO201",
+        nombre: "Alimentación, Nutrición y Sociedad",
+        creditos: 5,
         color: "amarillo",
       },
       {
-        codigo: "ED2016",
-        nombre: "Desarrollo de la Psicomotricidad",
-        creditos: 30,
+        codigo: "ODO202",
+        nombre: "Fundamentos de Fisiología",
+        creditos: 12,
         color: "amarillo",
       },
       {
-        codigo: "HJ2026",
-        nombre: "Ética social cristiana",
-        creditos: 30,
+        codigo: "ODO203",
+        nombre: "Salud Pública",
+        creditos: 7,
         color: "amarillo",
       },
       {
-        codigo: "ED1029",
-        nombre: "Historia de la Pedagogía moderna",
-        creditos: 30,
+        codigo: "ODO204",
+        nombre: "Sexualidad Humana",
+        creditos: 5,
+        color: "amarillo",
+      },
+      {
+        codigo: "ODO205",
+        nombre: "Bioquímica Bucal",
+        creditos: 5,
+        color: "amarillo",
+      },
+      {
+        codigo: "ODO206",
+        nombre: "Materiales Dentales II",
+        creditos: 6,
+        color: "amarillo",
+      },
+      {
+        codigo: "ODO207",
+        nombre: "Microbiología Bucal",
+        creditos: 7,
+        color: "amarillo",
+      },
+      {
+        codigo: "ODO208",
+        nombre: "Patología General",
+        creditos: 6,
+        color: "amarillo",
+      },
+      {
+        codigo: "ODO209",
+        nombre: "Reanimación Cardiopulmonar y Terapia Eléctrica",
+        creditos: 1,
         color: "amarillo",
       },
     ],
@@ -137,95 +191,442 @@ const semestresDatos = [
     numero: 3,
     materias: [
       {
-        codigo: "PS1201",
-        nombre: "Fundamentos de Psicología y Bienestar",
-        creditos: 30,
+        codigo: "ODO301",
+        nombre: "Cariología",
+        creditos: 4,
         color: "naranja",
       },
       {
-        codigo: "Gestión educativa institucional",
-        nombre: "Gestión educativa institucional",
-        creditos: 30,
+        codigo: "ODO302",
+        nombre: "Farmacología Odontológica",
+        creditos: 9,
         color: "naranja",
       },
       {
-        codigo: "ED2012",
-        nombre: "Desarrollo Socioemocional",
-        creditos: 30,
+        codigo: "ODO303",
+        nombre: "Imagenología Odontológica",
+        creditos: 8,
         color: "naranja",
       },
       {
-        codigo: "ED3027",
-        nombre: "Administración educativa",
-        creditos: 30,
+        codigo: "ODO304",
+        nombre: "Manejo del Paciente Odontológico",
+        creditos: 2,
+        color: "naranja",
+      },
+      {
+        codigo: "ODO305",
+        nombre: "Odontología Preventiva",
+        creditos: 6,
+        color: "naranja",
+      },
+      {
+        codigo: "ODO306",
+        nombre: "Patología Bucal",
+        creditos: 7,
+        color: "naranja",
+      },
+      {
+        codigo: "ODO307",
+        nombre: "Propedéutica y Semiología I",
+        creditos: 7,
+        color: "naranja",
+      },
+      {
+        codigo: "ODO308",
+        nombre: "Seguridad Ocupacional en la Práctica Odontológica",
+        creditos: 6,
+        color: "naranja",
+      },
+      {
+        codigo: "ODO309",
+        nombre: "Inmunología Estomatológica",
+        creditos: 4,
+        color: "naranja",
+      },
+      {
+        codigo: "ODO310",
+        nombre: "Técnicas Quirúrgicas Odontológicas",
+        creditos: 7,
+        color: "naranja",
+      },
+      {
+        codigo: "ODO311",
+        nombre: "Fotografía Clínica",
+        creditos: 4,
         color: "naranja",
       },
     ],
   },
-  // Puedes agregar más semestres según necesites
+  {
+    numero: 4,
+    materias: [
+      {
+        codigo: "ODO401",
+        nombre: "Comunicación y Tecnologías de la Información",
+        creditos: 3,
+        color: "rojo",
+      },
+      {
+        codigo: "ODO402",
+        nombre: "Anestesiología Bucal",
+        creditos: 8,
+        color: "rojo",
+      },
+      {
+        codigo: "ODO403",
+        nombre: "Endodoncia I",
+        creditos: 7,
+        color: "rojo",
+      },
+      {
+        codigo: "ODO404",
+        nombre: "Exodoncia I",
+        creditos: 5,
+        color: "rojo",
+      },
+      {
+        codigo: "ODO405",
+        nombre: "Oclusión",
+        creditos: 6,
+        color: "rojo",
+      },
+      {
+        codigo: "ODO406",
+        nombre: "Periodoncia I",
+        creditos: 5,
+        color: "rojo",
+      },
+      {
+        codigo: "ODO407",
+        nombre: "Prácticas Clínicas Propedéuticas I",
+        creditos: 3,
+        color: "rojo",
+      },
+      {
+        codigo: "ODO408",
+        nombre: "Propedéutica y Semiología II",
+        creditos: 6,
+        color: "rojo",
+      },
+      {
+        codigo: "ODO409",
+        nombre: "Técnica de Operatoria Dental I",
+        creditos: 5,
+        color: "rojo",
+      },
+      {
+        codigo: "ODO410",
+        nombre: "Medicina Interna en Odontología",
+        creditos: 3,
+        color: "rojo",
+      },
+    ],
+  },
+  {
+    numero: 5,
+    materias: [
+      {
+        codigo: "ODO501",
+        nombre: "Metodología de la Investigación",
+        creditos: 7,
+        color: "morado",
+      },
+      {
+        codigo: "ODO502",
+        nombre: "Clínica Operatoria Dental I",
+        creditos: 7,
+        color: "morado",
+      },
+      {
+        codigo: "ODO503",
+        nombre: "Endodoncia II",
+        creditos: 7,
+        color: "morado",
+      },
+      {
+        codigo: "ODO504",
+        nombre: "Exodoncia II",
+        creditos: 7,
+        color: "morado",
+      },
+      {
+        codigo: "ODO505",
+        nombre: "Periodoncia II",
+        creditos: 7,
+        color: "morado",
+      },
+      {
+        codigo: "ODO506",
+        nombre: "Prácticas Clínicas Propedéuticas II",
+        creditos: 3,
+        color: "morado",
+      },
+      {
+        codigo: "ODO507",
+        nombre: "Técnica de Operatoria Dental II",
+        creditos: 5,
+        color: "morado",
+      },
+      {
+        codigo: "ODO508",
+        nombre: "Urgencias Médico-Quirúrgicas en Odontología",
+        creditos: 5,
+        color: "morado",
+      },
+      {
+        codigo: "ODO509",
+        nombre: "Epidemiología de la Salud Bucal",
+        creditos: 6,
+        color: "morado",
+      },
+    ],
+  },
+  {
+    numero: 6,
+    materias: [
+      {
+        codigo: "ODO601",
+        nombre: "Clínica de Operatoria Dental II",
+        creditos: 7,
+        color: "azul",
+      },
+      {
+        codigo: "ODO602",
+        nombre: "Endodoncia III",
+        creditos: 7,
+        color: "azul",
+      },
+      {
+        codigo: "ODO603",
+        nombre: "Exodoncia III",
+        creditos: 7,
+        color: "azul",
+      },
+      {
+        codigo: "ODO604",
+        nombre: "Odontología Sanitaria",
+        creditos: 5,
+        color: "azul",
+      },
+      {
+        codigo: "ODO605",
+        nombre: "Periodoncia III",
+        creditos: 7,
+        color: "azul",
+      },
+      {
+        codigo: "ODO606",
+        nombre: "Prácticas Clínicas Propedéuticas III",
+        creditos: 3,
+        color: "azul",
+      },
+      {
+        codigo: "ODO607",
+        nombre: "Prostodoncia Parcial Fija I",
+        creditos: 5,
+        color: "azul",
+      },
+      {
+        codigo: "ODO608",
+        nombre: "Prostodoncia Total I",
+        creditos: 8,
+        color: "azul",
+      },
+      {
+        codigo: "ODO609",
+        nombre: "Estadística",
+        creditos: 4,
+        color: "azul",
+      },
+    ],
+  },
+  {
+    numero: 7,
+    materias: [
+      {
+        codigo: "ODO701",
+        nombre: "Sociedad y Salud",
+        creditos: 4,
+        color: "rosa",
+      },
+      {
+        codigo: "ODO702",
+        nombre: "Cirugía Bucal I",
+        creditos: 5,
+        color: "rosa",
+      },
+      {
+        codigo: "ODO703",
+        nombre: "Odontología Comunitaria",
+        creditos: 3,
+        color: "rosa",
+      },
+      {
+        codigo: "ODO704",
+        nombre: "Odontopediatría I",
+        creditos: 7,
+        color: "rosa",
+      },
+      {
+        codigo: "ODO705",
+        nombre: "Prácticas Clínicas Propedéuticas IV",
+        creditos: 3,
+        color: "rosa",
+      },
+      {
+        codigo: "ODO706",
+        nombre: "Prostodoncia Parcial Fija II",
+        creditos: 5,
+        color: "rosa",
+      },
+      {
+        codigo: "ODO707",
+        nombre: "Prostodoncia Parcial Removible I",
+        creditos: 5,
+        color: "rosa",
+      },
+      {
+        codigo: "ODO708",
+        nombre: "Prostodoncia Total II",
+        creditos: 3,
+        color: "rosa",
+      },
+      {
+        codigo: "ODO709",
+        nombre: "Desarrollo del Protocolo I",
+        creditos: 4,
+        color: "rosa",
+      },
+      {
+        codigo: "ODO710",
+        nombre: "Disfunción de la Articulación Temporomandibular",
+        creditos: 3,
+        color: "rosa",
+      },
+    ],
+  },
+  {
+    numero: 8,
+    materias: [
+      {
+        codigo: "ODO801",
+        nombre: "Cirugía Bucal II",
+        creditos: 7,
+        color: "gris",
+      },
+      {
+        codigo: "ODO802",
+        nombre: "Diseño y Administración del Consultorio Dental",
+        creditos: 3,
+        color: "gris",
+      },
+      {
+        codigo: "ODO803",
+        nombre: "Odontopediatría II",
+        creditos: 7,
+        color: "gris",
+      },
+      {
+        codigo: "ODO804",
+        nombre: "Ortodoncia I",
+        creditos: 6,
+        color: "gris",
+      },
+      {
+        codigo: "ODO805",
+        nombre: "Prostodoncia Parcial Fija III",
+        creditos: 5,
+        color: "gris",
+      },
+      {
+        codigo: "ODO806",
+        nombre: "Prostodoncia Parcial Removible II",
+        creditos: 5,
+        color: "gris",
+      },
+      {
+        codigo: "ODO807",
+        nombre: "Desarrollo del Protocolo II",
+        creditos: 4,
+        color: "gris",
+      },
+      {
+        codigo: "ODO808",
+        nombre: "Redacción de Documentos Científicos",
+        creditos: 3,
+        color: "gris",
+      },
+      {
+        codigo: "ODO809",
+        nombre: "Genética Craneofacial",
+        creditos: 4,
+        color: "gris",
+      },
+      {
+        codigo: "ODO810",
+        nombre: "Seminario de Casos Clínicos",
+        creditos: 4,
+        color: "gris",
+      },
+    ],
+  },
+  {
+    numero: 9,
+    materias: [
+      {
+        codigo: "ODO901",
+        nombre: "Mantenimiento y Conservación de la Prótesis Bucodental",
+        creditos: 2,
+        color: "negro",
+      },
+      {
+        codigo: "ODO902",
+        nombre: "Odontogeriatría",
+        creditos: 7,
+        color: "negro",
+      },
+      {
+        codigo: "ODO903",
+        nombre: "Ortodoncia II",
+        creditos: 7,
+        color: "negro",
+      },
+      {
+        codigo: "ODO904",
+        nombre: "Prácticas Profesionales en Clínica Integral Adultos",
+        creditos: 13,
+        color: "negro",
+      },
+      {
+        codigo: "ODO905",
+        nombre: "Prácticas Profesionales en Clínica Integral Niños",
+        creditos: 8,
+        color: "negro",
+      },
+      {
+        codigo: "ODO906",
+        nombre: "Seminario de Investigación Odontológica",
+        creditos: 4,
+        color: "negro",
+      },
+      {
+        codigo: "ODO907",
+        nombre: "Cirugía Maxilofacial",
+        creditos: 4,
+        color: "negro",
+      },
+      {
+        codigo: "ODO908",
+        nombre: "Actualidades en Salud",
+        creditos: 4,
+        color: "negro",
+      },
+    ],
+  },
 ];
 
 const planteles = [
-  {
-    id: "1",
-    nombre: "Centro",
-    direccion: "Av. República No.10, Col. San Juan de Dios",
-    ciudad: "Guadalajara ZMG",
-    url: "/plantel-centro",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/Centro.jpg",
-    lat: 20.67744801539995,
-    lon: -103.34031672627513,
-  },
-  {
-    id: "2",
-    nombre: "Centro Médico",
-    direccion: "José María Lozano #1077, Col. Belisario Domínguez",
-    ciudad: "Guadalajara ZMG",
-    url: "/plantel-centro-medico",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/CentroMedico.jpg",
-    lat: 20.684590788642307,
-    lon: -103.3256397932448,
-  },
-  {
-    id: "3",
-    nombre: "Milenio",
-    direccion: "Av. López Mateos Sur #4154, Col. La Giralda",
-    ciudad: "Guadalajara ZMG",
-    url: "/plantel-milenio",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/Milenio.jpg",
-    lat: 20.64540739939039,
-    lon: -103.40630313415286,
-  },
-  {
-    id: "4",
-    nombre: "Puerto Vallarta - Plaza Caracol",
-    direccion: "Blvd. Fco. Medina Ascencio #2180, Col. Díaz Ordaz",
-    ciudad: "Puerto Vallarta",
-    url: "/plantel-plaza-caracol-puerto-vallarta",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/PuertoVallarta.png",
-    lat: 20.639287162026815,
-    lon: -105.23323589513319,
-  },
-  {
-    id: "5",
-    nombre: "Tlajomulco",
-    direccion: "Av. López Mateos #10100, Col. Los Gavilanes Poniente",
-    ciudad: "Guadalajara ZMG",
-    url: "/plantel-tlajomulco",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/Tlajomulco.png",
-    lat: 20.576464164603113,
-    lon: -103.45243680650722,
-  },
-  {
-    id: "6",
-    nombre: "Tesistán",
-    direccion: "Av. Juan Gil Preciado #3897, Col. Hogares de Nuevo México",
-    ciudad: "Guadalajara ZMG",
-    url: "/plantel-tesistan",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/Tesistan.png",
-    lat: 20.806203,
-    lon: -102.763903,
-  },
   {
     id: "7",
     nombre: "Tepatitlán",
@@ -236,17 +637,7 @@ const planteles = [
     lat: 20.8062946507024,
     lon: -102.76382902869392,
   },
-  {
-    id: "8",
-    nombre: "Tlaquepaque",
-    direccion:
-      "Blvd. Marcelino García Barragán #2056, Col. Bosques del Boulevard",
-    ciudad: "Guadalajara ZMG",
-    url: "/plantel-tlaquepaque",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/Tlaquepaque.jpg",
-    lat: 20.645650028567157,
-    lon: -103.32094530771215,
-  },
+
   {
     id: "9",
     nombre: "Tonalá",
@@ -276,6 +667,28 @@ const planteles = [
     imagen: "/src/assets/Imagenes/CardsPlanteles/Zapopan.png",
     lat: 20.720900646775917,
     lon: -103.38975281813357,
+  },
+  {
+    id: "16",
+    nombre: "Las juntas",
+    codigo: "Campus",
+    direccion: "Carretera a Tepic No. 5657 Col. las Juntas C.P 48291",
+    ciudad: "Puerto Vallarta",
+    url: "/planteles/las-juntas",
+    imagen: "/src/assets/Imagenes/CardsPlanteles/Lasjuntas.jpg",
+    lat: "20.696969737332573",
+    lon: "-105.23743730076278",
+  },
+  {
+    id: "14",
+    nombre: "Torre UNE Milenio",
+    codigo: "TORRE MILENIO",
+    direccion: "Av. López Mateos Sur #4175 Col. La Giralda Zapopan, Jalisco",
+    ciudad: "Guadalajara ZMG",
+    url: "/campus/Torre-milenio",
+    imagen: "/src/assets/Imagenes/CardsPlanteles/Torre-milenio.png",
+    lat: "20.645336",
+    lon: "-103.405938",
   },
 ];
 
@@ -343,7 +756,8 @@ const ciudades = [
             class="flex flex-col sm:flex-row gap-4 w-full justify-center text-white"
           >
             <!-- Agenda una Visita -->
-            <a href="/contacto/solicitarvisita"
+            <a
+              href="/contacto/solicitarvisita"
               class="hover:border-b hover:border-b-cyan-50 font-bold py-6 px-6 text-base transition-colors duration-300 shadow-lg flex flex-col items-center justify-center gap-2 whitespace-nowrap"
             >
               AGENDA UNA VISITA
@@ -351,7 +765,8 @@ const ciudades = [
             </a>
 
             <!-- Iniciar Inscripción -->
-            <a href="/contacto/formulario-inscripcion"
+            <a
+              href="/contacto/formulario-inscripcion"
               class="hover:border-b hover:border-b-cyan-50 font-bold py-3 px-6 text-base transition-colors duration-300 shadow-lg flex flex-col items-center justify-center gap-2 whitespace-nowrap"
             >
               INICIAR INSCRIPCIÓN
@@ -359,7 +774,8 @@ const ciudades = [
             </a>
 
             <!-- Contactar -->
-             <a href="/contacto/solicitarinformacion"
+            <a
+              href="/contacto/solicitarinformacion"
               class="hover:border-b hover:border-b-cyan-50 font-bold py-3 px-6 text-base transition-colors duration-300 shadow-lg flex flex-col items-center justify-center gap-2 whitespace-nowrap"
             >
               CONTACTAR
@@ -385,16 +801,14 @@ const ciudades = [
       ]}
     />
 
-     <PlanEstudios titulo="Propuesta Educativa" semestres={semestresDatos} />
+    <PlanEstudios titulo="Propuesta Educativa" semestres={semestresDatos} />
 
-     <Planteles
+    <Planteles
       titulo="Encuentra tu campus más cercano"
       planteles={planteles}
       ciudades={ciudades}
       mostrarMasCercano={true}
     />
-
-    
 
     <Requisitos nivel="Licenciatura" requisitos={requisitosInfo} />
 
