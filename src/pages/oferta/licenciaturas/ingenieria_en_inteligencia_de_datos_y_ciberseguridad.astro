@@ -1,15 +1,11 @@
 ---
 import Layout from "@/layouts/Layout.astro";
-import Hero from "@/assets/Imagenes/Heros/Cirujano_dentista.jpg";
-import Hero_mobile from "@/assets/Imagenes/Heros/Cirujano_dentista_mobile.jpg";
+import Hero from "@/assets/Imagenes/Heros/Carreras/IngDatos.jpg";
+import Hero_mobile from "@/assets/Imagenes/Heros/Carreras/IngDatos_mobile.jpg";
 import ImagenCard from "@/assets/Imagenes/CardsNiveles/Nivel.png";
 import LogoCard from "@/assets/Logos/Licenciatura.png";
 import InformativeCard from "@components/sections/detallesOferta/card.astro";
-import Carreras from "@components/sections/Licenciaturas/Carreras.astro";
-import Estadisticas from "@components/sections/Licenciaturas/Estadisticas.astro";
-
 import Requisitos from "@/components/sections/detallesOferta/requisitos.astro";
-
 import FAQComponent from "@/components/sections/detallesOferta/preguntas.astro";
 import CTAinscripcion from "@/components/sections/shared/ctaInscripcion.astro";
 import { Calendar, UserPlus, Phone } from "@lucide/astro";
@@ -74,32 +70,50 @@ const faqs = [
   },
 ];
 
-const semestresDatos = [
+const semestresDatos  = [
   {
     numero: 1,
     materias: [
       {
-        codigo: "ED1021",
-        nombre: "Introducción a la Educación",
-        creditos: 30,
+        codigo: "LIIDC101",
+        nombre: "Taller de Comunicación",
+        creditos: 3,
         color: "verde",
       },
       {
-        codigo: "Filosofía y Ética en Educación",
-        nombre: "Filosofía y Ética en Educación",
-        creditos: 30,
+        codigo: "LIIDC102",
+        nombre: "Cálculo Diferencial",
+        creditos: 3,
         color: "verde",
       },
       {
-        codigo: "ED1024",
-        nombre: "Desarrollo Infantil y adolescente",
-        creditos: 30,
+        codigo: "LIIDC103",
+        nombre: "Álgebra",
+        creditos: 5,
         color: "verde",
       },
       {
-        codigo: "ED1027",
-        nombre: "Habilidades Básicas de Investigación",
-        creditos: 30,
+        codigo: "LIIDC104",
+        nombre: "Introducción a la Ciberseguridad",
+        creditos: 5,
+        color: "verde",
+      },
+      {
+        codigo: "LIIDC105",
+        nombre: "Introducción a la Programación",
+        creditos: 6,
+        color: "verde",
+      },
+      {
+        codigo: "LIIDC106",
+        nombre: "Introducción a la Ingeniería de Datos",
+        creditos: 6,
+        color: "verde",
+      },
+      {
+        codigo: "LIIDC107",
+        nombre: "Antropología Filosófica de la Ciencia",
+        creditos: 5,
         color: "verde",
       },
     ],
@@ -108,27 +122,45 @@ const semestresDatos = [
     numero: 2,
     materias: [
       {
-        codigo: "FH1203",
-        nombre: "Pensamiento lógico y tecnológico",
-        creditos: 30,
+        codigo: "LIIDC201",
+        nombre: "Herramientas Digitales",
+        creditos: 3,
         color: "amarillo",
       },
       {
-        codigo: "ED2016",
-        nombre: "Desarrollo de la Psicomotricidad",
-        creditos: 30,
+        codigo: "LIIDC202",
+        nombre: "Cálculo Integral",
+        creditos: 3,
         color: "amarillo",
       },
       {
-        codigo: "HJ2026",
-        nombre: "Ética social cristiana",
-        creditos: 30,
+        codigo: "LIIDC203",
+        nombre: "Álgebra Lineal",
+        creditos: 5,
         color: "amarillo",
       },
       {
-        codigo: "ED1029",
-        nombre: "Historia de la Pedagogía moderna",
-        creditos: 30,
+        codigo: "LIIDC204",
+        nombre: "Ciberseguridad",
+        creditos: 5,
+        color: "amarillo",
+      },
+      {
+        codigo: "LIIDC205",
+        nombre: "Algoritmos y Programación",
+        creditos: 5,
+        color: "amarillo",
+      },
+      {
+        codigo: "LIIDC206",
+        nombre: "Internet de las Cosas",
+        creditos: 6,
+        color: "amarillo",
+      },
+      {
+        codigo: "LIIDC207",
+        nombre: "Fundamentos de Redes",
+        creditos: 5,
         color: "amarillo",
       },
     ],
@@ -137,34 +169,320 @@ const semestresDatos = [
     numero: 3,
     materias: [
       {
-        codigo: "PS1201",
-        nombre: "Fundamentos de Psicología y Bienestar",
-        creditos: 30,
+        codigo: "LIIDC301",
+        nombre: "Metodología de la Investigación",
+        creditos: 3,
         color: "naranja",
       },
       {
-        codigo: "Gestión educativa institucional",
-        nombre: "Gestión educativa institucional",
-        creditos: 30,
+        codigo: "LIIDC302",
+        nombre: "Probabilidad y Estadística",
+        creditos: 3,
         color: "naranja",
       },
       {
-        codigo: "ED2012",
-        nombre: "Desarrollo Socioemocional",
-        creditos: 30,
+        codigo: "LIIDC303",
+        nombre: "Química General",
+        creditos: 5,
         color: "naranja",
       },
       {
-        codigo: "ED3027",
-        nombre: "Administración educativa",
-        creditos: 30,
+        codigo: "LIIDC304",
+        nombre: "Derechos Humanos",
+        creditos: 5,
+        color: "naranja",
+      },
+      {
+        codigo: "LIIDC305",
+        nombre: "Programación Orientada a Objetos",
+        creditos: 6,
+        color: "naranja",
+      },
+      {
+        codigo: "LIIDC306",
+        nombre: "Introducción a las Bases de Datos",
+        creditos: 6,
+        color: "naranja",
+      },
+      {
+        codigo: "LIIDC307",
+        nombre: "Administración de Redes",
+        creditos: 5,
         color: "naranja",
       },
     ],
   },
-  // Puedes agregar más semestres según necesites
+  {
+    numero: 4,
+    materias: [
+      {
+        codigo: "LIIDC401",
+        nombre: "Desarrollo del Pensamiento Crítico",
+        creditos: 3,
+        color: "rojo",
+      },
+      {
+        codigo: "LIIDC402",
+        nombre: "Ecuaciones Diferenciales",
+        creditos: 3,
+        color: "rojo",
+      },
+      {
+        codigo: "LIIDC403",
+        nombre: "Física General",
+        creditos: 5,
+        color: "rojo",
+      },
+      {
+        codigo: "LIIDC404",
+        nombre: "Organización y Arquitectura de Computadoras",
+        creditos: 5,
+        color: "rojo",
+      },
+      {
+        codigo: "LIIDC405",
+        nombre: "Sistemas Operativos",
+        creditos: 5,
+        color: "rojo",
+      },
+      {
+        codigo: "LIIDC406",
+        nombre: "Diseño de Estructuras de Datos",
+        creditos: 6,
+        color: "rojo",
+      },
+      {
+        codigo: "LIIDC407",
+        nombre: "Interconexión de Redes",
+        creditos: 5,
+        color: "rojo",
+      },
+    ],
+  },
+  {
+    numero: 5,
+    materias: [
+      {
+        codigo: "LIIDC501",
+        nombre: "Investigación Aplicada",
+        creditos: 3,
+        color: "morado",
+      },
+      {
+        codigo: "LIIDC502",
+        nombre: "Identidad Digital",
+        creditos: 3,
+        color: "morado",
+      },
+      {
+        codigo: "LIIDC503",
+        nombre: "Inclusión Digital",
+        creditos: 5,
+        color: "morado",
+      },
+      {
+        codigo: "LIIDC504",
+        nombre: "Computo en la Nube",
+        creditos: 5,
+        color: "morado",
+      },
+      {
+        codigo: "LIIDC505",
+        nombre: "Modelado y Análisis de Datos",
+        creditos: 5,
+        color: "morado",
+      },
+      {
+        codigo: "LIIDC506",
+        nombre: "Desarrollo de Aplicaciones y Servicios Web",
+        creditos: 5,
+        color: "morado",
+      },
+      {
+        codigo: "LIIDC507",
+        nombre: "Redes Inalámbricas",
+        creditos: 5,
+        color: "morado",
+      },
+    ],
+  },
+  {
+    numero: 6,
+    materias: [
+      {
+        codigo: "LIIDC601",
+        nombre: "Ética Profesional",
+        creditos: 3,
+        color: "azul",
+      },
+      {
+        codigo: "LIIDC602",
+        nombre: "Delitos Ciberneticos",
+        creditos: 3,
+        color: "azul",
+      },
+      {
+        codigo: "LIIDC603",
+        nombre: "Criptografía",
+        creditos: 5,
+        color: "azul",
+      },
+      {
+        codigo: "LIIDC604",
+        nombre: "Minería de Datos",
+        creditos: 5,
+        color: "azul",
+      },
+      {
+        codigo: "LIIDC605",
+        nombre: "Manejo de Datos de Ciberseguridad",
+        creditos: 5,
+        color: "azul",
+      },
+      {
+        codigo: "LIIDC606",
+        nombre: "Administración de Sistemas",
+        creditos: 5,
+        color: "azul",
+      },
+      {
+        codigo: "LIIDC607",
+        nombre: "Servicios Seguros de Internet",
+        creditos: 6,
+        color: "azul",
+      },
+    ],
+  },
+  {
+    numero: 7,
+    materias: [
+      {
+        codigo: "LIIDC701",
+        nombre: "Gestión de Proyectos",
+        creditos: 3,
+        color: "cian",
+      },
+      {
+        codigo: "LIIDC702",
+        nombre: "Análisis y Prevención de Ciberamenazas",
+        creditos: 3,
+        color: "cian",
+      },
+      {
+        codigo: "LIIDC703",
+        nombre: "Ciberinteligencia",
+        creditos: 5,
+        color: "cian",
+      },
+      {
+        codigo: "LIIDC704",
+        nombre: "Desarrollo de Software Seguro",
+        creditos: 5,
+        color: "cian",
+      },
+      {
+        codigo: "LIIDC705",
+        nombre: "Telemática",
+        creditos: 5,
+        color: "cian",
+      },
+      {
+        codigo: "LIIDC706",
+        nombre: "Inteligencia Artificial",
+        creditos: 5,
+        color: "cian",
+      },
+      {
+        codigo: "LIIDC707",
+        nombre: "Solución de Problemas en Redes de Computadoras",
+        creditos: 5,
+        color: "cian",
+      },
+    ],
+  },
+  {
+    numero: 8,
+    materias: [
+      {
+        codigo: "LIIDC801",
+        nombre: "Habilidades de Liderazgo",
+        creditos: 3,
+        color: "rosa",
+      },
+      {
+        codigo: "LIIDC802",
+        nombre: "Gestión de Seguridad Informática",
+        creditos: 3,
+        color: "rosa",
+      },
+      {
+        codigo: "LIIDC803",
+        nombre: "Hackeo Ético",
+        creditos: 5,
+        color: "rosa",
+      },
+      {
+        codigo: "LIIDC804",
+        nombre: "Informática Forense",
+        creditos: 5,
+        color: "rosa",
+      },
+      {
+        codigo: "LIIDC805",
+        nombre: "Proyecto de Ingeniería de Datos y Ciberseguridad I",
+        creditos: 5,
+        color: "rosa",
+      },
+      {
+        codigo: "LIIDC806",
+        nombre: "Gestión de Bases de Datos",
+        creditos: 6,
+        color: "rosa",
+      },
+      {
+        codigo: "LIIDC807",
+        nombre: "Análisis de Redes Sociales",
+        creditos: 5,
+        color: "rosa",
+      },
+    ],
+  },
+  {
+    numero: 9,
+    materias: [
+      {
+        codigo: "LIIDC901",
+        nombre: "Taller de Titulación",
+        creditos: 6,
+        color: "gris",
+      },
+      {
+        codigo: "LIIDC902",
+        nombre: "Prácticas Profesionales en Ciberseguridad",
+        creditos: 11,
+        color: "gris",
+      },
+      {
+        codigo: "LIIDC903",
+        nombre: "Auditoria Informática",
+        creditos: 5,
+        color: "gris",
+      },
+      {
+        codigo: "LIIDC904",
+        nombre: "Tendencias en Ciencia de Datos",
+        creditos: 3,
+        color: "gris",
+      },
+      {
+        codigo: "LIIDC905",
+        nombre: "Proyecto de Ingeniería de Datos y Ciberseguridad II",
+        creditos: 5,
+        color: "gris",
+      },
+    ],
+  },
 ];
-
 const planteles = [
   {
     id: "1",
@@ -176,16 +494,7 @@ const planteles = [
     lat: 20.67744801539995,
     lon: -103.34031672627513,
   },
-  {
-    id: "2",
-    nombre: "Centro Médico",
-    direccion: "José María Lozano #1077, Col. Belisario Domínguez",
-    ciudad: "Guadalajara ZMG",
-    url: "/plantel-centro-medico",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/CentroMedico.jpg",
-    lat: 20.684590788642307,
-    lon: -103.3256397932448,
-  },
+ 
   {
     id: "3",
     nombre: "Milenio",
@@ -196,16 +505,7 @@ const planteles = [
     lat: 20.64540739939039,
     lon: -103.40630313415286,
   },
-  {
-    id: "4",
-    nombre: "Puerto Vallarta - Plaza Caracol",
-    direccion: "Blvd. Fco. Medina Ascencio #2180, Col. Díaz Ordaz",
-    ciudad: "Puerto Vallarta",
-    url: "/plantel-plaza-caracol-puerto-vallarta",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/PuertoVallarta.png",
-    lat: 20.639287162026815,
-    lon: -105.23323589513319,
-  },
+  
   {
     id: "5",
     nombre: "Tlajomulco",
@@ -216,57 +516,7 @@ const planteles = [
     lat: 20.576464164603113,
     lon: -103.45243680650722,
   },
-  {
-    id: "6",
-    nombre: "Tesistán",
-    direccion: "Av. Juan Gil Preciado #3897, Col. Hogares de Nuevo México",
-    ciudad: "Guadalajara ZMG",
-    url: "/plantel-tesistan",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/Tesistan.png",
-    lat: 20.806203,
-    lon: -102.763903,
-  },
-  {
-    id: "7",
-    nombre: "Tepatitlán",
-    direccion: "Calle Dr. Ricardo Alcalá #505, Av. Matamoros, Centro",
-    ciudad: "Tepatitlán de Morelos",
-    url: "/plantel-tepatitlan",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/Tepatitlan.jpg",
-    lat: 20.8062946507024,
-    lon: -102.76382902869392,
-  },
-  {
-    id: "8",
-    nombre: "Tlaquepaque",
-    direccion:
-      "Blvd. Marcelino García Barragán #2056, Col. Bosques del Boulevard",
-    ciudad: "Guadalajara ZMG",
-    url: "/plantel-tlaquepaque",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/Tlaquepaque.jpg",
-    lat: 20.645650028567157,
-    lon: -103.32094530771215,
-  },
-  {
-    id: "9",
-    nombre: "Tonalá",
-    direccion: "Av. Tonaltecas #333, Col. Agua Escondida",
-    ciudad: "Guadalajara ZMG",
-    url: "/plantel-tonala",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/Tonala.png",
-    lat: 20.63176692188573,
-    lon: -103.24439406488241,
-  },
-  {
-    id: "10",
-    nombre: "Chapultepec",
-    direccion: "Av. Vallarta #1458, Col. Americana",
-    ciudad: "Guadalajara ZMG",
-    url: "/plantel-vallarta",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/Chapultepec.png",
-    lat: 20.67471004174908,
-    lon: -103.36909119392195,
-  },
+ 
   {
     id: "11",
     nombre: "Zapopan",
@@ -276,6 +526,39 @@ const planteles = [
     imagen: "/src/assets/Imagenes/CardsPlanteles/Zapopan.png",
     lat: 20.720900646775917,
     lon: -103.38975281813357,
+  },
+  {
+    id: "11",
+    nombre: "Tepatitlán",
+    codigo: "00019",
+    direccion: "Av. Hidalgo #300, Centro, Tepatitlán de Morelos, Jalisco",
+    ciudad: "Tepatitlán",
+    url: "/campus/tepatitlan",
+    imagen: "/src/assets/Imagenes/CardsPlanteles/Tepatitlan.jpg",
+    lat: 20.8062946507024,
+    lon: -102.76382902869392,
+  },
+  {
+    id: "16",
+    nombre: "Campus Puerto Vallarta",
+    codigo: "Campus",
+    direccion: "Carretera a Tepic No. 5657 Col. las Juntas C.P 48291",
+    ciudad: "Puerto Vallarta",
+    url: "/campus/campus-puerto-vallarta",
+    imagen: "/src/assets/Imagenes/CardsPlanteles/Campus-Puerto-Vallarta.jpg",
+    lat: "20.69715126066295",
+    lon: ", -105.23759816941552",
+  },
+   {
+    id: "1",
+    nombre: "Avenida México",
+    codigo: "00008",
+    direccion: "Av. México #1255, Col. Agua Zarca, Puerto Vallarta, Jalisco",
+    ciudad: "Puerto Vallarta",
+    url: "/campus/puerto-vallarta",
+    imagen: "/src/assets/Imagenes/CardsPlanteles/PuertoVallarta.png",
+    lat: 20.669418,
+    lon: -105.226917,
   },
 ];
 
@@ -314,19 +597,15 @@ const ciudades = [
         <div class="text-center text-white max-w-4xl mx-auto">
           {/* Main Title */}
           <h1 class="text-4xl md:text-7xl font-bold tracking-wider mb-4">
-            Lic. en Cirujano Dentista
+           Ing. en Inteligencia de Datos y Ciberseguridad
           </h1>
-          <h2 class="text-2xl md:text-5xl font-bold tracking-wider mb-8">
-            Licenciaturas UNE
-          </h2>
+         
 
           {/* Description */}
           <p
             class="text-lg md:text-xl leading-relaxed mb-16 max-w-3xl mx-auto font-light"
           >
-            Transforma sonrisas y mejora la calidad de vida a través del estudio
-            y la práctica de la odontología, en una carrera donde la ciencia, la
-            salud y la vocación por el bienestar se unen.
+           Protege la información y toma decisiones con base en datos. Prepárate para el futuro digital.
           </p>
         </div>
       </div>
@@ -369,21 +648,21 @@ const ciudades = [
         </div>
       </div>
     </div>
+<InformativeCard
+  logoSrc={LogoCard.src}
+  studentImageSrc={ImagenCard.src}
+  title="Objetivo"
+  description="Formar profesionales con competencias en análisis de datos, inteligencia artificial y seguridad informática, capaces de proteger activos digitales, gestionar información estratégica y generar valor mediante el uso ético de la tecnología, fomentando la ciberseguridad y el desarrollo organizacional sostenible."
+  additionalText=""
+  features={[
+    { icon: "ShieldCheck", label: "Enfoque en ciberseguridad aplicada" },
+    { icon: "BookOpen", label: "Bases científicas sólidas" },
+    { icon: "School", label: "Validez oficial" },
+    { icon: "Clock", label: "Horarios accesibles" },
+    { icon: "BookmarkCheck", label: "Enfoque profesionalizante" },
+  ]}
+/>
 
-    <InformativeCard
-      logoSrc={LogoCard.src}
-      studentImageSrc={ImagenCard.src}
-      title="Objetivo"
-      description="La Licenciatura en Cirujano Dentista te forma como un profesionista altamente capacitado para prevenir, diagnosticar y tratar enfermedades bucales con un enfoque integral y humano."
-      additionalText="Con una sólida formación teórico-práctica y un alto compromiso ético y social, estarás preparado para promover la salud bucodental, brindar atención personalizada y colaborar con instituciones de salud para transformar positivamente la calidad de vida de las personas."
-      features={[
-        { icon: "CalendarDays", label: "Prácticas clínicas presenciales" },
-        { icon: "BookOpen", label: "Bases científicas sólidas" },
-        { icon: "School", label: "Validez oficial" },
-        { icon: "Clock", label: "Horarios accesibles" },
-        { icon: "BookmarkCheck", label: "Enfoque profesionalizante" },
-      ]}
-    />
 
      <PlanEstudios titulo="Propuesta Educativa" semestres={semestresDatos} />
 

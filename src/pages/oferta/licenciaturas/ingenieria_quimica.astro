@@ -1,13 +1,10 @@
 ---
 import Layout from "@/layouts/Layout.astro";
-import Hero from "@/assets/Imagenes/Heros/Cirujano_dentista.jpg";
-import Hero_mobile from "@/assets/Imagenes/Heros/Cirujano_dentista_mobile.jpg";
+import Hero from "@/assets/Imagenes/Heros/Carreras/IngQuimica.jpg";
+import Hero_mobile from "@/assets/Imagenes/Heros/Carreras/IngQuimica_mobile.jpg";
 import ImagenCard from "@/assets/Imagenes/CardsNiveles/Nivel.png";
 import LogoCard from "@/assets/Logos/Licenciatura.png";
 import InformativeCard from "@components/sections/detallesOferta/card.astro";
-import Carreras from "@components/sections/Licenciaturas/Carreras.astro";
-import Estadisticas from "@components/sections/Licenciaturas/Estadisticas.astro";
-
 import Requisitos from "@/components/sections/detallesOferta/requisitos.astro";
 
 import FAQComponent from "@/components/sections/detallesOferta/preguntas.astro";
@@ -25,7 +22,7 @@ const requisitosInfo = {
     "CURP (formato RENAPO)",
     "Identificación oficial con fotografía (INE) - dos copias",
     "Comprobante de domicilio reciente (no mayor a 3 meses) - una copia",
-    "Cinco fotografías tamaño infantil, blanco y negro, papel mate, de estudio"
+    "Cinco fotografías tamaño infantil, blanco y negro, papel mate, de estudio",
   ],
   pdfUrl: "/public/pdfs/licenciatura_req.pdf",
 };
@@ -79,27 +76,39 @@ const semestresDatos = [
     numero: 1,
     materias: [
       {
-        codigo: "ED1021",
-        nombre: "Introducción a la Educación",
-        creditos: 30,
+        codigo: "IQM101",
+        nombre: "Cálculo I",
+        creditos: 5,
         color: "verde",
       },
       {
-        codigo: "Filosofía y Ética en Educación",
-        nombre: "Filosofía y Ética en Educación",
-        creditos: 30,
+        codigo: "IQM102",
+        nombre: "Química General I",
+        creditos: 6,
         color: "verde",
       },
       {
-        codigo: "ED1024",
-        nombre: "Desarrollo Infantil y adolescente",
-        creditos: 30,
+        codigo: "IQM103",
+        nombre: "Introducción al Diseño",
+        creditos: 5,
         color: "verde",
       },
       {
-        codigo: "ED1027",
-        nombre: "Habilidades Básicas de Investigación",
-        creditos: 30,
+        codigo: "IQM104",
+        nombre: "Estadística",
+        creditos: 5,
+        color: "verde",
+      },
+      {
+        codigo: "IQM105",
+        nombre: "Comunicación Oral y Escrita",
+        creditos: 5,
+        color: "verde",
+      },
+      {
+        codigo: "IQM106",
+        nombre: "Álgebra Lineal",
+        creditos: 6,
         color: "verde",
       },
     ],
@@ -108,27 +117,39 @@ const semestresDatos = [
     numero: 2,
     materias: [
       {
-        codigo: "FH1203",
-        nombre: "Pensamiento lógico y tecnológico",
-        creditos: 30,
+        codigo: "IQM201",
+        nombre: "Cálculo II",
+        creditos: 5,
         color: "amarillo",
       },
       {
-        codigo: "ED2016",
-        nombre: "Desarrollo de la Psicomotricidad",
-        creditos: 30,
+        codigo: "IQM202",
+        nombre: "Química General II",
+        creditos: 6,
         color: "amarillo",
       },
       {
-        codigo: "HJ2026",
-        nombre: "Ética social cristiana",
-        creditos: 30,
+        codigo: "IQM203",
+        nombre: "Mecánica",
+        creditos: 6,
         color: "amarillo",
       },
       {
-        codigo: "ED1029",
-        nombre: "Historia de la Pedagogía moderna",
-        creditos: 30,
+        codigo: "IQM204",
+        nombre: "Programación",
+        creditos: 5,
+        color: "amarillo",
+      },
+      {
+        codigo: "IQM205",
+        nombre: "Estadística Avanzada",
+        creditos: 5,
+        color: "amarillo",
+      },
+      {
+        codigo: "IQM206",
+        nombre: "Bioquímica",
+        creditos: 6,
         color: "amarillo",
       },
     ],
@@ -137,75 +158,311 @@ const semestresDatos = [
     numero: 3,
     materias: [
       {
-        codigo: "PS1201",
-        nombre: "Fundamentos de Psicología y Bienestar",
-        creditos: 30,
+        codigo: "IQM301",
+        nombre: "Química Orgánica I",
+        creditos: 6,
         color: "naranja",
       },
       {
-        codigo: "Gestión educativa institucional",
-        nombre: "Gestión educativa institucional",
-        creditos: 30,
+        codigo: "IQM302",
+        nombre: "Cálculo Avanzado",
+        creditos: 5,
         color: "naranja",
       },
       {
-        codigo: "ED2012",
-        nombre: "Desarrollo Socioemocional",
-        creditos: 30,
+        codigo: "IQM303",
+        nombre: "Química Inorgánica",
+        creditos: 6,
         color: "naranja",
       },
       {
-        codigo: "ED3027",
-        nombre: "Administración educativa",
-        creditos: 30,
+        codigo: "IQM304",
+        nombre: "Ecuaciones Diferenciales",
+        creditos: 6,
+        color: "naranja",
+      },
+      {
+        codigo: "IQM305",
+        nombre: "Fisicoquímica I",
+        creditos: 5,
+        color: "naranja",
+      },
+      {
+        codigo: "IQM306",
+        nombre: "Electricidad y Magnetismo",
+        creditos: 5,
         color: "naranja",
       },
     ],
   },
-  // Puedes agregar más semestres según necesites
+  {
+    numero: 4,
+    materias: [
+      {
+        codigo: "IQM401",
+        nombre: "Química Orgánica II",
+        creditos: 6,
+        color: "rojo",
+      },
+      {
+        codigo: "IQM402",
+        nombre: "Balances de Materia y Energía",
+        creditos: 5,
+        color: "rojo",
+      },
+      {
+        codigo: "IQM403",
+        nombre: "Fisicoquímica II",
+        creditos: 5,
+        color: "rojo",
+      },
+      {
+        codigo: "IQM404",
+        nombre: "Introducción a los Fenómenos de Transporte",
+        creditos: 5,
+        color: "rojo",
+      },
+      {
+        codigo: "IQM405",
+        nombre: "Termodinámica",
+        creditos: 5,
+        color: "rojo",
+      },
+      {
+        codigo: "IQM406",
+        nombre: "Ingeniería Ambiental",
+        creditos: 5,
+        color: "rojo",
+      },
+      {
+        codigo: "IQM407",
+        nombre: "Matemáticas Aplicadas a la Ingeniería Química",
+        creditos: 5,
+        color: "rojo",
+      },
+    ],
+  },
+  {
+    numero: 5,
+    materias: [
+      {
+        codigo: "IQM501",
+        nombre: "Polímeros I",
+        creditos: 6,
+        color: "purpura",
+      },
+      {
+        codigo: "IQM502",
+        nombre: "Calidad en Ingeniería Química",
+        creditos: 5,
+        color: "purpura",
+      },
+      {
+        codigo: "IQM503",
+        nombre: "Química Analítica",
+        creditos: 6,
+        color: "purpura",
+      },
+      {
+        codigo: "IQM504",
+        nombre: "Mecánica de Fluidos",
+        creditos: 6,
+        color: "purpura",
+      },
+      {
+        codigo: "IQM505",
+        nombre: "Laboratorio de Fisicoquímica",
+        creditos: 5,
+        color: "purpura",
+      },
+      {
+        codigo: "IQM506",
+        nombre: "Métodos Numéricos",
+        creditos: 6,
+        color: "purpura",
+      },
+    ],
+  },
+  {
+    numero: 6,
+    materias: [
+      {
+        codigo: "IQM601",
+        nombre: "Transferencia de Energía",
+        creditos: 5,
+        color: "azul",
+      },
+      {
+        codigo: "IQM602",
+        nombre: "Transferencia de Momentum",
+        creditos: 5,
+        color: "azul",
+      },
+      {
+        codigo: "IQM603",
+        nombre: "Laboratorio de Ingeniería Química I",
+        creditos: 6,
+        color: "azul",
+      },
+      {
+        codigo: "IQM604",
+        nombre: "Manejo y Separación Mecánica de Materiales",
+        creditos: 6,
+        color: "azul",
+      },
+      {
+        codigo: "IQM605",
+        nombre: "Procesos en Ingeniería Química",
+        creditos: 5,
+        color: "azul",
+      },
+      {
+        codigo: "IQM606",
+        nombre: "Ética en la Industria",
+        creditos: 4,
+        color: "azul",
+      },
+    ],
+  },
+  {
+    numero: 7,
+    materias: [
+      {
+        codigo: "IQM701",
+        nombre: "Laboratorio de Ingeniería Química II",
+        creditos: 5,
+        color: "rosa",
+      },
+      {
+        codigo: "IQM702",
+        nombre: "Ingeniería Económica I",
+        creditos: 5,
+        color: "rosa",
+      },
+      {
+        codigo: "IQM703",
+        nombre: "Laboratorio de Análisis Instrumentales",
+        creditos: 5,
+        color: "rosa",
+      },
+      {
+        codigo: "IQM704",
+        nombre: "Ingeniería Bioquímica",
+        creditos: 5,
+        color: "rosa",
+      },
+      {
+        codigo: "IQM705",
+        nombre: "Transferencia de Masa",
+        creditos: 5,
+        color: "rosa",
+      },
+      {
+        codigo: "IQM706",
+        nombre: "Polímeros II",
+        creditos: 5,
+        color: "rosa",
+      },
+    ],
+  },
+  {
+    numero: 8,
+    materias: [
+      {
+        codigo: "IQM801",
+        nombre: "Ingeniería Económica II",
+        creditos: 5,
+        color: "gris",
+      },
+      {
+        codigo: "IQM802",
+        nombre: "Biotecnología",
+        creditos: 5,
+        color: "gris",
+      },
+      {
+        codigo: "IQM803",
+        nombre: "Fermentaciones",
+        creditos: 5,
+        color: "gris",
+      },
+      {
+        codigo: "IQM804",
+        nombre: "Proceso de Separación I",
+        creditos: 5,
+        color: "gris",
+      },
+      {
+        codigo: "IQM805",
+        nombre: "Control de Procesos",
+        creditos: 5,
+        color: "gris",
+      },
+      {
+        codigo: "IQM806",
+        nombre: "Seguridad Industrial",
+        creditos: 5,
+        color: "gris",
+      },
+      {
+        codigo: "IQM807",
+        nombre: "Seminario de Titulación I",
+        creditos: 6,
+        color: "gris",
+      },
+    ],
+  },
+  {
+    numero: 9,
+    materias: [
+      {
+        codigo: "IQM901",
+        nombre: "Proceso de Separación II",
+        creditos: 5,
+        color: "cian",
+      },
+      {
+        codigo: "IQM902",
+        nombre: "Prácticas de Procesos de Separación y Reactores",
+        creditos: 5,
+        color: "cian",
+      },
+      {
+        codigo: "IQM903",
+        nombre: "Diseño de Equipos",
+        creditos: 5,
+        color: "cian",
+      },
+      {
+        codigo: "IQM904",
+        nombre: "Reactores Químicos",
+        creditos: 5,
+        color: "cian",
+      },
+      {
+        codigo: "IQM905",
+        nombre: "Diseño de Procesos Químicos",
+        creditos: 5,
+        color: "cian",
+      },
+      {
+        codigo: "IQM906",
+        nombre: "Calidad en Ingeniería Química",
+        creditos: 5,
+        color: "cian",
+      },
+      {
+        codigo: "IQM907",
+        nombre: "Seminario de Titulación II",
+        creditos: 6,
+        color: "cian",
+      },
+    ],
+  },
 ];
 
 const planteles = [
-  {
-    id: "1",
-    nombre: "Centro",
-    direccion: "Av. República No.10, Col. San Juan de Dios",
-    ciudad: "Guadalajara ZMG",
-    url: "/plantel-centro",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/Centro.jpg",
-    lat: 20.67744801539995,
-    lon: -103.34031672627513,
-  },
-  {
-    id: "2",
-    nombre: "Centro Médico",
-    direccion: "José María Lozano #1077, Col. Belisario Domínguez",
-    ciudad: "Guadalajara ZMG",
-    url: "/plantel-centro-medico",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/CentroMedico.jpg",
-    lat: 20.684590788642307,
-    lon: -103.3256397932448,
-  },
-  {
-    id: "3",
-    nombre: "Milenio",
-    direccion: "Av. López Mateos Sur #4154, Col. La Giralda",
-    ciudad: "Guadalajara ZMG",
-    url: "/plantel-milenio",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/Milenio.jpg",
-    lat: 20.64540739939039,
-    lon: -103.40630313415286,
-  },
-  {
-    id: "4",
-    nombre: "Puerto Vallarta - Plaza Caracol",
-    direccion: "Blvd. Fco. Medina Ascencio #2180, Col. Díaz Ordaz",
-    ciudad: "Puerto Vallarta",
-    url: "/plantel-plaza-caracol-puerto-vallarta",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/PuertoVallarta.png",
-    lat: 20.639287162026815,
-    lon: -105.23323589513319,
-  },
+ 
   {
     id: "5",
     nombre: "Tlajomulco",
@@ -226,37 +483,7 @@ const planteles = [
     lat: 20.806203,
     lon: -102.763903,
   },
-  {
-    id: "7",
-    nombre: "Tepatitlán",
-    direccion: "Calle Dr. Ricardo Alcalá #505, Av. Matamoros, Centro",
-    ciudad: "Tepatitlán de Morelos",
-    url: "/plantel-tepatitlan",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/Tepatitlan.jpg",
-    lat: 20.8062946507024,
-    lon: -102.76382902869392,
-  },
-  {
-    id: "8",
-    nombre: "Tlaquepaque",
-    direccion:
-      "Blvd. Marcelino García Barragán #2056, Col. Bosques del Boulevard",
-    ciudad: "Guadalajara ZMG",
-    url: "/plantel-tlaquepaque",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/Tlaquepaque.jpg",
-    lat: 20.645650028567157,
-    lon: -103.32094530771215,
-  },
-  {
-    id: "9",
-    nombre: "Tonalá",
-    direccion: "Av. Tonaltecas #333, Col. Agua Escondida",
-    ciudad: "Guadalajara ZMG",
-    url: "/plantel-tonala",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/Tonala.png",
-    lat: 20.63176692188573,
-    lon: -103.24439406488241,
-  },
+  
   {
     id: "10",
     nombre: "Chapultepec",
@@ -267,16 +494,7 @@ const planteles = [
     lat: 20.67471004174908,
     lon: -103.36909119392195,
   },
-  {
-    id: "11",
-    nombre: "Zapopan",
-    direccion: "Plaza Caudillos",
-    ciudad: "Guadalajara ZMG",
-    url: "/plantel-zapopan",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/Zapopan.png",
-    lat: 20.720900646775917,
-    lon: -103.38975281813357,
-  },
+ 
 ];
 
 const ciudades = [
@@ -314,19 +532,15 @@ const ciudades = [
         <div class="text-center text-white max-w-4xl mx-auto">
           {/* Main Title */}
           <h1 class="text-4xl md:text-7xl font-bold tracking-wider mb-4">
-            Lic. en Cirujano Dentista
+            Ingeniería Química
           </h1>
-          <h2 class="text-2xl md:text-5xl font-bold tracking-wider mb-8">
-            Licenciaturas UNE
-          </h2>
 
           {/* Description */}
           <p
             class="text-lg md:text-xl leading-relaxed mb-16 max-w-3xl mx-auto font-light"
           >
-            Transforma sonrisas y mejora la calidad de vida a través del estudio
-            y la práctica de la odontología, en una carrera donde la ciencia, la
-            salud y la vocación por el bienestar se unen.
+            Transforma materias primas en soluciones útiles con responsabilidad
+            ambiental y técnica.
           </p>
         </div>
       </div>
@@ -343,7 +557,8 @@ const ciudades = [
             class="flex flex-col sm:flex-row gap-4 w-full justify-center text-white"
           >
             <!-- Agenda una Visita -->
-            <a href="/contacto/solicitarvisita"
+            <a
+              href="/contacto/solicitarvisita"
               class="hover:border-b hover:border-b-cyan-50 font-bold py-6 px-6 text-base transition-colors duration-300 shadow-lg flex flex-col items-center justify-center gap-2 whitespace-nowrap"
             >
               AGENDA UNA VISITA
@@ -351,7 +566,8 @@ const ciudades = [
             </a>
 
             <!-- Iniciar Inscripción -->
-            <a href="/contacto/formulario-inscripcion"
+            <a
+              href="/contacto/formulario-inscripcion"
               class="hover:border-b hover:border-b-cyan-50 font-bold py-3 px-6 text-base transition-colors duration-300 shadow-lg flex flex-col items-center justify-center gap-2 whitespace-nowrap"
             >
               INICIAR INSCRIPCIÓN
@@ -359,7 +575,8 @@ const ciudades = [
             </a>
 
             <!-- Contactar -->
-             <a href="/contacto/solicitarinformacion"
+            <a
+              href="/contacto/solicitarinformacion"
               class="hover:border-b hover:border-b-cyan-50 font-bold py-3 px-6 text-base transition-colors duration-300 shadow-lg flex flex-col items-center justify-center gap-2 whitespace-nowrap"
             >
               CONTACTAR
@@ -374,10 +591,13 @@ const ciudades = [
       logoSrc={LogoCard.src}
       studentImageSrc={ImagenCard.src}
       title="Objetivo"
-      description="La Licenciatura en Cirujano Dentista te forma como un profesionista altamente capacitado para prevenir, diagnosticar y tratar enfermedades bucales con un enfoque integral y humano."
-      additionalText="Con una sólida formación teórico-práctica y un alto compromiso ético y social, estarás preparado para promover la salud bucodental, brindar atención personalizada y colaborar con instituciones de salud para transformar positivamente la calidad de vida de las personas."
+      description="Formar profesionales con sólidos conocimientos en procesos fisicoquímicos, diseño de plantas y control de calidad, capaces de desarrollar soluciones sostenibles en los sectores químico, alimentario, farmacéutico y ambiental, promoviendo la innovación responsable y el impacto positivo en la sociedad."
+      additionalText=""
       features={[
-        { icon: "CalendarDays", label: "Prácticas clínicas presenciales" },
+        {
+          icon: "FlaskConical",
+          label: "Laboratorios especializados y de análisis",
+        },
         { icon: "BookOpen", label: "Bases científicas sólidas" },
         { icon: "School", label: "Validez oficial" },
         { icon: "Clock", label: "Horarios accesibles" },
@@ -385,16 +605,14 @@ const ciudades = [
       ]}
     />
 
-     <PlanEstudios titulo="Propuesta Educativa" semestres={semestresDatos} />
+    <PlanEstudios titulo="Propuesta Educativa" semestres={semestresDatos} />
 
-     <Planteles
+    <Planteles
       titulo="Encuentra tu campus más cercano"
       planteles={planteles}
       ciudades={ciudades}
       mostrarMasCercano={true}
     />
-
-    
 
     <Requisitos nivel="Licenciatura" requisitos={requisitosInfo} />
 

@@ -1,13 +1,10 @@
 ---
 import Layout from "@/layouts/Layout.astro";
-import Hero from "@/assets/Imagenes/Heros/Cirujano_dentista.jpg";
-import Hero_mobile from "@/assets/Imagenes/Heros/Cirujano_dentista_mobile.jpg";
+import Hero from "@/assets/Imagenes/Heros/Carreras/IngComunicaciones.jpg";
+import Hero_mobile from "@/assets/Imagenes/Heros/Carreras/IngComunicaciones_mobile.jpg";
 import ImagenCard from "@/assets/Imagenes/CardsNiveles/Nivel.png";
 import LogoCard from "@/assets/Logos/Licenciatura.png";
 import InformativeCard from "@components/sections/detallesOferta/card.astro";
-import Carreras from "@components/sections/Licenciaturas/Carreras.astro";
-import Estadisticas from "@components/sections/Licenciaturas/Estadisticas.astro";
-
 import Requisitos from "@/components/sections/detallesOferta/requisitos.astro";
 
 import FAQComponent from "@/components/sections/detallesOferta/preguntas.astro";
@@ -79,27 +76,39 @@ const semestresDatos = [
     numero: 1,
     materias: [
       {
-        codigo: "ED1021",
-        nombre: "Introducción a la Educación",
-        creditos: 30,
+        codigo: "ICE101",
+        nombre: "Precálculo",
+        creditos: 7,
         color: "verde",
       },
       {
-        codigo: "Filosofía y Ética en Educación",
-        nombre: "Filosofía y Ética en Educación",
-        creditos: 30,
+        codigo: "ICE102",
+        nombre: "Introducción a la Ingeniería Electrónica",
+        creditos: 4,
         color: "verde",
       },
       {
-        codigo: "ED1024",
-        nombre: "Desarrollo Infantil y adolescente",
-        creditos: 30,
+        codigo: "ICE103",
+        nombre: "Computación I",
+        creditos: 6,
         color: "verde",
       },
       {
-        codigo: "ED1027",
-        nombre: "Habilidades Básicas de Investigación",
-        creditos: 30,
+        codigo: "ICE104",
+        nombre: "Programación I",
+        creditos: 5,
+        color: "verde",
+      },
+      {
+        codigo: "ICE105",
+        nombre: "Desarrollo de Habilidades del Ingeniero",
+        creditos: 4,
+        color: "verde",
+      },
+      {
+        codigo: "ICE106",
+        nombre: "Álgebra Lineal",
+        creditos: 7,
         color: "verde",
       },
     ],
@@ -108,27 +117,39 @@ const semestresDatos = [
     numero: 2,
     materias: [
       {
-        codigo: "FH1203",
-        nombre: "Pensamiento lógico y tecnológico",
-        creditos: 30,
+        codigo: "ICE201",
+        nombre: "Cálculo Diferencial",
+        creditos: 7,
         color: "amarillo",
       },
       {
-        codigo: "ED2016",
-        nombre: "Desarrollo de la Psicomotricidad",
-        creditos: 30,
+        codigo: "ICE202",
+        nombre: "Computación II",
+        creditos: 6,
         color: "amarillo",
       },
       {
-        codigo: "HJ2026",
-        nombre: "Ética social cristiana",
-        creditos: 30,
+        codigo: "ICE203",
+        nombre: "Probabilidad y Estadística",
+        creditos: 7,
         color: "amarillo",
       },
       {
-        codigo: "ED1029",
-        nombre: "Historia de la Pedagogía moderna",
-        creditos: 30,
+        codigo: "ICE204",
+        nombre: "Programación II",
+        creditos: 5,
+        color: "amarillo",
+      },
+      {
+        codigo: "ICE205",
+        nombre: "Física",
+        creditos: 5,
+        color: "amarillo",
+      },
+      {
+        codigo: "ICE206",
+        nombre: "Filosofía de las Organizaciones",
+        creditos: 4,
         color: "amarillo",
       },
     ],
@@ -137,32 +158,289 @@ const semestresDatos = [
     numero: 3,
     materias: [
       {
-        codigo: "PS1201",
-        nombre: "Fundamentos de Psicología y Bienestar",
-        creditos: 30,
+        codigo: "ICE301",
+        nombre: "Cálculo Integral",
+        creditos: 7,
         color: "naranja",
       },
       {
-        codigo: "Gestión educativa institucional",
-        nombre: "Gestión educativa institucional",
-        creditos: 30,
+        codigo: "ICE302",
+        nombre: "Computación III",
+        creditos: 6,
         color: "naranja",
       },
       {
-        codigo: "ED2012",
-        nombre: "Desarrollo Socioemocional",
-        creditos: 30,
+        codigo: "ICE303",
+        nombre: "Programación III",
+        creditos: 5,
         color: "naranja",
       },
       {
-        codigo: "ED3027",
-        nombre: "Administración educativa",
-        creditos: 30,
+        codigo: "ICE304",
+        nombre: "Circuitos",
+        creditos: 5,
+        color: "naranja",
+      },
+      {
+        codigo: "ICE305",
+        nombre: "Electricidad y Magnetismo",
+        creditos: 6,
+        color: "naranja",
+      },
+      {
+        codigo: "ICE306",
+        nombre: "Sistemas de Mejoramiento Ambiental",
+        creditos: 5,
         color: "naranja",
       },
     ],
   },
-  // Puedes agregar más semestres según necesites
+  {
+    numero: 4,
+    materias: [
+      {
+        codigo: "ICE401",
+        nombre: "Ecuaciones Diferenciales",
+        creditos: 7,
+        color: "rojo",
+      },
+      {
+        codigo: "ICE402",
+        nombre: "Análisis de Circuitos",
+        creditos: 5,
+        color: "rojo",
+      },
+      {
+        codigo: "ICE403",
+        nombre: "Instrumentación Electrónica",
+        creditos: 5,
+        color: "rojo",
+      },
+      {
+        codigo: "ICE404",
+        nombre: "Teoría Electromagnética",
+        creditos: 7,
+        color: "rojo",
+      },
+      {
+        codigo: "ICE405",
+        nombre: "Circuitos Analógicos I",
+        creditos: 6,
+        color: "rojo",
+      },
+      {
+        codigo: "ICE406",
+        nombre: "Tecnología para las Comunicaciones",
+        creditos: 5,
+        color: "rojo",
+      },
+    ],
+  },
+  {
+    numero: 5,
+    materias: [
+      {
+        codigo: "ICE501",
+        nombre: "Circuitos Digitales I",
+        creditos: 6,
+        color: "purpura",
+      },
+      {
+        codigo: "ICE502",
+        nombre: "Métodos Numéricos",
+        creditos: 7,
+        color: "purpura",
+      },
+      {
+        codigo: "ICE503",
+        nombre: "Análisis de Señales de Comunicación I",
+        creditos: 5,
+        color: "purpura",
+      },
+      {
+        codigo: "ICE504",
+        nombre: "Microcontroladores y Microprocesadores",
+        creditos: 6,
+        color: "purpura",
+      },
+      {
+        codigo: "ICE505",
+        nombre: "Programación de Sistemas Embebidos I",
+        creditos: 5,
+        color: "purpura",
+      },
+      {
+        codigo: "ICE506",
+        nombre: "Circuitos Analógicos II",
+        creditos: 6,
+        color: "purpura",
+      },
+    ],
+  },
+  {
+    numero: 6,
+    materias: [
+      {
+        codigo: "ICE601",
+        nombre: "Electrónica de Potencia",
+        creditos: 6,
+        color: "azul",
+      },
+      {
+        codigo: "ICE602",
+        nombre: "Programación de Sistema Embebidos II",
+        creditos: 5,
+        color: "azul",
+      },
+      {
+        codigo: "ICE603",
+        nombre: "Habilidades Directivas",
+        creditos: 5,
+        color: "azul",
+      },
+      {
+        codigo: "ICE604",
+        nombre: "Análisis de Señales de Comunicación II",
+        creditos: 6,
+        color: "azul",
+      },
+      {
+        codigo: "ICE605",
+        nombre: "Óptica y Acústica",
+        creditos: 6,
+        color: "azul",
+      },
+      {
+        codigo: "ICE606",
+        nombre: "Circuitos Digitales II",
+        creditos: 6,
+        color: "azul",
+      },
+    ],
+  },
+  {
+    numero: 7,
+    materias: [
+      {
+        codigo: "ICE701",
+        nombre: "Filtrado y Modulación",
+        creditos: 6,
+        color: "rosa",
+      },
+      {
+        codigo: "ICE702",
+        nombre: "Sistemas de Control Automático",
+        creditos: 5,
+        color: "rosa",
+      },
+      {
+        codigo: "ICE703",
+        nombre: "Contabilidad de Costos",
+        creditos: 5,
+        color: "rosa",
+      },
+      {
+        codigo: "ICE704",
+        nombre: "Circuitos para Comunicaciones",
+        creditos: 6,
+        color: "rosa",
+      },
+      {
+        codigo: "ICE705",
+        nombre: "Radiación y Propagación",
+        creditos: 6,
+        color: "rosa",
+      },
+      {
+        codigo: "ICE706",
+        nombre: "Diseño y Verificación de Sistemas Digitales",
+        creditos: 6,
+        color: "rosa",
+      },
+    ],
+  },
+  {
+    numero: 8,
+    materias: [
+      {
+        codigo: "ICE801",
+        nombre: "Automatización Electrónica",
+        creditos: 5,
+        color: "gris",
+      },
+      {
+        codigo: "ICE802",
+        nombre: "Radio, Microondas, Satélites",
+        creditos: 6,
+        color: "gris",
+      },
+      {
+        codigo: "ICE803",
+        nombre: "Ingeniería Económica",
+        creditos: 6,
+        color: "gris",
+      },
+      {
+        codigo: "ICE804",
+        nombre: "Sistemas Operativos en Tiempo Real",
+        creditos: 5,
+        color: "gris",
+      },
+      {
+        codigo: "ICE805",
+        nombre: "Sistemas de Comunicaciones Electrónicas",
+        creditos: 6,
+        color: "gris",
+      },
+      {
+        codigo: "ICE806",
+        nombre: "Dispositivos Lógicos Programables",
+        creditos: 5,
+        color: "gris",
+      },
+    ],
+  },
+  {
+    numero: 9,
+    materias: [
+      {
+        codigo: "ICE901",
+        nombre: "Servomecanismos",
+        creditos: 6,
+        color: "cian",
+      },
+      {
+        codigo: "ICE902",
+        nombre: "Procesadores Multinúcleo",
+        creditos: 5,
+        color: "cian",
+      },
+      {
+        codigo: "ICE903",
+        nombre: "Ingeniería de Proyectos",
+        creditos: 5,
+        color: "cian",
+      },
+      {
+        codigo: "ICE904",
+        nombre: "Finanzas",
+        creditos: 5,
+        color: "cian",
+      },
+      {
+        codigo: "ICE905",
+        nombre: "Seminario de Titulación",
+        creditos: 5,
+        color: "cian",
+      },
+      {
+        codigo: "ICE906",
+        nombre: "MEMS para Radiofrecuencia",
+        creditos: 6,
+        color: "cian",
+      },
+    ],
+  },
 ];
 
 const planteles = [
@@ -176,16 +454,7 @@ const planteles = [
     lat: 20.67744801539995,
     lon: -103.34031672627513,
   },
-  {
-    id: "2",
-    nombre: "Centro Médico",
-    direccion: "José María Lozano #1077, Col. Belisario Domínguez",
-    ciudad: "Guadalajara ZMG",
-    url: "/plantel-centro-medico",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/CentroMedico.jpg",
-    lat: 20.684590788642307,
-    lon: -103.3256397932448,
-  },
+  
   {
     id: "3",
     nombre: "Milenio",
@@ -196,16 +465,7 @@ const planteles = [
     lat: 20.64540739939039,
     lon: -103.40630313415286,
   },
-  {
-    id: "4",
-    nombre: "Puerto Vallarta - Plaza Caracol",
-    direccion: "Blvd. Fco. Medina Ascencio #2180, Col. Díaz Ordaz",
-    ciudad: "Puerto Vallarta",
-    url: "/plantel-plaza-caracol-puerto-vallarta",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/PuertoVallarta.png",
-    lat: 20.639287162026815,
-    lon: -105.23323589513319,
-  },
+ 
   {
     id: "5",
     nombre: "Tlajomulco",
@@ -226,57 +486,7 @@ const planteles = [
     lat: 20.806203,
     lon: -102.763903,
   },
-  {
-    id: "7",
-    nombre: "Tepatitlán",
-    direccion: "Calle Dr. Ricardo Alcalá #505, Av. Matamoros, Centro",
-    ciudad: "Tepatitlán de Morelos",
-    url: "/plantel-tepatitlan",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/Tepatitlan.jpg",
-    lat: 20.8062946507024,
-    lon: -102.76382902869392,
-  },
-  {
-    id: "8",
-    nombre: "Tlaquepaque",
-    direccion:
-      "Blvd. Marcelino García Barragán #2056, Col. Bosques del Boulevard",
-    ciudad: "Guadalajara ZMG",
-    url: "/plantel-tlaquepaque",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/Tlaquepaque.jpg",
-    lat: 20.645650028567157,
-    lon: -103.32094530771215,
-  },
-  {
-    id: "9",
-    nombre: "Tonalá",
-    direccion: "Av. Tonaltecas #333, Col. Agua Escondida",
-    ciudad: "Guadalajara ZMG",
-    url: "/plantel-tonala",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/Tonala.png",
-    lat: 20.63176692188573,
-    lon: -103.24439406488241,
-  },
-  {
-    id: "10",
-    nombre: "Chapultepec",
-    direccion: "Av. Vallarta #1458, Col. Americana",
-    ciudad: "Guadalajara ZMG",
-    url: "/plantel-vallarta",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/Chapultepec.png",
-    lat: 20.67471004174908,
-    lon: -103.36909119392195,
-  },
-  {
-    id: "11",
-    nombre: "Zapopan",
-    direccion: "Plaza Caudillos",
-    ciudad: "Guadalajara ZMG",
-    url: "/plantel-zapopan",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/Zapopan.png",
-    lat: 20.720900646775917,
-    lon: -103.38975281813357,
-  },
+  
 ];
 
 const ciudades = [
@@ -314,7 +524,7 @@ const ciudades = [
         <div class="text-center text-white max-w-4xl mx-auto">
           {/* Main Title */}
           <h1 class="text-4xl md:text-7xl font-bold tracking-wider mb-4">
-            Lic. en Cirujano Dentista
+            Ingeniería en Comunicaciones y electronica.
           </h1>
           <h2 class="text-2xl md:text-5xl font-bold tracking-wider mb-8">
             Licenciaturas UNE
@@ -324,9 +534,7 @@ const ciudades = [
           <p
             class="text-lg md:text-xl leading-relaxed mb-16 max-w-3xl mx-auto font-light"
           >
-            Transforma sonrisas y mejora la calidad de vida a través del estudio
-            y la práctica de la odontología, en una carrera donde la ciencia, la
-            salud y la vocación por el bienestar se unen.
+            Domina tecnologías de vanguardia en sistemas de comunicación, electrónica y automatización.
           </p>
         </div>
       </div>
@@ -370,20 +578,21 @@ const ciudades = [
       </div>
     </div>
 
-    <InformativeCard
-      logoSrc={LogoCard.src}
-      studentImageSrc={ImagenCard.src}
-      title="Objetivo"
-      description="La Licenciatura en Cirujano Dentista te forma como un profesionista altamente capacitado para prevenir, diagnosticar y tratar enfermedades bucales con un enfoque integral y humano."
-      additionalText="Con una sólida formación teórico-práctica y un alto compromiso ético y social, estarás preparado para promover la salud bucodental, brindar atención personalizada y colaborar con instituciones de salud para transformar positivamente la calidad de vida de las personas."
-      features={[
-        { icon: "CalendarDays", label: "Prácticas clínicas presenciales" },
-        { icon: "BookOpen", label: "Bases científicas sólidas" },
-        { icon: "School", label: "Validez oficial" },
-        { icon: "Clock", label: "Horarios accesibles" },
-        { icon: "BookmarkCheck", label: "Enfoque profesionalizante" },
-      ]}
-    />
+   <InformativeCard
+  logoSrc={LogoCard.src}
+  studentImageSrc={ImagenCard.src}
+  title="Objetivo"
+  description="Formar ingenieros con competencias en sistemas electrónicos, telecomunicaciones y tecnologías emergentes, capaces de diseñar, implementar y mantener soluciones tecnológicas que respondan a las necesidades actuales de comunicación e industria, impulsando el desarrollo tecnológico con responsabilidad social."
+  additionalText=""
+  features={[
+    { icon: "Cpu", label: "Tecnología electrónica aplicada" },
+    { icon: "SatelliteDish", label: "Enfoque en telecomunicaciones" },
+    { icon: "ActivitySquare", label: "Integración con tecnologías emergentes" },
+    { icon: "BadgeCheck", label: "Formación con validez oficial" },
+    { icon: "Users", label: "Proyectos colaborativos con impacto social" },
+  ]}
+/>
+
 
      <PlanEstudios titulo="Propuesta Educativa" semestres={semestresDatos} />
 

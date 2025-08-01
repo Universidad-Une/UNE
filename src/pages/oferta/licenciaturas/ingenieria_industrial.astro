@@ -1,15 +1,11 @@
 ---
 import Layout from "@/layouts/Layout.astro";
-import Hero from "@/assets/Imagenes/Heros/Cirujano_dentista.jpg";
-import Hero_mobile from "@/assets/Imagenes/Heros/Cirujano_dentista_mobile.jpg";
+import Hero from "@/assets/Imagenes/Heros/Carreras/IngIndustrial.jpg";
+import Hero_mobile from "@/assets/Imagenes/Heros/Carreras/IngIndustrial_mobile.jpg";
 import ImagenCard from "@/assets/Imagenes/CardsNiveles/Nivel.png";
 import LogoCard from "@/assets/Logos/Licenciatura.png";
 import InformativeCard from "@components/sections/detallesOferta/card.astro";
-import Carreras from "@components/sections/Licenciaturas/Carreras.astro";
-import Estadisticas from "@components/sections/Licenciaturas/Estadisticas.astro";
-
 import Requisitos from "@/components/sections/detallesOferta/requisitos.astro";
-
 import FAQComponent from "@/components/sections/detallesOferta/preguntas.astro";
 import CTAinscripcion from "@/components/sections/shared/ctaInscripcion.astro";
 import { Calendar, UserPlus, Phone } from "@lucide/astro";
@@ -25,7 +21,7 @@ const requisitosInfo = {
     "CURP (formato RENAPO)",
     "Identificación oficial con fotografía (INE) - dos copias",
     "Comprobante de domicilio reciente (no mayor a 3 meses) - una copia",
-    "Cinco fotografías tamaño infantil, blanco y negro, papel mate, de estudio"
+    "Cinco fotografías tamaño infantil, blanco y negro, papel mate, de estudio",
   ],
   pdfUrl: "/public/pdfs/licenciatura_req.pdf",
 };
@@ -79,27 +75,39 @@ const semestresDatos = [
     numero: 1,
     materias: [
       {
-        codigo: "ED1021",
-        nombre: "Introducción a la Educación",
-        creditos: 30,
+        codigo: "IND101",
+        nombre: "Matemáticas Básicas para Ingeniería",
+        creditos: 7,
         color: "verde",
       },
       {
-        codigo: "Filosofía y Ética en Educación",
-        nombre: "Filosofía y Ética en Educación",
-        creditos: 30,
+        codigo: "IND102",
+        nombre: "Introducción a la Ingeniería Industrial",
+        creditos: 5,
         color: "verde",
       },
       {
-        codigo: "ED1024",
-        nombre: "Desarrollo Infantil y adolescente",
-        creditos: 30,
+        codigo: "IND103",
+        nombre: "Computación I",
+        creditos: 6,
         color: "verde",
       },
       {
-        codigo: "ED1027",
-        nombre: "Habilidades Básicas de Investigación",
-        creditos: 30,
+        codigo: "IND104",
+        nombre: "Administración I",
+        creditos: 6,
+        color: "verde",
+      },
+      {
+        codigo: "IND105",
+        nombre: "Lectura y Redacción de Temas en Ingeniería",
+        creditos: 6,
+        color: "verde",
+      },
+      {
+        codigo: "IND106",
+        nombre: "Lógica",
+        creditos: 6,
         color: "verde",
       },
     ],
@@ -108,27 +116,39 @@ const semestresDatos = [
     numero: 2,
     materias: [
       {
-        codigo: "FH1203",
-        nombre: "Pensamiento lógico y tecnológico",
-        creditos: 30,
+        codigo: "IND202",
+        nombre: "Precálculo",
+        creditos: 7,
         color: "amarillo",
       },
       {
-        codigo: "ED2016",
-        nombre: "Desarrollo de la Psicomotricidad",
-        creditos: 30,
+        codigo: "IND203",
+        nombre: "Computación II",
+        creditos: 6,
         color: "amarillo",
       },
       {
-        codigo: "HJ2026",
-        nombre: "Ética social cristiana",
-        creditos: 30,
+        codigo: "IND204",
+        nombre: "Administración II",
+        creditos: 6,
         color: "amarillo",
       },
       {
-        codigo: "ED1029",
-        nombre: "Historia de la Pedagogía moderna",
-        creditos: 30,
+        codigo: "IND205",
+        nombre: "Física",
+        creditos: 6,
+        color: "amarillo",
+      },
+      {
+        codigo: "IND206",
+        nombre: "Química",
+        creditos: 6,
+        color: "amarillo",
+      },
+      {
+        codigo: "IND206",
+        nombre: "Filosofía de las Organizaciones",
+        creditos: 4,
         color: "amarillo",
       },
     ],
@@ -137,32 +157,277 @@ const semestresDatos = [
     numero: 3,
     materias: [
       {
-        codigo: "PS1201",
-        nombre: "Fundamentos de Psicología y Bienestar",
-        creditos: 30,
+        codigo: "IND303",
+        nombre: "Cálculo Diferencial",
+        creditos: 7,
         color: "naranja",
       },
       {
-        codigo: "Gestión educativa institucional",
-        nombre: "Gestión educativa institucional",
-        creditos: 30,
+        codigo: "IND304",
+        nombre: "Computación III",
+        creditos: 6,
         color: "naranja",
       },
       {
-        codigo: "ED2012",
-        nombre: "Desarrollo Socioemocional",
-        creditos: 30,
+        codigo: "IND305",
+        nombre: "Estudio del Trabajo I",
+        creditos: 6,
         color: "naranja",
       },
       {
-        codigo: "ED3027",
-        nombre: "Administración educativa",
-        creditos: 30,
+        codigo: "IND306",
+        nombre: "Teoría General de Sistemas",
+        creditos: 6,
+        color: "naranja",
+      },
+      {
+        codigo: "IND305",
+        nombre: "Estática",
+        creditos: 6,
+        color: "naranja",
+      },
+      {
+        codigo: "IND306",
+        nombre: "Contabilidad General",
+        creditos: 6,
         color: "naranja",
       },
     ],
   },
-  // Puedes agregar más semestres según necesites
+  {
+    numero: 4,
+    materias: [
+      {
+        codigo: "IND404",
+        nombre: "Cálculo Integral",
+        creditos: 7,
+        color: "rojo",
+      },
+      {
+        codigo: "IND405",
+        nombre: "Administración Estratégica",
+        creditos: 7,
+        color: "rojo",
+      },
+      {
+        codigo: "IND403",
+        nombre: "Estudio del Trabajo II",
+        creditos: 5,
+        color: "rojo",
+      },
+      {
+        codigo: "IND404",
+        nombre: "Electricidad y Magnetismo",
+        creditos: 15,
+        color: "rojo",
+      },
+      {
+        codigo: "IND405",
+        nombre: "Dinámica",
+        creditos: 7,
+        color: "rojo",
+      },
+    ],
+  },
+  {
+    numero: 5,
+    materias: [
+      {
+        codigo: "IND506",
+        nombre: "Probabilidad y Estadística",
+        creditos: 7,
+        color: "morado",
+      },
+      {
+        codigo: "IND502",
+        nombre: "Procesos de Manufactura I",
+        creditos: 4,
+        color: "morado",
+      },
+      {
+        codigo: "IND503",
+        nombre: "Ciencias de Materiales",
+        creditos: 4,
+        color: "morado",
+      },
+      {
+        codigo: "IND504",
+        nombre: "Electricidad Industrial",
+        creditos: 4,
+        color: "morado",
+      },
+      {
+        codigo: "IND505",
+        nombre: "Habilidades Directivas",
+        creditos: 4,
+        color: "morado",
+      },
+      {
+        codigo: "IND506",
+        nombre: "Sistemas de Mejoramiento Ambiental",
+        creditos: 4,
+        color: "morado",
+      },
+    ],
+  },
+  {
+    numero: 6,
+    materias: [
+      {
+        codigo: "IND601",
+        nombre: "Probabilidad y Estadística II",
+        creditos: 7,
+        color: "azul",
+      },
+      {
+        codigo: "IND602",
+        nombre: "Derecho Laboral",
+        creditos: 4,
+        color: "azul",
+      },
+      {
+        codigo: "IND603",
+        nombre: "Investigación de Operaciones I",
+        creditos: 4,
+        color: "azul",
+      },
+      {
+        codigo: "IND604",
+        nombre: "Termodinámica I",
+        creditos: 4,
+        color: "azul",
+      },
+      {
+        codigo: "IND605",
+        nombre: "Contabilidad de Costos",
+        creditos: 4,
+        color: "azul",
+      },
+      {
+        codigo: "IND606",
+        nombre: "Calidad",
+        creditos: 6,
+        color: "azul",
+      },
+    ],
+  },
+  {
+    numero: 7,
+    materias: [
+      {
+        codigo: "IND701",
+        nombre: "Control de Calidad",
+        creditos: 7,
+        color: "cian",
+      },
+      {
+        codigo: "IND702",
+        nombre: "Automatización",
+        creditos: 4,
+        color: "cian",
+      },
+      {
+        codigo: "IND703",
+        nombre: "Investigación de Operaciones II",
+        creditos: 4,
+        color: "cian",
+      },
+      {
+        codigo: "IND704",
+        nombre: "Planeación y Control de la Producción I",
+        creditos: 2,
+        color: "cian",
+      },
+      {
+        codigo: "IND705",
+        nombre: "Instalaciones y Mantenimiento",
+        creditos: 6,
+        color: "cian",
+      },
+      {
+        codigo: "IND706",
+        nombre: "Ergonomía y Seguridad Industrial",
+        creditos: 6,
+        color: "cian",
+      },
+    ],
+  },
+  {
+    numero: 8,
+    materias: [
+      {
+        codigo: "IND801",
+        nombre: "Servomecanismos",
+        creditos: 6,
+        color: "rosa",
+      },
+      {
+        codigo: "IND802",
+        nombre: "Planeación y Control de la Producción II",
+        creditos: 5,
+        color: "rosa",
+      },
+      {
+        codigo: "IND803",
+        nombre: "Ingeniería Económica",
+        creditos: 7,
+        color: "rosa",
+      },
+      {
+        codigo: "IND804",
+        nombre: "Servicio al Cliente",
+        creditos: 6,
+        color: "rosa",
+      },
+      {
+        codigo: "IND805",
+        nombre: "Inspección y Pruebas",
+        creditos: 5,
+        color: "rosa",
+      },
+      {
+        codigo: "IND806",
+        nombre: "Operación de Procesos Unitarios",
+        creditos: 6,
+        color: "rosa",
+      },
+    ],
+  },
+  {
+    numero: 9,
+    materias: [
+      {
+        codigo: "IND901",
+        nombre: "Confiabilidad",
+        creditos: 7,
+        color: "turquesa",
+      },
+      {
+        codigo: "IND902",
+        nombre: "Diseño de Planta",
+        creditos: 5,
+        color: "turquesa",
+      },
+      {
+        codigo: "IND903",
+        nombre: "Ingeniería de Proyectos",
+        creditos: 5,
+        color: "turquesa",
+      },
+      {
+        codigo: "IND904",
+        nombre: "Finanzas",
+        creditos: 5,
+        color: "turquesa",
+      },
+      {
+        codigo: "IND905",
+        nombre: "Seminario de Titulación",
+        creditos: 5,
+        color: "turquesa",
+      },
+    ],
+  },
 ];
 
 const planteles = [
@@ -176,16 +441,7 @@ const planteles = [
     lat: 20.67744801539995,
     lon: -103.34031672627513,
   },
-  {
-    id: "2",
-    nombre: "Centro Médico",
-    direccion: "José María Lozano #1077, Col. Belisario Domínguez",
-    ciudad: "Guadalajara ZMG",
-    url: "/plantel-centro-medico",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/CentroMedico.jpg",
-    lat: 20.684590788642307,
-    lon: -103.3256397932448,
-  },
+ 
   {
     id: "3",
     nombre: "Milenio",
@@ -196,77 +452,7 @@ const planteles = [
     lat: 20.64540739939039,
     lon: -103.40630313415286,
   },
-  {
-    id: "4",
-    nombre: "Puerto Vallarta - Plaza Caracol",
-    direccion: "Blvd. Fco. Medina Ascencio #2180, Col. Díaz Ordaz",
-    ciudad: "Puerto Vallarta",
-    url: "/plantel-plaza-caracol-puerto-vallarta",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/PuertoVallarta.png",
-    lat: 20.639287162026815,
-    lon: -105.23323589513319,
-  },
-  {
-    id: "5",
-    nombre: "Tlajomulco",
-    direccion: "Av. López Mateos #10100, Col. Los Gavilanes Poniente",
-    ciudad: "Guadalajara ZMG",
-    url: "/plantel-tlajomulco",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/Tlajomulco.png",
-    lat: 20.576464164603113,
-    lon: -103.45243680650722,
-  },
-  {
-    id: "6",
-    nombre: "Tesistán",
-    direccion: "Av. Juan Gil Preciado #3897, Col. Hogares de Nuevo México",
-    ciudad: "Guadalajara ZMG",
-    url: "/plantel-tesistan",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/Tesistan.png",
-    lat: 20.806203,
-    lon: -102.763903,
-  },
-  {
-    id: "7",
-    nombre: "Tepatitlán",
-    direccion: "Calle Dr. Ricardo Alcalá #505, Av. Matamoros, Centro",
-    ciudad: "Tepatitlán de Morelos",
-    url: "/plantel-tepatitlan",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/Tepatitlan.jpg",
-    lat: 20.8062946507024,
-    lon: -102.76382902869392,
-  },
-  {
-    id: "8",
-    nombre: "Tlaquepaque",
-    direccion:
-      "Blvd. Marcelino García Barragán #2056, Col. Bosques del Boulevard",
-    ciudad: "Guadalajara ZMG",
-    url: "/plantel-tlaquepaque",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/Tlaquepaque.jpg",
-    lat: 20.645650028567157,
-    lon: -103.32094530771215,
-  },
-  {
-    id: "9",
-    nombre: "Tonalá",
-    direccion: "Av. Tonaltecas #333, Col. Agua Escondida",
-    ciudad: "Guadalajara ZMG",
-    url: "/plantel-tonala",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/Tonala.png",
-    lat: 20.63176692188573,
-    lon: -103.24439406488241,
-  },
-  {
-    id: "10",
-    nombre: "Chapultepec",
-    direccion: "Av. Vallarta #1458, Col. Americana",
-    ciudad: "Guadalajara ZMG",
-    url: "/plantel-vallarta",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/Chapultepec.png",
-    lat: 20.67471004174908,
-    lon: -103.36909119392195,
-  },
+ 
   {
     id: "11",
     nombre: "Zapopan",
@@ -314,19 +500,14 @@ const ciudades = [
         <div class="text-center text-white max-w-4xl mx-auto">
           {/* Main Title */}
           <h1 class="text-4xl md:text-7xl font-bold tracking-wider mb-4">
-            Lic. en Cirujano Dentista
+            Ingeniería Industrial
           </h1>
-          <h2 class="text-2xl md:text-5xl font-bold tracking-wider mb-8">
-            Licenciaturas UNE
-          </h2>
 
           {/* Description */}
           <p
             class="text-lg md:text-xl leading-relaxed mb-16 max-w-3xl mx-auto font-light"
           >
-            Transforma sonrisas y mejora la calidad de vida a través del estudio
-            y la práctica de la odontología, en una carrera donde la ciencia, la
-            salud y la vocación por el bienestar se unen.
+            Optimiza recursos, mejora procesos y lidera la eficiencia en cualquier tipo de organización.
           </p>
         </div>
       </div>
@@ -343,7 +524,8 @@ const ciudades = [
             class="flex flex-col sm:flex-row gap-4 w-full justify-center text-white"
           >
             <!-- Agenda una Visita -->
-            <a href="/contacto/solicitarvisita"
+            <a
+              href="/contacto/solicitarvisita"
               class="hover:border-b hover:border-b-cyan-50 font-bold py-6 px-6 text-base transition-colors duration-300 shadow-lg flex flex-col items-center justify-center gap-2 whitespace-nowrap"
             >
               AGENDA UNA VISITA
@@ -351,7 +533,8 @@ const ciudades = [
             </a>
 
             <!-- Iniciar Inscripción -->
-            <a href="/contacto/formulario-inscripcion"
+            <a
+              href="/contacto/formulario-inscripcion"
               class="hover:border-b hover:border-b-cyan-50 font-bold py-3 px-6 text-base transition-colors duration-300 shadow-lg flex flex-col items-center justify-center gap-2 whitespace-nowrap"
             >
               INICIAR INSCRIPCIÓN
@@ -359,7 +542,8 @@ const ciudades = [
             </a>
 
             <!-- Contactar -->
-             <a href="/contacto/solicitarinformacion"
+            <a
+              href="/contacto/solicitarinformacion"
               class="hover:border-b hover:border-b-cyan-50 font-bold py-3 px-6 text-base transition-colors duration-300 shadow-lg flex flex-col items-center justify-center gap-2 whitespace-nowrap"
             >
               CONTACTAR
@@ -374,27 +558,25 @@ const ciudades = [
       logoSrc={LogoCard.src}
       studentImageSrc={ImagenCard.src}
       title="Objetivo"
-      description="La Licenciatura en Cirujano Dentista te forma como un profesionista altamente capacitado para prevenir, diagnosticar y tratar enfermedades bucales con un enfoque integral y humano."
-      additionalText="Con una sólida formación teórico-práctica y un alto compromiso ético y social, estarás preparado para promover la salud bucodental, brindar atención personalizada y colaborar con instituciones de salud para transformar positivamente la calidad de vida de las personas."
+      description="Formar ingenieros industriales con competencias para diseñar, optimizar y gestionar sistemas productivos y de servicios, aplicando herramientas tecnológicas y metodologías innovadoras que incrementen la eficiencia, la calidad y la sostenibilidad, fortaleciendo su empleabilidad y contribución al desarrollo económico y social.."
+      additionalText=""
       features={[
-        { icon: "CalendarDays", label: "Prácticas clínicas presenciales" },
-        { icon: "BookOpen", label: "Bases científicas sólidas" },
+        { icon: "Hammer", label: "Proyectos constructivos aplicados" },
+        { icon: "BookOpen", label: "Bases científicas y técnicas" },
         { icon: "School", label: "Validez oficial" },
         { icon: "Clock", label: "Horarios accesibles" },
         { icon: "BookmarkCheck", label: "Enfoque profesionalizante" },
       ]}
     />
 
-     <PlanEstudios titulo="Propuesta Educativa" semestres={semestresDatos} />
+    <PlanEstudios titulo="Propuesta Educativa" semestres={semestresDatos} />
 
-     <Planteles
+    <Planteles
       titulo="Encuentra tu campus más cercano"
       planteles={planteles}
       ciudades={ciudades}
       mostrarMasCercano={true}
     />
-
-    
 
     <Requisitos nivel="Licenciatura" requisitos={requisitosInfo} />
 

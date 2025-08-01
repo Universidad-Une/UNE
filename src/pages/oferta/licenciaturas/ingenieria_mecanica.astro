@@ -1,12 +1,10 @@
 ---
 import Layout from "@/layouts/Layout.astro";
-import Hero from "@/assets/Imagenes/Heros/Cirujano_dentista.jpg";
-import Hero_mobile from "@/assets/Imagenes/Heros/Cirujano_dentista_mobile.jpg";
+import Hero from "@/assets/Imagenes/Heros/Carreras/ingMecanica.jpg";
+import Hero_mobile from "@/assets/Imagenes/Heros/Carreras/ingMecanica.jpg";
 import ImagenCard from "@/assets/Imagenes/CardsNiveles/Nivel.png";
 import LogoCard from "@/assets/Logos/Licenciatura.png";
 import InformativeCard from "@components/sections/detallesOferta/card.astro";
-import Carreras from "@components/sections/Licenciaturas/Carreras.astro";
-import Estadisticas from "@components/sections/Licenciaturas/Estadisticas.astro";
 
 import Requisitos from "@/components/sections/detallesOferta/requisitos.astro";
 
@@ -25,7 +23,7 @@ const requisitosInfo = {
     "CURP (formato RENAPO)",
     "Identificación oficial con fotografía (INE) - dos copias",
     "Comprobante de domicilio reciente (no mayor a 3 meses) - una copia",
-    "Cinco fotografías tamaño infantil, blanco y negro, papel mate, de estudio"
+    "Cinco fotografías tamaño infantil, blanco y negro, papel mate, de estudio",
   ],
   pdfUrl: "/public/pdfs/licenciatura_req.pdf",
 };
@@ -79,27 +77,45 @@ const semestresDatos = [
     numero: 1,
     materias: [
       {
-        codigo: "ED1021",
-        nombre: "Introducción a la Educación",
-        creditos: 30,
+        codigo: "LIM101",
+        nombre: "Taller de Comunicación",
+        creditos: 3,
         color: "verde",
       },
       {
-        codigo: "Filosofía y Ética en Educación",
-        nombre: "Filosofía y Ética en Educación",
-        creditos: 30,
+        codigo: "LIM102",
+        nombre: "Precálculo",
+        creditos: 5,
         color: "verde",
       },
       {
-        codigo: "ED1024",
-        nombre: "Desarrollo Infantil y adolescente",
-        creditos: 30,
+        codigo: "LIM103",
+        nombre: "Química General",
+        creditos: 7,
         color: "verde",
       },
       {
-        codigo: "ED1027",
-        nombre: "Habilidades Básicas de Investigación",
-        creditos: 30,
+        codigo: "LIM104",
+        nombre: "Física",
+        creditos: 5,
+        color: "verde",
+      },
+      {
+        codigo: "LIM105",
+        nombre: "Álgebra",
+        creditos: 6,
+        color: "verde",
+      },
+      {
+        codigo: "LIM106",
+        nombre: "Leyes de Conservación en Sistemas Ingenieriles",
+        creditos: 6,
+        color: "verde",
+      },
+      {
+        codigo: "LIM107",
+        nombre: "Introducción a la Ingeniería Mecánica",
+        creditos: 5,
         color: "verde",
       },
     ],
@@ -108,27 +124,45 @@ const semestresDatos = [
     numero: 2,
     materias: [
       {
-        codigo: "FH1203",
-        nombre: "Pensamiento lógico y tecnológico",
-        creditos: 30,
+        codigo: "LIM201",
+        nombre: "Herramientas Digitales",
+        creditos: 3,
         color: "amarillo",
       },
       {
-        codigo: "ED2016",
-        nombre: "Desarrollo de la Psicomotricidad",
-        creditos: 30,
+        codigo: "LIM202",
+        nombre: "Cálculo Diferencial",
+        creditos: 5,
         color: "amarillo",
       },
       {
-        codigo: "HJ2026",
-        nombre: "Ética social cristiana",
-        creditos: 30,
+        codigo: "LIM203",
+        nombre: "Probabilidad y Estadística",
+        creditos: 7,
         color: "amarillo",
       },
       {
-        codigo: "ED1029",
-        nombre: "Historia de la Pedagogía moderna",
-        creditos: 30,
+        codigo: "LIM204",
+        nombre: "Estática",
+        creditos: 5,
+        color: "amarillo",
+      },
+      {
+        codigo: "LIM205",
+        nombre: "Álgebra Lineal",
+        creditos: 5,
+        color: "amarillo",
+      },
+      {
+        codigo: "LIM206",
+        nombre: "Dibujo Mecánico",
+        creditos: 6,
+        color: "amarillo",
+      },
+      {
+        codigo: "LIM207",
+        nombre: "Ingeniería de los Materiales",
+        creditos: 5,
         color: "amarillo",
       },
     ],
@@ -137,33 +171,333 @@ const semestresDatos = [
     numero: 3,
     materias: [
       {
-        codigo: "PS1201",
-        nombre: "Fundamentos de Psicología y Bienestar",
-        creditos: 30,
+        codigo: "LIM301",
+        nombre: "Metodología de la Investigación",
+        creditos: 3,
         color: "naranja",
       },
       {
-        codigo: "Gestión educativa institucional",
-        nombre: "Gestión educativa institucional",
-        creditos: 30,
+        codigo: "LIM302",
+        nombre: "Cálculo Integral",
+        creditos: 5,
         color: "naranja",
       },
       {
-        codigo: "ED2012",
-        nombre: "Desarrollo Socioemocional",
-        creditos: 30,
+        codigo: "LIM303",
+        nombre: "Matemáticas Avanzadas en Ingeniería",
+        creditos: 7,
         color: "naranja",
       },
       {
-        codigo: "ED3027",
-        nombre: "Administración educativa",
-        creditos: 30,
+        codigo: "LIM304",
+        nombre: "Desarrollo Sustentable",
+        creditos: 5,
+        color: "naranja",
+      },
+      {
+        codigo: "LIM305",
+        nombre: "Metrología",
+        creditos: 6,
+        color: "naranja",
+      },
+      {
+        codigo: "LIM306",
+        nombre: "Metalurgia",
+        creditos: 6,
+        color: "naranja",
+      },
+      {
+        codigo: "LIM307",
+        nombre: "Calidad en Ingeniería",
+        creditos: 5,
         color: "naranja",
       },
     ],
   },
-  // Puedes agregar más semestres según necesites
+  {
+    numero: 4,
+    materias: [
+      {
+        codigo: "LIM401",
+        nombre: "Desarrollo del Pensamiento Crítico",
+        creditos: 3,
+        color: "rojo",
+      },
+      {
+        codigo: "LIM402",
+        nombre: "Cálculo Vectorial",
+        creditos: 5,
+        color: "rojo",
+      },
+      {
+        codigo: "LIM403",
+        nombre: "Métodos Numéricos",
+        creditos: 7,
+        color: "rojo",
+      },
+      {
+        codigo: "LIM404",
+        nombre: "Ecuaciones Diferenciales",
+        creditos: 5,
+        color: "rojo",
+      },
+      {
+        codigo: "LIM405",
+        nombre: "Termodinámica",
+        creditos: 5,
+        color: "rojo",
+      },
+      {
+        codigo: "LIM406",
+        nombre: "Cinemática y Dinámica",
+        creditos: 6,
+        color: "rojo",
+      },
+      {
+        codigo: "LIM407",
+        nombre: "Diseño y Manufactura",
+        creditos: 5,
+        color: "rojo",
+      },
+    ],
+  },
+  {
+    numero: 5,
+    materias: [
+      {
+        codigo: "LIM501",
+        nombre: "Investigación Aplicada",
+        creditos: 3,
+        color: "morado",
+      },
+      {
+        codigo: "LIM502",
+        nombre: "Electricidad y Magnetismo",
+        creditos: 5,
+        color: "morado",
+      },
+      {
+        codigo: "LIM503",
+        nombre: "Circuitos Eléctricos",
+        creditos: 7,
+        color: "morado",
+      },
+      {
+        codigo: "LIM504",
+        nombre: "Algoritmos y Programación",
+        creditos: 5,
+        color: "morado",
+      },
+      {
+        codigo: "LIM505",
+        nombre: "Mecánica de Fluidos",
+        creditos: 5,
+        color: "morado",
+      },
+      {
+        codigo: "LIM506",
+        nombre: "Mecánica de Materiales",
+        creditos: 5,
+        color: "morado",
+      },
+      {
+        codigo: "LIM507",
+        nombre: "Contabilidad y Costos",
+        creditos: 5,
+        color: "morado",
+      },
+    ],
+  },
+  {
+    numero: 6,
+    materias: [
+      {
+        codigo: "LIM601",
+        nombre: "Ética Profesional",
+        creditos: 3,
+        color: "azul",
+      },
+      {
+        codigo: "LIM602",
+        nombre: "Equipos y Sistemas Generadores de Energía",
+        creditos: 5,
+        color: "azul",
+      },
+      {
+        codigo: "LIM603",
+        nombre: "Vibraciones Mecánicas",
+        creditos: 7,
+        color: "azul",
+      },
+      {
+        codigo: "LIM604",
+        nombre: "Diseño de Elementos de Máquinas",
+        creditos: 5,
+        color: "azul",
+      },
+      {
+        codigo: "LIM605",
+        nombre: "Transferencia de Calor",
+        creditos: 5,
+        color: "azul",
+      },
+      {
+        codigo: "LIM606",
+        nombre: "Procesos de Manufactura",
+        creditos: 5,
+        color: "azul",
+      },
+      {
+        codigo: "LIM607",
+        nombre: "Sistemas e Instalaciones Mecánicas",
+        creditos: 6,
+        color: "azul",
+      },
+    ],
+  },
+  {
+    numero: 7,
+    materias: [
+      {
+        codigo: "LIM701",
+        nombre: "Gestión de Proyectos",
+        creditos: 3,
+        color: "cian",
+      },
+      {
+        codigo: "LIM702",
+        nombre: "Sistemas Electromecánicos y Robóticos",
+        creditos: 5,
+        color: "cian",
+      },
+      {
+        codigo: "LIM703",
+        nombre: "Tribología",
+        creditos: 7,
+        color: "cian",
+      },
+      {
+        codigo: "LIM704",
+        nombre: "Máquinas y Herramientas",
+        creditos: 5,
+        color: "cian",
+      },
+      {
+        codigo: "LIM705",
+        nombre: "Sistemas de Mantenimiento",
+        creditos: 5,
+        color: "cian",
+      },
+      {
+        codigo: "LIM706",
+        nombre: "Laboratorio de Procesos de Manufactura",
+        creditos: 5,
+        color: "cian",
+      },
+      {
+        codigo: "LIM707",
+        nombre: "Sistemas e Instalaciones Hidráulicas",
+        creditos: 5,
+        color: "cian",
+      },
+    ],
+  },
+  {
+    numero: 8,
+    materias: [
+      {
+        codigo: "LIM801",
+        nombre: "Habilidades de Liderazgo",
+        creditos: 3,
+        color: "rosa",
+      },
+      {
+        codigo: "LIM802",
+        nombre: "Máquinas Eléctricas",
+        creditos: 5,
+        color: "rosa",
+      },
+      {
+        codigo: "LIM803",
+        nombre: "Procesos de Transformación Energética",
+        creditos: 7,
+        color: "rosa",
+      },
+      {
+        codigo: "LIM804",
+        nombre: "Automatización Industrial",
+        creditos: 5,
+        color: "rosa",
+      },
+      {
+        codigo: "LIM805",
+        nombre: "Diseño Asistido por Computadora",
+        creditos: 5,
+        color: "rosa",
+      },
+      {
+        codigo: "LIM806",
+        nombre: "Instrumentación y Control",
+        creditos: 6,
+        color: "rosa",
+      },
+      {
+        codigo: "LIM807",
+        nombre: "Ingeniería Eléctrica",
+        creditos: 5,
+        color: "rosa",
+      },
+    ],
+  },
+  {
+    numero: 9,
+    materias: [
+      {
+        codigo: "LIM901",
+        nombre: "Refrigeración y Aire Acondicionado",
+        creditos: 6,
+        color: "gris",
+      },
+      {
+        codigo: "LIM902",
+        nombre: "Circuitos Digitales",
+        creditos: 5,
+        color: "gris",
+      },
+      {
+        codigo: "LIM903",
+        nombre: "Innovación Social y Emprendimiento",
+        creditos: 7,
+        color: "gris",
+      },
+      {
+        codigo: "LIM904",
+        nombre: "Gobierno y Transformación Pública",
+        creditos: 5,
+        color: "gris",
+      },
+      {
+        codigo: "LIM905",
+        nombre: "Análisis y Prevención de Fallas",
+        creditos: 5,
+        color: "gris",
+      },
+      {
+        codigo: "LIM906",
+        nombre: "Administración de la Producción",
+        creditos: 5,
+        color: "gris",
+      },
+      {
+        codigo: "LIM907",
+        nombre: "Evolución Operativa en la Industria",
+        creditos: 6,
+        color: "gris",
+      },
+    ],
+  },
 ];
+
 
 const planteles = [
   {
@@ -176,16 +510,7 @@ const planteles = [
     lat: 20.67744801539995,
     lon: -103.34031672627513,
   },
-  {
-    id: "2",
-    nombre: "Centro Médico",
-    direccion: "José María Lozano #1077, Col. Belisario Domínguez",
-    ciudad: "Guadalajara ZMG",
-    url: "/plantel-centro-medico",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/CentroMedico.jpg",
-    lat: 20.684590788642307,
-    lon: -103.3256397932448,
-  },
+ 
   {
     id: "3",
     nombre: "Milenio",
@@ -196,16 +521,7 @@ const planteles = [
     lat: 20.64540739939039,
     lon: -103.40630313415286,
   },
-  {
-    id: "4",
-    nombre: "Puerto Vallarta - Plaza Caracol",
-    direccion: "Blvd. Fco. Medina Ascencio #2180, Col. Díaz Ordaz",
-    ciudad: "Puerto Vallarta",
-    url: "/plantel-plaza-caracol-puerto-vallarta",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/PuertoVallarta.png",
-    lat: 20.639287162026815,
-    lon: -105.23323589513319,
-  },
+ 
   {
     id: "5",
     nombre: "Tlajomulco",
@@ -217,56 +533,29 @@ const planteles = [
     lon: -103.45243680650722,
   },
   {
-    id: "6",
-    nombre: "Tesistán",
-    direccion: "Av. Juan Gil Preciado #3897, Col. Hogares de Nuevo México",
-    ciudad: "Guadalajara ZMG",
-    url: "/plantel-tesistan",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/Tesistan.png",
-    lat: 20.806203,
-    lon: -102.763903,
+    id: "1",
+    nombre: "Avenida México",
+    codigo: "00008",
+    direccion: "Av. México #1255, Col. Agua Zarca, Puerto Vallarta, Jalisco",
+    ciudad: "Puerto Vallarta",
+    url: "/campus/puerto-vallarta",
+    imagen: "/src/assets/Imagenes/CardsPlanteles/PuertoVallarta.png",
+    lat: 20.669418,
+    lon: -105.226917,
   },
-  {
-    id: "7",
-    nombre: "Tepatitlán",
-    direccion: "Calle Dr. Ricardo Alcalá #505, Av. Matamoros, Centro",
-    ciudad: "Tepatitlán de Morelos",
-    url: "/plantel-tepatitlan",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/Tepatitlan.jpg",
-    lat: 20.8062946507024,
-    lon: -102.76382902869392,
+   {
+    id: "16",
+    nombre: "Campus Puerto Vallarta",
+    codigo: "Campus",
+    direccion: "Carretera a Tepic No. 5657 Col. las Juntas C.P 48291",
+    ciudad: "Puerto Vallarta",
+    url: "/campus/campus-puerto-vallarta",
+    imagen: "/src/assets/Imagenes/CardsPlanteles/Campus-Puerto-Vallarta.jpg",
+    lat: "20.69715126066295",
+    lon: ", -105.23759816941552",
   },
-  {
-    id: "8",
-    nombre: "Tlaquepaque",
-    direccion:
-      "Blvd. Marcelino García Barragán #2056, Col. Bosques del Boulevard",
-    ciudad: "Guadalajara ZMG",
-    url: "/plantel-tlaquepaque",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/Tlaquepaque.jpg",
-    lat: 20.645650028567157,
-    lon: -103.32094530771215,
-  },
-  {
-    id: "9",
-    nombre: "Tonalá",
-    direccion: "Av. Tonaltecas #333, Col. Agua Escondida",
-    ciudad: "Guadalajara ZMG",
-    url: "/plantel-tonala",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/Tonala.png",
-    lat: 20.63176692188573,
-    lon: -103.24439406488241,
-  },
-  {
-    id: "10",
-    nombre: "Chapultepec",
-    direccion: "Av. Vallarta #1458, Col. Americana",
-    ciudad: "Guadalajara ZMG",
-    url: "/plantel-vallarta",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/Chapultepec.png",
-    lat: 20.67471004174908,
-    lon: -103.36909119392195,
-  },
+ 
+ 
   {
     id: "11",
     nombre: "Zapopan",
@@ -314,19 +603,15 @@ const ciudades = [
         <div class="text-center text-white max-w-4xl mx-auto">
           {/* Main Title */}
           <h1 class="text-4xl md:text-7xl font-bold tracking-wider mb-4">
-            Lic. en Cirujano Dentista
+            Ingeniería Mecánica
           </h1>
-          <h2 class="text-2xl md:text-5xl font-bold tracking-wider mb-8">
-            Licenciaturas UNE
-          </h2>
 
           {/* Description */}
           <p
             class="text-lg md:text-xl leading-relaxed mb-16 max-w-3xl mx-auto font-light"
           >
-            Transforma sonrisas y mejora la calidad de vida a través del estudio
-            y la práctica de la odontología, en una carrera donde la ciencia, la
-            salud y la vocación por el bienestar se unen.
+            Diseña y mantiene sistemas mecánicos innovadores aplicados a la
+            industria y la tecnología.
           </p>
         </div>
       </div>
@@ -343,7 +628,8 @@ const ciudades = [
             class="flex flex-col sm:flex-row gap-4 w-full justify-center text-white"
           >
             <!-- Agenda una Visita -->
-            <a href="/contacto/solicitarvisita"
+            <a
+              href="/contacto/solicitarvisita"
               class="hover:border-b hover:border-b-cyan-50 font-bold py-6 px-6 text-base transition-colors duration-300 shadow-lg flex flex-col items-center justify-center gap-2 whitespace-nowrap"
             >
               AGENDA UNA VISITA
@@ -351,7 +637,8 @@ const ciudades = [
             </a>
 
             <!-- Iniciar Inscripción -->
-            <a href="/contacto/formulario-inscripcion"
+            <a
+              href="/contacto/formulario-inscripcion"
               class="hover:border-b hover:border-b-cyan-50 font-bold py-3 px-6 text-base transition-colors duration-300 shadow-lg flex flex-col items-center justify-center gap-2 whitespace-nowrap"
             >
               INICIAR INSCRIPCIÓN
@@ -359,7 +646,8 @@ const ciudades = [
             </a>
 
             <!-- Contactar -->
-             <a href="/contacto/solicitarinformacion"
+            <a
+              href="/contacto/solicitarinformacion"
               class="hover:border-b hover:border-b-cyan-50 font-bold py-3 px-6 text-base transition-colors duration-300 shadow-lg flex flex-col items-center justify-center gap-2 whitespace-nowrap"
             >
               CONTACTAR
@@ -369,15 +657,14 @@ const ciudades = [
         </div>
       </div>
     </div>
-
     <InformativeCard
       logoSrc={LogoCard.src}
       studentImageSrc={ImagenCard.src}
       title="Objetivo"
-      description="La Licenciatura en Cirujano Dentista te forma como un profesionista altamente capacitado para prevenir, diagnosticar y tratar enfermedades bucales con un enfoque integral y humano."
-      additionalText="Con una sólida formación teórico-práctica y un alto compromiso ético y social, estarás preparado para promover la salud bucodental, brindar atención personalizada y colaborar con instituciones de salud para transformar positivamente la calidad de vida de las personas."
+      description="Formar ingenieros mecánicos con competencias para diseñar, analizar, fabricar y mantener sistemas y componentes mecánicos, promoviendo la innovación tecnológica, la eficiencia energética y el desarrollo sustentable, con un enfoque ético y orientado a las demandas del entorno industrial y social."
+      additionalText=""
       features={[
-        { icon: "CalendarDays", label: "Prácticas clínicas presenciales" },
+        { icon: "Wrench", label: "Prácticas en laboratorios especializados" },
         { icon: "BookOpen", label: "Bases científicas sólidas" },
         { icon: "School", label: "Validez oficial" },
         { icon: "Clock", label: "Horarios accesibles" },
@@ -385,16 +672,14 @@ const ciudades = [
       ]}
     />
 
-     <PlanEstudios titulo="Propuesta Educativa" semestres={semestresDatos} />
+    <PlanEstudios titulo="Propuesta Educativa" semestres={semestresDatos} />
 
-     <Planteles
+    <Planteles
       titulo="Encuentra tu campus más cercano"
       planteles={planteles}
       ciudades={ciudades}
       mostrarMasCercano={true}
     />
-
-    
 
     <Requisitos nivel="Licenciatura" requisitos={requisitosInfo} />
 

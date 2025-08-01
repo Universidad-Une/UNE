@@ -1,13 +1,10 @@
 ---
 import Layout from "@/layouts/Layout.astro";
-import Hero from "@/assets/Imagenes/Heros/Cirujano_dentista.jpg";
-import Hero_mobile from "@/assets/Imagenes/Heros/Cirujano_dentista_mobile.jpg";
+import Hero from "@/assets/Imagenes/Heros/Carreras/IngComputacion.jpg";
+import Hero_mobile from "@/assets/Imagenes/Heros/Carreras/IngComputacion_mobile.jpg";
 import ImagenCard from "@/assets/Imagenes/CardsNiveles/Nivel.png";
 import LogoCard from "@/assets/Logos/Licenciatura.png";
 import InformativeCard from "@components/sections/detallesOferta/card.astro";
-import Carreras from "@components/sections/Licenciaturas/Carreras.astro";
-import Estadisticas from "@components/sections/Licenciaturas/Estadisticas.astro";
-
 import Requisitos from "@/components/sections/detallesOferta/requisitos.astro";
 
 import FAQComponent from "@/components/sections/detallesOferta/preguntas.astro";
@@ -79,27 +76,45 @@ const semestresDatos = [
     numero: 1,
     materias: [
       {
-        codigo: "ED1021",
-        nombre: "Introducción a la Educación",
-        creditos: 30,
+        codigo: "IC101",
+        nombre: "Precálculo",
+        creditos: 8,
         color: "verde",
       },
       {
-        codigo: "Filosofía y Ética en Educación",
-        nombre: "Filosofía y Ética en Educación",
-        creditos: 30,
+        codigo: "IC102",
+        nombre: "Lógica Matemática",
+        creditos: 8,
         color: "verde",
       },
       {
-        codigo: "ED1024",
-        nombre: "Desarrollo Infantil y adolescente",
-        creditos: 30,
+        codigo: "IC103",
+        nombre: "Introducción a la Ingeniería",
+        creditos: 8,
         color: "verde",
       },
       {
-        codigo: "ED1027",
-        nombre: "Habilidades Básicas de Investigación",
-        creditos: 30,
+        codigo: "IC104",
+        nombre: "Fundamentos de Programación",
+        creditos: 8,
+        color: "verde",
+      },
+      {
+        codigo: "IC105",
+        nombre: "Fundamentos de Física",
+        creditos: 8,
+        color: "verde",
+      },
+      {
+        codigo: "IC106",
+        nombre: "Ética y Legislación",
+        creditos: 8,
+        color: "verde",
+      },
+      {
+        codigo: "IC107",
+        nombre: "Análisis de Problemas Globales del Siglo XXI",
+        creditos: 8,
         color: "verde",
       },
     ],
@@ -108,27 +123,39 @@ const semestresDatos = [
     numero: 2,
     materias: [
       {
-        codigo: "FH1203",
-        nombre: "Pensamiento lógico y tecnológico",
-        creditos: 30,
+        codigo: "IC201",
+        nombre: "Programación Estructurada",
+        creditos: 10,
         color: "amarillo",
       },
       {
-        codigo: "ED2016",
-        nombre: "Desarrollo de la Psicomotricidad",
-        creditos: 30,
+        codigo: "IC202",
+        nombre: "Administración de Proyectos Tecnológicos",
+        creditos: 8,
         color: "amarillo",
       },
       {
-        codigo: "HJ2026",
-        nombre: "Ética social cristiana",
-        creditos: 30,
+        codigo: "IC203",
+        nombre: "Mecánica",
+        creditos: 8,
         color: "amarillo",
       },
       {
-        codigo: "ED1029",
-        nombre: "Historia de la Pedagogía moderna",
-        creditos: 30,
+        codigo: "IC204",
+        nombre: "Matemáticas Discretas",
+        creditos: 8,
+        color: "amarillo",
+      },
+      {
+        codigo: "IC205",
+        nombre: "Expresión Oral y Escrita",
+        creditos: 6,
+        color: "amarillo",
+      },
+      {
+        codigo: "IC206",
+        nombre: "Cálculo Diferencial e Integral",
+        creditos: 8,
         color: "amarillo",
       },
     ],
@@ -137,32 +164,271 @@ const semestresDatos = [
     numero: 3,
     materias: [
       {
-        codigo: "PS1201",
-        nombre: "Fundamentos de Psicología y Bienestar",
-        creditos: 30,
+        codigo: "IC301",
+        nombre: "Sistemas Digitales",
+        creditos: 8,
         color: "naranja",
       },
       {
-        codigo: "Gestión educativa institucional",
-        nombre: "Gestión educativa institucional",
-        creditos: 30,
+        codigo: "IC302",
+        nombre: "Programación Orientada a Objetos",
+        creditos: 8,
         color: "naranja",
       },
       {
-        codigo: "ED2012",
-        nombre: "Desarrollo Socioemocional",
-        creditos: 30,
+        codigo: "IC303",
+        nombre: "Ecuaciones Diferenciales",
+        creditos: 8,
         color: "naranja",
       },
       {
-        codigo: "ED3027",
-        nombre: "Administración educativa",
-        creditos: 30,
+        codigo: "IC304",
+        nombre: "Circuitos Electrónicos y Electromagnetismo",
+        creditos: 8,
+        color: "naranja",
+      },
+      {
+        codigo: "IC305",
+        nombre: "Álgebra Lineal",
+        creditos: 8,
+        color: "naranja",
+      },
+      {
+        codigo: "IC306",
+        nombre: "Administración",
+        creditos: 7,
         color: "naranja",
       },
     ],
   },
-  // Puedes agregar más semestres según necesites
+  {
+    numero: 4,
+    materias: [
+      {
+        codigo: "IC401",
+        nombre: "Arquitectura de Computadoras",
+        creditos: 8,
+        color: "rojo",
+      },
+      {
+        codigo: "IC402",
+        nombre: "Programación para Internet",
+        creditos: 8,
+        color: "rojo",
+      },
+      {
+        codigo: "IC403",
+        nombre: "Estructuras de Datos",
+        creditos: 8,
+        color: "rojo",
+      },
+      {
+        codigo: "IC404",
+        nombre: "Probabilidad y Estadística",
+        creditos: 8,
+        color: "rojo",
+      },
+      {
+        codigo: "IC405",
+        nombre: "Métodos Numéricos",
+        creditos: 10,
+        color: "rojo",
+      },
+      {
+        codigo: "IC406",
+        nombre: "Liderazgo y Emprendimiento",
+        creditos: 8,
+        color: "rojo",
+      },
+    ],
+  },
+  {
+    numero: 5,
+    materias: [
+      {
+        codigo: "IC501",
+        nombre: "Sistemas Operativos",
+        creditos: 10,
+        color: "purpura",
+      },
+      {
+        codigo: "IC502",
+        nombre: "Seminario Integración: Protocolo",
+        creditos: 8,
+        color: "purpura",
+      },
+      {
+        codigo: "IC503",
+        nombre: "Redes de Computadoras",
+        creditos: 8,
+        color: "purpura",
+      },
+      {
+        codigo: "IC504",
+        nombre: "Fundamentos de Inteligencia Artificial",
+        creditos: 8,
+        color: "purpura",
+      },
+      {
+        codigo: "IC505",
+        nombre: "Bases de Datos",
+        creditos: 8,
+        color: "purpura",
+      },
+      {
+        codigo: "IC506",
+        nombre: "Análisis de Algoritmos",
+        creditos: 8,
+        color: "purpura",
+      },
+    ],
+  },
+  {
+    numero: 6,
+    materias: [
+      {
+        codigo: "IC601",
+        nombre: "Aprendizaje Máquina",
+        creditos: 10,
+        color: "azul",
+      },
+      {
+        codigo: "IC602",
+        nombre: "Interacción Humano Computadora",
+        creditos: 8,
+        color: "azul",
+      },
+      {
+        codigo: "IC603",
+        nombre: "Ingeniería de Software",
+        creditos: 8,
+        color: "azul",
+      },
+      {
+        codigo: "IC604",
+        nombre: "Programación de Bajo Nivel",
+        creditos: 8,
+        color: "azul",
+      },
+      {
+        codigo: "IC605",
+        nombre: "Innovación y Tecnología",
+        creditos: 8,
+        color: "azul",
+      },
+      {
+        codigo: "IC606",
+        nombre: "Formación Integral",
+        creditos: 8,
+        color: "azul",
+      },
+    ],
+  },
+  {
+    numero: 7,
+    materias: [
+      {
+        codigo: "IC701",
+        nombre: "Optativa I",
+        creditos: 8,
+        color: "rosa",
+      },
+      {
+        codigo: "IC702",
+        nombre: "Algoritmos Metaheurísticos",
+        creditos: 8,
+        color: "rosa",
+      },
+      {
+        codigo: "IC703",
+        nombre: "Seminario Integración: Desarrollo",
+        creditos: 8,
+        color: "rosa",
+      },
+      {
+        codigo: "IC704",
+        nombre: "Prácticas Profesionales",
+        creditos: 8,
+        color: "rosa",
+      },
+      {
+        codigo: "IC705",
+        nombre: "Laboratorio Abierto: Diseño",
+        creditos: 7,
+        color: "rosa",
+      },
+      {
+        codigo: "IC706",
+        nombre: "Teoría de la Computación",
+        creditos: 7,
+        color: "rosa",
+      },
+    ],
+  },
+  {
+    numero: 8,
+    materias: [
+      {
+        codigo: "IC801",
+        nombre: "Optativa II",
+        creditos: 8,
+        color: "gris",
+      },
+      {
+        codigo: "IC802",
+        nombre: "Redes Neuronales Artificiales y Aprendizaje Profundo",
+        creditos: 8,
+        color: "gris",
+      },
+      {
+        codigo: "IC803",
+        nombre: "Seguridad de la Información",
+        creditos: 6,
+        color: "gris",
+      },
+      {
+        codigo: "IC804",
+        nombre: "Laboratorio Abierto: Construcción",
+        creditos: 7,
+        color: "gris",
+      },
+      {
+        codigo: "IC805",
+        nombre: "Compiladores",
+        creditos: 7,
+        color: "gris",
+      },
+    ],
+  },
+  {
+    numero: 9,
+    materias: [
+      {
+        codigo: "IC901",
+        nombre: "Optativa III",
+        creditos: 8,
+        color: "cian",
+      },
+      {
+        codigo: "IC902",
+        nombre: "Seminario Integración: Comunicación",
+        creditos: 4,
+        color: "cian",
+      },
+      {
+        codigo: "IC903",
+        nombre: "Laboratorio Abierto: Pruebas",
+        creditos: 7,
+        color: "cian",
+      },
+      {
+        codigo: "IC904",
+        nombre: "Programación Paralela y Concurrente",
+        creditos: 8,
+        color: "cian",
+      },
+    ],
+  },
 ];
 
 const planteles = [
@@ -176,107 +442,7 @@ const planteles = [
     lat: 20.67744801539995,
     lon: -103.34031672627513,
   },
-  {
-    id: "2",
-    nombre: "Centro Médico",
-    direccion: "José María Lozano #1077, Col. Belisario Domínguez",
-    ciudad: "Guadalajara ZMG",
-    url: "/plantel-centro-medico",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/CentroMedico.jpg",
-    lat: 20.684590788642307,
-    lon: -103.3256397932448,
-  },
-  {
-    id: "3",
-    nombre: "Milenio",
-    direccion: "Av. López Mateos Sur #4154, Col. La Giralda",
-    ciudad: "Guadalajara ZMG",
-    url: "/plantel-milenio",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/Milenio.jpg",
-    lat: 20.64540739939039,
-    lon: -103.40630313415286,
-  },
-  {
-    id: "4",
-    nombre: "Puerto Vallarta - Plaza Caracol",
-    direccion: "Blvd. Fco. Medina Ascencio #2180, Col. Díaz Ordaz",
-    ciudad: "Puerto Vallarta",
-    url: "/plantel-plaza-caracol-puerto-vallarta",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/PuertoVallarta.png",
-    lat: 20.639287162026815,
-    lon: -105.23323589513319,
-  },
-  {
-    id: "5",
-    nombre: "Tlajomulco",
-    direccion: "Av. López Mateos #10100, Col. Los Gavilanes Poniente",
-    ciudad: "Guadalajara ZMG",
-    url: "/plantel-tlajomulco",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/Tlajomulco.png",
-    lat: 20.576464164603113,
-    lon: -103.45243680650722,
-  },
-  {
-    id: "6",
-    nombre: "Tesistán",
-    direccion: "Av. Juan Gil Preciado #3897, Col. Hogares de Nuevo México",
-    ciudad: "Guadalajara ZMG",
-    url: "/plantel-tesistan",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/Tesistan.png",
-    lat: 20.806203,
-    lon: -102.763903,
-  },
-  {
-    id: "7",
-    nombre: "Tepatitlán",
-    direccion: "Calle Dr. Ricardo Alcalá #505, Av. Matamoros, Centro",
-    ciudad: "Tepatitlán de Morelos",
-    url: "/plantel-tepatitlan",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/Tepatitlan.jpg",
-    lat: 20.8062946507024,
-    lon: -102.76382902869392,
-  },
-  {
-    id: "8",
-    nombre: "Tlaquepaque",
-    direccion:
-      "Blvd. Marcelino García Barragán #2056, Col. Bosques del Boulevard",
-    ciudad: "Guadalajara ZMG",
-    url: "/plantel-tlaquepaque",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/Tlaquepaque.jpg",
-    lat: 20.645650028567157,
-    lon: -103.32094530771215,
-  },
-  {
-    id: "9",
-    nombre: "Tonalá",
-    direccion: "Av. Tonaltecas #333, Col. Agua Escondida",
-    ciudad: "Guadalajara ZMG",
-    url: "/plantel-tonala",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/Tonala.png",
-    lat: 20.63176692188573,
-    lon: -103.24439406488241,
-  },
-  {
-    id: "10",
-    nombre: "Chapultepec",
-    direccion: "Av. Vallarta #1458, Col. Americana",
-    ciudad: "Guadalajara ZMG",
-    url: "/plantel-vallarta",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/Chapultepec.png",
-    lat: 20.67471004174908,
-    lon: -103.36909119392195,
-  },
-  {
-    id: "11",
-    nombre: "Zapopan",
-    direccion: "Plaza Caudillos",
-    ciudad: "Guadalajara ZMG",
-    url: "/plantel-zapopan",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/Zapopan.png",
-    lat: 20.720900646775917,
-    lon: -103.38975281813357,
-  },
+  
 ];
 
 const ciudades = [
@@ -314,19 +480,14 @@ const ciudades = [
         <div class="text-center text-white max-w-4xl mx-auto">
           {/* Main Title */}
           <h1 class="text-4xl md:text-7xl font-bold tracking-wider mb-4">
-            Lic. en Cirujano Dentista
+            Ingeniería en Computación
           </h1>
-          <h2 class="text-2xl md:text-5xl font-bold tracking-wider mb-8">
-            Licenciaturas UNE
-          </h2>
-
+         
           {/* Description */}
           <p
             class="text-lg md:text-xl leading-relaxed mb-16 max-w-3xl mx-auto font-light"
           >
-            Transforma sonrisas y mejora la calidad de vida a través del estudio
-            y la práctica de la odontología, en una carrera donde la ciencia, la
-            salud y la vocación por el bienestar se unen.
+            Diseña sistemas, redes y soluciones tecnológicas para enfrentar los retos del mundo digital.
           </p>
         </div>
       </div>
@@ -371,19 +532,20 @@ const ciudades = [
     </div>
 
     <InformativeCard
-      logoSrc={LogoCard.src}
-      studentImageSrc={ImagenCard.src}
-      title="Objetivo"
-      description="La Licenciatura en Cirujano Dentista te forma como un profesionista altamente capacitado para prevenir, diagnosticar y tratar enfermedades bucales con un enfoque integral y humano."
-      additionalText="Con una sólida formación teórico-práctica y un alto compromiso ético y social, estarás preparado para promover la salud bucodental, brindar atención personalizada y colaborar con instituciones de salud para transformar positivamente la calidad de vida de las personas."
-      features={[
-        { icon: "CalendarDays", label: "Prácticas clínicas presenciales" },
-        { icon: "BookOpen", label: "Bases científicas sólidas" },
-        { icon: "School", label: "Validez oficial" },
-        { icon: "Clock", label: "Horarios accesibles" },
-        { icon: "BookmarkCheck", label: "Enfoque profesionalizante" },
-      ]}
-    />
+  logoSrc={LogoCard.src}
+  studentImageSrc={ImagenCard.src}
+  title="Objetivo"
+  description="Formar ingenieros en computación con competencias técnicas, analíticas y creativas para diseñar, implementar y mantener sistemas informáticos eficientes y seguros, promoviendo la innovación tecnológica, la solución de problemas complejos y la inserción exitosa en el ámbito laboral, con un enfoque ético y socialmente responsable."
+  additionalText=""
+  features={[
+    { icon: "Cpu", label: "Desarrollo de sistemas computacionales" },
+    { icon: "BookOpen", label: "Bases científicas sólidas" },
+    { icon: "School", label: "Validez oficial" },
+    { icon: "Clock", label: "Horarios accesibles" },
+    { icon: "BookmarkCheck", label: "Enfoque profesionalizante" },
+  ]}
+/>
+
 
      <PlanEstudios titulo="Propuesta Educativa" semestres={semestresDatos} />
 

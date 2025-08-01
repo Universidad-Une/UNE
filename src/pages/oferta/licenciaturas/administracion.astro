@@ -1,15 +1,11 @@
 ---
 import Layout from "@/layouts/Layout.astro";
-import Hero from "@/assets/Imagenes/Heros/Cirujano_dentista.jpg";
-import Hero_mobile from "@/assets/Imagenes/Heros/Cirujano_dentista_mobile.jpg";
+import Hero from "@/assets/Imagenes/Heros/Carreras/Administracion.jpg";
+import Hero_mobile from "@/assets/Imagenes/Heros/Carreras/Administracion_mobile.jpg";
 import ImagenCard from "@/assets/Imagenes/CardsNiveles/Nivel.png";
 import LogoCard from "@/assets/Logos/Licenciatura.png";
 import InformativeCard from "@components/sections/detallesOferta/card.astro";
-import Carreras from "@components/sections/Licenciaturas/Carreras.astro";
-import Estadisticas from "@components/sections/Licenciaturas/Estadisticas.astro";
-
 import Requisitos from "@/components/sections/detallesOferta/requisitos.astro";
-
 import FAQComponent from "@/components/sections/detallesOferta/preguntas.astro";
 import CTAinscripcion from "@/components/sections/shared/ctaInscripcion.astro";
 import { Calendar, UserPlus, Phone } from "@lucide/astro";
@@ -79,27 +75,51 @@ const semestresDatos = [
     numero: 1,
     materias: [
       {
-        codigo: "ED1021",
-        nombre: "Introducción a la Educación",
-        creditos: 30,
+        codigo: "ADM101",
+        nombre: "Administración I",
+        creditos: 8,
         color: "verde",
       },
       {
-        codigo: "Filosofía y Ética en Educación",
-        nombre: "Filosofía y Ética en Educación",
-        creditos: 30,
+        codigo: "ADM102",
+        nombre: "Análisis de Problemas Globales del Siglo XXI",
+        creditos: 0,
         color: "verde",
       },
       {
-        codigo: "ED1024",
-        nombre: "Desarrollo Infantil y adolescente",
-        creditos: 30,
+        codigo: "ADM103",
+        nombre: "Contabilidad General",
+        creditos: 8,
         color: "verde",
       },
       {
-        codigo: "ED1027",
-        nombre: "Habilidades Básicas de Investigación",
-        creditos: 30,
+        codigo: "ADM104",
+        nombre: "Economía I",
+        creditos: 8,
+        color: "verde",
+      },
+      {
+        codigo: "ADM105",
+        nombre: "Expresión Oral y Escrita",
+        creditos: 6,
+        color: "verde",
+      },
+      {
+        codigo: "ADM106",
+        nombre: "Matemáticas I",
+        creditos: 8,
+        color: "verde",
+      },
+      {
+        codigo: "ADM107",
+        nombre: "Tecnologías de la Información",
+        creditos: 8,
+        color: "verde",
+      },
+      {
+        codigo: "ADM108",
+        nombre: "Universidad y Siglo XXI",
+        creditos: 8,
         color: "verde",
       },
     ],
@@ -108,27 +128,45 @@ const semestresDatos = [
     numero: 2,
     materias: [
       {
-        codigo: "FH1203",
-        nombre: "Pensamiento lógico y tecnológico",
-        creditos: 30,
+        codigo: "ADM201",
+        nombre: "Administración II",
+        creditos: 8,
         color: "amarillo",
       },
       {
-        codigo: "ED2016",
-        nombre: "Desarrollo de la Psicomotricidad",
-        creditos: 30,
+        codigo: "ADM202",
+        nombre: "Conceptos Jurídicos Fundamentales",
+        creditos: 8,
         color: "amarillo",
       },
       {
-        codigo: "HJ2026",
-        nombre: "Ética social cristiana",
-        creditos: 30,
+        codigo: "ADM203",
+        nombre: "Economía II",
+        creditos: 8,
         color: "amarillo",
       },
       {
-        codigo: "ED1029",
-        nombre: "Historia de la Pedagogía moderna",
-        creditos: 30,
+        codigo: "ADM204",
+        nombre: "Ética Profesional",
+        creditos: 6,
+        color: "amarillo",
+      },
+      {
+        codigo: "ADM205",
+        nombre: "Matemáticas II",
+        creditos: 8,
+        color: "amarillo",
+      },
+      {
+        codigo: "ADM206",
+        nombre: "Contabilidad Administrativa",
+        creditos: 8,
+        color: "amarillo",
+      },
+      {
+        codigo: "ADM207",
+        nombre: "Desarrollo Sustentable",
+        creditos: 8,
         color: "amarillo",
       },
     ],
@@ -137,146 +175,275 @@ const semestresDatos = [
     numero: 3,
     materias: [
       {
-        codigo: "PS1201",
-        nombre: "Fundamentos de Psicología y Bienestar",
-        creditos: 30,
+        codigo: "ADM301",
+        nombre: "Administración de Recursos Humanos",
+        creditos: 8,
         color: "naranja",
       },
       {
-        codigo: "Gestión educativa institucional",
-        nombre: "Gestión educativa institucional",
-        creditos: 30,
+        codigo: "ADM302",
+        nombre: "Estadística I",
+        creditos: 8,
         color: "naranja",
       },
       {
-        codigo: "ED2012",
-        nombre: "Desarrollo Socioemocional",
-        creditos: 30,
+        codigo: "ADM303",
+        nombre: "Diseño Organizacional",
+        creditos: 8,
         color: "naranja",
       },
       {
-        codigo: "ED3027",
-        nombre: "Administración educativa",
-        creditos: 30,
+        codigo: "ADM304",
+        nombre: "Gestión y Organización del Sector Público",
+        creditos: 8,
+        color: "naranja",
+      },
+      {
+        codigo: "ADM305",
+        nombre: "Mercadotecnia",
+        creditos: 8,
+        color: "naranja",
+      },
+      {
+        codigo: "ADM306",
+        nombre: "Contabilidad de Costos",
+        creditos: 8,
+        color: "naranja",
+      },
+      {
+        codigo: "ADM307",
+        nombre: "Derecho Laboral",
+        creditos: 8,
         color: "naranja",
       },
     ],
   },
-  // Puedes agregar más semestres según necesites
+  {
+    numero: 4,
+    materias: [
+      {
+        codigo: "ADM401",
+        nombre: "Estadística II",
+        creditos: 8,
+        color: "rojo",
+      },
+      {
+        codigo: "ADM402",
+        nombre: "Administración Estratégica",
+        creditos: 8,
+        color: "rojo",
+      },
+      {
+        codigo: "ADM403",
+        nombre: "Conceptos Fiscales Fundamentales",
+        creditos: 8,
+        color: "rojo",
+      },
+      {
+        codigo: "ADM404",
+        nombre: "Dotación e Inducción de Recursos Humanos",
+        creditos: 8,
+        color: "rojo",
+      },
+      {
+        codigo: "ADM405",
+        nombre: "Investigación de Mercados",
+        creditos: 8,
+        color: "rojo",
+      },
+      {
+        codigo: "ADM406",
+        nombre: "Derecho Fiscal",
+        creditos: 8,
+        color: "rojo",
+      },
+      {
+        codigo: "ADM407",
+        nombre: "Desarrollo de Emprendedores",
+        creditos: 8,
+        color: "rojo",
+      },
+    ],
+  },
+  {
+    numero: 5,
+    materias: [
+      {
+        codigo: "ADM501",
+        nombre: "Capacitación y Desarrollo Personal",
+        creditos: 6,
+        color: "morado",
+      },
+      {
+        codigo: "ADM502",
+        nombre: "Gestión de la Calidad",
+        creditos: 8,
+        color: "morado",
+      },
+      {
+        codigo: "ADM503",
+        nombre: "Investigación de Operaciones I",
+        creditos: 8,
+        color: "morado",
+      },
+      {
+        codigo: "ADM504",
+        nombre: "Promoción y Publicidad",
+        creditos: 8,
+        color: "morado",
+      },
+      {
+        codigo: "ADM505",
+        nombre: "Auditoría Administrativa",
+        creditos: 6,
+        color: "morado",
+      },
+      {
+        codigo: "ADM506",
+        nombre: "Liderazgo y Habilidades Directivas",
+        creditos: 8,
+        color: "morado",
+      },
+      {
+        codigo: "ADM507",
+        nombre: "Simulación y Técnicas de Negocios",
+        creditos: 8,
+        color: "morado",
+      },
+    ],
+  },
+  {
+    numero: 6,
+    materias: [
+      {
+        codigo: "ADM601",
+        nombre: "Metodología y Práctica de la Investigación",
+        creditos: 8,
+        color: "azul",
+      },
+      {
+        codigo: "ADM602",
+        nombre: "Administración Financiera",
+        creditos: 8,
+        color: "azul",
+      },
+      {
+        codigo: "ADM603",
+        nombre: "Desarrollo Organizacional",
+        creditos: 8,
+        color: "azul",
+      },
+      {
+        codigo: "ADM604",
+        nombre: "Administración de la Producción y la Tecnología",
+        creditos: 8,
+        color: "azul",
+      },
+      {
+        codigo: "ADM605",
+        nombre: "Administración de las Pymes",
+        creditos: 6,
+        color: "azul",
+      },
+      {
+        codigo: "ADM606",
+        nombre: "Gerencia y Dirección Estratégica",
+        creditos: 8,
+        color: "azul",
+      },
+      {
+        codigo: "ADM607",
+        nombre: "Alta Dirección",
+        creditos: 8,
+        color: "azul",
+      },
+    ],
+  },
+  {
+    numero: 7,
+    materias: [
+      {
+        codigo: "ADM701",
+        nombre: "Desarrollo e Innovación Tecnológica",
+        creditos: 8,
+        color: "cian",
+      },
+      {
+        codigo: "ADM702",
+        nombre: "Formulación y Evaluación de Proyectos",
+        creditos: 8,
+        color: "cian",
+      },
+      {
+        codigo: "ADM703",
+        nombre: "Promoción y Evaluación de la Productividad",
+        creditos: 6,
+        color: "cian",
+      },
+      {
+        codigo: "ADM704",
+        nombre: "Administración de Toma de Decisiones",
+        creditos: 8,
+        color: "cian",
+      },
+      {
+        codigo: "ADM705",
+        nombre: "Responsabilidad Social Corporativa",
+        creditos: 6,
+        color: "cian",
+      },
+      {
+        codigo: "ADM706",
+        nombre: "Prospectiva y Desarrollo de Escenarios",
+        creditos: 8,
+        color: "cian",
+      },
+      {
+        codigo: "ADM707",
+        nombre: "Análisis de las Organizaciones",
+        creditos: 8,
+        color: "cian",
+      },
+    ],
+  },
+  {
+    numero: 8,
+    materias: [
+      {
+        codigo: "ADM801",
+        nombre: "Seminario de Titulación en Administración",
+        creditos: 6,
+        color: "rosa",
+      },
+      {
+        codigo: "ADM802",
+        nombre: "Planeación Estratégica Organizacional",
+        creditos: 8,
+        color: "rosa",
+      },
+      {
+        codigo: "ADM803",
+        nombre: "Facultamiento y Desarrollo de Talento",
+        creditos: 8,
+        color: "rosa",
+      },
+    ],
+  },
 ];
 
 const planteles = [
-  {
-    id: "1",
-    nombre: "Centro",
-    direccion: "Av. República No.10, Col. San Juan de Dios",
+   {
+    id: "15",
+    nombre: "Torre Quetzal",
+    codigo: "Torre Quetzak",
+    direccion: "Chimalhuacán #3569 Col. Ciudad del Sol Zapopan, Jalisco",
     ciudad: "Guadalajara ZMG",
-    url: "/plantel-centro",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/Centro.jpg",
-    lat: 20.67744801539995,
-    lon: -103.34031672627513,
+    url: "/campus/torre-quetzal",
+    imagen: "/src/assets/Imagenes/CardsPlanteles/Torre-quetzal.png",
+    lat: "20.651860618451966",
+    lon: "-103.40329340052432",
   },
-  {
-    id: "2",
-    nombre: "Centro Médico",
-    direccion: "José María Lozano #1077, Col. Belisario Domínguez",
-    ciudad: "Guadalajara ZMG",
-    url: "/plantel-centro-medico",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/CentroMedico.jpg",
-    lat: 20.684590788642307,
-    lon: -103.3256397932448,
-  },
-  {
-    id: "3",
-    nombre: "Milenio",
-    direccion: "Av. López Mateos Sur #4154, Col. La Giralda",
-    ciudad: "Guadalajara ZMG",
-    url: "/plantel-milenio",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/Milenio.jpg",
-    lat: 20.64540739939039,
-    lon: -103.40630313415286,
-  },
-  {
-    id: "4",
-    nombre: "Puerto Vallarta - Plaza Caracol",
-    direccion: "Blvd. Fco. Medina Ascencio #2180, Col. Díaz Ordaz",
-    ciudad: "Puerto Vallarta",
-    url: "/plantel-plaza-caracol-puerto-vallarta",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/PuertoVallarta.png",
-    lat: 20.639287162026815,
-    lon: -105.23323589513319,
-  },
-  {
-    id: "5",
-    nombre: "Tlajomulco",
-    direccion: "Av. López Mateos #10100, Col. Los Gavilanes Poniente",
-    ciudad: "Guadalajara ZMG",
-    url: "/plantel-tlajomulco",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/Tlajomulco.png",
-    lat: 20.576464164603113,
-    lon: -103.45243680650722,
-  },
-  {
-    id: "6",
-    nombre: "Tesistán",
-    direccion: "Av. Juan Gil Preciado #3897, Col. Hogares de Nuevo México",
-    ciudad: "Guadalajara ZMG",
-    url: "/plantel-tesistan",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/Tesistan.png",
-    lat: 20.806203,
-    lon: -102.763903,
-  },
-  {
-    id: "7",
-    nombre: "Tepatitlán",
-    direccion: "Calle Dr. Ricardo Alcalá #505, Av. Matamoros, Centro",
-    ciudad: "Tepatitlán de Morelos",
-    url: "/plantel-tepatitlan",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/Tepatitlan.jpg",
-    lat: 20.8062946507024,
-    lon: -102.76382902869392,
-  },
-  {
-    id: "8",
-    nombre: "Tlaquepaque",
-    direccion:
-      "Blvd. Marcelino García Barragán #2056, Col. Bosques del Boulevard",
-    ciudad: "Guadalajara ZMG",
-    url: "/plantel-tlaquepaque",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/Tlaquepaque.jpg",
-    lat: 20.645650028567157,
-    lon: -103.32094530771215,
-  },
-  {
-    id: "9",
-    nombre: "Tonalá",
-    direccion: "Av. Tonaltecas #333, Col. Agua Escondida",
-    ciudad: "Guadalajara ZMG",
-    url: "/plantel-tonala",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/Tonala.png",
-    lat: 20.63176692188573,
-    lon: -103.24439406488241,
-  },
-  {
-    id: "10",
-    nombre: "Chapultepec",
-    direccion: "Av. Vallarta #1458, Col. Americana",
-    ciudad: "Guadalajara ZMG",
-    url: "/plantel-vallarta",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/Chapultepec.png",
-    lat: 20.67471004174908,
-    lon: -103.36909119392195,
-  },
-  {
-    id: "11",
-    nombre: "Zapopan",
-    direccion: "Plaza Caudillos",
-    ciudad: "Guadalajara ZMG",
-    url: "/plantel-zapopan",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/Zapopan.png",
-    lat: 20.720900646775917,
-    lon: -103.38975281813357,
-  },
+ 
 ];
 
 const ciudades = [
@@ -324,9 +491,7 @@ const ciudades = [
           <p
             class="text-lg md:text-xl leading-relaxed mb-16 max-w-3xl mx-auto font-light"
           >
-            Transforma sonrisas y mejora la calidad de vida a través del estudio
-            y la práctica de la odontología, en una carrera donde la ciencia, la
-            salud y la vocación por el bienestar se unen.
+            Forma parte del motor que mueve a las organizaciones. Aprende a liderar equipos, optimizar recursos y tomar decisiones con impacto.
           </p>
         </div>
       </div>
@@ -374,8 +539,8 @@ const ciudades = [
       logoSrc={LogoCard.src}
       studentImageSrc={ImagenCard.src}
       title="Objetivo"
-      description="La Licenciatura en Cirujano Dentista te forma como un profesionista altamente capacitado para prevenir, diagnosticar y tratar enfermedades bucales con un enfoque integral y humano."
-      additionalText="Con una sólida formación teórico-práctica y un alto compromiso ético y social, estarás preparado para promover la salud bucodental, brindar atención personalizada y colaborar con instituciones de salud para transformar positivamente la calidad de vida de las personas."
+      description="Desarrollar profesionales competentes en la gestión organizacional, capaces de diseñar, implementar y evaluar estrategias administrativas innovadoras que impulsen la eficiencia, el crecimiento económico y la responsabilidad social de las organizaciones, fortaleciendo su inserción laboral y su contribución al desarrollo sostenible."
+      additionalText=""
       features={[
         { icon: "CalendarDays", label: "Prácticas clínicas presenciales" },
         { icon: "BookOpen", label: "Bases científicas sólidas" },

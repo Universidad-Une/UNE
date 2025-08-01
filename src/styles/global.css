@@ -1,33 +1,6 @@
 @import "tailwindcss";
 
-/* Importación de fuentes existentes */
-@font-face {
-  font-family: 'Averta';
-  src: url('/fonts/Averta/Averta.otf') format('opentype');
-  font-weight: 400;
-  font-style: normal;
-}
 
-@font-face {
-  font-family: 'Averta';
-  src: url('/fonts/Averta/Averta Light.otf') format('opentype');
-  font-weight: 300;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Averta';
-  src: url('/fonts/Averta/Averta Bold.otf') format('opentype');
-  font-weight: 700;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Averta';
-  src: url('/fonts/Averta/Averta Black.otf') format('opentype');
-  font-weight: 900;
-  font-style: normal;
-}
 
 @font-face {
   font-family: 'Gotham';
@@ -74,8 +47,6 @@
   /* Define tu pila de fuentes 'sans' para que use Gotham */
   --font-sans: "Gotham", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 
-  /* Si quieres una clase específica para Averta, también la defines aquí */
-  --font-averta: "Averta", sans-serif;
 
   /* --- Tus nuevos colores UNE --- */
   --color-rojo-une: #E22319;

@@ -1,15 +1,11 @@
 ---
 import Layout from "@/layouts/Layout.astro";
-import Hero from "@/assets/Imagenes/Heros/Cirujano_dentista.jpg";
-import Hero_mobile from "@/assets/Imagenes/Heros/Cirujano_dentista_mobile.jpg";
+import Hero from "@/assets/Imagenes/Heros/Carreras/Gastronomia.jpg";
+import Hero_mobile from "@/assets/Imagenes/Heros/Carreras/Gastronomia_mobile.jpg";
 import ImagenCard from "@/assets/Imagenes/CardsNiveles/Nivel.png";
 import LogoCard from "@/assets/Logos/Licenciatura.png";
 import InformativeCard from "@components/sections/detallesOferta/card.astro";
-import Carreras from "@components/sections/Licenciaturas/Carreras.astro";
-import Estadisticas from "@components/sections/Licenciaturas/Estadisticas.astro";
-
 import Requisitos from "@/components/sections/detallesOferta/requisitos.astro";
-
 import FAQComponent from "@/components/sections/detallesOferta/preguntas.astro";
 import CTAinscripcion from "@/components/sections/shared/ctaInscripcion.astro";
 import { Calendar, UserPlus, Phone } from "@lucide/astro";
@@ -25,7 +21,7 @@ const requisitosInfo = {
     "CURP (formato RENAPO)",
     "Identificación oficial con fotografía (INE) - dos copias",
     "Comprobante de domicilio reciente (no mayor a 3 meses) - una copia",
-    "Cinco fotografías tamaño infantil, blanco y negro, papel mate, de estudio"
+    "Cinco fotografías tamaño infantil, blanco y negro, papel mate, de estudio",
   ],
   pdfUrl: "/public/pdfs/licenciatura_req.pdf",
 };
@@ -79,27 +75,45 @@ const semestresDatos = [
     numero: 1,
     materias: [
       {
-        codigo: "ED1021",
-        nombre: "Introducción a la Educación",
-        creditos: 30,
+        codigo: "LGR101",
+        nombre: "Desarrollo de Habilidades del Aprendizaje",
+        creditos: 4,
         color: "verde",
       },
       {
-        codigo: "Filosofía y Ética en Educación",
-        nombre: "Filosofía y Ética en Educación",
-        creditos: 30,
+        codigo: "LGR102",
+        nombre: "Historia de la Gastronomía",
+        creditos: 5,
         color: "verde",
       },
       {
-        codigo: "ED1024",
-        nombre: "Desarrollo Infantil y adolescente",
-        creditos: 30,
+        codigo: "LGR103",
+        nombre: "Cocina Elemental",
+        creditos: 5,
         color: "verde",
       },
       {
-        codigo: "ED1027",
-        nombre: "Habilidades Básicas de Investigación",
-        creditos: 30,
+        codigo: "LGR104",
+        nombre: "Fundamentos de la Cocina Mexicana",
+        creditos: 6,
+        color: "verde",
+      },
+      {
+        codigo: "LGR105",
+        nombre: "Cultura Alimentaria Nacional e Internacional",
+        creditos: 6,
+        color: "verde",
+      },
+      {
+        codigo: "LGR106",
+        nombre: "Conocimiento y Organización de la Cocina",
+        creditos: 5,
+        color: "verde",
+      },
+      {
+        codigo: "LGR107",
+        nombre: "Inglés I",
+        creditos: 4,
         color: "verde",
       },
     ],
@@ -108,27 +122,45 @@ const semestresDatos = [
     numero: 2,
     materias: [
       {
-        codigo: "FH1203",
-        nombre: "Pensamiento lógico y tecnológico",
-        creditos: 30,
+        codigo: "LGR201",
+        nombre: "Comunicación Oral y Escrita",
+        creditos: 4,
         color: "amarillo",
       },
       {
-        codigo: "ED2016",
-        nombre: "Desarrollo de la Psicomotricidad",
-        creditos: 30,
+        codigo: "LGR202",
+        nombre: "Salud Nutrimental I",
+        creditos: 5,
         color: "amarillo",
       },
       {
-        codigo: "HJ2026",
-        nombre: "Ética social cristiana",
-        creditos: 30,
+        codigo: "LGR203",
+        nombre: "Cocina Intermedia",
+        creditos: 6,
         color: "amarillo",
       },
       {
-        codigo: "ED1029",
-        nombre: "Historia de la Pedagogía moderna",
-        creditos: 30,
+        codigo: "LGR204",
+        nombre: "Cocina Mexicana Tradicional",
+        creditos: 5,
+        color: "amarillo",
+      },
+      {
+        codigo: "LGR205",
+        nombre: "Técnicas en Carnes y Aves",
+        creditos: 6,
+        color: "amarillo",
+      },
+      {
+        codigo: "LGR206",
+        nombre: "Panadería",
+        creditos: 5,
+        color: "amarillo",
+      },
+      {
+        codigo: "LGR207",
+        nombre: "Inglés II",
+        creditos: 4,
         color: "amarillo",
       },
     ],
@@ -137,75 +169,336 @@ const semestresDatos = [
     numero: 3,
     materias: [
       {
-        codigo: "PS1201",
-        nombre: "Fundamentos de Psicología y Bienestar",
-        creditos: 30,
+        codigo: "LGR301",
+        nombre: "Informática",
+        creditos: 4,
         color: "naranja",
       },
       {
-        codigo: "Gestión educativa institucional",
-        nombre: "Gestión educativa institucional",
-        creditos: 30,
+        codigo: "LGR302",
+        nombre: "Salud Nutrimental II",
+        creditos: 5,
         color: "naranja",
       },
       {
-        codigo: "ED2012",
-        nombre: "Desarrollo Socioemocional",
-        creditos: 30,
+        codigo: "LGR303",
+        nombre: "Cocina de Vanguardia",
+        creditos: 6,
         color: "naranja",
       },
       {
-        codigo: "ED3027",
-        nombre: "Administración educativa",
-        creditos: 30,
+        codigo: "LGR304",
+        nombre: "La Cultura de la Cocina Mexicana",
+        creditos: 6,
+        color: "naranja",
+      },
+      {
+        codigo: "LGR305",
+        nombre: "Pescados y Mariscos",
+        creditos: 5,
+        color: "naranja",
+      },
+      {
+        codigo: "LGR306",
+        nombre: "Gastronomía de Europa I",
+        creditos: 5,
+        color: "naranja",
+      },
+      {
+        codigo: "LGR307",
+        nombre: "Inglés III",
+        creditos: 4,
         color: "naranja",
       },
     ],
   },
-  // Puedes agregar más semestres según necesites
+  {
+    numero: 4,
+    materias: [
+      {
+        codigo: "LGR401",
+        nombre: "Formación Humana",
+        creditos: 4,
+        color: "rojo",
+      },
+      {
+        codigo: "LGR402",
+        nombre: "Composición de los Alimentos",
+        creditos: 5,
+        color: "rojo",
+      },
+      {
+        codigo: "LGR403",
+        nombre: "Microbiología y Toxicología Alimentaria",
+        creditos: 5,
+        color: "rojo",
+      },
+      {
+        codigo: "LGR404",
+        nombre: "Gourmet de la Cocina Mexicana",
+        creditos: 6,
+        color: "rojo",
+      },
+      {
+        codigo: "LGR405",
+        nombre: "Evaluación Sensorial Gastronómica",
+        creditos: 6,
+        color: "rojo",
+      },
+      {
+        codigo: "LGR406",
+        nombre: "Gastronomía de Europa II",
+        creditos: 5,
+        color: "rojo",
+      },
+      {
+        codigo: "LGR407",
+        nombre: "Inglés IV",
+        creditos: 4,
+        color: "rojo",
+      },
+    ],
+  },
+  {
+    numero: 5,
+    materias: [
+      {
+        codigo: "LGR501",
+        nombre: "Administración y Costos",
+        creditos: 4,
+        color: "morado",
+      },
+      {
+        codigo: "LGR502",
+        nombre: "Gestión de los Alimentos",
+        creditos: 6,
+        color: "morado",
+      },
+      {
+        codigo: "LGR503",
+        nombre: "Métodos de Conservación y Almacén",
+        creditos: 5,
+        color: "morado",
+      },
+      {
+        codigo: "LGR504",
+        nombre: "Cocina Alternativa",
+        creditos: 5,
+        color: "morado",
+      },
+      {
+        codigo: "LGR505",
+        nombre: "Mukimono I",
+        creditos: 5,
+        color: "morado",
+      },
+      {
+        codigo: "LGR506",
+        nombre: "Gastronomía del Mediterráneo",
+        creditos: 6,
+        color: "morado",
+      },
+      {
+        codigo: "LGR507",
+        nombre: "Inglés V",
+        creditos: 4,
+        color: "morado",
+      },
+    ],
+  },
+  {
+    numero: 6,
+    materias: [
+      {
+        codigo: "LGR601",
+        nombre: "Emprendimiento Gastronómico",
+        creditos: 5,
+        color: "azul",
+      },
+      {
+        codigo: "LGR602",
+        nombre: "Cocina Fría",
+        creditos: 6,
+        color: "azul",
+      },
+      {
+        codigo: "LGR603",
+        nombre: "Alimentos y Bebidas I",
+        creditos: 5,
+        color: "azul",
+      },
+      {
+        codigo: "LGR604",
+        nombre: "Enología",
+        creditos: 5,
+        color: "azul",
+      },
+      {
+        codigo: "LGR605",
+        nombre: "Mukimono II",
+        creditos: 5,
+        color: "azul",
+      },
+      {
+        codigo: "LGR606",
+        nombre: "Gastronomía de Asia I",
+        creditos: 5,
+        color: "azul",
+      },
+      {
+        codigo: "LGR607",
+        nombre: "Francés I",
+        creditos: 4,
+        color: "azul",
+      },
+    ],
+  },
+  {
+    numero: 7,
+    materias: [
+      {
+        codigo: "LGR701",
+        nombre: "Mercadotecnia en Servicio de Alimentos",
+        creditos: 5,
+        color: "cian",
+      },
+      {
+        codigo: "LGR702",
+        nombre: "Biotecnología de los Alimentos",
+        creditos: 6,
+        color: "cian",
+      },
+      {
+        codigo: "LGR703",
+        nombre: "Alimentos y Bebidas II",
+        creditos: 5,
+        color: "cian",
+      },
+      {
+        codigo: "LGR704",
+        nombre: "Coctelería",
+        creditos: 5,
+        color: "cian",
+      },
+      {
+        codigo: "LGR705",
+        nombre: "Estética e Iconografía Culinaria",
+        creditos: 5,
+        color: "cian",
+      },
+      {
+        codigo: "LGR706",
+        nombre: "Gastronomía de Asia II",
+        creditos: 5,
+        color: "cian",
+      },
+      {
+        codigo: "LGR707",
+        nombre: "Francés II",
+        creditos: 4,
+        color: "cian",
+      },
+    ],
+  },
+  {
+    numero: 8,
+    materias: [
+      {
+        codigo: "LGR801",
+        nombre: "Protocolo y Calidad",
+        creditos: 5,
+        color: "rosa",
+      },
+      {
+        codigo: "LGR802",
+        nombre: "Chocolate y Confitería",
+        creditos: 5,
+        color: "rosa",
+      },
+      {
+        codigo: "LGR803",
+        nombre: "Cocina Prehispánica y Étnica",
+        creditos: 5,
+        color: "rosa",
+      },
+      {
+        codigo: "LGR804",
+        nombre: "Repostería I",
+        creditos: 5,
+        color: "rosa",
+      },
+      {
+        codigo: "LGR805",
+        nombre: "Gastrotecnología e Innovación Culinaria",
+        creditos: 6,
+        color: "rosa",
+      },
+      {
+        codigo: "LGR806",
+        nombre: "Gastronomía de América",
+        creditos: 5,
+        color: "rosa",
+      },
+      {
+        codigo: "LGR807",
+        nombre: "Francés III",
+        creditos: 4,
+        color: "rosa",
+      },
+    ],
+  },
+  {
+    numero: 9,
+    materias: [
+      {
+        codigo: "LRG901",
+        nombre: "Comedores Industriales",
+        creditos: 5,
+        color: "turquesa",
+      },
+      {
+        codigo: "LRG902",
+        nombre: "Organización y Dirección del Área Gastronómica",
+        creditos: 5,
+        color: "turquesa",
+      },
+      {
+        codigo: "LRG903",
+        nombre: "Manejo de Buffet y Banquetes",
+        creditos: 6,
+        color: "turquesa",
+      },
+      {
+        codigo: "LRG904",
+        nombre: "Repostería II",
+        creditos: 5,
+        color: "turquesa",
+      },
+      {
+        codigo: "LRG905",
+        nombre: "Proyectos Culinarios",
+        creditos: 5,
+        color: "turquesa",
+      },
+      {
+        codigo: "LRG906",
+        nombre: "Métodos y Técnicas de Investigación de Alimentos",
+        creditos: 5,
+        color: "turquesa",
+      },
+      {
+        codigo: "LRG907",
+        nombre: "Francés IV",
+        creditos: 4,
+        color: "turquesa",
+      },
+    ],
+  },
 ];
 
 const planteles = [
-  {
-    id: "1",
-    nombre: "Centro",
-    direccion: "Av. República No.10, Col. San Juan de Dios",
-    ciudad: "Guadalajara ZMG",
-    url: "/plantel-centro",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/Centro.jpg",
-    lat: 20.67744801539995,
-    lon: -103.34031672627513,
-  },
-  {
-    id: "2",
-    nombre: "Centro Médico",
-    direccion: "José María Lozano #1077, Col. Belisario Domínguez",
-    ciudad: "Guadalajara ZMG",
-    url: "/plantel-centro-medico",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/CentroMedico.jpg",
-    lat: 20.684590788642307,
-    lon: -103.3256397932448,
-  },
-  {
-    id: "3",
-    nombre: "Milenio",
-    direccion: "Av. López Mateos Sur #4154, Col. La Giralda",
-    ciudad: "Guadalajara ZMG",
-    url: "/plantel-milenio",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/Milenio.jpg",
-    lat: 20.64540739939039,
-    lon: -103.40630313415286,
-  },
-  {
-    id: "4",
-    nombre: "Puerto Vallarta - Plaza Caracol",
-    direccion: "Blvd. Fco. Medina Ascencio #2180, Col. Díaz Ordaz",
-    ciudad: "Puerto Vallarta",
-    url: "/plantel-plaza-caracol-puerto-vallarta",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/PuertoVallarta.png",
-    lat: 20.639287162026815,
-    lon: -105.23323589513319,
-  },
+ 
+  
   {
     id: "5",
     nombre: "Tlajomulco",
@@ -216,26 +509,7 @@ const planteles = [
     lat: 20.576464164603113,
     lon: -103.45243680650722,
   },
-  {
-    id: "6",
-    nombre: "Tesistán",
-    direccion: "Av. Juan Gil Preciado #3897, Col. Hogares de Nuevo México",
-    ciudad: "Guadalajara ZMG",
-    url: "/plantel-tesistan",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/Tesistan.png",
-    lat: 20.806203,
-    lon: -102.763903,
-  },
-  {
-    id: "7",
-    nombre: "Tepatitlán",
-    direccion: "Calle Dr. Ricardo Alcalá #505, Av. Matamoros, Centro",
-    ciudad: "Tepatitlán de Morelos",
-    url: "/plantel-tepatitlan",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/Tepatitlan.jpg",
-    lat: 20.8062946507024,
-    lon: -102.76382902869392,
-  },
+ 
   {
     id: "8",
     nombre: "Tlaquepaque",
@@ -257,26 +531,7 @@ const planteles = [
     lat: 20.63176692188573,
     lon: -103.24439406488241,
   },
-  {
-    id: "10",
-    nombre: "Chapultepec",
-    direccion: "Av. Vallarta #1458, Col. Americana",
-    ciudad: "Guadalajara ZMG",
-    url: "/plantel-vallarta",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/Chapultepec.png",
-    lat: 20.67471004174908,
-    lon: -103.36909119392195,
-  },
-  {
-    id: "11",
-    nombre: "Zapopan",
-    direccion: "Plaza Caudillos",
-    ciudad: "Guadalajara ZMG",
-    url: "/plantel-zapopan",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/Zapopan.png",
-    lat: 20.720900646775917,
-    lon: -103.38975281813357,
-  },
+ 
 ];
 
 const ciudades = [
@@ -314,19 +569,15 @@ const ciudades = [
         <div class="text-center text-white max-w-4xl mx-auto">
           {/* Main Title */}
           <h1 class="text-4xl md:text-7xl font-bold tracking-wider mb-4">
-            Lic. en Cirujano Dentista
+            Lic. en Gastronomia
           </h1>
-          <h2 class="text-2xl md:text-5xl font-bold tracking-wider mb-8">
-            Licenciaturas UNE
-          </h2>
 
           {/* Description */}
           <p
             class="text-lg md:text-xl leading-relaxed mb-16 max-w-3xl mx-auto font-light"
           >
-            Transforma sonrisas y mejora la calidad de vida a través del estudio
-            y la práctica de la odontología, en una carrera donde la ciencia, la
-            salud y la vocación por el bienestar se unen.
+            Desarrolla tu pasión por la cocina con fundamentos técnicos,
+            culturales y de innovación culinaria.
           </p>
         </div>
       </div>
@@ -343,7 +594,8 @@ const ciudades = [
             class="flex flex-col sm:flex-row gap-4 w-full justify-center text-white"
           >
             <!-- Agenda una Visita -->
-            <a href="/contacto/solicitarvisita"
+            <a
+              href="/contacto/solicitarvisita"
               class="hover:border-b hover:border-b-cyan-50 font-bold py-6 px-6 text-base transition-colors duration-300 shadow-lg flex flex-col items-center justify-center gap-2 whitespace-nowrap"
             >
               AGENDA UNA VISITA
@@ -351,7 +603,8 @@ const ciudades = [
             </a>
 
             <!-- Iniciar Inscripción -->
-            <a href="/contacto/formulario-inscripcion"
+            <a
+              href="/contacto/formulario-inscripcion"
               class="hover:border-b hover:border-b-cyan-50 font-bold py-3 px-6 text-base transition-colors duration-300 shadow-lg flex flex-col items-center justify-center gap-2 whitespace-nowrap"
             >
               INICIAR INSCRIPCIÓN
@@ -359,7 +612,8 @@ const ciudades = [
             </a>
 
             <!-- Contactar -->
-             <a href="/contacto/solicitarinformacion"
+            <a
+              href="/contacto/solicitarinformacion"
               class="hover:border-b hover:border-b-cyan-50 font-bold py-3 px-6 text-base transition-colors duration-300 shadow-lg flex flex-col items-center justify-center gap-2 whitespace-nowrap"
             >
               CONTACTAR
@@ -374,27 +628,31 @@ const ciudades = [
       logoSrc={LogoCard.src}
       studentImageSrc={ImagenCard.src}
       title="Objetivo"
-      description="La Licenciatura en Cirujano Dentista te forma como un profesionista altamente capacitado para prevenir, diagnosticar y tratar enfermedades bucales con un enfoque integral y humano."
-      additionalText="Con una sólida formación teórico-práctica y un alto compromiso ético y social, estarás preparado para promover la salud bucodental, brindar atención personalizada y colaborar con instituciones de salud para transformar positivamente la calidad de vida de las personas."
+      description="Formar profesionales en gastronomía con competencias técnicas, creativas y de gestión para el desarrollo, preparación y administración de productos y servicios culinarios, promoviendo la cultura gastronómica, la innovación alimentaria y el desarrollo sostenible del sector, con alto potencial de inserción laboral."
+      additionalText=""
       features={[
-        { icon: "CalendarDays", label: "Prácticas clínicas presenciales" },
-        { icon: "BookOpen", label: "Bases científicas sólidas" },
-        { icon: "School", label: "Validez oficial" },
-        { icon: "Clock", label: "Horarios accesibles" },
-        { icon: "BookmarkCheck", label: "Enfoque profesionalizante" },
+        { icon: "ChefHat", label: "Técnicas culinarias profesionales" },
+        { icon: "Sparkles", label: "Creatividad e innovación alimentaria" },
+        {
+          icon: "ScrollText",
+          label: "Rescate y difusión de la cultura gastronómica",
+        },
+        {
+          icon: "UtensilsCrossed",
+          label: "Gestión de servicios y experiencias",
+        },
+        { icon: "Leaf", label: "Sostenibilidad y responsabilidad alimentaria" },
       ]}
     />
 
-     <PlanEstudios titulo="Propuesta Educativa" semestres={semestresDatos} />
+    <PlanEstudios titulo="Propuesta Educativa" semestres={semestresDatos} />
 
-     <Planteles
+    <Planteles
       titulo="Encuentra tu campus más cercano"
       planteles={planteles}
       ciudades={ciudades}
       mostrarMasCercano={true}
     />
-
-    
 
     <Requisitos nivel="Licenciatura" requisitos={requisitosInfo} />
 

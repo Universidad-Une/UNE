@@ -76,27 +76,45 @@ const semestresDatos = [
     numero: 1,
     materias: [
       {
-        codigo: "ED1021",
-        nombre: "Introducción a la Educación",
-        creditos: 30,
+        codigo: "LTF101",
+        nombre: "Desarrollo de Habilidades del Aprendizaje",
+        creditos: 3,
         color: "verde",
       },
       {
-        codigo: "Filosofía y Ética en Educación",
-        nombre: "Filosofía y Ética en Educación",
-        creditos: 30,
+        codigo: "LTF102",
+        nombre: "Biología Fundamental Celular y Tisular",
+        creditos: 7,
         color: "verde",
       },
       {
-        codigo: "ED1024",
-        nombre: "Desarrollo Infantil y adolescente",
-        creditos: 30,
+        codigo: "LTF103",
+        nombre: "Bioquímica",
+        creditos: 7,
         color: "verde",
       },
       {
-        codigo: "ED1027",
-        nombre: "Habilidades Básicas de Investigación",
-        creditos: 30,
+        codigo: "LTF104",
+        nombre: "Salud Pública",
+        creditos: 3,
+        color: "verde",
+      },
+      {
+        codigo: "LTF105",
+        nombre: "Historia y Fundamentos de la Terapia Física",
+        creditos: 4,
+        color: "verde",
+      },
+      {
+        codigo: "LTF106",
+        nombre: "Morfología I",
+        creditos: 7,
+        color: "verde",
+      },
+      {
+        codigo: "LTF107",
+        nombre: "Sexualidad Humana",
+        creditos: 4,
         color: "verde",
       },
     ],
@@ -105,27 +123,39 @@ const semestresDatos = [
     numero: 2,
     materias: [
       {
-        codigo: "FH1203",
-        nombre: "Pensamiento lógico y tecnológico",
-        creditos: 30,
+        codigo: "LTF201",
+        nombre: "Procesos de la Comunicación",
+        creditos: 4,
         color: "amarillo",
       },
       {
-        codigo: "ED2016",
-        nombre: "Desarrollo de la Psicomotricidad",
-        creditos: 30,
+        codigo: "LTF202",
+        nombre: "Agentes Biológicos",
+        creditos: 5,
         color: "amarillo",
       },
       {
-        codigo: "HJ2026",
-        nombre: "Ética social cristiana",
-        creditos: 30,
+        codigo: "LTF203",
+        nombre: "Fisiología",
+        creditos: 7,
         color: "amarillo",
       },
       {
-        codigo: "ED1029",
-        nombre: "Historia de la Pedagogía moderna",
-        creditos: 30,
+        codigo: "LTF204",
+        nombre: "Física y Biomecánica",
+        creditos: 7,
+        color: "amarillo",
+      },
+      {
+        codigo: "LTF205",
+        nombre: "Principios Físicos de la Fisioterapia",
+        creditos: 5,
+        color: "amarillo",
+      },
+      {
+        codigo: "LTF206",
+        nombre: "Morfología II",
+        creditos: 7,
         color: "amarillo",
       },
     ],
@@ -134,75 +164,300 @@ const semestresDatos = [
     numero: 3,
     materias: [
       {
-        codigo: "PS1201",
-        nombre: "Fundamentos de Psicología y Bienestar",
-        creditos: 30,
+        codigo: "LTF301",
+        nombre: "Investigación y Redacción de Documentos Académicos",
+        creditos: 4,
         color: "naranja",
       },
       {
-        codigo: "Gestión educativa institucional",
-        nombre: "Gestión educativa institucional",
-        creditos: 30,
+        codigo: "LTF302",
+        nombre: "Inmunología",
+        creditos: 5,
         color: "naranja",
       },
       {
-        codigo: "ED2012",
-        nombre: "Desarrollo Socioemocional",
-        creditos: 30,
+        codigo: "LTF303",
+        nombre: "Cuidados Básicos en Urgencias",
+        creditos: 5,
         color: "naranja",
       },
       {
-        codigo: "ED3027",
-        nombre: "Administración educativa",
-        creditos: 30,
+        codigo: "LTF305",
+        nombre: "Kinesiología",
+        creditos: 7,
+        color: "naranja",
+      },
+      {
+        codigo: "LTF305",
+        nombre: "Agentes Físicos Terapéuticos",
+        creditos: 6,
+        color: "naranja",
+      },
+      {
+        codigo: "LTF306",
+        nombre: "Fisiopatología",
+        creditos: 7,
         color: "naranja",
       },
     ],
   },
-  // Puedes agregar más semestres según necesites
+  {
+    numero: 4,
+    materias: [
+      {
+        codigo: "LTF401",
+        nombre: "Bioética y Normatividad",
+        creditos: 3,
+        color: "rojo",
+      },
+      {
+        codigo: "LTF402",
+        nombre: "Farmacología en Fisioterapia",
+        creditos: 5,
+        color: "rojo",
+      },
+      {
+        codigo: "LTF403",
+        nombre: "Técnicas Manuales en Fisioterapia",
+        creditos: 5,
+        color: "rojo",
+      },
+      {
+        codigo: "LTF405",
+        nombre: "Evaluación de la Movilidad",
+        creditos: 7,
+        color: "rojo",
+      },
+      {
+        codigo: "LTF405",
+        nombre: "Electroterapia",
+        creditos: 7,
+        color: "rojo",
+      },
+      {
+        codigo: "LTF406",
+        nombre: "Fundamento Nervioso y Muscular",
+        creditos: 7,
+        color: "rojo",
+      },
+    ],
+  },
+  {
+    numero: 5,
+    materias: [
+      {
+        codigo: "LTF501",
+        nombre: "Fundamentos Legales de las Prácticas Clínicas de la Salud",
+        creditos: 3,
+        color: "morado",
+      },
+      {
+        codigo: "LTF502",
+        nombre: "Trastornos Neurológicos",
+        creditos: 5,
+        color: "morado",
+      },
+      {
+        codigo: "LTF503",
+        nombre: "Imagenología",
+        creditos: 5,
+        color: "morado",
+      },
+      {
+        codigo: "LTF504",
+        nombre: "Valoración en Fisioterapia",
+        creditos: 7,
+        color: "morado",
+      },
+      {
+        codigo: "LTF505",
+        nombre: "Fisioterapia Deportiva",
+        creditos: 5,
+        color: "morado",
+      },
+      {
+        codigo: "LTF506",
+        nombre: "Fisioterapia Neurológica",
+        creditos: 5,
+        color: "morado",
+      },
+      {
+        codigo: "LTF507",
+        nombre: "Psicología de la Discapacidad",
+        creditos: 5,
+        color: "morado",
+      },
+    ],
+  },
+  {
+    numero: 6,
+    materias: [
+      {
+        codigo: "LTF601",
+        nombre: "Fisioterapia y Nutrición",
+        creditos: 5,
+        color: "azul",
+      },
+      {
+        codigo: "LTF602",
+        nombre: "Técnicas Especializadas en Neuroterapia",
+        creditos: 7,
+        color: "azul",
+      },
+      {
+        codigo: "LTF603",
+        nombre: "Principios y Atención del Dolor",
+        creditos: 5,
+        color: "azul",
+      },
+      {
+        codigo: "LTF604",
+        nombre: "Cinesiterapia",
+        creditos: 5,
+        color: "azul",
+      },
+      {
+        codigo: "LTF605",
+        nombre: "Fisioterapia Pediátrica",
+        creditos: 7,
+        color: "azul",
+      },
+      {
+        codigo: "LTF606",
+        nombre: "Afecciones y Traumatismos",
+        creditos: 5,
+        color: "azul",
+      },
+    ],
+  },
+  {
+    numero: 7,
+    materias: [
+      {
+        codigo: "LTF701",
+        nombre: "Terapia de Lenguaje",
+        creditos: 5,
+        color: "cian",
+      },
+      {
+        codigo: "LTF702",
+        nombre: "Órtesis y Prótesis",
+        creditos: 5,
+        color: "cian",
+      },
+      {
+        codigo: "LTF703",
+        nombre: "Prácticas Clínicas en Fisioterapia I",
+        creditos: 21,
+        color: "cian",
+      },
+      {
+        codigo: "LTF704",
+        nombre: "Hidroterapia",
+        creditos: 7,
+        color: "cian",
+      },
+      {
+        codigo: "LTF705",
+        nombre: "Rehabilitación Cardiorespiratoria",
+        creditos: 7,
+        color: "cian",
+      },
+      {
+        codigo: "LTF706",
+        nombre: "Reumatología",
+        creditos: 7,
+        color: "cian",
+      },
+    ],
+  },
+  {
+    numero: 8,
+    materias: [
+      {
+        codigo: "LTF801",
+        nombre: "Seminario de Investigación en Terapia Física I",
+        creditos: 5,
+        color: "rosa",
+      },
+      {
+        codigo: "LTF802",
+        nombre: "Fisioterapia en Quemaduras",
+        creditos: 7,
+        color: "rosa",
+      },
+      {
+        codigo: "LTF803",
+        nombre: "Prácticas Clínicas en Fisioterapia II",
+        creditos: 21,
+        color: "rosa",
+      },
+      {
+        codigo: "LTF804",
+        nombre: "Terapia Ocupacional",
+        creditos: 5,
+        color: "rosa",
+      },
+      {
+        codigo: "LTF805",
+        nombre: "Fisioterapia Geriátrica",
+        creditos: 7,
+        color: "rosa",
+      },
+      {
+        codigo: "LTF806",
+        nombre: "Terapia Física en Traumatología",
+        creditos: 7,
+        color: "rosa",
+      },
+    ],
+  },
+  {
+    numero: 9,
+    materias: [
+      {
+        codigo: "LTF901",
+        nombre: "Seminario de Investigación en Terapia Física II",
+        creditos: 5,
+        color: "turquesa",
+      },
+      {
+        codigo: "LTF902",
+        nombre: "Actualización Integral en Terapia Física",
+        creditos: 3,
+        color: "turquesa",
+      },
+      {
+        codigo: "LTF903",
+        nombre: "Prácticas Clínicas en Fisioterapia III",
+        creditos: 21,
+        color: "turquesa",
+      },
+      {
+        codigo: "LTF904",
+        nombre: "Terapia Física en Oncología",
+        creditos: 7,
+        color: "turquesa",
+      },
+      {
+        codigo: "LTF905",
+        nombre: "Fisioterapia Obstétrica y Urogenital",
+        creditos: 7,
+        color: "turquesa",
+      },
+      {
+        codigo: "LTF906",
+        nombre: "Terapia Física en Ortopedia y Reumatología",
+        creditos: 7,
+        color: "turquesa",
+      },
+    ],
+  },
 ];
 
 const planteles = [
-  {
-    id: "1",
-    nombre: "Centro",
-    direccion: "Av. República No.10, Col. San Juan de Dios",
-    ciudad: "Guadalajara ZMG",
-    url: "/plantel-centro",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/Centro.jpg",
-    lat: 20.67744801539995,
-    lon: -103.34031672627513,
-  },
-  {
-    id: "2",
-    nombre: "Centro Médico",
-    direccion: "José María Lozano #1077, Col. Belisario Domínguez",
-    ciudad: "Guadalajara ZMG",
-    url: "/plantel-centro-medico",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/CentroMedico.jpg",
-    lat: 20.684590788642307,
-    lon: -103.3256397932448,
-  },
-  {
-    id: "3",
-    nombre: "Milenio",
-    direccion: "Av. López Mateos Sur #4154, Col. La Giralda",
-    ciudad: "Guadalajara ZMG",
-    url: "/plantel-milenio",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/Milenio.jpg",
-    lat: 20.64540739939039,
-    lon: -103.40630313415286,
-  },
-  {
-    id: "4",
-    nombre: "Puerto Vallarta - Plaza Caracol",
-    direccion: "Blvd. Fco. Medina Ascencio #2180, Col. Díaz Ordaz",
-    ciudad: "Puerto Vallarta",
-    url: "/plantel-plaza-caracol-puerto-vallarta",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/PuertoVallarta.png",
-    lat: 20.639287162026815,
-    lon: -105.23323589513319,
-  },
+  
+ 
   {
     id: "5",
     nombre: "Tlajomulco",
@@ -233,17 +488,7 @@ const planteles = [
     lat: 20.8062946507024,
     lon: -102.76382902869392,
   },
-  {
-    id: "8",
-    nombre: "Tlaquepaque",
-    direccion:
-      "Blvd. Marcelino García Barragán #2056, Col. Bosques del Boulevard",
-    ciudad: "Guadalajara ZMG",
-    url: "/plantel-tlaquepaque",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/Tlaquepaque.jpg",
-    lat: 20.645650028567157,
-    lon: -103.32094530771215,
-  },
+ 
   {
     id: "9",
     nombre: "Tonalá",
@@ -264,6 +509,29 @@ const planteles = [
     lat: 20.67471004174908,
     lon: -103.36909119392195,
   },
+   {
+    id: "16",
+    nombre: "Campus Puerto Vallarta",
+    codigo: "Campus",
+    direccion: "Carretera a Tepic No. 5657 Col. las Juntas C.P 48291",
+    ciudad: "Puerto Vallarta",
+    url: "/campus/campus-puerto-vallarta",
+    imagen: "/src/assets/Imagenes/CardsPlanteles/Campus-Puerto-Vallarta.jpg",
+    lat: "20.69715126066295",
+    lon: ", -105.23759816941552",
+  },
+   {
+    id: "14",
+    nombre: "Torre UNE Milenio",
+    codigo: "TORRE MILENIO",
+    direccion: "Av. López Mateos Sur #4175 Col. La Giralda Zapopan, Jalisco",
+    ciudad: "Guadalajara ZMG",
+    url:"/campus/Torre-milenio",
+    imagen: "/src/assets/Imagenes/CardsPlanteles/Torre-milenio.png",
+    lat: "20.645336",
+    lon: "-103.405938",
+  },
+  
   {
     id: "11",
     nombre: "Zapopan",
@@ -319,7 +587,7 @@ const ciudades = [
           <p
             class="text-lg md:text-xl leading-relaxed mb-16 max-w-3xl mx-auto font-light"
           >
-         Desarrollar terapeutas físicos con habilidades clínicas, científicas y humanas para prevenir, evaluar y tratar disfunciones del movimiento, mejorando la funcionalidad y calidad de vida de las personas, mediante intervenciones éticas y eficaces con alto impacto social y en salud comunitaria.
+          Ayuda a recuperar el movimiento y la funcionalidad corporal con técnicas terapéuticas efectivas
           </p>
         </div>
       </div>
@@ -363,20 +631,20 @@ const ciudades = [
       </div>
     </div>
 
-    <InformativeCard
-      logoSrc={LogoCard.src}
-      studentImageSrc={ImagenCard.src}
-      title="Objetivo"
-      description="La Licenciatura en Cirujano Dentista te forma como un profesionista altamente capacitado para prevenir, diagnosticar y tratar enfermedades bucales con un enfoque integral y humano."
-      additionalText="Con una sólida formación teórico-práctica y un alto compromiso ético y social, estarás preparado para promover la salud bucodental, brindar atención personalizada y colaborar con instituciones de salud para transformar positivamente la calidad de vida de las personas."
-      features={[
-        { icon: "CalendarDays", label: "Prácticas clínicas presenciales" },
-        { icon: "BookOpen", label: "Bases científicas sólidas" },
-        { icon: "School", label: "Validez oficial" },
-        { icon: "Clock", label: "Horarios accesibles" },
-        { icon: "BookmarkCheck", label: "Enfoque profesionalizante" },
-      ]}
-    />
+   <InformativeCard
+  logoSrc={LogoCard.src}
+  studentImageSrc={ImagenCard.src}
+  title="Objetivo"
+  description="Formar terapeutas físicos con competencias clínicas, científicas y humanas para la prevención, evaluación y tratamiento de disfunciones del movimiento, contribuyendo a la mejora de la funcionalidad y calidad de vida de las personas mediante intervenciones éticas, eficaces y con alto impacto en la salud individual y comunitaria."
+  additionalText=""
+  features={[
+    { icon: "CalendarDays", label: "Prácticas clínicas presenciales" },
+    { icon: "BookOpen", label: "Bases científicas sólidas" },
+    { icon: "School", label: "Validez oficial" },
+    { icon: "Clock", label: "Horarios accesibles" },
+    { icon: "BookmarkCheck", label: "Enfoque profesionalizante" },
+  ]}
+/>
 
      <PlanEstudios titulo="Propuesta Educativa" semestres={semestresDatos} />
 

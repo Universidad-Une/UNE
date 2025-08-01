@@ -1,13 +1,10 @@
 ---
 import Layout from "@/layouts/Layout.astro";
-import Hero from "@/assets/Imagenes/Heros/Cirujano_dentista.jpg";
-import Hero_mobile from "@/assets/Imagenes/Heros/Cirujano_dentista_mobile.jpg";
+import Hero from "@/assets/Imagenes/Heros/Carreras/NegociasInternacionales.jpg";
+import Hero_mobile from "@/assets/Imagenes/Heros/Carreras/NegociasInternacionales_mobile.jpg";
 import ImagenCard from "@/assets/Imagenes/CardsNiveles/Nivel.png";
 import LogoCard from "@/assets/Logos/Licenciatura.png";
 import InformativeCard from "@components/sections/detallesOferta/card.astro";
-import Carreras from "@components/sections/Licenciaturas/Carreras.astro";
-import Estadisticas from "@components/sections/Licenciaturas/Estadisticas.astro";
-
 import Requisitos from "@/components/sections/detallesOferta/requisitos.astro";
 
 import FAQComponent from "@/components/sections/detallesOferta/preguntas.astro";
@@ -25,7 +22,7 @@ const requisitosInfo = {
     "CURP (formato RENAPO)",
     "Identificación oficial con fotografía (INE) - dos copias",
     "Comprobante de domicilio reciente (no mayor a 3 meses) - una copia",
-    "Cinco fotografías tamaño infantil, blanco y negro, papel mate, de estudio"
+    "Cinco fotografías tamaño infantil, blanco y negro, papel mate, de estudio",
   ],
   pdfUrl: "/public/pdfs/licenciatura_req.pdf",
 };
@@ -79,27 +76,33 @@ const semestresDatos = [
     numero: 1,
     materias: [
       {
-        codigo: "ED1021",
-        nombre: "Introducción a la Educación",
-        creditos: 30,
+        codigo: "LNI101",
+        nombre: "Contabilidad Aplicada a los Negocios I",
+        creditos: 7,
         color: "verde",
       },
       {
-        codigo: "Filosofía y Ética en Educación",
-        nombre: "Filosofía y Ética en Educación",
-        creditos: 30,
+        codigo: "LNI102",
+        nombre: "Economía I",
+        creditos: 7,
         color: "verde",
       },
       {
-        codigo: "ED1024",
-        nombre: "Desarrollo Infantil y adolescente",
-        creditos: 30,
+        codigo: "LNI103",
+        nombre: "Administración I",
+        creditos: 7,
         color: "verde",
       },
       {
-        codigo: "ED1027",
-        nombre: "Habilidades Básicas de Investigación",
-        creditos: 30,
+        codigo: "LNI104",
+        nombre: "Matemáticas Financieras",
+        creditos: 7,
+        color: "verde",
+      },
+      {
+        codigo: "LNI105",
+        nombre: "Metodología de la Investigación",
+        creditos: 7,
         color: "verde",
       },
     ],
@@ -108,27 +111,33 @@ const semestresDatos = [
     numero: 2,
     materias: [
       {
-        codigo: "FH1203",
-        nombre: "Pensamiento lógico y tecnológico",
-        creditos: 30,
+        codigo: "LNI201",
+        nombre: "Contabilidad Aplicada a los Negocios II",
+        creditos: 7,
         color: "amarillo",
       },
       {
-        codigo: "ED2016",
-        nombre: "Desarrollo de la Psicomotricidad",
-        creditos: 30,
+        codigo: "LNI202",
+        nombre: "Economía II",
+        creditos: 7,
         color: "amarillo",
       },
       {
-        codigo: "HJ2026",
-        nombre: "Ética social cristiana",
-        creditos: 30,
+        codigo: "LNI203",
+        nombre: "Administración II",
+        creditos: 7,
         color: "amarillo",
       },
       {
-        codigo: "ED1029",
-        nombre: "Historia de la Pedagogía moderna",
-        creditos: 30,
+        codigo: "LNI204",
+        nombre: "Introducción al Comercio Internacional",
+        creditos: 7,
+        color: "amarillo",
+      },
+      {
+        codigo: "LNI205",
+        nombre: "Mercadotecnia",
+        creditos: 7,
         color: "amarillo",
       },
     ],
@@ -137,32 +146,251 @@ const semestresDatos = [
     numero: 3,
     materias: [
       {
-        codigo: "PS1201",
-        nombre: "Fundamentos de Psicología y Bienestar",
-        creditos: 30,
+        codigo: "LNI301",
+        nombre: "Derecho",
+        creditos: 7,
         color: "naranja",
       },
       {
-        codigo: "Gestión educativa institucional",
-        nombre: "Gestión educativa institucional",
-        creditos: 30,
+        codigo: "LNI302",
+        nombre: "Contabilidad de Costos",
+        creditos: 7,
         color: "naranja",
       },
       {
-        codigo: "ED2012",
-        nombre: "Desarrollo Socioemocional",
-        creditos: 30,
+        codigo: "LNI303",
+        nombre: "Estadística I",
+        creditos: 7,
         color: "naranja",
       },
       {
-        codigo: "ED3027",
-        nombre: "Administración educativa",
-        creditos: 30,
+        codigo: "LNI304",
+        nombre: "Derecho Laboral",
+        creditos: 7,
+        color: "naranja",
+      },
+      {
+        codigo: "LNI305",
+        nombre: "Desarrollo de Emprendedores",
+        creditos: 7,
         color: "naranja",
       },
     ],
   },
-  // Puedes agregar más semestres según necesites
+  {
+    numero: 4,
+    materias: [
+      {
+        codigo: "LNI401",
+        nombre: "Derecho Aduanero",
+        creditos: 7,
+        color: "rojo",
+      },
+      {
+        codigo: "LNI402",
+        nombre: "Logística de Comercio Internacional I",
+        creditos: 7,
+        color: "rojo",
+      },
+      {
+        codigo: "LNI403",
+        nombre: "Estadística II",
+        creditos: 7,
+        color: "rojo",
+      },
+      {
+        codigo: "LNI404",
+        nombre: "Conducta del Consumidor",
+        creditos: 7,
+        color: "rojo",
+      },
+      {
+        codigo: "LNI405",
+        nombre: "Mercadotecnia Internacional",
+        creditos: 7,
+        color: "rojo",
+      },
+    ],
+  },
+  {
+    numero: 5,
+    materias: [
+      {
+        codigo: "LNI501",
+        nombre: "Derecho Fiscal",
+        creditos: 7,
+        color: "morado",
+      },
+      {
+        codigo: "LNI502",
+        nombre: "Logística de Comercio Internacional II",
+        creditos: 7,
+        color: "morado",
+      },
+      {
+        codigo: "LNI503",
+        nombre: "Negociaciones Internacionales",
+        creditos: 7,
+        color: "morado",
+      },
+      {
+        codigo: "LNI504",
+        nombre: "Estrategias de Promoción Internacional",
+        creditos: 7,
+        color: "morado",
+      },
+      {
+        codigo: "LNI505",
+        nombre: "Competitividad Global",
+        creditos: 7,
+        color: "morado",
+      },
+    ],
+  },
+  {
+    numero: 6,
+    materias: [
+      {
+        codigo: "LNI601",
+        nombre: "Administración de Recursos Humanos",
+        creditos: 7,
+        color: "azul",
+      },
+      {
+        codigo: "LNI602",
+        nombre: "Servicio al Cliente",
+        creditos: 7,
+        color: "azul",
+      },
+      {
+        codigo: "LNI603",
+        nombre: "Legislación Aduanera I",
+        creditos: 7,
+        color: "azul",
+      },
+      {
+        codigo: "LNI604",
+        nombre: "Comercialización Internacional",
+        creditos: 7,
+        color: "azul",
+      },
+      {
+        codigo: "LNI605",
+        nombre: "Empresas Integradoras Exportadoras",
+        creditos: 7,
+        color: "azul",
+      },
+    ],
+  },
+  {
+    numero: 7,
+    materias: [
+      {
+        codigo: "LNI701",
+        nombre: "Finanzas Internacionales",
+        creditos: 7,
+        color: "cian",
+      },
+      {
+        codigo: "LNI702",
+        nombre:
+          "Formulación y Evaluación de Proyectos de Negocios Internacionales",
+        creditos: 7,
+        color: "cian",
+      },
+      {
+        codigo: "LNI703",
+        nombre: "Legislación Aduanera II",
+        creditos: 7,
+        color: "cian",
+      },
+      {
+        codigo: "LNI704",
+        nombre: "Geografía del Comercio Internacional",
+        creditos: 7,
+        color: "cian",
+      },
+      {
+        codigo: "LNI705",
+        nombre: "Laboratorio de Casos de Negocios Internacionales",
+        creditos: 7,
+        color: "cian",
+      },
+    ],
+  },
+  {
+    numero: 8,
+    materias: [
+      {
+        codigo: "LNI801",
+        nombre:
+          "Regulaciones y Restricciones no Arancelarias al Comercio Mexicano",
+        creditos: 7,
+        color: "rosa",
+      },
+      {
+        codigo: "LNI802",
+        nombre: "Empresas Agroindustriales de Exportación",
+        creditos: 7,
+        color: "rosa",
+      },
+      {
+        codigo: "LNI803",
+        nombre: "Derecho Internacional Privado",
+        creditos: 7,
+        color: "rosa",
+      },
+      {
+        codigo: "LNI804",
+        nombre: "Planeación Estratégica de Negocios Internacionales",
+        creditos: 7,
+        color: "rosa",
+      },
+      {
+        codigo: "LNI805",
+        nombre:
+          "Ley de Impuestos Generales de Importación y Exportación (LIGIE)",
+        creditos: 7,
+        color: "rosa",
+      },
+    ],
+  },
+  {
+    numero: 9,
+    materias: [
+      {
+        codigo: "LNI901",
+        nombre:
+          "Regulaciones y Restricciones no Arancelarias al Comercio Internacional",
+        creditos: 7,
+        color: "turquesa",
+      },
+      {
+        codigo: "LNI902",
+        nombre: "Proyectos de Negocios Internacionales",
+        creditos: 7,
+        color: "turquesa",
+      },
+      {
+        codigo: "LNI903",
+        nombre: "Comercio Exterior",
+        creditos: 7,
+        color: "turquesa",
+      },
+      {
+        codigo: "LNI904",
+        nombre: "Organismos Internacionales",
+        creditos: 7,
+        color: "turquesa",
+      },
+      {
+        codigo: "LNI905",
+        nombre: "Seminario de Tesis",
+        creditos: 7,
+        color: "turquesa",
+      },
+    ],
+  },
 ];
 
 const planteles = [
@@ -175,6 +403,39 @@ const planteles = [
     imagen: "/src/assets/Imagenes/CardsPlanteles/Centro.jpg",
     lat: 20.67744801539995,
     lon: -103.34031672627513,
+  },
+  {
+    id: "15",
+    nombre: "Torre Quetzal",
+    codigo: "Torre Quetzak",
+    direccion: "Chimalhuacán #3569 Col. Ciudad del Sol Zapopan, Jalisco",
+    ciudad: "Guadalajara ZMG",
+    url: "/campus/torre-quetzal",
+    imagen: "/src/assets/Imagenes/CardsPlanteles/Torre-quetzal.png",
+    lat: "20.651860618451966",
+    lon: "-103.40329340052432",
+  },
+  {
+    id: "1",
+    nombre: "Avenida México",
+    codigo: "00008",
+    direccion: "Av. México #1255, Col. Agua Zarca, Puerto Vallarta, Jalisco",
+    ciudad: "Puerto Vallarta",
+    url: "/campus/puerto-vallarta",
+    imagen: "/src/assets/Imagenes/CardsPlanteles/PuertoVallarta.png",
+    lat: 20.669418,
+    lon: -105.226917,
+  },
+  {
+    id: "16",
+    nombre: "Campus Puerto Vallarta",
+    codigo: "Campus",
+    direccion: "Carretera a Tepic No. 5657 Col. las Juntas C.P 48291",
+    ciudad: "Puerto Vallarta",
+    url: "/campus/campus-puerto-vallarta",
+    imagen: "/src/assets/Imagenes/CardsPlanteles/Campus-Puerto-Vallarta.jpg",
+    lat: "20.69715126066295",
+    lon: ", -105.23759816941552",
   },
   {
     id: "2",
@@ -314,7 +575,7 @@ const ciudades = [
         <div class="text-center text-white max-w-4xl mx-auto">
           {/* Main Title */}
           <h1 class="text-4xl md:text-7xl font-bold tracking-wider mb-4">
-            Lic. en Cirujano Dentista
+            Lic. en Negocios Internacionales
           </h1>
           <h2 class="text-2xl md:text-5xl font-bold tracking-wider mb-8">
             Licenciaturas UNE
@@ -324,9 +585,8 @@ const ciudades = [
           <p
             class="text-lg md:text-xl leading-relaxed mb-16 max-w-3xl mx-auto font-light"
           >
-            Transforma sonrisas y mejora la calidad de vida a través del estudio
-            y la práctica de la odontología, en una carrera donde la ciencia, la
-            salud y la vocación por el bienestar se unen.
+            Adquiere una visión global del comercio, la logística y las
+            relaciones empresariales internacionales.
           </p>
         </div>
       </div>
@@ -343,7 +603,8 @@ const ciudades = [
             class="flex flex-col sm:flex-row gap-4 w-full justify-center text-white"
           >
             <!-- Agenda una Visita -->
-            <a href="/contacto/solicitarvisita"
+            <a
+              href="/contacto/solicitarvisita"
               class="hover:border-b hover:border-b-cyan-50 font-bold py-6 px-6 text-base transition-colors duration-300 shadow-lg flex flex-col items-center justify-center gap-2 whitespace-nowrap"
             >
               AGENDA UNA VISITA
@@ -351,7 +612,8 @@ const ciudades = [
             </a>
 
             <!-- Iniciar Inscripción -->
-            <a href="/contacto/formulario-inscripcion"
+            <a
+              href="/contacto/formulario-inscripcion"
               class="hover:border-b hover:border-b-cyan-50 font-bold py-3 px-6 text-base transition-colors duration-300 shadow-lg flex flex-col items-center justify-center gap-2 whitespace-nowrap"
             >
               INICIAR INSCRIPCIÓN
@@ -359,7 +621,8 @@ const ciudades = [
             </a>
 
             <!-- Contactar -->
-             <a href="/contacto/solicitarinformacion"
+            <a
+              href="/contacto/solicitarinformacion"
               class="hover:border-b hover:border-b-cyan-50 font-bold py-3 px-6 text-base transition-colors duration-300 shadow-lg flex flex-col items-center justify-center gap-2 whitespace-nowrap"
             >
               CONTACTAR
@@ -374,27 +637,25 @@ const ciudades = [
       logoSrc={LogoCard.src}
       studentImageSrc={ImagenCard.src}
       title="Objetivo"
-      description="La Licenciatura en Cirujano Dentista te forma como un profesionista altamente capacitado para prevenir, diagnosticar y tratar enfermedades bucales con un enfoque integral y humano."
-      additionalText="Con una sólida formación teórico-práctica y un alto compromiso ético y social, estarás preparado para promover la salud bucodental, brindar atención personalizada y colaborar con instituciones de salud para transformar positivamente la calidad de vida de las personas."
+      description="Formar profesionales con competencias en comercio exterior, finanzas globales y negociación internacional, capaces de gestionar operaciones transnacionales con eficiencia, ética y responsabilidad social, promoviendo la integración económica, la competitividad empresarial y el desarrollo sostenible a nivel global."
+      additionalText=""
       features={[
-        { icon: "CalendarDays", label: "Prácticas clínicas presenciales" },
-        { icon: "BookOpen", label: "Bases científicas sólidas" },
-        { icon: "School", label: "Validez oficial" },
-        { icon: "Clock", label: "Horarios accesibles" },
-        { icon: "BookmarkCheck", label: "Enfoque profesionalizante" },
+        { icon: "Globe2", label: "Visión internacional y globalización" },
+        { icon: "Ship", label: "Operaciones logísticas y aduanales" },
+        { icon: "Handshake", label: "Negociación y tratados internacionales" },
+        { icon: "Banknote", label: "Finanzas y mercados globales" },
+        { icon: "ScanLine", label: "Ética y sostenibilidad en los negocios" },
       ]}
     />
 
-     <PlanEstudios titulo="Propuesta Educativa" semestres={semestresDatos} />
+    <PlanEstudios titulo="Propuesta Educativa" semestres={semestresDatos} />
 
-     <Planteles
+    <Planteles
       titulo="Encuentra tu campus más cercano"
       planteles={planteles}
       ciudades={ciudades}
       mostrarMasCercano={true}
     />
-
-    
 
     <Requisitos nivel="Licenciatura" requisitos={requisitosInfo} />
 

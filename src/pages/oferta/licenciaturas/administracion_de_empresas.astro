@@ -1,13 +1,10 @@
 ---
 import Layout from "@/layouts/Layout.astro";
-import Hero from "@/assets/Imagenes/Heros/Cirujano_dentista.jpg";
-import Hero_mobile from "@/assets/Imagenes/Heros/Cirujano_dentista_mobile.jpg";
+import Hero from "@/assets/Imagenes/Heros/Carreras/AdministracionEmpresas.jpg";
+import Hero_mobile from "@/assets/Imagenes/Heros/Carreras/AdministracionEmpresas_mobile.jpg";
 import ImagenCard from "@/assets/Imagenes/CardsNiveles/Nivel.png";
 import LogoCard from "@/assets/Logos/Licenciatura.png";
 import InformativeCard from "@components/sections/detallesOferta/card.astro";
-import Carreras from "@components/sections/Licenciaturas/Carreras.astro";
-import Estadisticas from "@components/sections/Licenciaturas/Estadisticas.astro";
-
 import Requisitos from "@/components/sections/detallesOferta/requisitos.astro";
 
 import FAQComponent from "@/components/sections/detallesOferta/preguntas.astro";
@@ -79,27 +76,33 @@ const semestresDatos = [
     numero: 1,
     materias: [
       {
-        codigo: "ED1021",
-        nombre: "Introducción a la Educación",
-        creditos: 30,
+        codigo: "LAE101",
+        nombre: "Contabilidad I",
+        creditos: 7,
         color: "verde",
       },
       {
-        codigo: "Filosofía y Ética en Educación",
-        nombre: "Filosofía y Ética en Educación",
-        creditos: 30,
+        codigo: "LAE102",
+        nombre: "Economía I",
+        creditos: 7,
         color: "verde",
       },
       {
-        codigo: "ED1024",
-        nombre: "Desarrollo Infantil y adolescente",
-        creditos: 30,
+        codigo: "LAE103",
+        nombre: "Administración I",
+        creditos: 7,
         color: "verde",
       },
       {
-        codigo: "ED1027",
-        nombre: "Habilidades Básicas de Investigación",
-        creditos: 30,
+        codigo: "LAE104",
+        nombre: "Matemáticas I",
+        creditos: 7,
+        color: "verde",
+      },
+      {
+        codigo: "LAE105",
+        nombre: "Metodología de la Investigación",
+        creditos: 7,
         color: "verde",
       },
     ],
@@ -108,27 +111,33 @@ const semestresDatos = [
     numero: 2,
     materias: [
       {
-        codigo: "FH1203",
-        nombre: "Pensamiento lógico y tecnológico",
-        creditos: 30,
+        codigo: "LAE201",
+        nombre: "Contabilidad II",
+        creditos: 7,
         color: "amarillo",
       },
       {
-        codigo: "ED2016",
-        nombre: "Desarrollo de la Psicomotricidad",
-        creditos: 30,
+        codigo: "LAE202",
+        nombre: "Economía II",
+        creditos: 7,
         color: "amarillo",
       },
       {
-        codigo: "HJ2026",
-        nombre: "Ética social cristiana",
-        creditos: 30,
+        codigo: "LAE203",
+        nombre: "Administración II",
+        creditos: 7,
         color: "amarillo",
       },
       {
-        codigo: "ED1029",
-        nombre: "Historia de la Pedagogía moderna",
-        creditos: 30,
+        codigo: "LAE204",
+        nombre: "Matemáticas II",
+        creditos: 7,
+        color: "amarillo",
+      },
+      {
+        codigo: "LAE205",
+        nombre: "Mercadotecnia",
+        creditos: 7,
         color: "amarillo",
       },
     ],
@@ -137,32 +146,248 @@ const semestresDatos = [
     numero: 3,
     materias: [
       {
-        codigo: "PS1201",
-        nombre: "Fundamentos de Psicología y Bienestar",
-        creditos: 30,
+        codigo: "LAE301",
+        nombre: "Derecho I",
+        creditos: 7,
         color: "naranja",
       },
       {
-        codigo: "Gestión educativa institucional",
-        nombre: "Gestión educativa institucional",
-        creditos: 30,
+        codigo: "LAE302",
+        nombre: "Contabilidad de Costos",
+        creditos: 7,
         color: "naranja",
       },
       {
-        codigo: "ED2012",
-        nombre: "Desarrollo Socioemocional",
-        creditos: 30,
+        codigo: "LAE303",
+        nombre: "Estadística I",
+        creditos: 7,
         color: "naranja",
       },
       {
-        codigo: "ED3027",
-        nombre: "Administración educativa",
-        creditos: 30,
+        codigo: "LAE304",
+        nombre: "Derecho Laboral",
+        creditos: 7,
+        color: "naranja",
+      },
+      {
+        codigo: "LAE305",
+        nombre: "Herramientas Digitales Aplicadas a la Administración",
+        creditos: 7,
         color: "naranja",
       },
     ],
   },
-  // Puedes agregar más semestres según necesites
+  {
+    numero: 4,
+    materias: [
+      {
+        codigo: "LAE401",
+        nombre: "Derecho II",
+        creditos: 7,
+        color: "rojo",
+      },
+      {
+        codigo: "LAE402",
+        nombre: "Contabilidad Administrativa",
+        creditos: 7,
+        color: "rojo",
+      },
+      {
+        codigo: "LAE403",
+        nombre: "Estadística II",
+        creditos: 7,
+        color: "rojo",
+      },
+      {
+        codigo: "LAE404",
+        nombre: "Conducta del Consumidor",
+        creditos: 7,
+        color: "rojo",
+      },
+      {
+        codigo: "LAE405",
+        nombre: "Investigación de Mercados",
+        creditos: 7,
+        color: "rojo",
+      },
+    ],
+  },
+  {
+    numero: 5,
+    materias: [
+      {
+        codigo: "LAE501",
+        nombre: "Derecho Fiscal",
+        creditos: 7,
+        color: "morado",
+      },
+      {
+        codigo: "LAE502",
+        nombre: "Administración Estatal y de Servicios",
+        creditos: 7,
+        color: "morado",
+      },
+      {
+        codigo: "LAE503",
+        nombre: "Comportamiento Organizacional",
+        creditos: 7,
+        color: "morado",
+      },
+      {
+        codigo: "LAE504",
+        nombre: "Planeación y Dotación de Recursos Humanos",
+        creditos: 7,
+        color: "morado",
+      },
+      {
+        codigo: "LAE505",
+        nombre: "Administración Estratégica",
+        creditos: 7,
+        color: "morado",
+      },
+    ],
+  },
+  {
+    numero: 6,
+    materias: [
+      {
+        codigo: "LAE601",
+        nombre: "Recursos Humanos",
+        creditos: 7,
+        color: "azul",
+      },
+      {
+        codigo: "LAE602",
+        nombre: "Servicio al Cliente",
+        creditos: 7,
+        color: "azul",
+      },
+      {
+        codigo: "LAE603",
+        nombre: "Habilidades Directivas",
+        creditos: 7,
+        color: "azul",
+      },
+      {
+        codigo: "LAE604",
+        nombre: "Diseño Organizacional",
+        creditos: 7,
+        color: "azul",
+      },
+      {
+        codigo: "LAE605",
+        nombre: "Formación y Desarrollo de Recursos Humanos",
+        creditos: 7,
+        color: "azul",
+      },
+    ],
+  },
+  {
+    numero: 7,
+    materias: [
+      {
+        codigo: "LAE701",
+        nombre: "Innovación y Emprendimiento",
+        creditos: 7,
+        color: "cian",
+      },
+      {
+        codigo: "LAE702",
+        nombre: "Formulación y Evaluación de Proyectos de Inversión",
+        creditos: 7,
+        color: "cian",
+      },
+      {
+        codigo: "LAE703",
+        nombre: "Seguridad e Higiene en el Trabajo",
+        creditos: 7,
+        color: "cian",
+      },
+      {
+        codigo: "LAE704",
+        nombre: "Administración Pública",
+        creditos: 7,
+        color: "cian",
+      },
+      {
+        codigo: "LAE705",
+        nombre: "Auditoría Administrativa",
+        creditos: 7,
+        color: "cian",
+      },
+    ],
+  },
+  {
+    numero: 8,
+    materias: [
+      {
+        codigo: "LAE801",
+        nombre: "Mercadotecnia Internacional",
+        creditos: 7,
+        color: "rosa",
+      },
+      {
+        codigo: "LAE802",
+        nombre: "Administración de la Fuerza de Ventas",
+        creditos: 7,
+        color: "rosa",
+      },
+      {
+        codigo: "LAE803",
+        nombre: "Administración de la Seguridad Social",
+        creditos: 7,
+        color: "rosa",
+      },
+      {
+        codigo: "LAE804",
+        nombre: "Desarrollo Organizacional",
+        creditos: 7,
+        color: "rosa",
+      },
+      {
+        codigo: "LAE805",
+        nombre: "Calidad Total",
+        creditos: 7,
+        color: "rosa",
+      },
+    ],
+  },
+  {
+    numero: 9,
+    materias: [
+      {
+        codigo: "LAE901",
+        nombre: "Administraciones Especiales",
+        creditos: 7,
+        color: "turquesa",
+      },
+      {
+        codigo: "LAE902",
+        nombre: "Administración de las Compensaciones, Sueldos y Salarios",
+        creditos: 7,
+        color: "turquesa",
+      },
+      {
+        codigo: "LAE903",
+        nombre: "Análisis Socioeconómico de México",
+        creditos: 7,
+        color: "turquesa",
+      },
+      {
+        codigo: "LAE904",
+        nombre: "Ética Profesional y Valores Sociales",
+        creditos: 7,
+        color: "turquesa",
+      },
+      {
+        codigo: "LAE905",
+        nombre: "Seminario de Tesis",
+        creditos: 7,
+        color: "turquesa",
+      },
+      
+    ],
+  },
 ];
 
 const planteles = [
@@ -175,6 +400,17 @@ const planteles = [
     imagen: "/src/assets/Imagenes/CardsPlanteles/Centro.jpg",
     lat: 20.67744801539995,
     lon: -103.34031672627513,
+  },
+    {
+    id: "111",
+    nombre: "Avenida México",
+    codigo: "00008",
+    direccion: "Av. México #1255, Col. Agua Zarca, Puerto Vallarta, Jalisco",
+    ciudad: "Puerto Vallarta",
+    url: "/campus/puerto-vallarta",
+    imagen: "/src/assets/Imagenes/CardsPlanteles/PuertoVallarta.png",
+    lat: 20.669418,
+    lon: -105.226917,
   },
   {
     id: "2",
@@ -314,19 +550,14 @@ const ciudades = [
         <div class="text-center text-white max-w-4xl mx-auto">
           {/* Main Title */}
           <h1 class="text-4xl md:text-7xl font-bold tracking-wider mb-4">
-            Lic. en Cirujano Dentista
+            Lic. en Administración de empresas
           </h1>
-          <h2 class="text-2xl md:text-5xl font-bold tracking-wider mb-8">
-            Licenciaturas UNE
-          </h2>
-
+         
           {/* Description */}
           <p
             class="text-lg md:text-xl leading-relaxed mb-16 max-w-3xl mx-auto font-light"
           >
-            Transforma sonrisas y mejora la calidad de vida a través del estudio
-            y la práctica de la odontología, en una carrera donde la ciencia, la
-            salud y la vocación por el bienestar se unen.
+            Gestiona recursos, lidera proyectos y transforma organizaciones con una formación integral y moderna.
           </p>
         </div>
       </div>
@@ -371,19 +602,20 @@ const ciudades = [
     </div>
 
     <InformativeCard
-      logoSrc={LogoCard.src}
-      studentImageSrc={ImagenCard.src}
-      title="Objetivo"
-      description="La Licenciatura en Cirujano Dentista te forma como un profesionista altamente capacitado para prevenir, diagnosticar y tratar enfermedades bucales con un enfoque integral y humano."
-      additionalText="Con una sólida formación teórico-práctica y un alto compromiso ético y social, estarás preparado para promover la salud bucodental, brindar atención personalizada y colaborar con instituciones de salud para transformar positivamente la calidad de vida de las personas."
-      features={[
-        { icon: "CalendarDays", label: "Prácticas clínicas presenciales" },
-        { icon: "BookOpen", label: "Bases científicas sólidas" },
-        { icon: "School", label: "Validez oficial" },
-        { icon: "Clock", label: "Horarios accesibles" },
-        { icon: "BookmarkCheck", label: "Enfoque profesionalizante" },
-      ]}
-    />
+  logoSrc={LogoCard.src}
+  studentImageSrc={ImagenCard.src}
+  title="Objetivo"
+  description="Formar profesionales capaces de liderar, planear y optimizar procesos organizacionales mediante competencias estratégicas, financieras y humanas, promoviendo la competitividad, la innovación y la sostenibilidad empresarial, con un compromiso ético y alto potencial de inserción laboral."
+  additionalText=""
+  features={[
+    { icon: "LineChart", label: "Análisis y proyección financiera" },
+    { icon: "Users2", label: "Gestión del talento humano" },
+    { icon: "Rocket", label: "Fomento a la innovación empresarial" },
+    { icon: "Leaf", label: "Sostenibilidad y responsabilidad corporativa" },
+    { icon: "BadgeCheck", label: "Perfil profesional competitivo" },
+  ]}
+/>
+
 
      <PlanEstudios titulo="Propuesta Educativa" semestres={semestresDatos} />
 

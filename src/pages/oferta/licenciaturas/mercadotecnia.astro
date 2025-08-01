@@ -1,13 +1,10 @@
 ---
 import Layout from "@/layouts/Layout.astro";
-import Hero from "@/assets/Imagenes/Heros/Cirujano_dentista.jpg";
-import Hero_mobile from "@/assets/Imagenes/Heros/Cirujano_dentista_mobile.jpg";
+import Hero from "@/assets/Imagenes/Heros/Carreras/Mercadotecnia.jpg";
+import Hero_mobile from "@/assets/Imagenes/Heros/Carreras/Mercadotecnia_mobile.jpg";
 import ImagenCard from "@/assets/Imagenes/CardsNiveles/Nivel.png";
 import LogoCard from "@/assets/Logos/Licenciatura.png";
 import InformativeCard from "@components/sections/detallesOferta/card.astro";
-import Carreras from "@components/sections/Licenciaturas/Carreras.astro";
-import Estadisticas from "@components/sections/Licenciaturas/Estadisticas.astro";
-
 import Requisitos from "@/components/sections/detallesOferta/requisitos.astro";
 
 import FAQComponent from "@/components/sections/detallesOferta/preguntas.astro";
@@ -25,7 +22,7 @@ const requisitosInfo = {
     "CURP (formato RENAPO)",
     "Identificación oficial con fotografía (INE) - dos copias",
     "Comprobante de domicilio reciente (no mayor a 3 meses) - una copia",
-    "Cinco fotografías tamaño infantil, blanco y negro, papel mate, de estudio"
+    "Cinco fotografías tamaño infantil, blanco y negro, papel mate, de estudio",
   ],
   pdfUrl: "/public/pdfs/licenciatura_req.pdf",
 };
@@ -79,27 +76,51 @@ const semestresDatos = [
     numero: 1,
     materias: [
       {
-        codigo: "ED1021",
-        nombre: "Introducción a la Educación",
-        creditos: 30,
+        codigo: "MKT101",
+        nombre: "Administración I",
+        creditos: 8,
         color: "verde",
       },
       {
-        codigo: "Filosofía y Ética en Educación",
-        nombre: "Filosofía y Ética en Educación",
-        creditos: 30,
+        codigo: "MKT102",
+        nombre: "Análisis de Problemas Globales del Siglo XXI",
+        creditos: 0,
         color: "verde",
       },
       {
-        codigo: "ED1024",
-        nombre: "Desarrollo Infantil y adolescente",
-        creditos: 30,
+        codigo: "MKT103",
+        nombre: "Contabilidad General",
+        creditos: 8,
         color: "verde",
       },
       {
-        codigo: "ED1027",
-        nombre: "Habilidades Básicas de Investigación",
-        creditos: 30,
+        codigo: "MKT104",
+        nombre: "Economía I",
+        creditos: 8,
+        color: "verde",
+      },
+      {
+        codigo: "MKT105",
+        nombre: "Matemáticas I",
+        creditos: 8,
+        color: "verde",
+      },
+      {
+        codigo: "MKT106",
+        nombre: "Tecnologías de la Información",
+        creditos: 8,
+        color: "verde",
+      },
+      {
+        codigo: "MKT107",
+        nombre: "Universidad y Siglo XXI",
+        creditos: 8,
+        color: "verde",
+      },
+      {
+        codigo: "MKT108",
+        nombre: "Mercadotecnia",
+        creditos: 8,
         color: "verde",
       },
     ],
@@ -108,27 +129,51 @@ const semestresDatos = [
     numero: 2,
     materias: [
       {
-        codigo: "FH1203",
-        nombre: "Pensamiento lógico y tecnológico",
-        creditos: 30,
+        codigo: "MKT201",
+        nombre: "Administración II",
+        creditos: 8,
         color: "amarillo",
       },
       {
-        codigo: "ED2016",
-        nombre: "Desarrollo de la Psicomotricidad",
-        creditos: 30,
+        codigo: "MKT202",
+        nombre: "Conceptos Jurídicos Fundamentales",
+        creditos: 6,
         color: "amarillo",
       },
       {
-        codigo: "HJ2026",
-        nombre: "Ética social cristiana",
-        creditos: 30,
+        codigo: "MKT203",
+        nombre: "Economía II",
+        creditos: 8,
         color: "amarillo",
       },
       {
-        codigo: "ED1029",
-        nombre: "Historia de la Pedagogía moderna",
-        creditos: 30,
+        codigo: "MKT204",
+        nombre: "Expresión Oral y Escrita",
+        creditos: 6,
+        color: "amarillo",
+      },
+      {
+        codigo: "MKT205",
+        nombre: "Matemáticas II",
+        creditos: 8,
+        color: "amarillo",
+      },
+      {
+        codigo: "MKT206",
+        nombre: "Contabilidad de Costos",
+        creditos: 8,
+        color: "amarillo",
+      },
+      {
+        codigo: "MKT207",
+        nombre: "Ventas",
+        creditos: 8,
+        color: "amarillo",
+      },
+      {
+        codigo: "MKT208",
+        nombre: "Gestión de Ferias y Exposiciones",
+        creditos: 8,
         color: "amarillo",
       },
     ],
@@ -137,35 +182,268 @@ const semestresDatos = [
     numero: 3,
     materias: [
       {
-        codigo: "PS1201",
-        nombre: "Fundamentos de Psicología y Bienestar",
-        creditos: 30,
+        codigo: "MKT301",
+        nombre: "Estadística I",
+        creditos: 8,
         color: "naranja",
       },
       {
-        codigo: "Gestión educativa institucional",
-        nombre: "Gestión educativa institucional",
-        creditos: 30,
+        codigo: "MKT302",
+        nombre: "Ética Profesional",
+        creditos: 8,
         color: "naranja",
       },
       {
-        codigo: "ED2012",
-        nombre: "Desarrollo Socioemocional",
-        creditos: 30,
+        codigo: "MKT303",
+        nombre: "Administración Financiera",
+        creditos: 8,
         color: "naranja",
       },
       {
-        codigo: "ED3027",
-        nombre: "Administración educativa",
-        creditos: 30,
+        codigo: "MKT304",
+        nombre: "Comportamiento del Consumidor",
+        creditos: 8,
+        color: "naranja",
+      },
+      {
+        codigo: "MKT305",
+        nombre: "Conceptos Fiscales Fundamentales",
+        creditos: 8,
+        color: "naranja",
+      },
+      {
+        codigo: "MKT306",
+        nombre: "Derecho Mercantil",
+        creditos: 8,
+        color: "naranja",
+      },
+      {
+        codigo: "MKT307",
+        nombre: "Promoción y Publicidad",
+        creditos: 8,
         color: "naranja",
       },
     ],
   },
-  // Puedes agregar más semestres según necesites
+  {
+    numero: 4,
+    materias: [
+      {
+        codigo: "MKT401",
+        nombre: "Estadística II",
+        creditos: 8,
+        color: "rojo",
+      },
+      {
+        codigo: "MKT402",
+        nombre: "Investigación de Mercados Cualitativa",
+        creditos: 8,
+        color: "rojo",
+      },
+      {
+        codigo: "MKT403",
+        nombre: "Desarrollo de Nuevos Productos",
+        creditos: 8,
+        color: "rojo",
+      },
+      {
+        codigo: "MKT404",
+        nombre: "Imagen Corporativa",
+        creditos: 8,
+        color: "rojo",
+      },
+      {
+        codigo: "MKT405",
+        nombre: "Mercadotecnia de Servicios",
+        creditos: 8,
+        color: "rojo",
+      },
+      {
+        codigo: "MKT406",
+        nombre: "Producto Precio",
+        creditos: 8,
+        color: "rojo",
+      },
+      {
+        codigo: "MKT407",
+        nombre: "Taller de Promoción y Publicidad",
+        creditos: 4,
+        color: "rojo",
+      },
+    ],
+  },
+  {
+    numero: 5,
+    materias: [
+      {
+        codigo: "MKT501",
+        nombre: "Investigación de Mercados Cuantitativa",
+        creditos: 8,
+        color: "morado",
+      },
+      {
+        codigo: "MKT502",
+        nombre: "Investigación de Operaciones I",
+        creditos: 8,
+        color: "morado",
+      },
+      {
+        codigo: "MKT503",
+        nombre: "Distribución y Logística",
+        creditos: 8,
+        color: "morado",
+      },
+      {
+        codigo: "MKT504",
+        nombre: "Mercadotecnia Internacional",
+        creditos: 8,
+        color: "morado",
+      },
+      {
+        codigo: "MKT505",
+        nombre: "Negocios Internacionales y Diferencias Culturales",
+        creditos: 8,
+        color: "morado",
+      },
+      {
+        codigo: "MKT506",
+        nombre: "Planeación Estratégica de la Mercadotecnia",
+        creditos: 8,
+        color: "morado",
+      },
+      {
+        codigo: "MKT507",
+        nombre: "Formación Integral",
+        creditos: 8,
+        color: "morado",
+      },
+    ],
+  },
+  {
+    numero: 6,
+    materias: [
+      {
+        codigo: "MKT601",
+        nombre: "Metodología y Práctica de la Investigación",
+        creditos: 8,
+        color: "azul",
+      },
+      {
+        codigo: "MKT602",
+        nombre: "Investigación de Operaciones II",
+        creditos: 8,
+        color: "azul",
+      },
+      {
+        codigo: "MKT603",
+        nombre: "Desarrollo de Emprendedores",
+        creditos: 8,
+        color: "azul",
+      },
+      {
+        codigo: "MKT604",
+        nombre: "Mercadotecnia Política",
+        creditos: 8,
+        color: "azul",
+      },
+      {
+        codigo: "MKT605",
+        nombre: "Propiedad Intelectual",
+        creditos: 8,
+        color: "azul",
+      },
+      {
+        codigo: "MKT606",
+        nombre: "Campaña Publicitaria",
+        creditos: 8,
+        color: "azul",
+      },
+      {
+        codigo: "MKT607",
+        nombre: "Gestión de Centros de Convenciones",
+        creditos: 8,
+        color: "azul",
+      },
+    ],
+  },
+  {
+    numero: 7,
+    materias: [
+      {
+        codigo: "MKT701",
+        nombre: "Liderazgo y Habilidades Directivas",
+        creditos: 8,
+        color: "cian",
+      },
+      {
+        codigo: "MKT702",
+        nombre: "Mercadotecnia Digital",
+        creditos: 8,
+        color: "cian",
+      },
+      {
+        codigo: "MKT703",
+        nombre: "Mercadotecnia Relacional",
+        creditos: 8,
+        color: "cian",
+      },
+      {
+        codigo: "MKT704",
+        nombre: "Prácticas Profesionales de la Licenciatura en Mercadotecnia",
+        creditos: 8,
+        color: "cian",
+      },
+      {
+        codigo: "MKT705",
+        nombre: "Simuladores de Mercadotecnia",
+        creditos: 8,
+        color: "cian",
+      },
+      {
+        codigo: "MKT706",
+        nombre: "Creatividad Publicitaria",
+        creditos: 8,
+        color: "cian",
+      },
+    ],
+  },
+  {
+    numero: 8,
+    materias: [
+      {
+        codigo: "MKT801",
+        nombre: "Seminario de Titulación en Mercadotecnia",
+        creditos: 6,
+        color: "rosa",
+      },
+      {
+        codigo: "MKT802",
+        nombre: "Administración del Proyecto Publicitario",
+        creditos: 8,
+        color: "rosa",
+      },
+      {
+        codigo: "MKT803",
+        nombre: "Viajes Creativos para Incentivos",
+        creditos: 8,
+        color: "rosa",
+      },
+    ],
+  },
 ];
 
 const planteles = [
+  {
+    id: "15",
+    nombre: "Torre Quetzal",
+    codigo: "Torre Quetzak",
+    direccion: "Chimalhuacán #3569 Col. Ciudad del Sol Zapopan, Jalisco",
+    ciudad: "Guadalajara ZMG",
+    url: "/campus/torre-quetzal",
+    imagen: "/src/assets/Imagenes/CardsPlanteles/Torre-quetzal.png",
+    lat: "20.651860618451966",
+    lon: "-103.40329340052432",
+  },
   {
     id: "1",
     nombre: "Centro",
@@ -177,6 +455,29 @@ const planteles = [
     lon: -103.34031672627513,
   },
   {
+    id: "1",
+    nombre: "Avenida México",
+    codigo: "00008",
+    direccion: "Av. México #1255, Col. Agua Zarca, Puerto Vallarta, Jalisco",
+    ciudad: "Puerto Vallarta",
+    url: "/campus/puerto-vallarta",
+    imagen: "/src/assets/Imagenes/CardsPlanteles/PuertoVallarta.png",
+    lat: 20.669418,
+    lon: -105.226917,
+  },
+  {
+    id: "16",
+    nombre: "Campus Puerto Vallarta",
+    codigo: "Campus",
+    direccion: "Carretera a Tepic No. 5657 Col. las Juntas C.P 48291",
+    ciudad: "Puerto Vallarta",
+    url: "/campus/campus-puerto-vallarta",
+    imagen: "/src/assets/Imagenes/CardsPlanteles/Campus-Puerto-Vallarta.jpg",
+    lat: "20.69715126066295",
+    lon: ", -105.23759816941552",
+  },
+
+  {
     id: "2",
     nombre: "Centro Médico",
     direccion: "José María Lozano #1077, Col. Belisario Domínguez",
@@ -186,6 +487,7 @@ const planteles = [
     lat: 20.684590788642307,
     lon: -103.3256397932448,
   },
+
   {
     id: "3",
     nombre: "Milenio",
@@ -314,7 +616,7 @@ const ciudades = [
         <div class="text-center text-white max-w-4xl mx-auto">
           {/* Main Title */}
           <h1 class="text-4xl md:text-7xl font-bold tracking-wider mb-4">
-            Lic. en Cirujano Dentista
+            Lic. en Mercadotecnia
           </h1>
           <h2 class="text-2xl md:text-5xl font-bold tracking-wider mb-8">
             Licenciaturas UNE
@@ -324,9 +626,8 @@ const ciudades = [
           <p
             class="text-lg md:text-xl leading-relaxed mb-16 max-w-3xl mx-auto font-light"
           >
-            Transforma sonrisas y mejora la calidad de vida a través del estudio
-            y la práctica de la odontología, en una carrera donde la ciencia, la
-            salud y la vocación por el bienestar se unen.
+            Desarrolla estrategias creativas para posicionar marcas, conectar
+            con consumidores y expandir negocios a nivel global.
           </p>
         </div>
       </div>
@@ -343,7 +644,8 @@ const ciudades = [
             class="flex flex-col sm:flex-row gap-4 w-full justify-center text-white"
           >
             <!-- Agenda una Visita -->
-            <a href="/contacto/solicitarvisita"
+            <a
+              href="/contacto/solicitarvisita"
               class="hover:border-b hover:border-b-cyan-50 font-bold py-6 px-6 text-base transition-colors duration-300 shadow-lg flex flex-col items-center justify-center gap-2 whitespace-nowrap"
             >
               AGENDA UNA VISITA
@@ -351,7 +653,8 @@ const ciudades = [
             </a>
 
             <!-- Iniciar Inscripción -->
-            <a href="/contacto/formulario-inscripcion"
+            <a
+              href="/contacto/formulario-inscripcion"
               class="hover:border-b hover:border-b-cyan-50 font-bold py-3 px-6 text-base transition-colors duration-300 shadow-lg flex flex-col items-center justify-center gap-2 whitespace-nowrap"
             >
               INICIAR INSCRIPCIÓN
@@ -359,7 +662,8 @@ const ciudades = [
             </a>
 
             <!-- Contactar -->
-             <a href="/contacto/solicitarinformacion"
+            <a
+              href="/contacto/solicitarinformacion"
               class="hover:border-b hover:border-b-cyan-50 font-bold py-3 px-6 text-base transition-colors duration-300 shadow-lg flex flex-col items-center justify-center gap-2 whitespace-nowrap"
             >
               CONTACTAR
@@ -374,27 +678,25 @@ const ciudades = [
       logoSrc={LogoCard.src}
       studentImageSrc={ImagenCard.src}
       title="Objetivo"
-      description="La Licenciatura en Cirujano Dentista te forma como un profesionista altamente capacitado para prevenir, diagnosticar y tratar enfermedades bucales con un enfoque integral y humano."
-      additionalText="Con una sólida formación teórico-práctica y un alto compromiso ético y social, estarás preparado para promover la salud bucodental, brindar atención personalizada y colaborar con instituciones de salud para transformar positivamente la calidad de vida de las personas."
+      description="Formar profesionales en mercadotecnia con competencias estratégicas, creativas y analíticas para diseñar, ejecutar y evaluar planes de marketing orientados a satisfacer necesidades del mercado, impulsando el crecimiento organizacional y generando valor económico y social desde una perspectiva ética y sostenible."
+      additionalText=""
       features={[
-        { icon: "CalendarDays", label: "Prácticas clínicas presenciales" },
-        { icon: "BookOpen", label: "Bases científicas sólidas" },
-        { icon: "School", label: "Validez oficial" },
-        { icon: "Clock", label: "Horarios accesibles" },
-        { icon: "BookmarkCheck", label: "Enfoque profesionalizante" },
+        { icon: "Megaphone", label: "Estrategias de comunicación comercial" },
+        { icon: "Lightbulb", label: "Creatividad e innovación en campañas" },
+        { icon: "TrendingUp", label: "Análisis de mercado y tendencias" },
+        { icon: "Globe", label: "Enfoque social y sostenibilidad" },
+        { icon: "CheckCircle2", label: "Aplicación ética y profesional" },
       ]}
     />
 
-     <PlanEstudios titulo="Propuesta Educativa" semestres={semestresDatos} />
+    <PlanEstudios titulo="Propuesta Educativa" semestres={semestresDatos} />
 
-     <Planteles
+    <Planteles
       titulo="Encuentra tu campus más cercano"
       planteles={planteles}
       ciudades={ciudades}
       mostrarMasCercano={true}
     />
-
-    
 
     <Requisitos nivel="Licenciatura" requisitos={requisitosInfo} />
 

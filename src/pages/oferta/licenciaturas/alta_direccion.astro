@@ -1,15 +1,11 @@
 ---
 import Layout from "@/layouts/Layout.astro";
-import Hero from "@/assets/Imagenes/Heros/Cirujano_dentista.jpg";
-import Hero_mobile from "@/assets/Imagenes/Heros/Cirujano_dentista_mobile.jpg";
+import Hero from "@/assets/Imagenes/Heros/Carreras/AltaDireccion.jpg";
+import Hero_mobile from "@/assets/Imagenes/Heros/Carreras/AltaDireccion_mobile.jpg";
 import ImagenCard from "@/assets/Imagenes/CardsNiveles/Nivel.png";
 import LogoCard from "@/assets/Logos/Licenciatura.png";
 import InformativeCard from "@components/sections/detallesOferta/card.astro";
-import Carreras from "@components/sections/Licenciaturas/Carreras.astro";
-import Estadisticas from "@components/sections/Licenciaturas/Estadisticas.astro";
-
 import Requisitos from "@/components/sections/detallesOferta/requisitos.astro";
-
 import FAQComponent from "@/components/sections/detallesOferta/preguntas.astro";
 import CTAinscripcion from "@/components/sections/shared/ctaInscripcion.astro";
 import { Calendar, UserPlus, Phone } from "@lucide/astro";
@@ -25,7 +21,7 @@ const requisitosInfo = {
     "CURP (formato RENAPO)",
     "Identificación oficial con fotografía (INE) - dos copias",
     "Comprobante de domicilio reciente (no mayor a 3 meses) - una copia",
-    "Cinco fotografías tamaño infantil, blanco y negro, papel mate, de estudio"
+    "Cinco fotografías tamaño infantil, blanco y negro, papel mate, de estudio",
   ],
   pdfUrl: "/public/pdfs/licenciatura_req.pdf",
 };
@@ -79,27 +75,33 @@ const semestresDatos = [
     numero: 1,
     materias: [
       {
-        codigo: "ED1021",
-        nombre: "Introducción a la Educación",
-        creditos: 30,
+        codigo: "LAD101",
+        nombre: "Redacción Profesional",
+        creditos: 4,
         color: "verde",
       },
       {
-        codigo: "Filosofía y Ética en Educación",
-        nombre: "Filosofía y Ética en Educación",
-        creditos: 30,
+        codigo: "LAD102",
+        nombre: "Matemáticas para la Administración y la Economía",
+        creditos: 7,
         color: "verde",
       },
       {
-        codigo: "ED1024",
-        nombre: "Desarrollo Infantil y adolescente",
-        creditos: 30,
+        codigo: "LAD103",
+        nombre: "Fundamentos de Economía",
+        creditos: 7,
         color: "verde",
       },
       {
-        codigo: "ED1027",
-        nombre: "Habilidades Básicas de Investigación",
-        creditos: 30,
+        codigo: "LAD104",
+        nombre: "Fundamentos de la Administración",
+        creditos: 7,
+        color: "verde",
+      },
+      {
+        codigo: "LAD105",
+        nombre: "Inglés I",
+        creditos: 6,
         color: "verde",
       },
     ],
@@ -108,27 +110,33 @@ const semestresDatos = [
     numero: 2,
     materias: [
       {
-        codigo: "FH1203",
-        nombre: "Pensamiento lógico y tecnológico",
-        creditos: 30,
+        codigo: "LAD201",
+        nombre: "Informática Aplicada",
+        creditos: 8,
         color: "amarillo",
       },
       {
-        codigo: "ED2016",
-        nombre: "Desarrollo de la Psicomotricidad",
-        creditos: 30,
+        codigo: "LAD202",
+        nombre: "Matemáticas Financieras",
+        creditos: 8,
         color: "amarillo",
       },
       {
-        codigo: "HJ2026",
-        nombre: "Ética social cristiana",
-        creditos: 30,
+        codigo: "LAD203",
+        nombre: "Microeconomía",
+        creditos: 8,
         color: "amarillo",
       },
       {
-        codigo: "ED1029",
-        nombre: "Historia de la Pedagogía moderna",
-        creditos: 30,
+        codigo: "LAD204",
+        nombre: "Nuevas Tendencias en Administración",
+        creditos: 8,
+        color: "amarillo",
+      },
+      {
+        codigo: "LAD205",
+        nombre: "Inglés II",
+        creditos: 6,
         color: "amarillo",
       },
     ],
@@ -137,45 +145,215 @@ const semestresDatos = [
     numero: 3,
     materias: [
       {
-        codigo: "PS1201",
-        nombre: "Fundamentos de Psicología y Bienestar",
-        creditos: 30,
+        codigo: "LAD301",
+        nombre: "Ética y Valores en la Empresa",
+        creditos: 8,
         color: "naranja",
       },
       {
-        codigo: "Gestión educativa institucional",
-        nombre: "Gestión educativa institucional",
-        creditos: 30,
+        codigo: "LAD302",
+        nombre: "Finanzas Estratégicas",
+        creditos: 8,
         color: "naranja",
       },
       {
-        codigo: "ED2012",
-        nombre: "Desarrollo Socioemocional",
-        creditos: 30,
+        codigo: "LAD303",
+        nombre: "Macroeconomía",
+        creditos: 8,
         color: "naranja",
       },
       {
-        codigo: "ED3027",
-        nombre: "Administración educativa",
-        creditos: 30,
+        codigo: "LAD304",
+        nombre: "Administración del Capital Humano",
+        creditos: 8,
+        color: "naranja",
+      },
+      {
+        codigo: "LAD305",
+        nombre: "Inglés III",
+        creditos: 6,
         color: "naranja",
       },
     ],
   },
-  // Puedes agregar más semestres según necesites
+  {
+    numero: 4,
+    materias: [
+      {
+        codigo: "LAD401",
+        nombre: "Sistemas de Información en los Negocios",
+        creditos: 8,
+        color: "rojo",
+      },
+      {
+        codigo: "LAD402",
+        nombre: "Estadística para los Negocios",
+        creditos: 8,
+        color: "rojo",
+      },
+      {
+        codigo: "LAD403",
+        nombre: "Fundamentos de Mercadotecnia",
+        creditos: 8,
+        color: "rojo",
+      },
+      {
+        codigo: "LAD404",
+        nombre: "Derecho Mercantil",
+        creditos: 8,
+        color: "rojo",
+      },
+      {
+        codigo: "LAD405",
+        nombre: "Inglés IV",
+        creditos: 6,
+        color: "rojo",
+      },
+    ],
+  },
+  {
+    numero: 5,
+    materias: [
+      {
+        codigo: "LAD501",
+        nombre: "Filosofías de la Calidad",
+        creditos: 8,
+        color: "morado",
+      },
+      {
+        codigo: "LAD502",
+        nombre: "Contabilidad Administrativa y de Costos",
+        creditos: 8,
+        color: "morado",
+      },
+      {
+        codigo: "LAD503",
+        nombre: "Administración Estratégica",
+        creditos: 8,
+        color: "morado",
+      },
+      {
+        codigo: "LAD504",
+        nombre: "Derecho Laboral",
+        creditos: 8,
+        color: "morado",
+      },
+      {
+        codigo: "LAD505",
+        nombre: "Inglés V",
+        creditos: 6,
+        color: "morado",
+      },
+    ],
+  },
+  {
+    numero: 6,
+    materias: [
+      {
+        codigo: "LAD601",
+        nombre: "Competitividad Empresarial",
+        creditos: 8,
+        color: "azul",
+      },
+      {
+        codigo: "LAD602",
+        nombre: "Formulación y Evaluación de Proyectos de Inversión",
+        creditos: 8,
+        color: "azul",
+      },
+      {
+        codigo: "LAD603",
+        nombre: "Administración de Proyectos",
+        creditos: 8,
+        color: "azul",
+      },
+      {
+        codigo: "LAD604",
+        nombre: "Desarrollo Organizacional",
+        creditos: 8,
+        color: "azul",
+      },
+      {
+        codigo: "LAD605",
+        nombre: "Dirección de Empresas Familiares",
+        creditos: 7,
+        color: "azul",
+      },
+    ],
+  },
+  {
+    numero: 7,
+    materias: [
+      {
+        codigo: "LAD701",
+        nombre: "Relaciones Públicas y Comunicación",
+        creditos: 6,
+        color: "cian",
+      },
+      {
+        codigo: "LAD702",
+        nombre: "Plan de Negocios",
+        creditos: 8,
+        color: "cian",
+      },
+      {
+        codigo: "LAD703",
+        nombre: "Administración de Riesgos en Proyectos",
+        creditos: 8,
+        color: "cian",
+      },
+      {
+        codigo: "LAD704",
+        nombre: "Desarrollo de Habilidades Directivas",
+        creditos: 7,
+        color: "cian",
+      },
+      {
+        codigo: "LAD705",
+        nombre: "Desarrollo Emprendedor e Innovación",
+        creditos: 8,
+        color: "cian",
+      },
+    ],
+  },
+  {
+    numero: 8,
+    materias: [
+      {
+        codigo: "LAD801",
+        nombre: "Seminario de Investigación en Alta Dirección",
+        creditos: 8,
+        color: "rosa",
+      },
+      {
+        codigo: "LAD802",
+        nombre: "Investigación de Operaciones",
+        creditos: 8,
+        color: "rosa",
+      },
+      {
+        codigo: "LAD803",
+        nombre: "Simulación de Negocios",
+        creditos: 8,
+        color: "rosa",
+      },
+      {
+        codigo: "LAD804",
+        nombre: "Negociación Empresarial",
+        creditos: 7,
+        color: "rosa",
+      },
+      {
+        codigo: "LAD805",
+        nombre: "Alianzas Estratégicas y Propiedad Intelectual",
+        creditos: 7,
+        color: "rosa",
+      },
+    ],
+  },
 ];
 
 const planteles = [
-  {
-    id: "1",
-    nombre: "Centro",
-    direccion: "Av. República No.10, Col. San Juan de Dios",
-    ciudad: "Guadalajara ZMG",
-    url: "/plantel-centro",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/Centro.jpg",
-    lat: 20.67744801539995,
-    lon: -103.34031672627513,
-  },
   {
     id: "2",
     nombre: "Centro Médico",
@@ -187,95 +365,26 @@ const planteles = [
     lon: -103.3256397932448,
   },
   {
-    id: "3",
-    nombre: "Milenio",
-    direccion: "Av. López Mateos Sur #4154, Col. La Giralda",
+    id: "15",
+    nombre: "Torre Quetzal",
+    codigo: "Torre Quetzak",
+    direccion: "Chimalhuacán #3569 Col. Ciudad del Sol Zapopan, Jalisco",
     ciudad: "Guadalajara ZMG",
-    url: "/plantel-milenio",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/Milenio.jpg",
-    lat: 20.64540739939039,
-    lon: -103.40630313415286,
+    url: "/campus/torre-quetzal",
+    imagen: "/src/assets/Imagenes/CardsPlanteles/Torre-quetzal.png",
+    lat: "20.651860618451966",
+    lon: "-103.40329340052432",
   },
   {
-    id: "4",
-    nombre: "Puerto Vallarta - Plaza Caracol",
-    direccion: "Blvd. Fco. Medina Ascencio #2180, Col. Díaz Ordaz",
+    id: "1",
+    nombre: "Avenida México",
+    codigo: "00008",
+    direccion: "Av. México #1255, Col. Agua Zarca, Puerto Vallarta, Jalisco",
     ciudad: "Puerto Vallarta",
-    url: "/plantel-plaza-caracol-puerto-vallarta",
+    url: "/campus/puerto-vallarta",
     imagen: "/src/assets/Imagenes/CardsPlanteles/PuertoVallarta.png",
-    lat: 20.639287162026815,
-    lon: -105.23323589513319,
-  },
-  {
-    id: "5",
-    nombre: "Tlajomulco",
-    direccion: "Av. López Mateos #10100, Col. Los Gavilanes Poniente",
-    ciudad: "Guadalajara ZMG",
-    url: "/plantel-tlajomulco",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/Tlajomulco.png",
-    lat: 20.576464164603113,
-    lon: -103.45243680650722,
-  },
-  {
-    id: "6",
-    nombre: "Tesistán",
-    direccion: "Av. Juan Gil Preciado #3897, Col. Hogares de Nuevo México",
-    ciudad: "Guadalajara ZMG",
-    url: "/plantel-tesistan",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/Tesistan.png",
-    lat: 20.806203,
-    lon: -102.763903,
-  },
-  {
-    id: "7",
-    nombre: "Tepatitlán",
-    direccion: "Calle Dr. Ricardo Alcalá #505, Av. Matamoros, Centro",
-    ciudad: "Tepatitlán de Morelos",
-    url: "/plantel-tepatitlan",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/Tepatitlan.jpg",
-    lat: 20.8062946507024,
-    lon: -102.76382902869392,
-  },
-  {
-    id: "8",
-    nombre: "Tlaquepaque",
-    direccion:
-      "Blvd. Marcelino García Barragán #2056, Col. Bosques del Boulevard",
-    ciudad: "Guadalajara ZMG",
-    url: "/plantel-tlaquepaque",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/Tlaquepaque.jpg",
-    lat: 20.645650028567157,
-    lon: -103.32094530771215,
-  },
-  {
-    id: "9",
-    nombre: "Tonalá",
-    direccion: "Av. Tonaltecas #333, Col. Agua Escondida",
-    ciudad: "Guadalajara ZMG",
-    url: "/plantel-tonala",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/Tonala.png",
-    lat: 20.63176692188573,
-    lon: -103.24439406488241,
-  },
-  {
-    id: "10",
-    nombre: "Chapultepec",
-    direccion: "Av. Vallarta #1458, Col. Americana",
-    ciudad: "Guadalajara ZMG",
-    url: "/plantel-vallarta",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/Chapultepec.png",
-    lat: 20.67471004174908,
-    lon: -103.36909119392195,
-  },
-  {
-    id: "11",
-    nombre: "Zapopan",
-    direccion: "Plaza Caudillos",
-    ciudad: "Guadalajara ZMG",
-    url: "/plantel-zapopan",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/Zapopan.png",
-    lat: 20.720900646775917,
-    lon: -103.38975281813357,
+    lat: 20.669418,
+    lon: -105.226917,
   },
 ];
 
@@ -314,19 +423,15 @@ const ciudades = [
         <div class="text-center text-white max-w-4xl mx-auto">
           {/* Main Title */}
           <h1 class="text-4xl md:text-7xl font-bold tracking-wider mb-4">
-            Lic. en Cirujano Dentista
+            Lic. en Alta dirección
           </h1>
-          <h2 class="text-2xl md:text-5xl font-bold tracking-wider mb-8">
-            Licenciaturas UNE
-          </h2>
 
           {/* Description */}
           <p
             class="text-lg md:text-xl leading-relaxed mb-16 max-w-3xl mx-auto font-light"
           >
-            Transforma sonrisas y mejora la calidad de vida a través del estudio
-            y la práctica de la odontología, en una carrera donde la ciencia, la
-            salud y la vocación por el bienestar se unen.
+            Lidera con visión, estrategia y responsabilidad en entornos
+            empresariales de alto nivel.
           </p>
         </div>
       </div>
@@ -343,7 +448,8 @@ const ciudades = [
             class="flex flex-col sm:flex-row gap-4 w-full justify-center text-white"
           >
             <!-- Agenda una Visita -->
-            <a href="/contacto/solicitarvisita"
+            <a
+              href="/contacto/solicitarvisita"
               class="hover:border-b hover:border-b-cyan-50 font-bold py-6 px-6 text-base transition-colors duration-300 shadow-lg flex flex-col items-center justify-center gap-2 whitespace-nowrap"
             >
               AGENDA UNA VISITA
@@ -351,7 +457,8 @@ const ciudades = [
             </a>
 
             <!-- Iniciar Inscripción -->
-            <a href="/contacto/formulario-inscripcion"
+            <a
+              href="/contacto/formulario-inscripcion"
               class="hover:border-b hover:border-b-cyan-50 font-bold py-3 px-6 text-base transition-colors duration-300 shadow-lg flex flex-col items-center justify-center gap-2 whitespace-nowrap"
             >
               INICIAR INSCRIPCIÓN
@@ -359,7 +466,8 @@ const ciudades = [
             </a>
 
             <!-- Contactar -->
-             <a href="/contacto/solicitarinformacion"
+            <a
+              href="/contacto/solicitarinformacion"
               class="hover:border-b hover:border-b-cyan-50 font-bold py-3 px-6 text-base transition-colors duration-300 shadow-lg flex flex-col items-center justify-center gap-2 whitespace-nowrap"
             >
               CONTACTAR
@@ -374,27 +482,25 @@ const ciudades = [
       logoSrc={LogoCard.src}
       studentImageSrc={ImagenCard.src}
       title="Objetivo"
-      description="La Licenciatura en Cirujano Dentista te forma como un profesionista altamente capacitado para prevenir, diagnosticar y tratar enfermedades bucales con un enfoque integral y humano."
-      additionalText="Con una sólida formación teórico-práctica y un alto compromiso ético y social, estarás preparado para promover la salud bucodental, brindar atención personalizada y colaborar con instituciones de salud para transformar positivamente la calidad de vida de las personas."
+      description="Formar líderes con visión estratégica, habilidades directivas y sentido ético para diseñar e implementar políticas organizacionales de alto impacto, impulsando el crecimiento institucional, la responsabilidad social y la competitividad en sectores públicos y privados, con un perfil altamente empleable."
+      additionalText=""
       features={[
-        { icon: "CalendarDays", label: "Prácticas clínicas presenciales" },
-        { icon: "BookOpen", label: "Bases científicas sólidas" },
-        { icon: "School", label: "Validez oficial" },
-        { icon: "Clock", label: "Horarios accesibles" },
-        { icon: "BookmarkCheck", label: "Enfoque profesionalizante" },
+        { icon: "Gavel", label: "Ética y responsabilidad social" },
+        { icon: "BarChart4", label: "Gestión estratégica y liderazgo" },
+        { icon: "Sitemap", label: "Diseño organizacional efectivo" },
+        { icon: "Handshake", label: "Relaciones institucionales sólidas" },
+        { icon: "Briefcase", label: "Alta empleabilidad en sectores clave" },
       ]}
     />
 
-     <PlanEstudios titulo="Propuesta Educativa" semestres={semestresDatos} />
+    <PlanEstudios titulo="Propuesta Educativa" semestres={semestresDatos} />
 
-     <Planteles
+    <Planteles
       titulo="Encuentra tu campus más cercano"
       planteles={planteles}
       ciudades={ciudades}
       mostrarMasCercano={true}
     />
-
-    
 
     <Requisitos nivel="Licenciatura" requisitos={requisitosInfo} />
 
