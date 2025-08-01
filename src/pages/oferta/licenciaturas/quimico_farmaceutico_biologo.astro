@@ -1,13 +1,10 @@
 ---
 import Layout from "@/layouts/Layout.astro";
-import Hero from "@/assets/Imagenes/Heros/Cirujano_dentista.jpg";
-import Hero_mobile from "@/assets/Imagenes/Heros/Cirujano_dentista_mobile.jpg";
+import Hero from "@/assets/Imagenes/Heros/Carreras/QFB.jpg";
+import Hero_mobile from "@/assets/Imagenes/Heros/Carreras/QFB_mobile.jpg";
 import ImagenCard from "@/assets/Imagenes/CardsNiveles/Nivel.png";
 import LogoCard from "@/assets/Logos/Licenciatura.png";
 import InformativeCard from "@components/sections/detallesOferta/card.astro";
-import Carreras from "@components/sections/Licenciaturas/Carreras.astro";
-import Estadisticas from "@components/sections/Licenciaturas/Estadisticas.astro";
-
 import Requisitos from "@/components/sections/detallesOferta/requisitos.astro";
 
 import FAQComponent from "@/components/sections/detallesOferta/preguntas.astro";
@@ -25,7 +22,7 @@ const requisitosInfo = {
     "CURP (formato RENAPO)",
     "Identificación oficial con fotografía (INE) - dos copias",
     "Comprobante de domicilio reciente (no mayor a 3 meses) - una copia",
-    "Cinco fotografías tamaño infantil, blanco y negro, papel mate, de estudio"
+    "Cinco fotografías tamaño infantil, blanco y negro, papel mate, de estudio",
   ],
   pdfUrl: "/public/pdfs/licenciatura_req.pdf",
 };
@@ -79,27 +76,45 @@ const semestresDatos = [
     numero: 1,
     materias: [
       {
-        codigo: "ED1021",
-        nombre: "Introducción a la Educación",
-        creditos: 30,
+        codigo: "LQF101",
+        nombre: "Desarrollo de Habilidades del Aprendizaje",
+        creditos: 3,
         color: "verde",
       },
       {
-        codigo: "Filosofía y Ética en Educación",
-        nombre: "Filosofía y Ética en Educación",
-        creditos: 30,
+        codigo: "LQF102",
+        nombre: "Morfología",
+        creditos: 5,
         color: "verde",
       },
       {
-        codigo: "ED1024",
-        nombre: "Desarrollo Infantil y adolescente",
-        creditos: 30,
+        codigo: "LQF103",
+        nombre: "Química General I",
+        creditos: 5,
         color: "verde",
       },
       {
-        codigo: "ED1027",
-        nombre: "Habilidades Básicas de Investigación",
-        creditos: 30,
+        codigo: "LQF104",
+        nombre: "Biología Celular",
+        creditos: 5,
+        color: "verde",
+      },
+      {
+        codigo: "LQF105",
+        nombre: "Física I",
+        creditos: 5,
+        color: "verde",
+      },
+      {
+        codigo: "LQF106",
+        nombre: "Cálculo I",
+        creditos: 5,
+        color: "verde",
+      },
+      {
+        codigo: "LQF107",
+        nombre: "Taller de Manejo de Residuos",
+        creditos: 3,
         color: "verde",
       },
     ],
@@ -108,27 +123,45 @@ const semestresDatos = [
     numero: 2,
     materias: [
       {
-        codigo: "FH1203",
-        nombre: "Pensamiento lógico y tecnológico",
-        creditos: 30,
+        codigo: "LQF201",
+        nombre: "Comunicación Oral y Escrita",
+        creditos: 3,
         color: "amarillo",
       },
       {
-        codigo: "ED2016",
-        nombre: "Desarrollo de la Psicomotricidad",
-        creditos: 30,
+        codigo: "LQF202",
+        nombre: "Fisiología",
+        creditos: 5,
         color: "amarillo",
       },
       {
-        codigo: "HJ2026",
-        nombre: "Ética social cristiana",
-        creditos: 30,
+        codigo: "LQF203",
+        nombre: "Química General II",
+        creditos: 5,
         color: "amarillo",
       },
       {
-        codigo: "ED1029",
-        nombre: "Historia de la Pedagogía moderna",
-        creditos: 30,
+        codigo: "LQF204",
+        nombre: "Química Orgánica I",
+        creditos: 5,
+        color: "amarillo",
+      },
+      {
+        codigo: "LQF205",
+        nombre: "Física II",
+        creditos: 5,
+        color: "amarillo",
+      },
+      {
+        codigo: "LQF206",
+        nombre: "Cálculo II",
+        creditos: 5,
+        color: "amarillo",
+      },
+      {
+        codigo: "LQF207",
+        nombre: "Bioquímica I",
+        creditos: 5,
         color: "amarillo",
       },
     ],
@@ -137,75 +170,336 @@ const semestresDatos = [
     numero: 3,
     materias: [
       {
-        codigo: "PS1201",
-        nombre: "Fundamentos de Psicología y Bienestar",
-        creditos: 30,
+        codigo: "LQF301",
+        nombre: "Informática",
+        creditos: 3,
         color: "naranja",
       },
       {
-        codigo: "Gestión educativa institucional",
-        nombre: "Gestión educativa institucional",
-        creditos: 30,
+        codigo: "LQF302",
+        nombre: "Fisiopatología",
+        creditos: 5,
         color: "naranja",
       },
       {
-        codigo: "ED2012",
-        nombre: "Desarrollo Socioemocional",
-        creditos: 30,
+        codigo: "LQF303",
+        nombre: "Química Inorgánica",
+        creditos: 5,
         color: "naranja",
       },
       {
-        codigo: "ED3027",
-        nombre: "Administración educativa",
-        creditos: 30,
+        codigo: "LQF304",
+        nombre: "Química Orgánica II",
+        creditos: 5,
+        color: "naranja",
+      },
+      {
+        codigo: "LQF305",
+        nombre: "Fisicoquímica",
+        creditos: 5,
+        color: "naranja",
+      },
+      {
+        codigo: "LQF306",
+        nombre: "Química Analítica I",
+        creditos: 6,
+        color: "naranja",
+      },
+      {
+        codigo: "LQF307",
+        nombre: "Bioquímica II",
+        creditos: 5,
         color: "naranja",
       },
     ],
   },
-  // Puedes agregar más semestres según necesites
+  {
+    numero: 4,
+    materias: [
+      {
+        codigo: "LQF401",
+        nombre: "Metodología de la Investigación",
+        creditos: 3,
+        color: "rojo",
+      },
+      {
+        codigo: "LQF402",
+        nombre: "Histología",
+        creditos: 5,
+        color: "rojo",
+      },
+      {
+        codigo: "LQF403",
+        nombre: "Microbiología I",
+        creditos: 5,
+        color: "rojo",
+      },
+      {
+        codigo: "LQF404",
+        nombre: "Química Orgánica III",
+        creditos: 5,
+        color: "rojo",
+      },
+      {
+        codigo: "LQF405",
+        nombre: "Fisicoquímica Orgánica",
+        creditos: 5,
+        color: "rojo",
+      },
+      {
+        codigo: "LQF406",
+        nombre: "Química Analítica II",
+        creditos: 5,
+        color: "rojo",
+      },
+      {
+        codigo: "LQF407",
+        nombre: "Análisis Bromatológico",
+        creditos: 6,
+        color: "rojo",
+      },
+    ],
+  },
+  {
+    numero: 5,
+    materias: [
+      {
+        codigo: "LQF501",
+        nombre: "Bioética y Normatividad",
+        creditos: 3,
+        color: "purpura",
+      },
+      {
+        codigo: "LQF502",
+        nombre: "Inmunología",
+        creditos: 5,
+        color: "purpura",
+      },
+      {
+        codigo: "LQF503",
+        nombre: "Microbiología II",
+        creditos: 5,
+        color: "purpura",
+      },
+      {
+        codigo: "LQF504",
+        nombre: "Farmacología I",
+        creditos: 5,
+        color: "purpura",
+      },
+      {
+        codigo: "LQF505",
+        nombre: "Química Analítica Instrumental",
+        creditos: 5,
+        color: "purpura",
+      },
+      {
+        codigo: "LQF506",
+        nombre: "Analítica Experimental I",
+        creditos: 6,
+        color: "purpura",
+      },
+      {
+        codigo: "LQF507",
+        nombre: "Virología",
+        creditos: 5,
+        color: "purpura",
+      },
+    ],
+  },
+  {
+    numero: 6,
+    materias: [
+      {
+        codigo: "LQF601",
+        nombre: "Bioestadística",
+        creditos: 4,
+        color: "azul",
+      },
+      {
+        codigo: "LQF602",
+        nombre: "Bacteriología",
+        creditos: 6,
+        color: "azul",
+      },
+      {
+        codigo: "LQF603",
+        nombre: "Ingeniería Bioquímica",
+        creditos: 5,
+        color: "azul",
+      },
+      {
+        codigo: "LQF604",
+        nombre: "Farmacología II",
+        creditos: 5,
+        color: "azul",
+      },
+      {
+        codigo: "LQF605",
+        nombre: "Control de Calidad Farmacéutico",
+        creditos: 5,
+        color: "azul",
+      },
+      {
+        codigo: "LQF606",
+        nombre: "Analítica Experimental II",
+        creditos: 5,
+        color: "azul",
+      },
+      {
+        codigo: "LQF607",
+        nombre: "Fisicoquímica Farmacéutica",
+        creditos: 5,
+        color: "azul",
+      },
+    ],
+  },
+  {
+    numero: 7,
+    materias: [
+      {
+        codigo: "LQF701",
+        nombre: "Redacción de Documentos Académicos",
+        creditos: 3,
+        color: "rosa",
+      },
+      {
+        codigo: "LQF702",
+        nombre: "Hematología",
+        creditos: 5,
+        color: "rosa",
+      },
+      {
+        codigo: "LQF703",
+        nombre: "Biología Molecular y Genética",
+        creditos: 6,
+        color: "rosa",
+      },
+      {
+        codigo: "LQF704",
+        nombre: "Farmacognosia",
+        creditos: 5,
+        color: "rosa",
+      },
+      {
+        codigo: "LQF705",
+        nombre: "Tecnología Farmacéutica",
+        creditos: 5,
+        color: "rosa",
+      },
+      {
+        codigo: "LQF706",
+        nombre: "Análisis Clínicos",
+        creditos: 5,
+        color: "rosa",
+      },
+      {
+        codigo: "LQF707",
+        nombre: "Parasitología I",
+        creditos: 5,
+        color: "rosa",
+      },
+    ],
+  },
+  {
+    numero: 8,
+    materias: [
+      {
+        codigo: "LQF801",
+        nombre: "Seminario de Investigación en Química y Farmacia",
+        creditos: 6,
+        color: "cyan",
+      },
+      {
+        codigo: "LQF802",
+        nombre: "Micología",
+        creditos: 5,
+        color: "cyan",
+      },
+      {
+        codigo: "LQF803",
+        nombre: "Toxicología",
+        creditos: 4,
+        color: "cyan",
+      },
+      {
+        codigo: "LQF804",
+        nombre: "Biofarmacia",
+        creditos: 5,
+        color: "cyan",
+      },
+      {
+        codigo: "LQF805",
+        nombre: "Química Forense",
+        creditos: 5,
+        color: "cyan",
+      },
+      {
+        codigo: "LQF806",
+        nombre: "Legislación Farmacéutica",
+        creditos: 5,
+        color: "cyan",
+      },
+      {
+        codigo: "LQF807",
+        nombre: "Parasitología II",
+        creditos: 5,
+        color: "cyan",
+      },
+    ],
+  },
+  {
+    numero: 9,
+    materias: [
+      {
+        codigo: "LQF901",
+        nombre: "Legislación Sanitaria",
+        creditos: 5,
+        color: "gris",
+      },
+      {
+        codigo: "LQF902",
+        nombre: "Administración Farmacéutica y de Laboratorio",
+        creditos: 5,
+        color: "gris",
+      },
+      {
+        codigo: "LQF903",
+        nombre: "Biosíntesis y Biotecnología",
+        creditos: 5,
+        color: "gris",
+      },
+      {
+        codigo: "LQF904",
+        nombre: "Ingeniería Farmacéutica",
+        creditos: 5,
+        color: "gris",
+      },
+      {
+        codigo: "LQF905",
+        nombre: "Desarrollo Farmacéutico",
+        creditos: 5,
+        color: "gris",
+      },
+      {
+        codigo: "LQF906",
+        nombre: "Desarrollo Analítico",
+        creditos: 5,
+        color: "gris",
+      },
+      {
+        codigo: "LQF907",
+        nombre: "Farmacia Comunitaria y Hospitalaria",
+        creditos: 5,
+        color: "gris",
+      },
+    ],
+  },
 ];
 
 const planteles = [
-  {
-    id: "1",
-    nombre: "Centro",
-    direccion: "Av. República No.10, Col. San Juan de Dios",
-    ciudad: "Guadalajara ZMG",
-    url: "/plantel-centro",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/Centro.jpg",
-    lat: 20.67744801539995,
-    lon: -103.34031672627513,
-  },
-  {
-    id: "2",
-    nombre: "Centro Médico",
-    direccion: "José María Lozano #1077, Col. Belisario Domínguez",
-    ciudad: "Guadalajara ZMG",
-    url: "/plantel-centro-medico",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/CentroMedico.jpg",
-    lat: 20.684590788642307,
-    lon: -103.3256397932448,
-  },
-  {
-    id: "3",
-    nombre: "Milenio",
-    direccion: "Av. López Mateos Sur #4154, Col. La Giralda",
-    ciudad: "Guadalajara ZMG",
-    url: "/plantel-milenio",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/Milenio.jpg",
-    lat: 20.64540739939039,
-    lon: -103.40630313415286,
-  },
-  {
-    id: "4",
-    nombre: "Puerto Vallarta - Plaza Caracol",
-    direccion: "Blvd. Fco. Medina Ascencio #2180, Col. Díaz Ordaz",
-    ciudad: "Puerto Vallarta",
-    url: "/plantel-plaza-caracol-puerto-vallarta",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/PuertoVallarta.png",
-    lat: 20.639287162026815,
-    lon: -105.23323589513319,
-  },
+  
+ 
   {
     id: "5",
     nombre: "Tlajomulco",
@@ -236,27 +530,8 @@ const planteles = [
     lat: 20.8062946507024,
     lon: -102.76382902869392,
   },
-  {
-    id: "8",
-    nombre: "Tlaquepaque",
-    direccion:
-      "Blvd. Marcelino García Barragán #2056, Col. Bosques del Boulevard",
-    ciudad: "Guadalajara ZMG",
-    url: "/plantel-tlaquepaque",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/Tlaquepaque.jpg",
-    lat: 20.645650028567157,
-    lon: -103.32094530771215,
-  },
-  {
-    id: "9",
-    nombre: "Tonalá",
-    direccion: "Av. Tonaltecas #333, Col. Agua Escondida",
-    ciudad: "Guadalajara ZMG",
-    url: "/plantel-tonala",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/Tonala.png",
-    lat: 20.63176692188573,
-    lon: -103.24439406488241,
-  },
+ 
+ 
   {
     id: "10",
     nombre: "Chapultepec",
@@ -276,6 +551,17 @@ const planteles = [
     imagen: "/src/assets/Imagenes/CardsPlanteles/Zapopan.png",
     lat: 20.720900646775917,
     lon: -103.38975281813357,
+  },
+   {
+    id: "1",
+    nombre: "Avenida México",
+    codigo: "00008",
+    direccion: "Av. México #1255, Col. Agua Zarca, Puerto Vallarta, Jalisco",
+    ciudad: "Puerto Vallarta",
+    url: "/campus/puerto-vallarta",
+    imagen: "/src/assets/Imagenes/CardsPlanteles/PuertoVallarta.png",
+    lat: 20.669418,
+    lon: -105.226917,
   },
 ];
 
@@ -314,19 +600,15 @@ const ciudades = [
         <div class="text-center text-white max-w-4xl mx-auto">
           {/* Main Title */}
           <h1 class="text-4xl md:text-7xl font-bold tracking-wider mb-4">
-            Lic. en Cirujano Dentista
+            Químico Farmacéutico Biólogo
           </h1>
-          <h2 class="text-2xl md:text-5xl font-bold tracking-wider mb-8">
-            Licenciaturas UNE
-          </h2>
 
           {/* Description */}
           <p
             class="text-lg md:text-xl leading-relaxed mb-16 max-w-3xl mx-auto font-light"
           >
-            Transforma sonrisas y mejora la calidad de vida a través del estudio
-            y la práctica de la odontología, en una carrera donde la ciencia, la
-            salud y la vocación por el bienestar se unen.
+            Especialista en el diagnóstico clínico, análisis de laboratorio y
+            desarrollo farmacéutico.
           </p>
         </div>
       </div>
@@ -343,7 +625,8 @@ const ciudades = [
             class="flex flex-col sm:flex-row gap-4 w-full justify-center text-white"
           >
             <!-- Agenda una Visita -->
-            <a href="/contacto/solicitarvisita"
+            <a
+              href="/contacto/solicitarvisita"
               class="hover:border-b hover:border-b-cyan-50 font-bold py-6 px-6 text-base transition-colors duration-300 shadow-lg flex flex-col items-center justify-center gap-2 whitespace-nowrap"
             >
               AGENDA UNA VISITA
@@ -351,7 +634,8 @@ const ciudades = [
             </a>
 
             <!-- Iniciar Inscripción -->
-            <a href="/contacto/formulario-inscripcion"
+            <a
+              href="/contacto/formulario-inscripcion"
               class="hover:border-b hover:border-b-cyan-50 font-bold py-3 px-6 text-base transition-colors duration-300 shadow-lg flex flex-col items-center justify-center gap-2 whitespace-nowrap"
             >
               INICIAR INSCRIPCIÓN
@@ -359,7 +643,8 @@ const ciudades = [
             </a>
 
             <!-- Contactar -->
-             <a href="/contacto/solicitarinformacion"
+            <a
+              href="/contacto/solicitarinformacion"
               class="hover:border-b hover:border-b-cyan-50 font-bold py-3 px-6 text-base transition-colors duration-300 shadow-lg flex flex-col items-center justify-center gap-2 whitespace-nowrap"
             >
               CONTACTAR
@@ -369,32 +654,41 @@ const ciudades = [
         </div>
       </div>
     </div>
-
     <InformativeCard
       logoSrc={LogoCard.src}
       studentImageSrc={ImagenCard.src}
       title="Objetivo"
-      description="La Licenciatura en Cirujano Dentista te forma como un profesionista altamente capacitado para prevenir, diagnosticar y tratar enfermedades bucales con un enfoque integral y humano."
-      additionalText="Con una sólida formación teórico-práctica y un alto compromiso ético y social, estarás preparado para promover la salud bucodental, brindar atención personalizada y colaborar con instituciones de salud para transformar positivamente la calidad de vida de las personas."
+      description="Formar profesionales en el área biomédica y farmacéutica con competencias científicas, técnicas y éticas para la investigación, producción, control y dispensación de medicamentos, promoviendo la salud pública, la seguridad terapéutica y el bienestar social con alto compromiso profesional."
+      additionalText=""
       features={[
-        { icon: "CalendarDays", label: "Prácticas clínicas presenciales" },
-        { icon: "BookOpen", label: "Bases científicas sólidas" },
-        { icon: "School", label: "Validez oficial" },
-        { icon: "Clock", label: "Horarios accesibles" },
-        { icon: "BookmarkCheck", label: "Enfoque profesionalizante" },
+        {
+          icon: "FlaskConical",
+          label: "Investigación y desarrollo de fármacos",
+        },
+        {
+          icon: "TestTube",
+          label: "Control de calidad en productos biomédicos",
+        },
+        { icon: "Pill", label: "Dispensación responsable de medicamentos" },
+        {
+          icon: "ShieldCheck",
+          label: "Seguridad terapéutica y compromiso ético",
+        },
+        {
+          icon: "HeartPulse",
+          label: "Promoción de la salud y bienestar social",
+        },
       ]}
     />
 
-     <PlanEstudios titulo="Propuesta Educativa" semestres={semestresDatos} />
+    <PlanEstudios titulo="Propuesta Educativa" semestres={semestresDatos} />
 
-     <Planteles
+    <Planteles
       titulo="Encuentra tu campus más cercano"
       planteles={planteles}
       ciudades={ciudades}
       mostrarMasCercano={true}
     />
-
-    
 
     <Requisitos nivel="Licenciatura" requisitos={requisitosInfo} />
 
