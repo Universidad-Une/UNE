@@ -1,11 +1,11 @@
 ---
 import Layout from "@/layouts/Layout.astro";
-import Hero from "@/assets/Imagenes/Heros/Licenciaturas_gral.jpg";
+import Hero from "@/assets/Imagenes/Heros/Maestria2.jpg";
 import Hero_mobile from "@/assets/Imagenes/Heros/Licenciaturas_gral_mobile.jpg";
 import ImagenCard from "@/assets/Imagenes/CardsNiveles/Nivel.png";
 import LogoCard from "@/assets/Logos/Licenciatura.png";
 import InformativeCard from "@components/sections/detallesOferta/card.astro";
-import Carreras from "@components/sections/Licenciaturas/Carreras.astro";
+import Carreras from "@components/sections/Maestrias/Carreras.astro";
 import Estadisticas from "@components/sections/Licenciaturas/Estadisticas.astro";
 
 import Requisitos from "@/components/sections/detallesOferta/requisitos.astro";
@@ -17,62 +17,63 @@ import { Calendar, UserPlus, Phone } from "@lucide/astro";
 
 const requisitosInfo = {
   items: [
-    "Acta de nacimiento (en buen estado)",
-    "Certificado de secundaria y carta validación del mismo",
-    "Ocho fotografías tamaño infantil blanco y negro de estudio",
-    "Una fotografía tamaño credencial a color",
-    "CURP",
-    "Comprobante de domicilio",
-    "Todos los documentos originales y 3 copias",
+    "Acta de nacimiento original",
+    "Título de nivel superior (copia o formato digital PDF a color por ambos lados)",
+    "Cédula profesional (copia o formato digital PDF a color por ambos lados)",
+    "Certificado total de estudios de nivel superior (original)",
+    "Oficio de validación de autenticidad del certificado de estudios (emitido por la autoridad correspondiente)",
+    "Equivalencia o grado superior, certificado parcial y contenidos temáticos (si aplica)",
+    "Clave Única de Registro de Población (CURP) formato Renapo",
+    "Identificación oficial con fotografía INE (dos copias)",
+    "Comprobante de domicilio reciente (no mayor a 3 meses, una copia)",
+    "Cinco fotografías tamaño infantil (blanco y negro, papel mate, de estudio)"
   ],
-  pdfUrl: "/public/pdfs/Bachillerato_req.pdf",
+  pdfUrl: "/public/pdfs/posgrado_req.pdf",
 };
 
 
 const faqs = [
   {
-    question: "¿Cuáles son los requisitos para ingresar a una licenciatura?",
+    question: "¿Cuáles son los requisitos para ingresar a una maestría?",
     answer:
-      "Debes contar con certificado de bachillerato, acta de nacimiento, CURP, identificación oficial, comprobante de domicilio y fotografías recientes. En algunos casos, puede requerirse el resultado de un examen de admisión.",
+      "Debes contar con título de licenciatura, cédula profesional, certificado total de estudios superiores, acta de nacimiento, CURP, identificación oficial, comprobante de domicilio y fotografías. También se requiere el oficio de validación de autenticidad del certificado emitido por la autoridad correspondiente.",
   },
   {
-    question: "¿Cuál es la duración de una licenciatura?",
+    question: "¿Cuál es la duración de una maestría?",
     answer:
-      "Las licenciaturas tienen una duración promedio de 8 a 10 semestres, dependiendo del programa, la institución incorporadora (UDG o SICYT) y la modalidad elegida.",
+      "Las maestrías tienen una duración promedio de 4 a 6 semestres (2 a 3 años), dependiendo del programa académico, la especialización y la modalidad de estudio elegida.",
   },
   {
-    question: "¿Qué modalidades de estudio están disponibles?",
+    question: "¿Qué modalidades de estudio están disponibles para posgrados?",
     answer:
-      "Las licenciaturas pueden cursarse en modalidad presencial, en línea, escolarizada o semiescolarizada, según la carrera y el plantel. Algunas combinan clases presenciales con actividades virtuales.",
+      "Los posgrados pueden cursarse en modalidad presencial, en línea, ejecutiva o híbrida, diseñadas especialmente para profesionales en activo que buscan especializarse sin interrumpir su desarrollo profesional.",
   },
   {
-    question: "¿Puedo trabajar mientras estudio una licenciatura?",
+    question: "¿Puedo estudiar una maestría mientras trabajo?",
     answer:
-      "Sí. Las modalidades en línea y semiescolarizada están diseñadas para ofrecer mayor flexibilidad y permitir compatibilizar tus estudios con otras actividades.",
+      "Definitivamente. Nuestros programas de posgrado están diseñados para profesionales en activo, con horarios flexibles, modalidades ejecutivas y recursos digitales que facilitan el balance entre estudios, trabajo y vida personal.",
   },
   {
-    question: "¿Cómo se evalúa el desempeño académico?",
+    question: "¿Cómo se evalúa el desempeño en los programas de posgrado?",
     answer:
-      "El sistema de evaluación incluye exámenes, proyectos, participación en clase, trabajos individuales o en equipo y actividades prácticas, según el enfoque de cada licenciatura.",
+      "La evaluación incluye proyectos de investigación, análisis de casos reales, presentaciones ejecutivas, trabajos colaborativos y desarrollo de tesis o proyecto terminal, enfocándose en la aplicación práctica del conocimiento.",
   },
   {
-    question: "¿Qué tipo de apoyo académico se brinda a los estudiantes?",
+    question: "¿Qué tipo de acompañamiento académico reciben los estudiantes de posgrado?",
     answer:
-      "Ofrecemos tutorías, asesorías académicas presenciales y virtuales, y acceso a plataformas educativas para reforzar el aprendizaje de cada materia.",
+      "Ofrecemos dirección de tesis personalizada, seminarios de investigación, acceso a bases de datos especializadas, networking con profesionales del sector y mentorías con docentes expertos en cada área.",
   },
   {
-    question: "¿Las licenciaturas están incorporadas a alguna institución oficial?",
+    question: "¿Los posgrados cuentan con reconocimiento oficial?",
     answer:
-      "Sí. Contamos con licenciaturas incorporadas a la Universidad de Guadalajara (UDG) y a la Secretaría de Innovación, Ciencia y Tecnología (SICYT) del Estado de Jalisco, lo que garantiza validez oficial de estudios.",
+      "Sí. Nuestros programas de posgrado están incorporados a instituciones de prestigio como la Universidad de Guadalajara (UDG) y cuentan con el reconocimiento de la Secretaría de Educación Pública (SEP), garantizando validez oficial nacional.",
   },
   {
-    question: "¿Dónde puedo obtener más información e inscribirme?",
+    question: "¿Dónde puedo obtener más información sobre los programas de maestría?",
     answer:
-      "Puedes acudir directamente a las oficinas del plantel más cercano o visitar nuestro portal web para consultar la oferta académica, requisitos y fechas de inscripción.",
+      "Puedes solicitar información detallada en nuestras oficinas, agendar una cita con nuestros asesores académicos especializados en posgrados, o consultar nuestro portal web para conocer la oferta completa y procesos de admisión.",
   },
 ];
-
-
 ---
 
 <Layout>
@@ -177,7 +178,7 @@ const faqs = [
     <Estadisticas/>
 
     
-    <Requisitos nivel="Bachillerato" requisitos={requisitosInfo} />
+    <Requisitos nivel="Maestrias" requisitos={requisitosInfo} />
 
 
     

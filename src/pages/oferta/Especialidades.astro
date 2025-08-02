@@ -5,7 +5,7 @@ import Hero_mobile from "@/assets/Imagenes/Heros/Licenciaturas_gral_mobile.jpg";
 import ImagenCard from "@/assets/Imagenes/CardsNiveles/Nivel.png";
 import LogoCard from "@/assets/Logos/Licenciatura.png";
 import InformativeCard from "@components/sections/detallesOferta/card.astro";
-import Carreras from "@components/sections/Licenciaturas/Carreras.astro";
+import Carreras from "@components/sections/Especialidades/Carreras.astro";
 import Estadisticas from "@components/sections/Licenciaturas/Estadisticas.astro";
 
 import Requisitos from "@/components/sections/detallesOferta/requisitos.astro";
@@ -103,17 +103,17 @@ const faqs = [
         <div class="text-center text-white max-w-4xl mx-auto">
           {/* Main Title */}
           <h1 class="text-4xl md:text-7xl font-bold tracking-wider mb-4">
-            Especialízate en lo que te apasiona
+            Especialidades UNE
           </h1>
           <h2 class="text-2xl md:text-5xl font-bold tracking-wider mb-8">
-            Especialidades UNE
+            Profundiza en lo que te apasiona
           </h2>
 
           {/* Description */}
           <p
             class="text-lg md:text-xl leading-relaxed mb-16 max-w-3xl mx-auto font-light"
           >
-            Tu carrera profesional merece la mejor formación. Descubre el programa que transformará tu conocimiento en liderazgo.
+            Desarrolla competencias avanzadas que te posicionen como experto en tu área profesional. Nuestros programas están diseñados para potenciar tu conocimiento y brindarte las herramientas necesarias para liderar en el campo laboral actual.
           </p>
         </div>
       </div>
@@ -157,18 +157,18 @@ const faqs = [
       </div>
     </div>
 
-    <InformativeCard
+   <InformativeCard
       logoSrc={LogoCard.src}
       studentImageSrc={ImagenCard.src}
-      title="LICENCIATURAS PARA PROFESIONALES"
-      description="Nuestras licenciaturas UNE te proporcionan la especialización necesaria para desarrollarte como un profesional competitivo."
-      additionalText="Con programas incorporados tanto a la Universidad de Guadalajara como al Sistema de Créditos de Institutos Tecnológicos, obtienes la flexibilidad de elegir la ruta académica que mejor se adapte a tus objetivos profesionales"
+      title="ESPECIALIDADES PARA PROFESIONALES"
+      description="Nuestras especialidades UNE te brindan el conocimiento avanzado y las competencias específicas para destacar en tu área profesional."
+      additionalText="Con programas incorporados a instituciones de prestigio y diseñados para profesionales en activo, obtienes formación de alto nivel que se adapta a tus horarios y necesidades laborales."
       features={[
-        { icon: "CalendarDays", label: "Sesiones presenciales" },
-        { icon: "BookOpen", label: "Estudio guiado" },
+        { icon: "CalendarDays", label: "Modalidad ejecutiva" },
+        { icon: "BookOpen", label: "Conocimiento aplicado" },
         { icon: "School", label: "Validez oficial" },
         { icon: "Clock", label: "Horarios flexibles" },
-        { icon: "BookmarkCheck", label: "Preparación universitaria" },
+        { icon: "BookmarkCheck", label: "Certificación profesional" },
       ]}
     />
 
