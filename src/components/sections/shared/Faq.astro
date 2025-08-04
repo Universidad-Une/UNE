@@ -84,30 +84,35 @@
         <button
           class="tab-button px-4 py-2 text-sm font-medium rounded-full transition-all duration-200 bg-azul-une text-white"
           data-tab="proceso-inscripcion"
+          data-active="true"
         >
           Proceso de Inscripción
         </button>
         <button
           class="tab-button px-4 py-2 text-sm font-medium rounded-full transition-all duration-200 bg-gray-200 text-gray-700 hover:bg-gray-300"
           data-tab="carreras-costos"
+          data-active="false"
         >
           Carreras y Costos
         </button>
         <button
           class="tab-button px-4 py-2 text-sm font-medium rounded-full transition-all duration-200 bg-gray-200 text-gray-700 hover:bg-gray-300"
           data-tab="documentos-requisitos"
+          data-active="false"
         >
           Documentos
         </button>
         <button
           class="tab-button px-4 py-2 text-sm font-medium rounded-full transition-all duration-200 bg-gray-200 text-gray-700 hover:bg-gray-300"
           data-tab="modalidades-becas"
+          data-active="false"
         >
           Modalidades y Becas
         </button>
         <button
           class="tab-button px-4 py-2 text-sm font-medium rounded-full transition-all duration-200 bg-gray-200 text-gray-700 hover:bg-gray-300"
           data-tab="vida-estudiantil"
+          data-active="false"
         >
           Vida Estudiantil
         </button>
@@ -257,6 +262,7 @@
 };
 
     let currentOpenQuestion = null;
+    const DEFAULT_CATEGORY = "proceso-inscripcion";
 
     function renderQuestions(category) {
       const container = document.getElementById("faq-content");
@@ -360,7 +366,7 @@
     }
 
     function switchTab(newCategory, clickedButton) {
-      // Actualizar estilos de tabs - remover todas las clases de background posibles
+      // Actualizar estilos de tabs - asegurar que se reseteen todas las clases
       document.querySelectorAll(".tab-button").forEach((btn) => {
         btn.classList.remove(
           "bg-azul-une",
@@ -370,8 +376,10 @@
           "bg-blue-500"
         );
         btn.classList.add("bg-gray-200", "text-gray-700");
+        btn.setAttribute("data-active", "false");
       });
 
+      // Activar el tab seleccionado
       clickedButton.classList.remove(
         "bg-gray-200",
         "text-gray-700",
@@ -380,6 +388,7 @@
         "bg-blue-500"
       );
       clickedButton.classList.add("bg-azul-une", "text-white");
+      clickedButton.setAttribute("data-active", "true");
 
       // Cerrar pregunta abierta al cambiar de tab
       if (currentOpenQuestion) {
@@ -397,10 +406,31 @@
       }, 150);
     }
 
+    function setDefaultActiveTab() {
+      // Asegurar que el tab por defecto esté activo
+      const defaultTab = document.querySelector(`[data-tab="${DEFAULT_CATEGORY}"]`);
+      if (defaultTab) {
+        // Resetear todos los tabs primero
+        document.querySelectorAll(".tab-button").forEach((btn) => {
+          btn.classList.remove("bg-azul-une", "text-white");
+          btn.classList.add("bg-gray-200", "text-gray-700");
+          btn.setAttribute("data-active", "false");
+        });
+        
+        // Activar el tab por defecto
+        defaultTab.classList.remove("bg-gray-200", "text-gray-700");
+        defaultTab.classList.add("bg-azul-une", "text-white");
+        defaultTab.setAttribute("data-active", "true");
+      }
+    }
+
     // Inicializar el componente
     function initializeFAQ() {
+      // Asegurar que el tab por defecto esté activo
+      setDefaultActiveTab();
+      
       // Cargar primera categoría
-      renderQuestions("proceso-inscripcion");
+      renderQuestions(DEFAULT_CATEGORY);
 
       // Event listeners para tabs
       document.querySelectorAll(".tab-button").forEach((button) => {
@@ -432,6 +462,7 @@
     initializeFAQ();
   });
 </script>
+
 
 <style>
   .faq-answer {
