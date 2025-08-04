@@ -5,23 +5,6 @@ import tailwindcss from '@tailwindcss/vite';
 
 // https://astro.build/config
 export default defineConfig({
-  // Configuración específica para Cloudflare Pages
-  output: 'static', // Asegura generación estática
-  // site: omitido - Cloudflare Pages maneja las URLs automáticamente
-  base: '/', // Base path (ajustar si usas subdirectorio)
-  
-  // Configuración de build optimizada
-  build: {
-    format: 'directory', // Genera directorios con index.html
-    inlineStylesheets: 'auto'
-  },
-  
-  // Configuración de servidor para desarrollo
-  server: {
-    port: 3000,
-    host: true
-  },
-  
   vite: {
     plugins: [tailwindcss()],
     resolve: {
@@ -50,15 +33,6 @@ export default defineConfig({
         
         // Alias para tipos si usas TypeScript
         '@types': path.resolve('./src/types')
-      }
-    },
-    
-    // Optimizaciones adicionales para Cloudflare
-    build: {
-      rollupOptions: {
-        output: {
-          manualChunks: undefined,
-        }
       }
     }
   }

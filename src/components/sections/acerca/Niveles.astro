@@ -1,5 +1,10 @@
 ---
+// Imports de todas las imágenes necesarias
 import EstudiantesBachillerato from "@/assets/Imagenes/CardOferta/Bachillerato.webp";
+import EstudiantesPrimaria from "@/assets/Imagenes/CardOferta/Primaria.webp";
+import EstudiantesSecundaria from "@/assets/Imagenes/CardOferta/Secundaria.webp";
+import EstudiantesLicenciaturas from "@/assets/Imagenes/CardOferta/Licenciaturas.webp";
+import EstudiantesMaestrias from "@/assets/Imagenes/CardOferta/Maestrias.webp";
 ---
 
 <section class="bg-white py-8 md:py-16 px-4 sm:px-6 lg:px-8">
@@ -135,12 +140,21 @@ import EstudiantesBachillerato from "@/assets/Imagenes/CardOferta/Bachillerato.w
 </section>
 
 <script>
+  // Obtener las rutas de imágenes desde Astro
+  const imageAssets = window.astroImageRoutes || {
+    primaria: '/src/assets/Imagenes/CardOferta/Primaria.webp',
+    secundaria: '/src/assets/Imagenes/CardOferta/Secundaria.webp',
+    bachillerato: '/src/assets/Imagenes/CardOferta/Bachillerato.webp',
+    licenciatura: '/src/assets/Imagenes/CardOferta/Licenciaturas.webp',
+    maestria: '/src/assets/Imagenes/CardOferta/Maestrias.webp'
+  };
+
   // Datos de contenido para cada sección
   const contentData = {
     primaria: {
       title: "Primaria Montessori",
-      image: "/src/assets/Imagenes/CardOferta/Primaria.webp",
-      route: "/oferta/colegio-une/Primaria", // Ruta específica para primaria
+      image: imageAssets.primaria,
+      route: "/oferta/colegio-une/Primaria",
       objective:
         "Ofrecer una educación integral basada en la filosofía Montessori, que fomente la autonomía, la responsabilidad y el amor por el aprendizaje, respetando el ritmo de cada estudiante.",
       modalities: {
@@ -162,8 +176,8 @@ import EstudiantesBachillerato from "@/assets/Imagenes/CardOferta/Bachillerato.w
     },
     secundaria: {
       title: "Secundaria",
-      image: "/src/assets/Imagenes/CardOferta/Secundaria.webp",
-      route: "/oferta/colegio-une/Secundaria", // Ruta específica para secundaria
+      image: imageAssets.secundaria,
+      route: "/oferta/colegio-une/Secundaria",
       objective:
         "Brindar a los estudiantes una formación integral que les permita desarrollar conocimientos, habilidades, actitudes y valores fundamentales para su vida personal, social y académica, facilitando su tránsito al nivel medio superior y fomentando el cumplimiento de metas educativas nacionales.",
       modalities: {
@@ -185,8 +199,8 @@ import EstudiantesBachillerato from "@/assets/Imagenes/CardOferta/Bachillerato.w
     },
     bachillerato: {
       title: "Bachillerato",
-      image: "/src/assets/Imagenes/CardOferta/Bachillerato.webp",
-      route: "/oferta/colegio-une/Bachillerato-sej", // Ruta específica para bachillerato
+      image: imageAssets.bachillerato,
+      route: "/oferta/colegio-une/Bachillerato-sej",
       objective:
         "Formar estudiantes con una sólida preparación académica, ética y social, desarrollando competencias clave para la vida y el aprendizaje permanente, que les permita acceder exitosamente a estudios superiores o al mundo laboral.",
       modalities: {
@@ -236,8 +250,8 @@ import EstudiantesBachillerato from "@/assets/Imagenes/CardOferta/Bachillerato.w
     },
     licenciatura: {
       title: "Licenciatura",
-      image: "/src/assets/Imagenes/CardOferta/Licenciaturas.webp",
-      route: "/oferta/Licenciaturas", // Ruta específica para licenciatura
+      image: imageAssets.licenciatura,
+      route: "/oferta/Licenciaturas",
       objective:
         "Formar profesionales competentes con sólidos conocimientos disciplinarios, habilidades técnicas y compromiso ético, capaces de responder a las necesidades del mercado laboral y contribuir al desarrollo social y económico del país.",
       modalities: {
@@ -315,9 +329,8 @@ import EstudiantesBachillerato from "@/assets/Imagenes/CardOferta/Bachillerato.w
     },
     maestria: {
       title: "Maestría",
-      image: "/src/assets/Imagenes/CardOferta/Maestrias.webp",
-      route: "/oferta/Maestria", // Ruta específica para licenciatura
-
+      image: imageAssets.maestria,
+      route: "/oferta/Maestria",
       objective:
         "Formar profesionales de alto nivel con competencias especializadas, visión estratégica y capacidad de liderazgo para generar soluciones innovadoras, impulsar el desarrollo organizacional y contribuir significativamente a la transformación social y económica.",
       modalities: {
@@ -551,6 +564,19 @@ import EstudiantesBachillerato from "@/assets/Imagenes/CardOferta/Bachillerato.w
   });
 </script>
 
+<!-- Script para pasar las rutas de imágenes al JavaScript -->
+<script define:vars={{ 
+  imageRoutes: {
+    primaria: EstudiantesPrimaria.src,
+    secundaria: EstudiantesSecundaria.src,
+    bachillerato: EstudiantesBachillerato.src,
+    licenciatura: EstudiantesLicenciaturas.src,
+    maestria: EstudiantesMaestrias.src
+  }
+}}>
+  // Las rutas están disponibles en la variable imageRoutes
+  window.astroImageRoutes = imageRoutes;
+</script>
 <style>
   /* Estilos adicionales si necesitas personalización */
   .tab-button {
