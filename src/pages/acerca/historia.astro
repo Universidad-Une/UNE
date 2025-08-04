@@ -1,70 +1,105 @@
 ---
 import Layout from "@/layouts/Layout.astro";
 import Logo from "@assets/Logos/UNE_30.webp";
+import videoSrc from 'src/assets/Videos/Experiencia.webm';
 import Chapu from "@assets/Imagenes/CardsPlanteles/Chapultepec.webp";
-
 import Justicia from "@assets/Imagenes/valores/Justicia.webp";
 import Templanza from "@assets/Imagenes/valores/Templanza.webp";
-
 import Prudencia from "@assets/Imagenes/valores/Prudencia.webp";
-
 import Galeriadeplantele from "@/components/sections/historia/Galeriadeplantele.astro";
 import Timeline from "@/components/sections/acerca/Timeline.astro";
 ---
 
 <Layout>
   <main class="bg-white">
+    <!-- HERO SECTION -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div
-        class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center min-h-screen py-12"
-      >
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center min-h-screen py-12">
         <div class="space-y-6">
-          <img src={Logo.src} />
+          <img src={Logo.src} alt="Logo UNE" />
 
           <div class="space-y-4">
             <p class="text-gray-700 text-lg leading-relaxed">
-              En la <span class="font-semibold text-blue-800"
-                >Universidad UNE</span
-              >, llevamos <span class="font-semibold">30 años creyendo en ti</span
-              > y en tu capacidad de crecer. Con programas flexibles, tu futuro
-              comienza aquí.
+              En la <span class="font-semibold text-blue-800">Universidad UNE</span>, 
+              llevamos <span class="font-semibold">30 años creyendo en ti</span> 
+              y en tu capacidad de crecer. Con programas flexibles, tu futuro comienza aquí.
             </p>
           </div>
 
           <div class="pt-4">
-            <button
-              class="bg-red-500 hover:bg-red-600 text-white font-bold py-4 px-8 text-lg transition-all duration-300 transform hover:scale-105 hover:shadow-lg"
-            >
+            <button class="bg-red-500 hover:bg-red-600 text-white font-bold py-4 px-8 text-lg transition-all duration-300 transform hover:scale-105 hover:shadow-lg">
               ENCUENTRA TU CARRERA IDEAL
             </button>
           </div>
         </div>
 
         <div class="relative">
-          <div
-            class="aspect-square bg-gray-100 rounded-lg overflow-hidden shadow-2xl w-full max-w-[600px]"
-          >
-            <video class="w-full h-full object-cover" controls>
-              <source
-                src="/src/assets/Videos/videoplayback.mp4"
-                type="video/mp4"
+          <div class="aspect-video rounded-lg overflow-hidden shadow-2xl w-full max-w-[700px] relative">
+            <!-- VIDEO CONTAINER -->
+            <video
+              id="uneVideo"
+              class="w-full h-full object-cover"
+              muted
+              loop
+              playsinline
+              autoplay
+              preload="auto"
+            >
+              <source src={videoSrc} type="video/webm" />
+              <source src={videoSrc.replace('.webm', '.mp4')} type="video/mp4" />
+              <!-- Fallback image -->
+              <img
+                src="/Images/Fondo-plantel.webp"
+                alt="Estudiantes UNE"
+                class="w-full h-full object-cover"
               />
-               Tu navegador no soporta el elemento de video.
             </video>
+
+            <!-- CONTROLS OVERLAY -->
+            <div class="absolute bottom-4 right-4 flex space-x-2 z-10">
+              <!-- Play/Pause Button -->
+              <button
+                id="playPauseBtn"
+                class="bg-black bg-opacity-50 hover:bg-opacity-70 text-white p-2 rounded-full transition-all duration-200"
+                title="Reproducir/Pausar"
+              >
+                <svg id="playIcon" class="w-5 h-5 hidden" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M8 5v14l11-7z"/>
+                </svg>
+                <svg id="pauseIcon" class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>
+                </svg>
+              </button>
+
+              <!-- Mute/Unmute Button -->
+              <button
+                id="muteBtn"
+                class="bg-black bg-opacity-50 hover:bg-opacity-70 text-white p-2 rounded-full transition-all duration-200"
+                title="Silenciar/Activar sonido"
+              >
+                <svg id="muteIcon" class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z"/>
+                </svg>
+                <svg id="unmuteIcon" class="w-5 h-5 hidden" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/>
+                </svg>
+              </button>
+            </div>
+
+            <!-- LOADING OVERLAY (opcional) -->
+            <div id="loadingOverlay" class="absolute inset-0 bg-gray-200 flex items-center justify-center hidden">
+              <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-red-500"></div>
+            </div>
           </div>
 
-          <div
-            class="absolute -top-4 -left-4 w-20 h-20 bg-red-500 rounded-full opacity-20"
-          >
-          </div>
-          <div
-            class="absolute -bottom-4 -right-4 w-16 h-16 bg-blue-600 rounded-full opacity-20"
-          >
-          </div>
+          <!-- Decorative elements -->
+          <div class="absolute -top-4 -left-4 w-20 h-20 bg-red-500 rounded-full opacity-20"></div>
+          <div class="absolute -bottom-4 -right-4 w-16 h-16 bg-blue-600 rounded-full opacity-20"></div>
         </div>
       </div>
     </div>
 
+    <!-- RESTO DEL CONTENIDO (sin cambios) -->
     <section class="py-16 px-4">
       <div class="max-w-7xl mx-auto">
         <div class="grid lg:grid-cols-2 gap-12 items-center">
@@ -93,18 +128,9 @@ import Timeline from "@/components/sections/acerca/Timeline.astro";
             <div class="grid sm:grid-cols-2 gap-6">
               <div class="flex items-start space-x-3">
                 <div class="flex-shrink-0">
-                  <div
-                    class="w-8 h-8 bg-green-400 rounded-full flex items-center justify-center"
-                  >
-                    <svg
-                      class="w-5 h-5 text-white"
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                    >
-                      <path
-                        fill-rule="evenodd"
-                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                        clip-rule="evenodd"></path>
+                  <div class="w-8 h-8 bg-green-400 rounded-full flex items-center justify-center">
+                    <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
                     </svg>
                   </div>
                 </div>
@@ -113,40 +139,20 @@ import Timeline from "@/components/sections/acerca/Timeline.astro";
 
               <div class="flex items-start space-x-3">
                 <div class="flex-shrink-0">
-                  <div
-                    class="w-8 h-8 bg-green-400 rounded-full flex items-center justify-center"
-                  >
-                    <svg
-                      class="w-5 h-5 text-white"
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                    >
-                      <path
-                        fill-rule="evenodd"
-                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                        clip-rule="evenodd"></path>
+                  <div class="w-8 h-8 bg-green-400 rounded-full flex items-center justify-center">
+                    <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
                     </svg>
                   </div>
                 </div>
-                <p class="font-medium">
-                  Vinculación con sector productivo y social
-                </p>
+                <p class="font-medium">Vinculación con sector productivo y social</p>
               </div>
 
               <div class="flex items-start space-x-3">
                 <div class="flex-shrink-0">
-                  <div
-                    class="w-8 h-8 bg-green-400 rounded-full flex items-center justify-center"
-                  >
-                    <svg
-                      class="w-5 h-5 text-white"
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                    >
-                      <path
-                        fill-rule="evenodd"
-                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                        clip-rule="evenodd"></path>
+                  <div class="w-8 h-8 bg-green-400 rounded-full flex items-center justify-center">
+                    <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
                     </svg>
                   </div>
                 </div>
@@ -155,18 +161,9 @@ import Timeline from "@/components/sections/acerca/Timeline.astro";
 
               <div class="flex items-start space-x-3">
                 <div class="flex-shrink-0">
-                  <div
-                    class="w-8 h-8 bg-green-400 rounded-full flex items-center justify-center"
-                  >
-                    <svg
-                      class="w-5 h-5 text-white"
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                    >
-                      <path
-                        fill-rule="evenodd"
-                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                        clip-rule="evenodd"></path>
+                  <div class="w-8 h-8 bg-green-400 rounded-full flex items-center justify-center">
+                    <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
                     </svg>
                   </div>
                 </div>
@@ -191,9 +188,7 @@ import Timeline from "@/components/sections/acerca/Timeline.astro";
             <div class="text-5xl lg:text-6xl font-bold text-black mb-2 counter" data-target="20000">
               +0
             </div>
-            <h3 class="text-xl font-semibold text-red-500 mb-4">
-              Estudiantes activos
-            </h3>
+            <h3 class="text-xl font-semibold text-red-500 mb-4">Estudiantes activos</h3>
             <p class="text-gray-600 leading-relaxed">
               Más que un número es la cantidad de sueños que UNE impulsa
             </p>
@@ -341,83 +336,167 @@ import Timeline from "@/components/sections/acerca/Timeline.astro";
 </Layout>
 
 <script>
-// --- SCRIPT PARA EL VIDEO (sin cambios) ---
-const video = document.querySelector("video");
-if (video) {
-  video.autoplay = false;
-  video.muted = false;
-  
-  const observerVideo = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (!entry.isIntersecting && !video.paused) {
-        video.pause();
-      }
+document.addEventListener('DOMContentLoaded', function() {
+    const video = document.getElementById('uneVideo');
+    const playPauseBtn = document.getElementById('playPauseBtn');
+    const muteBtn = document.getElementById('muteBtn');
+    const playIcon = document.getElementById('playIcon');
+    const pauseIcon = document.getElementById('pauseIcon');
+    const muteIcon = document.getElementById('muteIcon');
+    const unmuteIcon = document.getElementById('unmuteIcon');
+    const loadingOverlay = document.getElementById('loadingOverlay');
+
+    let isVideoReady = false;
+
+    // Función para actualizar iconos
+    function updatePlayIcon() {
+        if (video.paused) {
+            playIcon.classList.remove('hidden');
+            pauseIcon.classList.add('hidden');
+        } else {
+            playIcon.classList.add('hidden');
+            pauseIcon.classList.remove('hidden');
+        }
+    }
+
+    function updateMuteIcon() {
+        if (video.muted) {
+            muteIcon.classList.remove('hidden');
+            unmuteIcon.classList.add('hidden');
+        } else {
+            muteIcon.classList.add('hidden');
+            unmuteIcon.classList.remove('hidden');
+        }
+    }
+
+    // Intentar reproducir automáticamente
+    async function attemptAutoplay() {
+        try {
+            video.muted = true; // Asegurar que esté silenciado
+            await video.play();
+            console.log('Video reproduciéndose automáticamente');
+            updatePlayIcon();
+        } catch (error) {
+            console.log('Autoplay bloqueado:', error);
+            // El video se quedará pausado, el usuario puede darle play manualmente
+        }
+    }
+
+    // Event Listeners
+    playPauseBtn.addEventListener('click', () => {
+        if (video.paused) {
+            video.play();
+        } else {
+            video.pause();
+        }
+        updatePlayIcon();
     });
-  });
-  
-  observerVideo.observe(video);
-}
 
-// --- SCRIPT PARA EL CONTADOR CON DESACELERACIÓN TEMPRANA ---
-const counters = document.querySelectorAll(".counter");
+    muteBtn.addEventListener('click', () => {
+        video.muted = !video.muted;
+        updateMuteIcon();
+    });
 
-const animateCounter = (counter) => {
-  const target = +counter.getAttribute("data-target");
-  const duration = 2000; // Duración total en milisegundos
-  const slowDownPoint = target - 1000; // Punto donde empieza la desaceleración
-  let startTime = null;
+    // Event listeners del video
+    video.addEventListener('loadstart', () => {
+        loadingOverlay.classList.remove('hidden');
+    });
 
-  const step = (currentTime) => {
-    if (!startTime) {
-      startTime = currentTime;
-    }
+    video.addEventListener('canplay', () => {
+        loadingOverlay.classList.add('hidden');
+        isVideoReady = true;
+        attemptAutoplay();
+    });
 
-    const elapsedTime = currentTime - startTime;
-    const progress = Math.min(elapsedTime / duration, 1); // Progreso de 0 a 1
+    video.addEventListener('play', updatePlayIcon);
+    video.addEventListener('pause', updatePlayIcon);
+    video.addEventListener('volumechange', updateMuteIcon);
 
-    let currentValue;
+    // Manejar errores
+    video.addEventListener('error', (e) => {
+        console.error('Error al cargar el video:', e);
+        loadingOverlay.classList.add('hidden');
+    });
 
-    if (progress < 0.5) {
-      // Primera fase: movimiento rápido hasta el 60% del tiempo
-      const fastProgress = progress / 0.5; // Normaliza el progreso para esta fase
-      currentValue = Math.floor(fastProgress * slowDownPoint);
-    } else {
-      // Segunda fase: desaceleración MUY lenta en los últimos 300 números
-      const slowProgress = (progress - 0.5) / 0.4; // Normaliza el progreso para la fase lenta
-      // Aplica ease-out MUCHO más pronunciado para los últimos 300 números
-      const easedSlowProgress = 1 - Math.pow(1 - slowProgress, 6);
-      const remainingValue = (target - slowDownPoint) * easedSlowProgress;
-      currentValue = Math.floor(slowDownPoint + remainingValue);
-    }
+    // Inicializar estados
+    updatePlayIcon();
+    updateMuteIcon();
 
-    // Actualiza el texto en la página
-    counter.innerText = `+${currentValue.toLocaleString('es-MX')}`;
+    // Si el navegador soporta autoplay, intentar después de un breve delay
+    setTimeout(() => {
+        if (isVideoReady) {
+            attemptAutoplay();
+        }
+    }, 500);
 
-    // Si la animación no ha terminado, solicita el siguiente frame
-    if (progress < 1) {
-      requestAnimationFrame(step);
-    } else {
-      // Asegura que el número final sea exactamente el objetivo
-      counter.innerText = `+${target.toLocaleString('es-MX')}`;
-    }
-  };
+    // Manejar visibilidad de la página
+    document.addEventListener('visibilitychange', () => {
+        if (document.hidden && !video.paused) {
+            video.pause();
+        }
+    });
 
-  // Inicia la animación
-  requestAnimationFrame(step);
-};
+    // Animación de contadores (del código original)
+    const counters = document.querySelectorAll('.counter');
+    const animateCounters = () => {
+        counters.forEach(counter => {
+            const target = parseInt(counter.getAttribute('data-target'));
+            const count = parseInt(counter.innerText.replace('+', '').replace(',', ''));
+            const increment = target / 100;
+            
+            if (count < target) {
+                counter.innerText = '+' + Math.ceil(count + increment).toLocaleString();
+                setTimeout(animateCounters, 20);
+            } else {
+                counter.innerText = '+' + target.toLocaleString();
+            }
+        });
+    };
 
-const observerCounters = new IntersectionObserver((entries, observer) => {
-  entries.forEach((entry) => {
-    if (entry.isIntersecting) {
-      animateCounter(entry.target);
-      observer.unobserve(entry.target);
-    }
-  });
-}, {
-  threshold: 0.5,
-});
+    // Observer para animar contadores cuando sean visibles
+    const counterObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                animateCounters();
+                counterObserver.disconnect();
+            }
+        });
+    });
 
-counters.forEach((counter) => {
-  observerCounters.observe(counter);
+    counters.forEach(counter => counterObserver.observe(counter));
 });
 </script>
+
+<style>
+/* Estilos adicionales para el video */
+#uneVideo {
+    transition: opacity 0.3s ease;
+}
+
+#loadingOverlay {
+    background: linear-gradient(45deg, #f3f4f6, #e5e7eb);
+}
+
+/* Hover effects para los controles */
+#playPauseBtn:hover,
+#muteBtn:hover {
+    transform: scale(1.1);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .absolute.bottom-4.right-4 {
+        bottom: 1rem;
+        right: 1rem;
+    }
+    
+    .absolute.bottom-4.right-4 button {
+        padding: 0.5rem;
+    }
+    
+    .absolute.bottom-4.right-4 svg {
+        width: 1rem;
+        height: 1rem;
+    }
+}
+</style>

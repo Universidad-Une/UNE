@@ -1,6 +1,391 @@
 // Datos de programas educativos organizados por nivel, área y plantel
 
 export const programasEducativos = {
+  Primaria: {
+    "EDUCACIÓN BÁSICA": {
+      "Primaria Montessori": {
+        "PLAZA DEL SOL": [
+          {
+            modalidad: "Escolarizada",
+            incorporacion: "SEJ",
+            imagen: "primaria",
+            descripcion:
+              "Educación primaria con metodología Montessori que promueve el desarrollo integral del niño a través del aprendizaje activo y personalizado.",
+            duracion: "6 años",
+            iniciosCursos: "Agosto",
+            inscripciones: "Abiertas",
+            url: "/primaria/montessori",
+          },
+        ],
+      },
+    },
+  },
+
+  Secundaria: {
+    "EDUCACIÓN BÁSICA": {
+      "Secundaria Montessori": {
+        "Av. México": [
+          {
+            modalidad: "Escolarizada",
+            incorporacion: "SEJ",
+            imagen: "secundaria",
+            descripcion:
+              "Educación secundaria con metodología Montessori que fomenta el pensamiento crítico y la autonomía en el aprendizaje del adolescente.",
+            duracion: "3 años",
+            iniciosCursos: "Agosto",
+            inscripciones: "Abiertas",
+            url: "/secundaria/montessori",
+          },
+        ],
+        "PLAZA DEL SOL": [
+          {
+            modalidad: "Escolarizada",
+            incorporacion: "SEJ",
+            imagen: "secundaria",
+            descripcion:
+              "Educación secundaria con metodología Montessori que fomenta el pensamiento crítico y la autonomía en el aprendizaje del adolescente.",
+            duracion: "3 años",
+            iniciosCursos: "Agosto",
+            inscripciones: "Abiertas",
+            url: "/secundaria/montessori",
+          },
+        ],
+        TESISTÁN: [
+          {
+            modalidad: "Escolarizada",
+            incorporacion: "SEJ",
+            imagen: "secundaria",
+            descripcion:
+              "Educación secundaria con metodología Montessori que fomenta el pensamiento crítico y la autonomía en el aprendizaje del adolescente.",
+            duracion: "3 años",
+            iniciosCursos: "Agosto",
+            inscripciones: "Abiertas",
+            url: "/secundaria/montessori",
+          },
+        ],
+        TLAJOMULCO: [
+          {
+            modalidad: "Escolarizada",
+            incorporacion: "SEJ",
+            imagen: "secundaria",
+            descripcion:
+              "Educación secundaria con metodología Montessori que fomenta el pensamiento crítico y la autonomía en el aprendizaje del adolescente.",
+            duracion: "3 años",
+            iniciosCursos: "Agosto",
+            inscripciones: "Abiertas",
+            url: "/secundaria/montessori",
+          },
+        ],
+        TLAQUEPAQUE: [
+          {
+            modalidad: "Escolarizada",
+            incorporacion: "SEJ",
+            imagen: "secundaria",
+            descripcion:
+              "Educación secundaria con metodología Montessori que fomenta el pensamiento crítico y la autonomía en el aprendizaje del adolescente.",
+            duracion: "3 años",
+            iniciosCursos: "Agosto",
+            inscripciones: "Abiertas",
+            url: "/secundaria/montessori",
+          },
+        ],
+        TONALÁ: [
+          {
+            modalidad: "Escolarizada",
+            incorporacion: "SEJ",
+            imagen: "secundaria",
+            descripcion:
+              "Educación secundaria con metodología Montessori que fomenta el pensamiento crítico y la autonomía en el aprendizaje del adolescente.",
+            duracion: "3 años",
+            iniciosCursos: "Agosto",
+            inscripciones: "Abiertas",
+            url: "/secundaria/montessori",
+          },
+        ],
+      },
+    },
+  },
+   Bachillerato: {
+    "EDUCACIÓN MEDIA SUPERIOR": {
+      BIS: {
+        CARACOL: [
+          {
+            modalidad: "Semiescolarizada",
+            incorporacion: "SEJ",
+            imagen: "bachillerato",
+            descripcion:
+              "Programa de Bachillerato Internacional con enfoque bilingüe y multicultural que prepara estudiantes para la educación superior.",
+            duracion: "6 semestres",
+            iniciosCursos: "Agosto",
+            inscripciones: "Abiertas",
+            url: "/bachillerato/bis",
+          },
+        ],
+        CENTRO: [
+          {
+            modalidad: "Semiescolarizada",
+            incorporacion: "SEJ",
+            imagen: "bachillerato",
+            descripcion:
+              "Programa de Bachillerato Internacional con enfoque bilingüe y multicultural que prepara estudiantes para la educación superior.",
+            duracion: "6 semestres",
+            iniciosCursos: "Agosto",
+            inscripciones: "Abiertas",
+            url: "/bachillerato/bis",
+          },
+        ],
+        "CENTRO MÉDICO": [
+          {
+            modalidad: "Semiescolarizada",
+            incorporacion: "SEJ",
+            imagen: "bachillerato",
+            descripcion:
+              "Programa de Bachillerato Internacional con enfoque bilingüe y multicultural que prepara estudiantes para la educación superior.",
+            duracion: "6 semestres",
+            iniciosCursos: "Agosto",
+            inscripciones: "Abiertas",
+            url: "/bachillerato/bis",
+          },
+        ],
+        CHAPULTEPEC: [
+          {
+            modalidad: "Semiescolarizada",
+            incorporacion: "SEJ",
+            imagen: "bachillerato",
+            descripcion:
+              "Programa de Bachillerato Internacional con enfoque bilingüe y multicultural que prepara estudiantes para la educación superior.",
+            duracion: "6 semestres",
+            iniciosCursos: "Agosto",
+            inscripciones: "Abiertas",
+            url: "/bachillerato/bis",
+          },
+        ],
+        MILENIO: [
+          {
+            modalidad: "Semiescolarizada",
+            incorporacion: "SEJ",
+            imagen: "bachillerato",
+            descripcion:
+              "Programa de Bachillerato Internacional con enfoque bilingüe y multicultural que prepara estudiantes para la educación superior.",
+            duracion: "6 semestres",
+            iniciosCursos: "Agosto",
+            inscripciones: "Abiertas",
+            url: "/bachillerato/bis",
+          },
+        ],
+        TEPATITLÁN: [
+          {
+            modalidad: "Semiescolarizada",
+            incorporacion: "SEJ",
+            imagen: "bachillerato",
+            descripcion:
+              "Programa de Bachillerato Internacional con enfoque bilingüe y multicultural que prepara estudiantes para la educación superior.",
+            duracion: "6 semestres",
+            iniciosCursos: "Agosto",
+            inscripciones: "Abiertas",
+            url: "/bachillerato/bis",
+          },
+        ],
+        TESISTÁN: [
+          {
+            modalidad: "Semiescolarizada",
+            incorporacion: "SEJ",
+            imagen: "bachillerato",
+            descripcion:
+              "Programa de Bachillerato Internacional con enfoque bilingüe y multicultural que prepara estudiantes para la educación superior.",
+            duracion: "6 semestres",
+            iniciosCursos: "Agosto",
+            inscripciones: "Abiertas",
+            url: "/bachillerato/bis",
+          },
+        ],
+        TLAJOMULCO: [
+          {
+            modalidad: "Semiescolarizada",
+            incorporacion: "SEJ",
+            imagen: "bachillerato",
+            descripcion:
+              "Programa de Bachillerato Internacional con enfoque bilingüe y multicultural que prepara estudiantes para la educación superior.",
+            duracion: "6 semestres",
+            iniciosCursos: "Agosto",
+            inscripciones: "Abiertas",
+            url: "/bachillerato/bis",
+          },
+        ],
+        TLAQUEPAQUE: [
+          {
+            modalidad: "Semiescolarizada",
+            incorporacion: "SEJ",
+            imagen: "bachillerato",
+            descripcion:
+              "Programa de Bachillerato Internacional con enfoque bilingüe y multicultural que prepara estudiantes para la educación superior.",
+            duracion: "6 semestres",
+            iniciosCursos: "Agosto",
+            inscripciones: "Abiertas",
+            url: "/bachillerato/bis",
+          },
+        ],
+        TONALÁ: [
+          {
+            modalidad: "Semiescolarizada",
+            incorporacion: "SEJ",
+            imagen: "bachillerato",
+            descripcion:
+              "Programa de Bachillerato Internacional con enfoque bilingüe y multicultural que prepara estudiantes para la educación superior.",
+            duracion: "6 semestres",
+            iniciosCursos: "Agosto",
+            inscripciones: "Abiertas",
+            url: "/bachillerato/bis",
+          },
+        ],
+        ZAPOPAN: [
+          {
+            modalidad: "Semiescolarizada",
+            incorporacion: "SEJ",
+            imagen: "bachillerato",
+            descripcion:
+              "Programa de Bachillerato Internacional con enfoque bilingüe y multicultural que prepara estudiantes para la educación superior.",
+            duracion: "6 semestres",
+            iniciosCursos: "Agosto",
+            inscripciones: "Abiertas",
+            url: "/bachillerato/bis",
+          },
+        ],
+      },
+      "Bachillerato General": {
+        "Av. México": [
+          {
+            modalidad: "Escolarizada",
+            incorporacion: "UDG",
+            imagen: "bachillerato",
+            descripcion:
+              "Bachillerato General que proporciona formación integral preparando al estudiante para continuar con estudios superiores.",
+            duracion: "6 semestres",
+            iniciosCursos: "Agosto",
+            inscripciones: "Abiertas",
+            url: "/bachillerato/general",
+          },
+        ],
+        CENTRO: [
+          {
+            modalidad: "Escolarizada",
+            incorporacion: "UDG",
+            imagen: "bachillerato",
+            descripcion:
+              "Bachillerato General que proporciona formación integral preparando al estudiante para continuar con estudios superiores.",
+            duracion: "6 semestres",
+            iniciosCursos: "Agosto",
+            inscripciones: "Abiertas",
+            url: "/bachillerato/general",
+          },
+        ],
+        "CENTRO MÉDICO": [
+          {
+            modalidad: "Escolarizada",
+            incorporacion: "UDG",
+            imagen: "bachillerato",
+            descripcion:
+              "Bachillerato General que proporciona formación integral preparando al estudiante para continuar con estudios superiores.",
+            duracion: "6 semestres",
+            iniciosCursos: "Agosto",
+            inscripciones: "Abiertas",
+            url: "/bachillerato/general",
+          },
+        ],
+        MILENIO: [
+          {
+            modalidad: "Escolarizada",
+            incorporacion: "UDG",
+            imagen: "bachillerato",
+            descripcion:
+              "Bachillerato General que proporciona formación integral preparando al estudiante para continuar con estudios superiores.",
+            duracion: "6 semestres",
+            iniciosCursos: "Agosto",
+            inscripciones: "Abiertas",
+            url: "/bachillerato/general",
+          },
+        ],
+        "PLAZA DEL SOL": [
+          {
+            modalidad: "Escolarizada",
+            incorporacion: "UDG",
+            imagen: "bachillerato",
+            descripcion:
+              "Bachillerato General que proporciona formación integral preparando al estudiante para continuar con estudios superiores.",
+            duracion: "6 semestres",
+            iniciosCursos: "Agosto",
+            inscripciones: "Abiertas",
+            url: "/bachillerato/general",
+          },
+        ],
+        TESISTÁN: [
+          {
+            modalidad: "Escolarizada",
+            incorporacion: "UDG",
+            imagen: "bachillerato",
+            descripcion:
+              "Bachillerato General que proporciona formación integral preparando al estudiante para continuar con estudios superiores.",
+            duracion: "6 semestres",
+            iniciosCursos: "Agosto",
+            inscripciones: "Abiertas",
+            url: "/bachillerato/general",
+          },
+        ],
+        TLAJOMULCO: [
+          {
+            modalidad: "Escolarizada",
+            incorporacion: "UDG",
+            imagen: "bachillerato",
+            descripcion:
+              "Bachillerato General que proporciona formación integral preparando al estudiante para continuar con estudios superiores.",
+            duracion: "6 semestres",
+            iniciosCursos: "Agosto",
+            inscripciones: "Abiertas",
+            url: "/bachillerato/general",
+          },
+        ],
+        TLAQUEPAQUE: [
+          {
+            modalidad: "Escolarizada",
+            incorporacion: "UDG",
+            imagen: "bachillerato",
+            descripcion:
+              "Bachillerato General que proporciona formación integral preparando al estudiante para continuar con estudios superiores.",
+            duracion: "6 semestres",
+            iniciosCursos: "Agosto",
+            inscripciones: "Abiertas",
+            url: "/bachillerato/general",
+          },
+        ],
+        TONALÁ: [
+          {
+            modalidad: "Escolarizada",
+            incorporacion: "UDG",
+            imagen: "bachillerato",
+            descripcion:
+              "Bachillerato General que proporciona formación integral preparando al estudiante para continuar con estudios superiores.",
+            duracion: "6 semestres",
+            iniciosCursos: "Agosto",
+            inscripciones: "Abiertas",
+            url: "/bachillerato/general",
+          },
+        ],
+        ZAPOPAN: [
+          {
+            modalidad: "Escolarizada",
+            incorporacion: "UDG",
+            imagen: "bachillerato",
+            descripcion:
+              "Bachillerato General que proporciona formación integral preparando al estudiante para continuar con estudios superiores.",
+            duracion: "6 semestres",
+            iniciosCursos: "Agosto",
+            inscripciones: "Abiertas",
+            url: "/bachillerato/general",
+          },
+        ],
+      },
+    },
+  },
   Licenciaturas: {
     "Arquitectura y diseño": {
       Arquitectura: {
@@ -2691,391 +3076,7 @@ export const programasEducativos = {
       },
     },
   },
-  Bachillerato: {
-    "EDUCACIÓN MEDIA SUPERIOR": {
-      BIS: {
-        CARACOL: [
-          {
-            modalidad: "Semiescolarizada",
-            incorporacion: "SEJ",
-            imagen: "bachillerato",
-            descripcion:
-              "Programa de Bachillerato Internacional con enfoque bilingüe y multicultural que prepara estudiantes para la educación superior.",
-            duracion: "6 semestres",
-            iniciosCursos: "Agosto",
-            inscripciones: "Abiertas",
-            url: "/bachillerato/bis",
-          },
-        ],
-        CENTRO: [
-          {
-            modalidad: "Semiescolarizada",
-            incorporacion: "SEJ",
-            imagen: "bachillerato",
-            descripcion:
-              "Programa de Bachillerato Internacional con enfoque bilingüe y multicultural que prepara estudiantes para la educación superior.",
-            duracion: "6 semestres",
-            iniciosCursos: "Agosto",
-            inscripciones: "Abiertas",
-            url: "/bachillerato/bis",
-          },
-        ],
-        "CENTRO MÉDICO": [
-          {
-            modalidad: "Semiescolarizada",
-            incorporacion: "SEJ",
-            imagen: "bachillerato",
-            descripcion:
-              "Programa de Bachillerato Internacional con enfoque bilingüe y multicultural que prepara estudiantes para la educación superior.",
-            duracion: "6 semestres",
-            iniciosCursos: "Agosto",
-            inscripciones: "Abiertas",
-            url: "/bachillerato/bis",
-          },
-        ],
-        CHAPULTEPEC: [
-          {
-            modalidad: "Semiescolarizada",
-            incorporacion: "SEJ",
-            imagen: "bachillerato",
-            descripcion:
-              "Programa de Bachillerato Internacional con enfoque bilingüe y multicultural que prepara estudiantes para la educación superior.",
-            duracion: "6 semestres",
-            iniciosCursos: "Agosto",
-            inscripciones: "Abiertas",
-            url: "/bachillerato/bis",
-          },
-        ],
-        MILENIO: [
-          {
-            modalidad: "Semiescolarizada",
-            incorporacion: "SEJ",
-            imagen: "bachillerato",
-            descripcion:
-              "Programa de Bachillerato Internacional con enfoque bilingüe y multicultural que prepara estudiantes para la educación superior.",
-            duracion: "6 semestres",
-            iniciosCursos: "Agosto",
-            inscripciones: "Abiertas",
-            url: "/bachillerato/bis",
-          },
-        ],
-        TEPATITLÁN: [
-          {
-            modalidad: "Semiescolarizada",
-            incorporacion: "SEJ",
-            imagen: "bachillerato",
-            descripcion:
-              "Programa de Bachillerato Internacional con enfoque bilingüe y multicultural que prepara estudiantes para la educación superior.",
-            duracion: "6 semestres",
-            iniciosCursos: "Agosto",
-            inscripciones: "Abiertas",
-            url: "/bachillerato/bis",
-          },
-        ],
-        TESISTÁN: [
-          {
-            modalidad: "Semiescolarizada",
-            incorporacion: "SEJ",
-            imagen: "bachillerato",
-            descripcion:
-              "Programa de Bachillerato Internacional con enfoque bilingüe y multicultural que prepara estudiantes para la educación superior.",
-            duracion: "6 semestres",
-            iniciosCursos: "Agosto",
-            inscripciones: "Abiertas",
-            url: "/bachillerato/bis",
-          },
-        ],
-        TLAJOMULCO: [
-          {
-            modalidad: "Semiescolarizada",
-            incorporacion: "SEJ",
-            imagen: "bachillerato",
-            descripcion:
-              "Programa de Bachillerato Internacional con enfoque bilingüe y multicultural que prepara estudiantes para la educación superior.",
-            duracion: "6 semestres",
-            iniciosCursos: "Agosto",
-            inscripciones: "Abiertas",
-            url: "/bachillerato/bis",
-          },
-        ],
-        TLAQUEPAQUE: [
-          {
-            modalidad: "Semiescolarizada",
-            incorporacion: "SEJ",
-            imagen: "bachillerato",
-            descripcion:
-              "Programa de Bachillerato Internacional con enfoque bilingüe y multicultural que prepara estudiantes para la educación superior.",
-            duracion: "6 semestres",
-            iniciosCursos: "Agosto",
-            inscripciones: "Abiertas",
-            url: "/bachillerato/bis",
-          },
-        ],
-        TONALÁ: [
-          {
-            modalidad: "Semiescolarizada",
-            incorporacion: "SEJ",
-            imagen: "bachillerato",
-            descripcion:
-              "Programa de Bachillerato Internacional con enfoque bilingüe y multicultural que prepara estudiantes para la educación superior.",
-            duracion: "6 semestres",
-            iniciosCursos: "Agosto",
-            inscripciones: "Abiertas",
-            url: "/bachillerato/bis",
-          },
-        ],
-        ZAPOPAN: [
-          {
-            modalidad: "Semiescolarizada",
-            incorporacion: "SEJ",
-            imagen: "bachillerato",
-            descripcion:
-              "Programa de Bachillerato Internacional con enfoque bilingüe y multicultural que prepara estudiantes para la educación superior.",
-            duracion: "6 semestres",
-            iniciosCursos: "Agosto",
-            inscripciones: "Abiertas",
-            url: "/bachillerato/bis",
-          },
-        ],
-      },
-      "Bachillerato General": {
-        "Av. México": [
-          {
-            modalidad: "Escolarizada",
-            incorporacion: "UDG",
-            imagen: "bachillerato",
-            descripcion:
-              "Bachillerato General que proporciona formación integral preparando al estudiante para continuar con estudios superiores.",
-            duracion: "6 semestres",
-            iniciosCursos: "Agosto",
-            inscripciones: "Abiertas",
-            url: "/bachillerato/general",
-          },
-        ],
-        CENTRO: [
-          {
-            modalidad: "Escolarizada",
-            incorporacion: "UDG",
-            imagen: "bachillerato",
-            descripcion:
-              "Bachillerato General que proporciona formación integral preparando al estudiante para continuar con estudios superiores.",
-            duracion: "6 semestres",
-            iniciosCursos: "Agosto",
-            inscripciones: "Abiertas",
-            url: "/bachillerato/general",
-          },
-        ],
-        "CENTRO MÉDICO": [
-          {
-            modalidad: "Escolarizada",
-            incorporacion: "UDG",
-            imagen: "bachillerato",
-            descripcion:
-              "Bachillerato General que proporciona formación integral preparando al estudiante para continuar con estudios superiores.",
-            duracion: "6 semestres",
-            iniciosCursos: "Agosto",
-            inscripciones: "Abiertas",
-            url: "/bachillerato/general",
-          },
-        ],
-        MILENIO: [
-          {
-            modalidad: "Escolarizada",
-            incorporacion: "UDG",
-            imagen: "bachillerato",
-            descripcion:
-              "Bachillerato General que proporciona formación integral preparando al estudiante para continuar con estudios superiores.",
-            duracion: "6 semestres",
-            iniciosCursos: "Agosto",
-            inscripciones: "Abiertas",
-            url: "/bachillerato/general",
-          },
-        ],
-        "PLAZA DEL SOL": [
-          {
-            modalidad: "Escolarizada",
-            incorporacion: "UDG",
-            imagen: "bachillerato",
-            descripcion:
-              "Bachillerato General que proporciona formación integral preparando al estudiante para continuar con estudios superiores.",
-            duracion: "6 semestres",
-            iniciosCursos: "Agosto",
-            inscripciones: "Abiertas",
-            url: "/bachillerato/general",
-          },
-        ],
-        TESISTÁN: [
-          {
-            modalidad: "Escolarizada",
-            incorporacion: "UDG",
-            imagen: "bachillerato",
-            descripcion:
-              "Bachillerato General que proporciona formación integral preparando al estudiante para continuar con estudios superiores.",
-            duracion: "6 semestres",
-            iniciosCursos: "Agosto",
-            inscripciones: "Abiertas",
-            url: "/bachillerato/general",
-          },
-        ],
-        TLAJOMULCO: [
-          {
-            modalidad: "Escolarizada",
-            incorporacion: "UDG",
-            imagen: "bachillerato",
-            descripcion:
-              "Bachillerato General que proporciona formación integral preparando al estudiante para continuar con estudios superiores.",
-            duracion: "6 semestres",
-            iniciosCursos: "Agosto",
-            inscripciones: "Abiertas",
-            url: "/bachillerato/general",
-          },
-        ],
-        TLAQUEPAQUE: [
-          {
-            modalidad: "Escolarizada",
-            incorporacion: "UDG",
-            imagen: "bachillerato",
-            descripcion:
-              "Bachillerato General que proporciona formación integral preparando al estudiante para continuar con estudios superiores.",
-            duracion: "6 semestres",
-            iniciosCursos: "Agosto",
-            inscripciones: "Abiertas",
-            url: "/bachillerato/general",
-          },
-        ],
-        TONALÁ: [
-          {
-            modalidad: "Escolarizada",
-            incorporacion: "UDG",
-            imagen: "bachillerato",
-            descripcion:
-              "Bachillerato General que proporciona formación integral preparando al estudiante para continuar con estudios superiores.",
-            duracion: "6 semestres",
-            iniciosCursos: "Agosto",
-            inscripciones: "Abiertas",
-            url: "/bachillerato/general",
-          },
-        ],
-        ZAPOPAN: [
-          {
-            modalidad: "Escolarizada",
-            incorporacion: "UDG",
-            imagen: "bachillerato",
-            descripcion:
-              "Bachillerato General que proporciona formación integral preparando al estudiante para continuar con estudios superiores.",
-            duracion: "6 semestres",
-            iniciosCursos: "Agosto",
-            inscripciones: "Abiertas",
-            url: "/bachillerato/general",
-          },
-        ],
-      },
-    },
-  },
-  Primaria: {
-    "EDUCACIÓN BÁSICA": {
-      "Primaria Montessori": {
-        "PLAZA DEL SOL": [
-          {
-            modalidad: "Escolarizada",
-            incorporacion: "SEJ",
-            imagen: "primaria",
-            descripcion:
-              "Educación primaria con metodología Montessori que promueve el desarrollo integral del niño a través del aprendizaje activo y personalizado.",
-            duracion: "6 años",
-            iniciosCursos: "Agosto",
-            inscripciones: "Abiertas",
-            url: "/primaria/montessori",
-          },
-        ],
-      },
-    },
-  },
-
-  Secundaria: {
-    "EDUCACIÓN BÁSICA": {
-      "Secundaria Montessori": {
-        "Av. México": [
-          {
-            modalidad: "Escolarizada",
-            incorporacion: "SEJ",
-            imagen: "secundaria",
-            descripcion:
-              "Educación secundaria con metodología Montessori que fomenta el pensamiento crítico y la autonomía en el aprendizaje del adolescente.",
-            duracion: "3 años",
-            iniciosCursos: "Agosto",
-            inscripciones: "Abiertas",
-            url: "/secundaria/montessori",
-          },
-        ],
-        "PLAZA DEL SOL": [
-          {
-            modalidad: "Escolarizada",
-            incorporacion: "SEJ",
-            imagen: "secundaria",
-            descripcion:
-              "Educación secundaria con metodología Montessori que fomenta el pensamiento crítico y la autonomía en el aprendizaje del adolescente.",
-            duracion: "3 años",
-            iniciosCursos: "Agosto",
-            inscripciones: "Abiertas",
-            url: "/secundaria/montessori",
-          },
-        ],
-        TESISTÁN: [
-          {
-            modalidad: "Escolarizada",
-            incorporacion: "SEJ",
-            imagen: "secundaria",
-            descripcion:
-              "Educación secundaria con metodología Montessori que fomenta el pensamiento crítico y la autonomía en el aprendizaje del adolescente.",
-            duracion: "3 años",
-            iniciosCursos: "Agosto",
-            inscripciones: "Abiertas",
-            url: "/secundaria/montessori",
-          },
-        ],
-        TLAJOMULCO: [
-          {
-            modalidad: "Escolarizada",
-            incorporacion: "SEJ",
-            imagen: "secundaria",
-            descripcion:
-              "Educación secundaria con metodología Montessori que fomenta el pensamiento crítico y la autonomía en el aprendizaje del adolescente.",
-            duracion: "3 años",
-            iniciosCursos: "Agosto",
-            inscripciones: "Abiertas",
-            url: "/secundaria/montessori",
-          },
-        ],
-        TLAQUEPAQUE: [
-          {
-            modalidad: "Escolarizada",
-            incorporacion: "SEJ",
-            imagen: "secundaria",
-            descripcion:
-              "Educación secundaria con metodología Montessori que fomenta el pensamiento crítico y la autonomía en el aprendizaje del adolescente.",
-            duracion: "3 años",
-            iniciosCursos: "Agosto",
-            inscripciones: "Abiertas",
-            url: "/secundaria/montessori",
-          },
-        ],
-        TONALÁ: [
-          {
-            modalidad: "Escolarizada",
-            incorporacion: "SEJ",
-            imagen: "secundaria",
-            descripcion:
-              "Educación secundaria con metodología Montessori que fomenta el pensamiento crítico y la autonomía en el aprendizaje del adolescente.",
-            duracion: "3 años",
-            iniciosCursos: "Agosto",
-            inscripciones: "Abiertas",
-            url: "/secundaria/montessori",
-          },
-        ],
-      },
-    },
-  },
+ 
 };
 
 export const areas = [

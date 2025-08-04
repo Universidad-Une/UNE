@@ -13,33 +13,20 @@ import Tlaquepaque from '@/assets/Imagenes/Planteles/Tlaquepaque.webp';
 import Tonala from '@/assets/Imagenes/Planteles/Tonala.png';
 import Zapopan from '@/assets/Imagenes/Planteles/Zapopan.png';
 
-// Lista de planteles
+// Lista de planteles con URLs corregidas basadas en los archivos existentes
 const planteles = [
-  { nombre: "Centro", imagen: Centro },
-  { nombre: "Centro Médico", imagen: CentroMedico },
-  { nombre: "Chapultepec", imagen: Chapultepec },
-  { nombre: "Milenio", imagen: Milenio },
-  { nombre: "Plaza del Sol", imagen: PlazaSol },
-  { nombre: "Puerto Vallarta", imagen: PuertoVallarta },
-  { nombre: "Tepatitlán", imagen: Tepatitlan },
-  { nombre: "Tesistán", imagen: Tesistan },
-  { nombre: "Tlajomulco", imagen: Tlajomulco },
-  { nombre: "Tlaquepaque", imagen: Tlaquepaque },
-  { nombre: "Tonalá", imagen: Tonala },
+  { nombre: "Centro", imagen: Centro, url: "centro" },
+  { nombre: "Centro Médico", imagen: CentroMedico, url: "centro-medico" },
+  { nombre: "Chapultepec", imagen: Chapultepec, url: "chapultepec" },
+  { nombre: "Milenio", imagen: Milenio, url: "milenio" },
+  { nombre: "Plaza del Sol", imagen: PlazaSol, url: "plaza-del-sol" },
+  { nombre: "Puerto Vallarta", imagen: PuertoVallarta, url: "campus-puerto-vallarta" },
+  { nombre: "Tepatitlán", imagen: Tepatitlan, url: "tepatitlan" },
+  { nombre: "Tesistán", imagen: Tesistan, url: "tesistan" },
+  { nombre: "Tlajomulco", imagen: Tlajomulco, url: "tlajomulco" },
+  { nombre: "Tlaquepaque", imagen: Tlaquepaque, url: "tlaquepaque" },
+  { nombre: "Tonalá", imagen: Tonala, url: "tonala" },
 ];
-
-// Generar slug
-function generarSlug(nombre) {
-  return (
-    "plantel-" +
-    nombre
-      .toLowerCase()
-      .normalize("NFD")
-      .replace(/[\u0300-\u036f]/g, "") // elimina acentos
-      .replace(/\s+/g, "-")            // espacios por guiones
-  );
-}
-
 
 // Dividir en grupos: primera fila 4, segunda fila 3, luego bloques de 4
 const fila1 = planteles.slice(0, 4);
@@ -49,6 +36,7 @@ for (let i = 7; i < planteles.length; i += 4) {
   filasExtra.push(planteles.slice(i, i + 4));
 }
 ---
+
 <section class="py-12 bg-gray-50">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <!-- Encabezado -->
@@ -64,17 +52,18 @@ for (let i = 7; i < planteles.length; i += 4) {
     <div class="space-y-6">
       <!-- Primera fila -->
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        {fila1.map((plantel) => (
+        {fila1.map((plantel, index) => (
           <a
-            href={`/planteles/${generarSlug(plantel.nombre)}`}
+            href={`/planteles/${plantel.url}`}
             class="group relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2"
           >
             <div class="aspect-w-4 aspect-h-3 overflow-hidden">
               <img
                 src={plantel.imagen.src}
                 alt={`Plantel ${plantel.nombre}`}
-                class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-300"
-                loading="lazy"
+                class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-300 lazy-image"
+                loading={index < 2 ? "eager" : "lazy"}
+                data-viewport-trigger
               />
             </div>
             <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
@@ -91,17 +80,18 @@ for (let i = 7; i < planteles.length; i += 4) {
 
       <!-- Segunda fila centrada -->
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:max-w-5xl lg:mx-auto">
-        {fila2.map((plantel) => (
+        {fila2.map((plantel, index) => (
           <a
-            href={`/planteles/${generarSlug(plantel.nombre)}`}
+            href={`/planteles/${plantel.url}`}
             class="group relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2"
           >
             <div class="aspect-w-4 aspect-h-3 overflow-hidden">
               <img
                 src={plantel.imagen.src}
                 alt={`Plantel ${plantel.nombre}`}
-                class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-300"
+                class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-300 lazy-image"
                 loading="lazy"
+                data-viewport-trigger
               />
             </div>
             <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
@@ -117,19 +107,20 @@ for (let i = 7; i < planteles.length; i += 4) {
       </div>
 
       <!-- Filas extra -->
-      {filasExtra.map((fila) => (
+      {filasExtra.map((fila, filaIndex) => (
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {fila.map((plantel) => (
+          {fila.map((plantel, index) => (
             <a
-              href={`/planteles/${generarSlug(plantel.nombre)}`}
+              href={`/planteles/${plantel.url}`}
               class="group relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2"
             >
               <div class="aspect-w-4 aspect-h-3 overflow-hidden">
                 <img
                   src={plantel.imagen.src}
                   alt={`Plantel ${plantel.nombre}`}
-                  class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-300"
+                  class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-300 lazy-image"
                   loading="lazy"
+                  data-viewport-trigger
                 />
               </div>
               <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
@@ -148,7 +139,7 @@ for (let i = 7; i < planteles.length; i += 4) {
 
     <!-- Botón -->
     <div class="text-center mt-12">
-      <a href="/planteles" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-8 rounded-lg transition-colors duration-200 shadow-lg hover:shadow-xl">
+      <a href="/planteles/general" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-8 rounded-lg transition-colors duration-200 shadow-lg hover:shadow-xl">
         Ver todos los planteles
       </a>
     </div>
@@ -166,4 +157,73 @@ for (let i = 7; i < planteles.length; i += 4) {
     width: 100%;
     height: 100%;
   }
+  
+  /* Optimización para lazy loading */
+  .lazy-image {
+    opacity: 1;
+    transition: opacity 0.3s ease;
+  }
+  
+  .lazy-image[data-loading] {
+    opacity: 0.7;
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: loading 1.5s infinite;
+  }
+
+  @keyframes loading {
+    0% {
+      background-position: 200% 0;
+    }
+    100% {
+      background-position: -200% 0;
+    }
+  }
 </style>
+
+<script>
+  // Intersection Observer para lazy loading optimizado
+  document.addEventListener('DOMContentLoaded', function() {
+    const images = document.querySelectorAll('img[data-viewport-trigger]');
+    
+    if ('IntersectionObserver' in window) {
+      const imageObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const img = entry.target;
+            
+            // Añadir clase de loading
+            img.setAttribute('data-loading', 'true');
+            
+            // Precargar la imagen
+            const tempImg = new Image();
+            tempImg.onload = () => {
+              img.removeAttribute('data-loading');
+              img.classList.add('loaded');
+            };
+            tempImg.onerror = () => {
+              img.removeAttribute('data-loading');
+              console.warn('Error loading image:', img.src);
+            };
+            tempImg.src = img.src;
+            
+            observer.unobserve(img);
+          }
+        });
+      }, {
+        // Cargar imágenes cuando estén a 100px del viewport
+        rootMargin: '100px 0px',
+        threshold: 0.1
+      });
+
+      images.forEach(img => {
+        imageObserver.observe(img);
+      });
+    } else {
+      // Fallback para navegadores sin IntersectionObserver
+      images.forEach(img => {
+        img.classList.add('loaded');
+      });
+    }
+  });
+</script>
