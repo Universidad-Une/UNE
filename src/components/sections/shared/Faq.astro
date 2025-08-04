@@ -2,31 +2,76 @@
 // FAQ.astro
 ---
 
-<section class="max-w-6xl mx-auto px-4 py-12">
-  <div class="text-center mb-8">
-    <h2 class="text-sm font-semibold text-gray-600 uppercase tracking-wide mb-2">
+<section class="max-w-6xl mx-auto px-4 py-12" id="faqSection">
+  <div class="text-center mb-12">
+    <h2
+      class="text-sm font-semibold text-azul-une uppercase tracking-wide mb-2"
+    >
       PREGUNTAS FRECUENTES
     </h2>
-    <h1 class="text-4xl font-bold text-gray-900 mb-8">
+    <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
       ¡Respondemos tus preguntas!
     </h1>
+    <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+      Encuentra respuestas rápidas a las dudas más comunes sobre UNE
+    </p>
   </div>
 
-  <div class="grid lg:grid-cols-2 gap-12 items-center">
-    <!-- Ilustración FAQ -->
-    <div class="flex justify-center">
+  <div class="grid lg:grid-cols-2 gap-12 items-start">
+    <!-- Ilustración FAQ mejorada -->
+    <div class="flex justify-center lg:sticky lg:top-8">
       <div class="relative">
-        <div class="w-80 h-80 bg-blue-50 rounded-full flex items-center justify-center">
+        <div
+          class="w-80 h-80 bg-gradient-to-br from-blue-50 to-indigo-100 rounded-full flex items-center justify-center shadow-lg"
+        >
           <div class="text-center">
-            <div class="text-8xl font-bold text-blue-200 mb-4">FAQ</div>
-            <!-- Figuras decorativas -->
-            <div class="absolute top-10 left-10 w-12 h-12 bg-orange-400 rounded-lg flex items-center justify-center">
-              <div class="w-6 h-6 bg-white rounded"></div>
+            <div
+              class="text-7xl font-bold bg-gradient-to-r from-blue-400 to-indigo-600 bg-clip-text text-transparent mb-4"
+            >
+              FAQ
             </div>
-            <div class="absolute top-16 right-8 w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center">
-              <div class="w-4 h-4 bg-white rounded-full"></div>
+            <p class="text-sm text-gray-500 font-medium">Centro de Ayuda</p>
+
+            <!-- Elementos decorativos animados -->
+            <div
+              class="absolute top-8 left-8 w-16 h-16 bg-gradient-to-br from-orange-400 to-red-500 rounded-2xl flex items-center justify-center shadow-lg transform rotate-12 animate-pulse"
+            >
+              <svg
+                class="w-8 h-8 text-white"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z"
+                  clip-rule="evenodd"></path>
+              </svg>
             </div>
-            <div class="absolute bottom-12 right-16 w-8 h-8 bg-red-400 rounded-full"></div>
+
+            <div
+              class="absolute top-16 right-6 w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center shadow-lg animate-bounce"
+            >
+              <svg
+                class="w-6 h-6 text-white"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                  clip-rule="evenodd"></path>
+              </svg>
+            </div>
+
+            <div
+              class="absolute bottom-10 right-12 w-10 h-10 bg-gradient-to-br from-green-400 to-emerald-500 rounded-xl shadow-lg animate-pulse"
+            >
+            </div>
+
+            <div
+              class="absolute bottom-16 left-12 w-8 h-8 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-full shadow-lg"
+            >
+            </div>
           </div>
         </div>
       </div>
@@ -36,43 +81,68 @@
     <div class="space-y-6">
       <!-- Tabs -->
       <div class="flex flex-wrap gap-2 mb-6">
-        <button 
-          class="tab-button px-4 py-2 text-sm font-medium rounded-full transition-all duration-200 bg-blue-600 text-white"
-          data-tab="inscripciones"
+        <button
+          class="tab-button px-4 py-2 text-sm font-medium rounded-full transition-all duration-200 bg-azul-une text-white"
+          data-tab="proceso-inscripcion"
         >
-          Inscripciones
+          Proceso de Inscripción
         </button>
-        <button 
+        <button
           class="tab-button px-4 py-2 text-sm font-medium rounded-full transition-all duration-200 bg-gray-200 text-gray-700 hover:bg-gray-300"
-          data-tab="admisiones"
+          data-tab="carreras-costos"
         >
-          Admisiones
+          Carreras y Costos
         </button>
-        <button 
+        <button
           class="tab-button px-4 py-2 text-sm font-medium rounded-full transition-all duration-200 bg-gray-200 text-gray-700 hover:bg-gray-300"
-          data-tab="documentacion"
+          data-tab="documentos-requisitos"
         >
-          Documentación
+          Documentos
         </button>
-        <button 
+        <button
           class="tab-button px-4 py-2 text-sm font-medium rounded-full transition-all duration-200 bg-gray-200 text-gray-700 hover:bg-gray-300"
-          data-tab="modalidades"
+          data-tab="modalidades-becas"
         >
-          Modalidades de Estudio
+          Modalidades y Becas
+        </button>
+        <button
+          class="tab-button px-4 py-2 text-sm font-medium rounded-full transition-all duration-200 bg-gray-200 text-gray-700 hover:bg-gray-300"
+          data-tab="vida-estudiantil"
+        >
+          Vida Estudiantil
         </button>
       </div>
 
-      <!-- Contenido de preguntas -->
-      <div id="faq-content" class="space-y-3">
-        <!-- Las preguntas se cargarán aquí dinámicamente -->
+      <!-- Contenido de preguntas con loading -->
+      <div id="faq-content" class="space-y-4">
+        <div class="animate-pulse space-y-4">
+          <div class="h-16 bg-gray-200 rounded-lg"></div>
+          <div class="h-16 bg-gray-200 rounded-lg"></div>
+          <div class="h-16 bg-gray-200 rounded-lg"></div>
+        </div>
       </div>
 
-      <!-- Ver todas las preguntas -->
-      <div class="flex justify-end mt-8">
-        <a href="/acerca/PreguntasFrecuentes" class="flex items-center text-gray-600 hover:text-gray-900 transition-colors">
-          <span class="text-sm">Ver todas las preguntas frecuentes</span>
-          <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+      <!-- Footer con enlace -->
+      <div
+        class="flex justify-between items-center mt-12 pt-8 border-t border-gray-200"
+      >
+        <div class="text-sm text-gray-500">¿No encuentras tu respuesta?</div>
+        <a
+          href="/acerca/PreguntasFrecuentes"
+          class="inline-flex items-center text-azul-une hover:text-azul-une/80 font-medium transition-colors group"
+        >
+          <span>Ver todas las preguntas frecuentes</span>
+          <svg
+            class="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M9 5l7 7-7 7"></path>
           </svg>
         </a>
       </div>
@@ -81,161 +151,347 @@
 </section>
 
 <script>
-  // Datos de las preguntas por categoría
-  const faqData = {
-    inscripciones: [
-      {
-        question: "¿Cuáles son los requisitos para ingresar a UNE?",
-        answer: "Los requisitos incluyen certificado de bachillerato, acta de nacimiento, CURP, fotografías tamaño infantil, y aprobar el examen de admisión."
-      },
-      {
-        question: "¿Cuándo abren las convocatorias de admisión?",
-        answer: "Las convocatorias se publican generalmente en enero para el ciclo escolar que inicia en agosto, y en junio para el ciclo de enero."
-      },
-      {
-        question: "¿Hay examen de admisión? ¿En qué consiste?",
-        answer: "Sí, hay examen de admisión que evalúa conocimientos generales, habilidades matemáticas, comprensión lectora y conocimientos específicos del área de estudio."
-      },
-      {
-        question: "¿Se puede hacer el proceso de admisión en línea?",
-        answer: "Sí, gran parte del proceso se puede realizar en línea a través de nuestro portal de admisiones, incluyendo el registro y seguimiento de tu solicitud."
-      }
-    ],
-    admisiones: [
-      {
-        question: "¿Cuánto cuesta estudiar en UNE?",
-        answer: "Las colegiaturas varían según la carrera y modalidad. Contamos con opciones de becas y planes de financiamiento para apoyar a los estudiantes."
-      },
-      {
-        question: "¿Qué carreras están disponibles?",
-        answer: "Ofrecemos más de 30 programas académicos en áreas como Ingeniería, Ciencias de la Salud, Negocios, Humanidades y Artes."
-      },
-      {
-        question: "¿Cuándo son las fechas de examen?",
-        answer: "Los exámenes se realizan generalmente en febrero-marzo para el ciclo de agosto, y en julio-agosto para el ciclo de enero."
-      },
-      {
-        question: "¿Hay opciones de beca disponibles?",
-        answer: "Sí, ofrecemos becas académicas, deportivas, culturales y socioeconómicas. También tenemos convenios con empresas para becas de trabajo."
-      }
-    ],
-    documentacion: [
-      {
-        question: "¿Qué documentos necesito para inscribirme?",
-        answer: "Certificado de bachillerato, acta de nacimiento, CURP, comprobante de domicilio, fotografías y comprobante de pago de inscripción."
-      },
-      {
-        question: "¿Los documentos deben estar apostillados?",
-        answer: "Para estudiantes extranjeros, sí es necesario que los documentos estén apostillados o legalizados según el país de origen."
-      },
-      {
-        question: "¿Puedo enviar documentos digitalizados?",
-        answer: "Inicialmente sí, pero posteriormente deberás presentar los documentos originales para cotejo en el proceso de inscripción."
-      },
-      {
-        question: "¿Hay fecha límite para entregar documentos?",
-        answer: "Sí, todos los documentos deben estar completos antes del inicio del ciclo escolar. Las fechas específicas se informan en la convocatoria."
-      }
-    ],
-    modalidades: [
-      {
-        question: "¿Ofrecen modalidad en línea?",
-        answer: "Sí, tenemos carreras 100% en línea y modalidades híbridas que combinan clases presenciales y virtuales."
-      },
-      {
-        question: "¿Cuál es la diferencia entre modalidades?",
-        answer: "Presencial: clases en campus. Híbrida: combinación de presencial y virtual. En línea: 100% virtual con flexibilidad de horarios."
-      },
-      {
-        question: "¿Los títulos tienen la misma validez?",
-        answer: "Sí, todos nuestros títulos tienen la misma validez oficial ante SEP, independientemente de la modalidad de estudio."
-      },
-      {
-        question: "¿Puedo cambiar de modalidad durante la carrera?",
-        answer: "En algunos casos sí es posible, dependiendo de la disponibilidad de la carrera en la modalidad deseada y cumpliendo ciertos requisitos."
-      }
-    ]
-  };
+  document.addEventListener("DOMContentLoaded", function () {
+    // Datos organizados por categorías más específicas
+   const faqData = {
+  "proceso-inscripcion": [
+    {
+      question: "¿Cómo me inscribo en UNE?",
+      answer:
+        "¡Es muy sencillo! Puedes inscribirte de manera <span class='text-azul-une font-semibold'>presencial visitando cualquiera de nuestros planteles</span> o desde la comodidad de tu hogar <span class='text-azul-une font-semibold'>llenando nuestro formulario en línea</span>. <a href='/contacto/formulario-inscripcion' class='text-azul-une hover:text-azul-une/80 font-medium underline transition-colors' target='_blank'>¡Inicia tu proceso aquí!</a> Nuestros asesores te acompañarán en cada paso.",
+    },
+    {
+      question: "¿Cuándo son las fechas de inscripción?",
+      answer:
+        "¡Tenemos <span class='text-green-600 font-bold'>inscripciones abiertas todo el año</span>! Esto significa que puedes comenzar tu educación cuando tú decidas. Algunas fechas pueden variar según el programa académico específico, por lo que te recomendamos <span class='text-azul-une font-medium'>consultar la página de tu programa de interés</span> para conocer los detalles exactos y no perderte ninguna oportunidad.",
+    },
+    {
+      question: "¿La inscripción tiene costo?",
+      answer:
+        "¡Excelente noticia! Tu inscripción está <span class='bg-azul-une/10 px-2 py-1 rounded text-azul-une font-bold'>SIN COSTO</span> por tiempo limitado. Aprovecha esta <span class='text-azul-une font-semibold bg-azul-une/10 px-2 py-1 rounded'>oportunidad exclusiva</span> y asegura tu lugar hoy mismo. ¡Es el momento perfecto para invertir en tu futuro!",
+    },
+    {
+      question: "¿Cuánto cuesta inscribirme?",
+      answer:
+        "El costo de inscripción varía según <span class='text-azul-une font-medium'>el nivel académico, modalidad y plantel</span> que elijas. Cada programa tiene sus propias características y beneficios únicos. Te invitamos a <span class='text-azul-une font-semibold'>visitar la página correspondiente</span> para conocer los detalles exactos y encontrar la opción que mejor se adapte a tu presupuesto y necesidades.",
+    },
+  ],
+  "carreras-costos": [
+    {
+      question: "¿Qué programas académicos están disponibles?",
+      answer:
+        "¡Tenemos la oferta educativa más completa! Ofrecemos <span class='text-azul-une font-bold'>educación integral desde primaria hasta posgrados</span> con más de 45 programas académicos de alta calidad. Nuestras áreas incluyen: <span class='bg-azul-une/10 px-2 py-1 rounded text-azul-une font-medium'>Ingeniería, Ciencias de la Salud, Diseño y Arquitectura, Derecho, Educación, Administración, Psicología, Criminología</span> y muchas más especialidades. También contamos con <span class='text-azul-une font-semibold'>educación continua y diplomados especializados</span> para que nunca dejes de crecer profesionalmente.",
+    },
+    {
+      question: "¿Cuánto cuesta estudiar en UNE?",
+      answer:
+        "Nuestras colegiaturas inician desde <span class='text-azul-une font-bold'>$1,874 MXN mensuales</span> con <span class='bg-gradient-to-r from-green-50 to-blue-50 px-3 py-1 rounded-lg font-semibold text-gray-800'>TODO INCLUIDO</span>: acceso ilimitado a plataformas digitales de última generación, biblioteca virtual con miles de recursos, laboratorios especializados con tecnología avanzada, y acompañamiento académico personalizado. <span class='text-azul-une font-medium'>Una inversión que transforma tu futuro profesional</span> con facilidades de pago flexibles que se adaptan a ti.",
+    },
+    {
+      question: "¿Las carreras tienen validez oficial?",
+      answer:
+        "¡Por supuesto! <span class='text-green-600 font-bold'>Todas nuestras carreras cuentan con plena validez oficial</span>. Tenemos Reconocimiento de Validez Oficial de Estudios (RVOE) ante la SEP, así como incorporaciones especiales como <span class='text-azul-une font-medium'>SICYT (Secretaría de Innovación, Ciencia y Tecnología)</span> y convenios estratégicos con la <span class='text-azul-une font-medium'>Universidad de Guadalajara (UdeG)</span>. Tu título tendrá el respaldo y reconocimiento que mereces.",
+    },
+  ],
+  "documentos-requisitos": [
+    {
+      question: "¿Qué documentos necesito para inscribirme?",
+      answer:
+        "¡No te preocupes, son documentos muy accesibles! Necesitas la <span class='text-azul-une font-medium'>documentación básica</span>: acta de nacimiento, CURP, comprobante de domicilio, identificación oficial, fotografías tamaño infantil, y certificado o constancia de bachillerato. Dependiendo de tu nivel académico, podrían solicitarse algunos documentos adicionales. <span class='text-green-600 font-semibold'>Revisa los requisitos específicos</span> en la página de tu programa para tener todo listo y agilizar tu proceso.",
+    },
+    {
+      question: "¿Puedo enviar documentos digitalizados?",
+      answer:
+        "Para garantizar la autenticidad y cumplir con los requisitos oficiales, <span class='text-azul-une font-semibold'>necesitamos tus documentos físicos originales</span>. ¡Pero no hay problema! Aunque puedes inscribirte desde cualquier parte del país, simplemente envía tus documentos mediante paquetería segura a nuestra <span class='text-azul-une font-medium'>dirección general</span>: Av. López Mateos Sur #4175 Col. La Giralda, Zapopan, Jalisco. ¡Así de fácil!",
+    },
+    {
+      question: "¿Hay fecha límite para entregar documentos?",
+      answer:
+        "¡No te preocupes! Los documentos <span class='text-azul-une font-semibold bg-azul-une/10 px-2 py-1 rounded'>se entregan al momento de tu inscripción</span> para mayor comodidad. Si te falta algún documento, <span class='text-green-600 font-medium'>¡tenemos solución!</span> Nuestros asesores académicos te guiarán paso a paso y evaluarán tu caso particular. Juntos encontraremos todas las opciones disponibles para que puedas <span class='text-azul-une font-medium'>iniciar tu educación sin obstáculos</span>.",
+    },
+  ],
+  "modalidades-becas": [
+    {
+      question: "¿Qué modalidades de estudio ofrecen?",
+      answer:
+        "¡Tenemos la modalidad perfecta para tu estilo de vida! Ofrecemos opciones <span class='text-azul-une font-semibold'>súper flexibles</span>: presencial, semipresencial, sabatina, fines de semana y en algunos casos horarios especiales como jueves y viernes. <span class='text-green-600 font-medium'>Cada modalidad está diseñada para adaptarse a tus necesidades</span>, ya sea que trabajes, tengas familia o cualquier otra responsabilidad. La disponibilidad específica depende del programa y plantel que elijas.",
+    },
+    {
+      question: "¿Qué becas están disponibles?",
+      answer:
+        "¡Tenemos <span class='text-azul-une font-bold bg-azul-une/10 px-2 py-1 rounded'>becas de hasta el 50%</span> de descuento en colegiaturas! Nuestros programas de apoyo académico se asignan mediante una <span class='text-azul-une font-medium'>evaluación integral</span> que considera tu perfil y situación particular. Como cada plantel maneja criterios y disponibilidad específicos, te invitamos a <a href='/contacto/solicitarinformacion' class='text-azul-une hover:text-azul-une/80 font-semibold underline transition-colors'>contactar directamente</a> con nuestros asesores académicos para conocer todas las opciones disponibles en tu ubicación y verificar si cumples con los requisitos. ¡Tu educación puede ser más accesible de lo que imaginas!",
+    },
+    {
+      question: "¿Puedo cambiar de modalidad durante la carrera?",
+      answer:
+        "La modalidad se mantiene durante toda tu carrera para garantizar la continuidad y calidad de tu formación académica. Sin embargo, <span class='text-green-600 font-semibold'>¡sí puedes solicitar cambio de plantel sin inconvenientes!</span> Esto te da flexibilidad por si te mudas o necesitas un campus más conveniente, siempre sujeto a disponibilidad de espacios.",
+    },
+    {
+      question: "¿Cómo funciona la modalidad híbrida?",
+      answer:
+        "Aunque no manejamos una modalidad híbrida tradicional, <span class='text-azul-une font-bold'>¡tenemos opciones aún mejores!</span> Ofrecemos la modalidad <span class='text-azul-une font-medium'>semiescolarizada</span> (puedes elegir turno matutino o vespertino), <span class='text-azul-une font-medium'>sabatina</span> (clases los sábados), <span class='text-azul-une font-medium'>fines de semana</span> (viernes y sábado), y en algunos casos horarios especiales como jueves y viernes. ¡Seguro encontramos la opción perfecta para ti!",
+    },
+  ],
+  "vida-estudiantil": [
+    {
+      question: "¿Qué servicios estudiantiles ofrecen?",
+      answer:
+        "¡Tu experiencia universitaria será completa! Contamos con <span class='text-azul-une font-semibold'>biblioteca física y virtual</span> con recursos increíbles, laboratorios especializados en algunos planteles, centro de idiomas para ampliar tus oportunidades, bolsa de trabajo para conectarte con empleadores, y actividades deportivas para mantenerte activo. <span class='text-green-600 font-bold'>¡El plantel Tlajomulco es especial!</span> Cuenta con cancha deportiva y alberca de natación. ¡Estudiar nunca había sido tan completo!",
+    },
+    {
+      question: "¿Hay oportunidades de intercambio académico?",
+      answer:
+        "¡Por supuesto! Tenemos una <span class='text-azul-une font-bold'>red impresionante de más de 800 empresas e instituciones</span> con las que mantenemos convenios activos. Esto significa que tendrás acceso a <span class='text-green-600 font-semibold'>múltiples oportunidades de intercambio y prácticas profesionales</span> que enriquecerán tu formación y te abrirán puertas en el mundo laboral. ¡Tu futuro profesional empieza desde el aula!",
+    },
+    {
+      question: "¿Cómo es el acompañamiento académico?",
+      answer:
+        "¡Nunca estarás solo en tu camino académico! Tendrás acceso a <span class='text-azul-une font-semibold'>asesorías personalizadas</span> diseñadas específicamente para tus necesidades, así como el <span class='text-green-600 font-medium'>apoyo constante y dedicado</span> de nuestro personal docente y administrativo durante toda tu carrera. Nuestro compromiso es tu éxito, desde el primer día hasta tu graduación.",
+    },
+    {
+      question: "¿Qué pasa después de graduarme?",
+      answer:
+        "¡Tu relación con UNE apenas comienza al graduarte! Tendrás acceso de por vida a una <span class='text-azul-une font-bold'>red de contactos profesionales</span> que te abrirá puertas en tu carrera. Además, podrás <span class='text-green-600 font-semibold'>continuar creciendo</span> con nuestras especialidades, diplomados y programas de educación continua. <span class='text-azul-une font-medium'>Una vez UNE, siempre UNE</span> - serás parte de nuestra comunidad de egresados exitosos.",
+    },
+  ],
+};
 
-  function renderQuestions(category) {
-    const container = document.getElementById('faq-content');
-    const questions = faqData[category];
-    
-    container.innerHTML = questions.map(faq => `
-      <div class="border border-gray-200 rounded-lg">
-        <button 
-          class="faq-question w-full px-6 py-4 text-left flex justify-between items-center hover:bg-gray-50 transition-colors"
-          data-question="${faq.question}"
-        >
-          <span class="font-medium text-gray-900 pr-4">${faq.question}</span>
-          <svg class="w-5 h-5 text-gray-500 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-          </svg>
-        </button>
-        <div class="faq-answer hidden px-6 pb-4">
-          <p class="text-gray-600">${faq.answer}</p>
+    let currentOpenQuestion = null;
+
+    function renderQuestions(category) {
+      const container = document.getElementById("faq-content");
+      const questions = faqData[category];
+
+      if (!questions) {
+        container.innerHTML =
+          '<div class="text-center text-gray-500 py-8">No hay preguntas disponibles para esta categoría.</div>';
+        return;
+      }
+
+      container.innerHTML = questions
+        .map(
+          (faq, index) => `
+        <div class="faq-item border border-gray-200 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300">
+          <button 
+            class="faq-question w-full px-6 py-5 text-left flex justify-between items-center hover:bg-gray-50 transition-all duration-200 group"
+            data-index="${index}"
+            aria-expanded="false"
+          >
+            <span class="font-semibold text-gray-900 pr-4 group-hover:text-azul-une transition-colors">${faq.question}</span>
+            <div class="flex-shrink-0">
+              <svg class="faq-icon w-5 h-5 text-gray-400 transition-all duration-300 group-hover:text-azul-une" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </div>
+          </button>
+          <div class="faq-answer overflow-hidden transition-all duration-300 ease-in-out" style="max-height: 0;">
+            <div class="px-6 pb-5">
+              <div class="pt-2 border-t border-gray-100">
+                <p class="text-gray-600 leading-relaxed mt-3">${faq.answer}</p>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
-    `).join('');
+      `
+        )
+        .join("");
 
-    // Añadir event listeners a las preguntas
-    document.querySelectorAll('.faq-question').forEach(question => {
-      question.addEventListener('click', function() {
-        const answer = this.parentElement.querySelector('.faq-answer');
-        const icon = this.querySelector('svg');
-        
-        // Cerrar otras preguntas abiertas
-        document.querySelectorAll('.faq-answer').forEach(otherAnswer => {
-          if (otherAnswer !== answer) {
-            otherAnswer.classList.add('hidden');
-            otherAnswer.parentElement.querySelector('svg').classList.remove('rotate-180');
-          }
-        });
-        
-        // Toggle la pregunta actual
-        answer.classList.toggle('hidden');
-        icon.classList.toggle('rotate-180');
+      // Añadir event listeners optimizados
+      const questionButtons = container.querySelectorAll(".faq-question");
+      questionButtons.forEach((button) => {
+        button.addEventListener("click", handleQuestionClick);
       });
-    });
-  }
+    }
 
-  // Función para inicializar el FAQ
-  function initializeFAQ() {
-    // Inicializar con la primera categoría
-    renderQuestions('inscripciones');
+    function handleQuestionClick(event) {
+      const button = event.currentTarget;
+      const index = button.dataset.index;
+      const answer = button.nextElementSibling;
+      const icon = button.querySelector(".faq-icon");
+      const isExpanded = button.getAttribute("aria-expanded") === "true";
 
-    // Event listeners para los tabs
-    document.querySelectorAll('.tab-button').forEach(button => {
-      button.addEventListener('click', function() {
-        const category = this.dataset.tab;
-        
-        // Actualizar estilos de tabs
-        document.querySelectorAll('.tab-button').forEach(btn => {
-          btn.classList.remove('bg-blue-600', 'text-white');
-          btn.classList.add('bg-gray-200', 'text-gray-700');
-        });
-        
-        this.classList.remove('bg-gray-200', 'text-gray-700');
-        this.classList.add('bg-blue-600', 'text-white');
-        
-        // Renderizar preguntas de la nueva categoría
-        renderQuestions(category);
+      // Cerrar pregunta anterior si hay una abierta
+      if (currentOpenQuestion && currentOpenQuestion !== button) {
+        closeQuestion(currentOpenQuestion);
+      }
+
+      if (isExpanded) {
+        closeQuestion(button);
+        currentOpenQuestion = null;
+      } else {
+        openQuestion(button, answer, icon);
+        currentOpenQuestion = button;
+      }
+    }
+
+    function openQuestion(button, answer, icon) {
+      button.setAttribute("aria-expanded", "true");
+      button.classList.add("bg-azul-une/10");
+      icon.style.transform = "rotate(180deg)";
+
+      // Calcular altura real del contenido
+      const content = answer.querySelector("div");
+      const height = content.offsetHeight;
+      answer.style.maxHeight = height + "px";
+
+      // Scroll suave hacia la pregunta si está fuera de vista
+      setTimeout(() => {
+        const rect = button.getBoundingClientRect();
+        const isVisible = rect.top >= 0 && rect.bottom <= window.innerHeight;
+
+        if (!isVisible) {
+          button.scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+            inline: "nearest",
+          });
+        }
+      }, 150);
+    }
+
+    function closeQuestion(button) {
+      const answer = button.nextElementSibling;
+      const icon = button.querySelector(".faq-icon");
+
+      button.setAttribute("aria-expanded", "false");
+      button.classList.remove("bg-azul-une/10");
+      icon.style.transform = "rotate(0deg)";
+      answer.style.maxHeight = "0";
+    }
+
+    function switchTab(newCategory, clickedButton) {
+      // Actualizar estilos de tabs - remover todas las clases de background posibles
+      document.querySelectorAll(".tab-button").forEach((btn) => {
+        btn.classList.remove(
+          "bg-azul-une",
+          "text-white",
+          "bg-blue-600",
+          "bg-blue-700",
+          "bg-blue-500"
+        );
+        btn.classList.add("bg-gray-200", "text-gray-700");
       });
-    });
-  }
 
-  // Ejecutar cuando el DOM esté listo
-  document.addEventListener('DOMContentLoaded', initializeFAQ);
+      clickedButton.classList.remove(
+        "bg-gray-200",
+        "text-gray-700",
+        "bg-blue-600",
+        "bg-blue-700",
+        "bg-blue-500"
+      );
+      clickedButton.classList.add("bg-azul-une", "text-white");
+
+      // Cerrar pregunta abierta al cambiar de tab
+      if (currentOpenQuestion) {
+        closeQuestion(currentOpenQuestion);
+        currentOpenQuestion = null;
+      }
+
+      // Renderizar nuevas preguntas con pequeña animación
+      const container = document.getElementById("faq-content");
+      container.style.opacity = "0.5";
+
+      setTimeout(() => {
+        renderQuestions(newCategory);
+        container.style.opacity = "1";
+      }, 150);
+    }
+
+    // Inicializar el componente
+    function initializeFAQ() {
+      // Cargar primera categoría
+      renderQuestions("proceso-inscripcion");
+
+      // Event listeners para tabs
+      document.querySelectorAll(".tab-button").forEach((button) => {
+        button.addEventListener("click", function () {
+          const category = this.dataset.tab;
+          switchTab(category, this);
+        });
+      });
+
+      // Cerrar preguntas al hacer clic fuera
+      document.addEventListener("click", function (event) {
+        const faqSection = document.getElementById("faqSection");
+        if (!faqSection.contains(event.target) && currentOpenQuestion) {
+          closeQuestion(currentOpenQuestion);
+          currentOpenQuestion = null;
+        }
+      });
+
+      // Manejar tecla Escape para cerrar preguntas
+      document.addEventListener("keydown", function (event) {
+        if (event.key === "Escape" && currentOpenQuestion) {
+          closeQuestion(currentOpenQuestion);
+          currentOpenQuestion = null;
+        }
+      });
+    }
+
+    // Inicializar cuando todo esté listo
+    initializeFAQ();
+  });
 </script>
 
 <style>
   .faq-answer {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.3s ease;
+    transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   }
-  
-  .faq-answer:not(.hidden) {
-    max-height: 200px;
+
+  .faq-icon {
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .faq-item:hover {
+    transform: translateY(-1px);
+  }
+
+  /* Animaciones para elementos decorativos */
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0px) rotate(12deg);
+    }
+    50% {
+      transform: translateY(-10px) rotate(12deg);
+    }
+  }
+
+  .animate-pulse {
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  .animate-bounce {
+    animation: bounce 1s infinite;
+  }
+
+  /* Responsive mejoras */
+  @media (max-width: 768px) {
+    .tab-button {
+      font-size: 0.875rem;
+      padding: 0.5rem 1rem;
+    }
+
+    .faq-question {
+      padding: 1rem;
+    }
+
+    .faq-answer div {
+      padding: 0 1rem 1rem 1rem;
+    }
+  }
+
+  /* Accesibilidad */
+  @media (prefers-reduced-motion: reduce) {
+    .faq-answer,
+    .faq-icon,
+    .faq-item {
+      transition: none !important;
+    }
+
+    .animate-pulse,
+    .animate-bounce {
+      animation: none !important;
+    }
   }
 </style>
