@@ -1,111 +1,157 @@
 ---
 import { Menu, X, ChevronDown } from "@lucide/astro";
-
 import Logo_UNE from "@logos/UNE_com.webp";
 import UNE_Blanco from "@logos/UNE_blanco.webp";
 import UNE_enlinea from "@logos/UNE_en_linea_blanco.webp";
 import Enjoy from "@logos/Enjoy_english_blanco.webp";
 import VTU from "@logos/VTU_blanco.webp";
-import Clinica from "@logos/Clinica_UNE_blanco.webp";
+
+// Configuración de datos
+const topBarLinks = [
+  { href: "https://www.une-enlinea.com/", img: UNE_enlinea, alt: "UNE en línea" },
+  { href: "/Vivetuuniversidad/General", img: VTU, alt: "Vive tu Universidad" },
+  { href: "https://sites.google.com/universidad-une.com/enjoyenglish", img: Enjoy, alt: "Enjoy English" },
+];
+
+const navItems = [
+  {
+    label: "Admisiones",
+    dropdownClass: "admisiones-dropdown",
+    links: [
+      { href: "/acerca/Admisiones", title: "Admisiones", desc: "Descubre todo sobre el proceso" },
+      { href: "/contacto/formulario-inscripcion", title: "Formulario de inscripción", desc: "Inicia tu proceso de admisión" },
+      { href: "/acerca/PreguntasFrecuentes", title: "Preguntas frecuentes", desc: "Resuelve tus dudas" },
+      { href: "/acerca/Apoyos", title: "Apoyos educativos", desc: "Conoce los apoyos a los cuales puedes acceder" },
+    ]
+  },
+  {
+    label: "Oferta académica",
+    dropdownClass: "oferta-dropdown",
+    customContent: true
+  },
+  {
+    label: "Información escolar",
+    dropdownClass: "informacion-dropdown",
+    links: [
+      { href: "/informacionescolar/serviciosescolares", title: "Servicios escolares", desc: "Inscripciones, constancias y trámites académicos." },
+      { href: "/informacionescolar/Serviciosocial", title: "Servicio social", desc: "Información sobre requisitos, procesos y calendarios oficiales." },
+      { href: "/informacionescolar/Practicasprofesionales", title: "Prácticas profesionales", desc: "Encuentra convenios, formatos y pasos para iniciar tus prácticas." },
+      { href: "/informacionescolar/Bibliotecas", title: "Biblioteca digital", desc: "Consulta libros, revistas y bases de datos académicas en línea." },
+    ]
+  },
+  {
+    label: "Vida estudiantil",
+    dropdownClass: "vida-dropdown",
+    links: [
+      { href: "/vidaestudiantil/General", title: "Comunidad UNE", desc: "Descubre todo lo que es UNE" },
+      { href: "/Vivetuuniversidad/General", title: "Vive tu universidad", desc: "Actividades deportivas" },
+      { href: "/blog/General", title: "Blog", desc: "Descubre sobre nuevos temas," },
+      { href: "/Orgulloune/General", title: "Orgullo UNE", desc: "Conoce los egresados más destacados" },
+      { href: "/Vivetuuniversidad/Congresos", title: "Congresos UNE", desc: "Conoce los egresados más destacados" },
+      { href: "/contacto/atencion-estudiantes", title: "Atención a estudiantes", desc: "Apoyo para tramites o problemas" },
+    ]
+  },
+  {
+    label: "Nosotros",
+    dropdownClass: "nosotros-dropdown",
+    links: [
+      { href: "/planteles/general", title: "Planteles", desc: "Conoce nuestras sedes y su oferta académica." },
+      { href: "/acerca/historia", title: "Historia sobre nosotros", desc: "Descubre nuestra trayectoria y misión educativa." },
+      { href: "/acerca/beneficios", title: "Beneficios permanencia", desc: "Apoyos y servicios que fortalecen tu experiencia." },
+      { href: "/contacto/solicitarinformacion", title: "Contacto", desc: "Canales directos para resolver tus dudas." },
+      { href: "/contacto/solicitarvisita", title: "Agendar una visita", desc: "Explora nuestro campus de forma personalizada." },
+    ]
+  }
+];
+
+// Datos de oferta académica
+const ofertaAcademica = {
+  colegioUNE: [
+    { href: "/oferta/colegio-une/Primaria", title: "Primaria" },
+    { href: "/oferta/colegio-une/Secundaria", title: "Secundaria" },
+  ],
+  medioSuperior: [
+    { href: "/oferta/colegio-une/Bachillerato-sej", title: "Bachillerato Semiescolarizado" },
+    { href: "/oferta/colegio-une/Bachillerato-udg", title: "Bachillerato UDG" },
+    { href: "https://www.une-enlinea.com/bachillerato", title: "Bachillerato Virtual" },
+  ],
+  educacionSuperior: [
+    { href: "/oferta/Licenciaturas", title: "Licenciaturas", desc: "Programas de pregrado" },
+    { href: "/oferta/Maestria", title: "Maestrías", desc: "Posgrado académico y profesional" },
+    { href: "/oferta/Especialidades", title: "Especialidades", desc: "Posgrado corto y especializado" },
+  ],
+  educacionContinua: [
+    { href: "/oferta/Continua", title: "Educación continua", desc: "Cursos para actualizar conocimientos" },
+    { href: "/oferta/Diplomados", title: "Diplomados", desc: "Programas breves sin grado académico" },
+  ]
+};
+
+// Función para determinar el grid columns
+function getGridCols(dropdownClass) {
+  switch(dropdownClass) {
+    case 'admisiones-dropdown': return 'grid-cols-4';
+    case 'informacion-dropdown': return 'grid-cols-4';
+    case 'vida-dropdown': return 'grid-cols-6';
+    case 'nosotros-dropdown': return 'grid-cols-5';
+    default: return 'grid-cols-4';
+  }
+}
 ---
 
-<div
-  class="hidden md:flex w-full h-14 bg-rojo-une items-center justify-end gap-5 px-4 rounded-b-3xl"
->
-  <a href="https://www.une-enlinea.com/">
-    <img src={UNE_enlinea.src} alt="UNE en línea" class="h-12 w-auto" />
-  </a>
+<!-- Preload critical images -->
+<link rel="preload" as="image" href={Logo_UNE.src} />
+<link rel="preload" as="image" href={UNE_Blanco.src} media="(max-width: 768px)" />
 
-  <a href="/ClinicaDentalUne/General">
-    <img src={Clinica.src} alt="Clínica Dental UNE" class="h-12 w-auto" />
-  </a>
-
-  <a href="/Vivetuuniversidad/General">
-    <img src={VTU.src} alt="Vive tu Universidad" class="h-12 w-auto" />
-  </a>
-
-  <a href="https://sites.google.com/universidad-une.com/enjoyenglish">
-    <img src={Enjoy.src} alt="Enjoy English" class="h-12 w-auto" />
-  </a>
+<!-- Top Bar -->
+<div class="hidden md:flex w-full h-14 bg-rojo-une items-center justify-end gap-5 px-4 rounded-b-3xl">
+  {topBarLinks.map(link => (
+    <a href={link.href}>
+      <img 
+        src={link.img.src} 
+        alt={link.alt} 
+        class="h-12 w-auto" 
+        loading="lazy"
+        decoding="async"
+        width="auto"
+        height="48"
+      />
+    </a>
+  ))}
 </div>
 
 <header class="bg-white/50 backdrop-blur-[10.2px] shadow-sm sticky top-0 z-50">
   <div class="w-full">
     <div class="flex items-center justify-between h-24">
+      <!-- Logo -->
       <div class="flex-shrink-0">
         <a href="/">
-          <img src={Logo_UNE.src} alt="UNE" class="h-20 w-auto md:h-14 lg:h-24 lg:border-0" />
+          <img 
+            src={Logo_UNE.src} 
+            alt="UNE" 
+            class="h-20 w-auto md:h-14 lg:h-24 lg:border-0" 
+            width="auto"
+            height="96"
+            decoding="async"
+            fetchpriority="high"
+          />
         </a>
       </div>
 
+      <!-- Desktop Navigation -->
       <nav class="hidden md:flex lg:space-x-4 items-center">
-        <div class="relative group">
-          <button
-            class="flex items-center px-3 py-2 hover:text-red-600 font-bold transition-colors duration-200"
-          >
-            Admisiones
-            <ChevronDown
-              size={16}
-              class="ml-1 transform group-hover:rotate-180 transition-transform duration-200"
-            />
-          </button>
-        </div>
-
-        <div class="relative group">
-          <button
-            class="flex items-center px-3 py-2 hover:text-red-600 font-bold transition-colors duration-200"
-          >
-            Oferta académica
-            <ChevronDown
-              size={16}
-              class="ml-1 transform group-hover:rotate-180 transition-transform duration-200"
-            />
-          </button>
-        </div>
-
-        <div class="relative group">
-          <button
-            class="flex items-center px-3 py-2 hover:text-red-600 font-bold transition-colors duration-200"
-          >
-            Información escolar
-            <ChevronDown
-              size={16}
-              class="ml-1 transform group-hover:rotate-180 transition-transform duration-200"
-            />
-          </button>
-        </div>
-
-        <div class="relative group">
-          <button
-            class="flex items-center px-3 py-2 hover:text-red-600 font-bold transition-colors duration-200"
-          >
-            Vida estudiantil
-            <ChevronDown
-              size={16}
-              class="ml-1 transform group-hover:rotate-180 transition-transform duration-200"
-            />
-          </button>
-        </div>
-
-        <div class="relative group">
-          <button
-            class="flex items-center px-3 py-2 hover:text-red-600 font-bold transition-colors duration-200"
-          >
-            Nosotros
-            <ChevronDown
-              size={16}
-              class="ml-1 transform group-hover:rotate-180 transition-transform duration-200"
-            />
-          </button>
-        </div>
+        {navItems.map((item) => (
+          <div class="relative group">
+            <button class="flex items-center px-3 py-2 hover:text-red-600 font-bold transition-colors duration-200">
+              {item.label}
+              <ChevronDown size={16} class="ml-1 transform group-hover:rotate-180 transition-transform duration-200" />
+            </button>
+          </div>
+        ))}
       </nav>
 
+      <!-- Mobile Menu Button -->
       <div class="md:hidden">
-        <button
-          type="button"
-          class="mobile-menu-button p-2 rounded-md text-blue-900 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500"
-          aria-expanded="false"
-        >
+        <button type="button" class="mobile-menu-button p-2 rounded-md text-blue-900 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500">
           <Menu size={24} stroke-width={2} class="menu-icon" />
           <X size={24} stroke-width={2} class="close-icon hidden" />
         </button>
@@ -113,675 +159,167 @@ import Clinica from "@logos/Clinica_UNE_blanco.webp";
     </div>
   </div>
 
-  <div
-    class="dropdown-menu admisiones-dropdown absolute left-0 right-0 top-full bg-white border-t border-gray-200 shadow-lg opacity-0 invisible transform translate-y-2 transition-all duration-300 ease-out z-50"
-  >
-    <div class="container mx-auto px-4 py-8">
-      <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-6">
-        <a
-          href="/acerca/Admisiones"
-          class="group block p-4 rounded-lg hover:bg-blue-50 transition-colors duration-200"
-        >
-          <h3
-            class="font-semibold text-gray-900 group-hover:text-blue-600 mb-2"
-          >
-            Admisiones
-          </h3>
-          <p class="text-sm text-gray-500">Descubre todo sobre el proceso</p>
-        </a>
-        <a
-          href="/contacto/formulario-inscripcion"
-          class="group block p-4 rounded-lg hover:bg-blue-50 transition-colors duration-200"
-        >
-          <h3
-            class="font-semibold text-gray-900 group-hover:text-blue-600 mb-2"
-          >
-            Formulario de inscripción
-          </h3>
-          <p class="text-sm text-gray-500">Inicia tu proceso de admisión</p>
-        </a>
-
-        <a
-          href="/acerca/PreguntasFrecuentes"
-          class="group block p-4 rounded-lg hover:bg-blue-50 transition-colors duration-200"
-        >
-          <h3
-            class="font-semibold text-gray-900 group-hover:text-blue-600 mb-2"
-          >
-            Preguntas frecuentes
-          </h3>
-          <p class="text-sm text-gray-500">Resuelve tus dudas</p>
-        </a>
-        <a
-          href="/acerca/Apoyos"
-          class="group block p-4 rounded-lg hover:bg-blue-50 transition-colors duration-200"
-        >
-          <h3
-            class="font-semibold text-gray-900 group-hover:text-blue-600 mb-2"
-          >
-            Apoyos educativos
-          </h3>
-          <p class="text-sm text-gray-500">
-            Conoce los apoyos a los cuales puedes acceder
-          </p>
-        </a>
-      </div>
-    </div>
-  </div>
-
-  <div
-    class="dropdown-menu oferta-dropdown absolute left-0 right-0 top-full bg-white border-t border-gray-200 shadow-lg opacity-0 invisible transform translate-y-2 transition-all duration-300 ease-out z-50"
-  >
-   <div class="container mx-auto px-4 py-6">
-                <!-- Sección Colegio UNE -->
-                <div class="mb-6">
-                    <div class="grid grid-cols-1 md:grid-cols-5 gap-3 mb-3">
-                        <!-- Encabezado Colegio UNE ocupa 2 columnas -->
-                        <div class="md:col-span-2">
-                            <h2 class="text-base font-bold text-azul-une mb-3 border-b border-gray-200 pb-1">
-                                Colegio UNE
-                            </h2>
-                        </div>
-                        <!-- Encabezado Medio Superior ocupa 2 columnas y está alineado con bachilleratos -->
-                        <div class="md:col-span-3">
-                            <h2 class="text-base font-bold text-azul-une mb-3 border-b border-gray-200 pb-1">
-                                Medio Superior
-                            </h2>
-                        </div>
-                    </div>
-
-                    <div class="grid grid-cols-1 md:grid-cols-5 gap-3">
-                        <a href="/oferta/colegio-une/Primaria" class="group block p-3 rounded-lg hover:bg-blue-50 transition-colors duration-200">
-                            <h3 class="font-semibold text-gray-900 group-hover:text-blue-600">
-                                Primaria
-                            </h3>
-                        </a>
-                        <a href="/oferta/colegio-une/Secundaria" class="group block p-3 rounded-lg hover:bg-blue-50 transition-colors duration-200">
-                            <h3 class="font-semibold text-gray-900 group-hover:text-blue-600">
-                                Secundaria
-                            </h3>
-                        </a>
-                        <a href="/oferta/colegio-une/Bachillerato-sej" class="group block p-3 rounded-lg hover:bg-blue-50 transition-colors duration-200">
-                            <h3 class="font-semibold text-gray-900 group-hover:text-blue-600">
-                                Bachillerato Semiescolarizado 
-                            </h3>
-                        </a>
-                        <a href="/oferta/colegio-une/Bachillerato-udg" class="group block p-3 rounded-lg hover:bg-blue-50 transition-colors duration-200">
-                            <h3 class="font-semibold text-gray-900 group-hover:text-blue-600">
-                                Bachillerato UDG
-                            </h3>
-                        </a>
-                        <a href="https://www.une-enlinea.com/bachillerato" class="group block p-3 rounded-lg hover:bg-blue-50 transition-colors duration-200">
-                            <h3 class="font-semibold text-gray-900 group-hover:text-blue-600">
-                                Bachillerato Virtual
-                            </h3>
-                        </a>
-                    </div>
+  <!-- Desktop Dropdowns -->
+  {navItems.map(item => (
+    <div class={`dropdown-menu ${item.dropdownClass} absolute left-0 right-0 top-full bg-white border-t border-gray-200 shadow-lg opacity-0 invisible transform translate-y-2 transition-all duration-300 ease-out z-50`}>
+      <div class="container mx-auto px-4 py-6">
+        {item.customContent ? (
+          <!-- Oferta Académica Custom Content -->
+          <div>
+            <div class="mb-6">
+              <div class="grid grid-cols-1 md:grid-cols-5 gap-3 mb-3">
+                <div class="md:col-span-2">
+                  <h2 class="text-base font-bold text-azul-une mb-3 border-b border-gray-200 pb-1">Colegio UNE</h2>
                 </div>
-
-                <!-- Sección Educación Superior -->
-                <div class="mb-6">
-                    <div class="grid grid-cols-1 md:grid-cols-5 gap-4 mb-3">
-                        <!-- Encabezado Educación Superior ocupa 3 columnas -->
-                        <div class="md:col-span-3">
-                            <h2 class="text-base font-bold text-azul-une mb-3 border-b border-gray-200 pb-1">
-                                Educación Superior
-                            </h2>
-                        </div>
-                        <!-- Encabezado Educación Continua ocupa 2 columnas -->
-                        <div class="md:col-span-2">
-                            <h2 class="text-base font-bold text-azul-une mb-3 border-b border-gray-200 pb-1">
-                                Educación Continua
-                            </h2>
-                        </div>
-                    </div>
-
-                    <div class="grid grid-cols-1 md:grid-cols-5 gap-4">
-                        <a href="/oferta/Licenciaturas" class="group block p-3 rounded-lg hover:bg-blue-50 transition-colors duration-200">
-                            <h3 class="font-semibold text-gray-900 group-hover:text-blue-600 mb-1">
-                                Licenciaturas
-                            </h3>
-                            <p class="text-sm text-gray-500">Programas de pregrado</p>
-                        </a>
-                        <a href="/oferta/Maestria" class="group block p-3 rounded-lg hover:bg-blue-50 transition-colors duration-200">
-                            <h3 class="font-semibold text-gray-900 group-hover:text-blue-600 mb-1">
-                                Maestrías
-                            </h3>
-                            <p class="text-sm text-gray-500">Posgrado académico y profesional</p>
-                        </a>
-                        <a href="/oferta/Especialidades" class="group block p-3 rounded-lg hover:bg-blue-50 transition-colors duration-200">
-                            <h3 class="font-semibold text-gray-900 group-hover:text-blue-600 mb-1">
-                                Especialidades
-                            </h3>
-                            <p class="text-sm text-gray-500">Posgrado corto y especializado</p>
-                        </a>
-                        <a href="/oferta/Continua" class="group block p-3 rounded-lg hover:bg-blue-50 transition-colors duration-200">
-                            <h3 class="font-semibold text-gray-900 group-hover:text-blue-600 mb-1">
-                                Educación continua
-                            </h3>
-                            <p class="text-sm text-gray-500">Cursos para actualizar conocimientos</p>
-                        </a>
-                        <a href="/oferta/Diplomados" class="group block p-3 rounded-lg hover:bg-blue-50 transition-colors duration-200">
-                            <h3 class="font-semibold text-gray-900 group-hover:text-blue-600 mb-1">
-                                Diplomados
-                            </h3>
-                            <p class="text-sm text-gray-500">Programas breves sin grado académico</p>
-                        </a>
-                    </div>
+                <div class="md:col-span-3">
+                  <h2 class="text-base font-bold text-azul-une mb-3 border-b border-gray-200 pb-1">Medio Superior</h2>
                 </div>
+              </div>
+              <div class="grid grid-cols-1 md:grid-cols-5 gap-3">
+                {[...ofertaAcademica.colegioUNE, ...ofertaAcademica.medioSuperior].map(link => (
+                  <a href={link.href} class="group block p-3 rounded-lg hover:bg-blue-50 transition-colors duration-200">
+                    <h3 class="font-semibold text-gray-900 group-hover:text-blue-600">{link.title}</h3>
+                  </a>
+                ))}
+              </div>
             </div>
-  </div>
-
-  <div
-    class="dropdown-menu informacion-dropdown absolute left-0 right-0 top-full bg-white border-t border-gray-200 shadow-lg opacity-0 invisible transform translate-y-2 transition-all duration-300 ease-out z-50"
-  >
-    <div class="container mx-auto px-4 py-8">
-      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-        <a
-          href="/informacionescolar/serviciosescolares"
-          class="group block p-4 rounded-lg hover:bg-blue-50 transition-colors duration-200"
-        >
-          <h3
-            class="font-semibold text-gray-900 group-hover:text-blue-600 mb-2"
-          >
-            Servicios escolares
-          </h3>
-          <p class="text-sm text-gray-500">
-            Inscripciones, constancias y trámites académicos.
-          </p>
-        </a>
-
-        <a
-          href="/informacionescolar/Serviciosocial"
-          class="group block p-4 rounded-lg hover:bg-blue-50 transition-colors duration-200"
-        >
-          <h3
-            class="font-semibold text-gray-900 group-hover:text-blue-600 mb-2"
-          >
-            Servicio social
-          </h3>
-          <p class="text-sm text-gray-500">
-            Información sobre requisitos, procesos y calendarios oficiales.
-          </p>
-        </a>
-
-        <a
-          href="/informacionescolar/Practicasprofesionales"
-          class="group block p-4 rounded-lg hover:bg-blue-50 transition-colors duration-200"
-        >
-          <h3
-            class="font-semibold text-gray-900 group-hover:text-blue-600 mb-2"
-          >
-            Prácticas profesionales
-          </h3>
-          <p class="text-sm text-gray-500">
-            Encuentra convenios, formatos y pasos para iniciar tus prácticas.
-          </p>
-        </a>
-
-        <a
-          href="/informacionescolar/Bibliotecas"
-          class="group block p-4 rounded-lg hover:bg-blue-50 transition-colors duration-200"
-        >
-          <h3
-            class="font-semibold text-gray-900 group-hover:text-blue-600 mb-2"
-          >
-            Biblioteca digital
-          </h3>
-          <p class="text-sm text-gray-500">
-            Consulta libros, revistas y bases de datos académicas en línea.
-          </p>
-        </a>
+            <div class="mb-6">
+              <div class="grid grid-cols-1 md:grid-cols-5 gap-4 mb-3">
+                <div class="md:col-span-3">
+                  <h2 class="text-base font-bold text-azul-une mb-3 border-b border-gray-200 pb-1">Educación Superior</h2>
+                </div>
+                <div class="md:col-span-2">
+                  <h2 class="text-base font-bold text-azul-une mb-3 border-b border-gray-200 pb-1">Educación Continua</h2>
+                </div>
+              </div>
+              <div class="grid grid-cols-1 md:grid-cols-5 gap-4">
+                {[...ofertaAcademica.educacionSuperior, ...ofertaAcademica.educacionContinua].map(link => (
+                  <a href={link.href} class="group block p-3 rounded-lg hover:bg-blue-50 transition-colors duration-200">
+                    <h3 class="font-semibold text-gray-900 group-hover:text-blue-600 mb-1">{link.title}</h3>
+                    {link.desc && <p class="text-sm text-gray-500">{link.desc}</p>}
+                  </a>
+                ))}
+              </div>
+            </div>
+          </div>
+        ) : (
+          <div class={'grid ' + getGridCols(item.dropdownClass) + ' gap-4'}>
+            {item.links?.map(link => (
+              <a href={link.href} class="group block p-3 rounded-lg hover:bg-blue-50 transition-colors duration-200">
+                <h3 class="font-semibold text-gray-900 group-hover:text-blue-600 mb-1">{link.title}</h3>
+                {link.desc && <p class="text-sm text-gray-500">{link.desc}</p>}
+              </a>
+            ))}
+          </div>
+        )}
       </div>
     </div>
-  </div>
+  ))}
 
-  <div
-    class="dropdown-menu vida-dropdown absolute left-0 right-0 top-full bg-white border-t border-gray-200 shadow-lg opacity-0 invisible transform translate-y-2 transition-all duration-300 ease-out z-50"
-  >
-    <div class="container mx-auto px-4 py-8">
-      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
-        <a
-          href="/vidaestudiantil/General"
-          class="group block p-4 rounded-lg hover:bg-blue-50 transition-colors duration-200"
-        >
-          <h3
-            class="font-semibold text-gray-900 group-hover:text-blue-600 mb-2"
-          >
-            Comunidad UNE
-          </h3>
-          <p class="text-sm text-gray-500">Descubre todo lo que es UNE</p>
-        </a>
-        <a
-          href="/Vivetuuniversidad/General"
-          class="group block p-4 rounded-lg hover:bg-blue-50 transition-colors duration-200"
-        >
-          <h3
-            class="font-semibold text-gray-900 group-hover:text-blue-600 mb-2"
-          >
-            Vive tu universidad
-          </h3>
-          <p class="text-sm text-gray-500">Actividades deportivas</p>
-        </a>
-        <a
-          href="/blog/General"
-          class="group block p-4 rounded-lg hover:bg-blue-50 transition-colors duration-200"
-        >
-          <h3
-            class="font-semibold text-gray-900 group-hover:text-blue-600 mb-2"
-          >
-            Blog
-          </h3>
-          <p class="text-sm text-gray-500">Descubre sobre nuevos temas,</p>
-        </a>
-
-        <a
-          href="/Orgulloune/General"
-          class="group block p-4 rounded-lg hover:bg-blue-50 transition-colors duration-200"
-        >
-          <h3
-            class="font-semibold text-gray-900 group-hover:text-blue-600 mb-2"
-          >
-            Orgullo UNE
-          </h3>
-          <p class="text-sm text-gray-500">
-            Conoce los egresados más destacados
-          </p>
-        </a>
-        <a
-          href="/Vivetuuniversidad/Congresos"
-          class="group block p-4 rounded-lg hover:bg-blue-50 transition-colors duration-200"
-        >
-          <h3
-            class="font-semibold text-gray-900 group-hover:text-blue-600 mb-2"
-          >
-            Congresos UNE
-          </h3>
-          <p class="text-sm text-gray-500">
-            Conoce los egresados más destacados
-          </p>
-        </a>
-
-        <a
-          href="/contacto/atencion-estudiantes"
-          class="group block p-4 rounded-lg hover:bg-blue-50 transition-colors duration-200"
-        >
-          <h3
-            class="font-semibold text-gray-900 group-hover:text-blue-600 mb-2"
-          >
-            Atención a estudiantes
-          </h3>
-          <p class="text-sm text-gray-500">Apoyo para tramites o problemas</p>
-        </a>
-      </div>
-    </div>
-  </div>
-
-  <div
-    class="dropdown-menu nosotros-dropdown absolute left-0 right-0 top-full bg-white border-t border-gray-200 shadow-lg opacity-0 invisible transform translate-y-2 transition-all duration-300 ease-out z-50"
-  >
-    <div class="container mx-auto px-4 py-8">
-      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
-        <a
-          href="/planteles/general"
-          class="group block p-4 rounded-lg hover:bg-blue-50 transition-colors duration-200"
-        >
-          <h3
-            class="font-semibold text-gray-900 group-hover:text-blue-600 mb-2"
-          >
-            Planteles
-          </h3>
-          <p class="text-sm text-gray-500">
-            Conoce nuestras sedes y su oferta académica.
-          </p>
-        </a>
-
-        <a
-          href="/acerca/historia"
-          class="group block p-4 rounded-lg hover:bg-blue-50 transition-colors duration-200"
-        >
-          <h3
-            class="font-semibold text-gray-900 group-hover:text-blue-600 mb-2"
-          >
-            Historia sobre nosotros
-          </h3>
-          <p class="text-sm text-gray-500">
-            Descubre nuestra trayectoria y misión educativa.
-          </p>
-        </a>
-
-        <a
-          href="/acerca/beneficios"
-          class="group block p-4 rounded-lg hover:bg-blue-50 transition-colors duration-200"
-        >
-          <h3
-            class="font-semibold text-gray-900 group-hover:text-blue-600 mb-2"
-          >
-            Beneficios permanencia
-          </h3>
-          <p class="text-sm text-gray-500">
-            Apoyos y servicios que fortalecen tu experiencia.
-          </p>
-        </a>
-
-        <a
-          href="/contacto/solicitarinformacion"
-          class="group block p-4 rounded-lg hover:bg-blue-50 transition-colors duration-200"
-        >
-          <h3
-            class="font-semibold text-gray-900 group-hover:text-blue-600 mb-2"
-          >
-            Contacto
-          </h3>
-          <p class="text-sm text-gray-500">
-            Canales directos para resolver tus dudas.
-          </p>
-        </a>
-
-        <a
-          href="/contacto/solicitarvisita"
-          class="group block p-4 rounded-lg hover:bg-blue-50 transition-colors duration-200"
-        >
-          <h3
-            class="font-semibold text-gray-900 group-hover:text-blue-600 mb-2"
-          >
-            Agendar una visita
-          </h3>
-          <p class="text-sm text-gray-500">
-            Explora nuestro campus de forma personalizada.
-          </p>
-        </a>
-      </div>
-    </div>
-  </div>
-
-  <div
-    class="mobile-menu fixed inset-0 z-50 opacity-0 invisible transition-opacity duration-300 ease-in-out"
-  >
-    <div
-      class="w-full h-screen bg-azul-une flex transform -translate-x-full transition-transform duration-300 ease-in-out"
-    >
+  <!-- Mobile Menu -->
+  <div class="mobile-menu fixed inset-0 z-50 opacity-0 invisible transition-opacity duration-300 ease-in-out">
+    <div class="w-full h-screen bg-azul-une flex transform -translate-x-full transition-transform duration-300 ease-in-out">
       <div class="w-[75%] h-full flex flex-col">
         <div class="flex items-center justify-between p-4 absolute w-full">
-          <img src={UNE_Blanco.src} alt="UNE" class="h-20 w-auto" />
-          <button
-            type="button"
-            class="close-menu-button p-2 text-white hover:bg-blue-800 rounded-md"
-          >
+          <!-- Logo blanco pre-cargado para móvil -->
+          <img 
+            src={UNE_Blanco.src}
+            alt="UNE" 
+            class="h-20 w-auto mobile-logo" 
+            width="auto"
+            height="80"
+            loading="lazy"
+            decoding="async"
+          />
+          <button type="button" class="close-menu-button p-2 text-white hover:bg-blue-800 rounded-md">
             <X size={32} />
           </button>
         </div>
 
         <nav class="flex-1 p-4 overflow-y-auto mt-40">
           <div class="mb-4">
-            <a
-              href="/"
-              class="menu-section flex items-center justify-between w-full text-left text-white font-bold py-3 px-2 hover:bg-blue-800 rounded-md transition-colors duration-200"
-            >
+            <a href="/" class="menu-section flex items-center justify-between w-full text-left text-white font-bold py-3 px-2 hover:bg-blue-800 rounded-md transition-colors duration-200">
               <span class="font-bold text-lg tracking-wide">INICIO</span>
             </a>
           </div>
 
-          <div class="mb-4">
-            <button
-              class="menu-section flex items-center justify-between w-full text-left text-white font-bold py-3 px-2 hover:bg-blue-800 rounded-md transition-colors duration-200"
-            >
-              <span class="font-bold text-lg tracking-wide">ADMISIONES</span>
-              <ChevronDown
-                size={20}
-                class="chevron transform transition-transform duration-200"
-              />
-            </button>
-            <div class="submenu hidden ml-4 mt-2 space-y-1">
-              <a
-                href="/acerca/Admisiones"
-                class="block text-gray-300 py-2 px-2 text-sm hover:text-white hover:bg-blue-800 rounded"
-                >Admisiones</a
-              >
-
-              <a
-                href="/contacto/formulario-inscripcion"
-                class="block text-gray-300 py-2 px-2 text-sm hover:text-white hover:bg-blue-800 rounded"
-                >Formulario De inscripción</a
-              >
-
-              <a
-                href="/acerca/PreguntasFrecuentes"
-                class="block text-gray-300 py-2 px-2 text-sm hover:text-white hover:bg-blue-800 rounded"
-                >Preguntas frecuentes</a
-              >
-
-              <a
-                href="/acerca/Apoyos"
-                class="block text-gray-300 py-2 px-2 text-sm hover:text-white hover:bg-blue-800 rounded"
-                >Apoyos educativos</a
-              >
-            </div>
-          </div>
-
-          <div class="mb-4">
-            <button
-              class="menu-section flex items-center justify-between w-full text-left text-white font-bold py-3 px-2 hover:bg-blue-800 rounded-md transition-colors duration-200"
-            >
-              <span class="text-lg tracking-wide">OFERTA ACADÉMICA</span>
-              <ChevronDown
-                size={20}
-                class="chevron transform transition-transform duration-200"
-              />
-            </button>
-            <div class="submenu hidden ml-4 mt-2 space-y-1">
-              <!-- Sección Colegio UNE -->
-              <div class="mb-2">
-                <h3 class="text-gray-300 font-semibold py-2 px-2 text-sm">
-                  Colegio UNE
-                </h3>
-                <div class="ml-2 space-y-1">
-                  <a
-                    href="/oferta/colegio-une/Primaria"
-                    class="block text-gray-300 py-2 px-2 text-sm hover:text-white hover:bg-blue-800 rounded"
-                    >Primaria</a
-                  >
-                  <a
-                    href="/oferta/colegio-une/Secundaria"
-                    class="block text-gray-300 py-2 px-2 text-sm hover:text-white hover:bg-blue-800 rounded"
-                    >Secundaria</a
-                  >
-                  <a
-                    href="/oferta/colegio-une/Bachillerato-sej"
-                    class="block text-gray-300 py-2 px-2 text-sm hover:text-white hover:bg-blue-800 rounded"
-                    >Bachillerato SEJ</a
-                  >
-                  <a
-                    href="/oferta/colegio-une/Bachillerato-udg"
-                    class="block text-gray-300 py-2 px-2 text-sm hover:text-white hover:bg-blue-800 rounded"
-                    >Bachillerato UDG</a
-                  >
-                </div>
-              </div>
-
-              <!-- Sección Educación Superior -->
-              <div>
-                <h3 class="text-gray-300 font-semibold py-2 px-2 text-sm">
-                  Educación Superior
-                </h3>
-                <div class="ml-2 space-y-1">
-                  <a
-                    href="/oferta/Licenciaturas"
-                    class="block text-gray-300 py-2 px-2 text-sm hover:text-white hover:bg-blue-800 rounded"
-                    >Licenciaturas</a
-                  >
-                  <a
-                    href="/oferta/Maestria"
-                    class="block text-gray-300 py-2 px-2 text-sm hover:text-white hover:bg-blue-800 rounded"
-                    >Maestrías</a
-                  >
-                  <a
-                    href="/oferta/Doctorados"
-                    class="block text-gray-300 py-2 px-2 text-sm hover:text-white hover:bg-blue-800 rounded"
-                    >Doctorados</a
-                  >
-                  <a
-                    href="/oferta/Continua"
-                    class="block text-gray-300 py-2 px-2 text-sm hover:text-white hover:bg-blue-800 rounded"
-                    >Educación Continua</a
-                  >
-                  <a
-                    href="/oferta/Diplomados"
-                    class="block text-gray-300 py-2 px-2 text-sm hover:text-white hover:bg-blue-800 rounded"
-                    >Diplomados</a
-                  >
-                </div>
+          {navItems.map(item => (
+            <div class="mb-4">
+              <button class="menu-section-button flex items-center justify-between w-full text-left text-white font-bold py-3 px-2 hover:bg-blue-800 rounded-md transition-colors duration-200">
+                <span class="font-bold text-lg tracking-wide">{item.label.toUpperCase()}</span>
+                <ChevronDown size={20} class="chevron transform transition-transform duration-200" />
+              </button>
+              <div class="submenu hidden ml-4 mt-2 space-y-1">
+                {item.customContent ? (
+                  <!-- Mobile Oferta Académica -->
+                  <>
+                    <div class="mb-2">
+                      <h3 class="text-gray-300 font-semibold py-2 px-2 text-sm">Colegio UNE</h3>
+                      <div class="ml-2 space-y-1">
+                        {ofertaAcademica.colegioUNE.map(link => (
+                          <a href={link.href} class="block text-gray-300 py-2 px-2 text-sm hover:text-white hover:bg-blue-800 rounded">
+                            {link.title}
+                          </a>
+                        ))}
+                      </div>
+                    </div>
+                    <div class="mb-2">
+                      <h3 class="text-gray-300 font-semibold py-2 px-2 text-sm">Medio Superior</h3>
+                      <div class="ml-2 space-y-1">
+                        {ofertaAcademica.medioSuperior.map(link => (
+                          <a href={link.href} class="block text-gray-300 py-2 px-2 text-sm hover:text-white hover:bg-blue-800 rounded">
+                            {link.title}
+                          </a>
+                        ))}
+                      </div>
+                    </div>
+                    <div class="mb-2">
+                      <h3 class="text-gray-300 font-semibold py-2 px-2 text-sm">Educación Superior</h3>
+                      <div class="ml-2 space-y-1">
+                        {ofertaAcademica.educacionSuperior.map(link => (
+                          <a href={link.href} class="block text-gray-300 py-2 px-2 text-sm hover:text-white hover:bg-blue-800 rounded">
+                            {link.title}
+                          </a>
+                        ))}
+                      </div>
+                    </div>
+                    <div>
+                      <h3 class="text-gray-300 font-semibold py-2 px-2 text-sm">Educación Continua</h3>
+                      <div class="ml-2 space-y-1">
+                        {ofertaAcademica.educacionContinua.map(link => (
+                          <a href={link.href} class="block text-gray-300 py-2 px-2 text-sm hover:text-white hover:bg-blue-800 rounded">
+                            {link.title}
+                          </a>
+                        ))}
+                      </div>
+                    </div>
+                  </>
+                ) : (
+                  item.links?.map(link => (
+                    <a href={link.href} class="block text-gray-300 py-2 px-2 text-sm hover:text-white hover:bg-blue-800 rounded">
+                      {link.title}
+                    </a>
+                  ))
+                )}
               </div>
             </div>
-          </div>
-
-          <div class="mb-4">
-            <button
-              class="menu-section flex items-center justify-between w-full text-left text-white font-bold py-3 px-2 hover:bg-blue-800 rounded-md transition-colors duration-200"
-            >
-              <span class="text-lg tracking-wide">INFORMACIÓN ESCOLAR</span>
-              <ChevronDown
-                size={20}
-                class="chevron transform transition-transform duration-200"
-              />
-            </button>
-            <div class="submenu hidden ml-4 mt-2 space-y-1">
-              <a
-                href="#"
-                class="block text-gray-300 py-2 px-2 text-sm hover:text-white hover:bg-blue-800 rounded"
-                >Calendario Académico</a
-              >
-              <a
-                href="#"
-                class="block text-gray-300 py-2 px-2 text-sm hover:text-white hover:bg-blue-800 rounded"
-                >Horarios</a
-              >
-              <a
-                href="#"
-                class="block text-gray-300 py-2 px-2 text-sm hover:text-white hover:bg-blue-800 rounded"
-                >Reglamentos</a
-              >
-              <a
-                href="#"
-                class="block text-gray-300 py-2 px-2 text-sm hover:text-white hover:bg-blue-800 rounded"
-                >Servicios Escolares</a
-              >
-              <a
-                href="#"
-                class="block text-gray-300 py-2 px-2 text-sm hover:text-white hover:bg-blue-800 rounded"
-                >Biblioteca</a
-              >
-              <a
-                href="#"
-                class="block text-gray-300 py-2 px-2 text-sm hover:text-white hover:bg-blue-800 rounded"
-                >Plataformas Digitales</a
-              >
-            </div>
-          </div>
-
-          <div class="mb-4">
-            <button
-              class="menu-section flex items-center justify-between w-full text-left text-white font-bold py-3 px-2 hover:bg-blue-800 rounded-md transition-colors duration-200"
-            >
-              <span class="text-lg tracking-wide">VIDA ESTUDIANTIL</span>
-              <ChevronDown
-                size={20}
-                class="chevron transform transition-transform duration-200"
-              />
-            </button>
-            <div class="submenu hidden ml-4 mt-2 space-y-1">
-              <a
-                href="#"
-                class="block text-gray-300 py-2 px-2 text-sm hover:text-white hover:bg-blue-800 rounded"
-                >Actividades Extracurriculares</a
-              >
-              <a
-                href="#"
-                class="block text-gray-300 py-2 px-2 text-sm hover:text-white hover:bg-blue-800 rounded"
-                >Deportes</a
-              >
-              <a
-                href="#"
-                class="block text-gray-300 py-2 px-2 text-sm hover:text-white hover:bg-blue-800 rounded"
-                >Cultura y Arte</a
-              >
-              <a
-                href="#"
-                class="block text-gray-300 py-2 px-2 text-sm hover:text-white hover:bg-blue-800 rounded"
-                >Grupos Estudiantiles</a
-              >
-              <a
-                href="#"
-                class="block text-gray-300 py-2 px-2 text-sm hover:text-white hover:bg-blue-800 rounded"
-                >Eventos</a
-              >
-              <a
-                href="#"
-                class="block text-gray-300 py-2 px-2 text-sm hover:text-white hover:bg-blue-800 rounded"
-                >Voluntariado</a
-              >
-            </div>
-          </div>
-
-          <div class="mb-4">
-            <button
-              class="menu-section flex items-center justify-between w-full text-left text-white font-bold py-3 px-2 hover:bg-blue-800 rounded-md transition-colors duration-200"
-            >
-              <span class="text-lg tracking-wide">NOSOTROS</span>
-              <ChevronDown
-                size={20}
-                class="chevron transform transition-transform duration-200"
-              />
-            </button>
-            <div class="submenu hidden ml-4 mt-2 space-y-1">
-              <a
-                href="#"
-                class="block text-gray-300 py-2 px-2 text-sm hover:text-white hover:bg-blue-800 rounded"
-                >Historia</a
-              >
-              <a
-                href="#"
-                class="block text-gray-300 py-2 px-2 text-sm hover:text-white hover:bg-blue-800 rounded"
-                >Misión y Visión</a
-              >
-              <a
-                href="#"
-                class="block text-gray-300 py-2 px-2 text-sm hover:text-white hover:bg-blue-800 rounded"
-                >Valores</a
-              >
-              <a
-                href="#"
-                class="block text-gray-300 py-2 px-2 text-sm hover:text-white hover:bg-blue-800 rounded"
-                >Directorio</a
-              >
-              <a
-                href="#"
-                class="block text-gray-300 py-2 px-2 text-sm hover:text-white hover:bg-blue-800 rounded"
-                >Campus</a
-              >
-              <a
-                href="#"
-                class="block text-gray-300 py-2 px-2 text-sm hover:text-white hover:bg-blue-800 rounded"
-                >Acreditaciones</a
-              >
-              <a
-                href="#"
-                class="block text-gray-300 py-2 px-2 text-sm hover:text-white hover:bg-blue-800 rounded"
-                >Transparencia</a
-              >
-            </div>
-          </div>
+          ))}
         </nav>
       </div>
 
       <div class="w-[25%] h-full flex items-center justify-center">
-        <div
-          class="w-full h-[70dvh] bg-rojo-une flex flex-col items-center justify-center gap-5 space-y-4 px-4 rounded-l-2xl"
-        >
-          <img src={UNE_enlinea.src} alt="UNE" class="h-20 w-auto" />
-          <img src={Clinica.src} alt="UNE" class="h-20 w-auto" />
-          <img src={VTU.src} alt="UNE" class="h-20 w-auto" />
-          <img src={Enjoy.src} alt="UNE" class="h-20 w-auto" />
+        <div class="w-full h-[70dvh] bg-rojo-une flex flex-col items-center justify-center gap-5 space-y-4 px-4 rounded-l-2xl">
+          {topBarLinks.map(link => (
+            <img 
+              src={link.img.src} 
+              alt={link.alt} 
+              class="h-20 w-auto" 
+              loading="lazy"
+              decoding="async"
+              width="auto"
+              height="80"
+            />
+          ))}
         </div>
       </div>
     </div>
@@ -797,113 +335,80 @@ import Clinica from "@logos/Clinica_UNE_blanco.webp";
   const closeIcon = document.querySelector(".close-icon");
   const menuContainer = mobileMenu?.querySelector("div:first-child");
 
-  function openMenu() {
-    mobileMenu?.classList.remove("opacity-0", "invisible"); // Hace el contenedor visible y opaco
-    mobileMenu?.classList.add("opacity-100", "visible"); // Añade la clase visible
-    menuContainer?.classList.remove("-translate-x-full"); // Inicia el deslizamiento
-    menuIcon?.classList.add("hidden");
-    closeIcon?.classList.remove("hidden");
-    document.body.style.overflow = "hidden";
+  function toggleMenu(open) {
+    if (open) {
+      mobileMenu?.classList.remove("opacity-0", "invisible");
+      mobileMenu?.classList.add("opacity-100", "visible");
+      menuContainer?.classList.remove("-translate-x-full");
+      menuIcon?.classList.add("hidden");
+      closeIcon?.classList.remove("hidden");
+      document.body.style.overflow = "hidden";
+    } else {
+      menuContainer?.classList.add("-translate-x-full");
+      setTimeout(() => {
+        mobileMenu?.classList.remove("opacity-100", "visible");
+        mobileMenu?.classList.add("opacity-0", "invisible");
+        menuIcon?.classList.remove("hidden");
+        closeIcon?.classList.add("hidden");
+        document.body.style.overflow = "";
+      }, 300);
+    }
   }
 
-  function closeMenu() {
-    menuContainer?.classList.add("-translate-x-full"); // Inicia el deslizamiento de salida
-    // Espera a que termine la transición de deslizamiento antes de ocultar el menú completamente
-    setTimeout(() => {
-      mobileMenu?.classList.remove("opacity-100", "visible"); // Hace el contenedor transparente
-      mobileMenu?.classList.add("opacity-0", "invisible"); // Oculta el contenedor
-      menuIcon?.classList.remove("hidden");
-      closeIcon?.classList.add("hidden");
-      document.body.style.overflow = "";
-    }, 300); // Este timeout debe coincidir con la duración de la transición (duration-300)
-  }
-
-  mobileMenuButton?.addEventListener("click", openMenu);
-  closeMenuButton?.addEventListener("click", closeMenu);
+  mobileMenuButton?.addEventListener("click", () => toggleMenu(true));
+  closeMenuButton?.addEventListener("click", () => toggleMenu(false));
 
   // Desktop dropdown functionality
   const navItems = document.querySelectorAll("nav .group");
   const dropdowns = document.querySelectorAll(".dropdown-menu");
-
-  // Map navigation items to their corresponding dropdowns
-  const dropdownMap = {
-    0: "admisiones-dropdown",
-    1: "oferta-dropdown",
-    2: "informacion-dropdown",
-    3: "vida-dropdown",
-    4: "nosotros-dropdown",
-  };
+  const dropdownMap = ["admisiones-dropdown", "oferta-dropdown", "informacion-dropdown", "vida-dropdown", "nosotros-dropdown"];
 
   navItems.forEach((item, index) => {
     const dropdown = document.querySelector(`.${dropdownMap[index]}`);
+    if (!dropdown) return;
 
-    if (dropdown) {
-      let hoverTimeout;
-
-      // Show dropdown on hover
-      item.addEventListener("mouseenter", () => {
-        clearTimeout(hoverTimeout);
-
-        // Hide all other dropdowns
-        dropdowns.forEach((d) => {
-          if (d !== dropdown) {
-            d.classList.remove("opacity-100", "visible");
-            d.classList.add("opacity-0", "invisible");
-          }
-        });
-
-        // Show current dropdown
-        dropdown.classList.remove("opacity-0", "invisible", "translate-y-2");
-        dropdown.classList.add("opacity-100", "visible", "translate-y-0");
+    let hoverTimeout;
+    const showDropdown = () => {
+      clearTimeout(hoverTimeout);
+      dropdowns.forEach(d => {
+        const isCurrentDropdown = d === dropdown;
+        d.classList.toggle("opacity-100", isCurrentDropdown);
+        d.classList.toggle("visible", isCurrentDropdown);
+        d.classList.toggle("opacity-0", !isCurrentDropdown);
+        d.classList.toggle("invisible", !isCurrentDropdown);
+        d.classList.toggle("translate-y-0", isCurrentDropdown);
+        d.classList.toggle("translate-y-2", !isCurrentDropdown);
       });
+    };
 
-      // Hide dropdown when leaving nav item
-      item.addEventListener("mouseleave", () => {
-        hoverTimeout = setTimeout(() => {
-          dropdown.classList.remove("opacity-100", "visible", "translate-y-0");
-          dropdown.classList.add("opacity-0", "invisible", "translate-y-2");
-        }, 100);
-      });
-
-      // Keep dropdown open when hovering over it
-      dropdown.addEventListener("mouseenter", () => {
-        clearTimeout(hoverTimeout);
-      });
-
-      // Hide dropdown when leaving dropdown
-      dropdown.addEventListener("mouseleave", () => {
+    const hideDropdown = () => {
+      hoverTimeout = setTimeout(() => {
         dropdown.classList.remove("opacity-100", "visible", "translate-y-0");
         dropdown.classList.add("opacity-0", "invisible", "translate-y-2");
-      });
-    }
+      }, 100);
+    };
+
+    item.addEventListener("mouseenter", showDropdown);
+    item.addEventListener("mouseleave", hideDropdown);
+    dropdown.addEventListener("mouseenter", () => clearTimeout(hoverTimeout));
+    dropdown.addEventListener("mouseleave", hideDropdown);
   });
 
-  // Mobile submenu functionality
-  const menuSections = document.querySelectorAll(".menu-section");
-
-  menuSections.forEach((section) => {
+  // Mobile submenu functionality - Selector corregido
+  document.querySelectorAll(".menu-section-button").forEach(section => {
     section.addEventListener("click", () => {
       const submenu = section.nextElementSibling;
       const chevron = section.querySelector(".chevron");
-
-      if (submenu?.classList.contains("hidden")) {
-        submenu.classList.remove("hidden");
-        chevron?.classList.add("rotate-180");
-      } else {
-        submenu?.classList.add("hidden");
-        chevron?.classList.remove("rotate-180");
-      }
+      submenu?.classList.toggle("hidden");
+      chevron?.classList.toggle("rotate-180");
     });
   });
 
   // Close menu on escape key
-  document.addEventListener("keydown", (e) => {
+  document.addEventListener("keydown", e => {
     if (e.key === "Escape") {
-      if (!mobileMenu?.classList.contains("hidden")) {
-        closeMenu();
-      }
-      // Also close desktop dropdowns
-      dropdowns.forEach((dropdown) => {
+      toggleMenu(false);
+      dropdowns.forEach(dropdown => {
         dropdown.classList.remove("opacity-100", "visible", "translate-y-0");
         dropdown.classList.add("opacity-0", "invisible", "translate-y-2");
       });
