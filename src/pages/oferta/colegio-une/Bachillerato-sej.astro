@@ -1,9 +1,9 @@
 ---
 import Layout from "@/layouts/Layout.astro";
-import Hero from "@/assets/Imagenes/Heros/BIS.jpg";
-import Hero_mobile from "@/assets/Imagenes/Heros/BIS_mobile.jpg";
-import ImagenCard from "@/assets/Imagenes/CardsNiveles/BIS.png";
-import LogoCard from "@/assets/Logos/Sicyt2.png";
+import Hero from "@/assets/Imagenes/Heros/BIS.webp";
+import Hero_mobile from "@/assets/Imagenes/Heros/BIS_mobile.webp";
+import ImagenCard from "@/assets/Imagenes/CardsNiveles/BIS.webp";
+import LogoCard from "@/assets/Logos/Sicyt2.webp";
 import InformativeCard from "@components/sections/detallesOferta/card.astro";
 import Planteles from "@components/sections/detallesOferta/planteles.astro";
 import Costos from "@components/sections/detallesOferta/costos.astro";
@@ -13,7 +13,7 @@ import Perfiles from "@/components/sections/detallesOferta/perfiles.astro";
 import FAQComponent from "@/components/sections/detallesOferta/preguntas.astro";
 import CTAinscripcion from "@/components/sections/shared/ctaInscripcion.astro";
 import { Calendar, UserPlus, Phone } from "@lucide/astro";
-import { crearPlantelesUniformes } from "@helpers/planteles";
+import { crearPlantelesUniformes } from "@/helpers/planteles"
 const nombresPlanteles = [
   "Centro",
   "Centro Médico",
@@ -35,7 +35,7 @@ const planteles = [
     direccion: "Av. República No.10, Col. San Juan de Dios",
     ciudad: "Guadalajara ZMG",
     url: "/planteles/centro",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/Centro.jpg",
+    imagen: "/src/assets/Imagenes/CardsPlanteles/Centro.webp",
     lat: 20.67744801539995,
     lon: -103.34031672627513,
   },
@@ -45,7 +45,7 @@ const planteles = [
     direccion: "José María Lozano #1077, Col. Belisario Domínguez",
     ciudad: "Guadalajara ZMG",
     url: "/planteles/centro-medico",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/CentroMedico.jpg",
+    imagen: "/src/assets/Imagenes/CardsPlanteles/CentroMedico.webp",
     lat: 20.684590788642307,
     lon: -103.3256397932448,
   },
@@ -55,7 +55,7 @@ const planteles = [
     direccion: "Av. López Mateos Sur #4154, Col. La Giralda",
     ciudad: "Guadalajara ZMG",
     url: "/planteles/milenio",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/Milenio.jpg",
+    imagen: "/src/assets/Imagenes/CardsPlanteles/Milenio.webp",
     lat: 20.64540739939039,
     lon: -103.40630313415286,
   },
@@ -65,7 +65,7 @@ const planteles = [
     direccion: "Blvd. Fco. Medina Ascencio #2180, Col. Díaz Ordaz",
     ciudad: "Puerto Vallarta",
     url: "/planteles/plaza-caracol",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/PuertoVallarta.png",
+    imagen: "/src/assets/Imagenes/CardsPlanteles/PuertoVallarta.webp",
     lat: 20.639287162026815,
     lon: -105.23323589513319,
   },
@@ -75,7 +75,7 @@ const planteles = [
     direccion: "Av. López Mateos #10100, Col. Los Gavilanes Poniente",
     ciudad: "Guadalajara ZMG",
     url: "/planteles/tlajomulco",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/Tlajomulco.png",
+    imagen: "/src/assets/Imagenes/CardsPlanteles/Tlajomulco.webp",
     lat: 20.576464164603113,
     lon: -103.45243680650722,
   },
@@ -85,7 +85,7 @@ const planteles = [
     direccion: "Av. Juan Gil Preciado #3897, Col. Hogares de Nuevo México",
     ciudad: "Guadalajara ZMG",
     url: "/planteles/tesistan",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/Tesistan.png",
+    imagen: "/src/assets/Imagenes/CardsPlanteles/Tesistan.webp",
     lat: 20.806203,
     lon: -102.763903,
   },
@@ -95,7 +95,7 @@ const planteles = [
     direccion: "Calle Dr. Ricardo Alcalá #505, Av. Matamoros, Centro",
     ciudad: "Tepatitlán de Morelos",
     url: "/planteles/tepatitlan",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/Tepatitlan.jpg",
+    imagen: "/src/assets/Imagenes/CardsPlanteles/Tepatitlan.webp",
     lat: 20.8062946507024,
     lon: -102.76382902869392,
   },
@@ -106,7 +106,7 @@ const planteles = [
       "Blvd. Marcelino García Barragán #2056, Col. Bosques del Boulevard",
     ciudad: "Guadalajara ZMG",
     url: "/planteles/tlaquepaque",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/Tlaquepaque.jpg",
+    imagen: "/src/assets/Imagenes/CardsPlanteles/Tlaquepaque.webp",
     lat: 20.645650028567157,
     lon: -103.32094530771215,
   },
@@ -116,7 +116,7 @@ const planteles = [
     direccion: "Av. Tonaltecas #333, Col. Agua Escondida",
     ciudad: "Guadalajara ZMG",
     url: "/planteles/tonala",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/Tonala.png",
+    imagen: "/src/assets/Imagenes/CardsPlanteles/Tonala.webp",
     lat: 20.63176692188573,
     lon: -103.24439406488241,
   },
@@ -126,7 +126,7 @@ const planteles = [
     direccion: "Av. Vallarta #1458, Col. Americana",
     ciudad: "Guadalajara ZMG",
     url: "/planteles/chapultepec",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/Chapultepec.png",
+    imagen: "/src/assets/Imagenes/CardsPlanteles/Chapultepec.webp",
     lat: 20.67471004174908,
     lon: -103.36909119392195,
   },
@@ -136,7 +136,7 @@ const planteles = [
     direccion: "Plaza Caudillos",
     ciudad: "Guadalajara ZMG",
     url: "/planteles/zapopan",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/Zapopan.png",
+    imagen: "/src/assets/Imagenes/CardsPlanteles/Zapopan.webp",
     lat: 20.720900646775917,
     lon: -103.38975281813357,
   },
@@ -161,19 +161,19 @@ const costosData = {
       id: "1",
       nombre: "Falda",
       precio: 510,
-      imagen: "/src/assets/Imagenes/Uniformes/Falda.png",
+      imagen: "/src/assets/Imagenes/Uniformes/Falda.webp",
     },
     {
       id: "2",
       nombre: "Blusa",
       precio: 320,
-      imagen: "/src/assets/Imagenes/Uniformes/Falda.png",
+      imagen: "/src/assets/Imagenes/Uniformes/Falda.webp",
     },
     {
       id: "3",
       nombre: "Suéter",
       precio: 450,
-      imagen: "/src/assets/Imagenes/Uniformes/Falda.png",
+      imagen: "/src/assets/Imagenes/Uniformes/Falda.webp",
     },
   ],
 };

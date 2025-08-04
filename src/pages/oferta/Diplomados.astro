@@ -1,11 +1,10 @@
 ---
 import Layout from "@/layouts/Layout.astro";
-import Hero from "@/assets/Imagenes/Heros/Licenciaturas_gral.jpg";
-import Hero_mobile from "@/assets/Imagenes/Heros/Licenciaturas_gral_mobile.jpg";
-import ImagenCard from "@/assets/Imagenes/CardsNiveles/Nivel.png";
-import LogoCard from "@/assets/Logos/Licenciatura.png";
+import Hero from "@/assets/Imagenes/Heros/Diplomados.webp";
+import Hero_mobile from "@/assets/Imagenes/Heros/Diplomados_mobile.webp";
+import ImagenCard from "@/assets/Imagenes/CardsNiveles/Nivel.webp";
+import LogoCard from "@/assets/Logos/Licenciatura.webp";
 import InformativeCard from "@components/sections/detallesOferta/card.astro";
-import Carreras from "@components/sections/Licenciaturas/Carreras.astro";
 import Estadisticas from "@components/sections/Licenciaturas/Estadisticas.astro";
 
 import Requisitos from "@/components/sections/detallesOferta/requisitos.astro";
@@ -17,16 +16,22 @@ import { Calendar, UserPlus, Phone } from "@lucide/astro";
 
 const requisitosInfo = {
   items: [
-    "Acta de nacimiento (en buen estado)",
-    "Certificado de secundaria y carta validación del mismo",
-    "Ocho fotografías tamaño infantil blanco y negro de estudio",
-    "Una fotografía tamaño credencial a color",
-    "CURP",
-    "Comprobante de domicilio",
-    "Todos los documentos originales y 3 copias",
+    "Acta de nacimiento original, con fecha de expedición reciente (no mayor a 3 meses).",
+    "Certificado total de licenciatura.",
+    "CURP.",
+    "Constancia de validación del certificado.",
+    "Copia de título y cédula profesional.",
+    "Ocho fotografías tamaño infantil, blanco y negro, de estudio, con ropa clara, impresas en papel mate.",
+    "Identificación oficial con fotografía (INE, IFE o pasaporte vigente).",
+    "Comprobante de domicilio con antigüedad no mayor a 3 meses.",
+    "Certificado parcial de licenciatura (solo si se aspira a grado superior).",
+    "Resolución de equivalencia emitida por la Secretaría de Innovación, Ciencia y Tecnología (solo si se aspira a grado superior).",
+    "Tres copias de cada documento presentado.",
   ],
-  pdfUrl: "/public/pdfs/Bachillerato_req.pdf",
+ 
+  pdfUrl: "/public/pdfs/Posgrado_req.pdf"
 };
+
 
 
 const faqs = [
@@ -157,27 +162,96 @@ const faqs = [
       </div>
     </div>
 
-    <InformativeCard
-      logoSrc={LogoCard.src}
-      studentImageSrc={ImagenCard.src}
-      title="LICENCIATURAS PARA PROFESIONALES"
-      description="Nuestras licenciaturas UNE te proporcionan la especialización necesaria para desarrollarte como un profesional competitivo."
-      additionalText="Con programas incorporados tanto a la Universidad de Guadalajara como al Sistema de Créditos de Institutos Tecnológicos, obtienes la flexibilidad de elegir la ruta académica que mejor se adapte a tus objetivos profesionales"
-      features={[
-        { icon: "CalendarDays", label: "Sesiones presenciales" },
-        { icon: "BookOpen", label: "Estudio guiado" },
-        { icon: "School", label: "Validez oficial" },
-        { icon: "Clock", label: "Horarios flexibles" },
-        { icon: "BookmarkCheck", label: "Preparación universitaria" },
-      ]}
-    />
+  <InformativeCard
+  logoSrc={LogoCard.src}
+  studentImageSrc={ImagenCard.src}
+  title="DIPLOMADOS ESPECIALIZADOS"
+  description="Nuestros diplomados UNE te brindan conocimientos especializados y actualizados para potenciar tu desarrollo profesional."
+  additionalText="Con programas diseñados por expertos de la industria y validados académicamente, obtienes certificación que respalda tu expertise en áreas clave del mercado laboral actual"
+  features={[
+    { icon: "CalendarDays", label: "Clases intensivas" },
+    { icon: "BookOpen", label: "Casos prácticos" },
+    { icon: "Award", label: "Certificación especializada" },
+    { icon: "Clock", label: "Modalidad ejecutiva" },
+    { icon: "TrendingUp", label: "Actualización profesional" },
+  ]}
+/>
 
-    <Carreras/>
+    <div class="flex flex-wrap justify-center gap-5">
+        
+        <!-- Card 1: Diplomado en Nóminas -->
+        <div class="bg-white rounded-2xl shadow-lg overflow-hidden w-80 relative">
+            <!-- Imagen -->
+            <div class="relative h-48">
+                <img src="/src/assets/Imagenes/CardsDiplomados/Nominas.webp" alt="Diplomado en Nóminas" class="w-full h-full object-cover">
+                
+            </div>
+            
+            <!-- Contenido de la card -->
+            <div class="p-6">
+                <h3 class="text-xl font-bold text-gray-900 mb-3 leading-tight">
+                    Diplomado en Nóminas, Impuestos y Seguro Social
+                </h3>
+                
+                <p class="text-gray-600 text-sm leading-relaxed mb-5">
+                    Especialízate en el manejo integral de nóminas, cálculo de impuestos y gestión del seguro social. Domina las herramientas esenciales para la administración de recursos humanos.
+                </p>
+                
+                <!-- Tags -->
+                <div class="flex flex-wrap gap-2 mb-5">
+                   
+                </div>
+                
+                <!-- Botones -->
+                <div class="space-y-2.5">
+                   
+                    <button class="w-full border border-red-500 text-red-500 hover:bg-red-500 hover:text-white font-semibold py-3 px-5 rounded-lg transition-colors duration-200">
+                        Más información
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 2: Diplomado en Comunicación -->
+        <div class="bg-white rounded-2xl shadow-lg overflow-hidden w-80 relative">
+            <!-- Imagen -->
+            <div class="relative h-48">
+                <img src="/src/assets/Imagenes/CardsDiplomados/Comunicacion.webp" alt="Diplomado en Comunicación" class="w-full h-full object-cover">
+                <!-- Badge SICYT -->
+                
+            </div>
+            
+            <!-- Contenido de la card -->
+            <div class="p-6">
+                <h3 class="text-xl font-bold text-gray-900 mb-3 leading-tight">
+                    Diplomado en Comunicación Efectiva y Técnicas de Negociación
+                </h3>
+                
+                <p class="text-gray-600 text-sm leading-relaxed mb-5">
+                    Desarrolla habilidades avanzadas de comunicación y domina técnicas de negociación exitosa. Perfecciona tu capacidad de influencia y liderazgo profesional.
+                </p>
+                
+                <!-- Tags -->
+                <div class="flex flex-wrap gap-2 mb-5">
+                    
+                </div>
+                
+                <!-- Botones -->
+                <div class="space-y-2.5">
+                   
+                    <button class="w-full border border-red-500 text-red-500 hover:bg-red-500 hover:text-white font-semibold py-3 px-5 rounded-lg transition-colors duration-200">
+                        Más información
+                    </button>
+                </div>
+            </div>
+        </div>
+
+    </div>
 
     <Estadisticas/>
 
     
-    <Requisitos nivel="Bachillerato" requisitos={requisitosInfo} />
+    <Requisitos nivel="Diplomados" requisitos={requisitosInfo} />
 
 
     
