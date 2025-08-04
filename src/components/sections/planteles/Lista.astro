@@ -2,13 +2,12 @@
 // CampusFinder.astro
 import { CircleArrowRight, MapPin, Search, X } from "@lucide/astro";
 
-// Interfaces sin cambios
 export interface Plantel {
   id: string;
   nombre: string;
   direccion: string;
   ciudad: string;
-  horario: string;
+  codigo: string;
   url: string;
   imagen: string;
   lat: number;
@@ -31,28 +30,15 @@ const {
   placeholder = "Buscar por nombre o ciudad...",
 } = Astro.props;
 
-// Lógica de servidor sin cambios
 const ciudadesDisponibles =
   ciudades.length > 0
     ? ciudades.filter((ciudad) => planteles.some((p) => p.ciudad === ciudad))
     : [...new Set(planteles.map((p) => p.ciudad))];
 
 const soloUnPlantel = planteles.length === 1;
-
-// Pasamos los datos al cliente a través de atributos data-*
-const componentProps = {
-  planteles,
-  soloUnPlantel,
-  placeholder,
-};
 ---
 
-<div
-  id="campus-finder-wrapper"
-  class="w-full mx-auto py-6 px-4 sm:px-6 md:px-12"
-  client:load
-  data-props={JSON.stringify(componentProps)}
->
+<div class="w-full mx-auto py-6 px-4 sm:px-6 md:px-12">
   <div class="flex justify-between items-center mb-8 flex-wrap gap-4">
     <div>
       <h1 class="text-3xl font-bold text-gray-800">{titulo}</h1>
@@ -99,11 +85,7 @@ const componentProps = {
     !soloUnPlantel && (
       <div class="flex gap-2 mb-6">
         <div class="relative">
-          {" "}
-          {/* Agregado relative aquí */}
           <div class="w-[400px] relative">
-            {" "}
-            {/* Agregado relative aquí también */}
             <Search class="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
             <input
               type="text"
@@ -124,11 +106,6 @@ const componentProps = {
             id="autocomplete-dropdown"
             class="absolute top-full left-0 w-[400px] bg-white border border-gray-200 rounded-xl shadow-lg z-50 max-h-60 overflow-y-auto hidden mt-1"
           >
-            {/* Cambios importantes:
-              - Removido right-0 y agregado w-[400px] para que coincida con el ancho del input
-              - Agregado mt-1 para separación visual
-              - El contenedor padre ahora tiene position relative
-          */}
           </div>
           <div
             id="no-results-message"
@@ -139,15 +116,15 @@ const componentProps = {
         </div>
 
         <button
-          class="px-4 py-2 rounded-full text-sm font-medium transition-colors"
-          data-ciudad-tab="todos"
+          class="px-4 py-2 rounded-full text-sm font-medium transition-colors ciudad-tab active"
+          data-ciudad="todos"
         >
           Todos
         </button>
         {ciudadesDisponibles.map((ciudad) => (
           <button
-            class="px-4 py-2 rounded-full text-sm font-medium transition-colors"
-            data-ciudad-tab={ciudad}
+            class="px-4 py-2 rounded-full text-sm font-medium transition-colors ciudad-tab"
+            data-ciudad={ciudad}
           >
             {ciudad}
           </button>
@@ -164,10 +141,12 @@ const componentProps = {
       planteles.map((plantel) => (
         <div
           class="bg-white max-w-[550px] rounded-3xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 campus-card"
-          data-ciudad-card={plantel.ciudad}
-          data-plantel-id={plantel.id}
-          data-plantel-nombre={plantel.nombre.toLowerCase()}
-          data-plantel-direccion={plantel.direccion.toLowerCase()}
+          data-ciudad={plantel.ciudad}
+          data-id={plantel.id}
+          data-nombre={plantel.nombre.toLowerCase()}
+          data-direccion={plantel.direccion.toLowerCase()}
+          data-lat={plantel.lat}
+          data-lon={plantel.lon}
         >
           <div class="flex flex-col">
             <div class="w-full h-64 flex-shrink-0 overflow-hidden">
@@ -188,8 +167,6 @@ const componentProps = {
                       {plantel.ciudad}
                     </span>
                   </div>
-
-                  <span class="text-sm text-gray-600">{plantel.horario}</span>
                 </div>
 
                 <h3 class="text-4xl font-light text-gray-900 mb-3">
@@ -232,10 +209,12 @@ const componentProps = {
             <li class="splide__slide">
               <div
                 class="bg-white rounded-3xl shadow-lg overflow-hidden transition-all duration-300 campus-card h-full"
-                data-ciudad-card={plantel.ciudad}
-                data-plantel-id={plantel.id}
-                data-plantel-nombre={plantel.nombre.toLowerCase()}
-                data-plantel-direccion={plantel.direccion.toLowerCase()}
+                data-ciudad={plantel.ciudad}
+                data-id={plantel.id}
+                data-nombre={plantel.nombre.toLowerCase()}
+                data-direccion={plantel.direccion.toLowerCase()}
+                data-lat={plantel.lat}
+                data-lon={plantel.lon}
               >
                 <div class="flex flex-col h-full">
                   <div class="w-full h-48 rounded-t-3xl overflow-hidden">
@@ -254,20 +233,18 @@ const componentProps = {
                         stroke="currentColor"
                         viewBox="0 0 24 24"
                       >
-                        <>
-                          <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                            d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-                          />
-                          <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                            d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
-                          />
-                        </>
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                        />
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+                        />
                       </svg>
                       <span class="text-sm text-gray-600 uppercase tracking-wide">
                         {plantel.ciudad}
@@ -297,6 +274,188 @@ const componentProps = {
     </div>
   </div>
 </div>
+
+<script>
+// JavaScript que se ejecuta en el cliente
+document.addEventListener('DOMContentLoaded', function() {
+  // Datos de planteles (se pueden pasar desde el servidor si es necesario)
+  const searchInput = document.getElementById('campus-search-input');
+  const clearBtn = document.getElementById('clear-search-btn');
+  const dropdown = document.getElementById('autocomplete-dropdown');
+  const noResultsMessage = document.getElementById('no-results-message');
+  const cityTabs = document.querySelectorAll('.ciudad-tab');
+  const campusCards = document.querySelectorAll('.campus-card');
+  const findNearestBtn = document.getElementById('find-nearest-btn');
+  const nearestResult = document.getElementById('nearest-campus-result');
+
+  // Funcionalidad de búsqueda
+  if (searchInput) {
+    searchInput.addEventListener('input', function(e) {
+      const searchTerm = e.target.value.toLowerCase().trim();
+      
+      if (searchTerm.length > 0) {
+        clearBtn.style.opacity = '1';
+        filterCampuses(searchTerm);
+      } else {
+        clearBtn.style.opacity = '0';
+        showAllCampuses();
+        hideDropdown();
+      }
+    });
+  }
+
+  // Botón de limpiar búsqueda
+  if (clearBtn) {
+    clearBtn.addEventListener('click', function() {
+      searchInput.value = '';
+      clearBtn.style.opacity = '0';
+      showAllCampuses();
+      hideDropdown();
+    });
+  }
+
+  // Filtros por ciudad
+  cityTabs.forEach(tab => {
+    tab.addEventListener('click', function() {
+      // Remover clase active de todos los tabs
+      cityTabs.forEach(t => t.classList.remove('active'));
+      this.classList.add('active');
+      
+      const ciudad = this.dataset.ciudad;
+      filterByCiudad(ciudad);
+    });
+  });
+
+  // Función para filtrar campus
+  function filterCampuses(searchTerm) {
+    let hasResults = false;
+    
+    campusCards.forEach(card => {
+      const nombre = card.dataset.nombre;
+      const direccion = card.dataset.direccion;
+      const ciudad = card.dataset.ciudad?.toLowerCase();
+      
+      if (nombre.includes(searchTerm) || 
+          direccion.includes(searchTerm) || 
+          ciudad.includes(searchTerm)) {
+        card.style.display = 'block';
+        hasResults = true;
+      } else {
+        card.style.display = 'none';
+      }
+    });
+    
+    if (!hasResults) {
+      noResultsMessage.classList.remove('hidden');
+    } else {
+      noResultsMessage.classList.add('hidden');
+    }
+  }
+
+  // Función para mostrar todos los campus
+  function showAllCampuses() {
+    campusCards.forEach(card => {
+      card.style.display = 'block';
+    });
+    noResultsMessage.classList.add('hidden');
+  }
+
+  // Función para filtrar por ciudad
+  function filterByCiudad(ciudad) {
+    if (ciudad === 'todos') {
+      showAllCampuses();
+      return;
+    }
+    
+    campusCards.forEach(card => {
+      if (card.dataset.ciudad === ciudad) {
+        card.style.display = 'block';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+  }
+
+  // Ocultar dropdown
+  function hideDropdown() {
+    if (dropdown) {
+      dropdown.classList.add('hidden');
+    }
+  }
+
+  // Funcionalidad para encontrar el más cercano
+  if (findNearestBtn) {
+    findNearestBtn.addEventListener('click', function() {
+      if (navigator.geolocation) {
+        nearestResult.textContent = 'Obteniendo tu ubicación...';
+        
+        navigator.geolocation.getCurrentPosition(function(position) {
+          const userLat = position.coords.latitude;
+          const userLon = position.coords.longitude;
+          
+          let nearestCampus = null;
+          let minDistance = Infinity;
+          
+          campusCards.forEach(card => {
+            const lat = parseFloat(card.dataset.lat);
+            const lon = parseFloat(card.dataset.lon);
+            const distance = calculateDistance(userLat, userLon, lat, lon);
+            
+            if (distance < minDistance) {
+              minDistance = distance;
+              nearestCampus = {
+                nombre: card.querySelector('h3').textContent,
+                distancia: distance.toFixed(1)
+              };
+            }
+          });
+          
+          if (nearestCampus) {
+            nearestResult.textContent = `Tu plantel más cercano es ${nearestCampus.nombre} (${nearestCampus.distancia} km)`;
+          }
+        }, function(error) {
+          nearestResult.textContent = 'No se pudo obtener tu ubicación';
+        });
+      } else {
+        nearestResult.textContent = 'Tu navegador no soporta geolocalización';
+      }
+    });
+  }
+
+  // Función para calcular distancia entre dos puntos
+  function calculateDistance(lat1, lon1, lat2, lon2) {
+    const R = 6371; // Radio de la Tierra en km
+    const dLat = (lat2 - lat1) * Math.PI / 180;
+    const dLon = (lon2 - lon1) * Math.PI / 180;
+    const a = Math.sin(dLat/2) * Math.sin(dLat/2) +
+              Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) *
+              Math.sin(dLon/2) * Math.sin(dLon/2);
+    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+    return R * c;
+  }
+
+  // Estilos para los tabs activos
+  const style = document.createElement('style');
+  style.textContent = `
+    .ciudad-tab.active {
+      background-color: #dc2626;
+      color: white;
+    }
+    .ciudad-tab {
+      background-color: #f3f4f6;
+      color: #374151;
+    }
+    .ciudad-tab:hover {
+      background-color: #e5e7eb;
+    }
+    .ciudad-tab.active:hover {
+      background-color: #b91c1c;
+    }
+  `;
+  document.head.appendChild(style);
+});
+</script>
+
 
 <style>
   .bg-rojo-une {
