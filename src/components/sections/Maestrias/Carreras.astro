@@ -1,5 +1,6 @@
 ---
-import { programasEducativos } from "@helpers/estructura_educativa_maestria.js";
+// Importar del archivo principal estructura_educativa.js (no del específico de maestría)
+import { programasEducativos } from "@helpers/estructura_educativa.js";
 
 // Función para obtener la primera imagen disponible de los planteles
 function getPrimeraImagenDePlanteles(planteles) {
@@ -25,17 +26,17 @@ function getColorBadge(incorporacion) {
   }
 }
 
-// Convertir a array de licenciaturas
-const licenciaturas = [];
+// Convertir a array de maestrías
+const maestrias = [];
 
-if (programasEducativos.Licenciaturas) {
-  Object.entries(programasEducativos.Licenciaturas).forEach(
+if (programasEducativos.Maestrias) {
+  Object.entries(programasEducativos.Maestrias).forEach(
     ([area, programas]) => {
       Object.entries(programas).forEach(([nombrePrograma, datosPrograma]) => {
         const planteles = datosPrograma.planteles || datosPrograma;
         const imagen = getPrimeraImagenDePlanteles(planteles);
 
-        licenciaturas.push({
+        maestrias.push({
           nombre: nombrePrograma,
           area: area,
           planteles: planteles,
@@ -56,17 +57,17 @@ function getDescripcionFromPlanteles(planteles) {
     }
   }
   // Si no encuentra descripción, retorna una genérica
-  return "Programa educativo de nivel licenciatura";
+  return "Programa educativo de nivel maestría";
 }
 
-// Procesar datos de licenciaturas
-const carreras = licenciaturas.map((licenciatura, index) => {
-  const planteles = Object.keys(licenciatura.planteles);
+// Procesar datos de maestrías
+const carreras = maestrias.map((maestria, index) => {
+  const planteles = Object.keys(maestria.planteles);
   const todasLasModalidades = [];
   const todasLasIncorporaciones = [];
 
   // Extraer todas las modalidades e incorporaciones
-  Object.values(licenciatura.planteles).forEach((plantelInfo) => {
+  Object.values(maestria.planteles).forEach((plantelInfo) => {
     plantelInfo.forEach((info) => {
       if (!todasLasModalidades.includes(info.modalidad)) {
         todasLasModalidades.push(info.modalidad);
@@ -78,22 +79,22 @@ const carreras = licenciaturas.map((licenciatura, index) => {
   });
 
   // Usar la imagen tal como viene, o el nombre del programa como fallback
-  const imagenNombre = licenciatura.imagen || licenciatura.nombre;
+  const imagenNombre = maestria.imagen || maestria.nombre;
 
   // Obtener el color para el badge principal (primera incorporación)
   const colorBadge = getColorBadge(todasLasIncorporaciones[0]);
 
   return {
     id: index + 1,
-    nombre: `Lic. en ${licenciatura.nombre}`,
-    descripcion: getDescripcionFromPlanteles(licenciatura.planteles),
-    area: licenciatura.area,
+    nombre: `${maestria.nombre}`,
+    descripcion: getDescripcionFromPlanteles(maestria.planteles),
+    area: maestria.area,
     imagen: imagenNombre, // Mantener la imagen sin cambios
-    categoria: licenciatura.area,
+    categoria: maestria.area,
     incorporacion: todasLasIncorporaciones.join(", "),
     modalidad: todasLasModalidades.join(", "),
     colorBadge: colorBadge, // Agregar color del badge
-    slug: licenciatura.nombre
+    slug: maestria.nombre
       .toLowerCase()
       .replace(/\s+/g, "_")
       .replace(/[áéíóúñ]/g, (match) => {
@@ -102,26 +103,21 @@ const carreras = licenciaturas.map((licenciatura, index) => {
       }),
     planteles: planteles,
     plantelesDisponibles: planteles.length,
-    plantelesDetalle: licenciatura.planteles,
+    plantelesDetalle: maestria.planteles,
   };
 });
 
-  const areas = [
-  "Todas",
-  "ADMINISTRACIÓN Y NEGOCIOS",
-  "DERECHO Y CIENCIAS JURÍDICAS", 
-  "EDUCACIÓN",
-  "SALUD Y CIENCIAS MÉDICAS",
-  "PSICOLOGÍA Y CIENCIAS SOCIALES",
-];
+// Obtener todas las áreas únicas de maestrías
+const areasUnicas = [...new Set(maestrias.map(maestria => maestria.area))];
+const areas = ["Todas", ...areasUnicas.sort()];
 
 export { carreras, areas };
 ---
 
 <div class="lg:max-w-9/12 mx-auto llg:px-4 py-8">
   <div class="mb-8">
-    <h1 class="text-3xl font-bold text-gray-900 mb-2">ÁREAS DE CONOCIMIENTO</h1>
-    <p class="text-gray-600">Encuentra tu área de especialización</p>
+    <h1 class="text-3xl font-bold text-gray-900 mb-2">MAESTRÍAS</h1>
+    <p class="text-gray-600">Encuentra tu posgrado ideal</p>
   </div>
 
   <!-- Buscador con autocomplete -->
@@ -129,7 +125,7 @@ export { carreras, areas };
     <input
       type="text"
       id="search-input"
-      placeholder="Buscar maestrias"
+      placeholder="Buscar maestrías"
       class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
       autocomplete="off"
     />
@@ -148,7 +144,7 @@ export { carreras, areas };
         <button
           class={`tab-button px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-colors ${
             index === 0
-              ? "bg-blue-600 text-white"
+              ? "bg-green-600 text-white"
               : "bg-gray-200 text-gray-700 hover:bg-gray-300"
           }`}
           data-area={area}
@@ -176,7 +172,7 @@ export { carreras, areas };
               <div class="relative">
                 <div class="h-48 flex items-center justify-center">
                   <img
-                    src={`/src/assets/Imagenes/CardsMaestrias/${carrera.imagen}.jpg`}
+                    src={`/src/assets/Imagenes/CardsMaestrias/${carrera.imagen}.webp`}
                     alt={carrera.imagen}
                     class="w-full h-full object-cover"
                   />
@@ -186,6 +182,7 @@ export { carreras, areas };
                 >
                   {carrera.incorporacion.split(", ")[0]}
                 </div>
+               
               </div>
               <div class="p-6">
                 <h3 class="mb-2">{carrera.nombre}</h3>
@@ -219,7 +216,7 @@ export { carreras, areas };
                     Ver planteles
                   </button>
                   <a
-                    href={`/oferta/licenciaturas/${carrera.slug}`}
+                    href={`/oferta/maestrias/${carrera.slug}`}
                     class="w-full border border-red-500 text-red-500 py-2 px-4 rounded font-medium hover:bg-red-50 transition-colors block text-center"
                   >
                     Más información
@@ -289,9 +286,7 @@ export { carreras, areas };
 <script define:vars={{ carreras }}>
   document.addEventListener("DOMContentLoaded", function () {
     const searchInput = document.getElementById("search-input");
-    const autocompleteDropdown = document.getElementById(
-      "autocomplete-dropdown"
-    );
+    const autocompleteDropdown = document.getElementById("autocomplete-dropdown");
     const tabButtons = document.querySelectorAll(".tab-button");
     const careerCards = document.querySelectorAll(".career-card");
     const showMoreBtn = document.getElementById("show-more-btn");
@@ -396,13 +391,13 @@ export { carreras, areas };
       button.addEventListener("click", function () {
         // Remover clase activa de todos los botones
         tabButtons.forEach((btn) => {
-          btn.classList.remove("bg-blue-600", "text-white");
+          btn.classList.remove("bg-green-600", "text-white");
           btn.classList.add("bg-gray-200", "text-gray-700");
         });
 
         // Activar botón seleccionado
         this.classList.remove("bg-gray-200", "text-gray-700");
-        this.classList.add("bg-blue-600", "text-white");
+        this.classList.add("bg-green-600", "text-white");
 
         // Actualizar área actual
         currentArea = this.getAttribute("data-area");
@@ -568,7 +563,6 @@ export { carreras, areas };
 
 <style>
   /* Estilos para el scroll personalizado */
-
   #cards-container::-webkit-scrollbar-track {
     background: #f1f1f1;
     border-radius: 3px;

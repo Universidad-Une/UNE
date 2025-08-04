@@ -1,5 +1,5 @@
 ---
-import { programasEducativos } from "@helpers/estructura_educativa_maestria.js";
+import { programasEducativos } from "@helpers/estructura_educativa.js";
 
 // Función para obtener la primera imagen disponible de los planteles
 function getPrimeraImagenDePlanteles(planteles) {
@@ -25,17 +25,17 @@ function getColorBadge(incorporacion) {
   }
 }
 
-// Convertir a array de licenciaturas
-const licenciaturas = [];
+// Convertir a array de especialidades
+const especialidades = [];
 
-if (programasEducativos.Licenciaturas) {
-  Object.entries(programasEducativos.Licenciaturas).forEach(
+if (programasEducativos.Especialidades) {
+  Object.entries(programasEducativos.Especialidades).forEach(
     ([area, programas]) => {
       Object.entries(programas).forEach(([nombrePrograma, datosPrograma]) => {
         const planteles = datosPrograma.planteles || datosPrograma;
         const imagen = getPrimeraImagenDePlanteles(planteles);
 
-        licenciaturas.push({
+        especialidades.push({
           nombre: nombrePrograma,
           area: area,
           planteles: planteles,
@@ -56,17 +56,17 @@ function getDescripcionFromPlanteles(planteles) {
     }
   }
   // Si no encuentra descripción, retorna una genérica
-  return "Programa educativo de nivel licenciatura";
+  return "Programa educativo de especialidad";
 }
 
-// Procesar datos de licenciaturas
-const carreras = licenciaturas.map((licenciatura, index) => {
-  const planteles = Object.keys(licenciatura.planteles);
+// Procesar datos de especialidades
+const carreras = especialidades.map((especialidad, index) => {
+  const planteles = Object.keys(especialidad.planteles);
   const todasLasModalidades = [];
   const todasLasIncorporaciones = [];
 
   // Extraer todas las modalidades e incorporaciones
-  Object.values(licenciatura.planteles).forEach((plantelInfo) => {
+  Object.values(especialidad.planteles).forEach((plantelInfo) => {
     plantelInfo.forEach((info) => {
       if (!todasLasModalidades.includes(info.modalidad)) {
         todasLasModalidades.push(info.modalidad);
@@ -78,22 +78,22 @@ const carreras = licenciaturas.map((licenciatura, index) => {
   });
 
   // Usar la imagen tal como viene, o el nombre del programa como fallback
-  const imagenNombre = licenciatura.imagen || licenciatura.nombre;
+  const imagenNombre = especialidad.imagen || especialidad.nombre;
 
   // Obtener el color para el badge principal (primera incorporación)
   const colorBadge = getColorBadge(todasLasIncorporaciones[0]);
 
   return {
     id: index + 1,
-    nombre: `Lic. en ${licenciatura.nombre}`,
-    descripcion: getDescripcionFromPlanteles(licenciatura.planteles),
-    area: licenciatura.area,
+    nombre: `${especialidad.nombre}`,
+    descripcion: getDescripcionFromPlanteles(especialidad.planteles),
+    area: especialidad.area,
     imagen: imagenNombre, // Mantener la imagen sin cambios
-    categoria: licenciatura.area,
+    categoria: especialidad.area,
     incorporacion: todasLasIncorporaciones.join(", "),
     modalidad: todasLasModalidades.join(", "),
     colorBadge: colorBadge, // Agregar color del badge
-    slug: licenciatura.nombre
+    slug: especialidad.nombre
       .toLowerCase()
       .replace(/\s+/g, "_")
       .replace(/[áéíóúñ]/g, (match) => {
@@ -102,25 +102,20 @@ const carreras = licenciaturas.map((licenciatura, index) => {
       }),
     planteles: planteles,
     plantelesDisponibles: planteles.length,
-    plantelesDetalle: licenciatura.planteles,
+    plantelesDetalle: especialidad.planteles,
   };
 });
 
-  const areas = [
-  "Todas",
-  "ADMINISTRACIÓN Y NEGOCIOS",
-  "DERECHO Y CIENCIAS JURÍDICAS", 
-  "EDUCACIÓN",
-  "SALUD Y CIENCIAS MÉDICAS",
-  "PSICOLOGÍA Y CIENCIAS SOCIALES",
-];
+// Obtener todas las áreas únicas de especialidades
+const areasUnicas = [...new Set(especialidades.map(especialidad => especialidad.area))];
+const areas = ["Todas", ...areasUnicas.sort()];
 
 export { carreras, areas };
 ---
 
 <div class="lg:max-w-9/12 mx-auto llg:px-4 py-8">
   <div class="mb-8">
-    <h1 class="text-3xl font-bold text-gray-900 mb-2">ÁREAS DE CONOCIMIENTO</h1>
+    <h1 class="text-3xl font-bold text-gray-900 mb-2">ESPECIALIDADES</h1>
     <p class="text-gray-600">Encuentra tu área de especialización</p>
   </div>
 
@@ -129,7 +124,7 @@ export { carreras, areas };
     <input
       type="text"
       id="search-input"
-      placeholder="Buscar maestrias"
+      placeholder="Buscar especialidades"
       class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
       autocomplete="off"
     />
@@ -176,7 +171,7 @@ export { carreras, areas };
               <div class="relative">
                 <div class="h-48 flex items-center justify-center">
                   <img
-                    src={`/src/assets/Imagenes/CardsMaestrias/${carrera.imagen}.jpg`}
+                    src={`/src/assets/Imagenes/CardsMaestrias/${carrera.imagen}.webp`}
                     alt={carrera.imagen}
                     class="w-full h-full object-cover"
                   />
@@ -185,6 +180,10 @@ export { carreras, areas };
                   class={`absolute top-4 right-4 ${carrera.colorBadge} text-white px-2 py-1 rounded text-xs font-semibold`}
                 >
                   {carrera.incorporacion.split(", ")[0]}
+                </div>
+                <!-- Badge de especialidad -->
+                <div class="absolute top-4 left-4 bg-purple-600 text-white px-2 py-1 rounded text-xs font-semibold">
+                  ESP
                 </div>
               </div>
               <div class="p-6">
@@ -219,7 +218,7 @@ export { carreras, areas };
                     Ver planteles
                   </button>
                   <a
-                    href={`/oferta/licenciaturas/${carrera.slug}`}
+                    href={`/oferta/especialidades/${carrera.slug}`}
                     class="w-full border border-red-500 text-red-500 py-2 px-4 rounded font-medium hover:bg-red-50 transition-colors block text-center"
                   >
                     Más información
@@ -289,9 +288,7 @@ export { carreras, areas };
 <script define:vars={{ carreras }}>
   document.addEventListener("DOMContentLoaded", function () {
     const searchInput = document.getElementById("search-input");
-    const autocompleteDropdown = document.getElementById(
-      "autocomplete-dropdown"
-    );
+    const autocompleteDropdown = document.getElementById("autocomplete-dropdown");
     const tabButtons = document.querySelectorAll(".tab-button");
     const careerCards = document.querySelectorAll(".career-card");
     const showMoreBtn = document.getElementById("show-more-btn");
@@ -568,7 +565,6 @@ export { carreras, areas };
 
 <style>
   /* Estilos para el scroll personalizado */
-
   #cards-container::-webkit-scrollbar-track {
     background: #f1f1f1;
     border-radius: 3px;
