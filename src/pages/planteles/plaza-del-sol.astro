@@ -1,11 +1,9 @@
 ﻿---
 import Layout from "@/layouts/Layout.astro";
-import Card from "@/assets/Imagenes/CardPlantelesInterior/Campus.webp";
 import { obtenerProgramasPorPlantel } from "@helpers/estructura_educativa";
-const programas = obtenerProgramasPorPlantel("CHAPULTEPEC");
+const programas = obtenerProgramasPorPlantel("PLAZA DEL SOL");
 import {Phone, Clock1, MapPin } from "@lucide/astro";
 import Carreradeplantel from "@/components/sections/planteles/Carreradeplantel.astro";
-import Instalaciones from "@/components/sections/planteles/Instalaciones.astro";
 import CtaVisita from "@/components/sections/planteles/ctaVisita.astro";
 ---
 
@@ -284,7 +282,8 @@ import CtaVisita from "@/components/sections/planteles/ctaVisita.astro";
     <Carreradeplantel
       titulo="Nuestras Carreras Profesionales"
       descripcion="Descubre nuestra amplia oferta académica diseñada para formar líderes en diferentes áreas del conocimiento"
-      carreras={carrerasData}
+      programas={programas}
+      itemsPerPage={10}
     />
 
 
