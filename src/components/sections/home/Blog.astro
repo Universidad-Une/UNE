@@ -1,121 +1,239 @@
 ---
 // BlogScaleSection.astro
+import blogBackground from "src/assets/Imagenes/Middles/Blog_mid.webp";
 ---
 
 <!-- Sección principal escalable -->
-<section class="relative min-h-89 flex items-center justify-center pt-8">
+<section
+  class="relative min-h-[89vh] flex items-center justify-center pt-8"
+  id="blogSection"
+>
   <!-- Elemento escalable con fondo -->
-  <div 
+  <div
     id="scalingElement"
-    class="relative w-full mx-auto px-6 pt-12 pb-12 text-center text-white will-change-transform transition-transform duration-75 ease-out bg-cover bg-center bg-no-repeat rounded-t-2xl"
-    style="transform: scale(0.8); background-image: url('/src/assets/Imagenes/Middles/blog.jpg');"
+    class="relative w-full mx-auto px-6 pt-16 pb-16 text-center text-white will-change-transform transition-transform duration-75 ease-out bg-cover bg-center bg-no-repeat rounded-t-2xl shadow-2xl"
+    style={`transform: scale(0.8); background-image: url('${blogBackground.src}');`}
   >
+    <!-- Overlay para mejorar legibilidad -->
+    <div class="absolute inset-0 bg-black/30 rounded-t-2xl"></div>
+
     <!-- Contenido del blog -->
-    <div class="mb-6">
-      <a 
-        href="/blog" 
-        class="inline-flex items-center gap-2 text-sm font-medium opacity-90 hover:opacity-100 transition-opacity"
+    <div class="relative z-10">
+      <div class="mb-8">
+        <a
+          href="/blog"
+          class="inline-flex items-center gap-2 text-sm font-medium opacity-90 hover:opacity-100 transition-all duration-300 hover:gap-3 group"
+        >
+          <span>Ver todo el blog</span>
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            class="inline-block transition-transform duration-300 group-hover:translate-x-1"
+          >
+            <path
+              d="M5 12h14M12 5l7 7-7 7"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"></path>
+          </svg>
+        </a>
+      </div>
+
+      <h2
+        class="text-4xl md:text-5xl lg:text-6xl font-bold mb-8 leading-tight bg-gradient-to-r from-white to-gray-200 bg-clip-text text-transparent"
       >
-        Ver todo el blog
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" class="inline-block">
-          <path 
-            d="M5 12h14M12 5l7 7-7 7" 
-            stroke="currentColor" 
-            stroke-width="2" 
-            stroke-linecap="round" 
-            stroke-linejoin="round"
-          />
-        </svg>
-      </a>
+        Explora nuestro blog
+      </h2>
+
+      <p
+        class="text-lg md:text-xl lg:text-2xl mb-12 max-w-4xl mx-auto leading-relaxed opacity-95 font-light"
+      >
+        Mantente al día con las últimas tendencias educativas, consejos para
+        estudiantes, historias de éxito y contenido exclusivo que te ayudará en
+        tu camino académico y profesional.
+      </p>
+
+      <!-- Estadísticas rápidas -->
+      <div class="flex flex-wrap justify-center gap-8 mb-12">
+        <div class="text-center">
+          <div class="text-2xl md:text-3xl font-bold mb-1">25+</div>
+          <div class="text-sm opacity-80">Publicaciones</div>
+        </div>
+        <div class="text-center">
+          <div class="text-2xl md:text-3xl font-bold mb-1">10k+</div>
+          <div class="text-sm opacity-80">Lectores</div>
+        </div>
+        <div class="text-center">
+          <div class="text-2xl md:text-3xl font-bold mb-1">5</div>
+          <div class="text-sm opacity-80">Categorías</div>
+        </div>
+      </div>
+
+      <!-- Botones de acción -->
+      <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+        <a
+          href="/blog"
+          class="outline-btn px-8 py-4 text-lg font-semibold text-white transition-all duration-300 hover:bg-white/10 hover:scale-105 active:scale-95 min-w-[180px]"
+        >
+          Descubrir blog
+        </a>
+      </div>
     </div>
-
-    <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-8 leading-tight">
-      Descubre nuestro blog
-    </h2>
-
-    <p class="text-lg md:text-lg lg:text-xl mb-12 max-w-3xl mx-auto leading-relaxed opacity-90">
-      En UNE, nuestro compromiso es tu futuro, contando con 19 planteles para ti y más de 45 carreras en diferentes modalidades, junto con convenios de más de 800 empresas
-    </p>
-
-    <!-- Botón con glassmorphism -->
-    <a href="/blog/General" 
-      class="glassmorphism-btn px-8 py-4 text-lg font-semibold text-white transition-all duration-300 hover:bg-white/40 hover:scale-105 active:scale-95"
-    >
-      Descubre más
-    </a>
   </div>
 </section>
 
 <style>
   .glassmorphism-btn {
-    border-radius: 7px;
-    border: 1px solid rgba(255, 255, 255, 0.40);
-    background: rgba(255, 255, 255, 0.32);
-    backdrop-filter: blur(10.5px);
-    -webkit-backdrop-filter: blur(10.5px);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    box-shadow: 0 8px 32px rgba(255, 255, 255, 0.1);
+  }
+
+  .outline-btn {
+    border-radius: 12px;
+    border: 2px solid rgba(255, 255, 255, 0.6);
+    background: transparent;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+  }
+
+  /* Optimización para dispositivos de alta densidad */
+  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    #scalingElement {
+      background-attachment: scroll;
+    }
+  }
+
+  /* Reducir motion para usuarios que lo prefieren */
+  @media (prefers-reduced-motion: reduce) {
+    #scalingElement {
+      transition: none !important;
+    }
+
+    .glassmorphism-btn,
+    .outline-btn {
+      transition: opacity 0.2s ease !important;
+    }
   }
 </style>
 
-<script is:inline>
-  // Función para manejar el scroll
-  function handleScroll() {
-    const scalingElement = document.getElementById('scalingElement');
-    if (!scalingElement) return;
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const scalingElement = document.getElementById("scalingElement");
+    const section = document.getElementById("blogSection");
 
-    const windowHeight = window.innerHeight;
-    const elementRect = scalingElement.getBoundingClientRect();
-    
-    // Rango de escala (de 80% a 100%)
-    const minScale = 0.8;
-    const maxScale = 1.0;
+    if (!scalingElement || !section) return;
 
-    // Calcular el progreso basado en la posición del elemento
-    let scrollProgress = 0;
-    
-    // Cuando el elemento está entrando en la vista desde arriba
-    if (elementRect.top > 0) {
-      // Elemento aún no ha entrado completamente
-      const distanceFromTop = elementRect.top;
-      const maxDistance = windowHeight;
-      scrollProgress = Math.max(0, Math.min(1, 1 - (distanceFromTop / maxDistance)));
-    } 
-    // Cuando el elemento está en la vista o saliendo por abajo
-    else if (elementRect.bottom > 0) {
-      // Elemento está visible, mantener escala máxima
-      scrollProgress = 1;
+    // Variables para optimización
+    let ticking = false;
+    let isVisible = false;
+
+    // Intersection Observer para solo ejecutar cuando sea visible
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          isVisible = entry.isIntersecting;
+          if (isVisible) {
+            handleScroll();
+          }
+        });
+      },
+      {
+        rootMargin: "100px 0px",
+        threshold: 0,
+      }
+    );
+
+    observer.observe(section);
+
+    // Función optimizada para manejar el scroll
+    function handleScroll() {
+      if (!isVisible) return;
+
+      const windowHeight = window.innerHeight;
+      const elementRect = scalingElement.getBoundingClientRect();
+
+      // Rango de escala optimizado (de 85% a 100%)
+      const minScale = 0.85;
+      const maxScale = 1.0;
+
+      let scrollProgress = 0;
+
+      // Cálculo más eficiente del progreso
+      if (elementRect.top > 0) {
+        const distanceFromTop = elementRect.top;
+        const triggerPoint = windowHeight * 0.8; // Trigger más temprano
+        scrollProgress = Math.max(
+          0,
+          Math.min(1, 1 - distanceFromTop / triggerPoint)
+        );
+      } else if (elementRect.bottom > 0) {
+        scrollProgress = 1;
+      } else {
+        scrollProgress = 1;
+      }
+
+      // Función de easing suave
+      const easeOutCubic = (t) => 1 - Math.pow(1 - t, 3);
+      const easedProgress = easeOutCubic(scrollProgress);
+
+      const scale = minScale + (maxScale - minScale) * easedProgress;
+
+      // Usar transform3d para activar aceleración de hardware
+      scalingElement.style.transform = `scale3d(${scale}, ${scale}, 1)`;
     }
-    // Cuando el elemento ya pasó completamente
-    else {
-      // Elemento ha salido de la vista por abajo, mantener escala máxima
-      scrollProgress = 1;
+
+    // Throttled scroll handler
+    function optimizedScrollHandler() {
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          handleScroll();
+          ticking = false;
+        });
+        ticking = true;
+      }
     }
 
-    const scale = minScale + (maxScale - minScale) * scrollProgress;
-
-    // Aplicar la transformación
-    scalingElement.style.transform = `scale(${scale})`;
-  }
-
-  // Optimización con requestAnimationFrame
-  let ticking = false;
-  function optimizedScrollHandler() {
-    if (!ticking) {
-      requestAnimationFrame(() => {
-        handleScroll();
-        ticking = false;
-      });
-      ticking = true;
-    }
-  }
-
-  // Inicializar cuando la página esté lista
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', function() {
-      window.addEventListener('scroll', optimizedScrollHandler);
-      handleScroll();
+    // Event listeners
+    window.addEventListener("scroll", optimizedScrollHandler, {
+      passive: true,
     });
-  } else {
-    window.addEventListener('scroll', optimizedScrollHandler);
+    window.addEventListener("resize", optimizedScrollHandler, {
+      passive: true,
+    });
+
+    // Inicialización
     handleScroll();
-  }
+
+    // Preload de la página del blog al hacer hover
+    const blogLinks = section.querySelectorAll('a[href*="/blog"]');
+    blogLinks.forEach((link) => {
+      link.addEventListener(
+        "mouseenter",
+        () => {
+          const linkElement = document.createElement("link");
+          linkElement.rel = "prefetch";
+          linkElement.href = link.href;
+          document.head.appendChild(linkElement);
+        },
+        { once: true }
+      );
+    });
+
+    // Cleanup function para mejor gestión de memoria
+    const cleanup = () => {
+      window.removeEventListener("scroll", optimizedScrollHandler);
+      window.removeEventListener("resize", optimizedScrollHandler);
+      observer.disconnect();
+    };
+
+    // Cleanup cuando la página se descarga
+    window.addEventListener("beforeunload", cleanup);
+  });
 </script>

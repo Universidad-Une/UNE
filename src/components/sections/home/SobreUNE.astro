@@ -1,11 +1,58 @@
 ---
 // src/SobreUNE.astro
 import { ArrowRight } from "@lucide/astro";
-import Numeralia from "@assets/Imagenes/Middles/Numeralia.jpg";
-import NumeraliaMobile from "@assets/Imagenes/Middles/NumeraliaMobile.jpg";
+import Numeralia from "@assets/Imagenes/Middles/Numeralia.webp";
+import NumeraliaMobile from "@assets/Imagenes/Middles/NumeraliaMobile.webp";
+
+// Importar todas las imágenes del carousel para que Astro las procese
+import BanamexLogo from "@assets/Logos/Convenios/Banamex-logo.webp";
+import BarceloLogo from "@assets/Logos/Convenios/Barcelo.webp";
+import BoschLogo from "@assets/Logos/Convenios/Bosch.webp";
+import CklassLogo from "@assets/Logos/Convenios/cklass.webp";
+import CONTPAQiLogo from "@assets/Logos/Convenios/CONTPAQi.webp";
+import FarmaciaGuadalajaraLogo from "@assets/Logos/Convenios/farmacia-guadalajara-.webp";
+import FiestaAmericanaLogo from "@assets/Logos/Convenios/FIESTA AMERICANA.webp";
+import GDLLogo from "@assets/Logos/Convenios/GDL.webp";
+import GPLogo from "@assets/Logos/Convenios/GP.webp";
+import IEPCJaliscoLogo from "@assets/Logos/Convenios/IEPC_Jalisco.webp";
+import JoyaLogo from "@assets/Logos/Convenios/joya.webp";
+import TlajomulcoLogo from "@assets/Logos/Convenios/LOGO-TLAJOMULCO.webp";
+import MaverLogo from "@assets/Logos/Convenios/MAVER.webp";
+import MITLogo from "@assets/Logos/Convenios/MIT.webp";
+import PeninsulaLogo from "@assets/Logos/Convenios/PENINSULA-RESIDENCES.webp";
+import PresidenteLogo from "@assets/Logos/Convenios/presidente-continental-mexico.webp";
+import QINLogo from "@assets/Logos/Convenios/QIN.webp";
+import TlaquepaqueLogo from "@assets/Logos/Convenios/TLAQUEPQUE.webp";
+import ZapopanLogo from "@assets/Logos/Convenios/zapopan.webp";
+import ZFLogo from "@assets/Logos/Convenios/ZF.webp";
+import UNELogo from "@assets/Logos/UNE_30.webp";
+
+// Array con la información de los logos para mejor mantenimiento
+const partnerLogos = [
+  { src: BanamexLogo, alt: "Banamex", height: "h-20" },
+  { src: BarceloLogo, alt: "Barceló", height: "h-48" },
+  { src: BoschLogo, alt: "Bosch", height: "h-20" },
+  { src: CklassLogo, alt: "Cklass", height: "h-12" },
+  { src: CONTPAQiLogo, alt: "CONTPAQi", height: "h-12" },
+  { src: FarmaciaGuadalajaraLogo, alt: "Farmacia Guadalajara", height: "h-20" },
+  { src: FiestaAmericanaLogo, alt: "Fiesta Americana", height: "h-12" },
+  { src: GDLLogo, alt: "Gobierno de Guadalajara", height: "h-20" },
+  { src: GPLogo, alt: "GP", height: "h-20" },
+  { src: IEPCJaliscoLogo, alt: "IEPC Jalisco", height: "h-12" },
+  { src: JoyaLogo, alt: "Joya", height: "h-12" },
+  { src: TlajomulcoLogo, alt: "Tlajomulco", height: "h-20" },
+  { src: MaverLogo, alt: "Maver", height: "h-12" },
+  { src: MITLogo, alt: "MIT", height: "h-12" },
+  { src: PeninsulaLogo, alt: "Peninsula Residences", height: "h-28" },
+  { src: PresidenteLogo, alt: "Presidente Continental México", height: "h-20" },
+  { src: QINLogo, alt: "QIN", height: "h-12" },
+  { src: TlaquepaqueLogo, alt: "Tlaquepaque", height: "h-20" },
+  { src: ZapopanLogo, alt: "Zapopan", height: "h-18" },
+  { src: ZFLogo, alt: "ZF", height: "h-20" },
+];
 ---
 
-<section class="bg-white">
+<section class="bg-white" id="sobre-une-section">
   <!-- Header Section -->
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
     <div class="flex justify-between items-center">
@@ -25,9 +72,13 @@ import NumeraliaMobile from "@assets/Imagenes/Middles/NumeraliaMobile.jpg";
     <div class="text-center mb-16">
       <div class="mb-8">
         <img
-          src="/src/assets/Logos/UNE_30.png"
+          src={UNELogo.src}
           alt="UNE Logo"
           class="mx-auto h-72 w-auto"
+          loading="eager"
+          fetchpriority="high"
+          width={UNELogo.width}
+          height={UNELogo.height}
         />
       </div>
 
@@ -38,236 +89,48 @@ import NumeraliaMobile from "@assets/Imagenes/Middles/NumeraliaMobile.jpg";
       </p>
     </div>
 
-    <!-- Partner Logos Carousel -->
-    <div class="mb-16">
-  <div class="splide" id="partners-carousel" aria-label="Partners Carousel">
-    <div class="splide__track">
-      <ul class="splide__list">
-        <li class="splide__slide">
-          <img
-            src="/src/assets/Logos/Convenios/Banamex-logo.png"
-            alt="Banamex"
-            class="h-20 w-auto opacity-70 hover:opacity-100 transition-opacity mx-auto"
-          />
-        </li>
-        <li class="splide__slide">
-          <img
-            src="/src/assets/Logos/Convenios/Barcelo.png"
-            alt="Barceló"
-            class="h-48 w-auto opacity-70 hover:opacity-100 transition-opacity "
-          />
-        </li>
-        <li class="splide__slide">
-          <img
-            src="/src/assets/Logos/Convenios/Bosch.png"
-            alt="Bosch"
-            class="h-20 w-auto opacity-70 hover:opacity-100 transition-opacity "
-          />
-        </li>
-        <li class="splide__slide">
-          <img
-            src="/src/assets/Logos/Convenios/cklass.png"
-            alt="Cklass"
-            class="h-12 w-auto opacity-70 hover:opacity-100 transition-opacity "
-          />
-        </li>
-        <li class="splide__slide">
-          <img
-            src="/src/assets/Logos/Convenios/CONTPAQi.png"
-            alt="CONTPAQi"
-            class="h-12 w-auto opacity-70 hover:opacity-100 transition-opacity "
-          />
-        </li>
-        <li class="splide__slide">
-          <img
-            src="/src/assets/Logos/Convenios/farmacia-guadalajara-.png"
-            alt="Farmacia Guadalajara"
-            class="h-20 w-auto opacity-70 hover:opacity-100 transition-opacity "
-          />
-        </li>
-        <li class="splide__slide">
-          <img
-            src="/src/assets/Logos/Convenios/FIESTA AMERICANA.png"
-            alt="Fiesta Americana"
-            class="h-12 w-auto opacity-70 hover:opacity-100 transition-opacity "
-          />
-        </li>
-        <li class="splide__slide">
-          <img
-            src="/src/assets/Logos/Convenios/GDL.png"
-            alt="Gobierno de Guadalajara"
-            class="h-20 w-auto opacity-70 hover:opacity-100 transition-opacity "
-          />
-        </li>
-        <li class="splide__slide">
-          <img
-            src="/src/assets/Logos/Convenios/GP.png"
-            alt="GP"
-            class="h-20 w-auto opacity-70 hover:opacity-100 transition-opacity "
-          />
-        </li>
-        <li class="splide__slide">
-          <img
-            src="/src/assets/Logos/Convenios/IEPC_Jalisco.png"
-            alt="IEPC Jalisco"
-            class="h-12 w-auto opacity-70 hover:opacity-100 transition-opacity"
-          />
-        </li>
-        <li class="splide__slide">
-          <img
-            src="/src/assets/Logos/Convenios/joya.png"
-            alt="Joya"
-            class="h-12 w-auto opacity-70 hover:opacity-100 transition-opacity "
-          />
-        </li>
-        <li class="splide__slide">
-          <img
-            src="/src/assets/Logos/Convenios/LOGO-TLAJOMULCO.png"
-            alt="Tlajomulco"
-            class="h-20 w-auto opacity-70 hover:opacity-100 transition-opacity "
-          />
-        </li>
-        <li class="splide__slide">
-          <img
-            src="/src/assets/Logos/Convenios/MAVER.png"
-            alt="Maver"
-            class="h-12 w-auto opacity-70 hover:opacity-100 transition-opacity "
-          />
-        </li>
-        <li class="splide__slide">
-          <img
-            src="/src/assets/Logos/Convenios/MIT.png"
-            alt="MIT"
-            class="h-12 w-auto opacity-70 hover:opacity-100 transition-opacity "
-          />
-        </li>
-        <li class="splide__slide">
-          <img
-            src="/src/assets/Logos/Convenios/PENINSULA-RESIDENCES.webp"
-            alt="Peninsula Residences"
-            class="h-28 w-auto opacity-70 hover:opacity-100 transition-opacity "
-          />
-        </li>
-        <li class="splide__slide">
-          <img
-            src="/src/assets/Logos/Convenios/presidente-continental-mexico.webp"
-            alt="Presidente Continental México"
-            class="h-20 w-auto opacity-70 hover:opacity-100 transition-opacity "
-          />
-        </li>
-        <li class="splide__slide">
-          <img
-            src="/src/assets/Logos/Convenios/QIN.png"
-            alt="QIN"
-            class="h-12 w-auto opacity-70 hover:opacity-100 transition-opacity "
-          />
-        </li>
-        <li class="splide__slide">
-          <img
-            src="/src/assets/Logos/Convenios/TLAQUEPQUE.png"
-            alt="Tlaquepaque"
-            class="h-20 w-auto opacity-70 hover:opacity-100 transition-opacity "
-          />
-        </li>
-        <li class="splide__slide">
-          <img
-            src="/src/assets/Logos/Convenios/zapopan.png"
-            alt="Zapopan"
-            class="h-18 w-auto opacity-70 hover:opacity-100 transition-opacity "
-          />
-        </li>
-        <li class="splide__slide">
-          <img
-            src="/src/assets/Logos/Convenios/ZF.png"
-            alt="ZF"
-            class="h-20 w-auto opacity-70 hover:opacity-100 transition-opacity "
-          />
-        </li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="text-center mt-8">
-    <p class="text-gray-700 text-lg">
-      <span class="text-red-500 font-bold">Más de 800</span> convenios con
-      <span class="font-semibold">empresas</span> para la formación de sus equipos
-    </p>
-  </div>
-</div>
-  </div>
-
-  <!-- Statistics Section -->
-  <div
-     class="mx-auto px-4 sm:px-6 lg:px-8 py-16  text-white"
-  style={{
-    backgroundImage: `url(${Numeralia.src})`,
-    backgroundSize: 'cover',
-    backgroundPosition: 'center',
-    backgroundRepeat: 'no-repeat',
-    backgroundBlendMode: 'overlay' // Esto permite que el gradiente se mezcle con la imagen
-
-    
-  }}
-  >
-    <div class="flex flex-col lg:flex-row gap-8 items-center">
-      <!-- 30 Años -->
-      <div
-        class="w-full lg:w-1/2 border-b lg:border-b-0 lg:border-r border-white p-4 flex flex-col items-center justify-center text-center"
-      >
-        <div
-          class="flex flex-col sm:flex-row items-center justify-center gap-4"
-        >
-          <h4 class="text-6xl sm:text-7xl font-bold mb-2">30</h4>
-          <span
-            class="text-3xl sm:text-5xl font-semibold leading-tight sm:leading-snug"
-          >
-            Años de <br />
-            experiencia
-          </span>
+    <!-- Partner Logos Carousel - Inicialmente oculto -->
+    <div class="mb-16" id="carousel-container">
+      <!-- Loading placeholder -->
+      <div id="carousel-loading" class="flex justify-center items-center h-32">
+        <div class="animate-pulse text-gray-500">
+          Cargando convenios...
         </div>
-        <p
-          class="text-blue-200 text-sm sm:text-base leading-relaxed mt-4 max-w-xl"
-        >
-          Somos la institución que ha confiado siempre en el potencial humano y
-          hemos sido cada estudiante, brindando educación de excelencia que
-          prepara profesionales comprometidos con el desarrollo de México.
+      </div>
+
+      <!-- Carousel real - se carga dinámicamente -->
+      <div class="splide hidden" id="partners-carousel" aria-label="Partners Carousel">
+        <div class="splide__track">
+          <ul class="splide__list">
+            {
+              partnerLogos.map((logo) => (
+                <li class="splide__slide">
+                  <img
+                    data-src={logo.src.src}
+                    alt={logo.alt}
+                    class={`${logo.height} w-auto opacity-70 hover:opacity-100 transition-opacity mx-auto lazy-load`}
+                    loading="lazy"
+                    decoding="async"
+                    width={logo.src.width}
+                    height={logo.src.height}
+                  />
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+      </div>
+
+      <div class="text-center mt-8">
+        <p class="text-gray-700 text-lg">
+          <span class="text-red-500 font-bold">Más de 800</span> convenios con
+          <span class="font-semibold">empresas</span> para la formación de sus equipos
         </p>
       </div>
-
-      <!-- Grid 2x2 (Always 2 columns even on mobile) -->
-      <div
-        class="grid grid-cols-2 gap-6 w-full max-w-3xl mx-auto text-center lg:pt-0"
-      >
-        <!-- +45 Licenciaturas -->
-        <div class="text-left">
-          <div class="text-4xl sm:text-6xl font-bold mb-2">+45</div>
-          <div class="text-base sm:text-xl font-semibold">
-            Licenciaturas diferentes
-          </div>
-        </div>
-
-        <!-- +12K Alumnos -->
-        <div class="text-left">
-          <div class="text-4xl sm:text-6xl font-bold mb-2">+12K</div>
-          <div class="text-base sm:text-xl font-semibold">
-            Alumnos actualmente inscritos
-          </div>
-        </div>
-
-        <!-- 18 Planteles -->
-        <div class="text-left">
-          <div class="text-4xl sm:text-6xl font-bold mb-2">18</div>
-          <div class="text-base sm:text-xl font-semibold">Planteles</div>
-        </div>
-
-        <!-- +60K Egresados -->
-        <div class="text-left">
-          <div class="text-4xl sm:text-6xl font-bold mb-2">+60K</div>
-          <div class="text-base sm:text-xl font-semibold">De egresados</div>
-        </div>
-      </div>
     </div>
   </div>
+
+
 </section>
 
 <style>
@@ -283,44 +146,234 @@ import NumeraliaMobile from "@assets/Imagenes/Middles/NumeraliaMobile.jpg";
     padding: 0 20px;
   }
 
-  /* Opcional: estilos adicionales si necesitas algo más específico */
+  .splide__slide img {
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .splide__slide img.loaded {
+    opacity: 0.7;
+  }
+
+  .splide__slide img.loaded:hover {
+    opacity: 1;
+  }
+
+  /* Loading skeleton */
+  .lazy-load:not(.loaded) {
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: loading 1.5s infinite;
+  }
+
+  @keyframes loading {
+    0% {
+      background-position: 200% 0;
+    }
+    100% {
+      background-position: -200% 0;
+    }
+  }
+
+  /* Reduce motion for users who prefer it */
+  @media (prefers-reduced-motion: reduce) {
+    .splide {
+      animation: none;
+    }
+    
+    .splide__slide img {
+      transition: none;
+    }
+
+    .lazy-load:not(.loaded) {
+      animation: none;
+      background: #f0f0f0;
+    }
+  }
+
   .gradient-bg {
     background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%);
   }
+
+  /* Smooth reveal animation */
+  #partners-carousel {
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+
+  #partners-carousel.hidden {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  #partners-carousel.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
 </style>
 
-<script>
-  import { Splide } from "@splidejs/splide";
-  import { AutoScroll } from "@splidejs/splide-extension-auto-scroll";
+<!-- Preload only critical images -->
+<link rel="preload" as="image" href={UNELogo.src} />
+<link rel="preload" as="image" href={Numeralia.src} />
 
-  document.addEventListener("DOMContentLoaded", function () {
-    const partnersCarousel = new Splide("#partners-carousel", {
-      type: "loop",
-      drag: "free",
-      focus: "center",
-      perPage: 5,
-      perMove: 1,
-      gap: "0rem",
-      arrows: false,
-      pagination: false,
-      autoScroll: {
-        speed: 0.3,
-        pauseOnHover: true,
-        pauseOnFocus: true,
-      },
-      breakpoints: {
-        1024: {
-          perPage: 4,
+<script>
+  // Cargar Splide y AutoScroll dinámicamente
+  let splideLoaded = false;
+  let autoScrollLoaded = false;
+  let splideInstance = null;
+
+  async function loadSplideLibraries() {
+    if (!splideLoaded || !autoScrollLoaded) {
+      const [{ Splide }, { AutoScroll }] = await Promise.all([
+        import("@splidejs/splide"),
+        import("@splidejs/splide-extension-auto-scroll")
+      ]);
+      
+      splideLoaded = true;
+      autoScrollLoaded = true;
+      
+      return { Splide, AutoScroll };
+    }
+  }
+
+  function loadImage(img) {
+    return new Promise((resolve, reject) => {
+      const src = img.getAttribute('data-src');
+      if (!src) {
+        resolve();
+        return;
+      }
+
+      const tempImg = new Image();
+      tempImg.onload = () => {
+        img.src = src;
+        img.classList.add('loaded');
+        img.removeAttribute('data-src');
+        resolve();
+      };
+      tempImg.onerror = reject;
+      tempImg.src = src;
+    });
+  }
+
+  async function initializeCarousel() {
+    try {
+      // Cargar las librerías de Splide
+      const { Splide, AutoScroll } = await loadSplideLibraries();
+      
+      // Cargar las imágenes del carousel
+      const carouselImages = document.querySelectorAll('#partners-carousel .lazy-load');
+      const imagePromises = Array.from(carouselImages).map(img => loadImage(img));
+      
+      // Esperar a que se carguen las primeras imágenes (al menos las visibles)
+      await Promise.allSettled(imagePromises.slice(0, 5));
+      
+      // Ocultar el loading y mostrar el carousel
+      const loadingElement = document.getElementById('carousel-loading');
+      const carouselElement = document.getElementById('partners-carousel');
+      
+      if (loadingElement) loadingElement.style.display = 'none';
+      if (carouselElement) {
+        carouselElement.classList.remove('hidden');
+        carouselElement.classList.add('visible');
+      }
+
+      // Verificar preferencias de movimiento
+      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      
+      // Configurar el carousel
+      splideInstance = new Splide("#partners-carousel", {
+        type: "loop",
+        drag: "free",
+        focus: "center",
+        perPage: 5,
+        perMove: 1,
+        gap: "1rem",
+        arrows: false,
+        pagination: false,
+        autoScroll: prefersReducedMotion ? false : {
+          speed: 0.5,
+          pauseOnHover: true,
+          pauseOnFocus: true,
+          rewind: false,
         },
-        768: {
-          perPage: 3,
+        breakpoints: {
+          1024: {
+            perPage: 4,
+          },
+          768: {
+            perPage: 3,
+          },
+          480: {
+            perPage: 2,
+          },
         },
-        480: {
-          perPage: 2,
-        },
-      },
+      });
+
+      // Montar el carousel
+      if (!prefersReducedMotion) {
+        splideInstance.mount({ AutoScroll });
+      } else {
+        splideInstance.mount();
+      }
+
+      // Cargar las imágenes restantes en background
+      Promise.allSettled(imagePromises.slice(5));
+
+    } catch (error) {
+      console.error('Error inicializando el carousel:', error);
+      
+      // Fallback: mostrar el carousel sin animación
+      const loadingElement = document.getElementById('carousel-loading');
+      const carouselElement = document.getElementById('partners-carousel');
+      
+      if (loadingElement) loadingElement.style.display = 'none';
+      if (carouselElement) {
+        carouselElement.classList.remove('hidden');
+        carouselElement.classList.add('visible');
+      }
+    }
+  }
+
+  // Configurar el Intersection Observer
+  function setupIntersectionObserver() {
+    const sectionElement = document.getElementById('sobre-une-section');
+    
+    if (!sectionElement) return;
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          // El componente está visible, inicializar el carousel
+          initializeCarousel();
+          
+          // Desconectar el observer ya que solo necesitamos cargar una vez
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      // Empezar a cargar cuando esté a 100px de entrar en pantalla
+      rootMargin: '100px 0px',
+      threshold: 0.1
     });
 
-    partnersCarousel.mount({ AutoScroll });
-  });
+    observer.observe(sectionElement);
+
+    // Cleanup
+    window.addEventListener('beforeunload', () => {
+      observer.disconnect();
+      if (splideInstance) {
+        splideInstance.destroy();
+      }
+    });
+  }
+
+  // Inicializar cuando el DOM esté listo
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', setupIntersectionObserver);
+  } else {
+    setupIntersectionObserver();
+  }
 </script>

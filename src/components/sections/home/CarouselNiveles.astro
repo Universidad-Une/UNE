@@ -1,5 +1,5 @@
 ---
-// Cards_Niveles.astro
+// Cards_Niveles.astro - Versión Optimizada
 import { ArrowRight } from "@lucide/astro";
 import Primaria from "@/assets/Imagenes/Primaria.png";
 import Secundaria from "@/assets/Imagenes/Secundaria.png";
@@ -9,14 +9,13 @@ import Posgrado from "@/assets/Imagenes/Posgrado.png";
 import Idiomas from "@/assets/Imagenes/Ingles.png";
 import Continua from "@/assets/Imagenes/E_Continua.png";
 
-// Datos de las cards
-// Datos de las cards actualizados con rutas y primaria
+// Datos optimizados de las cards
 const cardsData = [
   {
     id: "primaria",
     title: "PRIMARIA",
     description: "Educación básica integral con valores y excelencia académica.",
-    image: Primaria.src, // Usando la misma imagen que secundaria
+    image: Primaria.src,
     alt: "Estudiante de Primaria",
     bgColor: "#F6B61E",
     textColor: "text-white",
@@ -72,18 +71,6 @@ const cardsData = [
     hoverColor: "hover:text-gray-600",
     href: "/oferta/Maestria"
   },
-/*   {
-    id: "idiomas",
-    title: "IDIOMAS",
-    description: "Domina nuevos idiomas y amplía tus horizontes globales",
-    image: Idiomas.src,
-    alt: "Estudiante de Idiomas",
-    bgColor: "#F2F6FE",
-    textColor: "text-gray-900",
-    textSecondary: "text-gray-700",
-    hoverColor: "hover:text-gray-600",
-    href: "/oferta/Especialidades"
-  }, */
   {
     id: "continua",
     title: "ED. CONTINUA",
@@ -100,7 +87,7 @@ const cardsData = [
     id: "diplomados",
     title: "DIPLOMADOS",
     description: "Programas especializados para el desarrollo profesional",
-     image: Idiomas.src,
+    image: Idiomas.src,
     alt: "Diplomados",
     bgColor: "#F2F6FE",
     textColor: "text-gray-900",
@@ -109,6 +96,8 @@ const cardsData = [
     href: "/oferta/Diplomados"
   }
 ];
+
+// En Astro no podemos crear componentes inline, mantendremos el código directo
 ---
 
 <div class="max-w-11/12 mx-auto"> 
@@ -118,213 +107,261 @@ const cardsData = [
     </h2>
   </div>
   
-  <!-- Sección con padding-top aumentado para dar espacio a las imágenes -->
-  <section class=" px-4  ">
-    <!-- Contenedor desktop con más espacio superior -->
-    <div class="hidden lg:block  pb-8 relative w-full    ">
-      <!-- Contenedor con fade interno -->
-      <div class="relative  ">
-        <div id="desktop-splide" class="splide pb-6  ">
-          <div class="splide__track mt-24   pb-16">
+  <!-- Desktop Carousel -->
+  <section class="px-4">
+    <div class="hidden lg:block pb-8 relative w-full">
+      <div class="relative">
+        <div id="desktop-splide" class="splide pb-6">
+          <div class="splide__track mt-24 pb-16">
             <ul class="splide__list">
-              {
-                cardsData.map((card) => (
-                  <li class="splide__slide">
-                    <div class="group relative w-80 mx-auto">
-                      <!-- Imagen posicionada absolutamente con más espacio -->
-                      <div class="absolute -top-32 left-1/2 transform -translate-x-1/2 z-10">
-                        <div class="relative">
-                          <img
-                            src={card.image}
-                            alt={card.alt}
-                            class="w-auto max-w-none h-[300px] object-contain object-top"
-                          />
-                          <div
-                            class="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t to-transparent pointer-events-none"
-                            style={`background: linear-gradient(to top, ${card.bgColor}, transparent)`}
-                          />
-                        </div>
+              {cardsData.map((card) => (
+                <li class="splide__slide">
+                  <div class="group relative w-80 mx-auto">
+                    <!-- Imagen con gradiente -->
+                    <div class="absolute -top-32 left-1/2 transform -translate-x-1/2 z-10">
+                      <div class="relative">
+                        <img
+                          data-src={card.image}
+                          alt={card.alt}
+                          class="w-auto max-w-none h-[300px] object-contain object-top lazy-image"
+                          loading="lazy"
+                        />
+                        <div
+                          class="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t to-transparent pointer-events-none"
+                          style={`background: linear-gradient(to top, ${card.bgColor}, transparent)`}
+                        />
                       </div>
+                    </div>
 
-                      <!-- Card con más padding-top para acomodar la imagen -->
-                      <div
-                        class="rounded-2xl h-96 sm:h-[26rem] md:h-[24rem] cursor-pointer transform transition-all duration-300 hover:scale-105 hover:shadow-2xl pt-16 sm:pt-20 md:pt-24"
-                        style={`background-color: ${card.bgColor}`}
-                      >
-                        <div class="absolute bottom-0 left-0 right-0 p-4 sm:p-5 md:p-6">
-                          <div class=" flex items-end justify-center mb-2 sm:mb-3">
-                            <h3
-                              class={`text-xl sm:text-2xl font-bold text-center ${card.textColor}`}
-                            >
-                              {card.title}
-                            </h3>
-                          </div>
-                          <p
-                            class={`text-xs sm:text-sm ${card.textSecondary} mb-4 sm:mb-5 md:mb-6 leading-relaxed text-center min-h-[2.5rem] sm:min-h-[3rem] md:min-h-[3.5rem] flex items-center justify-center`}
+                    <div
+                      class="rounded-2xl h-96 sm:h-[26rem] md:h-[24rem] cursor-pointer transform transition-all duration-300 hover:scale-105 hover:shadow-2xl pt-16 sm:pt-20 md:pt-24"
+                      style={`background-color: ${card.bgColor}`}
+                    >
+                      <!-- Contenido de la card -->
+                      <div class="absolute bottom-0 left-0 right-0 p-4 sm:p-5 md:p-6">
+                        <div class="flex items-end justify-center mb-2 sm:mb-3">
+                          <h3 class={`text-xl sm:text-2xl font-bold text-center ${card.textColor}`}>
+                            {card.title}
+                          </h3>
+                        </div>
+                        <p class={`text-xs sm:text-sm ${card.textSecondary} mb-4 sm:mb-5 md:mb-6 leading-relaxed text-center min-h-[2.5rem] sm:min-h-[3rem] md:min-h-[3.5rem] flex items-center justify-center`}>
+                          {card.description}
+                        </p>
+                        <div class="flex justify-center">
+                          <a
+                            href={card.href}
+                            class={`inline-flex items-center gap-2 ${card.textColor} hover:font-bold ${card.hoverColor} transition-colors group`}
                           >
-                            {card.description}
-                          </p>
-                          <div class="flex justify-center">
-                            <a
-                              href={card.href}
-                              class={`inline-flex items-center gap-2 ${card.textColor} hover:font-bold ${card.hoverColor} transition-colors group`}
-                            >
-                              Conocer más
-                              <ArrowRight class="h-4 w-4 sm:h-5 sm:w-5 transform group-hover:translate-x-1 transition-transform" />
-                            </a>
-                          </div>
+                            Conocer más
+                            <ArrowRight class="h-4 w-4 sm:h-5 sm:w-5 transform group-hover:translate-x-1 transition-transform" />
+                          </a>
                         </div>
                       </div>
                     </div>
-                  </li>
-                ))
-              }
+                  </div>
+                </li>
+              ))}
             </ul>
           </div>
         </div>
-        
-        <!-- Fade interno en X -->
         <div class="fade-overlay absolute inset-0 pointer-events-none z-10"></div>
       </div>
     </div>
   </section>
 
-   <div class="pt-16 sm:pt-20 md:pt-24 hidden sm:block lg:hidden">
-     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-24 lg:gap-8 mb-20 sm:mb-24 lg:mb-32">
-  {
-    cardsData.map((card) => (
-      <div class="group relative">
-        <div class="absolute -top-12 sm:-top-16 md:-top-20 left-1/2 transform -translate-x-1/2 z-10">
-          <div class="relative">
-            <img
-              src={card.image}
-              alt={card.alt}
-              class="w-auto max-w-none h-[200px] sm:h-[250px] md:h-[280px] lg:h-[300px] object-contain object-top"
-            />
-            <div
-              class="absolute bottom-0 left-0 right-0 h-16 sm:h-18 md:h-20 bg-gradient-to-t to-transparent pointer-events-none"
-              style={`background: linear-gradient(to top, ${card.bgColor}, transparent)`} 
-            />
-          </div>
-        </div>
-
-        <div
-          class="rounded-2xl h-96 sm:h-[26rem] md:h-[28rem] cursor-pointer transform transition-all duration-300 hover:scale-105 hover:shadow-2xl pt-8 sm:pt-10 md:pt-12"
-          style={`background-color: ${card.bgColor}`}
-        >
-          <div class="absolute bottom-0 left-0 right-0 p-4 sm:p-5 md:p-6">
-            <div class="h-20 sm:h-24 md:h-28 flex items-end justify-center mb-2 sm:mb-3">
-              <h3
-                class={`text-xl sm:text-2xl font-bold text-center ${card.textColor}`}
-              >
-                {card.title}
-              </h3>
-            </div>
-            <p
-              class={`text-xs sm:text-sm ${card.textSecondary} mb-4 sm:mb-5 md:mb-6 leading-relaxed text-center min-h-[2.5rem] sm:min-h-[3rem] md:min-h-[3.5rem] flex items-center justify-center`}
-            >
-              {card.description}
-            </p>
-            <div class="flex justify-center">
-              <a
-                href={card.href}
-                class={`inline-flex items-center gap-2 ${card.textColor} font-medium ${card.hoverColor} transition-colors group`}
-              >
-                Conocer más
-                <ArrowRight class="h-4 w-4 sm:h-5 sm:w-5 transform group-hover:translate-x-1 transition-transform" />
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    ))
-  }
-</div>
-
-
-     
-    </div>
-
-    <div class="sm:hidden pt-16">
-      <div class="carousel-3d-container-mobile">
-        <div class="carousel-3d-mobile" id="carousel3dMobile">
-          {
-            cardsData.map((card, index) => (
+  <!-- Tablet View -->
+  <div class="pt-16 sm:pt-20 md:pt-24 hidden sm:block lg:hidden">
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-24 mb-20 sm:mb-24">
+      {cardsData.map((card) => (
+        <div class="group relative">
+          <div class="absolute -top-12 sm:-top-16 md:-top-20 left-1/2 transform -translate-x-1/2 z-10">
+            <div class="relative">
+              <img
+                data-src={card.image}
+                alt={card.alt}
+                class="w-auto max-w-none h-[200px] sm:h-[250px] md:h-[280px] object-contain object-top lazy-image"
+                loading="lazy"
+              />
               <div
-                class={`carousel-card-mobile ${index === 2 ? "active" : ""}`}
-                data-index={index}
-              >
-                <div class="absolute -top-16 left-1/2 transform -translate-x-1/2 z-10">
-                  <div class="relative">
-                    <img
-                      src={card.image}
-                      alt={card.alt}
-                      class="w-auto max-w-none h-[200px] object-contain object-top"
-                    />
-                    <div
-                      class="absolute border-b-fuchsia-600 bottom-0 left-0 right-0 h-12 bg-gradient-to-t to-transparent pointer-events-none"
-                      style={`background: linear-gradient(to top, ${card.bgColor}, transparent)`}
-                    />
-                  </div>
-                </div>
-
-                <div
-                  class="rounded-2xl h-80 cursor-pointer pt-6"
-                  style={`background-color: ${card.bgColor}`}
+                class="absolute bottom-0 left-0 right-0 h-16 sm:h-18 md:h-20 bg-gradient-to-t to-transparent pointer-events-none"
+                style={`background: linear-gradient(to top, ${card.bgColor}, transparent)`} 
+              />
+            </div>
+          </div>
+          <div
+            class="rounded-2xl h-96 sm:h-[26rem] md:h-[28rem] cursor-pointer transform transition-all duration-300 hover:scale-105 hover:shadow-2xl pt-8 sm:pt-10 md:pt-12"
+            style={`background-color: ${card.bgColor}`}
+          >
+            <div class="absolute bottom-0 left-0 right-0 p-4 sm:p-5 md:p-6">
+              <div class="h-20 sm:h-24 md:h-28 flex items-end justify-center mb-2 sm:mb-3">
+                <h3 class={`text-xl sm:text-2xl font-bold text-center ${card.textColor}`}>
+                  {card.title}
+                </h3>
+              </div>
+              <p class={`text-xs sm:text-sm ${card.textSecondary} mb-4 sm:mb-5 md:mb-6 leading-relaxed text-center min-h-[2.5rem] sm:min-h-[3rem] md:min-h-[3.5rem] flex items-center justify-center`}>
+                {card.description}
+              </p>
+              <div class="flex justify-center">
+                <a
+                  href={card.href}
+                  class={`inline-flex items-center gap-2 ${card.textColor} font-medium ${card.hoverColor} transition-colors group`}
                 >
-                  <div class="absolute bottom-6 left-0 right-0 p-4">
-                    <div class=" flex items-end justify-center ">
-                      <h3
-                        class={`text-lg font-bold text-center ${card.textColor}`}
-                      >
-                        {card.title}
-                      </h3>
-                    </div>
-                    <p
-                      class={`text-xs ${card.textSecondary} mb-4 leading-relaxed text-center min-h-[2rem] flex items-center justify-center`}
-                    >
-                      {card.description}
-                    </p>
-                    <div class="flex justify-center">
-                      <a
-                        href={card.href}
-                        class={`inline-flex items-center gap-2 ${card.textColor} font-medium ${card.hoverColor} transition-colors group`}
-                      >
-                        Conocer más
-                      <ArrowRight size={24} absoluteStrokeWidth={false} class="transform group-hover:translate-x-1 transition-transform rounded-full  border-2 border-white" />
-                      </a>
-                    </div>
-                  </div>
+                  Conocer más
+                  <ArrowRight class="h-4 w-4 sm:h-5 sm:w-5 transform group-hover:translate-x-1 transition-transform" />
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+
+  <!-- Mobile 3D Carousel -->
+  <div class="sm:hidden pt-16">
+    <div class="carousel-3d-container-mobile">
+      <div class="carousel-3d-mobile" id="carousel3dMobile">
+        {cardsData.map((card, index) => (
+          <div
+            class={`carousel-card-mobile ${index === 2 ? "active" : ""}`}
+            data-index={index}
+          >
+            <div class="absolute -top-16 left-1/2 transform -translate-x-1/2 z-10">
+              <div class="relative">
+                <img
+                  data-src={card.image}
+                  alt={card.alt}
+                  class="w-auto max-w-none h-[200px] object-contain object-top lazy-image"
+                  loading="lazy"
+                />
+                <div
+                  class="absolute bottom-0 left-0 right-0 h-12 bg-gradient-to-t to-transparent pointer-events-none"
+                  style={`background: linear-gradient(to top, ${card.bgColor}, transparent)`}
+                />
+              </div>
+            </div>
+            <div
+              class="rounded-2xl h-80 cursor-pointer pt-6"
+              style={`background-color: ${card.bgColor}`}
+            >
+              <div class="absolute bottom-6 left-0 right-0 p-4">
+                <div class="flex items-end justify-center">
+                  <h3 class={`text-lg font-bold text-center ${card.textColor}`}>
+                    {card.title}
+                  </h3>
+                </div>
+                <p class={`text-xs ${card.textSecondary} mb-4 leading-relaxed text-center min-h-[2rem] flex items-center justify-center`}>
+                  {card.description}
+                </p>
+                <div class="flex justify-center">
+                  <a
+                    href={card.href}
+                    class={`inline-flex items-center gap-2 ${card.textColor} font-medium ${card.hoverColor} transition-colors group`}
+                  >
+                    Conocer más
+                    <ArrowRight size={24} absoluteStrokeWidth={false} class="transform group-hover:translate-x-1 transition-transform rounded-full border-2 border-white" />
+                  </a>
                 </div>
               </div>
-            ))
-          }
-        </div>
+            </div>
+          </div>
+        ))}
+      </div>
 
-        <div class="carousel-indicators-mobile">
-          {
-            cardsData.map((_, index) => (
-              <button
-                class={`indicator-mobile ${index === 2 ? "active" : ""}`}
-                data-index={index}
-              />
-            ))
-          }
-        </div>
+      <div class="carousel-indicators-mobile">
+        {cardsData.map((_, index) => (
+          <button
+            class={`indicator-mobile ${index === 2 ? "active" : ""}`}
+            data-index={index}
+            aria-label={`Ir a la tarjeta ${index + 1}`}
+          />
+        ))}
       </div>
     </div>
+  </div>
 </div>
-
 
 <script>
   import Splide from "@splidejs/splide";
   import { AutoScroll } from "@splidejs/splide-extension-auto-scroll";
   import "@splidejs/splide/dist/css/splide.min.css";
 
- document.addEventListener("DOMContentLoaded", function () {
-  const desktopSplideElement = document.getElementById("desktop-splide");
-  if (desktopSplideElement) {
-    const splide = new Splide("#desktop-splide", {
+  // Sistema simple de lazy loading para las 7 imágenes
+  class SimpleCarouselLoader {
+    constructor() {
+      this.observer = null;
+      this.loaded = false;
+      this.init();
+    }
+
+    init() {
+      if ('IntersectionObserver' in window) {
+        this.observer = new IntersectionObserver(
+          (entries) => this.handleIntersect(entries),
+          {
+            root: null,
+            rootMargin: '50px',
+            threshold: 0.1
+          }
+        );
+        
+        // Observar el contenedor principal del carousel
+        const carouselContainer = document.querySelector('.max-w-11\\/12');
+        if (carouselContainer) {
+          this.observer.observe(carouselContainer);
+        }
+      } else {
+        // Fallback: cargar inmediatamente
+        this.loadAllImages();
+      }
+    }
+
+    handleIntersect(entries) {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && !this.loaded) {
+          this.loadAllImages();
+          this.loaded = true;
+          this.observer.unobserve(entry.target);
+        }
+      });
+    }
+
+    loadAllImages() {
+      const lazyImages = document.querySelectorAll('.lazy-image');
+      
+      lazyImages.forEach((img, index) => {
+        const imageUrl = img.dataset.src;
+        if (imageUrl && !img.src) {
+          
+          // Cargar directamente sin preloader
+          img.src = imageUrl;
+          img.classList.add('loaded');
+          img.removeAttribute('data-src');
+          
+          // Si falla, intentar de nuevo
+          img.onerror = () => {
+            console.warn(`Error cargando imagen ${index + 1}, reintentando:`, imageUrl);
+            setTimeout(() => {
+              img.src = imageUrl;
+            }, 100);
+          };
+        }
+      });
+    }
+
+    destroy() {
+      if (this.observer) {
+        this.observer.disconnect();
+      }
+    }
+  }
+
+  // Configuración del Splide (sin lazy loading integrado)
+  const initDesktopCarousel = () => {
+    const desktopSplideElement = document.getElementById("desktop-splide");
+    if (!desktopSplideElement) return;
+
+    const splideConfig = {
       type: "loop",
       drag: "free",
       focus: "center",
@@ -334,28 +371,221 @@ const cardsData = [
       gap: "2rem",
       arrows: true,
       pagination: false,
-      autoScroll: {
-        speed: 0.5,
-      },
+      autoScroll: { speed: 0.5 },
       breakpoints: {
-        1400: {
-          perPage: 2,
-          fixedWidth: "320px",
-        },
-        1200: {
-          perPage: 2,
-          fixedWidth: "300px",
-        },
-        1024: {
-          perPage: 1,
-          fixedWidth: "280px",
-        },
-      },
-    }).mount({ AutoScroll });
-  }
-});
-</script>
+        1400: { perPage: 2, fixedWidth: "320px" },
+        1200: { perPage: 2, fixedWidth: "300px" },
+        1024: { perPage: 1, fixedWidth: "280px" }
+      }
+    };
 
+    return new Splide("#desktop-splide", splideConfig).mount({ AutoScroll });
+  };
+
+  // Carousel móvil optimizado
+  class MobileCarousel3D {
+    constructor() {
+      this.currentIndex = 2;
+      this.cards = document.querySelectorAll(".carousel-card-mobile");
+      this.indicators = document.querySelectorAll(".indicator-mobile");
+      this.totalCards = this.cards.length;
+      this.isTouch = false;
+
+      if (this.isMobile()) this.init();
+    }
+
+    isMobile() {
+      return window.innerWidth < 640;
+    }
+
+    init() {
+      this.bindEvents();
+      this.updatePositions();
+    }
+
+    bindEvents() {
+      // Click events optimizados
+      this.cards.forEach((card, index) => {
+        card.addEventListener("click", (e) => {
+          if (index !== this.currentIndex) {
+            e.preventDefault();
+            this.goToSlide(index);
+          }
+        });
+      });
+
+      this.indicators.forEach((indicator, index) => {
+        indicator.addEventListener("click", () => this.goToSlide(index));
+      });
+
+      this.setupTouchEvents();
+      this.setupKeyboardEvents();
+    }
+
+    goToSlide(index) {
+      this.cards.forEach(card => card.classList.remove("active"));
+      this.indicators.forEach(indicator => indicator.classList.remove("active"));
+
+      this.currentIndex = index;
+      this.cards[index].classList.add("active");
+      this.indicators[index].classList.add("active");
+
+      this.updatePositions();
+    }
+
+    updatePositions() {
+      this.cards.forEach((card, index) => {
+        const distance = this.getDistance(index);
+        const transform = this.getTransform(distance);
+        
+        Object.assign(card.style, transform);
+      });
+    }
+
+    getDistance(index) {
+      let distance = index - this.currentIndex;
+      
+      if (distance > this.totalCards / 2) {
+        distance -= this.totalCards;
+      } else if (distance < -this.totalCards / 2) {
+        distance += this.totalCards;
+      }
+      
+      return distance;
+    }
+
+    getTransform(distance) {
+      const transforms = {
+        0: { translateX: 0, scale: 1, rotateY: 0, opacity: 1, zIndex: 3 },
+        [-2]: { translateX: -200, scale: 0.7, rotateY: 25, opacity: 0.4, zIndex: 0 },
+        [-1]: { translateX: -100, scale: 0.85, rotateY: 15, opacity: 0.7, zIndex: 2 },
+        [1]: { translateX: 100, scale: 0.85, rotateY: -15, opacity: 0.7, zIndex: 2 },
+        [2]: { translateX: 200, scale: 0.7, rotateY: -25, opacity: 0.4, zIndex: 0 },
+        [3]: { translateX: 300, scale: 0.6, rotateY: -35, opacity: 0.3, zIndex: 0 }
+      };
+
+      const defaultTransform = transforms[distance] || this.getExtendedTransform(distance);
+      
+      return {
+        transform: `translateX(${defaultTransform.translateX}px) scale(${defaultTransform.scale}) rotateY(${defaultTransform.rotateY}deg)`,
+        opacity: defaultTransform.opacity.toString(),
+        zIndex: defaultTransform.zIndex.toString()
+      };
+    }
+
+    getExtendedTransform(distance) {
+      if (distance < -2) {
+        const offset = Math.abs(distance) - 3;
+        return {
+          translateX: 300 + offset * 50,
+          scale: Math.max(0.6 - offset * 0.1, 0.4),
+          rotateY: -35 - offset * 10,
+          opacity: Math.max(0.3 - offset * 0.1, 0.1),
+          zIndex: 0
+        };
+      } else {
+        const offset = distance - 3;
+        return {
+          translateX: -200 - offset * 50,
+          scale: Math.max(0.6 - offset * 0.1, 0.4),
+          rotateY: 25 + offset * 10,
+          opacity: Math.max(0.3 - offset * 0.1, 0.1),
+          zIndex: 0
+        };
+      }
+    }
+
+    nextSlide() {
+      this.goToSlide((this.currentIndex + 1) % this.totalCards);
+    }
+
+    prevSlide() {
+      this.goToSlide((this.currentIndex - 1 + this.totalCards) % this.totalCards);
+    }
+
+    setupTouchEvents() {
+      let startX = 0;
+      const carousel = document.querySelector(".carousel-3d-mobile");
+      const threshold = 50;
+
+      if (!carousel) return;
+
+      carousel.addEventListener("touchstart", (e) => {
+        startX = e.touches[0].clientX;
+        this.isTouch = true;
+      }, { passive: true });
+
+      carousel.addEventListener("touchend", (e) => {
+        if (!this.isTouch) return;
+        
+        const endX = e.changedTouches[0].clientX;
+        const diff = startX - endX;
+
+        if (Math.abs(diff) > threshold) {
+          diff > 0 ? this.nextSlide() : this.prevSlide();
+        }
+        
+        this.isTouch = false;
+      }, { passive: true });
+    }
+
+    setupKeyboardEvents() {
+      const handleKeydown = (e) => {
+        if (!this.isMobile()) return;
+        
+        if (e.key === "ArrowLeft") {
+          e.preventDefault();
+          this.prevSlide();
+        } else if (e.key === "ArrowRight") {
+          e.preventDefault();
+          this.nextSlide();
+        }
+      };
+
+      document.addEventListener("keydown", handleKeydown);
+    }
+  }
+
+  // Inicialización simplificada
+  let desktopCarousel = null;
+  let mobileCarousel = null;
+  let imageLoader = null;
+
+  const initCarousels = () => {
+    // Inicializar loader simple
+    if (!window.imageLoader) {
+      window.imageLoader = new SimpleCarouselLoader();
+      imageLoader = window.imageLoader;
+    }
+
+    if (window.innerWidth >= 1024) {
+      desktopCarousel = initDesktopCarousel();
+      mobileCarousel = null;
+    } else if (window.innerWidth < 640) {
+      mobileCarousel = new MobileCarousel3D();
+      if (desktopCarousel) {
+        desktopCarousel.destroy();
+        desktopCarousel = null;
+      }
+    }
+  };
+
+  // Event listeners
+  document.addEventListener("DOMContentLoaded", initCarousels);
+
+  let resizeTimeout;
+  window.addEventListener("resize", () => {
+    clearTimeout(resizeTimeout);
+    resizeTimeout = setTimeout(initCarousels, 250);
+  });
+
+  // Cleanup al salir de la página
+  window.addEventListener("beforeunload", () => {
+    if (imageLoader) {
+      imageLoader.destroy();
+    }
+  });
+</script>
 <style>
   /* Asegurar que todos los contenedores permitan overflow visible */
   .max-w-10\/12 {
@@ -579,210 +809,3 @@ const cardsData = [
     }
   }
 </style>
-
-<!-- Carousel 3d mobil-->
- <script>
-  class MobileCarousel3D {
-    constructor() {
-      this.currentIndex = 2; // Empezar con la tercera card activa (centro)
-      this.cards = document.querySelectorAll(".carousel-card-mobile");
-      this.indicators = document.querySelectorAll(".indicator-mobile");
-      this.totalCards = this.cards.length;
-
-      // Solo inicializar en móvil
-      if (window.innerWidth < 640) {
-        this.init();
-      }
-    }
-
-    init() {
-      // Event listeners para las cards
-      this.cards.forEach((card, index) => {
-        card.addEventListener("click", () => {
-          if (index !== this.currentIndex) {
-            this.goToSlide(index);
-          }
-        });
-      });
-
-      // Event listeners para los indicadores
-      this.indicators.forEach((indicator, index) => {
-        indicator.addEventListener("click", () => {
-          this.goToSlide(index);
-        });
-      });
-
-      // Touch events para móvil
-      this.setupTouchEvents();
-
-      // Inicializar posiciones
-      this.updatePositions();
-
-      // Keyboard navigation
-      document.addEventListener("keydown", (e) => {
-        if (window.innerWidth < 640) {
-          if (e.key === "ArrowLeft") {
-            this.prevSlide();
-          } else if (e.key === "ArrowRight") {
-            this.nextSlide();
-          }
-        }
-      });
-    }
-
-    goToSlide(index) {
-      // Remover clase active de todos
-      this.cards.forEach((card) => card.classList.remove("active"));
-      this.indicators.forEach((indicator) =>
-        indicator.classList.remove("active")
-      );
-
-      // Actualizar índice actual
-      this.currentIndex = index;
-
-      // Agregar clase active al nuevo
-      this.cards[index].classList.add("active");
-      this.indicators[index].classList.add("active");
-
-      // Reorganizar posiciones
-      this.updatePositions();
-    }
-
-    updatePositions() {
-      this.cards.forEach((card, index) => {
-        // Calcular distancia con ciclo infinito
-        let distance = index - this.currentIndex;
-
-        // Ajustar distancia para ciclo infinito (encontrar el camino más corto)
-        if (distance > this.totalCards / 2) {
-          distance -= this.totalCards;
-        } else if (distance < -this.totalCards / 2) {
-          distance += this.totalCards;
-        }
-
-        if (distance === 0) {
-          // Card activa (centro)
-          card.style.transform = "translateX(0) scale(1) rotateY(0deg)";
-          card.style.opacity = "1";
-          card.style.zIndex = "3";
-        } else {
-          let translateX, scale, rotateY, opacity, zIndex;
-
-          switch (distance) {
-            case -2:
-              translateX = -200;
-              scale = 0.7;
-              rotateY = 25;
-              opacity = 0.4;
-              zIndex = 0;
-              break;
-            case -1:
-              translateX = -100;
-              scale = 0.85;
-              rotateY = 15;
-              opacity = 0.7;
-              zIndex = 2;
-              break;
-            case 1:
-              translateX = 100;
-              scale = 0.85;
-              rotateY = -15;
-              opacity = 0.7;
-              zIndex = 2;
-              break;
-            case 2:
-              translateX = 200;
-              scale = 0.7;
-              rotateY = -25;
-              opacity = 0.4;
-              zIndex = 0;
-              break;
-            case 3:
-              translateX = 300;
-              scale = 0.6;
-              rotateY = -35;
-              opacity = 0.3;
-              zIndex = 0;
-              break;
-            default:
-              // Cards en ciclo infinito (extremos que se conectan)
-              if (distance < -2) {
-                // Cards que aparecen por la derecha en el ciclo infinito
-                translateX = 300 + (Math.abs(distance) - 3) * 50;
-                scale = Math.max(0.6 - (Math.abs(distance) - 3) * 0.1, 0.4);
-                rotateY = -35 - (Math.abs(distance) - 3) * 10;
-                opacity = Math.max(0.3 - (Math.abs(distance) - 3) * 0.1, 0.1);
-              } else {
-                // Cards que aparecen por la izquierda en el ciclo infinito
-                translateX = -200 - (distance - 3) * 50;
-                scale = Math.max(0.6 - (distance - 3) * 0.1, 0.4);
-                rotateY = 25 + (distance - 3) * 10;
-                opacity = Math.max(0.3 - (distance - 3) * 0.1, 0.1);
-              }
-              zIndex = 0;
-              break;
-          }
-
-          card.style.transform = `translateX(${translateX}px) scale(${scale}) rotateY(${rotateY}deg)`;
-          card.style.opacity = opacity.toString();
-          card.style.zIndex = zIndex.toString();
-        }
-      });
-    }
-
-    nextSlide() {
-      const nextIndex = (this.currentIndex + 1) % this.totalCards;
-      this.goToSlide(nextIndex);
-    }
-
-    prevSlide() {
-      const prevIndex =
-        (this.currentIndex - 1 + this.totalCards) % this.totalCards;
-      this.goToSlide(prevIndex);
-    }
-
-    setupTouchEvents() {
-      let startX = 0;
-      let endX = 0;
-      const carousel = document.querySelector(".carousel-3d-mobile");
-
-      if (carousel) {
-        carousel.addEventListener("touchstart", (e) => {
-          startX = e.touches[0].clientX;
-        });
-
-        carousel.addEventListener("touchend", (e) => {
-          endX = e.changedTouches[0].clientX;
-          this.handleSwipe();
-        });
-      }
-    }
-
-    handleSwipe() {
-      const threshold = 50;
-      const diff = startX - endX;
-
-      if (Math.abs(diff) > threshold) {
-        if (diff > 0) {
-          this.nextSlide();
-        } else {
-          this.prevSlide();
-        }
-      }
-    }
-  }
-
-  
-
-
-
-  // Reinicializar en resize si cambia de móvil a desktop o viceversa
-  window.addEventListener("resize", () => {
-    // Only create new instance if not exists or if screen size changes relevantly
-    if (window.innerWidth < 640 && !window.mobileCarousel) {
-      window.mobileCarousel = new MobileCarousel3D();
-      // Remove desktop carousel if it exists
-      
-    }  
-  });
-</script>
