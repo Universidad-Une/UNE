@@ -1,0 +1,39 @@
+---
+import Layout from "@/layouts/Layout.astro";
+
+
+---
+
+<Layout>
+    <style>
+  .genially-desktop, .genially-mobile {
+    display: none;
+  }
+
+  @media (min-width: 768px) {
+    .genially-desktop {
+      display: block;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .genially-mobile {
+      display: block;
+    }
+  }
+</style>
+
+
+<div class="genially-mobile" style="width: 100%;">
+  <div style="position: relative; padding-bottom: 177.78%; height: 0;">
+    <iframe title="PRESENTACIÓN 3er Congreso Odontología móvil" frameborder="0" width="360" height="640" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://view.genially.com/685498adbaa5b7271dfe1c78" type="text/html" allowscriptaccess="always" allowfullscreen="true" scrolling="yes" allownetworking="all"></iframe>
+  </div>
+</div>
+
+
+<div class="genially-desktop" style="width: 100%;">
+  <div style="position: relative; padding-bottom: 56.25%; height: 0;">
+    <iframe title="PRESENTACIÓN 3er Congreso Odontología" frameborder="0" width="1920" height="1080" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://view.genially.com/68406fdf180c2c857957f0d1" type="text/html" allowscriptaccess="always" allowfullscreen="true" scrolling="yes" allownetworking="all"></iframe>
+  </div>
+</div>
+</Layout>

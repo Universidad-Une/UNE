@@ -10,8 +10,28 @@ export interface Props {
   }>;
 }
 
-const { images } = Astro.props;
-
+const images = [
+  {
+    src: "/src/assets/Imagenes/GaleriaCongresos/Vallarta.webp",
+    alt: "Congreso de Derecho 2024",
+    title: "Inauguración del evento",
+  },
+  {
+    src: "/src/assets/Imagenes/GaleriaCongresos/Vallarta.webp",
+    alt: "Ponencia principal",
+    title: "Dr. Smith presentando",
+  },
+  {
+    src: "/src/assets/Imagenes/GaleriaCongresos/Vallarta.webp",
+    alt: "Mesa redonda",
+    title: "Panel de expertos",
+  },
+  {
+    src: "/src/assets/Imagenes/GaleriaCongresos/Vallarta.webp",
+    alt: "Networking",
+    title: "Momento de networking",
+  },
+];
 // Dividir las imágenes en dos filas
 const midPoint = Math.ceil(images.length / 2);
 const firstRowImages = images.slice(0, midPoint);

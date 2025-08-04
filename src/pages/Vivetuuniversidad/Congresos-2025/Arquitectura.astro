@@ -1,0 +1,35 @@
+---
+import Layout from "@/layouts/Layout.astro";
+
+
+---
+
+<Layout>
+    <style>
+  .genially-desktop, .genially-mobile {
+    display: none;
+  }
+
+  @media (min-width: 768px) {
+    .genially-desktop {
+      display: block;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .genially-mobile {
+      display: block;
+    }
+  }
+</style>
+
+
+<div class="genially-mobile" style="width: 100%;">
+<div style="width: 100%;"><div style="position: relative; padding-bottom: 177.77777777777777%; padding-top: 0; height: 0;"><iframe title="PRESENTACIÓN 1er Congreso Arquitectura e Ingeniería Civil Móvil" frameborder="0" width="360px" height="640px" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://view.genially.com/6854986fbaa5b7271dfdec21" type="text/html" allowscriptaccess="always" allowfullscreen="true" scrolling="yes" allownetworking="all"></iframe> </div> </div>
+</div>
+
+
+<div class="genially-desktop" style="width: 100%;">
+ <div style="width: 100%;"><div style="position: relative; padding-bottom: 56.25%; padding-top: 0; height: 0;"><iframe title="PRESENTACIÓN 1er Congreso Arquitectura e Ingeniería Civil" frameborder="0" width="1920px" height="1080px" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://view.genially.com/68475b6e6ba15c8672553fe5" type="text/html" allowscriptaccess="always" allowfullscreen="true" scrolling="yes" allownetworking="all"></iframe> </div> </div>
+</div>
+</Layout>

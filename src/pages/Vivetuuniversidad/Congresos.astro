@@ -3,92 +3,202 @@ import Layout from "@/layouts/Layout.astro";
 import logoBlanco from "@assets/Logos/UNE_blanco.webp";
 import Card3D from "@components/sections/vtu/3Dcard.astro";
 import FAQComponent from "@/components/sections/detallesOferta/preguntas.astro";
+
+// Importar las imágenes de fondo para los congresos
+import congreso1 from "@assets/Imagenes/GaleriaCongresos/1.png";
+import congreso2 from "@assets/Imagenes/GaleriaCongresos/2.png";
+import congreso3 from "@assets/Imagenes/GaleriaCongresos/3.png";
+import congreso4 from "@assets/Imagenes/GaleriaCongresos/4.png";
+import congreso5 from "@assets/Imagenes/GaleriaCongresos/5.png";
+
 const faqs = [
   {
-    question: "¿Cuáles son los requisitos para ingresar a una licenciatura?",
+    question: "¿Cuáles son las fechas de los congresos UNE 2025?",
     answer:
-      "Debes contar con certificado de bachillerato, acta de nacimiento, CURP, identificación oficial, comprobante de domicilio y fotografías recientes. En algunos casos, puede requerirse el resultado de un examen de admisión.",
+      "Los congresos se realizan consecutivamente en octubre: Arquitectura e Ingeniería Civil (11-13 oct), Ciencias de la Salud (13-15 oct), Terapia Física y Cultura Física (15-17 oct), Odontología (17-19 oct) y Psicología (19-21 oct).",
   },
   {
-    question: "¿Cuál es la duración de una licenciatura?",
+    question: "¿Dónde se llevan a cabo los congresos?",
     answer:
-      "Las licenciaturas tienen una duración promedio de 8 a 10 semestres, dependiendo del programa, la institución incorporadora (UDG o SICYT) y la modalidad elegida.",
+      "Todos los congresos se realizan en Puerto Vallarta, en el Hotel Dreams Vallarta Bay. También hay una modalidad ZMG (Zona Metropolitana de Guadalajara) para quienes prefieren asistir localmente.",
   },
   {
-    question: "¿Qué modalidades de estudio están disponibles?",
+    question: "¿Cuáles son los costos de participación?",
     answer:
-      "Las licenciaturas pueden cursarse en modalidad presencial, en línea, escolarizada o semiescolarizada, según la carrera y el plantel. Algunas combinan clases presenciales con actividades virtuales.",
+      "Modalidad Puerto Vallarta: $12,500 (incluye transporte, hospedaje todo incluido, kit de bienvenida y acceso a conferencias). Modalidad ZMG: $4,800 (incluye conference pass, kit de bienvenida y acceso a conferencias). Ambas modalidades tienen planes de pago disponibles.",
   },
   {
-    question: "¿Puedo trabajar mientras estudio una licenciatura?",
+    question: "¿Qué incluye el plan de pagos?",
     answer:
-      "Sí. Las modalidades en línea y semiescolarizada están diseñadas para ofrecer mayor flexibilidad y permitir compatibilizar tus estudios con otras actividades.",
+      "Puerto Vallarta: $1,500 de junio a noviembre y $3,500 en octubre. ZMG: $550 de junio a noviembre y $1,500 en octubre. Diciembre: pago final de $1,500 para ambas modalidades.",
   },
   {
-    question: "¿Cómo se evalúa el desempeño académico?",
+    question: "¿A quién están dirigidos los congresos?",
     answer:
-      "El sistema de evaluación incluye exámenes, proyectos, participación en clase, trabajos individuales o en equipo y actividades prácticas, según el enfoque de cada licenciatura.",
+      "Están dirigidos principalmente a estudiantes y egresados de las carreras correspondientes: Arquitectura, Ingeniería Civil, Enfermería, Gastronomía, Nutrición, Químico Farmacéutico Biólogo, Terapia Física, Cultura Física, Odontología y Psicología.",
   },
   {
-    question: "¿Qué tipo de apoyo académico se brinda a los estudiantes?",
+    question: "¿Qué actividades incluyen los congresos?",
     answer:
-      "Ofrecemos tutorías, asesorías académicas presenciales y virtuales, y acceso a plataformas educativas para reforzar el aprendizaje de cada materia.",
+      "Cada congreso incluye conferencias magistrales, conferencias temáticas, talleres prácticos, actividades de networking, coffee breaks, área comercial/muestra tecnológica, y ceremonias de inauguración y clausura.",
   },
   {
-    question:
-      "¿Las licenciaturas están incorporadas a alguna institución oficial?",
+    question: "¿Puedo asistir a más de un congreso?",
     answer:
-      "Sí. Contamos con licenciaturas incorporadas a la Universidad de Guadalajara (UDG) y a la Secretaría de Innovación, Ciencia y Tecnología (SICYT) del Estado de Jalisco, lo que garantiza validez oficial de estudios.",
+      "Sí, puedes asistir a múltiples congresos. Algunos se realizan de manera consecutiva, lo que facilita la participación en varios eventos. Consulta los costos y disponibilidad para cada congreso adicional.",
   },
   {
-    question: "¿Dónde puedo obtener más información e inscribirme?",
+    question: "¿Hay opciones de day pass para el hotel?",
     answer:
-      "Puedes acudir directamente a las oficinas del plantel más cercano o visitar nuestro portal web para consultar la oferta académica, requisitos y fechas de inscripción.",
+      "Sí, para la modalidad ZMG existe la opción de day pass todo incluido por $1,600 por día (de 8:00 a 18:00 horas), que permite acceder a las instalaciones del hotel durante el evento.",
+  },
+  {
+    question: "¿Cómo puedo registrarme?",
+    answer:
+      "Puedes registrarte haciendo clic en el botón de registro de cada congreso, acudiendo al área de admisión de tu plantel, contactando a tu Coordinador de Carrera o Director, o enviando un mensaje o correo según los contactos proporcionados.",
+  },
+  {
+    question: "¿Los congresos otorgan constancias o certificados?",
+    answer:
+      "Sí, todos los participantes reciben constancias de participación. Los talleres y actividades específicas pueden otorgar certificados adicionales según corresponda.",
   },
 ];
 
 const congresos = [
   {
-    titulo: "Congreso Internacional de Investigación Educativa",
-    fecha: "21-23 de noviembre, 2024",
-    modalidad: "Híbrido",
-    area: "Educación",
+    titulo: "1er Congreso de Arquitectura e Ingeniería Civil",
+    fecha: "11-13 de octubre, 2025",
+    modalidad: "Presencial/ZMG",
+    area: "Arquitectura e Ingeniería",
     descripcion:
-      "Espacio para compartir investigaciones innovadoras en pedagogía, didáctica y tecnología educativa.",
+      "Tecno-Ciudades: Construyendo el futuro desde la interdisciplina. Congreso enfocado en tecnología BIM, sostenibilidad urbana e innovación en construcción.",
     temas: [
-      "Innovación pedagógica",
-      "Tecnología educativa",
-      "Evaluación del aprendizaje",
-      "Inclusión educativa",
+      "Metodología BIM",
+      "Inteligencia Artificial en proyectos",
+      "Valuación de proyectos",
+      "Construcción sostenible",
+      "Zonificación sísmica",
+      "Instrumentos geoespaciales",
+      "Gemelos digitales"
     ],
+    imagen: congreso1,
+    enlace: "/Vivetuuniversidad/Congresos-2025/Arquitectura",
+    costos: {
+      puertoVallarta: "$12,500",
+      zmg: "$4,800"
+    },
+    incluye: {
+      puertoVallarta: ["Transporte redondo", "Hospedaje todo incluido", "Kit de bienvenida", "Acceso a conferencias y talleres"],
+      zmg: ["Conference pass", "Kit de bienvenida", "Acceso a conferencias y talleres"]
+    }
   },
   {
-    titulo: "Simposio de Ciencias Sociales y Humanidades",
-    fecha: "24-25 de noviembre, 2024",
-    modalidad: "Presencial",
-    area: "Humanidades",
+    titulo: "2do Congreso de Ciencias de la Salud",
+    fecha: "13-15 de octubre, 2025",
+    modalidad: "Presencial/ZMG",
+    area: "Ciencias de la Salud",
     descripcion:
-      "Encuentro multidisciplinario para analizar los desafíos sociales contemporáneos.",
+      "De la emergencia a la prevención: Donde la ciencia responde. Congreso interdisciplinario sobre atención médica de urgencia y biotecnología alimentaria.",
     temas: [
-      "Sociología urbana",
-      "Antropología cultural",
-      "Historia contemporánea",
-      "Filosofía política",
+      "Medicina de urgencias",
+      "Biotecnología alimentaria",
+      "Manejo de heridas y estomas",
+      "Fermentación de alimentos",
+      "Seguridad hospitalaria",
+      "Análisis bromatológico",
+      "Nutrición clínica"
     ],
+    imagen: congreso2,
+    enlace: "/Vivetuuniversidad/Congresos-2025/Ciencias-de-la-salud",
+    costos: {
+      puertoVallarta: "$12,500",
+      zmg: "$4,800"
+    },
+    incluye: {
+      puertoVallarta: ["Transporte redondo", "Hospedaje todo incluido", "Kit de bienvenida", "Acceso a conferencias y talleres"],
+      zmg: ["Conference pass", "Kit de bienvenida", "Acceso a conferencias y talleres"]
+    }
   },
   {
-    titulo: "Foro de Innovación Tecnológica",
-    fecha: "26-27 de noviembre, 2024",
-    modalidad: "Virtual",
-    area: "Tecnología",
+    titulo: "2do Congreso de Terapia Física y Cultura Física",
+    fecha: "15-17 de octubre, 2025",
+    modalidad: "Presencial/ZMG",
+    area: "Terapia Física y Deporte",
     descripcion:
-      "Plataforma para presentar desarrollos tecnológicos y soluciones digitales innovadoras.",
+      "Neurociencia del Dolor: comprendiendo su mecanismo y significado. Congreso sobre manejo del dolor desde una perspectiva interdisciplinaria.",
     temas: [
-      "Inteligencia artificial",
-      "Desarrollo sostenible",
-      "Biotecnología",
-      "Ciberseguridad",
+      "Neurociencia del dolor",
+      "Ejercicio terapéutico",
+      "Fisioterapia deportiva",
+      "Tendinopatías",
+      "Dolor crónico",
+      "Terapia manual",
+      "Alto rendimiento deportivo"
     ],
+    imagen: congreso3,
+    enlace: "/Vivetuuniversidad/Congresos-2025/Terapia-fisica-cultura",
+    costos: {
+      puertoVallarta: "$12,500",
+      zmg: "$4,800"
+    },
+    incluye: {
+      puertoVallarta: ["Transporte redondo", "Hospedaje todo incluido", "Kit de bienvenida", "Acceso a conferencias y talleres"],
+      zmg: ["Conference pass", "Kit de bienvenida", "Acceso a conferencias y talleres"]
+    }
+  },
+  {
+    titulo: "3er Congreso de Odontología",
+    fecha: "17-19 de octubre, 2025",
+    modalidad: "Presencial/ZMG",
+    area: "Odontología",
+    descripcion:
+      "Más allá de la sonrisa…, Odontología digital, una nueva era. Congreso sobre las innovaciones tecnológicas en odontología moderna.",
+    temas: [
+      "Odontología digital",
+      "Flujo digital en endodoncia",
+      "Carillas estéticas",
+      "Escaneo bucal",
+      "Diseño de sonrisa digital",
+      "Periodoncia digital",
+      "Ortodoncia invisible"
+    ],
+    imagen: congreso4,
+    enlace: "/Vivetuuniversidad/Congresos-2025/Odontologia",
+    costos: {
+      puertoVallarta: "$12,500",
+      zmg: "$4,800"
+    },
+    incluye: {
+      puertoVallarta: ["Transporte redondo", "Hospedaje todo incluido", "Kit de bienvenida", "Acceso a conferencias y talleres"],
+      zmg: ["Conference pass", "Kit de bienvenida", "Acceso a conferencias y talleres"]
+    }
+  },
+  {
+    titulo: "2do Congreso de Psicología",
+    fecha: "19-21 de octubre, 2025",
+    modalidad: "Presencial/ZMG",
+    area: "Psicología",
+    descripcion:
+      "De la teoría a la práctica: La psicología y su impacto en el mundo actual. Congreso sobre las diversas aplicaciones de la psicología contemporánea.",
+    temas: [
+      "Psicología forense",
+      "Inteligencia artificial en psicología",
+      "Psicología del deporte",
+      "Psicología organizacional",
+      "Intervención en violencia",
+      "Psicología de la sexualidad",
+      "Tanatología"
+    ],
+    imagen: congreso5,
+    enlace: "/Vivetuuniversidad/Congresos-2025/Psicologia",
+    costos: {
+      puertoVallarta: "$12,500",
+      zmg: "$4,800"
+    },
+    incluye: {
+      puertoVallarta: ["Transporte redondo", "Hospedaje todo incluido", "Kit de bienvenida", "Acceso a conferencias y talleres"],
+      zmg: ["Conference pass", "Kit de bienvenida", "Acceso a conferencias y talleres"]
+    }
   },
 ];
 ---
@@ -114,7 +224,7 @@ const congresos = [
         <p
           class="text-lg md:text-xl leading-relaxed mb-8 max-w-3xl mx-auto font-light"
         >
-          Del 21 al 27 de noviembre
+          Del 11 al 23 de Octubre 2025
         </p>
       </div>
     </div>
@@ -221,7 +331,7 @@ const congresos = [
     <div class="container mx-auto px-4 max-w-6xl">
       <div class="text-center mb-12">
         <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-6">
-          Programa de Congresos 2024
+          Programa de Congresos 2025
         </h2>
         <p class="text-lg text-gray-600 max-w-2xl mx-auto">
           Una semana completa de eventos académicos que abarcan diversas áreas
@@ -234,49 +344,54 @@ const congresos = [
           congresos.map((congreso, index) => (
             <div class="bg-white rounded-lg shadow-lg overflow-hidden">
               <div class="md:flex">
-                <div class="md:w-1/3 bg-gradient-to-br from-blue-600 to-purple-700 p-8 text-white">
-                  <div class="text-sm font-semibold mb-2 opacity-90">
-                    {congreso.area}
-                  </div>
-                  <h3 class="text-2xl font-bold mb-4">{congreso.titulo}</h3>
-                  <div class="space-y-2">
-                    <div class="flex items-center">
-                      <svg
-                        class="w-5 h-5 mr-2"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
-                        />
-                      </svg>
-                      <span>{congreso.fecha}</span>
+                <div 
+                  class="md:w-1/3 p-8 text-white relative bg-cover bg-center bg-no-repeat"
+                  style={`background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(${congreso.imagen.src})`}
+                >
+                  <div class="relative z-10">
+                    <div class="text-sm font-semibold mb-2 opacity-90">
+                      {congreso.area}
                     </div>
-                    <div class="flex items-center">
-                      <svg
-                        class="w-5 h-5 mr-2"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-                        />
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
-                        />
-                      </svg>
-                      <span>Modalidad {congreso.modalidad}</span>
+                    <h3 class="text-2xl font-bold mb-4">{congreso.titulo}</h3>
+                    <div class="space-y-2">
+                      <div class="flex items-center">
+                        <svg
+                          class="w-5 h-5 mr-2"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                          />
+                        </svg>
+                        <span>{congreso.fecha}</span>
+                      </div>
+                      <div class="flex items-center">
+                        <svg
+                          class="w-5 h-5 mr-2"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                          />
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+                          />
+                        </svg>
+                        <span>Modalidad {congreso.modalidad}</span>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -300,12 +415,13 @@ const congresos = [
                   </div>
 
                   <div class="flex gap-4">
-                    <button class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg font-medium transition-colors">
+                    <a 
+                      href={congreso.enlace}
+                      class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg font-medium transition-colors inline-block text-center"
+                    >
                       Ver Detalles
-                    </button>
-                    <button class="border border-blue-600 text-blue-600 hover:bg-blue-50 px-6 py-2 rounded-lg font-medium transition-colors">
-                      Inscribirse
-                    </button>
+                    </a>
+                  
                   </div>
                 </div>
               </div>
@@ -318,7 +434,7 @@ const congresos = [
 
   <!-- Estadísticas de Impacto -->
   <section
-    class="py-16 bg-gradient-to-r from-blue-600 to-purple-700 text-white"
+    class="py-16 bg-azul-une text-white"
   >
     <div class="container mx-auto px-4 max-w-6xl">
       <div class="text-center mb-12">
@@ -361,7 +477,6 @@ const congresos = [
     subtitle="Encuentra respuestas a las dudas más comunes"
   />
 </Layout>
-
 <style>
   .general-bg {
     background-image: url("/src/assets/Imagenes/Heros/Admision.webp");

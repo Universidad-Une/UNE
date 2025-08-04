@@ -112,8 +112,6 @@ const { className = "" } = Astro.props;
               <span class="text-white font-semibold">Psicología UNE 2025</span>, exploraremos juntos las respuestas.
             </p>
           </div>
-
-        
         </div>
       </div>
 
@@ -142,8 +140,6 @@ const { className = "" } = Astro.props;
         style="transform: translateZ(80px);"
       >
       </div>
-
-  
     </div>
   </div>
 </div>
@@ -232,60 +228,114 @@ const { className = "" } = Astro.props;
 </style>
 
 <script>
-  const card = document.getElementById("interactive-card");
-
-  if (card && window.innerWidth > 768) {
-    function updateCardPosition() {
-      const rect = card.getBoundingClientRect();
-      const centerX = rect.left + rect.width / 2;
-      const centerY = rect.top + rect.height / 2;
-
-      return { centerX, centerY, width: rect.width, height: rect.height };
+  // Función para inicializar la animación 3D
+  function initializeCard() {
+    const card = document.getElementById("interactive-card");
+    
+    if (!card || window.innerWidth <= 768) {
+      return;
     }
 
-    let cardPosition = updateCardPosition();
+    let cardPosition = null;
+    let isInitialized = false;
 
-    window.addEventListener("resize", () => {
-      cardPosition = updateCardPosition();
-    });
+    function updateCardPosition() {
+      const rect = card.getBoundingClientRect();
+      cardPosition = {
+        centerX: rect.left + rect.width / 2,
+        centerY: rect.top + rect.height / 2,
+        width: rect.width,
+        height: rect.height
+      };
+    }
 
-    // Efecto 3D mejorado con transiciones más suaves
-    document.addEventListener("mousemove", (e) => {
+    function handleMouseMove(e) {
+      if (!cardPosition) return;
+
       const { centerX, centerY, width, height } = cardPosition;
-
       const deltaX = e.clientX - centerX;
       const deltaY = e.clientY - centerY;
-
       const distance = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
       const maxDistance = Math.max(width, height);
 
       if (distance < maxDistance * 1.2) {
         const rotateY = (deltaX / width) * 20;
         const rotateX = -(deltaY / height) * 20;
-
         const intensity = Math.max(0, 1 - distance / (maxDistance * 1.2));
         const finalRotateX = rotateX * intensity;
         const finalRotateY = rotateY * intensity;
-
-        // Efecto de elevación adicional
         const translateZ = intensity * 20;
 
         card.style.transform = `perspective(1500px) rotateX(${finalRotateX}deg) rotateY(${finalRotateY}deg) translateZ(${translateZ}px) scale(${1 + intensity * 0.02})`;
       } else {
-        card.style.transform =
-          "perspective(1500px) rotateX(0deg) rotateY(0deg) translateZ(0px) scale(1)";
+        card.style.transform = "perspective(1500px) rotateX(0deg) rotateY(0deg) translateZ(0px) scale(1)";
       }
-    });
+    }
 
-    // Efecto de entrada suave
-    card.addEventListener("mouseenter", () => {
+    function handleMouseEnter() {
       card.style.transition = "all 0.3s cubic-bezier(0.23, 1, 0.320, 1)";
-    });
+    }
 
-    card.addEventListener("mouseleave", () => {
+    function handleMouseLeave() {
       card.style.transition = "all 0.8s cubic-bezier(0.23, 1, 0.320, 1)";
-      card.style.transform =
-        "perspective(1500px) rotateX(0deg) rotateY(0deg) translateZ(0px) scale(1)";
-    });
+      card.style.transform = "perspective(1500px) rotateX(0deg) rotateY(0deg) translateZ(0px) scale(1)";
+    }
+
+    function handleResize() {
+      updateCardPosition();
+    }
+
+    function initEvents() {
+      if (isInitialized) return;
+      
+      updateCardPosition();
+      
+      document.addEventListener("mousemove", handleMouseMove);
+      card.addEventListener("mouseenter", handleMouseEnter);
+      card.addEventListener("mouseleave", handleMouseLeave);
+      window.addEventListener("resize", handleResize);
+      
+      isInitialized = true;
+    }
+
+    // Usar IntersectionObserver para detectar cuando la tarjeta es visible
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && entry.intersectionRatio > 0.1) {
+            // Pequeño delay para asegurar que el elemento esté completamente renderizado
+            setTimeout(() => {
+              initEvents();
+              observer.unobserve(card); // Solo necesitamos inicializar una vez
+            }, 100);
+          }
+        });
+      },
+      {
+        threshold: 0.1,
+        rootMargin: "50px"
+      }
+    );
+
+    observer.observe(card);
+
+    // Cleanup function para remover event listeners si es necesario
+    return () => {
+      if (isInitialized) {
+        document.removeEventListener("mousemove", handleMouseMove);
+        card.removeEventListener("mouseenter", handleMouseEnter);
+        card.removeEventListener("mouseleave", handleMouseLeave);
+        window.removeEventListener("resize", handleResize);
+        observer.disconnect();
+      }
+    };
+  }
+
+  // Inicializar cuando el DOM esté listo
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initializeCard);
+  } else {
+    // Si el DOM ya está listo, inicializar inmediatamente
+    initializeCard();
   }
 </script>
