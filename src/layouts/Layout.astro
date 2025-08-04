@@ -1,27 +1,28 @@
 ﻿---
 // Layout principal de la aplicacion
-import Header from '../components/layout/Header.astro';
-import Footer from '../components/layout/Footer.astro';
+import Header from "../components/layout/Header.astro";
+import Footer from "../components/layout/Footer.astro";
 import "../styles/global.css";
-
-
-
+import Clarity from "../components/layout/Clarity.astro";
+const projectId = "spfe9hsbw6";
 
 const { title, description } = Astro.props;
 ---
 
 <html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{title}</title>
-  {description && <meta name="description" content={description}>}
-</head>
-<body>
-  <Header />
-  <main>
-    <slot />
-  </main>
-  <Footer />
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    {description && <meta name="description" content={description} />}
+  </head>
+  <body>
+    <!-- Cargar Clarity solo en el cliente -->
+    <Clarity projectId={projectId} />
+    <Header />
+    <main>
+      <slot />
+    </main>
+    <Footer />
+  </body>
 </html>

@@ -1,239 +1,419 @@
 ---
-// Astro con JavaScript
-const { logoSrc } = Astro.props;
+// Astro con JavaScript - Versión Optimizada 1.5s
+const { logoSrc, enableSplash = true, alwaysShow = false } = Astro.props;
 ---
 
-<div class="initial-blocks">
+<!-- Solo mostrar si está habilitado y no se ha visto en esta sesión -->
+<div id="splash-wrapper" style="display: none;">
+  <div class="initial-blocks">
     <div class="block-top"></div>
     <div class="block-bottom"></div>
-</div>
+  </div>
 
-<div id="preloader">
+  <div id="preloader">
     <div class="logo-container">
-       <svg class="mb-6" version="1.0" xmlns="http://www.w3.org/2000/svg" width="804.000000pt" height="310.000000pt"
-            viewBox="0 0 804.000000 310.000000" preserveAspectRatio="xMidYMid meet">
+      <svg
+        class="mb-6"
+        version="1.0"
+        xmlns="http://www.w3.org/2000/svg"
+        width="804.000000pt"
+        height="310.000000pt"
+        viewBox="0 0 804.000000 310.000000"
+        preserveAspectRatio="xMidYMid meet"
+      >
+        <g
+          transform="translate(0.000000,310.000000) scale(0.100000,-0.100000)"
+          stroke="none"
+        >
+          <!-- Parte superior: rojo -->
+          <path
+            class="bandera-parte bandera-parte-1"
+            fill="#E2231A"
+            d="M1926 2560 c-518 -26 -1068 -91 -1401 -165 -60 -14 -113 -25 -117
+      -25 -19 0 -1 -28 100 -156 59 -75 125 -160 147 -189 22 -29 75 -98 118 -153
+      78 -100 78 -100 110 -91 72 22 460 120 567 143 259 57 755 128 1105 157 207
+      18 1183 18 1405 1 395 -31 866 -95 1210 -163 107 -21 195 -37 197 -35 2 1 -27
+      26 -65 54 -37 28 -128 99 -202 157 -74 59 -148 117 -165 130 -71 55 -456 155
+      -865 224 -192 33 -552 73 -870 96 -241 18 -1024 27 -1274 15z"
+          ></path>
 
-            <g transform="translate(0.000000,310.000000) scale(0.100000,-0.100000)" stroke="none">
+          <!-- Parte media: azul -->
+          <path
+            class="bandera-parte bandera-parte-2"
+            fill="#001970"
+            d="M3080 1984 c-544 -30 -805 -58 -1270 -135 -241 -40 -851 -163 -869
+      -175 -2 -2 19 -30 45 -64 27 -33 67 -85 89 -114 22 -29 94 -122 160 -206 66
+      -83 133 -170 148 -191 15 -21 31 -39 34 -39 2 0 62 18 131 39 135 42 465 127
+      622 160 288 61 774 129 1080 151 391 28 1055 28 1475 0 222 -15 504 -46 740
+      -81 110 -16 236 -34 280 -40 44 -5 174 -29 288 -53 227 -47 224 -47 121 30
+      -28 22 -153 120 -278 219 -125 99 -242 190 -260 203 -65 45 -620 165 -1046
+      227 -297 42 -655 66 -1060 69 -201 2 -394 2 -430 0z"
+          ></path>
 
-                <!-- Parte superior: rojo -->
-                <path class="bandera-parte" fill="#E2231A" d="M1926 2560 c-518 -26 -1068 -91 -1401 -165 -60 -14 -113 -25 -117
-  -25 -19 0 -1 -28 100 -156 59 -75 125 -160 147 -189 22 -29 75 -98 118 -153
-  78 -100 78 -100 110 -91 72 22 460 120 567 143 259 57 755 128 1105 157 207
-  18 1183 18 1405 1 395 -31 866 -95 1210 -163 107 -21 195 -37 197 -35 2 1 -27
-  26 -65 54 -37 28 -128 99 -202 157 -74 59 -148 117 -165 130 -71 55 -456 155
-  -865 224 -192 33 -552 73 -870 96 -241 18 -1024 27 -1274 15z" />
-
-                <!-- Parte media: azul -->
-                <path class="bandera-parte" fill="#001970" d="M3080 1984 c-544 -30 -805 -58 -1270 -135 -241 -40 -851 -163 -869
-  -175 -2 -2 19 -30 45 -64 27 -33 67 -85 89 -114 22 -29 94 -122 160 -206 66
-  -83 133 -170 148 -191 15 -21 31 -39 34 -39 2 0 62 18 131 39 135 42 465 127
-  622 160 288 61 774 129 1080 151 391 28 1055 28 1475 0 222 -15 504 -46 740
-  -81 110 -16 236 -34 280 -40 44 -5 174 -29 288 -53 227 -47 224 -47 121 30
-  -28 22 -153 120 -278 219 -125 99 -242 190 -260 203 -65 45 -620 165 -1046
-  227 -297 42 -655 66 -1060 69 -201 2 -394 2 -430 0z" />
-
-                <!-- Parte inferior: rojo -->
-                <path class="bandera-parte" fill="#E2231A" d="M3725 1254 c-27 -2 -124 -8 -215 -14 -572 -37 -1331 -155 -1833 -285
-  -75 -19 -139 -35 -142 -35 -15 0 7 -33 129 -197 73 -98 138 -188 144 -200 7
-  -12 18 -27 25 -35 7 -7 55 -71 107 -143 51 -71 100 -135 109 -141 17 -13 13
-  -14 200 53 272 97 570 179 886 243 326 66 479 90 755 115 634 57 1056 58 1716
-  5 333 -27 496 -48 924 -121 260 -44 376 -68 619 -128 91 -23 168 -41 173 -41
-  9 0 -93 88 -157 135 -22 16 -65 50 -95 75 -30 26 -65 53 -76 61 -12 8 -115 88
-  -229 178 -206 163 -209 165 -294 188 -470 128 -1010 220 -1571 269 -173 15
-  -1035 28 -1175 18z" />
-            </g>
-        </svg>
-        <h1 class=" mt-12 text-[12rem] ">UNE</h1>
+          <!-- Parte inferior: rojo -->
+          <path
+            class="bandera-parte bandera-parte-3"
+            fill="#E2231A"
+            d="M3725 1254 c-27 -2 -124 -8 -215 -14 -572 -37 -1331 -155 -1833 -285
+      -75 -19 -139 -35 -142 -35 -15 0 7 -33 129 -197 73 -98 138 -188 144 -200 7
+      -12 18 -27 25 -35 7 -7 55 -71 107 -143 51 -71 100 -135 109 -141 17 -13 13
+      -14 200 53 272 97 570 179 886 243 326 66 479 90 755 115 634 57 1056 58 1716
+      5 333 -27 496 -48 924 -121 260 -44 376 -68 619 -128 91 -23 168 -41 173 -41
+      9 0 -93 88 -157 135 -22 16 -65 50 -95 75 -30 26 -65 53 -76 61 -12 8 -115 88
+      -229 178 -206 163 -209 165 -294 188 -470 128 -1010 220 -1571 269 -173 15
+      -1035 28 -1175 18z"
+          ></path>
+        </g>
+      </svg>
+      <h1 class="mt-12 text-[12rem]">UNE</h1>
     </div>
+
+    <!-- Botón para saltar -->
+    <button id="skip-splash" aria-label="Saltar animación"> Saltar </button>
+  </div>
 </div>
 
 <style>
-    /* Contenedores de los cuadrados iniciales */
-    .initial-blocks {
-        position: fixed;
-        inset: 0;
-        z-index: 10000;
-        display: flex;
-        flex-direction: column;
-    }
+  /* Optimización: Solo renderizar cuando sea necesario */
+  #splash-wrapper {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    pointer-events: none;
+  }
 
-    .block-top {
-        height: 50vh;
-        width: 100%;
-        background: linear-gradient(135deg, #E2231A 0%, #ff4444 100%);
-        box-shadow: 0 10px 30px rgba(226, 35, 26, 0.3);
-    }
+  .initial-blocks {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    pointer-events: auto;
+  }
 
-    .block-bottom {
-        height: 50vh;
-        width: 100%;
-        background: linear-gradient(135deg, #001970 0%, #003399 100%);
-        box-shadow: 0 -10px 30px rgba(0, 25, 112, 0.3);
-    }
-
-    /* Estilos del preloader */
-    #preloader {
-        position: fixed;
-        inset: 0;
-        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-        z-index: 9999;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        padding: 2rem;
-        opacity: 1;
-        overflow: hidden;
-    }
-
-    /* Contenedor del logo - sin efectos de card */
-    .logo-container {
-        position: relative;
-        z-index: 10;
-        transform: scale(0.8);
-        opacity: 0;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        gap: 1rem;
-    }
-
-   #preloader svg {
+  .block-top {
+    height: 50vh;
     width: 100%;
-    max-width: 300px; /* Reduje el tamaño para que combine mejor */
-    height: auto;
-    margin-bottom: -8px; /* Empuja el texto hacia arriba */
-}
+    background: linear-gradient(135deg, #e2231a 0%, #ff4444 100%);
+    box-shadow: 0 10px 30px rgba(226, 35, 26, 0.3);
+    will-change: transform;
+  }
 
-/* Ajustes para el texto */
-#preloader h1 {
+  .block-bottom {
+    height: 50vh;
+    width: 100%;
+    background: linear-gradient(135deg, #001970 0%, #003399 100%);
+    box-shadow: 0 -10px 30px rgba(0, 25, 112, 0.3);
+    will-change: transform;
+  }
+
+  #preloader {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 2rem;
+    opacity: 1;
+    overflow: hidden;
+    pointer-events: auto;
+  }
+
+  .logo-container {
+    position: relative;
+    z-index: 10;
+    transform: scale(0.8);
+    opacity: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1rem;
+    will-change: transform, opacity;
+  }
+
+  #preloader svg {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    margin-bottom: -8px;
+  }
+
+  #preloader h1 {
     color: #001970;
     letter-spacing: 2px;
-    font-size: 8rem; /* Tamaño más manejable (equivalente a text-6xl) */
-    line-height: 1; /* Elimina espacio extra debajo del texto */
-    margin-top: -10px; /* Lo acerca más al SVG */
+    font-size: 8rem;
+    line-height: 1;
+    margin-top: -10px;
     font-weight: 900;
+  }
 
-}
-    /* Estado inicial de las partes de la bandera */
+  /* Estado inicial de las partes del logo UNE - BALANCEADO */
+  .bandera-parte {
+    opacity: 0;
+    transform: translateY(20px);
+    will-change: transform, opacity;
+    transition:
+      opacity 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+      transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
+  /* Estados específicos para cada parte - TIMING CEREMONIOSO */
+  .bandera-parte-1 {
+    transition-delay: 0ms;
+  }
+
+  .bandera-parte-2 {
+    transition-delay: 150ms; /* Timing más pausado */
+  }
+
+  .bandera-parte-3 {
+    transition-delay: 300ms; /* Timing más pausado */
+  }
+
+  /* Estado visible */
+  .bandera-parte.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Botón para saltar - aparece más temprano */
+  #skip-splash {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #001970;
+    padding: 8px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    z-index: 11;
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+
+  #skip-splash:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-10px) scale(1.05);
+  }
+
+  #skip-splash:focus {
+    outline: 2px solid #001970;
+    outline-offset: 2px;
+  }
+
+  /* Reducir motion para usuarios que lo prefieren */
+  @media (prefers-reduced-motion: reduce) {
     .bandera-parte {
-        opacity: 0;
-        transform: translateY(30px);
+      transition-duration: 0.1s !important;
+      transition-delay: 0s !important;
     }
 
-    /* Animaciones mejoradas */
-    @keyframes logoScale {
-        0% {
-            opacity: 0;
-            transform: scale(0.8);
-        }
-        100% {
-            opacity: 1;
-            transform: scale(1);
-        }
+    #skip-splash {
+      opacity: 1 !important;
+      transform: translateY(0) !important;
     }
 
-    /* Responsivo */
-
-  
-    /* Reducir motion para usuarios que lo prefieren */
-    @media (prefers-reduced-motion: reduce) {
-        * {
-            animation-duration: 0.1s !important;
-            transition-duration: 0.1s !important;
-        }
+    .block-top,
+    .block-bottom {
+      transition-duration: 0.1s !important;
     }
+
+    .logo-container {
+      transition-duration: 0.1s !important;
+    }
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    #preloader h1 {
+      font-size: 4rem;
+    }
+
+    #preloader svg {
+      max-width: 200px;
+    }
+  }
 </style>
 
-<script>
-    // Función para manejar la animación del preloader
-    function initPreloaderAnimation() {
-        const preloader = document.getElementById('preloader');
-        const initialBlocks = document.querySelector('.initial-blocks');
-        const logoContainer = document.querySelector('.logo-container');
-        const banderaParts = document.querySelectorAll('.bandera-parte');
+<script define:vars={{ enableSplash, alwaysShow }}>
+  // Variables de configuración
+  const SPLASH_ENABLED = enableSplash;
+  const ALWAYS_SHOW = alwaysShow;
+  const SPLASH_SESSION_KEY = "splashShown";
 
-        if (!preloader || !initialBlocks || !logoContainer) {
-            console.error('Elementos del preloader no encontrados');
-            return;
-        }
-
-        // Función para ejecutar la animación secuencial
-        function runAnimation() {
-            // Paso 1: Esperar un momento breve
-            setTimeout(() => {
-                // Paso 2: Animar los bloques de colores
-                const blockTop = document.querySelector('.block-top');
-                const blockBottom = document.querySelector('.block-bottom');
-                
-                if (blockTop && blockBottom) {
-                    blockTop.style.transition = 'transform 0.6s cubic-bezier(0.25, 0.1, 0.25, 1)';
-                    blockBottom.style.transition = 'transform 0.6s cubic-bezier(0.25, 0.1, 0.25, 1)';
-                    
-                    blockTop.style.transform = 'translateY(-96%) translateX(-3%)';
-                    blockBottom.style.transform = 'translateY(96%) translateX(3%)';
-                }
-
-                // Paso 3: Mostrar el preloader (ya está visible)
-                setTimeout(() => {
-                    // El preloader ya está visible, continuamos con la animación
-                    
-                    // Paso 4: Mostrar el logo con animación
-                    setTimeout(() => {
-                        logoContainer.style.transition = 'opacity 0.6s ease, transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
-                        logoContainer.style.opacity = '1';
-                        logoContainer.style.transform = 'scale(1)';
-                        
-                        // Paso 5: Animar las partes de la bandera
-                        setTimeout(() => {
-                            banderaParts.forEach((part, index) => {
-                                setTimeout(() => {
-                                    part.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
-                                    part.style.opacity = '1';
-                                    part.style.transform = 'translateY(0)';
-                                }, index * 120);
-                            });
-                            
-                            // Paso 6: Finalizar después de un tiempo
-                            setTimeout(() => {
-                                completePreloader();
-                            }, 1200);
-                        }, 200);
-                    }, 200);
-                }, 600);
-            }, 300);
-        }
-
-        // Función para completar el preloader
-        function completePreloader() {
-            preloader.style.transition = 'opacity 0.6s ease';
-            initialBlocks.style.transition = 'opacity 0.6s ease';
-            
-            preloader.style.opacity = '0';
-            initialBlocks.style.opacity = '0';
-
-            setTimeout(() => {
-                preloader.style.display = 'none';
-                initialBlocks.style.display = 'none';
-                
-                // Disparar evento personalizado
-                window.dispatchEvent(new CustomEvent('preloader:complete'));
-            }, 600);
-        }
-
-        // Iniciar animación
-        if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', runAnimation);
-        } else {
-            runAnimation();
-        }
+  // Función para verificar si debe mostrar el splash
+  function shouldShowSplash() {
+    if (!SPLASH_ENABLED) {
+      return false;
     }
 
-    // Inicializar solo una vez
-    if (!window.preloaderInitialized) {
-        window.preloaderInitialized = true;
-        initPreloaderAnimation();
+    if (ALWAYS_SHOW) {
+      return true;
     }
+
+    const hasShown = sessionStorage.getItem(SPLASH_SESSION_KEY);
+    if (hasShown) {
+      return false;
+    }
+
+    return true;
+  }
+
+  // Función para marcar que ya se mostró
+  function markSplashAsShown() {
+    sessionStorage.setItem(SPLASH_SESSION_KEY, "true");
+    sessionStorage.setItem(
+      SPLASH_SESSION_KEY + "_timestamp",
+      new Date().toISOString()
+    );
+  }
+
+  // Función para resetear (útil para desarrollo)
+  function resetSplash() {
+    sessionStorage.removeItem(SPLASH_SESSION_KEY);
+    sessionStorage.removeItem(SPLASH_SESSION_KEY + "_timestamp");
+  }
+
+  // Exponer función reset globalmente para debug
+  window.resetSplash = resetSplash;
+
+  // Función optimizada para el preloader - DURACIÓN TOTAL: ~1.5s
+  function initPreloaderAnimation() {
+    // Verificación temprana
+    if (!shouldShowSplash()) {
+      document.body.style.overflow = "auto";
+      window.dispatchEvent(new CustomEvent("preloader:complete"));
+      return;
+    }
+
+    const splashWrapper = document.getElementById("splash-wrapper");
+    const preloader = document.getElementById("preloader");
+    const initialBlocks = document.querySelector(".initial-blocks");
+    const logoContainer = document.querySelector(".logo-container");
+    const banderaParts = document.querySelectorAll(".bandera-parte");
+    const skipButton = document.getElementById("skip-splash");
+
+    if (!splashWrapper || !preloader || !initialBlocks || !logoContainer) {
+      markSplashAsShown();
+      return;
+    }
+
+    // Mostrar wrapper y prevenir scroll
+    splashWrapper.style.display = "block";
+    document.body.style.overflow = "hidden";
+
+    // Función para completar el preloader
+    function completePreloader() {
+      markSplashAsShown();
+
+      splashWrapper.style.transition = "opacity 0.3s ease"; // Más rápido
+      splashWrapper.style.opacity = "0";
+      document.body.style.overflow = "auto";
+
+      setTimeout(() => {
+        splashWrapper.style.display = "none";
+        window.dispatchEvent(new CustomEvent("preloader:complete"));
+      }, 300); // Reducido de 400ms
+    }
+
+    // Event listener para botón saltar - aparece más temprano
+    if (skipButton) {
+      skipButton.addEventListener("click", () => {
+        completePreloader();
+      });
+
+      // Mostrar botón skip con timing balanceado (800ms)
+      setTimeout(() => {
+        skipButton.style.transition = "opacity 0.2s ease, transform 0.2s ease";
+        skipButton.style.opacity = "1";
+        skipButton.style.transform = "translateY(0)";
+      }, 800); // Timing intermedio
+    }
+
+    // Animación BALANCEADA - Timeline total: ~2.3s
+    function runAnimation() {
+      // Paso 1: Animación de bloques más elegante (400ms duración)
+      setTimeout(() => {
+        const blockTop = document.querySelector(".block-top");
+        const blockBottom = document.querySelector(".block-bottom");
+
+        if (blockTop && blockBottom) {
+          blockTop.style.transition =
+            "transform 0.4s cubic-bezier(0.25, 0.1, 0.25, 1)";
+          blockBottom.style.transition =
+            "transform 0.4s cubic-bezier(0.25, 0.1, 0.25, 1)";
+
+          blockTop.style.transform = "translateY(-96%) translateX(-3%)";
+          blockBottom.style.transform = "translateY(96%) translateX(3%)";
+        }
+
+        // Paso 2: Logo aparece con timing institucional (200ms delay)
+        setTimeout(() => {
+          logoContainer.style.transition =
+            "opacity 0.5s ease, transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275)";
+          logoContainer.style.opacity = "1";
+          logoContainer.style.transform = "scale(1)";
+
+          // Paso 3: Franjas del logo con timing ceremonioso (250ms delay)
+          setTimeout(() => {
+            banderaParts.forEach((part, index) => {
+              // Forzar estado inicial
+              part.style.opacity = "0";
+              part.style.transform = "translateY(20px)";
+
+              // Animar con delay ceremonioso (150ms entre franjas)
+              setTimeout(() => {
+                part.style.transition =
+                  "opacity 0.4s ease, transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)";
+                part.style.opacity = "1";
+                part.style.transform = "translateY(0)";
+              }, index * 150); // Timing más pausado
+            });
+
+            // Momento de contemplación del logo completo (400ms)
+            setTimeout(() => {
+              setTimeout(() => {
+                completePreloader();
+              }, 400); // Tiempo para apreciar el logo
+            }, 600); // Esperar que termine la última franja + su animación
+          }, 250); // Más pausado entre logo y franjas
+        }, 200); // Más pausado entre bloques y logo
+      }, 150); // Inicio más suave
+    }
+
+    // Auto-skip para conexiones lentas
+    const connectionSpeed = navigator.connection?.effectiveType;
+    const autoSkipTime =
+      connectionSpeed === "2g" || connectionSpeed === "slow-2g" ? 800 : 2000;
+
+    setTimeout(() => {
+      if (splashWrapper.style.display !== "none") {
+        completePreloader();
+      }
+    }, autoSkipTime);
+
+    // Iniciar animación
+    requestAnimationFrame(() => {
+      setTimeout(runAnimation, 50); // Inicio más rápido
+    });
+  }
+
+  // Inicialización optimizada
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initPreloaderAnimation);
+  } else {
+    if ("requestIdleCallback" in window) {
+      requestIdleCallback(initPreloaderAnimation, { timeout: 100 });
+    } else {
+      setTimeout(initPreloaderAnimation, 0);
+    }
+  }
 </script>

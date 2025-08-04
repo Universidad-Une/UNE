@@ -1,0 +1,168 @@
+---
+// src/SobreUNE.astro
+import { ArrowRight } from "@lucide/astro";
+import Numeralia from "@assets/Imagenes/Middles/Numeralia.webp";
+import NumeraliaMobile from "@assets/Imagenes/Middles/NumeraliaMobile.webp";
+---
+
+<section class="bg-white" id="sobre-une-section">
+  <div
+    class="mx-auto px-4 sm:px-6 lg:px-8 py-16 text-white"
+    style={{
+
+      backgroundImage: `url(${Numeralia.src})`,
+      backgroundSize: "cover",
+      backgroundPosition: "center",
+      backgroundRepeat: "no-repeat",
+      backgroundBlendMode: "overlay",
+    }}
+  >
+    <div class="flex flex-col lg:flex-row gap-8 items-center">
+      <div
+        class="w-full lg:w-1/2 border-b lg:border-b-0 lg:border-r border-white p-4 flex flex-col items-center justify-center text-center"
+      >
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <h4
+            id="counter-years"
+            class="text-6xl sm:text-7xl font-bold mb-2"
+            data-target="30"
+          >
+            0
+          </h4>
+          <span
+            class="text-3xl sm:text-5xl font-semibold leading-tight sm:leading-snug"
+          >
+            Años de <br />
+            experiencia
+          </span>
+        </div>
+        <p
+          class="text-blue-200 text-sm sm:text-base leading-relaxed mt-4 max-w-xl"
+        >
+          Somos la institución que ha confiado siempre en el potencial humano y
+          hemos sido cada estudiante, brindando educación de excelencia que
+          prepara profesionales comprometidos con el desarrollo de México.
+        </p>
+      </div>
+
+      <div
+        class="grid grid-cols-2 gap-6 w-full max-w-3xl mx-auto text-center lg:pt-0"
+      >
+        <div class="text-left">
+          <div
+            id="counter-majors"
+            class="text-4xl sm:text-6xl font-bold mb-2"
+            data-target="45"
+            data-prefix="+"
+          >
+            +0
+          </div>
+          <div class="text-base sm:text-xl font-semibold">
+            Licenciaturas diferentes
+          </div>
+        </div>
+
+        <div class="text-left">
+          <div
+            id="counter-students"
+            class="text-4xl sm:text-6xl font-bold mb-2"
+            data-target="12000"
+            data-prefix="+"
+            data-suffix="K"
+          >
+            +0
+          </div>
+          <div class="text-base sm:text-xl font-semibold">
+            Alumnos actualmente inscritos
+          </div>
+        </div>
+
+        <div class="text-left">
+          <div
+            id="counter-campuses"
+            class="text-4xl sm:text-6xl font-bold mb-2"
+            data-target="18"
+          >
+            0
+          </div>
+          <div class="text-base sm:text-xl font-semibold">Planteles</div>
+        </div>
+
+        <div class="text-left">
+          <div
+            id="counter-graduates"
+            class="text-4xl sm:text-6xl font-bold mb-2"
+            data-target="60000"
+            data-prefix="+"
+            data-suffix="K"
+          >
+            +0
+          </div>
+          <div class="text-base sm:text-xl font-semibold">De egresados</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <link rel="preload" as="image" href={Numeralia.src} />
+</section>
+
+<script is:inline>
+  document.addEventListener("DOMContentLoaded", () => {
+    const animateCounter = (el) => {
+      const target = parseInt(el.dataset.target, 10);
+      const prefix = el.dataset.prefix || "";
+      const suffix = el.dataset.suffix || "";
+      const duration = 2500;
+      let startTimestamp = null;
+
+      const step = (timestamp) => {
+        if (!startTimestamp) startTimestamp = timestamp;
+        const progress = timestamp - startTimestamp;
+        const percentage = Math.min(progress / duration, 1);
+        const easedPercentage = 1 - Math.pow(1 - percentage, 3);
+
+        let currentValue = easedPercentage * target;
+        if (suffix === "K") {
+          currentValue = Math.floor(currentValue / 1000);
+          el.textContent = prefix + currentValue.toLocaleString() + "K";
+        } else {
+          currentValue = Math.floor(currentValue);
+          el.textContent = prefix + currentValue.toLocaleString();
+        }
+
+        if (percentage < 1) {
+          window.requestAnimationFrame(step);
+        } else {
+          if (suffix === "K") {
+            el.textContent = prefix + Math.floor(target / 1000).toLocaleString() + "K";
+          } else {
+            el.textContent = prefix + target.toLocaleString();
+          }
+        }
+      };
+
+      window.requestAnimationFrame(step);
+    };
+
+    const observer = new IntersectionObserver(
+      (entries, observer) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const counters = document.querySelectorAll("[data-target]");
+            counters.forEach(animateCounter);
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.4,
+      }
+    );
+
+    const section = document.getElementById("sobre-une-section");
+    if (section) {
+      observer.observe(section);
+    }
+  });
+</script>

@@ -1,238 +1,639 @@
 ---
 // UniversityTabs.astro
+
+// Imports de imágenes
+import ExcelenciaImg from '@/assets/Imagenes/Excelencia.webp';
+import InversionImg from '@/assets/Imagenes/Inversion.webp';
+import CampusSeguroImg from '@/assets/Imagenes/Campus_seguro.webp';
+import ExperienciaImg from '@/assets/Imagenes/Experiencia.webp';
+import ComunidadImg from '@/assets/Imagenes/Comunidad.webp';
+import CaminoImg from '@/assets/Imagenes/Camino.webp';
 ---
 
-<div class="w-full max-w-7xl mx-auto px-6 py-8 my-12">
-  <div class="text-center mb-8">
-    <h1 class="text-2xl md:text-3xl font-bold text-gray-900 mt-12">
-      Explora la Universidad UNE
-    </h1>
-    <p class="text-gray-600 text-sm md:text-base">
-      Descubre la experiencia universitaria<br/>
-      perfecta para ti o tu familia
-    </p>
+<div
+  class="w-full max-w-7xl mx-auto px-6 py-8 my-12"
+  id="university-tabs-container"
+>
+  <!-- Loading placeholder -->
+  <div id="tabs-loading" class="text-center py-16">
+    <div class="animate-pulse">
+      <div class="h-8 bg-gray-200 rounded w-64 mx-auto mb-4"></div>
+      <div class="h-4 bg-gray-200 rounded w-48 mx-auto mb-8"></div>
+      <div class="h-12 bg-gray-200 rounded-full w-80 mx-auto mb-8"></div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {
+          Array.from({ length: 3 }).map(() => (
+            <div class="bg-gray-200 rounded-xl h-[450px] animate-pulse" />
+          ))
+        }
+      </div>
+    </div>
   </div>
 
-  <!-- Tabs Navigation -->
-  <div class="flex bg-gray-100 rounded-full p-1 mb-8 max-w-md mx-auto">
-    <button 
-      class="tab-button flex-1 py-3 px-6 text-sm font-medium rounded-full transition-all duration-200 bg-blue-700 text-white" 
-      data-tab="estudiante"
-    >
-      Soy estudiante
-    </button>
-    <button 
-      class="tab-button flex-1 py-3 px-6 text-sm font-medium rounded-full transition-all duration-200 text-gray-600 hover:text-blue-700" 
-      data-tab="padre"
-    >
-      Soy Padre/Tutor
-    </button>
-  </div>
+  <!-- Real content (initially hidden) -->
+  <div id="tabs-content" class="hidden">
+    <div class="text-center mb-8">
+      <h1 class="text-2xl md:text-3xl font-bold text-gray-900 mt-12">
+        Explora la Universidad UNE
+      </h1>
+      <p class="text-gray-600 text-sm md:text-base">
+        Descubre la experiencia universitaria<br />
+        perfecta para ti o tu familia
+      </p>
+    </div>
 
-  <!-- Tab Content -->
-  <div class="tab-content" id="estudiante">
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-      <!-- Card 1 - Excelencia Académica -->
-      <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300 min-h-[450px]">
-        <div class="relative h-56 overflow-hidden">
-          <img src="/src/assets/Imagenes/Excelencia.png" alt="Excelencia académica" class="w-full h-full object-cover">
-          
-        </div>
-        <div class="p-6">
-          <div class="flex items-center mb-3">
-            <svg class="w-5 h-5 text-gray-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
-            </svg>
+    <!-- Tabs Navigation -->
+    <div class="flex bg-gray-100 rounded-full p-1 mb-8 max-w-md mx-auto">
+      <button
+        class="tab-button flex-1 py-3 px-6 text-sm font-medium rounded-full transition-all duration-200 bg-blue-700 text-white"
+        data-tab="estudiante"
+      >
+        Soy estudiante
+      </button>
+      <button
+        class="tab-button flex-1 py-3 px-6 text-sm font-medium rounded-full transition-all duration-200 text-gray-600 hover:text-blue-700"
+        data-tab="padre"
+      >
+        Soy Padre/Tutor
+      </button>
+    </div>
+
+    <!-- Tab Content -->
+    <div class="tab-content" id="estudiante">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Card 1 - Excelencia Académica -->
+        <div
+          class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300 min-h-[450px]"
+        >
+          <div class="relative h-56 overflow-hidden">
+            <img
+              src={ExcelenciaImg.src}
+              alt="Excelencia académica"
+              class="w-full h-full object-cover"
+              width={ExcelenciaImg.width}
+              height={ExcelenciaImg.height}
+              loading="lazy"
+            />
           </div>
-          <h3 class="text-lg font-bold text-gray-900 mb-2">
-           Excelencia comprobada.
+          <div class="p-6">
+            <div class="flex items-center mb-3">
+              <svg
+                class="w-5 h-5 text-gray-600 mr-2"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                ></path>
+              </svg>
+            </div>
+            <h3 class="text-lg font-bold text-gray-900 mb-2">
+              Excelencia comprobada.
+            </h3>
+            <p class="text-gray-600 text-sm mb-4">
+              Programas con acreditaciones internacionales, profesores expertos
+              y metodologías que potencian el aprendizaje real de tu hijo
+            </p>
+            <a
+              href="/contacto/solicitarinformacion"
+              class="text-blue-600 text-sm font-medium hover:text-blue-700 transition-colors flex items-center"
+            >
+              Hablar con un académico
+              <svg
+                class="w-4 h-4 ml-1"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                ></path>
+              </svg>
+            </a>
+          </div>
+        </div>
 
-          </h3>
-          <p class="text-gray-600 text-sm mb-4">
-            Programas con acreditaciones internacionales, profesores expertos y metodologías que potencian el aprendizaje real de tu hijo
-          </p>
-          <a href="/contacto/solicitarinformacion" class="text-blue-600 text-sm font-medium hover:text-blue-700 transition-colors flex items-center">
-            Hablar con un académico
-            <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
-            </svg>
-          </a>
+        <!-- Card 2 - Inversión -->
+        <div
+          class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300 min-h-[450px]"
+        >
+          <div class="relative h-56 overflow-hidden">
+            <img
+              src={InversionImg.src}
+              alt="Inversión en educación"
+              class="w-full h-full object-cover"
+              width={InversionImg.width}
+              height={InversionImg.height}
+              loading="lazy"
+            />
+          </div>
+          <div class="p-6">
+            <div class="flex items-center mb-3">
+              <svg
+                class="w-5 h-5 text-gray-600 mr-2"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"
+                ></path>
+              </svg>
+            </div>
+            <h3 class="text-lg font-bold text-gray-900 mb-2">
+              Inversión inteligente en tu futuro
+            </h3>
+            <p class="text-gray-600 text-sm mb-4">
+              Planes de financiamiento flexibles, becas de excelencia académica
+              y opciones de pago que se adaptan a tu situación familiar
+            </p>
+            <a
+              href="/acerca/Apoyos"
+              class="text-blue-600 text-sm font-medium hover:text-blue-700 transition-colors flex items-center"
+            >
+              Conocer opciones de financiamiento
+              <svg
+                class="w-4 h-4 ml-1"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                ></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Card 3 - Campus Seguro -->
+        <div
+          class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300 min-h-[450px]"
+        >
+          <div class="relative h-56 overflow-hidden">
+            <img
+              src={CampusSeguroImg.src}
+              alt="Campus seguro"
+              class="w-full h-full object-cover"
+              width={CampusSeguroImg.width}
+              height={CampusSeguroImg.height}
+              loading="lazy"
+            />
+          </div>
+          <div class="p-6">
+            <div class="flex items-center mb-3">
+              <svg
+                class="w-5 h-5 text-gray-600 mr-2"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
+                ></path>
+              </svg>
+            </div>
+            <h3 class="text-lg font-bold text-gray-900 mb-2 pr-16">
+              Un campus seguro y moderno
+            </h3>
+            <p class="text-gray-600 text-sm mb-4">
+              Instalaciones de última generación, protocolos de seguridad y un
+              ambiente universitario que promueve el bienestar estudiantil
+            </p>
+            <a
+              href="/planteles/general"
+              class="text-blue-600 text-sm font-medium hover:text-blue-700 transition-colors flex items-center"
+            >
+              Conocer nuestras instalaciones
+              <svg
+                class="w-4 h-4 ml-1"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                ></path>
+              </svg>
+            </a>
+          </div>
         </div>
       </div>
+    </div>
 
-      <!-- Card 2 - Inversión -->
-      <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300 min-h-[450px]">
-        <div class="relative h-56 overflow-hidden">
-          <img src="/src/assets/Imagenes/Inversion.png" alt="Inversión en educación" class="w-full h-full object-cover">
-          
-        </div>
-        <div class="p-6">
-          <div class="flex items-center mb-3">
-            <svg class="w-5 h-5 text-gray-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"></path>
-            </svg>
+    <div class="tab-content hidden" id="padre">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div
+          class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300 min-h-[450px]"
+        >
+          <div class="relative h-56 overflow-hidden">
+            <img
+              src={ExperienciaImg.src}
+              alt="Semana Cultural UDG"
+              class="w-full h-full object-cover"
+              width={ExperienciaImg.width}
+              height={ExperienciaImg.height}
+              loading="lazy"
+            />
           </div>
-          <h3 class="text-lg font-bold text-gray-900 mb-2">
-            Inversión inteligente en tu futuro
-          </h3>
-          <p class="text-gray-600 text-sm mb-4">
-            Planes de financiamiento flexibles, becas de excelencia académica y opciones de pago que se adaptan a tu situación familiar
-          </p>
-          <a href="/acerca/Apoyos" class="text-blue-600 text-sm font-medium hover:text-blue-700 transition-colors flex items-center">
-            Conocer opciones de financiamiento
-            <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
-            </svg>
-          </a>
+          <div class="p-6">
+            <div class="flex items-center mb-3">
+              <svg
+                class="w-5 h-5 text-gray-600 mr-2"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                ></path>
+              </svg>
+            </div>
+            <h3 class="text-lg font-bold text-gray-900 mb-2">
+              Vive una experiencia única
+            </h3>
+            <p class="text-gray-600 text-sm mb-4">
+              Desarrollo completo: actividades prácticas, contactos valiosos y
+              un futuro asegurado.
+            </p>
+            <a
+              href="/Vivetuuniversidad/General"
+              class="text-blue-600 text-sm font-medium hover:text-blue-700 transition-colors flex items-center"
+            >
+              Descubrir talleres
+              <svg
+                class="w-4 h-4 ml-1"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                ></path>
+              </svg>
+            </a>
+          </div>
         </div>
-      </div>
 
-      <!-- Card 3 - Campus Seguro -->
-      <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300 min-h-[450px]">
-        <div class="relative h-56 overflow-hidden">
-          <img src="/src/assets/Imagenes/Campus_seguro.png" alt="Campus seguro" class="w-full h-full object-cover">
-          
-        </div>
-        <div class="p-6">
-          <div class="flex items-center mb-3">
-            <svg class="w-5 h-5 text-gray-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
-            </svg>
+        <div
+          class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300 min-h-[450px]"
+        >
+          <div class="relative h-56 overflow-hidden">
+            <img
+              src={ComunidadImg.src}
+              alt="Congreso Económico Administrativo"
+              class="w-full h-full object-cover"
+              width={ComunidadImg.width}
+              height={ComunidadImg.height}
+              loading="lazy"
+            />
           </div>
-          <h3 class="text-lg font-bold text-gray-900 mb-2 pr-16">
-            Un campus seguro y moderno
-          </h3>
-          <p class="text-gray-600 text-sm mb-4">
-            Instalaciones de última generación, protocolos de seguridad y un ambiente universitario que promueve el bienestar estudiantil
-          </p>
-          <a href="/planteles/general" class="text-blue-600 text-sm font-medium hover:text-blue-700 transition-colors flex items-center">
-            Conocer nuestras instalaciones
-            <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
-            </svg>
-          </a>
+          <div class="p-6">
+            <div class="flex items-center mb-3">
+              <svg
+                class="w-5 h-5 text-gray-600 mr-2"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"
+                ></path>
+              </svg>
+            </div>
+            <h3 class="text-lg font-bold text-gray-900 mb-2">
+              Más que un campus, una comunidad
+            </h3>
+            <p class="text-gray-600 text-sm mb-4">
+              Una comunidad comprometida llena de retos y desafíos, con
+              actividades para todos
+            </p>
+            <a
+              href="/vidaestudiantil/General"
+              class="text-blue-600 text-sm font-medium hover:text-blue-700 transition-colors flex items-center"
+            >
+              Explorar comunidad
+              <svg
+                class="w-4 h-4 ml-1"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                ></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <div
+          class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300 min-h-[450px]"
+        >
+          <div class="relative h-56 overflow-hidden">
+            <img
+              src={CaminoImg.src}
+              alt="Licenciaturas UNE"
+              class="w-full h-full object-cover"
+              width={CaminoImg.width}
+              height={CaminoImg.height}
+              loading="lazy"
+            />
+          </div>
+          <div class="p-6">
+            <div class="flex items-center mb-3">
+              <svg
+                class="w-5 h-5 text-gray-600 mr-2"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
+                ></path>
+              </svg>
+            </div>
+            <h3 class="text-lg font-bold text-gray-900 mb-2">
+              Descubre tu camino profesional
+            </h3>
+            <p class="text-gray-600 text-sm mb-4">
+              Bachillerato, licenciaturas, maestrías o diplomados. Encuentra el
+              programa que impulse tu futuro.
+            </p>
+            <a
+              href="/acerca/oferta-academica"
+              class="text-blue-600 text-sm font-medium hover:text-blue-700 transition-colors flex items-center"
+            >
+              Ver oferta académica
+              <svg
+                class="w-4 h-4 ml-1"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                ></path>
+              </svg>
+            </a>
+          </div>
         </div>
       </div>
     </div>
   </div>
-
- <div class="tab-content hidden" id="padre">
-  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-    <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300 min-h-[450px]">
-      <div class="relative h-56 overflow-hidden">
-        <img src="/src/assets/Imagenes/Experiencia.png" alt="Semana Cultural UDG" class="w-full h-full object-cover">
-      </div>
-      <div class="p-6">
-        <div class="flex items-center mb-3">
-          <svg class="w-5 h-5 text-gray-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
-          </svg>
-        </div>
-        <h3 class="text-lg font-bold text-gray-900 mb-2">
-          Vive una experiencia única
-        </h3>
-        <p class="text-gray-600 text-sm mb-4">
-           Desarrollo completo: actividades prácticas, contactos valiosos y un futuro asegurado.
-        </p>
-        <a href="/Vivetuuniversidad/General" class="text-blue-600 text-sm font-medium hover:text-blue-700 transition-colors flex items-center">
-          Descubrir talleres
-          <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
-          </svg>
-        </a>
-      </div>
-    </div>
-
-    <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300 min-h-[450px]">
-      <div class="relative h-56 overflow-hidden">
-        <img src="/src/assets/Imagenes/Comunidad.png" alt="Congreso Económico Administrativo" class="w-full h-full object-cover">
-      </div>
-      <div class="p-6">
-        <div class="flex items-center mb-3">
-          <svg class="w-5 h-5 text-gray-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"></path>
-          </svg>
-        </div>
-        <h3 class="text-lg font-bold text-gray-900 mb-2">
-          Más que un campus, una comunidad
-        </h3>
-        <p class="text-gray-600 text-sm mb-4">
-          Una comunidad comprometida llena de retos y desafíos, con actividades para todos
-        </p>
-        <a href="/vidaestudiantil/General" class="text-blue-600 text-sm font-medium hover:text-blue-700 transition-colors flex items-center">
-          Explorar comunidad
-          <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
-          </svg>
-        </a>
-      </div>
-    </div>
-
-    <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300 min-h-[450px]">
-      <div class="relative h-56 overflow-hidden">
-        <img src="/src/assets/Imagenes/Camino.png" alt="Licenciaturas UNE" class="w-full h-full object-cover">
-      </div>
-      <div class="p-6">
-        <div class="flex items-center mb-3">
-          <svg class="w-5 h-5 text-gray-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
-          </svg>
-        </div>
-        <h3 class="text-lg font-bold text-gray-900 mb-2">
-          Descubre tu camino profesional
-        </h3>
-        <p class="text-gray-600 text-sm mb-4">
-          Bachillerato, licenciaturas, maestrías o diplomados. Encuentra el programa que impulse tu futuro.
-        </p>
-        <a href="/acerca/oferta-academica" class="text-blue-600 text-sm font-medium hover:text-blue-700 transition-colors flex items-center">
-          Ver oferta académica
-          <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
-          </svg>
-        </a>
-      </div>
-    </div>
-  </div>
-</div>
 </div>
 
 <script>
-  // Tab functionality
-  const tabButtons = document.querySelectorAll('.tab-button');
-  const tabContents = document.querySelectorAll('.tab-content');
+  // JavaScript para manejar las tabs y la funcionalidad
+  document.addEventListener('DOMContentLoaded', function() {
+    const tabButtons = document.querySelectorAll('.tab-button');
+    const tabContents = document.querySelectorAll('.tab-content');
+    const loadingElement = document.getElementById('tabs-loading');
+    const contentElement = document.getElementById('tabs-content');
 
-  tabButtons.forEach(button => {
-    button.addEventListener('click', () => {
-      const targetTab = button.dataset.tab;
-      
-      // Remove active class from all buttons
-      tabButtons.forEach(btn => {
-        btn.classList.remove('bg-blue-700', 'text-white');
-        btn.classList.add('text-gray-600', 'hover:text-blue-700');
+    // Simular carga y mostrar contenido
+    setTimeout(() => {
+      if (loadingElement && contentElement) {
+        loadingElement.style.display = 'none';
+        contentElement.classList.remove('hidden');
+      }
+    }, 1000);
+
+    // Manejar clicks en tabs
+    tabButtons.forEach(button => {
+      button.addEventListener('click', function() {
+        const targetTab = this.getAttribute('data-tab');
+        
+        // Remover clases activas de todos los botones
+        tabButtons.forEach(btn => {
+          btn.classList.remove('bg-blue-700', 'text-white');
+          btn.classList.add('text-gray-600', 'hover:text-blue-700');
+        });
+        
+        // Agregar clases activas al botón clickeado
+        this.classList.remove('text-gray-600', 'hover:text-blue-700');
+        this.classList.add('bg-blue-700', 'text-white');
+        
+        // Ocultar todos los contenidos de tabs
+        tabContents.forEach(content => {
+          content.classList.add('hidden');
+        });
+        
+        // Mostrar el contenido de la tab seleccionada
+        const targetContent = document.getElementById(targetTab);
+        if (targetContent) {
+          targetContent.classList.remove('hidden');
+        }
       });
-      
-      // Add active class to clicked button
-      button.classList.add('bg-blue-700', 'text-white');
-      button.classList.remove('text-gray-600', 'hover:text-blue-700');
-      
-      // Hide all tab contents
-      tabContents.forEach(content => {
-        content.classList.add('hidden');
-      });
-      
-      // Show target tab content
-      document.getElementById(targetTab).classList.remove('hidden');
     });
   });
+</script>
+
+<style>
+  .tab-button {
+    transition: all 0.2s ease-in-out;
+  }
+  
+  .tab-content {
+    transition: opacity 0.3s ease-in-out;
+  }
+</style>
+
+
+
+<script>
+  // Intersection Observer para lazy loading del componente
+  const initializeComponent = () => {
+    const container = document.getElementById("university-tabs-container");
+    const loadingElement = document.getElementById("tabs-loading");
+    const contentElement = document.getElementById("tabs-content");
+
+    if (!container || !loadingElement || !contentElement) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            // Simular un pequeño delay para mostrar el loading
+            setTimeout(() => {
+              loadingElement.classList.add("hidden");
+              contentElement.classList.remove("hidden");
+
+              // Inicializar funcionalidad de tabs
+              initializeTabs();
+
+              // Inicializar lazy loading de imágenes
+              initializeLazyImages();
+
+              // Desconectar el observer ya que el componente se cargó
+              observer.unobserve(container);
+            }, 300);
+          }
+        });
+      },
+      {
+        threshold: 0.1, // Se activa cuando el 10% del componente es visible
+        rootMargin: "50px", // Se activa 50px antes de que sea visible
+      }
+    );
+
+    observer.observe(container);
+  };
+
+  // Funcionalidad de tabs
+  const initializeTabs = () => {
+    const tabButtons = document.querySelectorAll(".tab-button");
+    const tabContents = document.querySelectorAll(".tab-content");
+
+    tabButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const targetTab = button.dataset.tab;
+
+        // Remove active class from all buttons
+        tabButtons.forEach((btn) => {
+          btn.classList.remove("bg-blue-700", "text-white");
+          btn.classList.add("text-gray-600", "hover:text-blue-700");
+        });
+
+        // Add active class to clicked button
+        button.classList.add("bg-blue-700", "text-white");
+        button.classList.remove("text-gray-600", "hover:text-blue-700");
+
+        // Hide all tab contents
+        tabContents.forEach((content) => {
+          content.classList.add("hidden");
+        });
+
+        // Show target tab content
+        const targetContent = document.getElementById(targetTab);
+        if (targetContent) {
+          targetContent.classList.remove("hidden");
+        }
+      });
+    });
+  };
+
+  // Lazy loading de imágenes
+  const initializeLazyImages = () => {
+    const lazyImages = document.querySelectorAll(".lazy-image");
+
+    const imageObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const img = entry.target;
+            const src = img.getAttribute("data-src");
+
+            if (src) {
+              img.src = src;
+              img.classList.add("fade-in");
+              imageObserver.unobserve(img);
+            }
+          }
+        });
+      },
+      {
+        threshold: 0.1,
+        rootMargin: "50px",
+      }
+    );
+
+    lazyImages.forEach((img) => imageObserver.observe(img));
+  };
+
+  // Inicializar cuando el DOM esté listo
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initializeComponent);
+  } else {
+    initializeComponent();
+  }
 </script>
 
 <style>
   .tab-content {
     animation: fadeIn 0.3s ease-in-out;
   }
-  
+
+  .fade-in {
+    animation: fadeIn 0.5s ease-in-out;
+  }
+
   @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Skeleton loading animation */
+  @keyframes pulse {
+    0%,
+    100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.5;
+    }
+  }
+
+  .animate-pulse {
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  /* Lazy image placeholder */
+  .lazy-image:not([src]) {
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: loading 1.5s infinite;
+  }
+
+  @keyframes loading {
+    0% {
+      background-position: 200% 0;
+    }
+    100% {
+      background-position: -200% 0;
+    }
   }
 </style>

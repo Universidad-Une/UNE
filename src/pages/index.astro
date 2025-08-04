@@ -1,5 +1,5 @@
 ﻿---
-// Página principal con nueva estructura
+// Página principal optimizada
 import Layout from "@/layouts/Layout.astro";
 import SplashScreen from "@/components/sections/home/SplashScreen.astro";
 import Hero from "@/components/sections/home/Hero.astro";
@@ -9,98 +9,65 @@ import CardsCarreras from "@/components/sections/home/CardsCarreras.astro";
 import Tabs from "@/components/sections/home/Tabs.astro";
 import CallAction from "@/components/sections/shared/CallAction.astro";
 import SobreUNE from "@/components/sections/home/SobreUNE.astro";
+import Estadisticas from "@/components/sections/home/Estadisticas.astro";
 import DescubreUNE from "@/components/sections/home/DescubreUNE.astro";
 import DentroUNE from "@/components/sections/home/DentroUNE.astro";
 import Blog from "@/components/sections/home/Blog.astro";
 import Frecuents from "@/components/sections/shared/Faq.astro";
 import GeneralCTA from "@/components/sections/shared/GeneralCTA.astro";
-import logoImage from "@/assets/Logos/UNE_com.webp";
 
 const pageTitle = "UNE - 30 Años Creyendo en Ti";
 const pageDescription = "Universidad UNE - 30 años de excelencia educativa";
 ---
 
 <Layout title={pageTitle} description={pageDescription}>
-  <body class="overflow-hidden font-gotham">
-    <!-- Splash Screen con carga no bloqueante -->
-    <SplashScreen logoSrc={logoImage.src} />
+  <SplashScreen alwaysShow={false} />
 
-    <!-- Contenido principal -->
-    <main id="mainContent" class="main-content">
-      <Hero />
-      <Accesos />
-      <CarouselNiveles />
-      <CardsCarreras />
-      <Tabs />
-      <CallAction />
-      <SobreUNE />
-      <DescubreUNE />
-      <DentroUNE />
-      <Blog />
-      <Frecuents />
-      <GeneralCTA />
-
-      <script is:inline>
-        // Función para mostrar contenido principal
-        function showMainContent() {
-          const mainContent = document.getElementById("mainContent");
-
-          if (!mainContent) {
-            console.error("Elemento mainContent no encontrado");
-            return;
-          }
-
-          console.log("Mostrando contenido principal");
-
-          // Mostrar el contenido principal
-          mainContent.style.display = "block";
-
-          // Usar requestAnimationFrame para una transición suave
-          requestAnimationFrame(() => {
-            mainContent.style.transition =
-              "opacity 0.8s ease-out, transform 0.8s ease-out";
-            mainContent.style.opacity = "1";
-            mainContent.style.transform = "translateY(0)";
-
-            // Permitir scroll después de la transición
-            setTimeout(() => {
-              document.body.classList.remove("overflow-hidden");
-            }, 500);
-          });
-        }
-
-        // Escuchar ambos eventos para compatibilidad
-        window.addEventListener("preloader:complete", showMainContent);
-        window.addEventListener("splash:complete", showMainContent);
-
-        // Fallback en caso de que el preloader no se complete
-        window.addEventListener("load", () => {
-          setTimeout(() => {
-            // Verificar si el preloader aún está visible
-            const preloader = document.getElementById("preloader");
-            const initialBlocks = document.querySelector(".initial-blocks");
-
-            if (
-              preloader &&
-              preloader.style.display !== "none" &&
-              preloader.style.opacity !== "0"
-            ) {
-              console.warn("Preloader timeout - mostrando contenido");
-              showMainContent();
-            } else if (
-              initialBlocks &&
-              initialBlocks.style.display !== "none" &&
-              initialBlocks.style.opacity !== "0"
-            ) {
-              console.warn("Preloader timeout - mostrando contenido");
-              showMainContent();
-            }
-          }, 5000); // 5 segundos de timeout
-        });
-
-        // Asegurar que el body tenga overflow hidden inicialmente
-        document.body.classList.add("overflow-hidden");
-      </script>
-    </main>
-  </body>
+  <main id="mainContent" class="main-content">
+    <Hero />
+    <Accesos />
+    <CarouselNiveles />
+    <CardsCarreras />
+    <Tabs />
+    <CallAction />
+    <SobreUNE />
+    <Estadisticas/>
+    <DescubreUNE />
+    <DentroUNE />
+    <Blog />
+    <Frecuents />
+    <GeneralCTA />
+  </main>
 </Layout>
+
+
+<script>
+  // Script minimalista - solo manejo de visibilidad
+  function initPageContent() {
+    const mainContent = document.getElementById("mainContent");
+
+    function showContent() {
+      if (mainContent) {
+        mainContent.classList.add("visible");
+        document.body.style.overflow = "auto";
+      }
+    }
+
+    // Escuchar evento del splash
+    window.addEventListener("preloader:complete", showContent);
+
+    // Fallback de seguridad
+    setTimeout(() => {
+      if (!mainContent?.classList.contains("visible")) {
+        showContent();
+      }
+    }, 4000);
+  }
+
+  // Inicializar cuando el DOM esté listo
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initPageContent);
+  } else {
+    initPageContent();
+  }
+</script>

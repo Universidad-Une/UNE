@@ -1,0 +1,655 @@
+---
+import { programasEducativos } from "@helpers/estructura_educativa.js";
+
+// Función para obtener la primera imagen disponible de los planteles
+function getPrimeraImagenDePlanteles(planteles) {
+  for (const plantelInfo of Object.values(planteles)) {
+    for (const info of plantelInfo) {
+      if (info.imagen && info.imagen.trim() !== "") {
+        return info.imagen;
+      }
+    }
+  }
+  return null;
+}
+
+// Función para obtener el color del badge según la incorporación
+function getColorBadge(incorporacion) {
+  switch (incorporacion) {
+    case "UDG":
+      return "bg-red-500";
+    case "SICYT":
+      return "bg-green-600";
+    default:
+      return "bg-blue-500"; // Color por defecto
+  }
+}
+
+// Convertir a array de programas de educación continua
+const continua = [];
+
+if (programasEducativos.Continua) {
+  Object.entries(programasEducativos.Continua).forEach(
+    ([area, programas]) => {
+      Object.entries(programas).forEach(([nombrePrograma, datosPrograma]) => {
+        const planteles = datosPrograma.planteles || datosPrograma;
+        const imagen = getPrimeraImagenDePlanteles(planteles);
+
+        continua.push({
+          nombre: nombrePrograma,
+          area: area,
+          planteles: planteles,
+          imagen: imagen,
+        });
+      });
+    }
+  );
+}
+
+function getDescripcionFromPlanteles(planteles) {
+  // Buscar la primera descripción no vacía en todos los planteles
+  for (const plantelInfo of Object.values(planteles)) {
+    for (const info of plantelInfo) {
+      if (info.descripcion && info.descripcion.trim() !== "") {
+        return info.descripcion;
+      }
+    }
+  }
+  // Si no encuentra descripción, retorna una genérica
+  return "Programa de educación continua";
+}
+
+// Procesar datos de educación continua
+const carreras = continua.map((programaContinua, index) => {
+  const planteles = Object.keys(programaContinua.planteles);
+  const todasLasModalidades = [];
+  const todasLasIncorporaciones = [];
+
+  // Extraer todas las modalidades e incorporaciones
+  Object.values(programaContinua.planteles).forEach((plantelInfo) => {
+    plantelInfo.forEach((info) => {
+      if (!todasLasModalidades.includes(info.modalidad)) {
+        todasLasModalidades.push(info.modalidad);
+      }
+      if (!todasLasIncorporaciones.includes(info.incorporacion)) {
+        todasLasIncorporaciones.push(info.incorporacion);
+      }
+    });
+  });
+
+  // Usar la imagen tal como viene, o el nombre del programa como fallback
+  const imagenNombre = programaContinua.imagen || programaContinua.nombre;
+
+  // Obtener el color para el badge principal (primera incorporación)
+  const colorBadge = getColorBadge(todasLasIncorporaciones[0]);
+
+  return {
+    id: index + 1,
+    nombre: `${programaContinua.nombre}`,
+    descripcion: getDescripcionFromPlanteles(programaContinua.planteles),
+    area: programaContinua.area,
+    imagen: imagenNombre,
+    categoria: programaContinua.area,
+    incorporacion: todasLasIncorporaciones.join(", "),
+    modalidad: todasLasModalidades.join(", "),
+    colorBadge: colorBadge,
+    slug: programaContinua.nombre
+      .toLowerCase()
+      .replace(/\s+/g, "_")
+      .replace(/[áéíóúñ]/g, (match) => {
+        const accents = { á: "a", é: "e", í: "i", ó: "o", ú: "u", ñ: "n" };
+        return accents[match];
+      }),
+    planteles: planteles,
+    plantelesDisponibles: planteles.length,
+    plantelesDetalle: programaContinua.planteles,
+  };
+});
+
+// Obtener todas las áreas únicas de educación continua
+const areasUnicas = [...new Set(continua.map(programa => programa.area))];
+const areas = ["Todas", ...areasUnicas.sort()];
+
+export { carreras, areas };
+---
+
+<div class="lg:max-w-9/12 mx-auto llg:px-4 py-8">
+  <div class="mb-8">
+    <h1 class="text-3xl font-bold text-gray-900 mb-2">EDUCACIÓN CONTINUA</h1>
+    <p class="text-gray-600">Encuentra tu curso de capacitación</p>
+  </div>
+
+  <!-- Buscador con autocomplete -->
+  <div class="relative mb-6">
+    <input
+      type="text"
+      id="search-input"
+      placeholder="Buscar cursos"
+      class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+      autocomplete="off"
+    />
+    <div
+      id="autocomplete-dropdown"
+      class="absolute z-10 w-full bg-white border border-gray-300 rounded-b-lg hidden max-h-60 overflow-y-auto"
+    >
+      <!-- Sugerencias de autocomplete se insertan aquí -->
+    </div>
+  </div>
+
+  <!-- Tabs de áreas -->
+  <div class="flex flex-wrap gap-2 mb-6 overflow-x-auto">
+    {
+      areas.map((area, index) => (
+        <button
+          class={`tab-button px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-colors ${
+            index === 0
+              ? "bg-orange-600 text-white"
+              : "bg-gray-200 text-gray-700 hover:bg-gray-300"
+          }`}
+          data-area={area}
+        >
+          {area}
+        </button>
+      ))
+    }
+  </div>
+
+  <!-- Grid de cards -->
+  <div class="relative">
+    <div
+      id="cards-container"
+      class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 py-8 px-4 gap-6 max-h-96 md:max-h-[500px] lg:max-h-[900px] overflow-y-auto"
+    >
+      {
+        carreras.map((carrera) => {
+          return (
+            <div
+              class={`career-card bg-white rounded-lg shadow-lg overflow-hidden transition-transform hover:scale-105 ${carrera.area !== "Todas" ? "hidden" : ""}`}
+              data-area={carrera.categoria}
+              data-name={carrera.nombre.toLowerCase()}
+            >
+              <div class="relative">
+                <div class="h-48 flex items-center justify-center">
+                  <img
+                    src={`/src/assets/Imagenes/CardsCursos/${carrera.imagen}.webp`}
+                    alt={carrera.imagen}
+                    class="w-full h-full object-cover"
+                  />
+                </div>
+                <div
+                  class={`absolute top-4 right-4 ${carrera.colorBadge} text-white px-2 py-1 rounded text-xs font-semibold`}
+                >
+                  {carrera.incorporacion.split(", ")[0]}
+                </div>
+                
+              </div>
+              <div class="p-6">
+                <h3 class="mb-2">{carrera.nombre}</h3>
+                <p class="text-gray-600 text-sm mb-4">{carrera.descripcion}</p>
+
+                <div class="space-y-2 mb-4">
+                  <div class="flex items-center gap-2 flex-wrap">
+                    <span class="text-white text-bold px-2 py-1 text-xs bg-azul-une rounded-2xl">
+                      {carrera.incorporacion}
+                    </span>
+                    <span class="text-white text-bold px-2 py-1 text-xs bg-azul-une rounded-2xl">
+                      {carrera.modalidad}
+                    </span>
+                    <span class="text-white text-bold px-2 py-1 text-xs bg-azul-une rounded-2xl">
+                      {carrera.plantelesDisponibles} planteles disp.
+                    </span>
+                  </div>
+                  <div class="text-xs text-gray-500" />
+                </div>
+
+                <div class="space-y-2">
+                  <button
+                    class="w-full bg-red-500 text-white py-2 px-4 rounded font-medium hover:bg-red-600 transition-colors ver-planteles-btn"
+                    data-carrera-id={carrera.id}
+                    data-carrera-nombre={carrera.nombre}
+                    data-planteles={JSON.stringify(carrera.planteles)}
+                    data-planteles-detalle={JSON.stringify(
+                      carrera.plantelesDetalle
+                    )}
+                  >
+                    Ver planteles
+                  </button>
+                  <a
+                    href={`/oferta/continua/${carrera.slug}`}
+                    class="w-full border border-red-500 text-red-500 py-2 px-4 rounded font-medium hover:bg-red-50 transition-colors block text-center"
+                  >
+                    Más información
+                  </a>
+                </div>
+              </div>
+            </div>
+          );
+        })
+      }
+    </div>
+
+    <!-- Botón "Mostrar más" para mobile -->
+    <div class="md:hidden mt-6 text-center">
+      <button
+        id="show-more-btn"
+        class="bg-blue-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-700 transition-colors"
+      >
+        Mostrar más
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- Modal de planteles -->
+<div
+  id="planteles-modal"
+  class="fixed inset-0 z-50 hidden flex items-center justify-center modal-overlay"
+>
+  <div
+    class="absolute inset-0 bg-opacity-40 backdrop-blur-sm transition-opacity duration-300 opacity-0"
+    id="modal-backdrop"
+  >
+  </div>
+  <div
+    class="bg-white rounded-lg p-6 max-w-2xl w-full mx-4 relative z-10 transform transition-all duration-300 scale-95 opacity-0 max-h-10/12 overflow-y-auto"
+    id="modal-content"
+  >
+    <div class="flex justify-between items-center mb-4">
+      <h3 id="modal-title" class="text-lg font-medium text-gray-900">
+        Planteles disponibles
+      </h3>
+      <button
+        id="close-modal"
+        class="text-gray-400 hover:text-gray-600 transition-colors duration-200 hover:scale-110"
+      >
+        <svg
+          class="w-6 h-6"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+      </button>
+    </div>
+    <div id="planteles-list" class="space-y-4">
+      <!-- Los planteles se insertan aquí dinámicamente -->
+    </div>
+  </div>
+</div>
+
+<script define:vars={{ carreras }}>
+  document.addEventListener("DOMContentLoaded", function () {
+    const searchInput = document.getElementById("search-input");
+    const autocompleteDropdown = document.getElementById("autocomplete-dropdown");
+    const tabButtons = document.querySelectorAll(".tab-button");
+    const careerCards = document.querySelectorAll(".career-card");
+    const showMoreBtn = document.getElementById("show-more-btn");
+
+    let currentArea = "Todas";
+    let visibleCards = 3; // Límite inicial para mobile
+
+    // Datos de carreras para autocomplete
+    const careerNames = carreras.map((carrera) => carrera.nombre);
+
+    // Función para mostrar cards según área y límite
+    function showCards() {
+      const isMobile = window.innerWidth < 768;
+      let visibleCount = 0;
+
+      careerCards.forEach((card) => {
+        const cardArea = card.getAttribute("data-area");
+        const shouldShow = currentArea === "Todas" || cardArea === currentArea;
+
+        if (shouldShow) {
+          if (isMobile && visibleCount >= visibleCards) {
+            card.classList.add("hidden");
+          } else {
+            card.classList.remove("hidden");
+            visibleCount++;
+          }
+        } else {
+          card.classList.add("hidden");
+        }
+      });
+
+      // Mostrar/ocultar botón "Mostrar más"
+      const totalCards = Array.from(careerCards).filter((card) => {
+        const cardArea = card.getAttribute("data-area");
+        return currentArea === "Todas" || cardArea === currentArea;
+      }).length;
+
+      if (isMobile && totalCards > visibleCards) {
+        showMoreBtn.classList.remove("hidden");
+      } else {
+        showMoreBtn.classList.add("hidden");
+      }
+    }
+
+    // Autocomplete
+    searchInput.addEventListener("input", function (e) {
+      const query = e.target.value.toLowerCase();
+
+      if (query.length === 0) {
+        autocompleteDropdown.classList.add("hidden");
+        return;
+      }
+
+      const matches = careerNames.filter((name) =>
+        name.toLowerCase().includes(query)
+      );
+
+      if (matches.length > 0) {
+        autocompleteDropdown.innerHTML = matches
+          .map(
+            (name) =>
+              `<div class="autocomplete-item px-4 py-2 hover:bg-gray-100 cursor-pointer">${name}</div>`
+          )
+          .join("");
+        autocompleteDropdown.classList.remove("hidden");
+      } else {
+        autocompleteDropdown.classList.add("hidden");
+      }
+    });
+
+    // Selección de autocomplete
+    autocompleteDropdown.addEventListener("click", function (e) {
+      if (e.target.classList.contains("autocomplete-item")) {
+        searchInput.value = e.target.textContent;
+        autocompleteDropdown.classList.add("hidden");
+
+        // Filtrar por nombre seleccionado
+        const selectedName = e.target.textContent.toLowerCase();
+        careerCards.forEach((card) => {
+          const cardName = card.getAttribute("data-name");
+          if (cardName === selectedName) {
+            card.classList.remove("hidden");
+          } else {
+            card.classList.add("hidden");
+          }
+        });
+      }
+    });
+
+    // Cerrar autocomplete al hacer click fuera
+    document.addEventListener("click", function (e) {
+      if (
+        !searchInput.contains(e.target) &&
+        !autocompleteDropdown.contains(e.target)
+      ) {
+        autocompleteDropdown.classList.add("hidden");
+      }
+    });
+
+    // Tabs de áreas
+    tabButtons.forEach((button) => {
+      button.addEventListener("click", function () {
+        // Remover clase activa de todos los botones
+        tabButtons.forEach((btn) => {
+          btn.classList.remove("bg-orange-600", "text-white");
+          btn.classList.add("bg-gray-200", "text-gray-700");
+        });
+
+        // Activar botón seleccionado
+        this.classList.remove("bg-gray-200", "text-gray-700");
+        this.classList.add("bg-orange-600", "text-white");
+
+        // Actualizar área actual
+        currentArea = this.getAttribute("data-area");
+        visibleCards = 3; // Resetear contador
+
+        // Limpiar búsqueda
+        searchInput.value = "";
+
+        // Mostrar cards correspondientes
+        showCards();
+      });
+    });
+
+    // Botón "Mostrar más"
+    showMoreBtn.addEventListener("click", function () {
+      visibleCards += 3;
+      showCards();
+    });
+
+    // Responsive: actualizar vista al cambiar tamaño de ventana
+    window.addEventListener("resize", function () {
+      showCards();
+    });
+
+    // Inicializar vista
+    showCards();
+
+    // Funcionalidad del modal de planteles
+    const modal = document.getElementById("planteles-modal");
+    const modalTitle = document.getElementById("modal-title");
+    const plantelesList = document.getElementById("planteles-list");
+    const closeModal = document.getElementById("close-modal");
+    const modalBackdrop = document.getElementById("modal-backdrop");
+    const modalContent = document.getElementById("modal-content");
+
+    // Función para abrir modal con animación
+    function openModal(carreraNombre, planteles, plantelesDetalle) {
+      modalTitle.textContent = `${carreraNombre}`;
+
+      // Crear contenido del modal con información detallada
+      plantelesList.innerHTML = planteles
+        .map((plantel, index) => {
+          const detalles = plantelesDetalle[plantel] || [];
+          return `
+            <div class="p-4 border border-gray-200 rounded-lg transform transition-all duration-300 translate-y-2 opacity-0 plantel-item" 
+                 style="animation-delay: ${index * 100}ms">
+              <div class="flex items-center justify-between mb-3">
+                <h4 class="font-bold text-lg text-gray-900">${plantel}</h4>
+                <span class="text-sm text-green-600 bg-green-100 px-2 py-1 rounded-full font-medium">Disponible</span>
+              </div>
+              
+              <!-- Modalidades e incorporaciones -->
+              <div class="mb-4">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                  ${detalles
+                    .map(
+                      (detalle) => `
+                    <div class="bg-gray-50 p-2 rounded">
+                      <div class="text-sm">
+                        <span class="font-semibold text-blue-600">${detalle.modalidad}</span>
+                        <br>
+                        <span class="text-gray-600">Incorporación: ${detalle.incorporacion}</span>
+                      </div>
+                    </div>
+                  `
+                    )
+                    .join("")}
+                </div>
+              </div>
+              
+              <!-- Botones de acción -->
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <a 
+                  href="tel:+3380000863" 
+                  class="flex items-center justify-center gap-2 py-2 px-3 bg-gray-100 text-gray-800 rounded-lg hover:bg-blue-100 hover:text-blue-700 transition-all duration-200"
+                >
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                  </svg>
+                  <span>Llamar al plantel</span>
+                </a>
+                <a 
+                  href="/planteles/${plantel
+                    .toLowerCase()
+                    .normalize("NFD")
+                    .replace(/[\u0300-\u036f]/g, "") // elimina tildes
+                    .replace(/ /g, "-")}"
+                  class="flex items-center justify-center gap-2 py-2 px-3 bg-gray-100 text-gray-800 rounded-lg hover:bg-red-100 hover:text-red-700 transition-all duration-200"
+                >
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                  </svg>
+                  <span>Visitar plantel</span>
+                </a>
+              </div>
+            </div>
+          `;
+        })
+        .join("");
+
+      // Mostrar modal
+      modal.classList.remove("hidden");
+
+      // Animar entrada
+      requestAnimationFrame(() => {
+        modalBackdrop.classList.add("opacity-100");
+        modalContent.classList.add("scale-100", "opacity-100");
+        modalContent.classList.remove("scale-95", "opacity-0");
+
+        // Animar items de planteles
+        setTimeout(() => {
+          const items = document.querySelectorAll(".plantel-item");
+          items.forEach((item) => {
+            item.classList.add("opacity-100");
+            item.classList.remove("translate-y-2", "opacity-0");
+          });
+        }, 200);
+      });
+    }
+
+    // Función para cerrar modal con animación
+    function closeModalAnimation() {
+      modalBackdrop.classList.remove("opacity-100");
+      modalContent.classList.remove("scale-100", "opacity-100");
+      modalContent.classList.add("scale-95", "opacity-0");
+
+      setTimeout(() => {
+        modal.classList.add("hidden");
+      }, 300);
+    }
+
+    // Abrir modal al hacer click en "Ver planteles"
+    document.addEventListener("click", function (e) {
+      if (e.target.classList.contains("ver-planteles-btn")) {
+        const carreraNombre = e.target.getAttribute("data-carrera-nombre");
+        const planteles = JSON.parse(e.target.getAttribute("data-planteles"));
+        const plantelesDetalle = JSON.parse(
+          e.target.getAttribute("data-planteles-detalle")
+        );
+        openModal(carreraNombre, planteles, plantelesDetalle);
+      }
+    });
+
+    // Cerrar modal
+    closeModal.addEventListener("click", closeModalAnimation);
+
+    // Cerrar modal al hacer click fuera
+    modal.addEventListener("click", function (e) {
+      if (e.target === modal || e.target === modalBackdrop) {
+        closeModalAnimation();
+      }
+    });
+
+    // Cerrar modal con la tecla Escape
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && !modal.classList.contains("hidden")) {
+        closeModalAnimation();
+      }
+    });
+  });
+</script>
+
+<style>
+  /* Todos los estilos iguales que los otros componentes */
+  #cards-container::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 3px;
+  }
+
+  #cards-container::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 3px;
+  }
+
+  #cards-container::-webkit-scrollbar-thumb:hover {
+    background: #a8a8a8;
+  }
+
+  #modal-content::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  #modal-content::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 3px;
+  }
+
+  #modal-content::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 3px;
+  }
+
+  #modal-content::-webkit-scrollbar-thumb:hover {
+    background: #a8a8a8;
+  }
+
+  .tab-button {
+    transition: all 0.2s ease;
+  }
+
+  @media (max-width: 767px) {
+    #cards-container {
+      max-height: none;
+      overflow-y: visible;
+    }
+  }
+
+  .modal-overlay {
+    transition: all 0.3s ease;
+  }
+
+  .plantel-item {
+    animation: slideInUp 0.5s ease forwards;
+  }
+
+  @keyframes slideInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .modal-overlay::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    z-index: -1;
+  }
+
+  #close-modal:hover {
+    transform: scale(1.1);
+  }
+
+  .ver-planteles-btn {
+    transition: all 0.3s ease;
+  }
+
+  .ver-planteles-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
+  }
+
+  .ver-planteles-btn:active {
+    transform: translateY(0);
+  }
+</style>

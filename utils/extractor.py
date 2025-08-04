@@ -93,8 +93,8 @@ def determinar_nivel_educativo(incorporacion, programa):
         return None
     
     # Maestrías
-    maestrias_palabras = ["maestría", "maestrias", "master", "mba", "magister", "posgrado"]
-    for palabra in maestrias_palabras:
+    Maestrías_palabras = ["maestría", "Maestrías", "master", "mba", "magister", "posgrado"]
+    for palabra in Maestrías_palabras:
         if palabra in incorporacion_lower or palabra in programa_lower:
             return None
     

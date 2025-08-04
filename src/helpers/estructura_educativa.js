@@ -1,5 +1,4 @@
 // Datos de programas educativos organizados por nivel, área y plantel
-// Generado automáticamente desde datos de Excel
 
 export const programasEducativos = {
   Licenciaturas: {
@@ -10,6 +9,7 @@ export const programasEducativos = {
             modalidad: "Escolarizada",
             incorporacion: "SICYT",
             imagen: "Arquitectura",
+            url: "/oferta/licenciaturas/arquitectura",
             descripcion:
               "Diseña el futuro construyendo espacios funcionales, sostenibles y estéticamente atractivos. Da vida a tus ideas a través de la arquitectura.",
           },
@@ -18,12 +18,14 @@ export const programasEducativos = {
           {
             modalidad: "Escolarizada",
             incorporacion: "UDG",
+            url: "/oferta/licenciaturas/arquitectura",
             descripcion:
               "Diseña el futuro construyendo espacios funcionales, sostenibles y estéticamente atractivos. Da vida a tus ideas a través de la arquitectura.",
           },
           {
             modalidad: "Escolarizada",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/arquitectura",
             descripcion:
               "Diseña el futuro construyendo espacios funcionales, sostenibles y estéticamente atractivos. Da vida a tus ideas a través de la arquitectura.",
           },
@@ -32,6 +34,7 @@ export const programasEducativos = {
           {
             modalidad: "Escolarizada",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/arquitectura",
             descripcion:
               "Diseña el futuro construyendo espacios funcionales, sostenibles y estéticamente atractivos. Da vida a tus ideas a través de la arquitectura.",
           },
@@ -40,6 +43,7 @@ export const programasEducativos = {
           {
             modalidad: "Escolarizada",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/arquitectura",
             descripcion:
               "Diseña el futuro construyendo espacios funcionales, sostenibles y estéticamente atractivos. Da vida a tus ideas a través de la arquitectura.",
           },
@@ -48,6 +52,7 @@ export const programasEducativos = {
           {
             modalidad: "Escolarizada",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/arquitectura",
             descripcion:
               "Diseña el futuro construyendo espacios funcionales, sostenibles y estéticamente atractivos. Da vida a tus ideas a través de la arquitectura.",
           },
@@ -56,6 +61,7 @@ export const programasEducativos = {
           {
             modalidad: "Escolarizada",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/arquitectura",
             descripcion:
               "Diseña el futuro construyendo espacios funcionales, sostenibles y estéticamente atractivos. Da vida a tus ideas a través de la arquitectura.",
           },
@@ -64,6 +70,7 @@ export const programasEducativos = {
           {
             modalidad: "Escolarizada",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/arquitectura",
             descripcion:
               "Diseña el futuro construyendo espacios funcionales, sostenibles y estéticamente atractivos. Da vida a tus ideas a través de la arquitectura.",
           },
@@ -75,12 +82,14 @@ export const programasEducativos = {
             modalidad: "Escolarizada",
             incorporacion: "SICYT",
             imagen: "Disenografico",
+            url: "/oferta/licenciaturas/diseno_grafico",
             descripcion:
               "Expresa ideas visuales con impacto. Aprende a crear diseño publicitario, digital y de marca.",
           },
           {
             modalidad: "Viernes y Sábado",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/diseno_grafico",
             descripcion: "txt",
           },
         ],
@@ -89,14 +98,14 @@ export const programasEducativos = {
             modalidad: "Escolarizada",
             incorporacion: "SICYT",
             imagen: "Disenografico",
-
+            url: "/oferta/licenciaturas/diseno_grafico",
             descripcion: "txt",
           },
           {
             modalidad: "Viernes y Sábado",
             incorporacion: "SICYT",
             imagen: "Disenografico",
-
+            url: "/oferta/licenciaturas/diseno_grafico",
             descripcion: "txt",
           },
         ],
@@ -109,6 +118,7 @@ export const programasEducativos = {
             modalidad: "Escolarizada",
             incorporacion: "SICYT",
             imagen: "Cienciascomunicacion",
+            url: "/oferta/licenciaturas/ciencias_de_la_comunicacion",
             descripcion:
               "Conviértete en un comunicador versátil y creativo, preparado para impactar en medios digitales, corporativos y sociales.",
           },
@@ -117,6 +127,7 @@ export const programasEducativos = {
           {
             modalidad: "Escolarizada",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/ciencias_de_la_comunicacion",
             descripcion: "txt",
           },
         ],
@@ -127,6 +138,7 @@ export const programasEducativos = {
             modalidad: "Escolarizada",
             incorporacion: "UDG",
             imagen: "Abogado",
+            url: "/oferta/licenciaturas/abogado",
             descripcion:
               "Conviértete en un profesional del derecho con sólida formación jurídica, listo para defender la justicia y asesorar con responsabilidad.",
           },
@@ -138,12 +150,14 @@ export const programasEducativos = {
             modalidad: "Semiescolarizada",
             incorporacion: "SICYT",
             imagen: "CienciasEducacion",
+            url: "/oferta/licenciaturas/ciencias_de_la_educacion",
             descripcion:
               "Transforma el aprendizaje desde el aula con herramientas pedagógicas y compromiso social.",
           },
           {
             modalidad: "Sabatina",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/ciencias_de_la_educacion",
             descripcion: "txt",
           },
         ],
@@ -151,11 +165,13 @@ export const programasEducativos = {
           {
             modalidad: "Viernes y Sábado",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/ciencias_de_la_educacion",
             descripcion: "txt",
           },
           {
             modalidad: "Semiescolarizada",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/ciencias_de_la_educacion",
             descripcion: "txt",
           },
         ],
@@ -163,11 +179,13 @@ export const programasEducativos = {
           {
             modalidad: "Semiescolarizada",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/ciencias_de_la_educacion",
             descripcion: "txt",
           },
           {
             modalidad: "Sabatina",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/ciencias_de_la_educacion",
             descripcion: "txt",
           },
         ],
@@ -175,6 +193,7 @@ export const programasEducativos = {
           {
             modalidad: "Martes y Jueves",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/ciencias_de_la_educacion",
             descripcion: "txt",
           },
         ],
@@ -182,24 +201,27 @@ export const programasEducativos = {
           {
             modalidad: "Semiescolarizada",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/ciencias_de_la_educacion",
             descripcion: "txt",
           },
           {
             modalidad: "Sabatina",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/ciencias_de_la_educacion",
             descripcion: "txt",
           },
         ],
-
         ZAPOPAN: [
           {
             modalidad: "Semiescolarizada",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/ciencias_de_la_educacion",
             descripcion: "txt",
           },
           {
             modalidad: "Sabatina",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/ciencias_de_la_educacion",
             descripcion: "txt",
           },
         ],
@@ -210,6 +232,7 @@ export const programasEducativos = {
             modalidad: "Escolarizada",
             incorporacion: "SICYT",
             imagen: "Criminologia",
+            url: "/oferta/licenciaturas/criminologia_y_criminalistica",
             descripcion:
               "Investiga, analiza y previene el delito con una formación científica y humanista.",
           },
@@ -218,6 +241,7 @@ export const programasEducativos = {
           {
             modalidad: "Escolarizada",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/criminologia_y_criminalistica",
             descripcion: "txt",
           },
         ],
@@ -225,6 +249,7 @@ export const programasEducativos = {
           {
             modalidad: "Escolarizada",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/criminologia_y_criminalistica",
             descripcion: "txt",
           },
         ],
@@ -232,6 +257,7 @@ export const programasEducativos = {
           {
             modalidad: "Escolarizada",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/criminologia_y_criminalistica",
             descripcion: "txt",
           },
         ],
@@ -242,12 +268,14 @@ export const programasEducativos = {
             modalidad: "Semiescolarizada",
             incorporacion: "SICYT",
             imagen: "Derecho",
+            url: "/oferta/licenciaturas/derecho",
             descripcion:
               "Conviértete en un profesional del derecho con sólida formación jurídica, listo para defender la justicia y asesorar con responsabilidad.",
           },
           {
             modalidad: "Sabatina",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/derecho",
             descripcion:
               "Conviértete en un profesional del derecho con sólida formación jurídica, listo para defender la justicia y asesorar con responsabilidad.",
           },
@@ -256,12 +284,14 @@ export const programasEducativos = {
           {
             modalidad: "Semiescolarizada",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/derecho",
             descripcion:
               "Conviértete en un profesional del derecho con sólida formación jurídica, listo para defender la justicia y asesorar con responsabilidad.",
           },
           {
             modalidad: "Sabatina",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/derecho",
             descripcion: "txt",
           },
         ],
@@ -269,11 +299,13 @@ export const programasEducativos = {
           {
             modalidad: "Semiescolarizada",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/derecho",
             descripcion: "txt",
           },
           {
             modalidad: "Sabatina",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/derecho",
             descripcion: "txt",
           },
         ],
@@ -281,11 +313,13 @@ export const programasEducativos = {
           {
             modalidad: "Semiescolarizada",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/derecho",
             descripcion: "txt",
           },
           {
             modalidad: "Sabatina",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/derecho",
             descripcion: "txt",
           },
         ],
@@ -293,11 +327,13 @@ export const programasEducativos = {
           {
             modalidad: "Semiescolarizada",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/derecho",
             descripcion: "txt",
           },
           {
             modalidad: "Sabatina",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/derecho",
             descripcion: "txt",
           },
         ],
@@ -305,11 +341,13 @@ export const programasEducativos = {
           {
             modalidad: "Semiescolarizada",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/derecho",
             descripcion: "txt",
           },
           {
             modalidad: "Sabatina",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/derecho",
             descripcion: "txt",
           },
         ],
@@ -317,6 +355,7 @@ export const programasEducativos = {
           {
             modalidad: "Sabatina",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/derecho",
             descripcion: "txt",
           },
         ],
@@ -324,11 +363,13 @@ export const programasEducativos = {
           {
             modalidad: "Semiescolarizada",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/derecho",
             descripcion: "txt",
           },
           {
             modalidad: "Sabatina",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/derecho",
             descripcion: "txt",
           },
         ],
@@ -336,11 +377,13 @@ export const programasEducativos = {
           {
             modalidad: "Semiescolarizada",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/derecho",
             descripcion: "txt",
           },
           {
             modalidad: "Sabatina",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/derecho",
             descripcion: "txt",
           },
         ],
@@ -348,11 +391,13 @@ export const programasEducativos = {
           {
             modalidad: "Semiescolarizada",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/derecho",
             descripcion: "txt",
           },
           {
             modalidad: "Sabatina",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/derecho",
             descripcion: "txt",
           },
         ],
@@ -360,11 +405,13 @@ export const programasEducativos = {
           {
             modalidad: "Semiescolarizada",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/derecho",
             descripcion: "txt",
           },
           {
             modalidad: "Sabatina",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/derecho",
             descripcion: "txt",
           },
         ],
@@ -372,11 +419,13 @@ export const programasEducativos = {
           {
             modalidad: "Semiescolarizada",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/derecho",
             descripcion: "txt",
           },
           {
             modalidad: "Sabatina",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/derecho",
             descripcion: "txt",
           },
         ],
@@ -384,6 +433,7 @@ export const programasEducativos = {
           {
             modalidad: "Sabatina",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/derecho",
             descripcion: "txt",
           },
         ],
@@ -391,11 +441,13 @@ export const programasEducativos = {
           {
             modalidad: "Semiescolarizada",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/derecho",
             descripcion: "txt",
           },
           {
             modalidad: "Sabatina",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/derecho",
             descripcion: "txt",
           },
         ],
@@ -406,12 +458,14 @@ export const programasEducativos = {
             modalidad: "Escolarizada",
             incorporacion: "SICYT",
             imagen: "TrabajoSocial",
+            url: "/oferta/licenciaturas/trabajo_social",
             descripcion:
               "Interviene de forma directa en comunidades, familias y organizaciones para mejorar su bienestar.",
           },
           {
             modalidad: "Viernes y Sábado",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/trabajo_social",
             descripcion: "txt",
           },
         ],
@@ -419,6 +473,7 @@ export const programasEducativos = {
           {
             modalidad: "Viernes y Sábado",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/trabajo_social",
             descripcion: "txt",
           },
         ],
@@ -426,6 +481,7 @@ export const programasEducativos = {
           {
             modalidad: "Viernes y Sábado",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/trabajo_social",
             descripcion: "txt",
           },
         ],
@@ -433,11 +489,13 @@ export const programasEducativos = {
           {
             modalidad: "Escolarizada",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/trabajo_social",
             descripcion: "txt",
           },
           {
             modalidad: "Viernes y Sábado",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/trabajo_social",
             descripcion: "txt",
           },
         ],
@@ -445,6 +503,7 @@ export const programasEducativos = {
           {
             modalidad: "Viernes y Sábado",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/trabajo_social",
             descripcion: "txt",
           },
         ],
@@ -452,11 +511,13 @@ export const programasEducativos = {
           {
             modalidad: "Escolarizada",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/trabajo_social",
             descripcion: "txt",
           },
           {
             modalidad: "Viernes y Sábado",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/trabajo_social",
             descripcion: "txt",
           },
         ],
@@ -469,6 +530,7 @@ export const programasEducativos = {
             modalidad: "Escolarizada",
             incorporacion: "UDG",
             imagen: "CirujanoDentista",
+            url: "/oferta/licenciaturas/cirujano_dentista",
             descripcion:
               "Especialízate en salud bucal con una formación práctica y de alto nivel, enfocada en la prevención, diagnóstico y rehabilitación oral.",
           },
@@ -477,6 +539,7 @@ export const programasEducativos = {
           {
             modalidad: "Escolarizada",
             incorporacion: "UDG",
+            url: "/oferta/licenciaturas/cirujano_dentista",
             descripcion:
               "Especialízate en salud bucal con una formación práctica y de alto nivel, enfocada en la prevención, diagnóstico y rehabilitación oral.",
           },
@@ -485,6 +548,7 @@ export const programasEducativos = {
           {
             modalidad: "Escolarizada",
             incorporacion: "UDG",
+            url: "/oferta/licenciaturas/cirujano_dentista",
             descripcion:
               "Especialízate en salud bucal con una formación práctica y de alto nivel, enfocada en la prevención, diagnóstico y rehabilitación oral.",
           },
@@ -493,6 +557,7 @@ export const programasEducativos = {
           {
             modalidad: "Escolarizada",
             incorporacion: "UDG",
+            url: "/oferta/licenciaturas/cirujano_dentista",
             descripcion:
               "Especialízate en salud bucal con una formación práctica y de alto nivel, enfocada en la prevención, diagnóstico y rehabilitación oral.",
           },
@@ -501,6 +566,7 @@ export const programasEducativos = {
           {
             modalidad: "Escolarizada",
             incorporacion: "UDG",
+            url: "/oferta/licenciaturas/cirujano_dentista",
             descripcion:
               "Especialízate en salud bucal con una formación práctica y de alto nivel, enfocada en la prevención, diagnóstico y rehabilitación oral.",
           },
@@ -509,6 +575,7 @@ export const programasEducativos = {
           {
             modalidad: "Escolarizada",
             incorporacion: "UDG",
+            url: "/oferta/licenciaturas/cirujano_dentista",
             descripcion:
               "Especialízate en salud bucal con una formación práctica y de alto nivel, enfocada en la prevención, diagnóstico y rehabilitación oral.",
           },
@@ -520,6 +587,7 @@ export const programasEducativos = {
             modalidad: "Escolarizada",
             incorporacion: "SICYT",
             imagen: "CulturaFisica",
+            url: "/oferta/licenciaturas/cultura_fisica_y_del_deporte",
             descripcion:
               "Promueve la salud y el rendimiento físico a través de la actividad deportiva y el entrenamiento profesional.",
           },
@@ -528,6 +596,7 @@ export const programasEducativos = {
           {
             modalidad: "Escolarizada",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/cultura_fisica_y_del_deporte",
             descripcion: "txt",
           },
         ],
@@ -535,6 +604,7 @@ export const programasEducativos = {
           {
             modalidad: "Escolarizada",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/cultura_fisica_y_del_deporte",
             descripcion: "txt",
           },
         ],
@@ -542,6 +612,7 @@ export const programasEducativos = {
           {
             modalidad: "Escolarizada",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/cultura_fisica_y_del_deporte",
             descripcion: "txt",
           },
         ],
@@ -552,6 +623,7 @@ export const programasEducativos = {
             modalidad: "Escolarizada",
             incorporacion: "UDG",
             imagen: "Enfermeria",
+            url: "/oferta/licenciaturas/enfermeria",
             descripcion:
               "Con vocación y conocimiento, cuida y mejora la salud de las personas en todos los niveles de atención.",
           },
@@ -560,6 +632,7 @@ export const programasEducativos = {
           {
             modalidad: "Escolarizada",
             incorporacion: "UDG",
+            url: "/oferta/licenciaturas/enfermeria",
             descripcion:
               "Con vocación y conocimiento, cuida y mejora la salud de las personas en todos los niveles de atención.",
           },
@@ -568,6 +641,7 @@ export const programasEducativos = {
           {
             modalidad: "Escolarizada",
             incorporacion: "UDG",
+            url: "/oferta/licenciaturas/enfermeria",
             descripcion:
               "Con vocación y conocimiento, cuida y mejora la salud de las personas en todos los niveles de atención.",
           },
@@ -576,6 +650,7 @@ export const programasEducativos = {
           {
             modalidad: "Escolarizada",
             incorporacion: "UDG",
+            url: "/oferta/licenciaturas/enfermeria",
             descripcion:
               "Con vocación y conocimiento, cuida y mejora la salud de las personas en todos los niveles de atención.",
           },
@@ -584,6 +659,7 @@ export const programasEducativos = {
           {
             modalidad: "Escolarizada",
             incorporacion: "UDG",
+            url: "/oferta/licenciaturas/enfermeria",
             descripcion:
               "Con vocación y conocimiento, cuida y mejora la salud de las personas en todos los niveles de atención.",
           },
@@ -595,12 +671,14 @@ export const programasEducativos = {
             modalidad: "Escolarizada",
             incorporacion: "SICYT",
             imagen: "Nutricion",
+            url: "/oferta/licenciaturas/nutricion",
             descripcion:
               "Promueve estilos de vida saludables a través de la alimentación consciente y personalizada.",
           },
           {
             modalidad: "Viernes y Sábado",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/nutricion",
             descripcion:
               "Promueve estilos de vida saludables a través de la alimentación consciente y personalizada.",
           },
@@ -609,12 +687,14 @@ export const programasEducativos = {
           {
             modalidad: "Escolarizada",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/nutricion",
             descripcion:
               "Promueve estilos de vida saludables a través de la alimentación consciente y personalizada.",
           },
           {
             modalidad: "Viernes y Sábado",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/nutricion",
             descripcion:
               "Promueve estilos de vida saludables a través de la alimentación consciente y personalizada.",
           },
@@ -623,12 +703,14 @@ export const programasEducativos = {
           {
             modalidad: "Escolarizada",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/nutricion",
             descripcion:
               "Promueve estilos de vida saludables a través de la alimentación consciente y personalizada.",
           },
           {
             modalidad: "Viernes y Sábado",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/nutricion",
             descripcion:
               "Promueve estilos de vida saludables a través de la alimentación consciente y personalizada.",
           },
@@ -637,12 +719,14 @@ export const programasEducativos = {
           {
             modalidad: "Escolarizada",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/nutricion",
             descripcion:
               "Promueve estilos de vida saludables a través de la alimentación consciente y personalizada.",
           },
           {
             modalidad: "Viernes y Sábado",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/nutricion",
             descripcion:
               "Promueve estilos de vida saludables a través de la alimentación consciente y personalizada.",
           },
@@ -651,12 +735,14 @@ export const programasEducativos = {
           {
             modalidad: "Escolarizada",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/nutricion",
             descripcion:
               "Promueve estilos de vida saludables a través de la alimentación consciente y personalizada.",
           },
           {
             modalidad: "Viernes y Sábado",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/nutricion",
             descripcion:
               "Promueve estilos de vida saludables a través de la alimentación consciente y personalizada.",
           },
@@ -665,6 +751,7 @@ export const programasEducativos = {
           {
             modalidad: "Viernes y Sábado",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/nutricion",
             descripcion:
               "Promueve estilos de vida saludables a través de la alimentación consciente y personalizada.",
           },
@@ -673,6 +760,7 @@ export const programasEducativos = {
           {
             modalidad: "Escolarizada",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/nutricion",
             descripcion:
               "Promueve estilos de vida saludables a través de la alimentación consciente y personalizada.",
           },
@@ -681,6 +769,7 @@ export const programasEducativos = {
           {
             modalidad: "Escolarizada",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/nutricion",
             descripcion:
               "Promueve estilos de vida saludables a través de la alimentación consciente y personalizada.",
           },
@@ -689,6 +778,7 @@ export const programasEducativos = {
           {
             modalidad: "Escolarizada",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/nutricion",
             descripcion:
               "Promueve estilos de vida saludables a través de la alimentación consciente y personalizada.",
           },
@@ -697,6 +787,7 @@ export const programasEducativos = {
           {
             modalidad: "Escolarizada",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/nutricion",
             descripcion:
               "Promueve estilos de vida saludables a través de la alimentación consciente y personalizada.",
           },
@@ -705,6 +796,7 @@ export const programasEducativos = {
           {
             modalidad: "Escolarizada",
             incorporacion: "UDG",
+            url: "/oferta/licenciaturas/nutricion",
             descripcion:
               "Promueve estilos de vida saludables a través de la alimentación consciente y personalizada.",
           },
@@ -713,12 +805,14 @@ export const programasEducativos = {
           {
             modalidad: "Escolarizada",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/nutricion",
             descripcion:
               "Promueve estilos de vida saludables a través de la alimentación consciente y personalizada.",
           },
           {
             modalidad: "Viernes y Sábado",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/nutricion",
             descripcion:
               "Promueve estilos de vida saludables a través de la alimentación consciente y personalizada.",
           },
@@ -730,12 +824,14 @@ export const programasEducativos = {
             modalidad: "Escolarizada",
             incorporacion: "SICYT",
             imagen: "Psicologia",
+            url: "/oferta/licenciaturas/psicologia",
             descripcion:
               "Comprende la conducta humana y contribuye al bienestar emocional, social y mental de las personas.",
           },
           {
             modalidad: "Viernes y Sábado",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/psicologia",
             descripcion:
               "Comprende la conducta humana y contribuye al bienestar emocional, social y mental de las personas.",
           },
@@ -744,12 +840,14 @@ export const programasEducativos = {
           {
             modalidad: "Escolarizada",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/psicologia",
             descripcion:
               "Comprende la conducta humana y contribuye al bienestar emocional, social y mental de las personas.",
           },
           {
             modalidad: "Viernes y Sábado",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/psicologia",
             descripcion:
               "Comprende la conducta humana y contribuye al bienestar emocional, social y mental de las personas.",
           },
@@ -758,12 +856,14 @@ export const programasEducativos = {
           {
             modalidad: "Escolarizada",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/psicologia",
             descripcion:
               "Comprende la conducta humana y contribuye al bienestar emocional, social y mental de las personas.",
           },
           {
             modalidad: "Viernes y Sábado",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/psicologia",
             descripcion:
               "Comprende la conducta humana y contribuye al bienestar emocional, social y mental de las personas.",
           },
@@ -772,12 +872,14 @@ export const programasEducativos = {
           {
             modalidad: "Escolarizada",
             incorporacion: "UDG",
+            url: "/oferta/licenciaturas/psicologia",
             descripcion:
               "Comprende la conducta humana y contribuye al bienestar emocional, social y mental de las personas.",
           },
           {
             modalidad: "Viernes y Sábado",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/psicologia",
             descripcion:
               "Comprende la conducta humana y contribuye al bienestar emocional, social y mental de las personas.",
           },
@@ -786,12 +888,14 @@ export const programasEducativos = {
           {
             modalidad: "Escolarizada",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/psicologia",
             descripcion:
               "Comprende la conducta humana y contribuye al bienestar emocional, social y mental de las personas.",
           },
           {
             modalidad: "Viernes y Sábado",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/psicologia",
             descripcion:
               "Comprende la conducta humana y contribuye al bienestar emocional, social y mental de las personas.",
           },
@@ -800,12 +904,14 @@ export const programasEducativos = {
           {
             modalidad: "Escolarizada",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/psicologia",
             descripcion:
               "Comprende la conducta humana y contribuye al bienestar emocional, social y mental de las personas.",
           },
           {
             modalidad: "Viernes y Sábado",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/psicologia",
             descripcion:
               "Comprende la conducta humana y contribuye al bienestar emocional, social y mental de las personas.",
           },
@@ -814,6 +920,7 @@ export const programasEducativos = {
           {
             modalidad: "Escolarizada",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/psicologia",
             descripcion:
               "Comprende la conducta humana y contribuye al bienestar emocional, social y mental de las personas.",
           },
@@ -822,6 +929,7 @@ export const programasEducativos = {
           {
             modalidad: "Escolarizada",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/psicologia",
             descripcion:
               "Comprende la conducta humana y contribuye al bienestar emocional, social y mental de las personas.",
           },
@@ -830,12 +938,14 @@ export const programasEducativos = {
           {
             modalidad: "Escolarizada",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/psicologia",
             descripcion:
               "Comprende la conducta humana y contribuye al bienestar emocional, social y mental de las personas.",
           },
           {
             modalidad: "Viernes y Sábado",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/psicologia",
             descripcion:
               "Comprende la conducta humana y contribuye al bienestar emocional, social y mental de las personas.",
           },
@@ -844,12 +954,14 @@ export const programasEducativos = {
           {
             modalidad: "Escolarizada",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/psicologia",
             descripcion:
               "Comprende la conducta humana y contribuye al bienestar emocional, social y mental de las personas.",
           },
           {
             modalidad: "Viernes y Sábado",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/psicologia",
             descripcion:
               "Comprende la conducta humana y contribuye al bienestar emocional, social y mental de las personas.",
           },
@@ -858,6 +970,7 @@ export const programasEducativos = {
           {
             modalidad: "Escolarizada",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/psicologia",
             descripcion:
               "Comprende la conducta humana y contribuye al bienestar emocional, social y mental de las personas.",
           },
@@ -866,6 +979,7 @@ export const programasEducativos = {
           {
             modalidad: "Escolarizada",
             incorporacion: "UDG",
+            url: "/oferta/licenciaturas/psicologia",
             descripcion:
               "Comprende la conducta humana y contribuye al bienestar emocional, social y mental de las personas.",
           },
@@ -874,12 +988,14 @@ export const programasEducativos = {
           {
             modalidad: "Escolarizada",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/psicologia",
             descripcion:
               "Comprende la conducta humana y contribuye al bienestar emocional, social y mental de las personas.",
           },
           {
             modalidad: "Viernes y Sábado",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/psicologia",
             descripcion:
               "Comprende la conducta humana y contribuye al bienestar emocional, social y mental de las personas.",
           },
@@ -891,6 +1007,7 @@ export const programasEducativos = {
             modalidad: "Escolarizada",
             incorporacion: "SICYT",
             imagen: "QuimicoFarmaceutico",
+            url: "/oferta/licenciaturas/quimico_farmaceutico_biologo",
             descripcion:
               "Especialista en el diagnóstico clínico, análisis de laboratorio y desarrollo farmacéutico.",
           },
@@ -899,6 +1016,7 @@ export const programasEducativos = {
           {
             modalidad: "Escolarizada",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/quimico_farmaceutico_biologo",
             descripcion: "txt",
           },
         ],
@@ -906,6 +1024,7 @@ export const programasEducativos = {
           {
             modalidad: "Escolarizada",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/quimico_farmaceutico_biologo",
             descripcion: "txt",
           },
         ],
@@ -913,6 +1032,7 @@ export const programasEducativos = {
           {
             modalidad: "Escolarizada",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/quimico_farmaceutico_biologo",
             descripcion: "txt",
           },
         ],
@@ -920,6 +1040,7 @@ export const programasEducativos = {
           {
             modalidad: "Escolarizada",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/quimico_farmaceutico_biologo",
             descripcion: "txt",
           },
         ],
@@ -927,6 +1048,7 @@ export const programasEducativos = {
           {
             modalidad: "Escolarizada",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/quimico_farmaceutico_biologo",
             descripcion: "txt",
           },
         ],
@@ -934,6 +1056,7 @@ export const programasEducativos = {
           {
             modalidad: "Escolarizada",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/quimico_farmaceutico_biologo",
             descripcion: "txt",
           },
         ],
@@ -944,6 +1067,7 @@ export const programasEducativos = {
             modalidad: "Escolarizada",
             incorporacion: "SICYT",
             imagen: "TerapiaFisica",
+            url: "/oferta/licenciaturas/terapia_fisica",
             descripcion:
               "Ayuda a recuperar el movimiento y la funcionalidad corporal con técnicas terapéuticas efectivas.",
           },
@@ -952,6 +1076,7 @@ export const programasEducativos = {
           {
             modalidad: "Escolarizada",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/terapia_fisica",
             descripcion: "txt",
           },
         ],
@@ -959,6 +1084,7 @@ export const programasEducativos = {
           {
             modalidad: "Escolarizada",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/terapia_fisica",
             descripcion: "txt",
           },
         ],
@@ -966,6 +1092,7 @@ export const programasEducativos = {
           {
             modalidad: "Escolarizada",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/terapia_fisica",
             descripcion: "txt",
           },
         ],
@@ -973,6 +1100,7 @@ export const programasEducativos = {
           {
             modalidad: "Escolarizada",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/terapia_fisica",
             descripcion: "txt",
           },
         ],
@@ -980,6 +1108,7 @@ export const programasEducativos = {
           {
             modalidad: "Escolarizada",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/terapia_fisica",
             descripcion: "txt",
           },
         ],
@@ -987,6 +1116,7 @@ export const programasEducativos = {
           {
             modalidad: "Escolarizada",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/terapia_fisica",
             descripcion: "txt",
           },
         ],
@@ -994,6 +1124,7 @@ export const programasEducativos = {
           {
             modalidad: "Escolarizada",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/terapia_fisica",
             descripcion: "txt",
           },
         ],
@@ -1006,6 +1137,7 @@ export const programasEducativos = {
             modalidad: "Escolarizada",
             incorporacion: "SICYT",
             imagen: "Industrial",
+            url: "/oferta/licenciaturas/ingenieria_industrial",
             descripcion:
               "Optimiza recursos, mejora procesos y lidera la eficiencia en cualquier tipo de organización.",
           },
@@ -1014,6 +1146,7 @@ export const programasEducativos = {
           {
             modalidad: "Escolarizada",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/ingenieria_industrial",
             descripcion: "txt",
           },
         ],
@@ -1021,6 +1154,7 @@ export const programasEducativos = {
           {
             modalidad: "Escolarizada",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/ingenieria_industrial",
             descripcion: "txt",
           },
         ],
@@ -1031,6 +1165,7 @@ export const programasEducativos = {
             modalidad: "Escolarizada",
             incorporacion: "SICYT",
             imagen: "DatosCiberseguridad",
+            url: "/oferta/licenciaturas/ingenieria_en_inteligencia_de_datos_y_ciberseguridad",
             descripcion:
               "Protege la información y toma decisiones con base en datos. Prepárate para el futuro digital.",
           },
@@ -1039,6 +1174,7 @@ export const programasEducativos = {
           {
             modalidad: "Escolarizada",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/ingenieria_en_inteligencia_de_datos_y_ciberseguridad",
             descripcion: "txt",
           },
         ],
@@ -1046,6 +1182,7 @@ export const programasEducativos = {
           {
             modalidad: "Escolarizada",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/ingenieria_en_inteligencia_de_datos_y_ciberseguridad",
             descripcion: "txt",
           },
         ],
@@ -1053,6 +1190,7 @@ export const programasEducativos = {
           {
             modalidad: "Escolarizada",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/ingenieria_en_inteligencia_de_datos_y_ciberseguridad",
             descripcion: "txt",
           },
         ],
@@ -1060,6 +1198,7 @@ export const programasEducativos = {
           {
             modalidad: "Escolarizada",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/ingenieria_en_inteligencia_de_datos_y_ciberseguridad",
             descripcion: "txt",
           },
         ],
@@ -1067,6 +1206,7 @@ export const programasEducativos = {
           {
             modalidad: "Escolarizada",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/ingenieria_en_inteligencia_de_datos_y_ciberseguridad",
             descripcion: "txt",
           },
         ],
@@ -1074,17 +1214,18 @@ export const programasEducativos = {
           {
             modalidad: "Escolarizada",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/ingenieria_en_inteligencia_de_datos_y_ciberseguridad",
             descripcion: "txt",
           },
         ],
       },
-
       "Ingenieria Mecánica": {
         "Avenida México": [
           {
             modalidad: "Escolarizada",
             incorporacion: "SICYT",
             imagen: "Mecanica",
+            url: "/oferta/licenciaturas/ingenieria_mecanica",
             descripcion:
               "Diseña y mantiene sistemas mecánicos innovadores aplicados a la industria y la tecnología.",
           },
@@ -1093,6 +1234,7 @@ export const programasEducativos = {
           {
             modalidad: "Escolarizada",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/ingenieria_mecanica",
             descripcion: "txt",
           },
         ],
@@ -1100,6 +1242,7 @@ export const programasEducativos = {
           {
             modalidad: "Escolarizada",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/ingenieria_mecanica",
             descripcion: "txt",
           },
         ],
@@ -1107,6 +1250,7 @@ export const programasEducativos = {
           {
             modalidad: "Escolarizada",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/ingenieria_mecanica",
             descripcion: "txt",
           },
         ],
@@ -1114,6 +1258,7 @@ export const programasEducativos = {
           {
             modalidad: "Escolarizada",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/ingenieria_mecanica",
             descripcion: "txt",
           },
         ],
@@ -1121,6 +1266,7 @@ export const programasEducativos = {
           {
             modalidad: "Escolarizada",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/ingenieria_mecanica",
             descripcion: "txt",
           },
         ],
@@ -1131,6 +1277,7 @@ export const programasEducativos = {
             modalidad: "Escolarizada",
             incorporacion: "SICYT",
             imagen: "Software",
+            url: "/oferta/licenciaturas/ingenieria_en_desarrollo_software",
             descripcion:
               "Crea soluciones digitales desde cero. Aprende a programar, diseñar y desarrollar aplicaciones tecnológicas con impacto global.",
           },
@@ -1139,6 +1286,7 @@ export const programasEducativos = {
           {
             modalidad: "Escolarizada",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/ingenieria_en_desarrollo_software",
             descripcion: "txt",
           },
         ],
@@ -1146,6 +1294,7 @@ export const programasEducativos = {
           {
             modalidad: "Escolarizada",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/ingenieria_en_desarrollo_software",
             descripcion: "txt",
           },
         ],
@@ -1153,6 +1302,7 @@ export const programasEducativos = {
           {
             modalidad: "Escolarizada",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/ingenieria_en_desarrollo_software",
             descripcion: "txt",
           },
         ],
@@ -1160,6 +1310,7 @@ export const programasEducativos = {
           {
             modalidad: "Escolarizada",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/ingenieria_en_desarrollo_software",
             descripcion: "txt",
           },
         ],
@@ -1167,17 +1318,18 @@ export const programasEducativos = {
           {
             modalidad: "Escolarizada",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/ingenieria_en_desarrollo_software",
             descripcion: "txt",
           },
         ],
       },
-
       "Ingeniería Civil": {
         TEPATITLÁN: [
           {
             modalidad: "Escolarizada",
             incorporacion: "SICYT",
             imagen: "Civil",
+            url: "/oferta/licenciaturas/ingenieria_civil",
             descripcion:
               "Construye el futuro mediante proyectos de infraestructura, diseño estructural y desarrollo urbano.",
           },
@@ -1186,6 +1338,7 @@ export const programasEducativos = {
           {
             modalidad: "Escolarizada",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/ingenieria_civil",
             descripcion: "txt",
           },
         ],
@@ -1193,6 +1346,7 @@ export const programasEducativos = {
           {
             modalidad: "Escolarizada",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/ingenieria_civil",
             descripcion: "txt",
           },
         ],
@@ -1200,6 +1354,7 @@ export const programasEducativos = {
           {
             modalidad: "Escolarizada",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/ingenieria_civil",
             descripcion: "txt",
           },
         ],
@@ -1207,6 +1362,7 @@ export const programasEducativos = {
           {
             modalidad: "Escolarizada",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/ingenieria_civil",
             descripcion: "txt",
           },
         ],
@@ -1214,6 +1370,7 @@ export const programasEducativos = {
           {
             modalidad: "Escolarizada",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/ingenieria_civil",
             descripcion: "txt",
           },
         ],
@@ -1224,6 +1381,7 @@ export const programasEducativos = {
             modalidad: "Escolarizada",
             incorporacion: "UDG",
             imagen: "Computacion",
+            url: "/oferta/licenciaturas/ingenieria_computacion",
             descripcion:
               "Diseña sistemas, redes y soluciones tecnológicas para enfrentar los retos del mundo digital.",
           },
@@ -1235,6 +1393,7 @@ export const programasEducativos = {
             modalidad: "Escolarizada",
             incorporacion: "SICYT",
             imagen: "Quimica",
+            url: "/oferta/licenciaturas/ingenieria_quimica",
             descripcion:
               "Transforma materias primas en soluciones útiles con responsabilidad ambiental y técnica.",
           },
@@ -1243,6 +1402,7 @@ export const programasEducativos = {
           {
             modalidad: "Escolarizada",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/ingenieria_quimica",
             descripcion: "txt",
           },
         ],
@@ -1250,6 +1410,7 @@ export const programasEducativos = {
           {
             modalidad: "Escolarizada",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/ingenieria_quimica",
             descripcion: "txt",
           },
         ],
@@ -1260,13 +1421,16 @@ export const programasEducativos = {
             modalidad: "Escolarizada",
             incorporacion: "SICYT",
             imagen: "ComunicacionesElectronica",
-            descripcion: "Domina tecnologías de vanguardia en sistemas de comunicación, electrónica y automatización.",
+            url: "/oferta/licenciaturas/ingenieria_en_comunicaciones_y_electronica",
+            descripcion:
+              "Domina tecnologías de vanguardia en sistemas de comunicación, electrónica y automatización.",
           },
         ],
         TESISTÁN: [
           {
             modalidad: "Escolarizada",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/ingenieria_en_comunicaciones_y_electronica",
             descripcion:
               "Domina tecnologías de vanguardia en sistemas de comunicación, electrónica y automatización.",
           },
@@ -1275,6 +1439,7 @@ export const programasEducativos = {
           {
             modalidad: "Escolarizada",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/ingenieria_en_comunicaciones_y_electronica",
             descripcion: "txt",
           },
         ],
@@ -1282,6 +1447,7 @@ export const programasEducativos = {
           {
             modalidad: "Escolarizada",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/ingenieria_en_comunicaciones_y_electronica",
             descripcion: "txt",
           },
         ],
@@ -1294,6 +1460,7 @@ export const programasEducativos = {
             modalidad: "En linea",
             incorporacion: "SICYT",
             imagen: "sistemasdeinformacion",
+            url: "/oferta/licenciaturas/administracion_de_sistemas_de_informacion",
             descripcion:
               "Integra tecnología y negocios para mejorar procesos y tomar decisiones estratégicas basadas en datos.",
           },
@@ -1305,6 +1472,7 @@ export const programasEducativos = {
             modalidad: "Sabatina",
             incorporacion: "SICYT",
             imagen: "altadireccion",
+            url: "/oferta/licenciaturas/alta_direccion",
             descripcion:
               "Integra tecnología y negocios para mejorar procesos y tomar decisiones estratégicas basadas en datos.",
           },
@@ -1313,6 +1481,7 @@ export const programasEducativos = {
           {
             modalidad: "Sabatina",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/alta_direccion",
             descripcion: "txt",
           },
         ],
@@ -1320,6 +1489,7 @@ export const programasEducativos = {
           {
             modalidad: "Sabatina",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/alta_direccion",
             descripcion: "txt",
           },
         ],
@@ -1330,12 +1500,14 @@ export const programasEducativos = {
             modalidad: "Semiescolarizada",
             incorporacion: "SICYT",
             imagen: "administracion",
+            url: "/oferta/licenciaturas/administracion",
             descripcion:
               "Forma parte del motor que mueve a las organizaciones. Aprende a liderar equipos, optimizar recursos y tomar decisiones con impacto.",
           },
           {
             modalidad: "Sabatina",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/administracion",
             descripcion:
               "Forma parte del motor que mueve a las organizaciones. Aprende a liderar equipos, optimizar recursos y tomar decisiones con impacto.",
           },
@@ -1344,23 +1516,26 @@ export const programasEducativos = {
           {
             modalidad: "Escolarizada",
             incorporacion: "UDG",
+            url: "/oferta/licenciaturas/administracion",
             descripcion:
               "Forma parte del motor que mueve a las organizaciones. Aprende a liderar equipos, optimizar recursos y tomar decisiones con impacto.",
           },
         ],
       },
-      "administración de Empresas": {
+      "Administración de empresas": {
         "Avenida México": [
           {
             modalidad: "Semiescolarizada",
             incorporacion: "SICYT",
             imagen: "administracionempresas",
+            url: "/oferta/licenciaturas/administracion_de_empresas",
             descripcion:
               "Gestiona recursos, lidera proyectos y transforma organizaciones con una formación integral y moderna.",
           },
           {
             modalidad: "Sabatina",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/administracion_de_empresas",
             descripcion:
               "Gestiona recursos, lidera proyectos y transforma organizaciones con una formación integral y moderna.",
           },
@@ -1369,12 +1544,14 @@ export const programasEducativos = {
           {
             modalidad: "Semiescolarizada",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/administracion_de_empresas",
             descripcion:
               "Gestiona recursos, lidera proyectos y transforma organizaciones con una formación integral y moderna.",
           },
           {
             modalidad: "Sabatina",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/administracion_de_empresas",
             descripcion:
               "Gestiona recursos, lidera proyectos y transforma organizaciones con una formación integral y moderna.",
           },
@@ -1383,12 +1560,14 @@ export const programasEducativos = {
           {
             modalidad: "Semiescolarizada",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/administracion_de_empresas",
             descripcion:
               "Gestiona recursos, lidera proyectos y transforma organizaciones con una formación integral y moderna.",
           },
           {
             modalidad: "Sabatina",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/administracion_de_empresas",
             descripcion:
               "Gestiona recursos, lidera proyectos y transforma organizaciones con una formación integral y moderna.",
           },
@@ -1397,12 +1576,14 @@ export const programasEducativos = {
           {
             modalidad: "Semiescolarizada",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/administracion_de_empresas",
             descripcion:
               "Gestiona recursos, lidera proyectos y transforma organizaciones con una formación integral y moderna.",
           },
           {
             modalidad: "Sabatina",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/administracion_de_empresas",
             descripcion:
               "Gestiona recursos, lidera proyectos y transforma organizaciones con una formación integral y moderna.",
           },
@@ -1411,12 +1592,14 @@ export const programasEducativos = {
           {
             modalidad: "Semiescolarizada",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/administracion_de_empresas",
             descripcion:
               "Gestiona recursos, lidera proyectos y transforma organizaciones con una formación integral y moderna.",
           },
           {
             modalidad: "Sabatina",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/administracion_de_empresas",
             descripcion:
               "Gestiona recursos, lidera proyectos y transforma organizaciones con una formación integral y moderna.",
           },
@@ -1425,6 +1608,7 @@ export const programasEducativos = {
           {
             modalidad: "Sabatina",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/administracion_de_empresas",
             descripcion:
               "Gestiona recursos, lidera proyectos y transforma organizaciones con una formación integral y moderna.",
           },
@@ -1433,12 +1617,14 @@ export const programasEducativos = {
           {
             modalidad: "Semiescolarizada",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/administracion_de_empresas",
             descripcion:
               "Gestiona recursos, lidera proyectos y transforma organizaciones con una formación integral y moderna.",
           },
           {
             modalidad: "Sabatina",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/administracion_de_empresas",
             descripcion:
               "Gestiona recursos, lidera proyectos y transforma organizaciones con una formación integral y moderna.",
           },
@@ -1447,12 +1633,14 @@ export const programasEducativos = {
           {
             modalidad: "Semiescolarizada",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/administracion_de_empresas",
             descripcion:
               "Gestiona recursos, lidera proyectos y transforma organizaciones con una formación integral y moderna.",
           },
           {
             modalidad: "Sabatina",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/administracion_de_empresas",
             descripcion:
               "Gestiona recursos, lidera proyectos y transforma organizaciones con una formación integral y moderna.",
           },
@@ -1461,12 +1649,14 @@ export const programasEducativos = {
           {
             modalidad: "Semiescolarizada",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/administracion_de_empresas",
             descripcion:
               "Gestiona recursos, lidera proyectos y transforma organizaciones con una formación integral y moderna.",
           },
           {
             modalidad: "Sabatina",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/administracion_de_empresas",
             descripcion:
               "Gestiona recursos, lidera proyectos y transforma organizaciones con una formación integral y moderna.",
           },
@@ -1475,12 +1665,14 @@ export const programasEducativos = {
           {
             modalidad: "Semiescolarizada",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/administracion_de_empresas",
             descripcion:
               "Gestiona recursos, lidera proyectos y transforma organizaciones con una formación integral y moderna.",
           },
           {
             modalidad: "Sabatina",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/administracion_de_empresas",
             descripcion:
               "Gestiona recursos, lidera proyectos y transforma organizaciones con una formación integral y moderna.",
           },
@@ -1489,12 +1681,14 @@ export const programasEducativos = {
           {
             modalidad: "Semiescolarizada",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/administracion_de_empresas",
             descripcion:
               "Gestiona recursos, lidera proyectos y transforma organizaciones con una formación integral y moderna.",
           },
           {
             modalidad: "Sabatina",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/administracion_de_empresas",
             descripcion:
               "Gestiona recursos, lidera proyectos y transforma organizaciones con una formación integral y moderna.",
           },
@@ -1503,12 +1697,14 @@ export const programasEducativos = {
           {
             modalidad: "Semiescolarizada",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/administracion_de_empresas",
             descripcion:
               "Gestiona recursos, lidera proyectos y transforma organizaciones con una formación integral y moderna.",
           },
           {
             modalidad: "Sabatina",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/administracion_de_empresas",
             descripcion:
               "Gestiona recursos, lidera proyectos y transforma organizaciones con una formación integral y moderna.",
           },
@@ -1521,6 +1717,7 @@ export const programasEducativos = {
             modalidad: "Escolarizada",
             incorporacion: "UDG",
             imagen: "ContaduriaPublica",
+            url: "/oferta/licenciaturas/contaduria_publica",
             descripcion:
               "Domina la información financiera con precisión y responsabilidad. Aprende a gestionar, auditar y tomar decisiones contables clave.",
           },
@@ -1533,12 +1730,14 @@ export const programasEducativos = {
             modalidad: "Escolarizada",
             incorporacion: "SICYT",
             imagen: "contaduriaAuditoria",
+            url: "/oferta/licenciaturas/contaduria_y_auditoria",
             descripcion:
               "Domina la información financiera con precisión y responsabilidad. Aprende a gestionar, auditar y tomar decisiones contables clave.",
           },
           {
             modalidad: "Viernes y Sábado",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/contaduria_y_auditoria",
             descripcion:
               "Domina la información financiera con precisión y responsabilidad. Aprende a gestionar, auditar y tomar decisiones contables clave.",
           },
@@ -1548,6 +1747,7 @@ export const programasEducativos = {
           {
             modalidad: "Sabatina",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/contaduria_y_auditoria",
             descripcion:
               "Domina la información financiera con precisión y responsabilidad. Aprende a gestionar, auditar y tomar decisiones contables clave.",
           },
@@ -1557,6 +1757,7 @@ export const programasEducativos = {
           {
             modalidad: "Escolarizada",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/contaduria_y_auditoria",
             descripcion:
               "Domina la información financiera con precisión y responsabilidad. Aprende a gestionar, auditar y tomar decisiones contables clave.",
           },
@@ -1565,6 +1766,7 @@ export const programasEducativos = {
           {
             modalidad: "Martes y Jueves",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/contaduria_y_auditoria",
             descripcion:
               "Domina la información financiera con precisión y responsabilidad. Aprende a gestionar, auditar y tomar decisiones contables clave.",
           },
@@ -1573,6 +1775,7 @@ export const programasEducativos = {
           {
             modalidad: "Escolarizada",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/contaduria_y_auditoria",
             descripcion:
               "Domina la información financiera con precisión y responsabilidad. Aprende a gestionar, auditar y tomar decisiones contables clave.",
           },
@@ -1581,6 +1784,7 @@ export const programasEducativos = {
           {
             modalidad: "Escolarizada",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/contaduria_y_auditoria",
             descripcion:
               "Domina la información financiera con precisión y responsabilidad. Aprende a gestionar, auditar y tomar decisiones contables clave.",
           },
@@ -1589,6 +1793,7 @@ export const programasEducativos = {
           {
             modalidad: "Escolarizada",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/contaduria_y_auditoria",
             descripcion:
               "Domina la información financiera con precisión y responsabilidad. Aprende a gestionar, auditar y tomar decisiones contables clave.",
           },
@@ -1597,17 +1802,19 @@ export const programasEducativos = {
           {
             modalidad: "Escolarizada",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/contaduria_y_auditoria",
             descripcion:
               "Domina la información financiera con precisión y responsabilidad. Aprende a gestionar, auditar y tomar decisiones contables clave.",
           },
         ],
       },
-      "Gestión y Creación de PyME’s": {
+      "Gestión y Creación de PyME's": {
         "CENTRO \nMÉDICO": [
           {
             modalidad: "Sabatina",
             incorporacion: "SICYT",
             imagen: "Pymes",
+            url: "/oferta/licenciaturas/gestion_y_creacion_de_pyme's",
             descripcion:
               "Desarrolla habilidades empresariales para crear, gestionar y hacer crecer pequeñas y medianas empresas con estrategias innovadoras y sostenibles.",
           },
@@ -1616,6 +1823,7 @@ export const programasEducativos = {
           {
             modalidad: "Sabatina",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/gestion_y_creacion_de_pyme's",
             descripcion: "txt",
           },
         ],
@@ -1626,12 +1834,14 @@ export const programasEducativos = {
             modalidad: "Semiescolarizada",
             incorporacion: "SICYT",
             imagen: "Mercadotecnia",
+            url: "/oferta/licenciaturas/mercadotecnia",
             descripcion:
               "Desarrolla estrategias creativas para posicionar marcas, conectar con consumidores y expandir negocios a nivel global.",
           },
           {
             modalidad: "Sabatina",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/mercadotecnia",
             descripcion:
               "Desarrolla estrategias creativas para posicionar marcas, conectar con consumidores y expandir negocios a nivel global.",
           },
@@ -1640,12 +1850,14 @@ export const programasEducativos = {
           {
             modalidad: "Semiescolarizada",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/mercadotecnia",
             descripcion:
               "Desarrolla estrategias creativas para posicionar marcas, conectar con consumidores y expandir negocios a nivel global.",
           },
           {
             modalidad: "Sabatina",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/mercadotecnia",
             descripcion:
               "Desarrolla estrategias creativas para posicionar marcas, conectar con consumidores y expandir negocios a nivel global.",
           },
@@ -1654,12 +1866,14 @@ export const programasEducativos = {
           {
             modalidad: "Semiescolarizada",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/mercadotecnia",
             descripcion:
               "Desarrolla estrategias creativas para posicionar marcas, conectar con consumidores y expandir negocios a nivel global.",
           },
           {
             modalidad: "Sabatina",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/mercadotecnia",
             descripcion:
               "Desarrolla estrategias creativas para posicionar marcas, conectar con consumidores y expandir negocios a nivel global.",
           },
@@ -1668,12 +1882,14 @@ export const programasEducativos = {
           {
             modalidad: "Semiescolarizada",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/mercadotecnia",
             descripcion:
               "Desarrolla estrategias creativas para posicionar marcas, conectar con consumidores y expandir negocios a nivel global.",
           },
           {
             modalidad: "Sabatina",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/mercadotecnia",
             descripcion:
               "Desarrolla estrategias creativas para posicionar marcas, conectar con consumidores y expandir negocios a nivel global.",
           },
@@ -1682,12 +1898,14 @@ export const programasEducativos = {
           {
             modalidad: "Semiescolarizada",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/mercadotecnia",
             descripcion:
               "Desarrolla estrategias creativas para posicionar marcas, conectar con consumidores y expandir negocios a nivel global.",
           },
           {
             modalidad: "Sabatina",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/mercadotecnia",
             descripcion:
               "Desarrolla estrategias creativas para posicionar marcas, conectar con consumidores y expandir negocios a nivel global.",
           },
@@ -1696,12 +1914,14 @@ export const programasEducativos = {
           {
             modalidad: "Semiescolarizada",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/mercadotecnia",
             descripcion:
               "Desarrolla estrategias creativas para posicionar marcas, conectar con consumidores y expandir negocios a nivel global.",
           },
           {
             modalidad: "Sabatina",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/mercadotecnia",
             descripcion:
               "Desarrolla estrategias creativas para posicionar marcas, conectar con consumidores y expandir negocios a nivel global.",
           },
@@ -1710,6 +1930,7 @@ export const programasEducativos = {
           {
             modalidad: "Sabatina",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/mercadotecnia",
             descripcion:
               "Desarrolla estrategias creativas para posicionar marcas, conectar con consumidores y expandir negocios a nivel global.",
           },
@@ -1718,6 +1939,7 @@ export const programasEducativos = {
           {
             modalidad: "Semiescolarizada",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/mercadotecnia",
             descripcion:
               "Desarrolla estrategias creativas para posicionar marcas, conectar con consumidores y expandir negocios a nivel global.",
           },
@@ -1725,6 +1947,7 @@ export const programasEducativos = {
             modalidad: "Sabatina",
             descripcion:
               "Desarrolla estrategias creativas para posicionar marcas, conectar con consumidores y expandir negocios a nivel global.",
+            url: "/oferta/licenciaturas/mercadotecnia",
             descripcion: "txt",
           },
         ],
@@ -1732,12 +1955,14 @@ export const programasEducativos = {
           {
             modalidad: "Semiescolarizada",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/mercadotecnia",
             descripcion:
               "Desarrolla estrategias creativas para posicionar marcas, conectar con consumidores y expandir negocios a nivel global.",
           },
           {
             modalidad: "Sabatina",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/mercadotecnia",
             descripcion:
               "Desarrolla estrategias creativas para posicionar marcas, conectar con consumidores y expandir negocios a nivel global.",
           },
@@ -1746,12 +1971,14 @@ export const programasEducativos = {
           {
             modalidad: "Semiescolarizada",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/mercadotecnia",
             descripcion:
               "Desarrolla estrategias creativas para posicionar marcas, conectar con consumidores y expandir negocios a nivel global.",
           },
           {
             modalidad: "Sabatina",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/mercadotecnia",
             descripcion:
               "Desarrolla estrategias creativas para posicionar marcas, conectar con consumidores y expandir negocios a nivel global.",
           },
@@ -1760,12 +1987,14 @@ export const programasEducativos = {
           {
             modalidad: "Semiescolarizada",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/mercadotecnia",
             descripcion:
               "Desarrolla estrategias creativas para posicionar marcas, conectar con consumidores y expandir negocios a nivel global.",
           },
           {
             modalidad: "Sabatina",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/mercadotecnia",
             descripcion:
               "Desarrolla estrategias creativas para posicionar marcas, conectar con consumidores y expandir negocios a nivel global.",
           },
@@ -1774,12 +2003,14 @@ export const programasEducativos = {
           {
             modalidad: "Semiescolarizada",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/mercadotecnia",
             descripcion:
               "Desarrolla estrategias creativas para posicionar marcas, conectar con consumidores y expandir negocios a nivel global.",
           },
           {
             modalidad: "Sabatina",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/mercadotecnia",
             descripcion:
               "Desarrolla estrategias creativas para posicionar marcas, conectar con consumidores y expandir negocios a nivel global.",
           },
@@ -1788,6 +2019,7 @@ export const programasEducativos = {
           {
             modalidad: "Escolarizada",
             incorporacion: "UDG",
+            url: "/oferta/licenciaturas/mercadotecnia",
             descripcion:
               "Desarrolla estrategias creativas para posicionar marcas, conectar con consumidores y expandir negocios a nivel global.",
           },
@@ -1796,12 +2028,14 @@ export const programasEducativos = {
           {
             modalidad: "Semiescolarizada",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/mercadotecnia",
             descripcion:
               "Desarrolla estrategias creativas para posicionar marcas, conectar con consumidores y expandir negocios a nivel global.",
           },
           {
             modalidad: "Sabatina",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/mercadotecnia",
             descripcion:
               "Desarrolla estrategias creativas para posicionar marcas, conectar con consumidores y expandir negocios a nivel global.",
           },
@@ -1813,6 +2047,7 @@ export const programasEducativos = {
             modalidad: "Sabatina",
             incorporacion: "SICYT",
             imagen: "MercadotecniaInternacional",
+            url: "/oferta/licenciaturas/mercadotecnia_internacional",
             descripcion:
               "Desarrolla estrategias creativas para posicionar marcas, conectar con consumidores y expandir negocios a nivel global.",
           },
@@ -1821,6 +2056,7 @@ export const programasEducativos = {
           {
             modalidad: "Sabatina",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/mercadotecnia_internacional",
             descripcion:
               "Desarrolla estrategias creativas para posicionar marcas, conectar con consumidores y expandir negocios a nivel global.",
           },
@@ -1832,12 +2068,14 @@ export const programasEducativos = {
             modalidad: "Semiescolarizada",
             incorporacion: "SICYT",
             imagen: "NegociosInternacionales",
+            url: "/oferta/licenciaturas/negocios_internacionales",
             descripcion:
               "Adquiere una visión global del comercio, la logística y las relaciones empresariales internacionales.",
           },
           {
             modalidad: "Sabatina",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/negocios_internacionales",
             descripcion:
               "Adquiere una visión global del comercio, la logística y las relaciones empresariales internacionales.",
           },
@@ -1846,12 +2084,14 @@ export const programasEducativos = {
           {
             modalidad: "Semiescolarizada",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/negocios_internacionales",
             descripcion:
               "Adquiere una visión global del comercio, la logística y las relaciones empresariales internacionales.",
           },
           {
             modalidad: "Sabatina",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/negocios_internacionales",
             descripcion:
               "Adquiere una visión global del comercio, la logística y las relaciones empresariales internacionales.",
           },
@@ -1860,12 +2100,14 @@ export const programasEducativos = {
           {
             modalidad: "Semiescolarizada",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/negocios_internacionales",
             descripcion:
               "Adquiere una visión global del comercio, la logística y las relaciones empresariales internacionales.",
           },
           {
             modalidad: "Sabatina",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/negocios_internacionales",
             descripcion:
               "Adquiere una visión global del comercio, la logística y las relaciones empresariales internacionales.",
           },
@@ -1874,12 +2116,14 @@ export const programasEducativos = {
           {
             modalidad: "Semiescolarizada",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/negocios_internacionales",
             descripcion:
               "Adquiere una visión global del comercio, la logística y las relaciones empresariales internacionales.",
           },
           {
             modalidad: "Sabatina",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/negocios_internacionales",
             descripcion:
               "Adquiere una visión global del comercio, la logística y las relaciones empresariales internacionales.",
           },
@@ -1888,12 +2132,14 @@ export const programasEducativos = {
           {
             modalidad: "Semiescolarizada",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/negocios_internacionales",
             descripcion:
               "Adquiere una visión global del comercio, la logística y las relaciones empresariales internacionales.",
           },
           {
             modalidad: "Sabatina",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/negocios_internacionales",
             descripcion:
               "Adquiere una visión global del comercio, la logística y las relaciones empresariales internacionales.",
           },
@@ -1902,12 +2148,14 @@ export const programasEducativos = {
           {
             modalidad: "Semiescolarizada",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/negocios_internacionales",
             descripcion:
               "Adquiere una visión global del comercio, la logística y las relaciones empresariales internacionales.",
           },
           {
             modalidad: "Sabatina",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/negocios_internacionales",
             descripcion:
               "Adquiere una visión global del comercio, la logística y las relaciones empresariales internacionales.",
           },
@@ -1916,6 +2164,7 @@ export const programasEducativos = {
           {
             modalidad: "Sabatina",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/negocios_internacionales",
             descripcion:
               "Adquiere una visión global del comercio, la logística y las relaciones empresariales internacionales.",
           },
@@ -1924,12 +2173,14 @@ export const programasEducativos = {
           {
             modalidad: "Semiescolarizada",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/negocios_internacionales",
             descripcion:
               "Adquiere una visión global del comercio, la logística y las relaciones empresariales internacionales.",
           },
           {
             modalidad: "Sabatina",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/negocios_internacionales",
             descripcion:
               "Adquiere una visión global del comercio, la logística y las relaciones empresariales internacionales.",
           },
@@ -1938,12 +2189,14 @@ export const programasEducativos = {
           {
             modalidad: "Semiescolarizada",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/negocios_internacionales",
             descripcion:
               "Adquiere una visión global del comercio, la logística y las relaciones empresariales internacionales.",
           },
           {
             modalidad: "Sabatina",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/negocios_internacionales",
             descripcion:
               "Adquiere una visión global del comercio, la logística y las relaciones empresariales internacionales.",
           },
@@ -1952,12 +2205,14 @@ export const programasEducativos = {
           {
             modalidad: "Semiescolarizada",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/negocios_internacionales",
             descripcion:
               "Adquiere una visión global del comercio, la logística y las relaciones empresariales internacionales.",
           },
           {
             modalidad: "Sabatina",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/negocios_internacionales",
             descripcion:
               "Adquiere una visión global del comercio, la logística y las relaciones empresariales internacionales.",
           },
@@ -1966,12 +2221,14 @@ export const programasEducativos = {
           {
             modalidad: "Semiescolarizada",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/negocios_internacionales",
             descripcion:
               "Adquiere una visión global del comercio, la logística y las relaciones empresariales internacionales.",
           },
           {
             modalidad: "Sabatina",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/negocios_internacionales",
             descripcion:
               "Adquiere una visión global del comercio, la logística y las relaciones empresariales internacionales.",
           },
@@ -1980,12 +2237,14 @@ export const programasEducativos = {
           {
             modalidad: "Semiescolarizada",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/negocios_internacionales",
             descripcion:
               "Adquiere una visión global del comercio, la logística y las relaciones empresariales internacionales.",
           },
           {
             modalidad: "Sabatina",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/negocios_internacionales",
             descripcion:
               "Adquiere una visión global del comercio, la logística y las relaciones empresariales internacionales.",
           },
@@ -1994,12 +2253,14 @@ export const programasEducativos = {
           {
             modalidad: "Escolarizada",
             incorporacion: "UDG",
+            url: "/oferta/licenciaturas/negocios_internacionales",
             descripcion:
               "Adquiere una visión global del comercio, la logística y las relaciones empresariales internacionales.",
           },
           {
             modalidad: "Semiescolarizada",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/negocios_internacionales",
             descripcion:
               "Adquiere una visión global del comercio, la logística y las relaciones empresariales internacionales.",
           },
@@ -2008,12 +2269,14 @@ export const programasEducativos = {
           {
             modalidad: "Semiescolarizada",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/negocios_internacionales",
             descripcion:
               "Adquiere una visión global del comercio, la logística y las relaciones empresariales internacionales.",
           },
           {
             modalidad: "Sabatina",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/negocios_internacionales",
             descripcion:
               "Adquiere una visión global del comercio, la logística y las relaciones empresariales internacionales.",
           },
@@ -2027,6 +2290,7 @@ export const programasEducativos = {
             modalidad: "Escolarizada",
             incorporacion: "SICYT",
             imagen: "Gastronomia",
+            url: "/oferta/licenciaturas/gastronomia",
             descripcion:
               "Desarrolla tu pasión por la cocina con fundamentos técnicos, culturales y de innovación culinaria.",
           },
@@ -2035,6 +2299,7 @@ export const programasEducativos = {
           {
             modalidad: "Escolarizada",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/gastronomia",
             descripcion: "txt",
           },
         ],
@@ -2042,6 +2307,7 @@ export const programasEducativos = {
           {
             modalidad: "Escolarizada",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/gastronomia",
             descripcion: "txt",
           },
         ],
@@ -2049,15 +2315,768 @@ export const programasEducativos = {
           {
             modalidad: "Escolarizada",
             incorporacion: "SICYT",
+            url: "/oferta/licenciaturas/gastronomia",
             descripcion: "txt",
           },
         ],
       },
     },
   },
-};
+  Especialidades: {
+    "ADMINISTRACIÓN Y NEGOCIOS": {
+      "Especialidad en Administración de Negocios": {
+        "TORRE QUETZAL": [
+          {
+            modalidad: "Escolarizada",
+            incorporacion: "SICYT",
+            imagen: "Finanzas",
+            descripcion:
+              "Especialízate en administración de negocios con enfoque práctico y metodologías avanzadas.",
+            duracion: "3 cuatrimestres",
+            iniciosCursos: "Enero, Mayo, Septiembre",
+            inscripciones: "Abiertas",
+          },
+        ],
+      },
+    },
+    EDUCACIÓN: {
+      "Especialidad en Ciencias de la Educación": {
+        "TORRE QUETZAL": [
+          {
+            modalidad: "Escolarizada",
+            incorporacion: "SICYT",
+            imagen: "Educacion",
+            descripcion:
+              "Desarrolla competencias avanzadas en ciencias de la educación con metodologías innovadoras.",
+            duracion: "3 cuatrimestres",
+            iniciosCursos: "Enero, Mayo, Septiembre",
+            inscripciones: "Abiertas",
+          },
+        ],
+      },
+    },
+  },
+  Maestrías: {
+    "ADMINISTRACIÓN Y NEGOCIOS": {
+      "Maestría en Administración de Negocios": {
+        "TORRE QUETZAL": [
+          {
+            modalidad: "Escolarizada",
+            incorporacion: "SICYT",
+            imagen: "Finanzas",
+            descripcion:
+              "Desarrolla habilidades gerenciales avanzadas para liderar organizaciones exitosas en el entorno empresarial global.",
+          },
+        ],
+        "PUERTO VALLARTA LAS JUNTAS": [
+          {
+            modalidad: "Escolarizada",
+            incorporacion: "SICYT",
+            imagen: "Finanzas",
+            descripcion:
+              "Desarrolla habilidades gerenciales avanzadas para liderar organizaciones exitosas en el entorno empresarial global.",
+          },
+        ],
+        TLAJOMULCO: [
+          {
+            modalidad: "Escolarizada",
+            incorporacion: "SICYT",
+            imagen: "Finanzas",
+            descripcion:
+              "Desarrolla habilidades gerenciales avanzadas para liderar organizaciones exitosas en el entorno empresarial global.",
+          },
+        ],
+      },
+      "Maestría en Administración de Recursos Humanos": {
+        "TORRE QUETZAL": [
+          {
+            modalidad: "Escolarizada",
+            incorporacion: "SICYT",
+            imagen: "RecursosHumanos",
+            descripcion:
+              "Especialízate en la gestión del talento humano y el desarrollo organizacional para crear ambientes laborales productivos.",
+          },
+        ],
+        "PUERTO VALLARTA AV. MÉXICO": [
+          {
+            modalidad: "Escolarizada",
+            incorporacion: "SICYT",
+            imagen: "RecursosHumanos",
+            descripcion:
+              "Especialízate en la gestión del talento humano y el desarrollo organizacional para crear ambientes laborales productivos.",
+          },
+        ],
+      },
+      "Maestría en Finanzas Estratégicas": {
+        CENTRO: [
+          {
+            modalidad: "Escolarizada",
+            incorporacion: "SICYT",
+            imagen: "Finanzas",
+            descripcion:
+              "Domina las estrategias financieras corporativas y la toma de decisiones de inversión para maximizar el valor empresarial.",
+          },
+        ],
+        ZAPOPAN: [
+          {
+            modalidad: "Escolarizada",
+            incorporacion: "SICYT",
+            imagen: "Finanzas",
+            descripcion:
+              "Domina las estrategias financieras corporativas y la toma de decisiones de inversión para maximizar el valor empresarial.",
+          },
+          {
+            modalidad: "Ejecutiva",
+            incorporacion: "SICYT",
+            imagen: "FinanzasEstrategicas",
+            descripcion:
+              "Domina las estrategias financieras corporativas y la toma de decisiones de inversión para maximizar el valor empresarial.",
+          },
+        ],
+      },
+    },
+    "DERECHO Y CIENCIAS JURÍDICAS": {
+      "Maestría en Derecho Laboral": {
+        "PUERTO VALLARTA AV. MÉXICO": [
+          {
+            modalidad: "Escolarizada",
+            incorporacion: "SICYT",
+            imagen: "DerechoLaboral",
+            descripcion:
+              "Conviértete en experto en legislación laboral y relaciones obrero-patronales para asesorar empresas y trabajadores.",
+          },
+        ],
+        TLAJOMULCO: [
+          {
+            modalidad: "Escolarizada",
+            incorporacion: "SICYT",
+            imagen: "DerechoLaboral",
+            descripcion:
+              "Conviértete en experto en legislación laboral y relaciones obrero-patronales para asesorar empresas y trabajadores.",
+          },
+        ],
+      },
+      "Maestría en Ciencias Penales": {
+        "PUERTO VALLARTA LAS JUNTAS": [
+          {
+            modalidad: "Escolarizada",
+            incorporacion: "SICYT",
+            imagen: "CienciasPenales",
+            descripcion:
+              "Especialízate en derecho penal, criminología y justicia para contribuir al sistema de seguridad y justicia.",
+          },
+        ],
+      },
+    },
+    EDUCACIÓN: {
+      "Maestría en Ciencias de la Educación": {
+        CENTRO: [
+          {
+            modalidad: "Escolarizada",
+            incorporacion: "SICYT",
+            imagen: "Educacion",
+            descripcion:
+              "Impulsa la innovación educativa y mejora los procesos de enseñanza-aprendizaje con metodologías avanzadas.",
+          },
+          {
+            modalidad: "En Línea",
+            incorporacion: "SICYT",
+            imagen: "Educacion",
+            descripcion:
+              "Impulsa la innovación educativa y mejora los procesos de enseñanza-aprendizaje con metodologías avanzadas.",
+          },
+        ],
+        ZAPOPAN: [
+          {
+            modalidad: "Escolarizada",
+            incorporacion: "SICYT",
+            imagen: "Educacion",
+            descripcion:
+              "Impulsa la innovación educativa y mejora los procesos de enseñanza-aprendizaje con metodologías avanzadas.",
+          },
+        ],
+        TEPATITLÁN: [
+          {
+            modalidad: "Escolarizada",
+            incorporacion: "SICYT",
+            imagen: "CienciasEducacion",
+            descripcion:
+              "Impulsa la innovación educativa y mejora los procesos de enseñanza-aprendizaje con metodologías avanzadas.",
+          },
+        ],
+      },
+    },
+    "SALUD Y CIENCIAS MÉDICAS": {
+      "Maestría en Administración Hospitalaria": {
+        CENTRO: [
+          {
+            modalidad: "Escolarizada",
+            incorporacion: "SICYT",
+            imagen: "Hospitalaria",
+            descripcion:
+              "Nueva oferta académica. Lidera la gestión eficiente de instituciones de salud y mejora la calidad de atención médica.",
+          },
+        ],
+        ZAPOPAN: [
+          {
+            modalidad: "Escolarizada",
+            incorporacion: "SICYT",
+            imagen: "Hospitalaria",
+            descripcion:
+              "Nueva oferta académica. Lidera la gestión eficiente de instituciones de salud y mejora la calidad de atención médica.",
+          },
+          {
+            modalidad: "Ejecutiva",
+            incorporacion: "SICYT",
+            imagen: "AdmHospitalaria",
+            descripcion:
+              "Nueva oferta académica. Lidera la gestión eficiente de instituciones de salud y mejora la calidad de atención médica.",
+          },
+        ],
+      },
+    },
+    "PSICOLOGÍA Y CIENCIAS SOCIALES": {
+      "Maestría en Terapia Familiar y Sistémica": {
+        CENTRO: [
+          {
+            modalidad: "Escolarizada",
+            incorporacion: "SICYT",
+            imagen: "Terapia",
+            descripcion:
+              "Desarrolla competencias terapéuticas para el trabajo con familias y sistemas humanos desde el enfoque sistémico.",
+          },
+        ],
+        ZAPOPAN: [
+          {
+            modalidad: "Escolarizada",
+            incorporacion: "SICYT",
+            imagen: "Terapia",
+            descripcion:
+              "Desarrolla competencias terapéuticas para el trabajo con familias y sistemas humanos desde el enfoque sistémico.",
+          },
+          {
+            modalidad: "Viernes y Sábado",
+            incorporacion: "SICYT",
+            imagen: "Terapia",
+            descripcion:
+              "Desarrolla competencias terapéuticas para el trabajo con familias y sistemas humanos desde el enfoque sistémico.",
+          },
+        ],
+        GUADALAJARA: [
+          {
+            modalidad: "Escolarizada",
+            incorporacion: "SICYT",
+            imagen: "TerapiaFamiliar",
+            descripcion:
+              "Desarrolla competencias terapéuticas para el trabajo con familias y sistemas humanos desde el enfoque sistémico.",
+          },
+        ],
+      },
+    },
+  },
 
-// Funciones de utilidad para consultar los datos
+  Continua: {
+    "ADMINISTRACIÓN Y NEGOCIOS": {
+      "Curso en Gestión de Calidad 5s y 9s": {
+        "TORRE QUETZAL": [
+          {
+            modalidad: "Escolarizada",
+            incorporacion: "SICYT",
+            imagen: "5s",
+            descripcion:
+              "Aprende metodologías de gestión de calidad 5s y 9s para optimizar procesos empresariales.",
+            duracion: "2 meses",
+            iniciosCursos: "Enero, Mayo, Septiembre",
+            inscripciones: "Abiertas",
+          },
+        ],
+      },
+      "Curso en Finanzas Personales": {
+        "TORRE QUETZAL": [
+          {
+            modalidad: "Escolarizada",
+            incorporacion: "SICYT",
+            imagen: "finanzas",
+            descripcion:
+              "Desarrolla habilidades para la gestión eficiente de tus finanzas personales y familiares.",
+            duracion: "2 meses",
+            iniciosCursos: "Enero, Mayo, Septiembre",
+            inscripciones: "Abiertas",
+          },
+        ],
+      },
+      "Curso en Atención al Cliente": {
+        "TORRE QUETZAL": [
+          {
+            modalidad: "Escolarizada",
+            incorporacion: "SICYT",
+            imagen: "Atencion",
+            descripcion:
+              "Perfecciona técnicas de atención al cliente para brindar un servicio de excelencia.",
+            duracion: "2 meses",
+            iniciosCursos: "Enero, Mayo, Septiembre",
+            inscripciones: "Abiertas",
+          },
+        ],
+      },
+      "Curso en Liderazgo Gerencial": {
+        "TORRE QUETZAL": [
+          {
+            modalidad: "Escolarizada",
+            incorporacion: "SICYT",
+            imagen: "Liderazgo",
+            descripcion:
+              "Fortalece competencias de liderazgo y gestión para roles gerenciales efectivos.",
+            duracion: "2 meses",
+            iniciosCursos: "Enero, Mayo, Septiembre",
+            inscripciones: "Abiertas",
+          },
+        ],
+      },
+      "Curso en Administración del Tiempo": {
+        "TORRE QUETZAL": [
+          {
+            modalidad: "Escolarizada",
+            incorporacion: "SICYT",
+            imagen: "Administracion",
+            descripcion:
+              "Optimiza tu productividad mediante técnicas avanzadas de administración del tiempo.",
+            duracion: "2 meses",
+            iniciosCursos: "Enero, Mayo, Septiembre",
+            inscripciones: "Abiertas",
+          },
+        ],
+      },
+      "Curso en Técnica de Ventas": {
+        "TORRE QUETZAL": [
+          {
+            modalidad: "Escolarizada",
+            incorporacion: "SICYT",
+            imagen: "Ventas",
+            descripcion:
+              "Domina estrategias y técnicas de ventas para maximizar resultados comerciales.",
+            duracion: "2 meses",
+            iniciosCursos: "Enero, Mayo, Septiembre",
+            inscripciones: "Abiertas",
+          },
+        ],
+      },
+      "Curso en Modelos de Trabajo Flexible": {
+        "TORRE QUETZAL": [
+          {
+            modalidad: "Escolarizada",
+            incorporacion: "SICYT",
+            imagen: "Flexible",
+            descripcion:
+              "Conoce e implementa modelos de trabajo flexible para mejorar la productividad organizacional.",
+            duracion: "2 meses",
+            iniciosCursos: "Enero, Mayo, Septiembre",
+            inscripciones: "Abiertas",
+          },
+        ],
+      },
+      "Curso en Redacción y Expresión Formal Empresarial": {
+        "TORRE QUETZAL": [
+          {
+            modalidad: "Escolarizada",
+            incorporacion: "SICYT",
+            imagen: "Redaccion",
+            descripcion:
+              "Desarrolla habilidades de redacción y comunicación formal en el ámbito empresarial.",
+            duracion: "2 meses",
+            iniciosCursos: "Enero, Mayo, Septiembre",
+            inscripciones: "Abiertas",
+          },
+        ],
+      },
+    },
+  },
+  Bachillerato: {
+    "EDUCACIÓN MEDIA SUPERIOR": {
+      BIS: {
+        CARACOL: [
+          {
+            modalidad: "Semiescolarizada",
+            incorporacion: "SEJ",
+            imagen: "bachillerato",
+            descripcion:
+              "Programa de Bachillerato Internacional con enfoque bilingüe y multicultural que prepara estudiantes para la educación superior.",
+            duracion: "6 semestres",
+            iniciosCursos: "Agosto",
+            inscripciones: "Abiertas",
+            url: "/bachillerato/bis",
+          },
+        ],
+        CENTRO: [
+          {
+            modalidad: "Semiescolarizada",
+            incorporacion: "SEJ",
+            imagen: "bachillerato",
+            descripcion:
+              "Programa de Bachillerato Internacional con enfoque bilingüe y multicultural que prepara estudiantes para la educación superior.",
+            duracion: "6 semestres",
+            iniciosCursos: "Agosto",
+            inscripciones: "Abiertas",
+            url: "/bachillerato/bis",
+          },
+        ],
+        "CENTRO MÉDICO": [
+          {
+            modalidad: "Semiescolarizada",
+            incorporacion: "SEJ",
+            imagen: "bachillerato",
+            descripcion:
+              "Programa de Bachillerato Internacional con enfoque bilingüe y multicultural que prepara estudiantes para la educación superior.",
+            duracion: "6 semestres",
+            iniciosCursos: "Agosto",
+            inscripciones: "Abiertas",
+            url: "/bachillerato/bis",
+          },
+        ],
+        CHAPULTEPEC: [
+          {
+            modalidad: "Semiescolarizada",
+            incorporacion: "SEJ",
+            imagen: "bachillerato",
+            descripcion:
+              "Programa de Bachillerato Internacional con enfoque bilingüe y multicultural que prepara estudiantes para la educación superior.",
+            duracion: "6 semestres",
+            iniciosCursos: "Agosto",
+            inscripciones: "Abiertas",
+            url: "/bachillerato/bis",
+          },
+        ],
+        MILENIO: [
+          {
+            modalidad: "Semiescolarizada",
+            incorporacion: "SEJ",
+            imagen: "bachillerato",
+            descripcion:
+              "Programa de Bachillerato Internacional con enfoque bilingüe y multicultural que prepara estudiantes para la educación superior.",
+            duracion: "6 semestres",
+            iniciosCursos: "Agosto",
+            inscripciones: "Abiertas",
+            url: "/bachillerato/bis",
+          },
+        ],
+        TEPATITLÁN: [
+          {
+            modalidad: "Semiescolarizada",
+            incorporacion: "SEJ",
+            imagen: "bachillerato",
+            descripcion:
+              "Programa de Bachillerato Internacional con enfoque bilingüe y multicultural que prepara estudiantes para la educación superior.",
+            duracion: "6 semestres",
+            iniciosCursos: "Agosto",
+            inscripciones: "Abiertas",
+            url: "/bachillerato/bis",
+          },
+        ],
+        TESISTÁN: [
+          {
+            modalidad: "Semiescolarizada",
+            incorporacion: "SEJ",
+            imagen: "bachillerato",
+            descripcion:
+              "Programa de Bachillerato Internacional con enfoque bilingüe y multicultural que prepara estudiantes para la educación superior.",
+            duracion: "6 semestres",
+            iniciosCursos: "Agosto",
+            inscripciones: "Abiertas",
+            url: "/bachillerato/bis",
+          },
+        ],
+        TLAJOMULCO: [
+          {
+            modalidad: "Semiescolarizada",
+            incorporacion: "SEJ",
+            imagen: "bachillerato",
+            descripcion:
+              "Programa de Bachillerato Internacional con enfoque bilingüe y multicultural que prepara estudiantes para la educación superior.",
+            duracion: "6 semestres",
+            iniciosCursos: "Agosto",
+            inscripciones: "Abiertas",
+            url: "/bachillerato/bis",
+          },
+        ],
+        TLAQUEPAQUE: [
+          {
+            modalidad: "Semiescolarizada",
+            incorporacion: "SEJ",
+            imagen: "bachillerato",
+            descripcion:
+              "Programa de Bachillerato Internacional con enfoque bilingüe y multicultural que prepara estudiantes para la educación superior.",
+            duracion: "6 semestres",
+            iniciosCursos: "Agosto",
+            inscripciones: "Abiertas",
+            url: "/bachillerato/bis",
+          },
+        ],
+        TONALÁ: [
+          {
+            modalidad: "Semiescolarizada",
+            incorporacion: "SEJ",
+            imagen: "bachillerato",
+            descripcion:
+              "Programa de Bachillerato Internacional con enfoque bilingüe y multicultural que prepara estudiantes para la educación superior.",
+            duracion: "6 semestres",
+            iniciosCursos: "Agosto",
+            inscripciones: "Abiertas",
+            url: "/bachillerato/bis",
+          },
+        ],
+        ZAPOPAN: [
+          {
+            modalidad: "Semiescolarizada",
+            incorporacion: "SEJ",
+            imagen: "bachillerato",
+            descripcion:
+              "Programa de Bachillerato Internacional con enfoque bilingüe y multicultural que prepara estudiantes para la educación superior.",
+            duracion: "6 semestres",
+            iniciosCursos: "Agosto",
+            inscripciones: "Abiertas",
+            url: "/bachillerato/bis",
+          },
+        ],
+      },
+      "Bachillerato General": {
+        "Av. México": [
+          {
+            modalidad: "Escolarizada",
+            incorporacion: "UDG",
+            imagen: "bachillerato",
+            descripcion:
+              "Bachillerato General que proporciona formación integral preparando al estudiante para continuar con estudios superiores.",
+            duracion: "6 semestres",
+            iniciosCursos: "Agosto",
+            inscripciones: "Abiertas",
+            url: "/bachillerato/general",
+          },
+        ],
+        CENTRO: [
+          {
+            modalidad: "Escolarizada",
+            incorporacion: "UDG",
+            imagen: "bachillerato",
+            descripcion:
+              "Bachillerato General que proporciona formación integral preparando al estudiante para continuar con estudios superiores.",
+            duracion: "6 semestres",
+            iniciosCursos: "Agosto",
+            inscripciones: "Abiertas",
+            url: "/bachillerato/general",
+          },
+        ],
+        "CENTRO MÉDICO": [
+          {
+            modalidad: "Escolarizada",
+            incorporacion: "UDG",
+            imagen: "bachillerato",
+            descripcion:
+              "Bachillerato General que proporciona formación integral preparando al estudiante para continuar con estudios superiores.",
+            duracion: "6 semestres",
+            iniciosCursos: "Agosto",
+            inscripciones: "Abiertas",
+            url: "/bachillerato/general",
+          },
+        ],
+        MILENIO: [
+          {
+            modalidad: "Escolarizada",
+            incorporacion: "UDG",
+            imagen: "bachillerato",
+            descripcion:
+              "Bachillerato General que proporciona formación integral preparando al estudiante para continuar con estudios superiores.",
+            duracion: "6 semestres",
+            iniciosCursos: "Agosto",
+            inscripciones: "Abiertas",
+            url: "/bachillerato/general",
+          },
+        ],
+        "PLAZA DEL SOL": [
+          {
+            modalidad: "Escolarizada",
+            incorporacion: "UDG",
+            imagen: "bachillerato",
+            descripcion:
+              "Bachillerato General que proporciona formación integral preparando al estudiante para continuar con estudios superiores.",
+            duracion: "6 semestres",
+            iniciosCursos: "Agosto",
+            inscripciones: "Abiertas",
+            url: "/bachillerato/general",
+          },
+        ],
+        TESISTÁN: [
+          {
+            modalidad: "Escolarizada",
+            incorporacion: "UDG",
+            imagen: "bachillerato",
+            descripcion:
+              "Bachillerato General que proporciona formación integral preparando al estudiante para continuar con estudios superiores.",
+            duracion: "6 semestres",
+            iniciosCursos: "Agosto",
+            inscripciones: "Abiertas",
+            url: "/bachillerato/general",
+          },
+        ],
+        TLAJOMULCO: [
+          {
+            modalidad: "Escolarizada",
+            incorporacion: "UDG",
+            imagen: "bachillerato",
+            descripcion:
+              "Bachillerato General que proporciona formación integral preparando al estudiante para continuar con estudios superiores.",
+            duracion: "6 semestres",
+            iniciosCursos: "Agosto",
+            inscripciones: "Abiertas",
+            url: "/bachillerato/general",
+          },
+        ],
+        TLAQUEPAQUE: [
+          {
+            modalidad: "Escolarizada",
+            incorporacion: "UDG",
+            imagen: "bachillerato",
+            descripcion:
+              "Bachillerato General que proporciona formación integral preparando al estudiante para continuar con estudios superiores.",
+            duracion: "6 semestres",
+            iniciosCursos: "Agosto",
+            inscripciones: "Abiertas",
+            url: "/bachillerato/general",
+          },
+        ],
+        TONALÁ: [
+          {
+            modalidad: "Escolarizada",
+            incorporacion: "UDG",
+            imagen: "bachillerato",
+            descripcion:
+              "Bachillerato General que proporciona formación integral preparando al estudiante para continuar con estudios superiores.",
+            duracion: "6 semestres",
+            iniciosCursos: "Agosto",
+            inscripciones: "Abiertas",
+            url: "/bachillerato/general",
+          },
+        ],
+        ZAPOPAN: [
+          {
+            modalidad: "Escolarizada",
+            incorporacion: "UDG",
+            imagen: "bachillerato",
+            descripcion:
+              "Bachillerato General que proporciona formación integral preparando al estudiante para continuar con estudios superiores.",
+            duracion: "6 semestres",
+            iniciosCursos: "Agosto",
+            inscripciones: "Abiertas",
+            url: "/bachillerato/general",
+          },
+        ],
+      },
+    },
+  },
+  Primaria: {
+    "EDUCACIÓN BÁSICA": {
+      "Primaria Montessori": {
+        "PLAZA DEL SOL": [
+          {
+            modalidad: "Escolarizada",
+            incorporacion: "SEJ",
+            imagen: "primaria",
+            descripcion:
+              "Educación primaria con metodología Montessori que promueve el desarrollo integral del niño a través del aprendizaje activo y personalizado.",
+            duracion: "6 años",
+            iniciosCursos: "Agosto",
+            inscripciones: "Abiertas",
+            url: "/primaria/montessori",
+          },
+        ],
+      },
+    },
+  },
+
+  Secundaria: {
+    "EDUCACIÓN BÁSICA": {
+      "Secundaria Montessori": {
+        "Av. México": [
+          {
+            modalidad: "Escolarizada",
+            incorporacion: "SEJ",
+            imagen: "secundaria",
+            descripcion:
+              "Educación secundaria con metodología Montessori que fomenta el pensamiento crítico y la autonomía en el aprendizaje del adolescente.",
+            duracion: "3 años",
+            iniciosCursos: "Agosto",
+            inscripciones: "Abiertas",
+            url: "/secundaria/montessori",
+          },
+        ],
+        "PLAZA DEL SOL": [
+          {
+            modalidad: "Escolarizada",
+            incorporacion: "SEJ",
+            imagen: "secundaria",
+            descripcion:
+              "Educación secundaria con metodología Montessori que fomenta el pensamiento crítico y la autonomía en el aprendizaje del adolescente.",
+            duracion: "3 años",
+            iniciosCursos: "Agosto",
+            inscripciones: "Abiertas",
+            url: "/secundaria/montessori",
+          },
+        ],
+        TESISTÁN: [
+          {
+            modalidad: "Escolarizada",
+            incorporacion: "SEJ",
+            imagen: "secundaria",
+            descripcion:
+              "Educación secundaria con metodología Montessori que fomenta el pensamiento crítico y la autonomía en el aprendizaje del adolescente.",
+            duracion: "3 años",
+            iniciosCursos: "Agosto",
+            inscripciones: "Abiertas",
+            url: "/secundaria/montessori",
+          },
+        ],
+        TLAJOMULCO: [
+          {
+            modalidad: "Escolarizada",
+            incorporacion: "SEJ",
+            imagen: "secundaria",
+            descripcion:
+              "Educación secundaria con metodología Montessori que fomenta el pensamiento crítico y la autonomía en el aprendizaje del adolescente.",
+            duracion: "3 años",
+            iniciosCursos: "Agosto",
+            inscripciones: "Abiertas",
+            url: "/secundaria/montessori",
+          },
+        ],
+        TLAQUEPAQUE: [
+          {
+            modalidad: "Escolarizada",
+            incorporacion: "SEJ",
+            imagen: "secundaria",
+            descripcion:
+              "Educación secundaria con metodología Montessori que fomenta el pensamiento crítico y la autonomía en el aprendizaje del adolescente.",
+            duracion: "3 años",
+            iniciosCursos: "Agosto",
+            inscripciones: "Abiertas",
+            url: "/secundaria/montessori",
+          },
+        ],
+        TONALÁ: [
+          {
+            modalidad: "Escolarizada",
+            incorporacion: "SEJ",
+            imagen: "secundaria",
+            descripcion:
+              "Educación secundaria con metodología Montessori que fomenta el pensamiento crítico y la autonomía en el aprendizaje del adolescente.",
+            duracion: "3 años",
+            iniciosCursos: "Agosto",
+            inscripciones: "Abiertas",
+            url: "/secundaria/montessori",
+          },
+        ],
+      },
+    },
+  },
+};
 
 export const areas = [
   "Todas",
@@ -2191,4 +3210,32 @@ export function obtenerEstadisticas() {
     estadisticasPorArea,
     planteles: Array.from(planteles).sort(),
   };
+}
+
+/**
+ * Obtiene todos los programas disponibles en un plantel específico
+ * @param {string} plantelBuscado - Nombre del plantel
+ * @returns {Array} Array de objetos con información de programas en ese plantel
+ */
+export function obtenerProgramasPorPlantel(plantelBuscado) {
+  const programasEnPlantel = [];
+
+  for (const nivel in programasEducativos) {
+    for (const area in programasEducativos[nivel]) {
+      for (const programa in programasEducativos[nivel][area]) {
+        if (programasEducativos[nivel][area][programa][plantelBuscado]) {
+          programasEnPlantel.push({
+            programa,
+            nivel,
+            area,
+            plantel: plantelBuscado,
+            modalidades:
+              programasEducativos[nivel][area][programa][plantelBuscado],
+          });
+        }
+      }
+    }
+  }
+
+  return programasEnPlantel;
 }

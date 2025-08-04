@@ -1,16 +1,107 @@
 ---
 // src/components/AcademicCarousel.astro
-// Cards_Niveles.astro
-import { ArrowRight } from "@lucide/astro";
+import { Image } from "astro:assets";
 
-// Importar las imágenes correctamente
-import enfermeriaImg from "@/assets/Imagenes/Enfemeria.png";
-import odontologiaImg from "@/assets/Imagenes/Odontologia.png";
-import datosImg from "@/assets/Imagenes/Datos.png";
+// Importar las imágenes directamente
+import softwareImg from "@/assets/Imagenes/Software.jpg";
+import odontologiaImg from "@/assets/Imagenes/Odontologia.webp";
+import datosImg from "@/assets/Imagenes/Datos.webp";
+import { CircleArrowRight } from "@lucide/astro";
 ---
 
-<style>
-  /* Estilos ajustados para banderines */
+<style is:global>
+  /* Estilos optimizados con mejor espaciado */
+  .academic-cards-container {
+    max-width: 1400px;
+    margin: 2rem auto; /* Mayor margen vertical */
+    padding: 0 1.5rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(370px, 1fr));
+    gap: 1rem; /* Mayor espaciado entre tarjetas */
+  }
+
+  .academic-card {
+    background: white;
+    border-radius: 0.75rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    height: 260px;
+    position: relative;
+    overflow: hidden;
+    transition:
+      transform 0.3s ease,
+      box-shadow 0.3s ease;
+    display: flex; /* Mantenemos flex para el layout interno */
+  }
+
+  .academic-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  }
+
+  .card-content {
+    padding: 1.5rem;
+    flex: 1; /* Permite que el contenido ocupe el espacio disponible */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .card-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #1f2937;
+    margin-bottom: 0.75rem;
+    transition: color 0.3s ease;
+  }
+
+  .card-description {
+    font-size: 0.875rem;
+    color: #6b7280;
+    line-height: 1.5;
+    margin-bottom: 1.5rem;
+    flex-grow: 1;
+  }
+
+  .card-link {
+    display: flex;
+    align-items: start;
+    gap: .5rem;
+    justify-content: flex-start;
+    font-weight: 600;
+    transition: color 0.3s ease;
+  }
+
+  .card-link-icon {
+    color: #001A71;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 9999px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+  }
+
+  .card-link:hover .card-link-icon {
+    color: white
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  /* --- CAMBIO CLAVE AQUÍ --- */
+  .card-image-container {
+    display: flex;
+    align-items: flex-end; /* Alinea la imagen a la parte inferior */
+    /* Se elimina justify-content: center para que se pegue a la derecha */
+  }
+
+  .card-image {
+    height: 160px;
+    width: auto;
+    object-fit: contain;
+    object-position: bottom;
+  }
+
+  /* Banner styles */
   .banner {
     position: absolute;
     top: -5px;
@@ -33,11 +124,16 @@ import datosImg from "@/assets/Imagenes/Datos.png";
     justify-content: center;
     color: white;
     font-weight: bold;
-    font-size: 10px;
+    font-size: 0.625rem;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    animation: pulse 2s ease-in-out infinite;
     text-align: center;
     padding: 0 5px;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .banner-ribbon {
+      animation: pulse 2s ease-in-out infinite;
+    }
   }
 
   @keyframes pulse {
@@ -61,191 +157,150 @@ import datosImg from "@/assets/Imagenes/Datos.png";
   .banner-datos {
     background: linear-gradient(45deg, #10b981, #34d399);
   }
+
+  /* Loading state */
+  .card-skeleton {
+    background: linear-gradient(90deg, #f3f4f6, #e5e7eb, #f3f4f6);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+  }
+
+  @keyframes shimmer {
+    0% {
+      background-position: -200% 0;
+    }
+    100% {
+      background-position: 200% 0;
+    }
+  }
 </style>
-<div class="p-5">
-  <div class="max-w-7xl mx-auto mt-12 flex flex-wrap justify-center gap-8 px-4">
-  <!-- Card 1: Enfermería -->
-  <div
-    class="academic-card w-full max-w-[380px] bg-white rounded-lg shadow-lg h-[200px] relative hover:shadow-xl transition-all duration-300 hover:scale-105"
-  >
+
+<div class="academic-cards-container">
+  <div class="academic-card" id="card-enfermeria">
     <div class="banner">
       <div class="banner-ribbon banner-enfermeria">¡NUEVO!</div>
     </div>
 
-    <div class="flex flex-row h-full">
-      <div class="flex-1 pl-6 pt-4 flex flex-col justify-around z-10">
-        <div>
-          <div class="flex items-center mb-4">
-            <h2
-              class="text-lg lg:text-xl font-bold text-gray-800 hover:text-azul-une transition-colors duration-300"
-            >
-              Lic. en Enfermería
-            </h2>
-          </div>
-          <p
-            class="text-gray-600 text-xs leading-relaxed hover:text-gray-800 transition-colors duration-300"
-          >
-            Formación práctica en hospitales de alto nivel con especialidades
-            emergentes
-          </p>
+    <div class="card-content">
+      <div>
+        <h3 class="card-title">Ing. en desarrollo de software</h3>
+        <p class="card-description">
+          Crea aplicaciones tecnológicas desde cero con impacto global.
+        </p>
+      </div>
+      <a href="/oferta/licenciaturas/ingenieria_en_desarrollo_software" class="card-link">
+        <span class="text-azul-une">Ver plan de estudios</span>
+        <div class="card-link-icon">
+          <CircleArrowRight />
         </div>
+      </a>
+    </div>
 
-        <a
-          class="font-bold flex gap-3 justify-between items-center hover:text-azul-une transition-colors duration-300 group"
-          href="/oferta/licenciaturas/enfermeria"
-        >
-          <span class="text-sm lg:text-base">Ver plan de estudios</span>
-          <div
-            class="bg-azul-une text-white w-8 h-8 lg:w-10 lg:h-10 p-2 lg:p-3 rounded-full group-hover:bg-white group-hover:text-azul-une group-hover:shadow-lg transition-all duration-300 flex-shrink-0 flex items-center justify-center"
-          >
-            <svg
-              class="w-4 h-4"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <path d="M5 12h14M12 5l7 7-7 7"></path>
-            </svg>
-          </div>
-        </a>
-      </div>
-
-      <div
-        class="w-24 sm:w-32 lg:w-24 flex items-end justify-end z-0 flex-shrink-0"
-      >
-        <img
-          src={enfermeriaImg.src}
-          alt="Estudiante de Enfermería"
-          class="object-contain h-[100px] sm:h-[120px] lg:h-[130px] w-auto hover:scale-110 transition-transform duration-300"
-        />
-      </div>
+    <div class="card-image-container">
+      <Image
+        src={softwareImg}
+        alt="Estudiante de Enfermería"
+        class="card-image"
+        loading="lazy"
+        width={120}
+        height={160}
+        formats={["avif", "webp"]}
+      />
     </div>
   </div>
 
-  <!-- Card 2: Odontología -->
-  <div
-    class="academic-card w-full max-w-[380px] bg-white rounded-lg shadow-lg h-[200px] relative hover:shadow-xl transition-all duration-300 hover:scale-105"
-  >
+  <div class="academic-card" id="card-odontologia">
     <div class="banner">
       <div class="banner-ribbon banner-odontologia">EXCELENCIA</div>
     </div>
 
-    <div class="flex flex-row h-full">
-      <div class="flex-1 pl-6 pt-4 flex flex-col justify-around z-10">
-        <div>
-          <div class="flex items-center mb-4">
-            <h2
-              class="text-lg lg:text-xl font-bold text-gray-800 hover:text-azul-une transition-colors duration-300"
-            >
-              Lic. en Cirujano Dentista
-            </h2>
-          </div>
-          <p
-            class="text-gray-600 text-xs leading-relaxed hover:text-gray-800 transition-colors duration-300"
-          >
-            Estudia con tecnología de vanguardia y prácticas reales desde el
-            primer día
-          </p>
+    <div class="card-content">
+      <div>
+        <h3 class="card-title">Lic. en cirujano dentista</h3>
+        <p class="card-description">
+          Estudia con tecnología de vanguardia y prácticas reales desde el
+          primer día
+        </p>
+      </div>
+      <a href="/oferta/licenciaturas/cirujano_dentista" class="card-link">
+        <span class="text-azul-une">Ver plan de estudios</span>
+        <div class="card-link-icon">
+          <CircleArrowRight />
         </div>
+      </a>
+    </div>
 
-        <a
-          class="font-bold flex gap-3 justify-between items-center hover:text-azul-une transition-colors duration-300 group"
-          href="/oferta/licenciaturas/cirujano_dentista"
-        >
-          <span class="text-sm lg:text-base">Ver plan de estudios</span>
-          <div
-            class="bg-azul-une text-white w-8 h-8 lg:w-10 lg:h-10 p-2 lg:p-3 rounded-full group-hover:bg-white group-hover:text-azul-une group-hover:shadow-lg transition-all duration-300 flex-shrink-0 flex items-center justify-center"
-          >
-            <svg
-              class="w-4 h-4"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <path d="M5 12h14M12 5l7 7-7 7"></path>
-            </svg>
-          </div>
-        </a>
-      </div>
-
-      <div
-        class="w-24 sm:w-32 lg:w-24 flex items-end justify-end z-0 flex-shrink-0"
-      >
-        <img
-          src={odontologiaImg.src}
-          alt="Estudiante de Dentista"
-          class="object-contain h-[100px] sm:h-[120px] lg:h-[130px] w-auto hover:scale-110 transition-transform duration-300"
-        />
-      </div>
+    <div class="card-image-container">
+      <Image
+        src={odontologiaImg}
+        alt="Estudiante de Dentista"
+        class="card-image"
+        loading="lazy"
+        width={120}
+        height={160}
+        formats={["avif", "webp"]}
+      />
     </div>
   </div>
 
-  <!-- Card 3: Ingeniería de Datos -->
-  <div
-    class="academic-card w-full max-w-[380px] bg-white rounded-lg shadow-lg h-[200px] relative hover:shadow-xl transition-all duration-300 hover:scale-105"
-  >
+  <div class="academic-card" id="card-datos">
     <div class="banner">
       <div class="banner-ribbon banner-datos">¡NUEVO!</div>
     </div>
 
-    <div class="flex flex-row h-full">
-      <div class="flex-1 pl-6 pt-4 flex flex-col justify-around z-10">
-        <div>
-          <div class="flex items-center mb-4">
-            <h2
-              class="text-lg lg:text-xl font-bold text-gray-800 hover:text-azul-une transition-colors duration-300"
-            >
-              Ing. de Datos y Ciberseguridad
-            </h2>
-          </div>
-          <p
-            class="text-gray-600 text-xs leading-relaxed hover:text-gray-800 transition-colors duration-300"
-          >
-            Domina el manejo de Big Data, IA y análisis predictivo y el mundo
-            digital
-          </p>
-        </div>
-
-        <a
-          class="font-bold flex gap-1 justify-around items-center hover:text-azul-une transition-colors duration-300 group"
-          href="/oferta/licenciaturas/ing_datos_ciberseguridad"
-        >
-          <span class="text-sm lg:text-base">Ver plan de estudios</span>
-          <div
-            class="bg-azul-une text-white w-8 h-8 lg:w-10 lg:h-10 p-2 lg:p-3 rounded-full group-hover:bg-white group-hover:text-azul-une group-hover:shadow-lg transition-all duration-300 flex-shrink-0 flex items-center justify-center"
-          >
-            <svg
-              class="w-4 h-4"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <path d="M5 12h14M12 5l7 7-7 7"></path>
-            </svg>
-          </div>
-        </a>
+    <div class="card-content">
+      <div>
+        <h3 class="card-title">Ing. de datos y ciberseguridad</h3>
+        <p class="card-description">
+          Domina el manejo de Big Data, IA y análisis predictivo y el mundo
+          digital
+        </p>
       </div>
-
-      <div
-        class="w-24 sm:w-32 lg:w-24 flex items-end justify-end z-0 flex-shrink-0"
+      <a
+        href="/oferta/licenciaturas/ingenieria_en_inteligencia_de_datos_y_ciberseguridad"
+        class="card-link"
       >
-        <img
-          src={datosImg.src}
-          alt="Estudiante de Ingeniería"
-          class="object-contain h-[100px] sm:h-[120px] lg:h-[130px] w-auto hover:scale-110 transition-transform duration-300"
-        />
-      </div>
+        <span class="text-azul-une">Ver plan de estudios</span>
+        <div class="card-link-icon">
+          <CircleArrowRight />
+        </div>
+      </a>
+    </div>
+
+    <div class="card-image-container">
+      <Image
+        src={datosImg}
+        alt="Estudiante de Ingeniería"
+        class="card-image"
+        loading="lazy"
+        width={120}
+        height={160}
+        formats={["avif", "webp"]}
+      />
     </div>
   </div>
-</div>
 
+  <script is:inline>
+    // Intersection Observer para carga condicional
+    if (typeof window !== "undefined") {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              // Aquí podrías cargar recursos adicionales si fuera necesario
+            }
+          });
+        },
+        {
+          rootMargin: "100px",
+          threshold: 0.1,
+        }
+      );
+
+      // Observar cada card
+      document.querySelectorAll(".academic-card").forEach((card) => {
+        observer.observe(card);
+      });
+    }
+  </script>
 </div>
