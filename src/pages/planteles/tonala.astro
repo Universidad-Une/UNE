@@ -1,7 +1,7 @@
 ﻿---
 import Layout from "@/layouts/Layout.astro";
 
-import Cover from "@/assets/Imagenes/Middles/Sillas.png";
+import Cover from "@/assets/Imagenes/Middles/Sillas.webp";
 
 import FAQComponent from "@/components/sections/detallesOferta/preguntas.astro";
 import CTAinscripcion from "@/components/sections/shared/ctaInscripcion.astro";
@@ -141,16 +141,19 @@ const facilitiesData = [
             <div
               class="hidden lg:flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
             >
-              <button
-                class="bg-red-600 hover:bg-red-700 transition-all duration-300 text-white px-8 py-3 rounded-lg font-semibold text-lg"
+              <a
+                href="/contacto/solicitarinformacion"
+                class="bg-red-600 hover:bg-red-700 hover:scale-105 hover:shadow-xl transition-all duration-300 text-white px-8 py-3 rounded-lg font-semibold text-lg"
               >
-                Agendar una visita
-              </button>
-              <button
-                class="bg-transparent border-2 border-white hover:bg-white hover:text-gray-900 transition-all duration-300 text-white px-8 py-3 rounded-lg font-semibold text-lg"
+                Solicitar información
+              </a>
+
+              <a
+                href="/contacto/formulario-inscripcion"
+                class="border-2 border-white text-white   hover:scale-105 hover:shadow-xl transition-all duration-300 px-8 py-3 rounded-lg font-semibold text-lg"
               >
-                Descargar Folleto Informativo
-              </button>
+                Inscribirme
+              </a>
             </div>
           </div>
 
@@ -159,31 +162,7 @@ const facilitiesData = [
             class="flex flex-col items-center lg:items-end lg:justify-end space-y-6 lg:h-full"
           >
             {/* Stats Card */}
-            <div
-              class="backdrop-blur-lg bg-white/20 border border-white/30 rounded-2xl p-6 w-full max-w-sm shadow-2xl lg:mb-8"
-            >
-              <div class="grid grid-cols-3 gap-4 text-white text-center">
-                {/* Students */}
-                <div class="flex flex-col items-center">
-                  <div class="text-3xl md:text-4xl font-bold">2500</div>
-                  <div class="text-sm md:text-base opacity-90">Estudiantes</div>
-                </div>
-
-                {/* Programs */}
-                <div class="flex flex-col items-center">
-                  <div class="text-3xl md:text-4xl font-bold">03</div>
-                  <div class="text-sm md:text-base opacity-90">Carreras</div>
-                </div>
-
-                {/* Employment Rate */}
-                <div class="flex flex-col items-center">
-                  <div class="text-3xl md:text-4xl font-bold">80%</div>
-                  <div class="text-sm md:text-base opacity-90">
-                    de empleabilidad
-                  </div>
-                </div>
-              </div>
-            </div>
+           
 
             {/* Mobile Buttons - Visible only on mobile */}
             <div class="flex lg:hidden flex-col w-full max-w-sm space-y-4">
@@ -192,11 +171,7 @@ const facilitiesData = [
               >
                 Agendar una visita
               </button>
-              <button
-                class="bg-transparent border-2 border-white hover:bg-white hover:text-gray-900 transition-all duration-300 text-white px-6 py-3 rounded-lg font-semibold text-base w-full"
-              >
-                Descargar Folleto Informativo
-              </button>
+             
             </div>
           </div>
         </div>
@@ -238,7 +213,7 @@ const facilitiesData = [
                 <source src="/torre-milenio-video.mp4" type="video/mp4" />
                 <!-- Fallback image if video doesn't load -->
                 <img
-                  src="/torre-milenio-building.jpg"
+                  src="/torre-milenio-building.webp"
                   alt="Torre Milenio - Vista aérea del edificio"
                   class="w-full h-auto object-cover"
                 />
@@ -368,7 +343,7 @@ const facilitiesData = [
               <h3 class="text-xl font-semibold">Dirección</h3>
             </div>
             <button
-              onclick="openMaps()"
+             
               class="text-blue-100 hover:text-white transition-colors cursor-pointer text-left"
             >
               Av. López Mateos Sur #4175<br />
@@ -460,12 +435,12 @@ const facilitiesData = [
 
 <style>
   .plantel-bg {
-    background-image: url("/src/assets/Imagenes/Heros/Planteles/Tonala.jpg");
+    background-image: url("/src/assets/Imagenes/Heros/Planteles/Tonala.webp");
   }
 
   @media (max-width: 767px) {
     .plantel-bg {
-      background-image: url("/src/assets/Imagenes/Heros/Planteles/Tonala_mobile.jpg");
+      background-image: url("/src/assets/Imagenes/Heros/Planteles/Tonala_mobile.webp");
     }
   }
 </style>
