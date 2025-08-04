@@ -3,7 +3,7 @@ export const SITE_CONFIG = {
   title: 'UNE - Universidad',
   description: 'Universidad Nacional de Educacion',
   url: 'https://une.edu.mx',
-  image: '/images/og-image.jpg'
+  image: '/images/og-image.webp'
 };
 
 export const NAVIGATION = {

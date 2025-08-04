@@ -1,88 +1,167 @@
 ---
 // Cards.astro
-import Admsiones from "@/assets/Imagenes/Accesos/Admisiones.png";
-import Planteles from "@/assets/Imagenes/Accesos/PLANTELES.png";
-import Vtu from "@/assets/Imagenes/Accesos/VTU.png";
-import Congresos from "@/assets/Imagenes/Accesos/Congresos.png";
+import Admsiones from "@/assets/Imagenes/Accesos/Admisiones.webp";
+import Planteles from "@/assets/Imagenes/Accesos/PLANTELES.webp";
+import Vtu from "@/assets/Imagenes/Accesos/VTU.webp";
+import Congresos from "@/assets/Imagenes/Accesos/Congresos.webp";
+
+// Configuración de las cards en un array para mejor mantenibilidad
+const cards = [
+  {
+    title: "NUESTRAS",
+    subtitle: "ADMISIONES",
+    href: "/acerca/Admisiones",
+    image: Admsiones,
+    alt: "Acceso a información sobre admisiones universitarias"
+  },
+  {
+    title: "CONOCE LOS",
+    subtitle: "PLANTELES", 
+    href: "/planteles/general",
+    image: Planteles,
+    alt: "Información sobre los planteles universitarios"
+  },
+  {
+    title: "VIVE TU",
+    subtitle: "UNIVERSIDAD",
+    href: "/Vivetuuniversidad/General", 
+    image: Vtu,
+    alt: "Experiencias y vida universitaria"
+  },
+  {
+    title: "CONGRESOS",
+    subtitle: "UNE",
+    href: "/Vivetuuniversidad/Congresos",
+    image: Congresos,
+    alt: "Información sobre congresos UNE"
+  }
+];
 ---
 
-<section class="py-16 px-4">
+<section class="py-12 sm:py-16 lg:py-20 px-4" aria-label="Accesos principales">
   <div class="max-w-7xl mx-auto">
-    <!-- Grid: 2 columnas en mobile, 4 en desktop -->
-    <div class="grid grid-cols-2 lg:grid-cols-4 gap-6">
-      
-      <!-- Card 1: Nuestras Admisiones -->
-      <a
-        href="/acerca/Admisiones"
-        class="group relative bg-cover bg-center bg-no-repeat rounded-2xl overflow-hidden h-64 cursor-pointer transform transition-all duration-300 hover:scale-105 hover:shadow-2xl"
-        style={`background-image: url(${Admsiones.src})`}
-      >
-        <div class="relative h-full flex flex-col justify-center items-center text-center p-6">
-          <span class="text-white text-xl lg:text-2xl font-bold leading-tight">
-            NUESTRAS<br />ADMISIONES
-          </span>
-        </div>
-        <div class="absolute bottom-4 right-4 w-8 h-8 bg-white/20 rounded-full flex items-center justify-center group-hover:bg-white/30 transition-colors">
-          <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-          </svg>
-        </div>
-      </a>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+      {cards.map((card, index) => (
+        <article 
+          class="group relative rounded-2xl overflow-hidden h-56 sm:h-64 lg:h-72 cursor-pointer transition-all duration-300 ease-out hover:scale-[1.02] hover:shadow-2xl focus-within:ring-4 focus-within:ring-blue-500 focus-within:ring-opacity-50"
+        >
+          <a
+            href={card.href}
+            class="block w-full h-full focus:outline-none"
+            aria-label={`Ir a ${card.title} ${card.subtitle}`}
+          >
+            {/* Imagen de fondo optimizada */}
+            <div 
+              class="absolute inset-0 bg-cover bg-center bg-no-repeat transition-transform duration-500 group-hover:scale-110"
+              style={`background-image: url(${card.image.src})`}
+              role="img"
+              aria-label={card.alt}
+            >
+              {/* Overlay gradiente para mejor legibilidad */}
+              <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/20"></div>
+            </div>
 
-      <!-- Card 2: Conoce los Planteles -->
-      <a
-        href="/planteles/general"
-        class="group relative bg-cover bg-center bg-no-repeat rounded-2xl overflow-hidden h-64 cursor-pointer transform transition-all duration-300 hover:scale-105 hover:shadow-2xl"
-        style={`background-image: url(${Planteles.src})`}
-      >
-        <div class="relative h-full flex flex-col justify-center items-center text-center p-6">
-          <span class="text-white text-xl lg:text-2xl font-bold leading-tight">
-            CONOCE LOS<br />PLANTELES
-          </span>
-        </div>
-        <div class="absolute bottom-4 right-4 w-8 h-8 bg-white/20 rounded-full flex items-center justify-center group-hover:bg-white/30 transition-colors">
-          <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-          </svg>
-        </div>
-      </a>
+            {/* Contenido de la card */}
+            <div class="relative h-full flex flex-col justify-center items-center text-center p-4 sm:p-6 z-10">
+              <h3 class="text-white text-lg sm:text-xl lg:text-2xl font-bold leading-tight drop-shadow-lg">
+                {card.title}<br />{card.subtitle}
+              </h3>
+            </div>
 
-      <!-- Card 3: Vive tu Universidad -->
-      <a
-        href="/Vivetuuniversidad/General"
-        class="group relative bg-cover bg-center bg-no-repeat rounded-2xl overflow-hidden h-64 cursor-pointer transform transition-all duration-300 hover:scale-105 hover:shadow-2xl"
-        style={`background-image: url(${Vtu.src})`}
-      >
-        <div class="relative h-full flex flex-col justify-center items-center text-center p-6">
-          <span class="text-white text-xl lg:text-2xl font-bold leading-tight">
-            VIVE TU<br />UNIVERSIDAD
-          </span>
-        </div>
-        <div class="absolute bottom-4 right-4 w-8 h-8 bg-white/20 rounded-full flex items-center justify-center group-hover:bg-white/30 transition-colors">
-          <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-          </svg>
-        </div>
-      </a>
+            {/* Icono de flecha mejorado */}
+            <div class="absolute bottom-3 right-3 sm:bottom-4 sm:right-4 w-8 h-8 sm:w-10 sm:h-10 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center group-hover:bg-white/30 group-hover:scale-110 transition-all duration-300 z-10">
+              <svg 
+                class="w-4 h-4 sm:w-5 sm:h-5 text-white transition-transform duration-300 group-hover:translate-x-0.5" 
+                fill="none" 
+                stroke="currentColor" 
+                strokeWidth="2"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+              </svg>
+            </div>
 
-      <!-- Card 4: Congresos UNE -->
-      <a
-        href="/Vivetuuniversidad/Congresos"
-        class="group relative bg-cover bg-center bg-no-repeat rounded-2xl overflow-hidden h-64 cursor-pointer transform transition-all duration-300 hover:scale-105 hover:shadow-2xl"
-        style={`background-image: url(${Congresos.src})`}
-      >
-        <div class="relative h-full flex flex-col justify-center items-center text-center p-6">
-          <span class="text-white text-xl lg:text-2xl font-bold leading-tight">
-            CONGRESOS<br />UNE
-          </span>
-        </div>
-        <div class="absolute bottom-4 right-4 w-8 h-8 bg-white/20 rounded-full flex items-center justify-center group-hover:bg-white/30 transition-colors">
-          <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-          </svg>
-        </div>
-      </a>
-      
+
+          </a>
+        </article>
+      ))}
     </div>
   </div>
 </section>
+
+<style>
+  /* Optimizaciones CSS adicionales */
+  article {
+    /* Prevenir layout shift durante la carga */
+    contain: layout style paint;
+  }
+  
+  /* Mejorar performance en dispositivos móviles */
+  @media (hover: none) {
+    .group:hover {
+      transform: none;
+      box-shadow: none;
+    }
+    
+    .group:hover .bg-cover {
+      transform: none;
+    }
+  }
+  
+  /* Preload crítico para imágenes */
+  [style*="background-image"] {
+    background-attachment: scroll; /* Mejor performance en móviles */
+  }
+  
+  /* Accesibilidad mejorada */
+  @media (prefers-reduced-motion: reduce) {
+    * {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+</style>
+
+<script>
+  // Lazy loading optimizado para imágenes de fondo
+  if ('IntersectionObserver' in window) {
+    const imageObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const bgDiv = entry.target;
+          bgDiv.style.backgroundImage = bgDiv.dataset.bg || bgDiv.style.backgroundImage;
+          imageObserver.unobserve(bgDiv);
+        }
+      });
+    }, {
+      rootMargin: '50px 0px',
+      threshold: 0.1
+    });
+
+    // Aplicar observer a elementos con background-image
+    document.querySelectorAll('[style*="background-image"]').forEach(el => {
+      imageObserver.observe(el);
+    });
+  }
+
+  // Precargar la siguiente página al hacer hover (solo desktop)
+  if (window.matchMedia('(hover: hover)').matches) {
+    const links = document.querySelectorAll('article a');
+    const prefetchedUrls = new Set();
+    
+    links.forEach(link => {
+      link.addEventListener('mouseenter', () => {
+        const href = link.getAttribute('href');
+        if (href && !prefetchedUrls.has(href)) {
+          const linkEl = document.createElement('link');
+          linkEl.rel = 'prefetch';
+          linkEl.href = href;
+          document.head.appendChild(linkEl);
+          prefetchedUrls.add(href);
+        }
+      }, { once: true });
+    });
+  }
+</script>

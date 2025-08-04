@@ -1,9 +1,9 @@
 ---
 import Layout from "@/layouts/Layout.astro";
-import Hero from "@/assets/Imagenes/Heros/Licenciaturas_gral.jpg";
-import Hero_mobile from "@/assets/Imagenes/Heros/Licenciaturas_gral_mobile.jpg";
-import ImagenCard from "@/assets/Imagenes/CardsNiveles/Nivel.png";
-import LogoCard from "@/assets/Logos/Licenciatura.png";
+import Hero from "@/assets/Imagenes/Heros/Especialiades.webp";
+import Hero_mobile from "@/assets/Imagenes/Heros/Especialiades_mobile.webp";
+import ImagenCard from "@/assets/Imagenes/CardsNiveles/Nivel.webp";
+import LogoCard from "@/assets/Logos/Licenciatura.webp";
 import InformativeCard from "@components/sections/detallesOferta/card.astro";
 import Carreras from "@components/sections/Especialidades/Carreras.astro";
 import Estadisticas from "@components/sections/Licenciaturas/Estadisticas.astro";
@@ -17,58 +17,64 @@ import { Calendar, UserPlus, Phone } from "@lucide/astro";
 
 const requisitosInfo = {
   items: [
-    "Acta de nacimiento (en buen estado)",
-    "Certificado de secundaria y carta validación del mismo",
-    "Ocho fotografías tamaño infantil blanco y negro de estudio",
-    "Una fotografía tamaño credencial a color",
-    "CURP",
-    "Comprobante de domicilio",
-    "Todos los documentos originales y 3 copias",
+    "Acta de nacimiento original, con fecha de expedición reciente (no mayor a 3 meses).",
+    "Certificado total de licenciatura.",
+    "CURP.",
+    "Constancia de validación del certificado.",
+    "Copia de título y cédula profesional.",
+    "Ocho fotografías tamaño infantil, blanco y negro, de estudio, con ropa clara, impresas en papel mate.",
+    "Identificación oficial con fotografía (INE, IFE o pasaporte vigente).",
+    "Comprobante de domicilio con antigüedad no mayor a 3 meses.",
+    "Certificado parcial de licenciatura (solo si se aspira a grado superior).",
+    "Resolución de equivalencia emitida por la Secretaría de Innovación, Ciencia y Tecnología (solo si se aspira a grado superior).",
+    "Tres copias de cada documento presentado.",
   ],
-  pdfUrl: "/public/pdfs/Bachillerato_req.pdf",
+ 
+  pdfUrl: "/public/pdfs/Posgrado_req.pdf"
 };
+
 
 
 const faqs = [
   {
-    question: "¿Cuáles son los requisitos para ingresar a una licenciatura?",
+    question: "¿Cuáles son los requisitos para ingresar a una especialidad?",
     answer:
-      "Debes contar con certificado de bachillerato, acta de nacimiento, CURP, identificación oficial, comprobante de domicilio y fotografías recientes. En algunos casos, puede requerirse el resultado de un examen de admisión.",
+      "Debes contar con título de licenciatura en área afín, cédula profesional, certificado de estudios de licenciatura, acta de nacimiento, CURP, identificación oficial, comprobante de domicilio y fotografías recientes. Algunos programas pueden requerir experiencia profesional mínima o examen de admisión.",
   },
   {
-    question: "¿Cuál es la duración de una licenciatura?",
+    question: "¿Cuál es la duración de una especialidad?",
     answer:
-      "Las licenciaturas tienen una duración promedio de 8 a 10 semestres, dependiendo del programa, la institución incorporadora (UDG o SICYT) y la modalidad elegida.",
+      "Las especialidades tienen una duración promedio de 2 a 4 semestres, dependiendo del programa específico, la institución incorporadora (UDG o SICYT) y la modalidad elegida.",
   },
   {
     question: "¿Qué modalidades de estudio están disponibles?",
     answer:
-      "Las licenciaturas pueden cursarse en modalidad presencial, en línea, escolarizada o semiescolarizada, según la carrera y el plantel. Algunas combinan clases presenciales con actividades virtuales.",
+      "Las especialidades pueden cursarse en modalidad presencial, en línea, escolarizada o semiescolarizada, según el programa y el plantel. Algunas combinan clases presenciales con actividades virtuales para profesionales en activo.",
   },
   {
-    question: "¿Puedo trabajar mientras estudio una licenciatura?",
+    question: "¿Puedo trabajar mientras estudio una especialidad?",
     answer:
-      "Sí. Las modalidades en línea y semiescolarizada están diseñadas para ofrecer mayor flexibilidad y permitir compatibilizar tus estudios con otras actividades.",
+      "Sí. Las modalidades en línea y semiescolarizada están especialmente diseñadas para profesionales en activo, ofreciendo horarios flexibles que permiten compatibilizar el desarrollo profesional con la especialización académica.",
   },
   {
     question: "¿Cómo se evalúa el desempeño académico?",
     answer:
-      "El sistema de evaluación incluye exámenes, proyectos, participación en clase, trabajos individuales o en equipo y actividades prácticas, según el enfoque de cada licenciatura.",
+      "El sistema de evaluación incluye análisis de casos, proyectos aplicados al campo profesional, participación en seminarios, trabajos de investigación y actividades prácticas especializadas, según el enfoque de cada programa.",
   },
   {
     question: "¿Qué tipo de apoyo académico se brinda a los estudiantes?",
     answer:
-      "Ofrecemos tutorías, asesorías académicas presenciales y virtuales, y acceso a plataformas educativas para reforzar el aprendizaje de cada materia.",
+      "Ofrecemos tutorías especializadas, asesorías académicas con profesionales expertos, acceso a bases de datos especializadas, plataformas educativas avanzadas y vinculación con el sector profesional correspondiente.",
   },
   {
-    question: "¿Las licenciaturas están incorporadas a alguna institución oficial?",
+    question: "¿Las especialidades están incorporadas a alguna institución oficial?",
     answer:
-      "Sí. Contamos con licenciaturas incorporadas a la Universidad de Guadalajara (UDG) y a la Secretaría de Innovación, Ciencia y Tecnología (SICYT) del Estado de Jalisco, lo que garantiza validez oficial de estudios.",
+      "Sí. Contamos con especialidades incorporadas a la Universidad de Guadalajara (UDG) y a la Secretaría de Innovación, Ciencia y Tecnología (SICYT) del Estado de Jalisco, lo que garantiza validez oficial y reconocimiento profesional de los estudios.",
   },
   {
     question: "¿Dónde puedo obtener más información e inscribirme?",
     answer:
-      "Puedes acudir directamente a las oficinas del plantel más cercano o visitar nuestro portal web para consultar la oferta académica, requisitos y fechas de inscripción.",
+      "Puedes acudir directamente a las oficinas del plantel más cercano o visitar nuestro portal web para consultar la oferta de especialidades, requisitos específicos por programa y fechas de inscripción.",
   },
 ];
 
@@ -105,7 +111,7 @@ const faqs = [
           <h1 class="text-4xl md:text-7xl font-bold tracking-wider mb-4">
             Especialidades UNE
           </h1>
-          <h2 class="text-2xl md:text-5xl font-bold tracking-wider mb-8">
+          <h2 class="text-xl md:text-3xl font-bold tracking-wider mb-8">
             Profundiza en lo que te apasiona
           </h2>
 
@@ -177,7 +183,7 @@ const faqs = [
     <Estadisticas/>
 
     
-    <Requisitos nivel="Bachillerato" requisitos={requisitosInfo} />
+    <Requisitos nivel="Especialidades" requisitos={requisitosInfo} />
 
 
     

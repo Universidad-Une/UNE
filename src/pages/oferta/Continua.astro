@@ -1,11 +1,11 @@
 ---
 import Layout from "@/layouts/Layout.astro";
-import Hero from "@/assets/Imagenes/Heros/Licenciaturas_gral.jpg";
-import Hero_mobile from "@/assets/Imagenes/Heros/Licenciaturas_gral_mobile.jpg";
-import ImagenCard from "@/assets/Imagenes/CardsNiveles/Nivel.png";
-import LogoCard from "@/assets/Logos/Licenciatura.png";
+import Hero from "@/assets/Imagenes/Heros/Licenciaturas_gral.webp";
+import Hero_mobile from "@/assets/Imagenes/Heros/Licenciaturas_gral_mobile.webp";
+import ImagenCard from "@/assets/Imagenes/CardsNiveles/Nivel.webp";
+import LogoCard from "@/assets/Logos/Licenciatura.webp";
 import InformativeCard from "@components/sections/detallesOferta/card.astro";
-import Carreras from "@components/sections/Licenciaturas/Carreras.astro";
+import Carreras from "@components/sections/Continua/Carreras.astro";
 import Estadisticas from "@components/sections/Licenciaturas/Estadisticas.astro";
 
 import Requisitos from "@/components/sections/detallesOferta/requisitos.astro";
@@ -14,21 +14,23 @@ import FAQComponent from "@/components/sections/detallesOferta/preguntas.astro";
 import CTAinscripcion from "@/components/sections/shared/ctaInscripcion.astro";
 import { Calendar, UserPlus, Phone } from "@lucide/astro";
 
-
 const requisitosInfo = {
   items: [
-    "Acta de nacimiento (en buen estado)",
-    "Certificado de secundaria y carta validación del mismo",
-    "Ocho fotografías tamaño infantil blanco y negro de estudio",
-    "Una fotografía tamaño credencial a color",
-    "CURP",
-    "Comprobante de domicilio",
-    "Todos los documentos originales y 3 copias",
+    "Acta de nacimiento original, con fecha de expedición reciente (no mayor a 3 meses).",
+    "Certificado total de licenciatura.",
+    "CURP.",
+    "Constancia de validación del certificado.",
+    "Copia de título y cédula profesional.",
+    "Ocho fotografías tamaño infantil, blanco y negro, de estudio, con ropa clara, impresas en papel mate.",
+    "Identificación oficial con fotografía (INE, IFE o pasaporte vigente).",
+    "Comprobante de domicilio con antigüedad no mayor a 3 meses.",
+    "Certificado parcial de licenciatura (solo si se aspira a grado superior).",
+    "Resolución de equivalencia emitida por la Secretaría de Innovación, Ciencia y Tecnología (solo si se aspira a grado superior).",
+    "Tres copias de cada documento presentado.",
   ],
-  pdfUrl: "/public/pdfs/Bachillerato_req.pdf",
+ 
+  pdfUrl: "/public/pdfs/Posgrado_req.pdf"
 };
-
-
 const faqs = [
   {
     question: "¿Cuáles son los requisitos para ingresar a una licenciatura?",
@@ -61,7 +63,8 @@ const faqs = [
       "Ofrecemos tutorías, asesorías académicas presenciales y virtuales, y acceso a plataformas educativas para reforzar el aprendizaje de cada materia.",
   },
   {
-    question: "¿Las licenciaturas están incorporadas a alguna institución oficial?",
+    question:
+      "¿Las licenciaturas están incorporadas a alguna institución oficial?",
     answer:
       "Sí. Contamos con licenciaturas incorporadas a la Universidad de Guadalajara (UDG) y a la Secretaría de Innovación, Ciencia y Tecnología (SICYT) del Estado de Jalisco, lo que garantiza validez oficial de estudios.",
   },
@@ -71,8 +74,6 @@ const faqs = [
       "Puedes acudir directamente a las oficinas del plantel más cercano o visitar nuestro portal web para consultar la oferta académica, requisitos y fechas de inscripción.",
   },
 ];
-
-
 ---
 
 <Layout>
@@ -101,19 +102,18 @@ const faqs = [
         class="relative z-10 container mx-auto px-4 h-full min-h-[85vh] md:min-h-[65vh] flex flex-col justify-center"
       >
         <div class="text-center text-white max-w-4xl mx-auto">
-          {/* Main Title */}
           <h1 class="text-4xl md:text-7xl font-bold tracking-wider mb-4">
-            Especialízate en lo que te apasiona
+            Conviértete en experto
           </h1>
           <h2 class="text-2xl md:text-5xl font-bold tracking-wider mb-8">
-            Educación continua
+            Domina tu área profesional
           </h2>
-
-          {/* Description */}
           <p
             class="text-lg md:text-xl leading-relaxed mb-16 max-w-3xl mx-auto font-light"
           >
-            Tu carrera profesional merece la mejor formación. Descubre el programa que transformará tu conocimiento en liderazgo.
+            Desarrolla conocimientos especializados que marquen la diferencia.
+            Programas enfocados en competencias específicas para profesionales
+            ambiciosos.
           </p>
         </div>
       </div>
@@ -130,7 +130,8 @@ const faqs = [
             class="flex flex-col sm:flex-row gap-4 w-full justify-center text-white"
           >
             <!-- Agenda una Visita -->
-            <a href="/contacto/solicitarvisita"
+            <a
+              href="/contacto/solicitarvisita"
               class="hover:border-b hover:border-b-cyan-50 font-bold py-6 px-6 text-base transition-colors duration-300 shadow-lg flex flex-col items-center justify-center gap-2 whitespace-nowrap"
             >
               AGENDA UNA VISITA
@@ -138,7 +139,8 @@ const faqs = [
             </a>
 
             <!-- Iniciar Inscripción -->
-            <a href="/contacto/formulario-inscripcion"
+            <a
+              href="/contacto/formulario-inscripcion"
               class="hover:border-b hover:border-b-cyan-50 font-bold py-3 px-6 text-base transition-colors duration-300 shadow-lg flex flex-col items-center justify-center gap-2 whitespace-nowrap"
             >
               INICIAR INSCRIPCIÓN
@@ -146,7 +148,8 @@ const faqs = [
             </a>
 
             <!-- Contactar -->
-            <a href="/contacto/solicitarinformacion"
+            <a
+              href="/contacto/solicitarinformacion"
               class="hover:border-b hover:border-b-cyan-50 font-bold py-3 px-6 text-base transition-colors duration-300 shadow-lg flex flex-col items-center justify-center gap-2 whitespace-nowrap"
             >
               CONTACTAR
@@ -160,27 +163,24 @@ const faqs = [
     <InformativeCard
       logoSrc={LogoCard.src}
       studentImageSrc={ImagenCard.src}
-      title="LICENCIATURAS PARA PROFESIONALES"
-      description="Nuestras licenciaturas UNE te proporcionan la especialización necesaria para desarrollarte como un profesional competitivo."
-      additionalText="Con programas incorporados tanto a la Universidad de Guadalajara como al Sistema de Créditos de Institutos Tecnológicos, obtienes la flexibilidad de elegir la ruta académica que mejor se adapte a tus objetivos profesionales"
+      title="ESPECIALIDADES PARA PROFESIONALES"
+      description="Nuestras especialidades UNE te brindan conocimientos específicos y actualizados para destacar en tu área profesional en solo 3 cuatrimestres."
+      additionalText="Con programas incorporados a SICYT (Secretaría de Innovación Ciencia y Tecnología), obtienes una formación especializada que impulsa tu crecimiento profesional con validez oficial y reconocimiento empresarial."
       features={[
-        { icon: "CalendarDays", label: "Sesiones presenciales" },
-        { icon: "BookOpen", label: "Estudio guiado" },
-        { icon: "School", label: "Validez oficial" },
-        { icon: "Clock", label: "Horarios flexibles" },
-        { icon: "BookmarkCheck", label: "Preparación universitaria" },
+        { icon: "Clock", label: "3 cuatrimestres" },
+        { icon: "CalendarDays", label: "Inicio flexible" },
+        { icon: "BookOpen", label: "Formación especializada" },
+        { icon: "School", label: "Incorporación SICYT" },
+        { icon: "BookmarkCheck", label: "Competencias específicas" },
       ]}
     />
 
-    <Carreras/>
+    <Carreras />
 
-    <Estadisticas/>
+    <Estadisticas />
 
-    
-    <Requisitos nivel="Bachillerato" requisitos={requisitosInfo} />
+    <Requisitos nivel="Cursos" requisitos={requisitosInfo} />
 
-
-    
     <FAQComponent
       faqs={faqs}
       title="Preguntas frecuentes"

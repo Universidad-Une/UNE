@@ -1,84 +1,13 @@
 ﻿---
 import Layout from "@/layouts/Layout.astro";
-
-import Cover from "@/assets/Imagenes/Middles/Sillas.png";
-
-import FAQComponent from "@/components/sections/detallesOferta/preguntas.astro";
-import CTAinscripcion from "@/components/sections/shared/ctaInscripcion.astro";
+import Cover from "@/assets/Imagenes/Middles/Sillas.webp";
+import Card from "@/assets/Imagenes/CardPlantelesInterior/Centro.webp";
 import { Calendar, UserPlus, Phone, Clock1, MapPin } from "@lucide/astro";
 import Carreradeplantel from "@/components/sections/planteles/Carreradeplantel.astro";
 import Instalaciones from "@/components/sections/planteles/Instalaciones.astro";
 import CtaVisita from "@/components/sections/planteles/ctaVisita.astro";
-
-// Datos de ejemplo que podrías recibir de una API o base de datos
-const carrerasData = [
-  {
-    id: "1",
-    titulo: "Lic. en Cirujano Dentista",
-    descripcion:
-      "Formando profesionales de la salud bucal altamente capacitados para prevenir, diagnosticar y tratar enfermedades orales, restaurando la salud y estética de la sonrisa.",
-    duracion: "4 años",
-    modalidad: "Presencial",
-    inicio: "Agosto/Enero",
-    icono: "dental",
-    buttonText: "Ver detalles",
-  },
-  {
-    id: "2",
-    titulo: "Lic. en Cultura Física y del Deporte",
-    descripcion:
-      "Formación en entrenamiento, educación física y promoción de la salud a través del deporte.",
-    duracion: "4 años",
-    modalidad: "Presencial",
-    inicio: "Agosto/Enero",
-    icono: "deportes",
-    buttonText: "Ver detalles",
-  },
-  {
-    id: "3",
-    titulo: "Lic. en Enfermería",
-    descripcion:
-      "Capacitación avanzada en el cuidado integral del paciente, administración de tratamientos y promoción de la salud.",
-    duracion: "4 años",
-    modalidad: "Presencial",
-    inicio: "Agosto/Enero",
-    icono: "enfermeria",
-    buttonText: "Ver detalles",
-  },
-  {
-    id: "4",
-    titulo: "Ing. en Sistemas Computacionales",
-    descripcion:
-      "Formación integral en desarrollo de software, sistemas de información y tecnologías emergentes para la transformación digital.",
-    duracion: "4 años",
-    modalidad: "Presencial",
-    inicio: "Agosto/Enero",
-    icono: "tecnologia",
-    buttonText: "Ver detalles",
-  },
-  {
-    id: "5",
-    titulo: "Lic. en Medicina",
-    descripcion:
-      "Formación médica integral con enfoque en la atención primaria, diagnóstico y tratamiento de enfermedades.",
-    duracion: "6 años",
-    modalidad: "Presencial",
-    inicio: "Agosto/Enero",
-    icono: "medicina",
-    buttonText: "Ver detalles",
-  },
-  {
-    id: "6",
-    titulo: "Ing. Industrial",
-    descripción:
-      "Optimización de procesos, gestión de la calidad y mejora continua en sistemas productivos y organizacionales.",
-    duracion: "4 años",
-    modalidad: "Presencial",
-    inicio: "Agosto/Enero",
-    icono: "ingenieria",
-    buttonText: "Ver detalles",
-  },
-];
+import { obtenerProgramasPorPlantel } from "@helpers/estructura_educativa";
+const programasCentro = obtenerProgramasPorPlantel("CENTRO");
 
 const facilitiesData = [
   {
@@ -149,19 +78,22 @@ const facilitiesData = [
             </p>
 
             {/* Desktop Buttons - Hidden on mobile */}
-            <div
+          <div
               class="hidden lg:flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
             >
-              <button
-                class="bg-red-600 hover:bg-red-700 transition-all duration-300 text-white px-8 py-3 rounded-lg font-semibold text-lg"
+              <a
+                href="/contacto/solicitarinformacion"
+                class="bg-red-600 hover:bg-red-700 hover:scale-105 hover:shadow-xl transition-all duration-300 text-white px-8 py-3 rounded-lg font-semibold text-lg"
               >
-                Agendar una visita
-              </button>
-              <button
-                class="bg-transparent border-2 border-white hover:bg-white hover:text-gray-900 transition-all duration-300 text-white px-8 py-3 rounded-lg font-semibold text-lg"
+                Solicitar información
+              </a>
+
+              <a
+                href="/contacto/formulario-inscripcion"
+                class="border-2 border-white text-white   hover:scale-105 hover:shadow-xl transition-all duration-300 px-8 py-3 rounded-lg font-semibold text-lg"
               >
-                Descargar Folleto Informativo
-              </button>
+                Inscribirme
+              </a>
             </div>
           </div>
 
@@ -170,31 +102,6 @@ const facilitiesData = [
             class="flex flex-col items-center lg:items-end lg:justify-end space-y-6 lg:h-full"
           >
             {/* Stats Card */}
-            <div
-              class="backdrop-blur-lg bg-white/20 border border-white/30 rounded-2xl p-6 w-full max-w-sm shadow-2xl lg:mb-8"
-            >
-              <div class="grid grid-cols-3 gap-4 text-white text-center">
-                {/* Students */}
-                <div class="flex flex-col items-center">
-                  <div class="text-3xl md:text-4xl font-bold">2500</div>
-                  <div class="text-sm md:text-base opacity-90">Estudiantes</div>
-                </div>
-
-                {/* Programs */}
-                <div class="flex flex-col items-center">
-                  <div class="text-3xl md:text-4xl font-bold">03</div>
-                  <div class="text-sm md:text-base opacity-90">Carreras</div>
-                </div>
-
-                {/* Employment Rate */}
-                <div class="flex flex-col items-center">
-                  <div class="text-3xl md:text-4xl font-bold">80%</div>
-                  <div class="text-sm md:text-base opacity-90">
-                    de empleabilidad
-                  </div>
-                </div>
-              </div>
-            </div>
 
             {/* Mobile Buttons - Visible only on mobile */}
             <div class="flex lg:hidden flex-col w-full max-w-sm space-y-4">
@@ -203,11 +110,7 @@ const facilitiesData = [
               >
                 Agendar una visita
               </button>
-              <button
-                class="bg-transparent border-2 border-white hover:bg-white hover:text-gray-900 transition-all duration-300 text-white px-6 py-3 rounded-lg font-semibold text-base w-full"
-              >
-                Descargar Folleto Informativo
-              </button>
+             
             </div>
           </div>
         </div>
@@ -219,18 +122,19 @@ const facilitiesData = [
         <!-- Header -->
         <div class="text-center mb-12">
           <button
-            class="bg-azul text-white px-6 py-2 rounded-full text-sm font-medium mb-6 hover:bg-blue-700 transition-colors"
+            class="bg-azul-une text-white px-6 py-2 rounded-full text-sm font-medium mb-6 hover:bg-blue-700 transition-colors"
           >
-            Acerca de Torre Milenio
+            Acerca de UNE Centro
           </button>
 
           <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-            Educación de calidad, más cerca de ti
+            Formación profesional en el corazón de Guadalajara
           </h2>
 
           <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-            Desde hace más de una década, Torre Milenio ha sido una puerta de
-            acceso a la educación profesional en el corazón de la ciudad.
+            UNE Centro brinda educación media y superior con enfoque práctico,
+            atención personalizada y fuerte vinculación con el entorno
+            productivo local.
           </p>
         </div>
 
@@ -239,21 +143,11 @@ const facilitiesData = [
           <!-- Video/Image Container -->
           <div class="relative">
             <div class="rounded-2xl overflow-hidden shadow-2xl">
-              <video
+              <img
+                src={Card.src}
+                alt="Campus UNE Centro Guadalajara"
                 class="w-full h-auto object-cover"
-                autoplay
-                muted
-                loop
-                playsinline
-              >
-                <source src="/torre-milenio-video.mp4" type="video/mp4" />
-                <!-- Fallback image if video doesn't load -->
-                <img
-                  src="/torre-milenio-building.jpg"
-                  alt="Torre Milenio - Vista aérea del edificio"
-                  class="w-full h-auto object-cover"
-                />
-              </video>
+              />
             </div>
           </div>
 
@@ -277,7 +171,7 @@ const facilitiesData = [
                 </div>
               </div>
               <p class="text-lg text-gray-700">
-                Ubicación estratégica en tu ciudad
+                Ubicación céntrica: Av. República No. 10, Col. San Juan de Dios
               </p>
             </div>
 
@@ -299,7 +193,7 @@ const facilitiesData = [
                 </div>
               </div>
               <p class="text-lg text-gray-700">
-                Grupos reducidos y atención personalizada
+                Bachillerato, licenciaturas e ingenierías con enfoque práctico
               </p>
             </div>
 
@@ -321,7 +215,7 @@ const facilitiesData = [
                 </div>
               </div>
               <p class="text-lg text-gray-700">
-                Conexión directa con el sector productivo local
+                Atención personalizada en grupos reducidos
               </p>
             </div>
 
@@ -343,7 +237,7 @@ const facilitiesData = [
                 </div>
               </div>
               <p class="text-lg text-gray-700">
-                Actividades extracurriculares y vinculación social
+                Vinculación con empresas y proyectos sociales
               </p>
             </div>
           </div>
@@ -351,7 +245,6 @@ const facilitiesData = [
       </div>
     </section>
 
-    <!-- Contact Footer -->
     <section class="bg-azul-une text-white py-8">
       <div class="max-w-6xl mx-auto px-4">
         <div class="grid md:grid-cols-3 gap-8">
@@ -378,14 +271,15 @@ const facilitiesData = [
               </div>
               <h3 class="text-xl font-semibold">Dirección</h3>
             </div>
-            <button
-              onclick="openMaps()"
-              class="text-blue-100 hover:text-white transition-colors cursor-pointer text-left"
+            <a
+              href="https://www.google.com/maps/search/?api=1&query=Av.+L%C3%B3pez+Mateos+Sur+4175%2C+La+Giralda%2C+Zapopan%2C+Jalisco"
+              target="_blank"
+              class="text-blue-100 hover:text-white transition-colors cursor-pointer text-left inline-block"
             >
               Av. López Mateos Sur #4175<br />
               Col. La Giralda Zapopan,<br />
               Jalisco
-            </button>
+            </a>
           </div>
 
           <!-- Teléfonos -->
@@ -398,13 +292,42 @@ const facilitiesData = [
               </div>
               <h3 class="text-xl font-semibold">Teléfonos</h3>
             </div>
-            <div class="space-y-2">
-              <a
-                href="tel:+528000436"
-                class="block text-blue-100 hover:text-white transition-colors"
-              >
-                (33) 800 0436
-              </a>
+
+            <!-- Container for phone numbers - horizontal on desktop, vertical on mobile -->
+            <div
+              class="flex flex-col md:flex-row md:space-x-6 space-y-3 md:space-y-0"
+            >
+              <!-- Teléfono principal -->
+              <div class="flex flex-col">
+                <span class="text-blue-100 text-sm">Teléfono:</span>
+                <a
+                  href="tel:+523380000863"
+                  class="text-white hover:text-blue-200 transition-colors font-medium"
+                >
+                  (33) 8000 0863
+                </a>
+              </div>
+
+              <!-- WhatsApp -->
+              <div class="flex flex-col">
+                <span class="text-blue-100 text-sm">WhatsApp:</span>
+                <a
+                  href="https://wa.me/523380000823"
+                  target="_blank"
+                  class="whatsapp-btn inline-flex items-center px-3 py-1 rounded-lg text-white hover:text-blue-200 font-medium hover:bg-opacity-10 transition-colors"
+                >
+                  <svg
+                    class="w-4 h-4 mr-2"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.382"
+                    ></path>
+                  </svg>
+                  (33) 8000 0823
+                </a>
+              </div>
             </div>
           </div>
         </div>
@@ -412,59 +335,18 @@ const facilitiesData = [
     </section>
 
     <Carreradeplantel
-      titulo="Nuestras Carreras Profesionales"
-      descripcion="Descubre nuestra amplia oferta académica diseñada para formar líderes en diferentes áreas del conocimiento"
-      carreras={carrerasData}
+      titulo="Programas Educativos"
+      descripcion="Descubre todos los programas disponibles en nuestro plantel Centro"
+      programas={programasCentro}
+      plantel="CENTRO"
+      itemsPerPage={9}
     />
 
-    <!-- Sección de Notificaciones -->
-    <section
-      class="py-16 bg-cover bg-center bg-no-repeat relative"
-      style={`background-image: url(${Cover.src})`}
-    >
-      <div class="container mx-auto px-4 relative z-10">
-        <div
-          class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center text-white"
-        >
-          <div>
-            <h2 class="text-3xl sm:text-4xl font-bold text-white mb-6">
-              ¿Quieres ser notificado de la próxima convocatoria?
-            </h2>
-          </div>
-          <div class="space-y-4">
-            <!-- En mobile: inputs en columna uno debajo del otro -->
-            <div class="flex flex-col gap-4">
-              <input
-                type="text"
-                placeholder="Nombre"
-                class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-red-500"
-              />
-              <input
-                type="email"
-                placeholder="Correo"
-                class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-red-500"
-              />
-              <input
-                type="tel"
-                placeholder="Celular"
-                class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-red-500"
-              />
-            </div>
-            <button
-              class="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-6 rounded-lg transition-colors"
-            >
-              Registrar Interés
-            </button>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <Instalaciones
+    <!-- <Instalaciones
       title="Espacios Diseñados para el Aprendizaje"
       subtitle="Nuestras instalaciones de primer nivel proporcionan el ambiente perfecto para tu desarrollo académico y personal."
       facilities={facilitiesData}
-    />
+    /> -->
 
     <CtaVisita />
   </main>
@@ -472,12 +354,12 @@ const facilitiesData = [
 
 <style>
   .plantel-bg {
-    background-image: url("/src/assets/Imagenes/Heros/Planteles/Centro.jpg");
+    background-image: url("/src/assets/Imagenes/Heros/Planteles/Centro.webp");
   }
 
   @media (max-width: 767px) {
     .plantel-bg {
-      background-image: url("/src/assets/Imagenes/Heros/Planteles/Centro_mobile.jpg");
+      background-image: url("/src/assets/Imagenes/Heros/Planteles/Centro_mobile.webp");
     }
   }
 </style>

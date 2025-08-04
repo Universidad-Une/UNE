@@ -7,7 +7,7 @@ export const planteles = [
       "Entrenamientos de fútbol, desarrollo de técnicas y participación en torneos deportivos",
     ciudad: "Tonalá",
     url: "/Vivetuuniversidad/Actividades/Futbol",
-    imagen: "/src/assets/Imagenes/VTU/Cards/Futbol.png",
+    imagen: "/src/assets/Imagenes/VTU/Cards/Futbol.webp",
   },
  
   
@@ -21,7 +21,7 @@ export const planteles = [
       "Curso de dibujo artístico, técnicas de ilustración y desarrollo de habilidades creativas",
     ciudad: "Tonalá",
     url: "/Vivetuuniversidad/Actividades/Futbol",
-    imagen: "/src/assets/Imagenes/VTU/Cards/Dibujo.jpg",
+    imagen: "/src/assets/Imagenes/VTU/Cards/Dibujo.webp",
   },
   {
     id: "7",
@@ -30,7 +30,7 @@ export const planteles = [
     direccion: "Taller de dibujo y expresión artística para todas las edades",
     ciudad: "Tlajomulco",
     url: "/Vivetuuniversidad/Actividades/Futbol",
-    imagen: "/src/assets/Imagenes/VTU/Cards/Dibujo.jpg",
+    imagen: "/src/assets/Imagenes/VTU/Cards/Dibujo.webp",
   },
   {
     id: "8",
@@ -40,7 +40,7 @@ export const planteles = [
       "Capacitación en procesos administrativos, gestión documental y habilidades de oficina",
     ciudad: "Tlajomulco",
     url: "/Vivetuuniversidad/Actividades/Futbol",
-    imagen: "/src/assets/Imagenes/VTU/Cards/Administrativos.jpg",
+    imagen: "/src/assets/Imagenes/VTU/Cards/Administrativos.webp",
   },
   {
     id: "9",
@@ -50,7 +50,7 @@ export const planteles = [
       "Entrenamientos de fútbol, desarrollo de técnicas y participación en torneos deportivos",
     ciudad: "Tlajomulco",
     url: "/Vivetuuniversidad/Actividades/Futbol",
-    imagen: "/src/assets/Imagenes/VTU/Cards/Futbol.png",
+    imagen: "/src/assets/Imagenes/VTU/Cards/Futbol.webp",
   },
   {
     id: "10",
@@ -59,7 +59,7 @@ export const planteles = [
     direccion: "Clases de danza folklórica, moderna y expresión corporal",
     ciudad: "Tlajomulco",
     url: "/Vivetuuniversidad/Actividades/Futbol",
-    imagen: "/src/assets/Imagenes/VTU/Cards/Latinos.jpg",
+    imagen: "/src/assets/Imagenes/VTU/Cards/Latinos.webp",
   },
   {
     id: "11",
@@ -69,7 +69,7 @@ export const planteles = [
       "Clases de voleibol, técnicas de juego en equipo y competencias deportivas",
     ciudad: "Tlajomulco",
     url: "/Vivetuuniversidad/Actividades/Futbol",
-    imagen: "/src/assets/Imagenes/VTU/Cards/Voleibol.PNG",
+    imagen: "/src/assets/Imagenes/VTU/Cards/Voleibol.webp",
   },
   {
     id: "12",
@@ -79,7 +79,7 @@ export const planteles = [
       "Clases de natación para principiantes y avanzados, técnicas de nado y resistencia acuática",
     ciudad: "Tlajomulco",
     url: "/Vivetuuniversidad/Actividades/Futbol",
-    imagen: "/src/assets/Imagenes/VTU/Cards/Natacion.jpg",
+    imagen: "/src/assets/Imagenes/VTU/Cards/Natacion.webp",
   },
   {
     id: "13",
@@ -89,7 +89,7 @@ export const planteles = [
       "Entrenamientos de basquetbol, fundamentos del juego y participación en ligas deportivas",
     ciudad: "Tlajomulco",
     url: "/Vivetuuniversidad/Actividades/Futbol",
-    imagen: "/src/assets/Imagenes/VTU/Cards/Basketball.jpg",
+    imagen: "/src/assets/Imagenes/VTU/Cards/Basketball.webp",
   },
   {
     id: "14",
@@ -99,7 +99,7 @@ export const planteles = [
       "Taller de cocina básica, preparación de platillos tradicionales y técnicas culinarias",
     ciudad: "Tlajomulco",
     url: "/Vivetuuniversidad/Actividades/Futbol",
-    imagen: "/src/assets/Imagenes/VTU/Cards/Gastronomia.jpg",
+    imagen: "/src/assets/Imagenes/VTU/Cards/Gastronomia.webp",
   },
   {
     id: "15",
@@ -109,7 +109,7 @@ export const planteles = [
       "Entrenamientos de fútbol, desarrollo de técnicas y participación en torneos deportivos",
     ciudad: "Milenio",
     url: "/Vivetuuniversidad/Actividades/Futbol",
-    imagen: "/src/assets/Imagenes/VTU/Cards/Futbol.png",
+    imagen: "/src/assets/Imagenes/VTU/Cards/Futbol.webp",
   },
   {
     id: "16",
@@ -119,7 +119,7 @@ export const planteles = [
       "Clases de voleibol, técnicas de juego en equipo y competencias deportivas",
     ciudad: "Milenio",
     url: "/Vivetuuniversidad/Actividades/Futbol",
-    imagen: "/src/assets/Imagenes/VTU/Cards/Voleibol.PNG",
+    imagen: "/src/assets/Imagenes/VTU/Cards/Voleibol.webp",
   },
   {
     id: "17",
@@ -129,7 +129,7 @@ export const planteles = [
       "Clases de baile de ritmos latinos como salsa, bachata, merengue y cumbia",
     ciudad: "Milenio",
     url: "/Vivetuuniversidad/Actividades/Futbol",
-    imagen: "/src/assets/Imagenes/VTU/Cards/Latinos.jpg",
+    imagen: "/src/assets/Imagenes/VTU/Cards/Latinos.webp",
   },
   {
     id: "18",
@@ -138,7 +138,7 @@ export const planteles = [
     direccion: "Clases de baile K-pop y danza urbana con coreografías modernas",
     ciudad: "Milenio",
     url: "/Vivetuuniversidad/Actividades/Futbol",
-    imagen: "/src/assets/Imagenes/VTU/Cards/Kpop.jpg",
+    imagen: "/src/assets/Imagenes/VTU/Cards/Kpop.webp",
   },
   {
     id: "19",
@@ -148,7 +148,7 @@ export const planteles = [
       "Curso de programación básica, desarrollo web y fundamentos de la informática",
     ciudad: "Milenio",
     url: "/Vivetuuniversidad/Actividades/Futbol",
-    imagen: "/src/assets/Imagenes/VTU/Cards/Programacion.jpg",
+    imagen: "/src/assets/Imagenes/VTU/Cards/Programacion.webp",
   },
   {
     id: "20",
@@ -158,7 +158,7 @@ export const planteles = [
       "Clases de voleibol, técnicas de juego en equipo y competencias deportivas",
     ciudad: "Tlaquepaque",
     url: "/Vivetuuniversidad/Actividades/Futbol",
-    imagen: "/src/assets/Imagenes/VTU/Cards/Voleibol.PNG",
+    imagen: "/src/assets/Imagenes/VTU/Cards/Voleibol.webp",
   },
   {
     id: "21",
@@ -168,7 +168,7 @@ export const planteles = [
       "Clases de danza jazz, técnicas de movimiento y expresión artística",
     ciudad: "Plaza del sol",
     url: "/Vivetuuniversidad/Actividades/Futbol",
-    imagen: "/src/assets/Imagenes/VTU/Cards/Latinos.jpg",
+    imagen: "/src/assets/Imagenes/VTU/Cards/Latinos.webp",
   },
   {
     id: "22",
@@ -178,7 +178,7 @@ export const planteles = [
       "Clases de técnica vocal, interpretación musical y desarrollo del oído musical",
     ciudad: "Plaza del sol",
     url: "/Vivetuuniversidad/Actividades/Futbol",
-    imagen: "/src/assets/Imagenes/VTU/Cards/Teatro.PNG",
+    imagen: "/src/assets/Imagenes/VTU/Cards/Teatro.webp",
   },
   {
     id: "23",
@@ -188,7 +188,7 @@ export const planteles = [
       "Taller de dibujo y pintura con diferentes técnicas artísticas y estilos",
     ciudad: "Plaza del sol",
     url: "/Vivetuuniversidad/Actividades/Futbol",
-    imagen: "/src/assets/Imagenes/VTU/Cards/Dibujo.jpg",
+    imagen: "/src/assets/Imagenes/VTU/Cards/Dibujo.webp",
   },
   {
     id: "24",
@@ -198,7 +198,7 @@ export const planteles = [
       "Clases de teatro y actuación, desarrollo de habilidades escénicas y expresión dramática",
     ciudad: "Plaza del sol",
     url: "/Vivetuuniversidad/Actividades/Futbol",
-    imagen: "/src/assets/Imagenes/VTU/Cards/Teatro.PNG",
+    imagen: "/src/assets/Imagenes/VTU/Cards/Teatro.webp",
   },
   {
     id: "25",
@@ -208,7 +208,7 @@ export const planteles = [
       "Taller de manualidades creativas, elaboración de objetos decorativos y artesanías",
     ciudad: "Plaza del sol",
     url: "/Vivetuuniversidad/Actividades/Futbol",
-    imagen: "/src/assets/Imagenes/VTU/Cards/Manualidades.jpg",
+    imagen: "/src/assets/Imagenes/VTU/Cards/Manualidades.webp",
   },
   {
     id: "26",
@@ -218,7 +218,7 @@ export const planteles = [
       "Entrenamientos de fútbol, desarrollo de técnicas y participación en torneos deportivos",
     ciudad: "Tesistán",
     url: "/Vivetuuniversidad/Actividades/Futbol",
-    imagen: "/src/assets/Imagenes/VTU/Cards/Futbol.png",
+    imagen: "/src/assets/Imagenes/VTU/Cards/Futbol.webp",
   },
   {
     id: "27",
@@ -228,7 +228,7 @@ export const planteles = [
       "Clases de voleibol, técnicas de juego en equipo y competencias deportivas",
     ciudad: "Tesistán",
     url: "/Vivetuuniversidad/Actividades/Futbol",
-    imagen: "/src/assets/Imagenes/VTU/Cards/Voleibol.PNG",
+    imagen: "/src/assets/Imagenes/VTU/Cards/Voleibol.webp",
   },
   {
     id: "55",
@@ -248,7 +248,7 @@ export const planteles = [
       "Práctica de fútbol americano sin contacto, estrategias de juego y trabajo en equipo",
     ciudad: "Tesistán",
     url: "/Vivetuuniversidad/Actividades/Futbol",
-    imagen: "/src/assets/Imagenes/VTU/Cards/Tochito.jpg",
+    imagen: "/src/assets/Imagenes/VTU/Cards/Tochito.webp",
   },
   {
     id: "30",
@@ -258,7 +258,7 @@ export const planteles = [
       "Actividades deportivas generales, acondicionamiento físico y recreación",
     ciudad: "Centro médico",
     url: "/Vivetuuniversidad/Actividades/Futbol",
-    imagen: "/src/assets/Imagenes/VTU/Cards/Futbol.png",
+    imagen: "/src/assets/Imagenes/VTU/Cards/Futbol.webp",
   },
  
   {
@@ -269,7 +269,7 @@ export const planteles = [
       "Taller de dibujo y pintura con diferentes técnicas artísticas y estilos",
     ciudad: "Tesistán",
     url: "/Vivetuuniversidad/Actividades/Futbol",
-    imagen: "/src/assets/Imagenes/VTU/Cards/Dibujo.jpg",
+    imagen: "/src/assets/Imagenes/VTU/Cards/Dibujo.webp",
   },
 
   
@@ -281,7 +281,7 @@ export const planteles = [
       "Clases de voleibol, técnicas de juego en equipo y competencias deportivas",
     ciudad: "Tonalá",
     url: "/Vivetuuniversidad/Actividades/Futbol",
-    imagen: "/src/assets/Imagenes/VTU/Cards/Voleibol.PNG",
+    imagen: "/src/assets/Imagenes/VTU/Cards/Voleibol.webp",
   },
   {
     id: "37",
@@ -291,7 +291,7 @@ export const planteles = [
       "Taller de cocina básica, preparación de platillos tradicionales y técnicas culinarias",
     ciudad: "Tonalá",
     url: "/Vivetuuniversidad/Actividades/Futbol",
-    imagen: "/src/assets/Imagenes/VTU/Cards/Gastronomia.jpg",
+    imagen: "/src/assets/Imagenes/VTU/Cards/Gastronomia.webp",
   },
   {
     id: "38",
@@ -301,7 +301,7 @@ export const planteles = [
       "Taller de elaboración de joyería artesanal, diseño y creación de accesorios",
     ciudad: "Tonalá",
     url: "/Vivetuuniversidad/Actividades/Futbol",
-    imagen: "/src/assets/Imagenes/VTU/Cards/Bisuteria.jpg",
+    imagen: "/src/assets/Imagenes/VTU/Cards/Bisuteria.webp",
   },
   {
     id: "39",
@@ -311,7 +311,7 @@ export const planteles = [
       "Curso de desarrollo de habilidades comunicativas, redacción y oratoria",
     ciudad: "Tonalá",
     url: "/Vivetuuniversidad/Actividades/Futbol",
-    imagen: "/src/assets/Imagenes/VTU/Cards/Teatro.PNG",
+    imagen: "/src/assets/Imagenes/VTU/Cards/Teatro.webp",
   },
   {
     id: "40",
@@ -321,7 +321,7 @@ export const planteles = [
       "Curso de álgebra básica, resolución de ecuaciones y fundamentos matemáticos",
     ciudad: "Tonalá",
     url: "/Vivetuuniversidad/Actividades/Futbol",
-    imagen: "/src/assets/Imagenes/VTU/Cards/Programacion.jpg",
+    imagen: "/src/assets/Imagenes/VTU/Cards/Programacion.webp",
   },
   
   {
@@ -342,7 +342,7 @@ export const planteles = [
       "Clases de danza jazz, técnicas de movimiento y expresión artística",
     ciudad: "Tonalá",
     url: "/Vivetuuniversidad/Actividades/Futbol",
-    imagen: "/src/assets/Imagenes/VTU/Cards/Latinos.jpg",
+    imagen: "/src/assets/Imagenes/VTU/Cards/Latinos.webp",
   },
  
 
@@ -353,7 +353,7 @@ export const planteles = [
     direccion: "Programa de desarrollo personal y liderazgo comunitario",
     ciudad: "Caracol",
     url: "/Vivetuuniversidad/Actividades/Futbol",
-    imagen: "/src/assets/Imagenes/VTU/Cards/Administrativos.jpg",
+    imagen: "/src/assets/Imagenes/VTU/Cards/Administrativos.webp",
   },
   {
     id: "47",
@@ -363,7 +363,7 @@ export const planteles = [
       "Taller de innovación, pensamiento creativo y transformación de ideas",
     ciudad: "Caracol",
     url: "/Vivetuuniversidad/Actividades/Futbol",
-    imagen: "/src/assets/Imagenes/VTU/Cards/Administrativos.jpg",
+    imagen: "/src/assets/Imagenes/VTU/Cards/Administrativos.webp",
   },
   
   {
@@ -374,7 +374,7 @@ export const planteles = [
       "Capacitación en cuidados básicos de salud y trato humanizado al paciente",
     ciudad: "Caracol",
     url: "/Vivetuuniversidad/Actividades/Futbol",
-    imagen: "/src/assets/Imagenes/VTU/Cards/Administrativos.jpg",
+    imagen: "/src/assets/Imagenes/VTU/Cards/Administrativos.webp",
   },
   {
     id: "50",
@@ -384,7 +384,7 @@ export const planteles = [
       "Programa de responsabilidad social y proyectos de impacto comunitario",
     ciudad: "Caracol",
     url: "/Vivetuuniversidad/Actividades/Futbol",
-    imagen: "/src/assets/Imagenes/VTU/Cards/Administrativos.jpg",
+    imagen: "/src/assets/Imagenes/VTU/Cards/Administrativos.webp",
   },
   
   {
@@ -395,7 +395,7 @@ export const planteles = [
       "Curso de lenguaje de señas mexicano para comunicación inclusiva",
     ciudad: "Caracol",
     url: "/Vivetuuniversidad/Actividades/Futbol",
-    imagen: "/src/assets/Imagenes/VTU/Cards/Teatro.PNG",
+    imagen: "/src/assets/Imagenes/VTU/Cards/Teatro.webp",
   },
 
   
@@ -407,7 +407,7 @@ export const planteles = [
       "Taller de dibujo y pintura con diferentes técnicas artísticas y estilos",
     ciudad: "Centro médico",
     url: "/Vivetuuniversidad/Actividades/Futbol",
-    imagen: "/src/assets/Imagenes/VTU/Cards/Dibujo.jpg",
+    imagen: "/src/assets/Imagenes/VTU/Cards/Dibujo.webp",
   },
   
   {
@@ -418,7 +418,7 @@ export const planteles = [
       "Taller de cocina básica, preparación de platillos tradicionales y técnicas culinarias",
     ciudad: "Tlaquepaque",
     url: "/Vivetuuniversidad/Actividades/Futbol",
-    imagen: "/src/assets/Imagenes/VTU/Cards/Gastronomia.jpg",
+    imagen: "/src/assets/Imagenes/VTU/Cards/Gastronomia.webp",
   },
   {
     id: "34",
@@ -438,7 +438,7 @@ export const planteles = [
       "Curso de dibujo artístico, técnicas de ilustración y desarrollo de habilidades creativas",
     ciudad: "Tlaquepaque",
     url: "/Vivetuuniversidad/Actividades/Futbol",
-    imagen: "/src/assets/Imagenes/VTU/Cards/Dibujo.jpg",
+    imagen: "/src/assets/Imagenes/VTU/Cards/Dibujo.webp",
   },
   
   {
@@ -449,7 +449,7 @@ export const planteles = [
       "Taller de cocina básica, preparación de platillos tradicionales y técnicas culinarias",
     ciudad: "Tonalá",
     url: "/Vivetuuniversidad/Actividades/Futbol",
-    imagen: "/src/assets/Imagenes/VTU/Cards/Gastronomia.jpg",
+    imagen: "/src/assets/Imagenes/VTU/Cards/Gastronomia.webp",
   },
   
   {
@@ -460,7 +460,7 @@ export const planteles = [
       "Curso de desarrollo de habilidades comunicativas, redacción y oratoria",
     ciudad: "Tonalá",
     url: "/Vivetuuniversidad/Actividades/Futbol",
-    imagen: "/src/assets/Imagenes/VTU/Cards/Futbol.png",
+    imagen: "/src/assets/Imagenes/VTU/Cards/Futbol.webp",
   },
  
  
@@ -472,7 +472,7 @@ export const planteles = [
       "Clases de danza jazz, técnicas de movimiento y expresión artística",
     ciudad: "Tonalá",
     url: "/Vivetuuniversidad/Actividades/Futbol",
-    imagen: "/src/assets/Imagenes/VTU/Cards/Futbol.png",
+    imagen: "/src/assets/Imagenes/VTU/Cards/Futbol.webp",
   },
 
   {
@@ -483,7 +483,7 @@ export const planteles = [
       "Clases de teatro y actuación, desarrollo de habilidades escénicas y expresión dramática",
     ciudad: "Tonalá",
     url: "/Vivetuuniversidad/Actividades/Futbol",
-    imagen: "/src/assets/Imagenes/VTU/Cards/Futbol.png",
+    imagen: "/src/assets/Imagenes/VTU/Cards/Futbol.webp",
   },
  
   
@@ -495,7 +495,7 @@ export const planteles = [
       "Curso básico de primeros auxilios y atención de emergencias médicas",
     ciudad: "Caracol",
     url: "/Vivetuuniversidad/Actividades/Futbol",
-    imagen: "/src/assets/Imagenes/VTU/Cards/Futbol.png",
+    imagen: "/src/assets/Imagenes/VTU/Cards/Futbol.webp",
   },
   
   {
@@ -506,7 +506,7 @@ export const planteles = [
       "Programa de responsabilidad social y proyectos de impacto comunitario",
     ciudad: "Caracol",
     url: "/Vivetuuniversidad/Actividades/Futbol",
-    imagen: "/src/assets/Imagenes/VTU/Cards/Futbol.png",
+    imagen: "/src/assets/Imagenes/VTU/Cards/Futbol.webp",
   },
   {
     id: "51",
@@ -516,7 +516,7 @@ export const planteles = [
       "Curso completo de primeros auxilios, RCP y manejo de situaciones de emergencia",
     ciudad: "Caracol",
     url: "/Vivetuuniversidad/Actividades/Futbol",
-    imagen: "/src/assets/Imagenes/VTU/Cards/Futbol.png",
+    imagen: "/src/assets/Imagenes/VTU/Cards/Futbol.webp",
   },
   {
     id: "52",
@@ -526,6 +526,6 @@ export const planteles = [
       "Curso de lenguaje de señas mexicano para comunicación inclusiva",
     ciudad: "Caracol",
     url: "/Vivetuuniversidad/Actividades/Futbol",
-    imagen: "/src/assets/Imagenes/VTU/Cards/Futbol.png",
+    imagen: "/src/assets/Imagenes/VTU/Cards/Futbol.webp",
   },
 ];

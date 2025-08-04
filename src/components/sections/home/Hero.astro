@@ -3,21 +3,56 @@
 import ComercialMp4 from "@/assets/Videos/Comercial.mp4";
 import Comercial_mobile from "@/assets/Videos/UNE_mobile.webm";
 import ComercialWebm from "@/assets/Videos/Comercial.webm";
-import { ArrowRight } from "@lucide/astro";
+// Poster images para carga instantánea
+import VideoPosterDesktop from "@/assets/Imagenes/Heros/video-poster.webp";
+import VideoPosterMobile from "@/assets/Imagenes/Heros/video-poster-mobile.webp";
+import { ArrowRight, CirclePause, CirclePlay } from "@lucide/astro";
 ---
+
+<!-- Resource Hints para preload crítico -->
+<link
+  rel="preload"
+  as="image"
+  href={VideoPosterDesktop.src}
+  media="(min-width: 768px)"
+/>
+<link
+  rel="preload"
+  as="image"
+  href={VideoPosterMobile.src}
+  media="(max-width: 767px)"
+/>
+<link
+  rel="preload"
+  as="video"
+  href={ComercialWebm.src}
+  media="(min-width: 768px)"
+/>
+<link
+  rel="preload"
+  as="video"
+  href={Comercial_mobile.src}
+  media="(max-width: 767px)"
+/>
 
 <div class="relative w-full">
   <div id="main-slider" class="splide relative">
     <div class="splide__track">
       <ul class="splide__list">
         <li class="splide__slide">
-          <div class="relative w-full overflow-hidden h-[650px]">
+          <div
+            class="relative w-full overflow-hidden h-[650px]"
+            style="contain: layout style paint;"
+          >
             <video
               id="mainVideo"
               autoplay
               muted
               playsinline
-              class="w-full h-full object-cover"
+              preload="metadata"
+              class="w-full h-full object-cover will-change-transform"
+              poster={VideoPosterDesktop.src}
+              style="transform: translateZ(0);"
             >
               <source
                 src={ComercialWebm}
@@ -31,14 +66,21 @@ import { ArrowRight } from "@lucide/astro";
               />
               <source
                 src={Comercial_mobile}
-                type="video/mp4"
+                type="video/webm"
                 media="(max-width: 767px)"
               />
               Tu navegador no soporta video HTML5.
             </video>
 
+            <!-- SEO H1 semánticamente correcto pero visualmente oculto -->
+            <h1 class="sr-only">
+              Universidad UNE - 30 años creyendo en ti -Universidad de
+              especialidades
+            </h1>
+
             <div
               class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent pointer-events-none"
+              style="will-change: opacity;"
             >
             </div>
           </div>
@@ -47,6 +89,7 @@ import { ArrowRight } from "@lucide/astro";
         <li class="splide__slide">
           <div
             class="oferta-bg relative w-full overflow-hidden h-[650px] bg-cover bg-center bg-no-repeat flex flex-col items-center justify-center"
+            style="contain: layout style paint;"
           >
             <div class="text-center">
               <h2
@@ -62,8 +105,8 @@ import { ArrowRight } from "@lucide/astro";
               </p>
             </div>
             <a
-              class="bg-rojo-une py-4 px-8 rounded-md mt-12 text-white"
-              href="acerca/oferta-academica"
+              class="bg-rojo-une py-4 px-8 rounded-md mt-12 text-white transition-transform hover:scale-105"
+              href="/acerca/oferta-academica"
               >Explorar oferta
             </a>
             <div
@@ -76,6 +119,7 @@ import { ArrowRight } from "@lucide/astro";
         <li class="splide__slide">
           <div
             class="historia-bg w-full overflow-hidden h-[650px] bg-cover bg-center bg-no-repeat flex items-center justify-center"
+            style="contain: layout style paint;"
           >
             <div class="text-center flex flex-col items-center">
               <h2
@@ -89,8 +133,8 @@ import { ArrowRight } from "@lucide/astro";
                 30 años construyendo futuro, formando profesionales exitosos
               </p>
               <a
-                class="bg-rojo-une py-4 px-8 rounded-md mt-24 text-white"
-                href="acerca/historia"
+                class="bg-rojo-une py-4 px-8 rounded-md mt-24 text-white transition-transform hover:scale-105"
+                href="/acerca/historia"
                 >Conocer más de UNE
               </a>
             </div>
@@ -104,6 +148,7 @@ import { ArrowRight } from "@lucide/astro";
         <li class="splide__slide">
           <div
             class="becas-bg relative w-full overflow-hidden h-[650px] bg-cover bg-center bg-no-repeat flex items-center justify-center"
+            style="contain: layout style paint;"
           >
             <div class="text-center flex flex-col items-center">
               <h2
@@ -118,8 +163,8 @@ import { ArrowRight } from "@lucide/astro";
                 académicas
               </p>
               <a
-                class="bg-rojo-une py-4 px-8 rounded-md mt-24 text-white"
-                href="acerca/Apoyos"
+                class="bg-rojo-une py-4 px-8 rounded-md mt-24 text-white transition-transform hover:scale-105"
+                href="/acerca/Apoyos"
                 >Descubrir apoyos
               </a>
             </div>
@@ -140,55 +185,40 @@ import { ArrowRight } from "@lucide/astro";
       <div class="flex items-end gap-4 w-full sm:w-auto">
         <button
           id="playPauseBtn"
-          class="bg-black/50 hover:bg-black/70 text-white p-3 rounded-full transition-all duration-300 backdrop-blur-sm shrink-0"
+          class="bg-black/50 hover:bg-black/70 text-white p-3 rounded-full transition-all duration-300 backdrop-blur-sm shrink-0 will-change-transform"
           aria-label="Pausar"
+          style="transform: translateZ(0);"
         >
-          <svg
-            id="pauseIcon"
-            width="20"
-            height="20"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          >
-            <rect x="6" y="4" width="4" height="16"></rect>
-            <rect x="14" y="4" width="4" height="16"></rect>
-          </svg>
-          <svg
-            id="playIcon"
-            width="20"
-            height="20"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            class="hidden"
-          >
-            <polygon points="5,3 19,12 5,21"></polygon>
-          </svg>
+          <CirclePause id="pauseIcon" />
+          <CirclePlay id="playIcon" />
         </button>
       </div>
 
       <div class="flex items-end w-full gap-2 sm:gap-4 lg:gap-6">
         <div
-          class="progress-line flex-shrink-0 flex-grow w-[16%] data-[active='true']:w-[50%] transition-all duration-300"
+          class="progress-line flex-shrink-0 flex-grow w-[16%] data-[active='true']:w-[50%] transition-all duration-300 will-change-transform"
           data-slide-index="0"
+          style="transform: translateZ(0);"
         >
+          <!-- Solo "30 AÑOS" en mobile y tablet -->
           <h3
-            class="text-white text-base-custom md:text-lg-custom font-semibold tracking-wide text-center sm:text-left hidden md:block whitespace-nowrap"
+            class="text-white text-base-custom font-semibold tracking-wide text-center sm:text-left lg:hidden whitespace-nowrap"
+          >
+            30 AÑOS
+          </h3>
+
+          <!-- Texto completo en desktop -->
+          <h3
+            class="text-white text-lg-custom font-semibold tracking-wide text-center sm:text-left hidden lg:block whitespace-nowrap"
           >
             30 AÑOS CREYENDO EN TI
           </h3>
         </div>
 
         <div
-          class="progress-line flex-shrink-0 flex-grow w-[16%] data-[active='true']:w-[50%] transition-all duration-300"
+          class="progress-line flex-shrink-0 flex-grow w-[16%] data-[active='true']:w-[50%] transition-all duration-300 will-change-transform"
           data-slide-index="1"
+          style="transform: translateZ(0);"
         >
           <h3
             class="text-white text-base-custom md:text-lg-custom font-semibold tracking-wide text-center sm:text-left hidden md:block whitespace-nowrap"
@@ -198,8 +228,9 @@ import { ArrowRight } from "@lucide/astro";
         </div>
 
         <div
-          class="progress-line flex-shrink-0 flex-grow w-[16%] data-[active='true']:w-[50%] transition-all duration-300"
+          class="progress-line flex-shrink-0 flex-grow w-[16%] data-[active='true']:w-[50%] transition-all duration-300 will-change-transform"
           data-slide-index="2"
+          style="transform: translateZ(0);"
         >
           <h3
             class="text-white text-base-custom md:text-lg-custom font-semibold tracking-wide text-center sm:text-left hidden md:block whitespace-nowrap"
@@ -209,8 +240,9 @@ import { ArrowRight } from "@lucide/astro";
         </div>
 
         <div
-          class="progress-line flex-shrink-0 flex-grow w-[16%] data-[active='true']:w-[50%] transition-all duration-300"
+          class="progress-line flex-shrink-0 flex-grow w-[16%] data-[active='true']:w-[50%] transition-all duration-300 will-change-transform"
           data-slide-index="3"
+          style="transform: translateZ(0);"
         >
           <h3
             class="text-white text-base-custom md:text-lg-custom font-semibold tracking-wide text-center sm:text-left hidden md:block whitespace-nowrap"
@@ -231,13 +263,13 @@ import { ArrowRight } from "@lucide/astro";
     Educación que <span class="text-rojo-une">transforma</span>
     <span class="hidden md:inline">vidas</span>
     <span class="block md:hidden">vidas</span>
-    -hola
   </h2>
 
   <a
     class="flex font-normal md:font-bold text-xl md:text-2xl uppercase h-14 bg-rojo-une text-white w-auto px-8 md:px-12 py-2.5 gap-8 md:gap-12 rounded-2xl
-          group transition-colors duration-300 ease-in-out justify-center md:justify-between"
+          group transition-all duration-300 ease-in-out justify-center md:justify-between hover:scale-105 will-change-transform"
     href="/contacto/solicitarinformacion"
+    style="transform: translateZ(0);"
   >
     contáctanos
     <span
@@ -250,48 +282,69 @@ import { ArrowRight } from "@lucide/astro";
   </a>
 </div>
 
+<!-- Structured Data para SEO -->
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "EducationalOrganization",
+    "name": "Universidad Nueva Época",
+    "alternateName": "UNE",
+    "description": "30 años creyendo en ti. Universidad con programas educativos de calidad, becas y apoyos educativos.",
+    "url": "https://une.edu.mx",
+    "foundingDate": "1994",
+    "slogan": "30 años creyendo en ti",
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Oferta Académica",
+      "description": "Programas educativos diseñados para tu éxito profesional"
+    }
+  }
+</script>
+
 <style>
-  /* Para Vite */
+  /* Critical CSS inline - solo estilos del hero */
   .oferta-bg {
-    background-image: url("/src/assets/Imagenes/Heros/Admision.jpg");
+    background-image: url("/src/assets/Imagenes/Heros/Admision.webp");
   }
 
   @media (max-width: 767px) {
     .oferta-bg {
-      background-image: url("/src/assets/Imagenes/Heros/Admision_mobile2.jpg");
+      background-image: url("/src/assets/Imagenes/Heros/Admision_mobile2.webp");
     }
   }
 
   .historia-bg {
-    background-image: url("/src/assets/Imagenes/Heros/historia.jpg");
+    background-image: url("/src/assets/Imagenes/Heros/historia.webp");
   }
 
   @media (max-width: 767px) {
     .historia-bg {
-      background-image: url("/src/assets/Imagenes/Heros/Admision_mobile.jpg");
+      background-image: url("/src/assets/Imagenes/Heros/Admision_mobile.webp");
     }
   }
 
   .becas-bg {
-  background-image: url('/src/assets/Imagenes/Heros/Becas.jpg');
-}
-
-@media (max-width: 767px) {
-  .becas-bg {
-    background-image: url('/src/assets/Imagenes/Heros/becas_mobile.jpg');
+    background-image: url("/src/assets/Imagenes/Heros/Becas.webp");
   }
-}
 
-  /* Estilos base para Splide */
+  @media (max-width: 767px) {
+    .becas-bg {
+      background-image: url("/src/assets/Imagenes/Heros/becas_mobile.webp");
+    }
+  }
+
+  /* Optimized Splide base styles */
   .splide {
     position: relative;
     width: 100%;
+    contain: layout style paint;
   }
 
   .splide__track {
     position: relative;
     overflow: hidden;
     border-radius: 0.5rem;
+    will-change: transform;
   }
 
   .splide__list {
@@ -300,23 +353,26 @@ import { ArrowRight } from "@lucide/astro";
     list-style: none;
     margin: 0;
     padding: 0;
-    transition: transform 0.6s ease;
+    transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    will-change: transform;
   }
 
   .splide__slide {
     flex-shrink: 0;
     width: 100%;
     opacity: 1;
+    contain: layout style paint;
   }
 
-  /* Base styles for the progress line */
+  /* Optimized progress line with transform instead of width */
   .progress-line {
     position: relative;
-    overflow: visible; /* Changed from hidden to visible */
+    overflow: visible;
     cursor: pointer;
-    /* white-space: nowrap; // Removed this to allow text wrapping */
     padding-bottom: 8px;
     transition: opacity 0.3s ease;
+    will-change: transform, opacity;
+    contain: layout style paint;
   }
 
   /* The gray background line */
@@ -330,42 +386,45 @@ import { ArrowRight } from "@lucide/astro";
     background: rgba(255, 255, 255, 0.3);
     z-index: 1;
     border-radius: 1px;
+    will-change: transform;
   }
 
-  /* The active fill line */
+  /* The active fill line - usando transform en lugar de width */
   .progress-line::after {
     content: "";
     position: absolute;
     bottom: 0px;
     left: 0%;
-    width: 0%;
+    width: 100%;
     height: 2px;
     background: rgba(255, 255, 255, 1);
     z-index: 2;
+    transform: scaleX(0);
     transform-origin: left center;
-    transition: width 0.3s ease-out;
+    transition: transform 0.3s ease-out;
     border-radius: 1px;
+    will-change: transform;
   }
 
   /* Active state for current slide */
   .progress-line.is-active::after {
-    width: 0%;
-    animation: progressFill var(--slide-duration) linear forwards;
+    transform: scaleX(0);
+    animation: progressFillTransform var(--slide-duration) linear forwards;
   }
 
   /* Completed state for previous slides */
   .progress-line.is-completed::after {
-    width: 100%;
+    transform: scaleX(1);
     animation: none;
   }
 
-  /* Animation for the progress bar fill */
-  @keyframes progressFill {
+  /* Animation usando transform para mejor performance */
+  @keyframes progressFillTransform {
     from {
-      width: 0%;
+      transform: scaleX(0);
     }
     to {
-      width: 100%;
+      transform: scaleX(1);
     }
   }
 
@@ -391,25 +450,64 @@ import { ArrowRight } from "@lucide/astro";
     animation-play-state: paused;
   }
 
-  /* Hover effect for navigation */
+  /* Hover effect usando transform */
   .progress-line:hover {
     opacity: 1;
-    transform: translateY(-1px);
+    transform: translateY(-1px) translateZ(0);
     transition: all 0.2s ease;
   }
 
-  /* Responsive adjustments (can be removed if handled purely by Tailwind) */
+  /* Screen reader only class for accessibility */
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  /* Prefers-reduced-motion support */
+  @media (prefers-reduced-motion: reduce) {
+    .splide__list,
+    .progress-line,
+    .progress-line::after,
+    .progress-line:hover,
+    [class*="transition-"],
+    [class*="hover:scale-"] {
+      transition: none !important;
+      animation: none !important;
+      transform: none !important;
+    }
+
+    .will-change-transform {
+      will-change: auto !important;
+    }
+  }
+
+  /* Performance optimizations for mobile */
   @media (max-width: 650px) {
     .progress-line::before,
     .progress-line::after {
       width: 100%;
     }
+
+    /* Reduce animations on mobile for better performance */
+    .splide__list {
+      transition: transform 0.4s ease;
+    }
   }
 </style>
-<script>
-  import { Splide } from "@splidejs/splide";
 
-  // DOM elements
+<script>
+  // Lazy load Splide for better initial performance
+  let splideLoaded = false;
+  let splideInstance = null;
+
+  // Essential variables
   const mainVideo = document.getElementById("mainVideo");
   const playPauseBtn = document.getElementById("playPauseBtn");
   const playIcon = document.getElementById("playIcon");
@@ -417,12 +515,13 @@ import { ArrowRight } from "@lucide/astro";
   const progressLines = document.querySelectorAll(".progress-line");
   const mainSliderElement = document.getElementById("main-slider");
 
-  let splideInstance = null;
   let isVideoPlaying = true;
   let videoProgressInterval = null;
   let slideProgressInterval = null;
   let isPaused = false;
-  let autoplayTimeout = null; // Custom autoplay mechanism
+  let autoplayTimeout = null;
+  let rafId = null; // RequestAnimationFrame ID
+  let debounceTimer = null; // Debouncing timer
 
   // Durations for each slide in milliseconds
   const slideDurations = [
@@ -432,16 +531,62 @@ import { ArrowRight } from "@lucide/astro";
     10000, // 10 seconds for Apoyos Educativos
   ];
 
-  // Custom autoplay functions
+  // Intersection Observer for pausing when not visible
+  let heroObserver = null;
+  let isHeroVisible = true;
+
+  function initializeIntersectionObserver() {
+    if ("IntersectionObserver" in window) {
+      heroObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            isHeroVisible = entry.isIntersecting;
+            if (!isHeroVisible && !isPaused) {
+              // Pause when hero is not visible
+              pauseAutoplay();
+              if (mainVideo && !mainVideo.paused) {
+                mainVideo.pause();
+              }
+            } else if (isHeroVisible && !isPaused) {
+              // Resume when hero is visible
+              resumeAutoplay();
+              if (mainVideo && splideInstance && splideInstance.index === 0) {
+                mainVideo
+                  .play()
+                  .catch((e) => console.log("Video play error:", e));
+              }
+            }
+          });
+        },
+        { threshold: 0.1 }
+      );
+
+      heroObserver.observe(mainSliderElement);
+    }
+  }
+
+  // Debounced function for performance
+  function debounce(func, wait) {
+    return function executedFunction(...args) {
+      const later = () => {
+        clearTimeout(debounceTimer);
+        func(...args);
+      };
+      clearTimeout(debounceTimer);
+      debounceTimer = setTimeout(later, wait);
+    };
+  }
+
+  // Custom autoplay functions with RAF optimization
   function startAutoplay(currentIndex) {
     clearAutoplay();
 
-    if (isPaused) return;
+    if (isPaused || !isHeroVisible) return;
 
     const duration = slideDurations[currentIndex];
 
     autoplayTimeout = setTimeout(() => {
-      if (!isPaused && splideInstance) {
+      if (!isPaused && splideInstance && isHeroVisible) {
         const nextIndex = (currentIndex + 1) % slideDurations.length;
         splideInstance.go(nextIndex);
       }
@@ -453,6 +598,10 @@ import { ArrowRight } from "@lucide/astro";
       clearTimeout(autoplayTimeout);
       autoplayTimeout = null;
     }
+    if (rafId) {
+      cancelAnimationFrame(rafId);
+      rafId = null;
+    }
   }
 
   function pauseAutoplay() {
@@ -460,13 +609,26 @@ import { ArrowRight } from "@lucide/astro";
   }
 
   function resumeAutoplay() {
-    if (splideInstance && !isPaused) {
+    if (splideInstance && !isPaused && isHeroVisible) {
       startAutoplay(splideInstance.index);
     }
   }
 
+  // Lazy load Splide
+  async function loadSplide() {
+    if (splideLoaded) return;
+
+    try {
+      const { Splide } = await import("@splidejs/splide");
+      splideLoaded = true;
+      initializeSplide(Splide);
+    } catch (error) {
+      console.error("Error loading Splide:", error);
+    }
+  }
+
   // Function to initialize Splide
-  function initializeSplide() {
+  function initializeSplide(Splide) {
     if (!mainSliderElement) {
       console.error("Splide container not found.");
       return;
@@ -483,97 +645,106 @@ import { ArrowRight } from "@lucide/astro";
       pauseOnHover: false,
       pauseOnFocus: false,
       rewind: true,
+      lazyLoad: "nearby", // Lazy load nearby slides
+      preloadPages: 1,
     });
 
     splideInstance.mount();
 
-    // Splide Event Listeners
-    splideInstance.on("moved", (newIndex) => {
-      handleSlideChange(newIndex);
-    });
+    // Splide Event Listeners with debouncing
+    splideInstance.on(
+      "moved",
+      debounce((newIndex) => {
+        handleSlideChange(newIndex);
+      }, 100)
+    );
 
     // Initialize first slide
     handleSlideChange(splideInstance.index);
   }
 
-  // Handle slide changes
+  // Handle slide changes with RAF optimization
   function handleSlideChange(newIndex) {
-    console.log(`Slide changed to: ${newIndex}`);
+    // Use RAF for smooth updates
+    rafId = requestAnimationFrame(() => {
+      // Clear any existing intervals and timeouts
+      clearInterval(videoProgressInterval);
+      clearInterval(slideProgressInterval);
+      clearAutoplay();
 
-    // Clear any existing intervals and timeouts
-    clearInterval(videoProgressInterval);
-    clearInterval(slideProgressInterval);
-    clearAutoplay();
+      updateProgressBars(newIndex);
 
-    updateProgressBars(newIndex);
-
-    if (playPauseBtn) {
-      if (newIndex === 0) {
-        playPauseBtn.style.display = "block"; // Show button for video slide
-      } else {
-        playPauseBtn.style.display = "none"; // Hide button for other slides
-      }
-    }
-
-    if (newIndex === 0) {
-      // Video slide
-      if (mainVideo) {
-        mainVideo.currentTime = 0;
-        if (!isPaused) {
-          mainVideo.play().catch((e) => console.log("Video play error:", e));
-          startVideoProgress();
-          updatePlayPauseButton(true);
+      if (playPauseBtn) {
+        if (newIndex === 0) {
+          playPauseBtn.style.display = "block"; // Show button for video slide
         } else {
-          mainVideo.pause();
-          updatePlayPauseButton(false);
+          playPauseBtn.style.display = "none"; // Hide button for other slides
         }
       }
 
-      // Start custom autoplay for video
-      if (!isPaused) {
-        startAutoplay(0);
-      }
-    } else {
-      // Non-video slide
-      if (mainVideo && !mainVideo.paused) {
-        mainVideo.pause();
-      }
+      if (newIndex === 0) {
+        // Video slide
+        if (mainVideo) {
+          mainVideo.currentTime = 0;
+          if (!isPaused && isHeroVisible) {
+            mainVideo.play().catch((e) => console.log("Video play error:", e));
+            startVideoProgress();
+            updatePlayPauseButton(true);
+          } else {
+            mainVideo.pause();
+            updatePlayPauseButton(false);
+          }
+        }
 
-      if (!isPaused) {
-        startSlideProgress(newIndex);
-        startAutoplay(newIndex);
+        // Start custom autoplay for video
+        if (!isPaused && isHeroVisible) {
+          startAutoplay(0);
+        }
       } else {
-        startSlideProgress(newIndex); // If paused, only initialize progress bar
+        // Non-video slide
+        if (mainVideo && !mainVideo.paused) {
+          mainVideo.pause();
+        }
+
+        if (!isPaused && isHeroVisible) {
+          startSlideProgress(newIndex);
+          startAutoplay(newIndex);
+        } else {
+          startSlideProgress(newIndex); // If paused, only initialize progress bar
+        }
       }
-    }
+    });
   }
 
-  // Update visual state of progress bars
+  // Update visual state of progress bars with better performance
   function updateProgressBars(currentSlideIndex) {
-    progressLines.forEach((line, index) => {
-      line.classList.remove("is-active", "is-completed", "is-paused");
-      line.style.setProperty("--slide-duration", "0s");
+    // Use RAF for smooth visual updates
+    requestAnimationFrame(() => {
+      progressLines.forEach((line, index) => {
+        line.classList.remove("is-active", "is-completed", "is-paused");
+        line.style.setProperty("--slide-duration", "0s");
 
-      if (index < currentSlideIndex) {
-        line.classList.add("is-completed");
-      } else if (index === currentSlideIndex) {
-        line.classList.add("is-active");
+        if (index < currentSlideIndex) {
+          line.classList.add("is-completed");
+        } else if (index === currentSlideIndex) {
+          line.classList.add("is-active");
 
-        if (isPaused) {
-          line.classList.add("is-paused");
+          if (isPaused) {
+            line.classList.add("is-paused");
+          }
+
+          let duration = slideDurations[index];
+
+          if (index === 0) {
+            // Always use fixed value for slide 0
+            duration = slideDurations[0];
+          }
+
+          if (duration) {
+            line.style.setProperty("--slide-duration", `${duration / 1000}s`);
+          }
         }
-
-        let duration = slideDurations[index];
-
-        if (index === 0) {
-          // Always use fixed value for slide 0
-          duration = slideDurations[0];
-        }
-
-        if (duration) {
-          line.style.setProperty("--slide-duration", `${duration / 1000}s`);
-        }
-      }
+      });
     });
   }
 
@@ -586,15 +757,20 @@ import { ArrowRight } from "@lucide/astro";
 
     if (!duration || !progressLine) return;
 
-    progressLine.style.setProperty("--slide-duration", `${duration / 1000}s`);
-    progressLine.classList.remove("is-active");
-    void progressLine.offsetWidth;
-    progressLine.classList.add("is-active");
+    // Use RAF for smooth animation start
+    requestAnimationFrame(() => {
+      progressLine.style.setProperty("--slide-duration", `${duration / 1000}s`);
+      progressLine.classList.remove("is-active");
+      void progressLine.offsetWidth;
+      progressLine.classList.add("is-active");
+    });
 
     slideProgressInterval = setTimeout(() => {
-      if (!isPaused && splideInstance) {
-        progressLine.classList.remove("is-active");
-        progressLine.classList.add("is-completed");
+      if (!isPaused && splideInstance && isHeroVisible) {
+        requestAnimationFrame(() => {
+          progressLine.classList.remove("is-active");
+          progressLine.classList.add("is-completed");
+        });
         // The autoplay mechanism will handle the transition
       }
     }, duration);
@@ -613,15 +789,17 @@ import { ArrowRight } from "@lucide/astro";
       }
       pauseAutoplay();
 
-      progressLines.forEach((line) => {
-        if (line.classList.contains("is-active")) {
-          line.classList.add("is-paused");
-        }
+      requestAnimationFrame(() => {
+        progressLines.forEach((line) => {
+          if (line.classList.contains("is-active")) {
+            line.classList.add("is-paused");
+          }
+        });
       });
 
       updatePlayPauseButton(false);
     } else {
-      if (splideInstance.index === 0 && mainVideo) {
+      if (splideInstance.index === 0 && mainVideo && isHeroVisible) {
         mainVideo.play().catch((e) => console.log("Video play error:", e));
         startVideoProgress();
       } else {
@@ -629,8 +807,10 @@ import { ArrowRight } from "@lucide/astro";
       }
       resumeAutoplay();
 
-      progressLines.forEach((line) => {
-        line.classList.remove("is-paused");
+      requestAnimationFrame(() => {
+        progressLines.forEach((line) => {
+          line.classList.remove("is-paused");
+        });
       });
 
       updatePlayPauseButton(true);
@@ -640,18 +820,20 @@ import { ArrowRight } from "@lucide/astro";
   // Helper to update play/pause button icon
   function updatePlayPauseButton(playing) {
     isVideoPlaying = playing;
-    if (playing) {
-      playIcon.classList.add("hidden");
-      pauseIcon.classList.remove("hidden");
-      playPauseBtn.setAttribute("aria-label", "Pausar");
-    } else {
-      playIcon.classList.remove("hidden");
-      pauseIcon.classList.add("hidden");
-      playPauseBtn.setAttribute("aria-label", "Reproducir");
-    }
+    requestAnimationFrame(() => {
+      if (playing) {
+        playIcon.classList.add("hidden");
+        pauseIcon.classList.remove("hidden");
+        playPauseBtn.setAttribute("aria-label", "Pausar");
+      } else {
+        playIcon.classList.remove("hidden");
+        pauseIcon.classList.add("hidden");
+        playPauseBtn.setAttribute("aria-label", "Reproducir");
+      }
+    });
   }
 
-  // Start progress bar animation for the video
+  // Start progress bar animation for the video with RAF
   function startVideoProgress() {
     clearInterval(videoProgressInterval);
 
@@ -670,14 +852,16 @@ import { ArrowRight } from "@lucide/astro";
 
     const firstProgressLine = progressLines[0];
     if (firstProgressLine) {
-      firstProgressLine.style.setProperty(
-        "--slide-duration",
-        `${remainingTimeMs / 1000}s`,
-      );
+      requestAnimationFrame(() => {
+        firstProgressLine.style.setProperty(
+          "--slide-duration",
+          `${remainingTimeMs / 1000}s`
+        );
 
-      firstProgressLine.classList.remove("is-active");
-      void firstProgressLine.offsetWidth;
-      firstProgressLine.classList.add("is-active");
+        firstProgressLine.classList.remove("is-active");
+        void firstProgressLine.offsetWidth;
+        firstProgressLine.classList.add("is-active");
+      });
     }
 
     videoProgressInterval = setInterval(() => {
@@ -687,16 +871,19 @@ import { ArrowRight } from "@lucide/astro";
         mainVideo.paused ||
         mainVideo.ended ||
         isPaused ||
+        !isHeroVisible ||
         mainVideo.currentTime * 1000 >= videoDurationMs
       ) {
         clearInterval(videoProgressInterval);
         const completedLine = progressLines[0];
         if (completedLine) {
-          completedLine.classList.remove("is-active");
-          completedLine.classList.add("is-completed");
+          requestAnimationFrame(() => {
+            completedLine.classList.remove("is-active");
+            completedLine.classList.add("is-completed");
+          });
         }
 
-        if (splideInstance && !isPaused) {
+        if (splideInstance && !isPaused && isHeroVisible) {
           setTimeout(() => {
             splideInstance.go("+1");
           }, 300);
@@ -706,16 +893,17 @@ import { ArrowRight } from "@lucide/astro";
     }, 100);
   }
 
-  // Event Listeners
+  // Event Listeners with debouncing
   if (playPauseBtn) {
-    playPauseBtn.addEventListener("click", togglePlayPause);
+    playPauseBtn.addEventListener("click", debounce(togglePlayPause, 200));
   }
 
   if (mainVideo) {
+    // Optimized video event listeners
     mainVideo.addEventListener("loadedmetadata", () => {
       // Start custom autoplay for video when metadata is loaded
       if (splideInstance && splideInstance.index === 0) {
-        if (!isPaused) {
+        if (!isPaused && isHeroVisible) {
           startAutoplay(0);
           startVideoProgress();
         }
@@ -724,14 +912,19 @@ import { ArrowRight } from "@lucide/astro";
     });
 
     mainVideo.addEventListener("play", () => {
-      if (!isPaused && splideInstance && splideInstance.index === 0) {
+      if (
+        !isPaused &&
+        splideInstance &&
+        splideInstance.index === 0 &&
+        isHeroVisible
+      ) {
         updatePlayPauseButton(true);
         startVideoProgress();
       }
     });
 
     mainVideo.addEventListener("pause", () => {
-      if (isPaused) {
+      if (isPaused || !isHeroVisible) {
         updatePlayPauseButton(false);
         clearInterval(videoProgressInterval);
       }
@@ -742,21 +935,112 @@ import { ArrowRight } from "@lucide/astro";
       updatePlayPauseButton(false);
       // The autoplay mechanism will handle the transition
     });
-  }
 
-  // Click handler for progress bars to navigate
-  progressLines.forEach((line) => {
-    line.addEventListener("click", (e) => {
-      e.preventDefault();
-      const slideIndex = parseInt(line.dataset.slideIndex, 10);
-      if (splideInstance && !isNaN(slideIndex)) {
-        splideInstance.go(slideIndex);
+    // Progressive video loading
+    mainVideo.addEventListener("canplay", () => {
+      // Video can start playing, preload more if needed
+      if (mainVideo.preload !== "auto") {
+        mainVideo.preload = "auto";
       }
     });
+  }
+
+  // Click handler for progress bars to navigate with debouncing
+  progressLines.forEach((line) => {
+    line.addEventListener(
+      "click",
+      debounce((e) => {
+        e.preventDefault();
+        const slideIndex = parseInt(line.dataset.slideIndex, 10);
+        if (splideInstance && !isNaN(slideIndex)) {
+          splideInstance.go(slideIndex);
+        }
+      }, 200)
+    );
   });
 
-  // Initialize when DOM is ready
-  document.addEventListener("DOMContentLoaded", () => {
-    initializeSplide();
+  // Touch event optimization for mobile
+  if ("ontouchstart" in window) {
+    progressLines.forEach((line) => {
+      line.addEventListener(
+        "touchstart",
+        (e) => {
+          e.preventDefault();
+          line.style.transform = "translateY(-2px) translateZ(0)";
+        },
+        { passive: false }
+      );
+
+      line.addEventListener(
+        "touchend",
+        (e) => {
+          e.preventDefault();
+          line.style.transform = "translateY(0) translateZ(0)";
+          const slideIndex = parseInt(line.dataset.slideIndex, 10);
+          if (splideInstance && !isNaN(slideIndex)) {
+            splideInstance.go(slideIndex);
+          }
+        },
+        { passive: false }
+      );
+    });
+  }
+
+  // Optimized initialization with progressive enhancement
+  function initializeHero() {
+    // Initialize intersection observer first
+    initializeIntersectionObserver();
+
+    // Load Splide after initial render
+    requestAnimationFrame(() => {
+      loadSplide();
+    });
+  }
+
+  // Initialize when DOM is ready with performance optimization
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initializeHero);
+  } else {
+    // DOM is already loaded
+    initializeHero();
+  }
+
+  // Cleanup function for better memory management
+  function cleanup() {
+    clearAutoplay();
+    clearInterval(videoProgressInterval);
+    clearInterval(slideProgressInterval);
+
+    if (heroObserver) {
+      heroObserver.disconnect();
+    }
+
+    if (splideInstance) {
+      splideInstance.destroy();
+    }
+  }
+
+  // Cleanup on page unload
+  window.addEventListener("beforeunload", cleanup);
+
+  // Handle visibility change for better performance
+  document.addEventListener("visibilitychange", () => {
+    if (document.hidden) {
+      // Page is hidden, pause everything
+      if (!isPaused) {
+        pauseAutoplay();
+        if (mainVideo && !mainVideo.paused) {
+          mainVideo.pause();
+        }
+      }
+    } else {
+      // Page is visible, resume if not manually paused
+      if (!isPaused && isHeroVisible) {
+        resumeAutoplay();
+        if (mainVideo && splideInstance && splideInstance.index === 0) {
+          mainVideo.play().catch((e) => console.log("Video play error:", e));
+        }
+      }
+    }
   });
 </script>

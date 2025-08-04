@@ -1,41 +1,112 @@
 ---
-import { CircleArrowRight } from "@lucide/astro";
+import { 
+  CircleArrowRight,
+  Stethoscope,
+  Zap,
+  Heart,
+  Cog,
+  Monitor,
+  Users,
+  BookOpen,
+  Briefcase,
+  Camera,
+  Palette,
+  Music,
+  Car,
+  Building,
+  Calculator,
+  Globe,
+  Lightbulb,
+  Shield,
+  Truck,
+  Wrench,
+  GraduationCap,
+  PenTool,
+  Scale,
+  UserCheck,
+  Search
+} from "@lucide/astro";
 
-export interface Carrera {
-  id: string;
-  titulo: string;
-  descripcion: string;
-  duracion: string;
-  modalidad: string;
-  inicio: string;
-  icono: string; // Nombre del icono o clase CSS
-  buttonText: string;
+// Interfaz para los datos que vienen del objeto programasEducativos
+export interface ProgramaEducativo {
+  programa: string;
+  nivel: string;
+  area: string;
+  plantel: string;
+  modalidades: Array<{
+    modalidad: string;
+    incorporacion: string;
+    imagen?: string;
+    url: string;
+    descripcion: string;
+  }>;
 }
 
 export interface Props {
   titulo?: string;
   descripcion?: string;
-  carreras: Carrera[];
+  programas: ProgramaEducativo[];
+  itemsPerPage?: number;
+  plantel?: string;
 }
 
 const { 
   titulo = "Nuestras Carreras",
   descripcion = "Estudia una carrera con visión de futuro, convierte tus ideas en soluciones reales. Ya sea en ingeniería, tecnología, salud o ciencia, aquí encontrarás las herramientas para transformar el mundo",
-  carreras 
+  programas,
+  itemsPerPage = 9,
+  plantel = ""
 } = Astro.props;
 
-// Función para obtener el icono correspondiente
-const getIconClass = (icono: string) => {
-  const iconMap: Record<string, string> = {
-    'dental': '🦷',
-    'deportes': '⚽',
-    'enfermeria': '🏥',
-    'ingenieria': '⚙️',
-    'medicina': '🩺',
-    'tecnologia': '💻'
+// Mapeo de programas a iconos
+const getIconComponent = (programa: string, area: string) => {
+  const iconMap: Record<string, any> = {
+    // Por programa específico
+    'Arquitectura': Building,
+    'Diseño Gráfico': Palette,
+    'Ciencias de la Comunicación': Monitor,
+    'Abogado': Scale,
+    'Derecho': Scale,
+    'Ciencias de la Educación': GraduationCap,
+    'Criminología y Criminalística': Search,
+    'Trabajo Social': Users,
+    
+    // Por área como fallback
+    'Arquitectura y diseño': Building,
+    'Ciencias Sociales y Humanidades': Users,
+    'Ciencias de la salud': Stethoscope,
+    'Económico Administrativa': Briefcase,
+    'Ciencias exactas e ingenierías': Cog,
+    'Gastronomía': Heart,
   };
-  return iconMap[icono] || '📚';
+  
+  return iconMap[programa] || iconMap[area] || BookOpen;
 };
+
+// Función para obtener modalidades únicas
+const getModalidadesTexto = (modalidades: any[]) => {
+  const modalidadesUnicas = [...new Set(modalidades.map(m => m.modalidad))];
+  return modalidadesUnicas.join(', ');
+};
+
+// Función para obtener incorporaciones únicas
+const getIncorporacionesTexto = (modalidades: any[]) => {
+  const incorporacionesUnicas = [...new Set(modalidades.map(m => m.incorporacion))];
+  return incorporacionesUnicas.join(', ');
+};
+
+// Función para obtener la URL principal del programa (primera modalidad)
+const getProgramaUrl = (modalidades: any[]) => {
+  return modalidades[0]?.url || '#';
+};
+
+// Función para verificar si todas las modalidades tienen la misma URL
+const tieneMismaUrl = (modalidades: any[]) => {
+  const urls = modalidades.map(m => m.url);
+  return new Set(urls).size === 1;
+};
+
+const totalPages = Math.ceil(programas.length / itemsPerPage);
 ---
 
 <section class="bg-white py-16 px-6 lg:px-12">
@@ -44,39 +115,213 @@ const getIconClass = (icono: string) => {
     <div class="mb-12">
       <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
         {titulo}
+        {plantel && <span class="text-red-500"> - {plantel}</span>}
       </h2>
-      <p class="text-gray-600 text-lg max-w-2xl">
+      <p class="text-gray-600 text-lg max-w-2xl mb-4">
         {descripcion}
       </p>
+      
+      <div class="flex items-center">
+        <p class="text-sm text-gray-500">
+          {programas.length} programas disponibles
+        </p>
+      </div>
     </div>
 
-    <!-- Carreras Grid - Mantengo exactamente el mismo estilo de grid -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-      {carreras.map((carrera, index) => (
-        <div class="relative p-8 border-b border-l border-gray-200 hover:shadow-lg transition-shadow">
+    <!-- Programas Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3" id="carrerasGrid">
+      {programas.map((programa, index) => (
+        <div class="carrera-card relative p-8 border-b border-l border-gray-200 hover:shadow-lg transition-shadow" data-index={index}>
           <div class="absolute left-0 top-1/2 transform -translate-y-1/2 w-1 h-16 bg-red-500 rounded-full"></div>
           <div class="ml-6">
-            <!-- Icono en lugar del número grande -->
+            <!-- Icono -->
             <div class="text-5xl font-bold text-gray-900 mb-2">
-              <span class="text-4xl">{getIconClass(carrera.icono)}</span>
-            </div>
-            <h3 class="text-xl font-semibold text-gray-900 mb-3">{carrera.titulo}</h3>
-            
-            <!-- Descripción -->
-            <p class="text-sm text-gray-600 mb-3">{carrera.descripcion}</p>
-            
-            <!-- Detalles -->
-            <div class="text-xs text-gray-500 mb-3">
-              Duración: {carrera.duracion} • Modalidad: {carrera.modalidad} • Inicio: {carrera.inicio}
+              {(() => {
+                const IconComponent = getIconComponent(programa.programa, programa.area);
+                return <IconComponent class="w-12 h-12 text-azul-une" />;
+              })()}
             </div>
             
-            <button class="flex items-center text-gray-600 hover:text-gray-900 transition-colors">
-              <span class="text-sm">{carrera.buttonText}</span>
-              <CircleArrowRight class="ml-2 w-4 h-4"/>
-            </button>
+            <!-- Título del programa -->
+            <h3 class="text-xl font-semibold text-gray-900 mb-3">{programa.programa}</h3>
+            
+            <!-- Descripción (tomamos la primera modalidad que tenga descripción válida) -->
+            <p class="text-sm text-gray-600 mb-3">
+              {programa.modalidades.find(m => m.descripcion && m.descripcion !== 'txt')?.descripcion || 
+               `Programa de ${programa.programa} en el área de ${programa.area}`}
+            </p>
+            
+            <!-- Detalles del programa -->
+            <div class="text-xs text-gray-500 mb-3 space-y-1">
+              <div><strong>Área:</strong> {programa.area}</div>
+              <div><strong>Modalidades:</strong> {getModalidadesTexto(programa.modalidades)}</div>
+              <div><strong>Incorporación:</strong> {getIncorporacionesTexto(programa.modalidades)}</div>
+            </div>
+            
+            <!-- Botón de acción con enlace -->
+            {(() => {
+              const url = getProgramaUrl(programa.modalidades);
+              const mismaUrl = tieneMismaUrl(programa.modalidades);
+              
+              if (mismaUrl) {
+                // Si todas las modalidades tienen la misma URL, hacer un enlace directo
+return (
+ <a
+  href={url}
+  class="inline-flex items-center text-gray-600 border-b-2 border-transparent pb-1 hover:text-rojo-une hover:border-rojo-une transition-all duration-300 ease-in-out"
+>
+  <span class="text-sm">
+    Ver detalles del programa
+  </span>
+  <CircleArrowRight class="ml-2 w-4 h-4 text-inherit transition-transform duration-300 ease-in-out group-hover:translate-x-1" />
+</a>
+
+);
+
+              } else {
+                // Si hay diferentes URLs, mostrar un dropdown o modal (por ahora enlace a la primera)
+                return (
+                  <div class="space-y-2">
+                    <a href={url} class="flex items-center text-gray-600 hover:text-gray-900 transition-colors">
+                      <span class="text-sm">Ver detalles del programa</span>
+                      <CircleArrowRight class="ml-2 w-4 h-4"/>
+                    </a>
+                    {programa.modalidades.length > 1 && (
+                      <div class="text-xs text-gray-400">
+                        +{programa.modalidades.length - 1} modalidad{programa.modalidades.length > 2 ? 'es' : ''} más
+                      </div>
+                    )}
+                  </div>
+                );
+              }
+            })()}
           </div>
         </div>
       ))}
     </div>
+
+    <!-- Mensaje si no hay programas -->
+    {programas.length === 0 && (
+      <div class="text-center py-12">
+        <div class="text-gray-400 mb-4">
+          <BookOpen class="w-16 h-16 mx-auto" />
+        </div>
+        <h3 class="text-xl font-semibold text-gray-600 mb-2">No hay programas disponibles</h3>
+        <p class="text-gray-500">No se encontraron programas educativos para este plantel.</p>
+      </div>
+    )}
+
+    <!-- Paginación -->
+    {totalPages > 1 && (
+      <div class="mt-12 flex justify-center">
+        <div class="flex items-center space-x-2">
+          <button id="prevPage" class="px-4 py-2 border border-gray-300 rounded-md hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed">
+            Anterior
+          </button>
+          
+          <div class="flex space-x-1" id="pageNumbers">
+            {Array.from({ length: totalPages }, (_, i) => (
+              <button 
+                class={`px-3 py-2 border rounded-md transition-colors ${
+                  i === 0 ? 'bg-red-500 text-white border-red-500' : 'border-gray-300 hover:bg-gray-50'
+                }`}
+                data-page={i + 1}
+              >
+                {i + 1}
+              </button>
+            ))}
+          </div>
+          
+          <button id="nextPage" class="px-4 py-2 border border-gray-300 rounded-md hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed">
+            Siguiente
+          </button>
+        </div>
+      </div>
+    )}
   </div>
 </section>
+
+<!-- Estilos CSS -->
+<style>
+  .carrera-card {
+    display: block;
+  }
+  
+  .carrera-card.hidden {
+    display: none;
+  }
+</style>
+
+<!-- JavaScript para paginación -->
+<script define:vars={{ itemsPerPage }}>
+  document.addEventListener('DOMContentLoaded', function() {
+    const carreras = document.querySelectorAll('.carrera-card');
+    let currentPage = 1;
+    const totalPages = Math.ceil(carreras.length / itemsPerPage);
+
+    // Solo ejecutar si hay paginación
+    if (totalPages <= 1) return;
+
+    // Elementos de paginación
+    const prevBtn = document.getElementById('prevPage');
+    const nextBtn = document.getElementById('nextPage');
+    const pageNumbers = document.querySelectorAll('[data-page]');
+
+    function updatePagination() {
+      // Actualizar estado de botones
+      if (prevBtn) prevBtn.disabled = currentPage === 1;
+      if (nextBtn) nextBtn.disabled = currentPage === totalPages;
+      
+      // Actualizar números de página
+      pageNumbers.forEach(btn => {
+        const page = parseInt(btn.getAttribute('data-page'));
+        btn.className = page === currentPage 
+          ? 'px-3 py-2 border rounded-md bg-red-500 text-white border-red-500'
+          : 'px-3 py-2 border rounded-md border-gray-300 hover:bg-gray-50';
+      });
+
+      // Mostrar/ocultar carreras
+      carreras.forEach((card, index) => {
+        const startIndex = (currentPage - 1) * itemsPerPage;
+        const endIndex = startIndex + itemsPerPage;
+        
+        if (index >= startIndex && index < endIndex) {
+          card.style.display = 'block';
+          card.classList.remove('hidden');
+        } else {
+          card.style.display = 'none';
+          card.classList.add('hidden');
+        }
+      });
+    }
+
+    // Event listeners para paginación
+    if (prevBtn) {
+      prevBtn.addEventListener('click', () => {
+        if (currentPage > 1) {
+          currentPage--;
+          updatePagination();
+        }
+      });
+    }
+
+    if (nextBtn) {
+      nextBtn.addEventListener('click', () => {
+        if (currentPage < totalPages) {
+          currentPage++;
+          updatePagination();
+        }
+      });
+    }
+
+    pageNumbers.forEach(btn => {
+      btn.addEventListener('click', () => {
+        currentPage = parseInt(btn.getAttribute('data-page'));
+        updatePagination();
+      });
+    });
+
+    // Inicializar paginación
+    updatePagination();
+  });
+</script>

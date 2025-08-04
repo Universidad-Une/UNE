@@ -60,7 +60,7 @@ const calcularCreditos = (materias: Materia[]) => {
 const creditosTotales = semestres.reduce((total, sem) => total + calcularCreditos(sem.materias), 0);
 
 // ✅ CORRECCIÓN: Import y asignación del logo
-import Logosrc from "@assets/Logos/UNE_30.png"
+import Logosrc from "@assets/Logos/UNE_30.webp"
 const logoUrl = Logosrc.src;
 ---
 <div class="mx-auto p-4 sm:p-6 bg-white" id={componentId}>

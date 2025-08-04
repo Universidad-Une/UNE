@@ -1,11 +1,18 @@
 ---
+import { Image } from 'astro:assets';
 import uneBlanco from "@/assets/Logos/UNE_blanco.webp";
+import fondoPlantel from "@/assets/Images/Fondo-plantel.webp"; // Importa la imagen de fondo
 ---
 
+<!-- Preload critical background image -->
+<link rel="preload" as="image" href="/Images/Fondo-plantel.webp" fetchpriority="high" />
+
 <section
-  class="relative bg-cover bg-center bg-no-repeat py-12"
-    style="background-image: url('/Images/Fondo-plantel.png');"
+  class="une-hero-bg relative bg-cover bg-center bg-no-repeat py-12"
 >
+  <!-- Background overlay for better text readability -->
+  <div class="absolute inset-0 bg-black/20 z-[1]"></div>
+  
   <!-- Content -->
   <div class="relative z-10 flex items-center justify-center px-4">
     <div
@@ -13,25 +20,33 @@ import uneBlanco from "@/assets/Logos/UNE_blanco.webp";
     >
       <!-- Left side - Logo and Text -->
       <div class="text-center lg:text-left">
-        <!-- UNE Logo -->
+        <!-- UNE Logo optimizado -->
         <div>
-          <img
-            src={uneBlanco.src}
-            alt="UNE Logo"
+          <Image
+            src={uneBlanco}
+            alt="UNE Logo - Universidad del Noreste"
             class="w-64 h-auto mx-auto lg:mx-0"
+            width={256}
+            height={128}
+            loading="eager"
+            decoding="async"
+            format="webp"
+            quality={90}
           />
         </div>
       </div>
 
-      <!-- Right side  -->
+      <!-- Right side -->
       <div class="flex flex-col justify-center items-center text-white">
-        <p class="text-lg font-light lg:text-xl text-center my-8">
+        <p class="text-lg font-light lg:text-xl text-center my-8 drop-shadow-sm">
           En UNE, nuestro compromiso es tu futuro, contando con 18 planteles
           para ti y más de 45 carreras en diferentes modalidades, junto con
           convenios de más de 800 empresas
         </p>
-        <a href="/contacto/solicitarinformacion"
-          class="bg-red-600 hover:bg-red-700 text-white font-semibold py-3 px-8 rounded-lg transition-colors duration-300 shadow-lg"
+        <a 
+          href="/contacto/solicitarinformacion"
+          class="une-cta-button bg-red-600 hover:bg-red-700 text-white font-semibold py-3 px-8 rounded-lg transition-colors duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2"
+          aria-label="Contactar con un asesor educativo de UNE"
         >
           Hablar con un asesor
         </a>
@@ -41,7 +56,43 @@ import uneBlanco from "@/assets/Logos/UNE_blanco.webp";
 </section>
 
 <style>
-  .hero-section {
-    background-image: url("/Images/Fondo-plantel.png");
+  .une-hero-bg {
+    background-image: url('/Images/Fondo-plantel.webp');
+    /* Fallback para navegadores que no soporten webp */
+    background-image: 
+      url('/Images/Fondo-plantel.png'),
+      url('/Images/Fondo-plantel.webp');
+  }
+
+  /* Optimización para dispositivos móviles */
+  @media (max-width: 768px) {
+    .une-hero-bg {
+      background-attachment: scroll; /* Mejora performance en móviles */
+      min-height: 60vh;
+    }
+  }
+
+  /* Optimización para pantallas grandes */
+  @media (min-width: 1024px) {
+    .une-hero-bg {
+      background-attachment: fixed;
+      min-height: 50vh;
+    }
+  }
+
+  /* Prefers-reduced-motion para usuarios que prefieren menos animaciones */
+  @media (prefers-reduced-motion: reduce) {
+    .une-hero-bg {
+      background-attachment: scroll;
+    }
+    
+    .une-cta-button {
+      transition: none;
+      transform: none;
+    }
+    
+    .une-cta-button:hover {
+      transform: none;
+    }
   }
 </style>
