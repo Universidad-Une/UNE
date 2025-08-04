@@ -2,40 +2,219 @@
 // CampusFinder.astro
 import { CircleArrowRight, MapPin, Search, X } from "@lucide/astro";
 
-export interface Plantel {
-  id: string;
-  nombre: string;
-  direccion: string;
-  ciudad: string;
-  codigo: string;
-  url: string;
-  imagen: string;
-  lat: number;
-  lon: number;
-}
+// Imports de las imágenes
+import CentroImg from "@/assets/Imagenes/CardsPlanteles/Centro.webp";
+import CentroMedicoImg from "@/assets/Imagenes/CardsPlanteles/CentroMedico.webp";
+import CampusPuertoVallartaImg from "@/assets/Imagenes/CardsPlanteles/Campus-Puerto-Vallarta.webp";
+import ChapultepecImg from "@/assets/Imagenes/CardsPlanteles/Chapultepec.webp";
+import PuertoVallartaImg from "@/assets/Imagenes/CardsPlanteles/PuertoVallarta.webp";
+import MilenioImg from "@/assets/Imagenes/CardsPlanteles/Milenio.webp";
+import CaracolImg from "@/assets/Imagenes/CardsPlanteles/Caracol.webp";
+import PlazaSolImg from "@/assets/Imagenes/CardsPlanteles/PlazaSol.webp";
+import TepatitlanImg from "@/assets/Imagenes/CardsPlanteles/Tepatitlan.webp";
+import TesistanImg from "@/assets/Imagenes/CardsPlanteles/Tesistan.webp";
+import TlajomulcoImg from "@/assets/Imagenes/CardsPlanteles/Tlajomulco.webp";
+import TlaquepaqueImg from "@/assets/Imagenes/CardsPlanteles/Tlaquepaque.webp";
+import TonalaImg from "@/assets/Imagenes/CardsPlanteles/Tonala.webp";
+import TorreMilenioImg from "@/assets/Imagenes/CardsPlanteles/Torre-milenio.webp";
+import TorreQuetzalImg from "@/assets/Imagenes/CardsPlanteles/Torre-quetzal.webp";
+import ZapopanImg from "@/assets/Imagenes/CardsPlanteles/Zapopan.webp";
 
+// Datos de planteles con imágenes importadas
+const planteles = [
+  {
+    id: "7",
+    nombre: "Centro",
+    codigo: "00015",
+    direccion: "Calle Independencia #100, Col. Centro, Guadalajara, Jalisco",
+    ciudad: "Guadalajara ZMG",
+    url: "/planteles/centro",
+    imagen: CentroImg,
+    lat: 20.67744801539995,
+    lon: -103.34031672627513,
+  },
+  {
+    id: "8",
+    nombre: "Centro Médico",
+    codigo: "00016",
+    direccion: "Av. Hospital #123, Col. Independencia, Guadalajara, Jalisco",
+    ciudad: "Guadalajara ZMG",
+    url: "/planteles/centro-medico",
+    imagen: CentroMedicoImg,
+    lat: 20.684590788642307,
+    lon: -103.3256397932448,
+  },
+  {
+    id: "16",
+    nombre: "Campus Puerto Vallarta",
+    codigo: "Campus",
+    direccion: "Carretera a Tepic No. 5657 Col. las Juntas C.P 48291",
+    ciudad: "Puerto Vallarta",
+    url: "/planteles/campus-puerto-vallarta",
+    imagen: CampusPuertoVallartaImg,
+    lat: 20.69715126066295,
+    lon: -105.23759816941552,
+  },
+  {
+    id: "12",
+    nombre: "Chapultepec",
+    codigo: "00020",
+    direccion: "Av. Chapultepec #200, Col. Americana, Guadalajara, Jalisco",
+    ciudad: "Guadalajara ZMG",
+    url: "/planteles/chapultepec",
+    imagen: ChapultepecImg,
+    lat: 20.67471004174908,
+    lon: -103.36909119392195,
+  },
+  {
+    id: "1",
+    nombre: "Avenida México",
+    codigo: "00008",
+    direccion: "Av. México #1255, Col. Agua Zarca, Puerto Vallarta, Jalisco",
+    ciudad: "Puerto Vallarta",
+    url: "/planteles/avenida-mexico",
+    imagen: PuertoVallartaImg,
+    lat: 20.669418,
+    lon: -105.226917,
+  },
+  {
+    id: "9",
+    nombre: "Milenio",
+    codigo: "00017",
+    direccion: "Av. Naciones Unidas #456, Col. Milenio, Guadalajara, Jalisco",
+    ciudad: "Guadalajara ZMG",
+    url: "/planteles/milenio",
+    imagen: MilenioImg,
+    lat: 20.64540739939039,
+    lon: -103.40630313415286,
+  },
+  {
+    id: "10",
+    nombre: "Plaza Caracol",
+    codigo: "00018",
+    direccion: "Av. Francisco Medina Ascencio #2190, Plaza Caracol, Puerto Vallarta, Jalisco",
+    ciudad: "Puerto Vallarta",
+    url: "/planteles/caracol",
+    imagen: CaracolImg,
+    lat: 20.639287162026815,
+    lon: -105.23323589513319,
+  },
+  {
+    id: "2",
+    nombre: "Plaza del Sol",
+    codigo: "00005",
+    direccion: "Chimalhuacán #6, Col. Ciudad del Sol, Guadalajara, Jalisco",
+    ciudad: "Guadalajara ZMG",
+    url: "/planteles/plaza-del-sol",
+    imagen: PlazaSolImg,
+    lat: 20.651805,
+    lon: -103.402918,
+  },
+  {
+    id: "11",
+    nombre: "Tepatitlán",
+    codigo: "00019",
+    direccion: "Av. Hidalgo #300, Centro, Tepatitlán de Morelos, Jalisco",
+    ciudad: "Tepatitlán de Morelos",
+    url: "/planteles/tepatitlan",
+    imagen: TepatitlanImg,
+    lat: 20.8062946507024,
+    lon: -102.76382902869392,
+  },
+  {
+    id: "3",
+    nombre: "Tesistán",
+    codigo: "00010",
+    direccion: "Av. Juan Gil Preciado #3897, Col. Hogares de Nuevo México, Zapopan, Jalisco",
+    ciudad: "Guadalajara ZMG",
+    url: "/planteles/tesistan",
+    imagen: TesistanImg,
+    lat: 20.806203,
+    lon: -102.763903,
+  },
+  {
+    id: "4",
+    nombre: "Tlajomulco",
+    codigo: "00012",
+    direccion: "Av. López Mateos #10100, Col. Los Gavilanes Poniente, Tlajomulco de Zúñiga, Jalisco",
+    ciudad: "Guadalajara ZMG",
+    url: "/planteles/tlajomulco",
+    imagen: TlajomulcoImg,
+    lat: 20.576464164603113,
+    lon: -103.45243680650722,
+  },
+  {
+    id: "5",
+    nombre: "Tlaquepaque",
+    codigo: "00013",
+    direccion: "Blvd. Marcelino García Barragán #2056, Col. Bosques del Boulevard, Tlaquepaque, Jalisco",
+    ciudad: "Guadalajara ZMG",
+    url: "/planteles/tlaquepaque",
+    imagen: TlaquepaqueImg,
+    lat: 20.645650028567157,
+    lon: -103.32094530771215,
+  },
+  {
+    id: "6",
+    nombre: "Tonalá",
+    codigo: "00014",
+    direccion: "Av. Tonaltecas #333, Col. Agua Escondida, Tonalá, Jalisco",
+    ciudad: "Guadalajara ZMG",
+    url: "/planteles/tonala",
+    imagen: TonalaImg,
+    lat: 20.63176692188573,
+    lon: -103.24439406488241,
+  },
+  {
+    id: "14",
+    nombre: "Torre UNE Milenio",
+    codigo: "TORRE MILENIO",
+    direccion: "Av. López Mateos Sur #4175 Col. La Giralda Zapopan, Jalisco",
+    ciudad: "Guadalajara ZMG",
+    url: "/planteles/torre-une-milenio",
+    imagen: TorreMilenioImg,
+    lat: 20.645336,
+    lon: -103.405938,
+  },
+  {
+    id: "15",
+    nombre: "Torre Quetzal",
+    codigo: "Torre Quetzal",
+    direccion: "Chimalhuacán #3569 Col. Ciudad del Sol Zapopan, Jalisco",
+    ciudad: "Guadalajara ZMG",
+    url: "/planteles/torre-quetzal",
+    imagen: TorreQuetzalImg,
+    lat: 20.651860618451966,
+    lon: -103.40329340052432,
+  },
+  {
+    id: "13",
+    nombre: "Zapopan",
+    codigo: "00021",
+    direccion: "Av. Ávila Camacho #1500, Zapopan Centro, Zapopan, Jalisco",
+    ciudad: "Guadalajara ZMG",
+    url: "/planteles/zapopan",
+    imagen: ZapopanImg,
+    lat: 20.720900646775917,
+    lon: -103.38975281813357,
+  },
+];
+
+// Props del componente (opcionales, con valores por defecto)
 export interface Props {
   titulo?: string;
-  planteles: Plantel[];
-  ciudades?: string[];
   mostrarMasCercano?: boolean;
   placeholder?: string;
 }
 
 const {
   titulo = "Encuentra tu plantel más cercano",
-  planteles,
-  ciudades = [],
   mostrarMasCercano = true,
   placeholder = "Buscar por nombre o ciudad...",
 } = Astro.props;
 
-const ciudadesDisponibles =
-  ciudades.length > 0
-    ? ciudades.filter((ciudad) => planteles.some((p) => p.ciudad === ciudad))
-    : [...new Set(planteles.map((p) => p.ciudad))];
-
-const soloUnPlantel = planteles.length === 1;
+// Extraer ciudades únicas de los planteles
+const ciudadesDisponibles = [...new Set(planteles.map(p => p.ciudad))];
 ---
 
 <div class="w-full mx-auto py-6 px-4 sm:px-6 md:px-12">
@@ -45,7 +224,7 @@ const soloUnPlantel = planteles.length === 1;
       <p class="font-bold">UNE siempre cerca de ti</p>
     </div>
     {
-      mostrarMasCercano && !soloUnPlantel && (
+      mostrarMasCercano && (
         <button
           id="find-nearest-btn"
           class="flex items-center gap-2 text-gray-600 hover:text-gray-800 transition-colors"
@@ -81,60 +260,51 @@ const soloUnPlantel = planteles.length === 1;
   >
   </p>
 
-  {
-    !soloUnPlantel && (
-      <div class="flex gap-2 mb-6">
-        <div class="relative">
-          <div class="w-[400px] relative">
-            <Search class="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
-            <input
-              type="text"
-              id="campus-search-input"
-              placeholder={placeholder}
-              class="w-full pl-10 pr-10 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all"
-              autocomplete="off"
-            />
-            <button
-              id="clear-search-btn"
-              class="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600 opacity-0 transition-opacity"
-              type="button"
-            >
-              <X class="w-4 h-4" />
-            </button>
-          </div>
-          <div
-            id="autocomplete-dropdown"
-            class="absolute top-full left-0 w-[400px] bg-white border border-gray-200 rounded-xl shadow-lg z-50 max-h-60 overflow-y-auto hidden mt-1"
-          >
-          </div>
-          <div
-            id="no-results-message"
-            class="hidden text-center text-gray-500 text-sm mt-2"
-          >
-            No se encontraron planteles
-          </div>
-        </div>
-
+  <div class="flex gap-2 mb-6 flex-wrap">
+    <div class="relative">
+      <div class="w-[400px] relative">
+        <Search class="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
+        <input
+          type="text"
+          id="campus-search-input"
+          placeholder={placeholder}
+          class="w-full pl-10 pr-10 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all"
+          autocomplete="off"
+        />
         <button
-          class="px-4 py-2 rounded-full text-sm font-medium transition-colors ciudad-tab active"
-          data-ciudad="todos"
+          id="clear-search-btn"
+          class="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600 opacity-0 transition-opacity"
+          type="button"
         >
-          Todos
+          <X class="w-4 h-4" />
         </button>
-        {ciudadesDisponibles.map((ciudad) => (
-          <button
-            class="px-4 py-2 rounded-full text-sm font-medium transition-colors ciudad-tab"
-            data-ciudad={ciudad}
-          >
-            {ciudad}
-          </button>
-        ))}
       </div>
-    )
-  }
+      <div
+        id="no-results-message"
+        class="hidden text-center text-gray-500 text-sm mt-2"
+      >
+        No se encontraron planteles
+      </div>
+    </div>
+
+    <button
+      class="ciudad-tab px-4 py-2 rounded-full text-sm font-medium transition-colors active"
+      data-ciudad="todos"
+    >
+      Todos
+    </button>
+    {ciudadesDisponibles.map((ciudad) => (
+      <button
+        class="ciudad-tab px-4 py-2 rounded-full text-sm font-medium transition-colors"
+        data-ciudad={ciudad}
+      >
+        {ciudad}
+      </button>
+    ))}
+  </div>
 
   <div
-    class={`hidden md:grid gap-6 ${soloUnPlantel ? "grid-cols-1 max-w-2xl mx-auto" : "grid-cols-1 md:grid-cols-3"}`}
+    class="hidden md:grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3"
     id="desktop-grid"
   >
     {
@@ -151,7 +321,7 @@ const soloUnPlantel = planteles.length === 1;
           <div class="flex flex-col">
             <div class="w-full h-64 flex-shrink-0 overflow-hidden">
               <img
-                src={plantel.imagen}
+                src={plantel.imagen.src}
                 alt={`Campus ${plantel.nombre}`}
                 class="w-full h-full object-cover"
                 loading="lazy"
@@ -219,7 +389,7 @@ const soloUnPlantel = planteles.length === 1;
                 <div class="flex flex-col h-full">
                   <div class="w-full h-48 rounded-t-3xl overflow-hidden">
                     <img
-                      src={plantel.imagen}
+                      src={plantel.imagen.src}
                       alt={`Campus ${plantel.nombre}`}
                       class="w-full h-full object-cover"
                       loading="lazy"
@@ -278,10 +448,9 @@ const soloUnPlantel = planteles.length === 1;
 <script>
 // JavaScript que se ejecuta en el cliente
 document.addEventListener('DOMContentLoaded', function() {
-  // Datos de planteles (se pueden pasar desde el servidor si es necesario)
+  // Elementos del DOM
   const searchInput = document.getElementById('campus-search-input');
   const clearBtn = document.getElementById('clear-search-btn');
-  const dropdown = document.getElementById('autocomplete-dropdown');
   const noResultsMessage = document.getElementById('no-results-message');
   const cityTabs = document.querySelectorAll('.ciudad-tab');
   const campusCards = document.querySelectorAll('.campus-card');
@@ -299,7 +468,6 @@ document.addEventListener('DOMContentLoaded', function() {
       } else {
         clearBtn.style.opacity = '0';
         showAllCampuses();
-        hideDropdown();
       }
     });
   }
@@ -310,7 +478,9 @@ document.addEventListener('DOMContentLoaded', function() {
       searchInput.value = '';
       clearBtn.style.opacity = '0';
       showAllCampuses();
-      hideDropdown();
+      // Resetear filtro de ciudad a "todos"
+      cityTabs.forEach(tab => tab.classList.remove('active'));
+      document.querySelector('[data-ciudad="todos"]').classList.add('active');
     });
   }
 
@@ -323,10 +493,16 @@ document.addEventListener('DOMContentLoaded', function() {
       
       const ciudad = this.dataset.ciudad;
       filterByCiudad(ciudad);
+      
+      // Limpiar búsqueda cuando se selecciona una ciudad
+      if (searchInput) {
+        searchInput.value = '';
+        clearBtn.style.opacity = '0';
+      }
     });
   });
 
-  // Función para filtrar campus
+  // Función para filtrar campus por búsqueda
   function filterCampuses(searchTerm) {
     let hasResults = false;
     
@@ -367,19 +543,20 @@ document.addEventListener('DOMContentLoaded', function() {
       return;
     }
     
+    let hasResults = false;
     campusCards.forEach(card => {
       if (card.dataset.ciudad === ciudad) {
         card.style.display = 'block';
+        hasResults = true;
       } else {
         card.style.display = 'none';
       }
     });
-  }
-
-  // Ocultar dropdown
-  function hideDropdown() {
-    if (dropdown) {
-      dropdown.classList.add('hidden');
+    
+    if (!hasResults) {
+      noResultsMessage.classList.remove('hidden');
+    } else {
+      noResultsMessage.classList.add('hidden');
     }
   }
 
@@ -433,30 +610,29 @@ document.addEventListener('DOMContentLoaded', function() {
     const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
     return R * c;
   }
-
-  // Estilos para los tabs activos
-  const style = document.createElement('style');
-  style.textContent = `
-    .ciudad-tab.active {
-      background-color: #dc2626;
-      color: white;
-    }
-    .ciudad-tab {
-      background-color: #f3f4f6;
-      color: #374151;
-    }
-    .ciudad-tab:hover {
-      background-color: #e5e7eb;
-    }
-    .ciudad-tab.active:hover {
-      background-color: #b91c1c;
-    }
-  `;
-  document.head.appendChild(style);
 });
 </script>
 
+<style>
+.ciudad-tab {
+  background-color: #f3f4f6; /* bg-gray-100 */
+  color: #374151;            /* text-gray-700 */
+}
 
+.ciudad-tab:hover {
+  background-color: #e5e7eb; /* bg-gray-200 */
+}
+
+.ciudad-tab.active {
+  background-color: #dc2626; /* bg-red-600 */
+  color: #ffffff;            /* text-white */
+}
+
+.ciudad-tab.active:hover {
+  background-color: #b91c1c; /* bg-red-700 */
+}
+
+</style>
 <style>
   .bg-rojo-une {
     background-color: #dc2626;
