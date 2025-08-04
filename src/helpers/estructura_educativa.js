@@ -2356,7 +2356,7 @@ export const programasEducativos = {
       },
     },
   },
-  Maestrias: {
+  Maestrías: {
     "ADMINISTRACIÓN Y NEGOCIOS": {
       "Maestría en Administración de Negocios": {
         "TORRE QUETZAL": [

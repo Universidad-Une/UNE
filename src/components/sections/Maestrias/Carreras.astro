@@ -27,16 +27,16 @@ function getColorBadge(incorporacion) {
 }
 
 // Convertir a array de maestrías
-const maestrias = [];
+const Maestrías = [];
 
-if (programasEducativos.Maestrias) {
-  Object.entries(programasEducativos.Maestrias).forEach(
+if (programasEducativos.Maestrías) {
+  Object.entries(programasEducativos.Maestrías).forEach(
     ([area, programas]) => {
       Object.entries(programas).forEach(([nombrePrograma, datosPrograma]) => {
         const planteles = datosPrograma.planteles || datosPrograma;
         const imagen = getPrimeraImagenDePlanteles(planteles);
 
-        maestrias.push({
+        Maestrías.push({
           nombre: nombrePrograma,
           area: area,
           planteles: planteles,
@@ -61,7 +61,7 @@ function getDescripcionFromPlanteles(planteles) {
 }
 
 // Procesar datos de maestrías
-const carreras = maestrias.map((maestria, index) => {
+const carreras = Maestrías.map((maestria, index) => {
   const planteles = Object.keys(maestria.planteles);
   const todasLasModalidades = [];
   const todasLasIncorporaciones = [];
@@ -108,7 +108,7 @@ const carreras = maestrias.map((maestria, index) => {
 });
 
 // Obtener todas las áreas únicas de maestrías
-const areasUnicas = [...new Set(maestrias.map(maestria => maestria.area))];
+const areasUnicas = [...new Set(Maestrías.map(maestria => maestria.area))];
 const areas = ["Todas", ...areasUnicas.sort()];
 
 export { carreras, areas };
@@ -172,7 +172,7 @@ export { carreras, areas };
               <div class="relative">
                 <div class="h-48 flex items-center justify-center">
                   <img
-                    src={`/src/assets/Imagenes/CardsMaestrias/${carrera.imagen}.webp`}
+                    src={`/src/assets/Imagenes/CardsMaestrías/${carrera.imagen}.webp`}
                     alt={carrera.imagen}
                     class="w-full h-full object-cover"
                   />
@@ -216,7 +216,7 @@ export { carreras, areas };
                     Ver planteles
                   </button>
                   <a
-                    href={`/oferta/maestrias/${carrera.slug}`}
+                    href={`/oferta/Maestrías/${carrera.slug}`}
                     class="w-full border border-red-500 text-red-500 py-2 px-4 rounded font-medium hover:bg-red-50 transition-colors block text-center"
                   >
                     Más información
