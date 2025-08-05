@@ -1,14 +1,16 @@
 ---
 // PerfilSection.astro
 const { perfilIngreso, perfilEgreso } = Astro.props;
+import Egresos from "@assets/Imagenes/Middles/Egresos.png"
 ---
 
 <section class="relative min-h-screen flex items-center justify-center pt-8">
   <div
     id="scalingElement"
     class="relative w-full mx-auto px-6 pt-12 pb-12 text-center text-white will-change-transform transition-transform duration-75 ease-out bg-cover bg-center bg-no-repeat rounded-t-2xl"
-    style="transform: scale(0.8); background-image: url('/src/assets/Imagenes/Middles/Egresos.png');"
+    style={`transform: scale(0.8); background-image: url(${Egresos.src});`}
   >
+
     <!-- Encabezado -->
     <div class="mb-6">
       <a
