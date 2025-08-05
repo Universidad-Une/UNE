@@ -32,42 +32,55 @@ const requisitosInfo = {
   pdfUrl: "/pdfs/Posgrado_req.pdf"
 };
 const faqs = [
-  
   {
-    question: "¿Cuál es la duración de una licenciatura?",
+    question: "¿Qué cursos de educación continua ofrece Universidad UNE?",
     answer:
-      "Las licenciaturas tienen una duración promedio de 8 a 10 semestres, dependiendo del programa, la institución incorporadora (UDG o SICYT) y la modalidad elegida.",
+      "Universidad UNE ofrece cursos especializados en el área Económico Administrativo, incluyendo 'Gestión de Calidad 5S y 9S', 'Finanzas Personales y Administración del Hogar', y 'Atención al Cliente'. Todos están diseñados con enfoque práctico y aplicable.",
   },
   {
-    question: "¿Qué modalidades de estudio están disponibles?",
+    question: "¿Cuál es la duración de los cursos?",
     answer:
-      "Las licenciaturas pueden cursarse en modalidad presencial, en línea, escolarizada o semiescolarizada, según la carrera y el plantel. Algunas combinan clases presenciales con actividades virtuales.",
+      "Todos los cursos tienen una duración de 50 horas académicas, distribuidas de manera flexible para adaptarse a las necesidades de los participantes, permitiendo compatibilizar con otras actividades.",
   },
   {
-    question: "¿Puedo trabajar mientras estudio una licenciatura?",
+    question: "¿Cuánto cuestan los cursos y qué opciones de pago hay?",
     answer:
-      "Sí. Las modalidades en línea y semiescolarizada están diseñadas para ofrecer mayor flexibilidad y permitir compatibilizar tus estudios con otras actividades.",
+      "Los cursos de Finanzas Personales y Atención al Cliente tienen un costo de $4,000 pesos, mientras que el curso de Gestión de Calidad 5S y 9S cuesta $5,500 pesos. Todos ofrecen opciones de pago en una exhibición o parcialidades.",
   },
   {
-    question: "¿Cómo se evalúa el desempeño académico?",
+    question: "¿Qué metodología utilizan en los cursos?",
     answer:
-      "El sistema de evaluación incluye exámenes, proyectos, participación en clase, trabajos individuales o en equipo y actividades prácticas, según el enfoque de cada licenciatura.",
+      "La metodología es práctica y dinámica, basada en aprendizaje experiencial, participación activa, trabajo colaborativo, análisis de casos reales, dinámicas gamificadas, simulaciones y evaluación basada en competencias para asegurar la aplicación real del conocimiento.",
   },
   {
-    question: "¿Qué tipo de apoyo académico se brinda a los estudiantes?",
+    question: "¿Para quién están dirigidos los cursos?",
     answer:
-      "Ofrecemos tutorías, asesorías académicas presenciales y virtuales, y acceso a plataformas educativas para reforzar el aprendizaje de cada materia.",
+      "Los cursos están dirigidos a profesionales de diversos sectores, empresarios, supervisores, empleados, emprendedores, ejecutivos de ventas, familias y cualquier persona interesada en desarrollar habilidades específicas en su área de interés.",
   },
   {
-    question:
-      "¿Las licenciaturas están incorporadas a alguna institución oficial?",
+    question: "¿Qué aprenderé en el curso de Gestión de Calidad 5S y 9S?",
     answer:
-      "Sí. Contamos con licenciaturas incorporadas a la Universidad de Guadalajara (UDG) y a la Secretaría de Innovación, Ciencia y Tecnología (SICYT) del Estado de Jalisco, lo que garantiza validez oficial de estudios.",
+      "Aprenderás a implementar metodologías 5S y 9S para optimizar la organización de materiales, equipos y espacios de trabajo, desarrollar planes de acción para reducir pérdidas, garantizar sostenibilidad y mejora continua, aumentando productividad y seguridad laboral.",
   },
   {
-    question: "¿Dónde puedo obtener más información e inscribirme?",
+    question: "¿Qué aprenderé en el curso de Finanzas Personales?",
     answer:
-      "Puedes acudir directamente a las oficinas del plantel más cercano o visitar nuestro portal web para consultar la oferta académica, requisitos y fechas de inscripción.",
+      "Desarrollarás habilidades para gestionar y refinanciar deudas, elaborar presupuestos del hogar, comprender fundamentos de inversión, diseñar planes financieros personales, establecer estrategias de ahorro y tomar decisiones económicas inteligentes para lograr estabilidad financiera.",
+  },
+  {
+    question: "¿Qué aprenderé en el curso de Atención al Cliente?",
+    answer:
+      "Adquirirás técnicas de comunicación asertiva, manejo de situaciones difíciles con clientes, habilidades socioemocionales como empatía y escucha activa, gestión emocional, técnicas de atención por medios electrónicos y estrategias para generar confianza y fidelización.",
+  },
+  {
+    question: "¿Qué beneficios obtendré al completar un curso?",
+    answer:
+      "Recibirás certificación oficial, desarrollarás habilidades prácticas aplicables inmediatamente, mejorarás tu competitividad profesional, aumentarás la eficiencia en tu área de trabajo y generarás un impacto positivo tanto en tu desarrollo personal como profesional.",
+  },
+  {
+    question: "¿Cómo puedo inscribirme a los cursos?",
+    answer:
+      "Para inscribirte o conocer más detalles sobre fechas de inicio, modalidades disponibles y requisitos específicos, puedes contactar a Universidad UNE al (33) 8000-0863 o visitar sus instalaciones para recibir asesoría personalizada sobre el curso de tu interés.",
   },
 ];
 ---
@@ -175,7 +188,7 @@ const faqs = [
 
     <Estadisticas />
 
-    <Requisitos nivel="Cursos" requisitos={requisitosInfo} />
+ 
 
     <FAQComponent
       faqs={faqs}
