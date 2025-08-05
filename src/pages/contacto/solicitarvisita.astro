@@ -21,12 +21,16 @@ import FormularioPrincipal from "@components/sections/contacto/FormularioVisita.
         class="relative z-20 h-full flex flex-col justify-between p-8 text-white"
       >
         <!-- Logo y texto principal -->
-        <div class="flex-1 flex flex-col justify-center ">
+        <div class="flex-1 flex flex-col justify-center">
           <h1 class="text-4xl md:text-5xl font-bold text-center leading-tight">
             No te pierdas la oportunidad de conocernos
           </h1>
 
-          <img src={Loggo.src} alt="UNE Logo" class="w-72 h-auto mb-8 mx-auto" />
+          <img
+            src={Loggo.src}
+            alt="UNE Logo"
+            class="w-72 h-auto mb-8 mx-auto"
+          />
         </div>
 
         <!-- Información de contacto -->
@@ -90,7 +94,8 @@ import FormularioPrincipal from "@components/sections/contacto/FormularioVisita.
         <!-- Texto descriptivo -->
         <div class="mt-8">
           <p class="text-sm leading-relaxed opacity-90">
-           Agenda una cita para conocer nuestros campus y todas las amenidades para aprovechar al maximo tus estudios
+            Agenda una cita para conocer nuestros campus y todas las amenidades
+            para aprovechar al maximo tus estudios
           </p>
         </div>
       </div>
@@ -113,7 +118,6 @@ import FormularioPrincipal from "@components/sections/contacto/FormularioVisita.
       </div>
     </div>
   </section>
-
 
   <section class="py-16 px-4 bg-gray-50">
     <div class="max-w-7xl mx-auto">
@@ -141,16 +145,18 @@ import FormularioPrincipal from "@components/sections/contacto/FormularioVisita.
           </div>
 
           <div class="flex flex-col sm:flex-row gap-4 pt-4">
-            <button
-              class="bg-red-500 hover:bg-red-600 text-white font-semibold py-3 px-8 rounded transition-colors duration-300"
+            <a
+              href="/contacto/solicitarvisita"
+              class="bg-red-500 hover:bg-red-600 text-white font-semibold py-3 px-8 rounded transition-all duration-300 transform hover:scale-105 hover:shadow-lg"
             >
               Agendar una cita
-            </button>
-            <button
-              class="text-blue-600 hover:text-blue-800 font-semibold py-3 px-8 border border-transparent hover:border-blue-200 rounded transition-all duration-300"
+            </a>
+            <a
+              href="/planteles/general"
+              class="text-blue-600 hover:text-blue-800 font-semibold py-3 px-8 border border-transparent hover:border-blue-200 rounded transition-all duration-300 transform hover:scale-105 hover:shadow-lg"
             >
               Conocer planteles
-            </button>
+            </a>
           </div>
         </div>
 

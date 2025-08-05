@@ -18,15 +18,15 @@ import CTAinscripcion from "@/components/sections/shared/ctaInscripcion.astro";
       <div
         class="relative z-10 container mx-auto px-4 h-full min-h-[85vh] md:min-h-[65vh] flex flex-col justify-center"
       >
-        <div class="text-center text-white max-w-4xl mx-auto">
-          <h1 class="text-6xl md:text-7xl font-bold tracking-wider mb-4">
+        <div class="text-center text-white max-w-5xl mx-auto">
+          <h1 class="text-4xl md:text-5xl font-bold tracking-wider mb-4">
             Educación para cada etapa de tu vida
           </h1>
           <h2 class="text-4xl md:text-5xl font-bold tracking-wider mb-8">
             Desde Montessori hasta Posgrados, solo en UNE
           </h2>
           <p
-            class="text-lg md:text-xl leading-relaxed mb-16 max-w-3xl mx-auto font-light"
+            class="text-lg md:text-lg leading-relaxed mb-16 max-w-4xl mx-auto font-light"
           >
             Une tu camino educativo desde la infancia hasta tu vida profesional.
             Con programas diseñados para acompañarte desde primaria hasta
@@ -48,16 +48,16 @@ import CTAinscripcion from "@/components/sections/shared/ctaInscripcion.astro";
               class="w-48 object-contain"
             />
           </div>
-          <button
+          <a
+            href="/contacto/solicitarinformacion"
             class="bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-6 rounded-lg text-base transition-colors duration-300 shadow-lg whitespace-nowrap"
           >
             INSCRIBIR A MI HIJO
-          </button>
+          </a>
         </div>
       </div>
     </div>
 
-    
     <!-- Narrative Section -->
     <section class="py-16 px-4 bg-white">
       <div class="max-w-7xl mx-auto">
@@ -72,22 +72,19 @@ import CTAinscripcion from "@/components/sections/shared/ctaInscripcion.astro";
           </p>
         </div>
 
-        <div class="grid lg:grid-cols-2 gap-16 items-center mb-20">
+        <div class="grid lg:grid-cols-2  items-center mb-20">
           <!-- Imagen -->
           <div class="relative">
             <div class="relative">
-            <div class="relative z-10">
-              <img
-                src={Chapu.src}
-                alt="Edificio UNE - Campus Chapultepec"
-                class="w-3/4 h-auto rounded-lg shadow-2xl"
-              />
+              <div class="relative z-10">
+                <img
+                  src={Chapu.src}
+                  alt="Edificio UNE - Campus Chapultepec"
+                  class="w-3/4 h-auto rounded-lg shadow-2xl"
+                />
+              </div>
             </div>
-          </div>
-            <div
-              class="absolute -bottom-4 -right-4 w-24 h-24 bg-red-500 rounded-full opacity-20"
-            >
-            </div>
+           
             <div
               class="absolute -top-4 -left-4 w-16 h-16 bg-yellow-400 rounded-full opacity-30"
             >
@@ -178,7 +175,7 @@ import CTAinscripcion from "@/components/sections/shared/ctaInscripcion.astro";
                     </h3>
                   </div>
                   <p class="text-gray-600 leading-relaxed mb-4">
-                    <strong>Edades 6-12 años.</strong><br> Desarrollamos la autonomía,
+                    <strong>Edades 6-12 años.</strong><br /> Desarrollamos la autonomía,
                     creatividad y amor por el aprendizaje a través del método Montessori.
                     Aquí nacen los cimientos de su educación integral.
                   </p>
@@ -198,7 +195,6 @@ import CTAinscripcion from "@/components/sections/shared/ctaInscripcion.astro";
                   </div>
                 </div>
               </div>
-              
             </div>
 
             <!-- Secundaria -->
@@ -214,9 +210,9 @@ import CTAinscripcion from "@/components/sections/shared/ctaInscripcion.astro";
                     <h3 class="text-2xl font-bold text-gray-800">Secundaria</h3>
                   </div>
                   <p class="text-gray-600 leading-relaxed mb-4">
-                    <strong>Edades 12-15 años.</strong><br> Fortalecemos las bases académicas
-                    mientras desarrollamos habilidades críticas y sociales. El estudiante
-                    ya forma parte de la comunidad UNE.
+                    <strong>Edades 12-15 años.</strong><br /> Fortalecemos las bases
+                    académicas mientras desarrollamos habilidades críticas y sociales.
+                    El estudiante ya forma parte de la comunidad UNE.
                   </p>
                   <div class="flex flex-wrap gap-2">
                     <span
@@ -234,7 +230,6 @@ import CTAinscripcion from "@/components/sections/shared/ctaInscripcion.astro";
                   </div>
                 </div>
               </div>
-              
             </div>
 
             <!-- Bachillerato UDG -->
@@ -252,7 +247,7 @@ import CTAinscripcion from "@/components/sections/shared/ctaInscripcion.astro";
                     </h3>
                   </div>
                   <p class="text-gray-600 leading-relaxed mb-4">
-                    <strong>Edades 15-18 años.</strong><br> Preparatoria escolarizada
+                    <strong>Edades 15-18 años.</strong><br /> Preparatoria escolarizada
                     con reconocimiento UDG. Preparamos para la universidad con excelencia
                     académica y madurez personal.
                   </p>
@@ -272,7 +267,6 @@ import CTAinscripcion from "@/components/sections/shared/ctaInscripcion.astro";
                   </div>
                 </div>
               </div>
-              
             </div>
 
             <!-- Licenciaturas -->
@@ -290,9 +284,9 @@ import CTAinscripcion from "@/components/sections/shared/ctaInscripcion.astro";
                     </h3>
                   </div>
                   <p class="text-gray-600 leading-relaxed mb-4">
-                    <strong>Edades 18-22 años.</strong> <br> Diversas carreras profesionales
-                    con enfoque integral. El estudiante ya es parte de la familia
-                    UNE desde hace años.
+                    <strong>Edades 18-22 años.</strong>
+                    <br /> Diversas carreras profesionales con enfoque integral.
+                    El estudiante ya es parte de la familia UNE desde hace años.
                   </p>
                   <div class="flex flex-wrap gap-2">
                     <span
@@ -310,7 +304,6 @@ import CTAinscripcion from "@/components/sections/shared/ctaInscripcion.astro";
                   </div>
                 </div>
               </div>
-              
             </div>
 
             <!-- Maestrías y Posgrados -->
@@ -328,9 +321,9 @@ import CTAinscripcion from "@/components/sections/shared/ctaInscripcion.astro";
                     </h3>
                   </div>
                   <p class="text-gray-600 leading-relaxed mb-4">
-                    <strong>A partir de los 22 años.</strong><br> Especialización avanzada
-                    y liderazgo profesional. Más de 30 años de formación continua
-                    en UNE.
+                    <strong>A partir de los 22 años.</strong><br /> Especialización
+                    avanzada y liderazgo profesional. Más de 30 años de formación
+                    continua en UNE.
                   </p>
                   <div class="flex flex-wrap gap-2 md:justify-end">
                     <span
@@ -348,7 +341,6 @@ import CTAinscripcion from "@/components/sections/shared/ctaInscripcion.astro";
                   </div>
                 </div>
               </div>
-              
             </div>
 
             <!-- Educación Continua -->
@@ -387,7 +379,6 @@ import CTAinscripcion from "@/components/sections/shared/ctaInscripcion.astro";
                   </div>
                 </div>
               </div>
-              
             </div>
           </div>
         </div>
@@ -578,7 +569,7 @@ import CTAinscripcion from "@/components/sections/shared/ctaInscripcion.astro";
           class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8"
         >
           <button
-            class=" text-white border-2 border-white hover:text-rojo-une hover:bg-gray-100 font-bold py-4 px-8 rounded-lg text-lg transition-all duration-300 shadow-lg transform hover:scale-105"
+            class="text-white border-2 border-white hover:text-rojo-une hover:bg-gray-100 font-bold py-4 px-8 rounded-lg text-lg transition-all duration-300 shadow-lg transform hover:scale-105"
           >
             AGENDAR VISITA AL CAMPUS
           </button>
@@ -589,15 +580,15 @@ import CTAinscripcion from "@/components/sections/shared/ctaInscripcion.astro";
           </button>
         </div>
         <div class="grid sm:grid-cols-3 gap-6 max-w-2xl mx-auto text-center">
-          <div class=" bg-opacity-10 backdrop-blur-sm rounded-lg p-4">
+          <div class="bg-opacity-10 backdrop-blur-sm rounded-lg p-4">
             <div class="font-bold text-lg mb-1">Método Montessori</div>
             <div class="text-sm opacity-90">Primaria integral</div>
           </div>
-          <div class=" bg-opacity-10 backdrop-blur-sm rounded-lg p-4">
+          <div class="bg-opacity-10 backdrop-blur-sm rounded-lg p-4">
             <div class="font-bold text-lg mb-1">Bachillerato UDG</div>
             <div class="text-sm opacity-90">Reconocimiento oficial</div>
           </div>
-          <div class=" bg-opacity-10 backdrop-blur-sm rounded-lg p-4">
+          <div class="bg-opacity-10 backdrop-blur-sm rounded-lg p-4">
             <div class="font-bold text-lg mb-1">Hasta Maestrías</div>
             <div class="text-sm opacity-90">Formación completa</div>
           </div>
