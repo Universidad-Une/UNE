@@ -1859,7 +1859,7 @@ export const programasEducativos = {
             imagen: "altadireccion",
             url: "/oferta/licenciaturas/alta_direccion",
             descripcion:
-              "Integra tecnología y negocios para mejorar procesos y tomar decisiones estratégicas basadas en datos.",
+              "Lidera con visión, estrategia y responsabilidad en entornos empresariales de alto nivel.",
           },
         ],
         "CENTRO \nMÉDICO": [

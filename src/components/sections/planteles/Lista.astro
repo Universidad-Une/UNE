@@ -10,6 +10,7 @@ import ChapultepecImg from "@/assets/Imagenes/CardsPlanteles/Chapultepec.webp";
 import PuertoVallartaImg from "@/assets/Imagenes/CardsPlanteles/PuertoVallarta.webp";
 import MilenioImg from "@/assets/Imagenes/CardsPlanteles/Milenio.webp";
 import CaracolImg from "@/assets/Imagenes/CardsPlanteles/Caracol.webp";
+import Juntas from "@/assets/Imagenes/CardsPlanteles/LasJuntas.jpg";
 import PlazaSolImg from "@/assets/Imagenes/CardsPlanteles/PlazaSol.webp";
 import TepatitlanImg from "@/assets/Imagenes/CardsPlanteles/Tepatitlan.webp";
 import TesistanImg from "@/assets/Imagenes/CardsPlanteles/Tesistan.webp";
@@ -78,6 +79,17 @@ const planteles = [
     lon: -105.226917,
   },
   {
+  id: "20",
+  nombre: "Las juntas",
+  codigo: "00022", // ✅ Agregar código
+  direccion: "Francisco Murguía #523 Col. Las Juntas Puerto Vallarta, Jalisco",
+  ciudad: "Puerto Vallarta", // ✅ Corregir ciudad
+  url: "/planteles/las-juntas",
+  imagen: Juntas,
+  lat: 20.696982077577214,
+  lon: -105.23748669247418,
+},
+  {
     id: "9",
     nombre: "Milenio",
     codigo: "00017",
@@ -92,7 +104,8 @@ const planteles = [
     id: "10",
     nombre: "Plaza Caracol",
     codigo: "00018",
-    direccion: "Av. Francisco Medina Ascencio #2190, Plaza Caracol, Puerto Vallarta, Jalisco",
+    direccion:
+      "Av. Francisco Medina Ascencio #2190, Plaza Caracol, Puerto Vallarta, Jalisco",
     ciudad: "Puerto Vallarta",
     url: "/planteles/caracol",
     imagen: CaracolImg,
@@ -125,7 +138,8 @@ const planteles = [
     id: "3",
     nombre: "Tesistán",
     codigo: "00010",
-    direccion: "Av. Juan Gil Preciado #3897, Col. Hogares de Nuevo México, Zapopan, Jalisco",
+    direccion:
+      "Av. Juan Gil Preciado #3897, Col. Hogares de Nuevo México, Zapopan, Jalisco",
     ciudad: "Guadalajara ZMG",
     url: "/planteles/tesistan",
     imagen: TesistanImg,
@@ -136,7 +150,8 @@ const planteles = [
     id: "4",
     nombre: "Tlajomulco",
     codigo: "00012",
-    direccion: "Av. López Mateos #10100, Col. Los Gavilanes Poniente, Tlajomulco de Zúñiga, Jalisco",
+    direccion:
+      "Av. López Mateos #10100, Col. Los Gavilanes Poniente, Tlajomulco de Zúñiga, Jalisco",
     ciudad: "Guadalajara ZMG",
     url: "/planteles/tlajomulco",
     imagen: TlajomulcoImg,
@@ -147,7 +162,8 @@ const planteles = [
     id: "5",
     nombre: "Tlaquepaque",
     codigo: "00013",
-    direccion: "Blvd. Marcelino García Barragán #2056, Col. Bosques del Boulevard, Tlaquepaque, Jalisco",
+    direccion:
+      "Blvd. Marcelino García Barragán #2056, Col. Bosques del Boulevard, Tlaquepaque, Jalisco",
     ciudad: "Guadalajara ZMG",
     url: "/planteles/tlaquepaque",
     imagen: TlaquepaqueImg,
@@ -214,7 +230,7 @@ const {
 } = Astro.props;
 
 // Extraer ciudades únicas de los planteles
-const ciudadesDisponibles = [...new Set(planteles.map(p => p.ciudad))];
+const ciudadesDisponibles = [...new Set(planteles.map((p) => p.ciudad))];
 ---
 
 <div class="w-full mx-auto py-6 px-4 sm:px-6 md:px-12">
@@ -263,7 +279,9 @@ const ciudadesDisponibles = [...new Set(planteles.map(p => p.ciudad))];
   <div class="flex gap-2 mb-6 flex-wrap">
     <div class="relative">
       <div class="w-[400px] relative">
-        <Search class="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
+        <Search
+          class="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4"
+        />
         <input
           type="text"
           id="campus-search-input"
@@ -293,14 +311,16 @@ const ciudadesDisponibles = [...new Set(planteles.map(p => p.ciudad))];
     >
       Todos
     </button>
-    {ciudadesDisponibles.map((ciudad) => (
-      <button
-        class="ciudad-tab px-4 py-2 rounded-full text-sm font-medium transition-colors"
-        data-ciudad={ciudad}
-      >
-        {ciudad}
-      </button>
-    ))}
+    {
+      ciudadesDisponibles.map((ciudad) => (
+        <button
+          class="ciudad-tab px-4 py-2 rounded-full text-sm font-medium transition-colors"
+          data-ciudad={ciudad}
+        >
+          {ciudad}
+        </button>
+      ))
+    }
   </div>
 
   <div
@@ -446,192 +466,199 @@ const ciudadesDisponibles = [...new Set(planteles.map(p => p.ciudad))];
 </div>
 
 <script>
-// JavaScript que se ejecuta en el cliente
-document.addEventListener('DOMContentLoaded', function() {
-  // Elementos del DOM
-  const searchInput = document.getElementById('campus-search-input');
-  const clearBtn = document.getElementById('clear-search-btn');
-  const noResultsMessage = document.getElementById('no-results-message');
-  const cityTabs = document.querySelectorAll('.ciudad-tab');
-  const campusCards = document.querySelectorAll('.campus-card');
-  const findNearestBtn = document.getElementById('find-nearest-btn');
-  const nearestResult = document.getElementById('nearest-campus-result');
+  // JavaScript que se ejecuta en el cliente
+  document.addEventListener("DOMContentLoaded", function () {
+    // Elementos del DOM
+    const searchInput = document.getElementById("campus-search-input");
+    const clearBtn = document.getElementById("clear-search-btn");
+    const noResultsMessage = document.getElementById("no-results-message");
+    const cityTabs = document.querySelectorAll(".ciudad-tab");
+    const campusCards = document.querySelectorAll(".campus-card");
+    const findNearestBtn = document.getElementById("find-nearest-btn");
+    const nearestResult = document.getElementById("nearest-campus-result");
 
-  // Funcionalidad de búsqueda
-  if (searchInput) {
-    searchInput.addEventListener('input', function(e) {
-      const searchTerm = e.target.value.toLowerCase().trim();
-      
-      if (searchTerm.length > 0) {
-        clearBtn.style.opacity = '1';
-        filterCampuses(searchTerm);
-      } else {
-        clearBtn.style.opacity = '0';
+    // Funcionalidad de búsqueda
+    if (searchInput) {
+      searchInput.addEventListener("input", function (e) {
+        const searchTerm = e.target.value.toLowerCase().trim();
+
+        if (searchTerm.length > 0) {
+          clearBtn.style.opacity = "1";
+          filterCampuses(searchTerm);
+        } else {
+          clearBtn.style.opacity = "0";
+          showAllCampuses();
+        }
+      });
+    }
+
+    // Botón de limpiar búsqueda
+    if (clearBtn) {
+      clearBtn.addEventListener("click", function () {
+        searchInput.value = "";
+        clearBtn.style.opacity = "0";
         showAllCampuses();
-      }
-    });
-  }
+        // Resetear filtro de ciudad a "todos"
+        cityTabs.forEach((tab) => tab.classList.remove("active"));
+        document.querySelector('[data-ciudad="todos"]').classList.add("active");
+      });
+    }
 
-  // Botón de limpiar búsqueda
-  if (clearBtn) {
-    clearBtn.addEventListener('click', function() {
-      searchInput.value = '';
-      clearBtn.style.opacity = '0';
-      showAllCampuses();
-      // Resetear filtro de ciudad a "todos"
-      cityTabs.forEach(tab => tab.classList.remove('active'));
-      document.querySelector('[data-ciudad="todos"]').classList.add('active');
-    });
-  }
+    // Filtros por ciudad
+    cityTabs.forEach((tab) => {
+      tab.addEventListener("click", function () {
+        // Remover clase active de todos los tabs
+        cityTabs.forEach((t) => t.classList.remove("active"));
+        this.classList.add("active");
 
-  // Filtros por ciudad
-  cityTabs.forEach(tab => {
-    tab.addEventListener('click', function() {
-      // Remover clase active de todos los tabs
-      cityTabs.forEach(t => t.classList.remove('active'));
-      this.classList.add('active');
-      
-      const ciudad = this.dataset.ciudad;
-      filterByCiudad(ciudad);
-      
-      // Limpiar búsqueda cuando se selecciona una ciudad
-      if (searchInput) {
-        searchInput.value = '';
-        clearBtn.style.opacity = '0';
-      }
-    });
-  });
+        const ciudad = this.dataset.ciudad;
+        filterByCiudad(ciudad);
 
-  // Función para filtrar campus por búsqueda
-  function filterCampuses(searchTerm) {
-    let hasResults = false;
-    
-    campusCards.forEach(card => {
-      const nombre = card.dataset.nombre;
-      const direccion = card.dataset.direccion;
-      const ciudad = card.dataset.ciudad?.toLowerCase();
-      
-      if (nombre.includes(searchTerm) || 
-          direccion.includes(searchTerm) || 
-          ciudad.includes(searchTerm)) {
-        card.style.display = 'block';
-        hasResults = true;
+        // Limpiar búsqueda cuando se selecciona una ciudad
+        if (searchInput) {
+          searchInput.value = "";
+          clearBtn.style.opacity = "0";
+        }
+      });
+    });
+
+    // Función para filtrar campus por búsqueda
+    function filterCampuses(searchTerm) {
+      let hasResults = false;
+
+      campusCards.forEach((card) => {
+        const nombre = card.dataset.nombre;
+        const direccion = card.dataset.direccion;
+        const ciudad = card.dataset.ciudad?.toLowerCase();
+
+        if (
+          nombre.includes(searchTerm) ||
+          direccion.includes(searchTerm) ||
+          ciudad.includes(searchTerm)
+        ) {
+          card.style.display = "block";
+          hasResults = true;
+        } else {
+          card.style.display = "none";
+        }
+      });
+
+      if (!hasResults) {
+        noResultsMessage.classList.remove("hidden");
       } else {
-        card.style.display = 'none';
+        noResultsMessage.classList.add("hidden");
       }
-    });
-    
-    if (!hasResults) {
-      noResultsMessage.classList.remove('hidden');
-    } else {
-      noResultsMessage.classList.add('hidden');
     }
-  }
 
-  // Función para mostrar todos los campus
-  function showAllCampuses() {
-    campusCards.forEach(card => {
-      card.style.display = 'block';
-    });
-    noResultsMessage.classList.add('hidden');
-  }
-
-  // Función para filtrar por ciudad
-  function filterByCiudad(ciudad) {
-    if (ciudad === 'todos') {
-      showAllCampuses();
-      return;
+    // Función para mostrar todos los campus
+    function showAllCampuses() {
+      campusCards.forEach((card) => {
+        card.style.display = "block";
+      });
+      noResultsMessage.classList.add("hidden");
     }
-    
-    let hasResults = false;
-    campusCards.forEach(card => {
-      if (card.dataset.ciudad === ciudad) {
-        card.style.display = 'block';
-        hasResults = true;
+
+    // Función para filtrar por ciudad
+    function filterByCiudad(ciudad) {
+      if (ciudad === "todos") {
+        showAllCampuses();
+        return;
+      }
+
+      let hasResults = false;
+      campusCards.forEach((card) => {
+        if (card.dataset.ciudad === ciudad) {
+          card.style.display = "block";
+          hasResults = true;
+        } else {
+          card.style.display = "none";
+        }
+      });
+
+      if (!hasResults) {
+        noResultsMessage.classList.remove("hidden");
       } else {
-        card.style.display = 'none';
+        noResultsMessage.classList.add("hidden");
       }
-    });
-    
-    if (!hasResults) {
-      noResultsMessage.classList.remove('hidden');
-    } else {
-      noResultsMessage.classList.add('hidden');
     }
-  }
 
-  // Funcionalidad para encontrar el más cercano
-  if (findNearestBtn) {
-    findNearestBtn.addEventListener('click', function() {
-      if (navigator.geolocation) {
-        nearestResult.textContent = 'Obteniendo tu ubicación...';
-        
-        navigator.geolocation.getCurrentPosition(function(position) {
-          const userLat = position.coords.latitude;
-          const userLon = position.coords.longitude;
-          
-          let nearestCampus = null;
-          let minDistance = Infinity;
-          
-          campusCards.forEach(card => {
-            const lat = parseFloat(card.dataset.lat);
-            const lon = parseFloat(card.dataset.lon);
-            const distance = calculateDistance(userLat, userLon, lat, lon);
-            
-            if (distance < minDistance) {
-              minDistance = distance;
-              nearestCampus = {
-                nombre: card.querySelector('h3').textContent,
-                distancia: distance.toFixed(1)
-              };
+    // Funcionalidad para encontrar el más cercano
+    if (findNearestBtn) {
+      findNearestBtn.addEventListener("click", function () {
+        if (navigator.geolocation) {
+          nearestResult.textContent = "Obteniendo tu ubicación...";
+
+          navigator.geolocation.getCurrentPosition(
+            function (position) {
+              const userLat = position.coords.latitude;
+              const userLon = position.coords.longitude;
+
+              let nearestCampus = null;
+              let minDistance = Infinity;
+
+              campusCards.forEach((card) => {
+                const lat = parseFloat(card.dataset.lat);
+                const lon = parseFloat(card.dataset.lon);
+                const distance = calculateDistance(userLat, userLon, lat, lon);
+
+                if (distance < minDistance) {
+                  minDistance = distance;
+                  nearestCampus = {
+                    nombre: card.querySelector("h3").textContent,
+                    distancia: distance.toFixed(1),
+                  };
+                }
+              });
+
+              if (nearestCampus) {
+                nearestResult.textContent = `Tu plantel más cercano es ${nearestCampus.nombre} (${nearestCampus.distancia} km)`;
+              }
+            },
+            function (error) {
+              nearestResult.textContent = "No se pudo obtener tu ubicación";
             }
-          });
-          
-          if (nearestCampus) {
-            nearestResult.textContent = `Tu plantel más cercano es ${nearestCampus.nombre} (${nearestCampus.distancia} km)`;
-          }
-        }, function(error) {
-          nearestResult.textContent = 'No se pudo obtener tu ubicación';
-        });
-      } else {
-        nearestResult.textContent = 'Tu navegador no soporta geolocalización';
-      }
-    });
-  }
+          );
+        } else {
+          nearestResult.textContent = "Tu navegador no soporta geolocalización";
+        }
+      });
+    }
 
-  // Función para calcular distancia entre dos puntos
-  function calculateDistance(lat1, lon1, lat2, lon2) {
-    const R = 6371; // Radio de la Tierra en km
-    const dLat = (lat2 - lat1) * Math.PI / 180;
-    const dLon = (lon2 - lon1) * Math.PI / 180;
-    const a = Math.sin(dLat/2) * Math.sin(dLat/2) +
-              Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) *
-              Math.sin(dLon/2) * Math.sin(dLon/2);
-    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
-    return R * c;
-  }
-});
+    // Función para calcular distancia entre dos puntos
+    function calculateDistance(lat1, lon1, lat2, lon2) {
+      const R = 6371; // Radio de la Tierra en km
+      const dLat = ((lat2 - lat1) * Math.PI) / 180;
+      const dLon = ((lon2 - lon1) * Math.PI) / 180;
+      const a =
+        Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+        Math.cos((lat1 * Math.PI) / 180) *
+          Math.cos((lat2 * Math.PI) / 180) *
+          Math.sin(dLon / 2) *
+          Math.sin(dLon / 2);
+      const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+      return R * c;
+    }
+  });
 </script>
 
 <style>
-.ciudad-tab {
-  background-color: #f3f4f6; /* bg-gray-100 */
-  color: #374151;            /* text-gray-700 */
-}
+  .ciudad-tab {
+    background-color: #f3f4f6; /* bg-gray-100 */
+    color: #374151; /* text-gray-700 */
+  }
 
-.ciudad-tab:hover {
-  background-color: #e5e7eb; /* bg-gray-200 */
-}
+  .ciudad-tab:hover {
+    background-color: #e5e7eb; /* bg-gray-200 */
+  }
 
-.ciudad-tab.active {
-  background-color: #dc2626; /* bg-red-600 */
-  color: #ffffff;            /* text-white */
-}
+  .ciudad-tab.active {
+    background-color: #dc2626; /* bg-red-600 */
+    color: #ffffff; /* text-white */
+  }
 
-.ciudad-tab.active:hover {
-  background-color: #b91c1c; /* bg-red-700 */
-}
-
+  .ciudad-tab.active:hover {
+    background-color: #b91c1c; /* bg-red-700 */
+  }
 </style>
 <style>
   .bg-rojo-une {
