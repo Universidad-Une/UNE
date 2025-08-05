@@ -1,6 +1,8 @@
 ---
-// Importar del archivo principal estructura_educativa.js (no del específico de maestría)
-import { programasEducativos } from "@helpers/estructura_educativa.js";
+import { programasEducativos } from "@helpers/estructura_educativa";
+import { getImageUrl } from "@/helpers/imageManager.js"; // 👈 AGREGAR ESTA LÍNEA
+
+
 
 // Función para obtener la primera imagen disponible de los planteles
 function getPrimeraImagenDePlanteles(planteles) {
@@ -77,9 +79,16 @@ const carreras = Maestrías.map((maestria, index) => {
       }
     });
   });
-
   // Usar la imagen tal como viene, o el nombre del programa como fallback
   const imagenNombre = maestria.imagen || maestria.nombre;
+  const imagenUrl = getImageUrl(imagenNombre, "maestrias");
+
+  // Si imagenUrl no es string, usar fallback
+  const imagenUrlFinal =
+    typeof imagenUrl === "string"
+      ? imagenUrl
+      : "/src/assets/Imagenes/CardsLicenciaturas/Arquitectura.webp";
+
 
   // Obtener el color para el badge principal (primera incorporación)
   const colorBadge = getColorBadge(todasLasIncorporaciones[0]);
@@ -89,7 +98,8 @@ const carreras = Maestrías.map((maestria, index) => {
     nombre: `${maestria.nombre}`,
     descripcion: getDescripcionFromPlanteles(maestria.planteles),
     area: maestria.area,
-    imagen: imagenNombre, // Mantener la imagen sin cambios
+      imagen: imagenNombre,
+    imagenUrl: imagenUrlFinal, // 👈 usar la variable con fallback
     categoria: maestria.area,
     incorporacion: todasLasIncorporaciones.join(", "),
     modalidad: todasLasModalidades.join(", "),
@@ -171,8 +181,8 @@ export { carreras, areas };
             >
               <div class="relative">
                 <div class="h-48 flex items-center justify-center">
-                  <img
-                    src={`/src/assets/Imagenes/CardsMaestrías/${carrera.imagen}.webp`}
+                <img
+                    src={carrera.imagenUrl}
                     alt={carrera.imagen}
                     class="w-full h-full object-cover"
                   />

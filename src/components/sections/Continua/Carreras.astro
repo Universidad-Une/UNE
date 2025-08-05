@@ -1,5 +1,7 @@
 ---
 import { programasEducativos } from "@helpers/estructura_educativa.js";
+import { getImageUrl } from "@/helpers/imageManager.js"; // 👈 AGREGAR ESTA LÍNEA
+
 
 // Función para obtener la primera imagen disponible de los planteles
 function getPrimeraImagenDePlanteles(planteles) {
@@ -77,8 +79,15 @@ const carreras = continua.map((programaContinua, index) => {
     });
   });
 
-  // Usar la imagen tal como viene, o el nombre del programa como fallback
+   // Usar la imagen tal como viene, o el nombre del programa como fallback
   const imagenNombre = programaContinua.imagen || programaContinua.nombre;
+  const imagenUrl = getImageUrl(imagenNombre, "cursos");
+
+  // Si imagenUrl no es string, usar fallback
+  const imagenUrlFinal =
+    typeof imagenUrl === "string"
+      ? imagenUrl
+      : "/src/assets/Imagenes/CardsLicenciaturas/Arquitectura.webp";
 
   // Obtener el color para el badge principal (primera incorporación)
   const colorBadge = getColorBadge(todasLasIncorporaciones[0]);
@@ -89,6 +98,7 @@ const carreras = continua.map((programaContinua, index) => {
     descripcion: getDescripcionFromPlanteles(programaContinua.planteles),
     area: programaContinua.area,
     imagen: imagenNombre,
+    imagenUrl: imagenUrlFinal, // 👈 usar la variable con fallback
     categoria: programaContinua.area,
     incorporacion: todasLasIncorporaciones.join(", "),
     modalidad: todasLasModalidades.join(", "),
@@ -171,7 +181,7 @@ export { carreras, areas };
               <div class="relative">
                 <div class="h-48 flex items-center justify-center">
                   <img
-                    src={`/src/assets/Imagenes/CardsCursos/${carrera.imagen}.webp`}
+                    src={carrera.imagenUrl}
                     alt={carrera.imagen}
                     class="w-full h-full object-cover"
                   />

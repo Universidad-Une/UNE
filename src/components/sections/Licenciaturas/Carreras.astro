@@ -2,8 +2,6 @@
 import { programasEducativos } from "@helpers/estructura_educativa";
 import { getImageUrl } from "@/helpers/imageManager.js"; // 👈 AGREGAR ESTA LÍNEA
 
-
-
 // Función para obtener la primera imagen disponible de los planteles
 function getPrimeraImagenDePlanteles(planteles) {
   for (const plantelInfo of Object.values(planteles)) {
@@ -82,11 +80,13 @@ const carreras = licenciaturas.map((licenciatura, index) => {
 
   // Usar la imagen tal como viene, o el nombre del programa como fallback
   const imagenNombre = licenciatura.imagen || licenciatura.nombre;
-const imagenUrl = getImageUrl(imagenNombre, "licenciaturas");
-console.log(`🖼️ Image for ${imagenNombre}:`, imagenUrl, typeof imagenUrl);
+  const imagenUrl = getImageUrl(imagenNombre, "licenciaturas");
 
-// Si imagenUrl no es string, usar fallback
-const imagenUrlFinal = typeof imagenUrl === 'string' ? imagenUrl : '/src/assets/Imagenes/CardsLicenciaturas/Arquitectura.webp';
+  // Si imagenUrl no es string, usar fallback
+  const imagenUrlFinal =
+    typeof imagenUrl === "string"
+      ? imagenUrl
+      : "/src/assets/Imagenes/CardsLicenciaturas/Arquitectura.webp";
 
   // Obtener el color para el badge principal (primera incorporación)
   const colorBadge = getColorBadge(todasLasIncorporaciones[0]);
@@ -96,7 +96,7 @@ const imagenUrlFinal = typeof imagenUrl === 'string' ? imagenUrl : '/src/assets/
     nombre: `Lic. en ${licenciatura.nombre}`,
     descripcion: getDescripcionFromPlanteles(licenciatura.planteles),
     area: licenciatura.area,
-     imagen: imagenNombre,
+    imagen: imagenNombre,
     imagenUrl: imagenUrlFinal, // 👈 usar la variable con fallback
     categoria: licenciatura.area,
     incorporacion: todasLasIncorporaciones.join(", "),
