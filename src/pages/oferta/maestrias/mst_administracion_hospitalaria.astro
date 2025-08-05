@@ -1,10 +1,13 @@
 ---
 import Layout from "@/layouts/Layout.astro";
-import Hero from "@/assets/Imagenes/Heros/Carreras/Psicologia.webp";
-import Hero_mobile from "@/assets/Imagenes/Heros/Carreras/Psicologia_mobile.webp";
+import Hero from "@/assets/Imagenes/Heros/Cirujano_dentista.webp";
+import Hero_mobile from "@/assets/Imagenes/Heros/Cirujano_dentista_mobile.webp";
 import ImagenCard from "@/assets/Imagenes/CardsNiveles/Nivel.webp";
 import LogoCard from "@/assets/Logos/Licenciatura.webp";
 import InformativeCard from "@components/sections/detallesOferta/card.astro";
+import Carreras from "@components/sections/Licenciaturas/Carreras.astro";
+import Estadisticas from "@components/sections/Licenciaturas/Estadisticas.astro";
+
 import Requisitos from "@/components/sections/detallesOferta/requisitos.astro";
 
 import FAQComponent from "@/components/sections/detallesOferta/preguntas.astro";
@@ -22,7 +25,7 @@ const requisitosInfo = {
     "CURP (formato RENAPO)",
     "Identificación oficial con fotografía (INE) - dos copias",
     "Comprobante de domicilio reciente (no mayor a 3 meses) - una copia",
-    "Cinco fotografías tamaño infantil, blanco y negro, papel mate, de estudio",
+    "Cinco fotografías tamaño infantil, blanco y negro, papel mate, de estudio"
   ],
   pdfUrl: "/public/pdfs/licenciatura_req.pdf",
 };
@@ -76,45 +79,27 @@ const semestresDatos = [
     numero: 1,
     materias: [
       {
-        codigo: "LPS101",
-        nombre: "Procesos Psicológicos",
-        creditos: 5,
+        codigo: "ED1021",
+        nombre: "Introducción a la Educación",
+        creditos: 30,
         color: "verde",
       },
       {
-        codigo: "LPS102",
-        nombre: "Introducción a la Psicología",
-        creditos: 5,
+        codigo: "Filosofía y Ética en Educación",
+        nombre: "Filosofía y Ética en Educación",
+        creditos: 30,
         color: "verde",
       },
       {
-        codigo: "LPS103",
-        nombre: "Bases Filosóficas de la Psicología I",
-        creditos: 6,
+        codigo: "ED1024",
+        nombre: "Desarrollo Infantil y adolescente",
+        creditos: 30,
         color: "verde",
       },
       {
-        codigo: "LPS104",
-        nombre: "Anatomía y Fisiología del Sistema Nervioso",
-        creditos: 6,
-        color: "verde",
-      },
-      {
-        codigo: "LPS105",
-        nombre: "Tecnologías de la Información Aplicadas a la Psicología",
-        creditos: 3,
-        color: "verde",
-      },
-      {
-        codigo: "LPS106",
-        nombre: "Psicología del Aprendizaje",
-        creditos: 5,
-        color: "verde",
-      },
-      {
-        codigo: "LPS107",
-        nombre: "Desarrollo Humano",
-        creditos: 3,
+        codigo: "ED1027",
+        nombre: "Habilidades Básicas de Investigación",
+        creditos: 30,
         color: "verde",
       },
     ],
@@ -123,45 +108,27 @@ const semestresDatos = [
     numero: 2,
     materias: [
       {
-        codigo: "LPS201",
-        nombre: "Teoría y Técnica de la Entrevista I",
-        creditos: 5,
+        codigo: "FH1203",
+        nombre: "Pensamiento lógico y tecnológico",
+        creditos: 30,
         color: "amarillo",
       },
       {
-        codigo: "LPS202",
-        nombre: "Bases Filosóficas de la Psicología II",
-        creditos: 6,
+        codigo: "ED2016",
+        nombre: "Desarrollo de la Psicomotricidad",
+        creditos: 30,
         color: "amarillo",
       },
       {
-        codigo: "LPS203",
-        nombre: "Psicología del Desarrollo I: Infancia - Adolescencia",
-        creditos: 6,
+        codigo: "HJ2026",
+        nombre: "Ética social cristiana",
+        creditos: 30,
         color: "amarillo",
       },
       {
-        codigo: "LPS204",
-        nombre: "Estadística Aplicada a la Psicología",
-        creditos: 5,
-        color: "amarillo",
-      },
-      {
-        codigo: "LPS205",
-        nombre: "Funciones Cerebrales I",
-        creditos: 5,
-        color: "amarillo",
-      },
-      {
-        codigo: "LPS206",
-        nombre: "Teoría de la Comunicación Humana",
-        creditos: 5,
-        color: "amarillo",
-      },
-      {
-        codigo: "LPS207",
-        nombre: "Ética y Ejercicio Profesional",
-        creditos: 3,
+        codigo: "ED1029",
+        nombre: "Historia de la Pedagogía moderna",
+        creditos: 30,
         color: "amarillo",
       },
     ],
@@ -170,326 +137,35 @@ const semestresDatos = [
     numero: 3,
     materias: [
       {
-        codigo: "LPS301",
-        nombre: "Teoría y Técnica de la Entrevista II",
-        creditos: 5,
+        codigo: "PS1201",
+        nombre: "Fundamentos de Psicología y Bienestar",
+        creditos: 30,
         color: "naranja",
       },
       {
-        codigo: "LPS302",
-        nombre: "Psicología del Desarrollo II: Edad Madura y Vejez",
-        creditos: 6,
+        codigo: "Gestión educativa institucional",
+        nombre: "Gestión educativa institucional",
+        creditos: 30,
         color: "naranja",
       },
       {
-        codigo: "LPS303",
-        nombre: "Teorías de la Personalidad",
-        creditos: 5,
+        codigo: "ED2012",
+        nombre: "Desarrollo Socioemocional",
+        creditos: 30,
         color: "naranja",
       },
       {
-        codigo: "LPS304",
-        nombre: "Funciones Cerebrales II",
-        creditos: 5,
-        color: "naranja",
-      },
-      {
-        codigo: "LPS305",
-        nombre: "Metodología de la Investigación",
-        creditos: 5,
-        color: "naranja",
-      },
-      {
-        codigo: "LPS306",
-        nombre: "Sociología y Antropología",
-        creditos: 5,
-        color: "naranja",
-      },
-      {
-        codigo: "LPS307",
-        nombre: "Psicología Anormal",
-        creditos: 5,
+        codigo: "ED3027",
+        nombre: "Administración educativa",
+        creditos: 30,
         color: "naranja",
       },
     ],
   },
-  {
-    numero: 4,
-    materias: [
-      {
-        codigo: "LPS401",
-        nombre: "Dinámica de Grupos",
-        creditos: 5,
-        color: "rojo",
-      },
-      {
-        codigo: "LPS402",
-        nombre: "Psicología de la Motivación",
-        creditos: 5,
-        color: "rojo",
-      },
-      {
-        codigo: "LPS403",
-        nombre: "Psicología y Globalización",
-        creditos: 5,
-        color: "rojo",
-      },
-      {
-        codigo: "LPS404",
-        nombre: "Trastornos de la Personalidad",
-        creditos: 5,
-        color: "rojo",
-      },
-      {
-        codigo: "LPS405",
-        nombre: "Necesidades Educativas Especiales",
-        creditos: 5,
-        color: "rojo",
-      },
-      {
-        codigo: "LPS406",
-        nombre: "Técnicas de Evaluación en Psicología",
-        creditos: 5,
-        color: "rojo",
-      },
-      {
-        codigo: "LPS407",
-        nombre: "Psicología Experimental",
-        creditos: 5,
-        color: "rojo",
-      },
-    ],
-  },
-  {
-    numero: 5,
-    materias: [
-      {
-        codigo: "LPS501",
-        nombre: "Introducción a la Psicología Clínica",
-        creditos: 5,
-        color: "purpura",
-      },
-      {
-        codigo: "LPS502",
-        nombre: "Principios Teóricos de la Psicología Educativa",
-        creditos: 5,
-        color: "purpura",
-      },
-      {
-        codigo: "LPS503",
-        nombre: "Psicometría de la Adultez",
-        creditos: 6,
-        color: "purpura",
-      },
-      {
-        codigo: "LPS504",
-        nombre: "Psicometría de la Infancia",
-        creditos: 6,
-        color: "purpura",
-      },
-      {
-        codigo: "LPS505",
-        nombre: "Psicopatología del Niño",
-        creditos: 5,
-        color: "purpura",
-      },
-      {
-        codigo: "LPS506",
-        nombre: "Psicopatología del Adulto",
-        creditos: 5,
-        color: "purpura",
-      },
-      {
-        codigo: "LPS507",
-        nombre: "Redacción de Documentos Académicos",
-        creditos: 4,
-        color: "purpura",
-      },
-    ],
-  },
-  {
-    numero: 6,
-    materias: [
-      {
-        codigo: "LPS601",
-        nombre: "Psicología Social y Comunitaria",
-        creditos: 5,
-        color: "azul",
-      },
-      {
-        codigo: "LPS602",
-        nombre: "Fundamentos de Psicoterapia",
-        creditos: 5,
-        color: "azul",
-      },
-      {
-        codigo: "LPS603",
-        nombre: "Psicodiagnóstico del Niño",
-        creditos: 6,
-        color: "azul",
-      },
-      {
-        codigo: "LPS604",
-        nombre: "Psicodiagnóstico del Adulto",
-        creditos: 6,
-        color: "azul",
-      },
-      {
-        codigo: "LPS605",
-        nombre: "Psicopedagogía",
-        creditos: 5,
-        color: "azul",
-      },
-      {
-        codigo: "LPS606",
-        nombre: "Seminario de Investigación en Psicología",
-        creditos: 4,
-        color: "azul",
-      },
-      {
-        codigo: "LPS607",
-        nombre: "Psicología Organizacional",
-        creditos: 5,
-        color: "azul",
-      },
-    ],
-  },
-  {
-    numero: 7,
-    materias: [
-      {
-        codigo: "LPS701",
-        nombre: "Psicoterapia Infantil",
-        creditos: 5,
-        color: "rosa",
-      },
-      {
-        codigo: "LPS702",
-        nombre: "Evaluación e Intervención en Educación Especial",
-        creditos: 5,
-        color: "rosa",
-      },
-      {
-        codigo: "LPS703",
-        nombre: "Evaluación y Diagnóstico de las Organizaciones",
-        creditos: 5,
-        color: "rosa",
-      },
-      {
-        codigo: "LPS704",
-        nombre: "Orientación Educativa",
-        creditos: 5,
-        color: "rosa",
-      },
-      {
-        codigo: "LPS705",
-        nombre: "Vulnerabilidad y Riesgos Psicosociales",
-        creditos: 5,
-        color: "rosa",
-      },
-      {
-        codigo: "LPS706",
-        nombre: "Psicoterapia de Adultos",
-        creditos: 6,
-        color: "rosa",
-      },
-      {
-        codigo: "LPS707",
-        nombre: "Sexualidad Humana",
-        creditos: 5,
-        color: "rosa",
-      },
-    ],
-  },
-  {
-    numero: 8,
-    materias: [
-      {
-        codigo: "LPS801",
-        nombre: "Prácticas Profesionales de Psicoterapia de Adultos",
-        creditos: 11,
-        color: "cyan",
-      },
-      {
-        codigo: "LPS802",
-        nombre: "Prácticas Profesionales de Psicología Organizacional",
-        creditos: 11,
-        color: "cyan",
-      },
-      {
-        codigo: "LPS803",
-        nombre: "Intervención en Psicología Organizacional",
-        creditos: 5,
-        color: "cyan",
-      },
-      {
-        codigo: "LPS804",
-        nombre: "Nuevos Avances en Psicología Clínica",
-        creditos: 5,
-        color: "cyan",
-      },
-    ],
-  },
-  {
-    numero: 9,
-    materias: [
-      {
-        codigo: "LPS901",
-        nombre: "Prácticas Profesionales de Psicoterapia Infantil",
-        creditos: 11,
-        color: "gris",
-      },
-      {
-        codigo: "LPS902",
-        nombre: "Psicología Jurídica y Forense",
-        creditos: 5,
-        color: "gris",
-      },
-      {
-        codigo: "LPS903",
-        nombre: "Prácticas Profesionales de Psicología Educativa",
-        creditos: 11,
-        color: "gris",
-      },
-      {
-        codigo: "LPS904",
-        nombre: "Intervención en Psicología Educativa",
-        creditos: 5,
-        color: "gris",
-      },
-      {
-        codigo: "LPS905",
-        nombre: "Seminario de Titulación en Psicología",
-        creditos: 3,
-        color: "gris",
-      },
-    ],
-  },
+  // Puedes agregar más semestres según necesites
 ];
 
 const planteles = [
-  {
-    id: "14",
-    nombre: "Torre UNE Milenio",
-    codigo: "TORRE MILENIO",
-    direccion: "Av. López Mateos Sur #4175 Col. La Giralda Zapopan, Jalisco",
-    ciudad: "Guadalajara ZMG",
-    url:"/campus/Torre-milenio",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/Torre-milenio.webp",
-    lat: "20.645336",
-    lon: "-103.405938",
-  },
-   {
-    id: "1",
-    nombre: "Avenida México",
-    codigo: "00008",
-    direccion: "Av. México #1255, Col. Agua Zarca, Puerto Vallarta, Jalisco",
-    ciudad: "Puerto Vallarta",
-    url: "/campus/puerto-vallarta",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/PuertoVallarta.webp",
-    lat: 20.669418,
-    lon: -105.226917,
-  },
   {
     id: "1",
     nombre: "Centro",
@@ -500,7 +176,16 @@ const planteles = [
     lat: 20.67744801539995,
     lon: -103.34031672627513,
   },
- 
+  {
+    id: "2",
+    nombre: "Centro Médico",
+    direccion: "José María Lozano #1077, Col. Belisario Domínguez",
+    ciudad: "Guadalajara ZMG",
+    url: "/plantel-centro-medico",
+    imagen: "/src/assets/Imagenes/CardsPlanteles/CentroMedico.webp",
+    lat: 20.684590788642307,
+    lon: -103.3256397932448,
+  },
   {
     id: "3",
     nombre: "Milenio",
@@ -629,15 +314,19 @@ const ciudades = [
         <div class="text-center text-white max-w-4xl mx-auto">
           {/* Main Title */}
           <h1 class="text-4xl md:text-7xl font-bold tracking-wider mb-4">
-            Lic. en Psicología
+            Lic. en Cirujano Dentista
           </h1>
+          <h2 class="text-2xl md:text-5xl font-bold tracking-wider mb-8">
+            Licenciaturas UNE
+          </h2>
 
           {/* Description */}
           <p
             class="text-lg md:text-xl leading-relaxed mb-16 max-w-3xl mx-auto font-light"
           >
-            Comprende la conducta humana y contribuye al bienestar emocional,
-            social y mental de las personas.
+            Transforma sonrisas y mejora la calidad de vida a través del estudio
+            y la práctica de la odontología, en una carrera donde la ciencia, la
+            salud y la vocación por el bienestar se unen.
           </p>
         </div>
       </div>
@@ -654,8 +343,7 @@ const ciudades = [
             class="flex flex-col sm:flex-row gap-4 w-full justify-center text-white"
           >
             <!-- Agenda una Visita -->
-            <a
-              href="/contacto/solicitarvisita"
+            <a href="/contacto/solicitarvisita"
               class="hover:border-b hover:border-b-cyan-50 font-bold py-6 px-6 text-base transition-colors duration-300 shadow-lg flex flex-col items-center justify-center gap-2 whitespace-nowrap"
             >
               AGENDA UNA VISITA
@@ -663,8 +351,7 @@ const ciudades = [
             </a>
 
             <!-- Iniciar Inscripción -->
-            <a
-              href="/contacto/formulario-inscripcion"
+            <a href="/contacto/formulario-inscripcion"
               class="hover:border-b hover:border-b-cyan-50 font-bold py-3 px-6 text-base transition-colors duration-300 shadow-lg flex flex-col items-center justify-center gap-2 whitespace-nowrap"
             >
               INICIAR INSCRIPCIÓN
@@ -672,8 +359,7 @@ const ciudades = [
             </a>
 
             <!-- Contactar -->
-            <a
-              href="/contacto/solicitarinformacion"
+             <a href="/contacto/solicitarinformacion"
               class="hover:border-b hover:border-b-cyan-50 font-bold py-3 px-6 text-base transition-colors duration-300 shadow-lg flex flex-col items-center justify-center gap-2 whitespace-nowrap"
             >
               CONTACTAR
@@ -688,37 +374,27 @@ const ciudades = [
       logoSrc={LogoCard.src}
       studentImageSrc={ImagenCard.src}
       title="Objetivo"
-      description="Desarrollar psicólogos con competencias teóricas, metodológicas y prácticas para comprender, intervenir y mejorar el comportamiento humano en diversos contextos, contribuyendo al bienestar emocional, la salud mental y la transformación social, con un perfil profesional ético y altamente empleable."
-      additionalText=""
+      description="La Licenciatura en Cirujano Dentista te forma como un profesionista altamente capacitado para prevenir, diagnosticar y tratar enfermedades bucales con un enfoque integral y humano."
+      additionalText="Con una sólida formación teórico-práctica y un alto compromiso ético y social, estarás preparado para promover la salud bucodental, brindar atención personalizada y colaborar con instituciones de salud para transformar positivamente la calidad de vida de las personas."
       features={[
-        {
-          icon: "Brain",
-          label: "Comprensión profunda del comportamiento humano",
-        },
-        {
-          icon: "UserPlus",
-          label: "Intervención en contextos clínicos, educativos y sociales",
-        },
-        {
-          icon: "HeartPulse",
-          label: "Promoción de la salud mental y el bienestar emocional",
-        },
-        {
-          icon: "BookCheck",
-          label: "Rigor científico y metodológico en la práctica",
-        },
-        { icon: "BadgeCheck", label: "Ética profesional y alta empleabilidad" },
+        { icon: "CalendarDays", label: "Prácticas clínicas presenciales" },
+        { icon: "BookOpen", label: "Bases científicas sólidas" },
+        { icon: "School", label: "Validez oficial" },
+        { icon: "Clock", label: "Horarios accesibles" },
+        { icon: "BookmarkCheck", label: "Enfoque profesionalizante" },
       ]}
     />
 
-    <PlanEstudios titulo="Propuesta Educativa" semestres={semestresDatos} />
+     <PlanEstudios titulo="Propuesta Educativa" semestres={semestresDatos} />
 
-    <Planteles
+     <Planteles
       titulo="Encuentra tu campus más cercano"
       planteles={planteles}
       ciudades={ciudades}
       mostrarMasCercano={true}
     />
+
+    
 
     <Requisitos nivel="Licenciatura" requisitos={requisitosInfo} />
 

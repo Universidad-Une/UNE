@@ -1,0 +1,230 @@
+<div class="max-w-7xl py-18 mx-auto">
+  <!-- Header -->
+  <div class="text-center mb-12 opacity-0 animate-fade-in" data-animate="fade-up">
+    <h2
+      class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6"
+    >
+      El éxito de nuestros graduados habla por sí solo
+    </h2>
+    <p class="text-lg text-gray-600 max-w-4xl mx-auto leading-relaxed">
+      Tu graduación es más que un cierre: es el reflejo de tu entrega, tu
+      constancia y tus ganas de crecer. En UNE, reconocemos ese esfuerzo con
+      programas que impulsan tu desarrollo profesional, porque sabemos que
+      el éxito se construye con pasión, disciplina y el respaldo de una
+      institución que cree en ti.
+    </p>
+  </div>
+
+  <!-- Stats Grid -->
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
+    <!-- Stat 1 -->
+    <div class="text-center opacity-0 animate-fade-in-delay-1" data-animate="fade-up">
+      <div class="mb-4">
+        <span
+          class="text-5xl sm:text-6xl lg:text-7xl font-bold text-azul-une counter"
+          data-target="3000"
+          data-prefix="+"
+        >
+          +0
+        </span>
+      </div>
+      <p class="text-lg  text-gray-900 mb-2">
+        Graduados cada año a nivel Licenciatura
+      </p>
+    </div>
+
+    <!-- Stat 2 -->
+    <div class="text-center opacity-0 animate-fade-in-delay-2" data-animate="fade-up">
+      <div class="mb-4">
+        <span
+          class="text-5xl sm:text-6xl lg:text-7xl font-bold text-azul-une counter"
+          data-target="90"
+          data-suffix="%"
+        >
+          0%
+        </span>
+      </div>
+      <p class="text-lg  text-gray-900 mb-2">
+        de nuestros egresados consigue empleo en menos de 6 meses.
+      </p>
+    </div>
+
+    <!-- Stat 3 -->
+    <div class="text-center opacity-0 animate-fade-in-delay-3" data-animate="fade-up">
+      <div class="mb-4">
+        <span
+          class="text-5xl sm:text-6xl lg:text-7xl font-bold text-azul-une counter"
+          data-target="800"
+          data-prefix="+"
+        >
+          +0
+        </span>
+      </div>
+      <p class="text-lg  text-gray-900 mb-2">
+        Convenios con empresas para prácticas, empleabilidad y desarrollo
+        profesional.
+      </p>
+    </div>
+  </div>
+</div>
+
+<style>
+  /* Animaciones CSS */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  .animate-fade-in {
+    animation: fadeInUp 0.8s ease-out forwards;
+  }
+
+  .animate-fade-in-delay-1 {
+    animation: fadeInUp 0.8s ease-out 0.2s forwards;
+  }
+
+  .animate-fade-in-delay-2 {
+    animation: fadeInUp 0.8s ease-out 0.4s forwards;
+  }
+
+  .animate-fade-in-delay-3 {
+    animation: fadeInUp 0.8s ease-out 0.6s forwards;
+  }
+
+  /* Estado inicial para elementos animados */
+  [data-animate] {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  /* Estados finales cuando están visibles */
+  [data-animate].visible {
+    opacity: 1;
+    transform: translateY(0);
+    transition: all 0.8s ease-out;
+  }
+
+  /* Efecto de pulso sutil en los números */
+  .counter {
+    transition: all 0.3s ease;
+  }
+
+  .counter.counting {
+    transform: scale(1.05);
+  }
+</style>
+
+<script>
+  // Función para animar contador con velocidad decreciente
+  function animateCounter(element, target, duration = 2000) {
+    const start = 0;
+    const prefix = element.dataset.prefix || '';
+    const suffix = element.dataset.suffix || '';
+    const startTime = performance.now();
+    
+    // Agregar clase de animación
+    element.classList.add('counting');
+    
+    function updateCounter(currentTime) {
+      const elapsed = currentTime - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      
+      // Función de easing para velocidad decreciente (ease-out)
+      const easeOut = 1 - Math.pow(1 - progress, 3);
+      
+      const currentValue = Math.floor(start + (target - start) * easeOut);
+      element.textContent = prefix + currentValue.toLocaleString() + suffix;
+      
+      if (progress < 1) {
+        requestAnimationFrame(updateCounter);
+      } else {
+        // Remover clase de animación al finalizar
+        element.classList.remove('counting');
+        // Asegurar valor final exacto
+        element.textContent = prefix + target.toLocaleString() + suffix;
+      }
+    }
+    
+    requestAnimationFrame(updateCounter);
+  }
+
+  // Intersection Observer para detectar cuando los elementos son visibles
+  const observerOptions = {
+    threshold: 0.3, // Se activa cuando el 30% del elemento es visible
+    rootMargin: '0px 0px -50px 0px' // Margen adicional
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const element = entry.target;
+        
+        // Animar elementos con fade
+        if (element.hasAttribute('data-animate')) {
+          element.classList.add('visible');
+        }
+        
+        // Animar contadores
+        if (element.classList.contains('counter')) {
+          const target = parseInt(element.dataset.target);
+          // Diferentes duraciones para crear efecto escalonado
+          let duration;
+          if (target >= 1000) {
+            duration = 2500; // Más lento para números grandes
+          } else if (target >= 100) {
+            duration = 2000;
+          } else {
+            duration = 1500; // Más rápido para números pequeños
+          }
+          
+          // Delay escalonado basado en el orden
+          const delay = Array.from(document.querySelectorAll('.counter')).indexOf(element) * 200;
+          
+          setTimeout(() => {
+            animateCounter(element, target, duration);
+          }, delay);
+        }
+        
+        // Dejar de observar una vez que se ha animado
+        observer.unobserve(element);
+      }
+    });
+  }, observerOptions);
+
+  // Observar todos los elementos animables cuando el DOM esté listo
+  document.addEventListener('DOMContentLoaded', () => {
+    // Observar elementos con animación fade
+    const animateElements = document.querySelectorAll('[data-animate]');
+    animateElements.forEach(el => observer.observe(el));
+    
+    // Observar contadores
+    const counters = document.querySelectorAll('.counter');
+    counters.forEach(counter => observer.observe(counter));
+  });
+
+  // Para Astro, también ejecutar cuando el componente se monta
+  if (typeof window !== 'undefined') {
+    // Observar elementos con animación fade
+    const animateElements = document.querySelectorAll('[data-animate]');
+    animateElements.forEach(el => observer.observe(el));
+    
+    // Observar contadores
+    const counters = document.querySelectorAll('.counter');
+    counters.forEach(counter => observer.observe(counter));
+  }
+</script>

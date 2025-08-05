@@ -1,0 +1,401 @@
+---
+import Layout from "@/layouts/Layout.astro";
+
+import Winner from "@/assets/Imagenes/VTU/winner.webp";
+import Ilustration from "@/assets/Imagenes/VTU/Ilustraciones/General.webp";
+import VTULogo from "@/assets/Logos/VTU.webp";
+
+import Galeria from "@/components/sections/vtu/Galeria.astro";
+import Actividades from "@/components/sections/vtu/Actividades.astro";
+// Configuración de planteles con diferentes casos
+
+import { planteles } from "@helpers/vtuactividades.js";
+
+const ciudades = [
+  "Tlajomulco",
+  "Milenio",
+  "Tlaquepaque",
+  "Tesistán",
+  "Centro médico",
+  "Tonalá",
+  "Plaza del sol",
+  "Caracol",
+];
+
+---
+
+<Layout>
+  <main class="bg-white overflow-hidden min-h-screen">
+    <div class="container mx-auto px-4 h-full">
+      <!-- Mobile Layout (Stack Vertically) -->
+      <div class="lg:hidden flex flex-col items-center space-y-6 py-8">
+        <!-- Logo and Title -->
+        <div class="text-center">
+          <img
+            src={VTULogo.src}
+            alt="Logo de Vive Tu Universidad"
+            class="w-32 mx-auto"
+          />
+        </div>
+
+        <!-- Winner Image -->
+        <div class="w-full max-w-sm">
+          <img
+            src={Winner.src}
+            alt="Estudiante ganador con medallas"
+            class="w-full h-auto rounded-lg shadow-lg"
+          />
+        </div>
+
+        <!-- Text Content -->
+        <button class="text-center space-y-4 px-4">
+          <p class="text-gray-700 text-sm leading-relaxed">
+            En Vive Tu Universidad (VTU), creemos que elegir una universidad es
+            también encontrar un lugar donde puedas ser tú. En UNE te espera una
+            comunidad auténtica, cercana y con propósito. Aquí se valora quién
+            eres, se celebra lo que te hace único y se impulsa tu crecimiento.
+            Porque más que estudiar, en UNE vives, conectas y construyes tu
+            futuro.
+          </p>
+
+          <button class="ribbon-button">
+            <span class="shine"></span>
+            ¡Bienvenido a donde sí perteneces!
+          </button>
+        </button>
+
+        <!-- Illustration -->
+        <div class="w-full max-w-md">
+          <img
+            src={Ilustration.src}
+            alt="Ilustración de estudiantes en actividades deportivas"
+            class="w-full h-auto"
+          />
+        </div>
+      </div>
+
+      <!-- Desktop Layout -->
+      <div
+        class="hidden lg:flex lg:items-stretch lg:justify-center lg:gap-8 py-8 min-h-screen"
+      >
+        <!-- Left Content -->
+        <div
+          class="flex flex-col justify-center items-center space-y-6 max-w-md"
+        >
+          <!-- Logo -->
+          <div class="text-center">
+            <img
+              src={VTULogo.src}
+              alt="Logo de Vive Tu Universidad"
+              class="w-64 mx-auto"
+            />
+          </div>
+
+          <!-- Text Content -->
+          <div class="text-center space-y-4 px-4">
+            <p class="text-gray-700 text-sm leading-relaxed">
+              En Vive Tu Universidad (VTU), creemos que elegir una universidad
+              es también encontrar un lugar donde puedas ser tú. En UNE te
+              espera una comunidad auténtica, cercana y con propósito. Aquí se
+              valora quién eres, se celebra lo que te hace único y se impulsa tu
+              crecimiento. Porque más que estudiar, en UNE vives, conectas y
+              construyes tu futuro.
+            </p>
+          </div>
+
+          <!-- Illustration -->
+          <div class="w-full max-w-xs">
+            <img
+              src={Ilustration.src}
+              alt="Ilustración de estudiantes en actividades deportivas"
+              class="w-full h-auto"
+            />
+          </div>
+
+          <!-- Button -->
+          <div class="text-center">
+            <button class="ribbon-button">
+              <span class="shine"></span>
+              ¡Bienvenido a donde sí perteneces!
+            </button>
+          </div>
+        </div>
+
+        <!-- Right Content - Winner Image -->
+        <div class="flex items-center justify-center flex-1">
+          <img
+            src={Winner.src}
+            alt="Estudiante ganador con medallas"
+            class="h-[60vh] w-auto rounded-lg shadow-xl object-cover"
+          />
+        </div>
+      </div>
+    </div>
+
+    <Actividades
+      titulo="Conoce todas las actividades que tenemos"
+      planteles={planteles}
+      ciudades={ciudades}
+      mostrarMasCercano={false}
+    />
+
+   
+    <Galeria  />
+  </main>
+</Layout>
+
+<style>
+  .tab-btn {
+    color: #374151; /* text-gray-700 */
+    background-color: #ffffff; /* bg-white */
+    border: 1px solid #d1d5db; /* border-gray-300 */
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+  }
+
+  .tab-btn.active {
+    background-color: #1e40af; /* bg-blue-800 */
+    color: #ffffff; /* text-white */
+    border-color: #1e40af; /* border-blue-800 */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+  }
+
+  .tab-content {
+    display: none;
+    opacity: 0;
+  }
+
+  .tab-content.active {
+    display: block;
+    opacity: 1;
+    animation: fadeInContent 0.4s ease-out forwards;
+    animation-fill-mode: both;
+  }
+
+  @keyframes fadeInContent {
+    0% {
+      opacity: 0;
+      transform: translateY(15px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Mejor UX en hover */
+  .tab-btn:hover:not(.active) {
+    background-color: #f3f4f6; /* bg-gray-100 */
+    color: #1f2937; /* text-gray-800 */
+    border-color: #9ca3af; /* border-gray-400 */
+    transform: translateY(-1px);
+  }
+
+  .tab-btn:active {
+    transform: translateY(0);
+  }
+</style>
+
+<script is:inline>
+  // JavaScript para la funcionalidad de las tabs
+  document.addEventListener("DOMContentLoaded", function () {
+    console.log("🚀 Script cargado - DOMContentLoaded ejecutado");
+
+    const tabButtons = document.querySelectorAll(".tab-btn");
+    const tabContents = document.querySelectorAll(".tab-content");
+
+    console.log("📊 Elementos encontrados:");
+    console.log("- Tab buttons:", tabButtons.length);
+    console.log("- Tab contents:", tabContents.length);
+
+    if (tabButtons.length === 0) {
+      console.error("❌ No se encontraron botones de tab (.tab-btn)");
+      return;
+    }
+
+    if (tabContents.length === 0) {
+      console.error("❌ No se encontraron contenidos de tab (.tab-content)");
+      return;
+    }
+
+    tabButtons.forEach((button, index) => {
+      console.log(
+        `🔘 Configurando botón ${index + 1}:`,
+        button.getAttribute("data-tab")
+      );
+
+      button.addEventListener("click", (event) => {
+        console.log(
+          "🖱️ Click detectado en botón:",
+          button.getAttribute("data-tab")
+        );
+
+        const targetTab = button.getAttribute("data-tab");
+        console.log("🎯 Target tab:", targetTab);
+
+        // Remover clase active de todos los botones y contenidos
+        console.log("🧹 Removiendo clases active...");
+        tabButtons.forEach((btn, btnIndex) => {
+          const wasActive = btn.classList.contains("active");
+          btn.classList.remove("active");
+          if (wasActive) {
+            console.log(`  - Botón ${btnIndex + 1} desactivado`);
+          }
+        });
+
+        tabContents.forEach((content, contentIndex) => {
+          const wasActive = content.classList.contains("active");
+          content.classList.remove("active");
+          if (wasActive) {
+            console.log(`  - Contenido ${contentIndex + 1} ocultado`);
+          }
+        });
+
+        // Agregar clase active al botón clickeado
+        button.classList.add("active");
+        console.log("✅ Botón activado:", targetTab);
+
+        // Mostrar el contenido correspondiente con delay para asegurar la animación
+        const targetContent = document.getElementById(`${targetTab}-content`);
+        console.log("🔍 Buscando contenido:", `${targetTab}-content`);
+
+        if (targetContent) {
+          // Forzar reflow para que la animación funcione
+          setTimeout(() => {
+            targetContent.classList.add("active");
+            console.log("✅ Contenido mostrado:", `${targetTab}-content`);
+
+            // Verificar estado después de un momento
+            setTimeout(() => {
+              const finalOpacity = getComputedStyle(targetContent).opacity;
+              console.log("🔄 Opacity después de animación:", finalOpacity);
+            }, 50);
+          }, 10);
+        } else {
+          console.error(
+            "❌ No se encontró el contenido:",
+            `${targetTab}-content`
+          );
+          console.log(
+            "📋 IDs disponibles:",
+            Array.from(document.querySelectorAll("[id]")).map((el) => el.id)
+          );
+        }
+
+        // Verificar estado final
+        console.log("🏁 Estado final:");
+        const activeButton = document.querySelector(".tab-btn.active");
+        const activeContent = document.querySelector(".tab-content.active");
+        console.log("- Botón activo:", activeButton?.getAttribute("data-tab"));
+        console.log("- Contenido activo:", activeContent?.id);
+        console.log(
+          "- Display del contenido activo:",
+          activeContent ? getComputedStyle(activeContent).display : "N/A"
+        );
+        console.log(
+          "- Opacity del contenido activo:",
+          activeContent ? getComputedStyle(activeContent).opacity : "N/A"
+        );
+      });
+    });
+
+    console.log("🎉 Configuración de tabs completada");
+  });
+</script>
+
+<style>
+  .ribbon-button {
+    position: relative;
+    background: linear-gradient(135deg, #1e40af, #1e3a8a);
+    color: white;
+    padding: 16px 32px;
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(30, 64, 175, 0.3);
+  }
+
+  .ribbon-button::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -20px;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 28px 20px 28px 0;
+    border-color: transparent #1e40af transparent transparent;
+    transition: border-color 0.3s ease;
+  }
+
+  .ribbon-button::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: -20px;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 28px 0 28px 20px;
+    border-color: transparent transparent transparent #1e40af;
+    transition: border-color 0.3s ease;
+  }
+
+  .ribbon-button:hover {
+    background: linear-gradient(135deg, #1d4ed8, #1e3a8a);
+    box-shadow: 0 6px 20px rgba(30, 64, 175, 0.4);
+    transform: translateY(-2px);
+  }
+
+  .ribbon-button:hover::before {
+    border-right-color: #1d4ed8;
+  }
+
+  .ribbon-button:hover::after {
+    border-left-color: #1d4ed8;
+  }
+
+  .ribbon-button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 10px rgba(30, 64, 175, 0.3);
+  }
+
+  /* Efecto de brillo */
+  .ribbon-button .shine {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.2),
+      transparent
+    );
+    transition: left 0.5s;
+  }
+
+  .ribbon-button:hover .shine {
+    left: 100%;
+  }
+
+  .container {
+    text-align: center;
+  }
+
+  .title {
+    color: white;
+    font-size: 24px;
+    margin-bottom: 30px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  }
+</style>

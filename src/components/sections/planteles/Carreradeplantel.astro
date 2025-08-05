@@ -97,7 +97,7 @@ const getIncorporacionesTexto = (modalidades: any[]) => {
 
 // Función para obtener la URL principal del programa (primera modalidad)
 const getProgramaUrl = (modalidades: any[]) => {
-  return modalidades[0]?.url || '#';
+  return modalidades[0]?.url || '#nose';
 };
 
 // Función para verificar si todas las modalidades tienen la misma URL
@@ -165,19 +165,17 @@ const totalPages = Math.ceil(programas.length / itemsPerPage);
               
               if (mismaUrl) {
                 // Si todas las modalidades tienen la misma URL, hacer un enlace directo
-return (
- <a
-  href={url}
-  class="inline-flex items-center text-gray-600 border-b-2 border-transparent pb-1 hover:text-rojo-une hover:border-rojo-une transition-all duration-300 ease-in-out"
->
-  <span class="text-sm">
-    Ver detalles del programa
-  </span>
-  <CircleArrowRight class="ml-2 w-4 h-4 text-inherit transition-transform duration-300 ease-in-out group-hover:translate-x-1" />
-</a>
-
-);
-
+                return (
+                  <a
+                    href={url}
+                    class="inline-flex items-center text-gray-600 border-b-2 border-transparent pb-1 hover:text-rojo-une hover:border-rojo-une transition-all duration-300 ease-in-out group"
+                  >
+                    <span class="text-sm">
+                      Ver detalles del programa
+                    </span>
+                    <CircleArrowRight class="ml-2 w-4 h-4 text-inherit transition-transform duration-300 ease-in-out group-hover:translate-x-1" />
+                  </a>
+                );
               } else {
                 // Si hay diferentes URLs, mostrar un dropdown o modal (por ahora enlace a la primera)
                 return (
@@ -241,7 +239,6 @@ return (
   </div>
 </section>
 
-<!-- Estilos CSS -->
 <style>
   .carrera-card {
     display: block;

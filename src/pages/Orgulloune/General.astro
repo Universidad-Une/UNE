@@ -2,6 +2,7 @@
 import Layout from "@/layouts/Layout.astro";
 
 import GaleriaGraduados from "@/components/sections/graduados/GaleriaGraduados.astro";
+import EstadisticasGraduados from "@/components/sections/graduados/EstadisticasaGraduados.astro";
 import Showroom from "@/components/sections/graduados/showroom.astro";
 import Cover from "@/assets/Imagenes/Middles/Sillas.webp";
 
@@ -22,7 +23,7 @@ import Accesos from "@/components/sections/graduados/AccesosGraduados.astro";
           Graduados UNE: Líderes que transforman industrias
         </h1>
         <p class="text-lg md:text-xl mb-8 leading-relaxed font-light">
-          Más de 60,000 profesionales egresados de UNE están construyendo el
+          Más de 30,000 profesionales egresados de UNE están construyendo el
           futuro en las empresas más importantes de México y el mundo. Tu éxito
           profesional es nuestra misión cumplida.
         </p>
@@ -31,71 +32,9 @@ import Accesos from "@/components/sections/graduados/AccesosGraduados.astro";
   </section>
 
   <section class="bg-white mt-12 ">
-    <div class="max-w-7xl mx-auto">
-      <!-- Header -->
-      <div class="text-center mb-12">
-        <h2
-          class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6"
-        >
-          El éxito de nuestros graduados habla por sí solo
-        </h2>
-        <p class="text-lg text-gray-600 max-w-4xl mx-auto leading-relaxed">
-          Tu graduación es más que un cierre: es el reflejo de tu entrega, tu
-          constancia y tus ganas de crecer. En UNE, reconocemos ese esfuerzo con
-          programas que impulsan tu desarrollo profesional, porque sabemos que
-          el éxito se construye con pasión, disciplina y el respaldo de una
-          institución que cree en ti.
-        </p>
-      </div>
+    <EstadisticasGraduados/>
 
-      <!-- Stats Grid -->
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
-        <!-- Stat 1 -->
-        <div class="text-center">
-          <div class="mb-4">
-            <span
-              class="text-5xl sm:text-6xl lg:text-7xl font-bold text-azul-une"
-            >
-              +3,000
-            </span>
-          </div>
-          <p class="text-lg font-semibold text-gray-900 mb-2">
-            Graduados cada año a nivel Licenciatura
-          </p>
-        </div>
-
-        <!-- Stat 2 -->
-        <div class="text-center">
-          <div class="mb-4">
-            <span
-              class="text-5xl sm:text-6xl lg:text-7xl font-bold text-azul-une"
-            >
-              90%
-            </span>
-          </div>
-          <p class="text-lg font-semibold text-gray-900 mb-2">
-            de nuestros egresados consigue empleo en menos de 6 meses.
-          </p>
-        </div>
-
-        <!-- Stat 3 -->
-        <div class="text-center">
-          <div class="mb-4">
-            <span
-              class="text-5xl sm:text-6xl lg:text-7xl font-bold text-azul-une"
-            >
-              +800
-            </span>
-          </div>
-          <p class="text-lg font-semibold text-gray-900 mb-2">
-            Convenios con empresas para prácticas, empleabilidad y desarrollo
-            profesional.
-          </p>
-        </div>
-      </div>
-    </div>
-
-    <Showroom/>
+   <!--  <Showroom/> -->
     <GaleriaGraduados/>
 
     <Accesos/>

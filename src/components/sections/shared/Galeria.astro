@@ -1,44 +1,212 @@
 ---
 import { Fullscreen } from '@lucide/astro';
 
-// Gallery.astro
-export interface Props {
-  images: Array<{
-    src: string;
-    alt: string;
-    title?: string;
-  }>;
-  columns?: number;
-}
+// Importar todas las imágenes
+// Imágenes individuales en la raíz
+import img1 from '@/assets/Imagenes/logros/1º lugar_Torneo futbol_Intercolegial_ITSA_BGC_2024.webp';
+import img2 from '@/assets/Imagenes/logros/1º lugar_Torneo futbol_SEMS_BGC_2020.webp';
+import img3 from '@/assets/Imagenes/logros/1ºlugar_Seleccion voleibol_Femenil_Copa Jalisco_2023.png';
+import img4 from '@/assets/Imagenes/logros/2ºlugar_Torneo voleibol UTEG_BGC&LIC_2024.jpg';
+import img5 from '@/assets/Imagenes/logros/2º_Lugar nuevos valores Voleibol Go_BGC_2025.jpg';
+import img6 from '@/assets/Imagenes/logros/3º_Copa leones negros futbol_BGC_2025.jpg';
+import img7 from '@/assets/Imagenes/logros/CHEER_DANCE_1ºlugar_Show_2022.jpg';
+import img8 from '@/assets/Imagenes/logros/CHEER_DANCE_2ºlugar_Pomps_2025.jpg';
+import img9 from '@/assets/Imagenes/logros/CHEER_DANCE_3ºlugar_Jazz_Individual_2022.jpg';
+import img10 from '@/assets/Imagenes/logros/Copa_EMBUSEN_selección Karate_2025.webp';
+import img11 from '@/assets/Imagenes/logros/Obra de teatro_Lobo lobita_Argentina_2024.jpg';
+import img12 from '@/assets/Imagenes/logros/Pase Nacional_Futbol bardas_LIC_Femenil_2022.webp';
+import img13 from '@/assets/Imagenes/logros/Pase Reginal_Futbol bardas_varonil y Femenil_CONDDE_2022.jpg';
+import img14 from '@/assets/Imagenes/logros/Pase regional_Futbol bardas_Femenil y Varonil_2023.jpg';
 
-const { images, columns = 4 } = Astro.props;
-const gridCols = `grid-cols-1 sm:grid-cols-2 md:grid-cols-${Math.min(columns, 4)} lg:grid-cols-${columns}`;
+// Imágenes de carpetas
+import cheerDance1 from '@/assets/Imagenes/logros/CHEER_DANCE_Reggaeton &Jazz_2021/IMG_9381.JPG';
+import cheerDance2 from '@/assets/Imagenes/logros/CHEER_DANCE_Reggaeton &Jazz_2021/IMG_9383.JPG';
+import cheerDance3 from '@/assets/Imagenes/logros/CHEER_DANCE_Reggaeton &Jazz_2021/IMG_9388.JPG';
+
+import karate1 from '@/assets/Imagenes/logros/ENSO_KAN_Seleccion karate_2024/IMG_9390.JPG';
+import karate2 from '@/assets/Imagenes/logros/ENSO_KAN_Seleccion karate_2024/IMG_9391.JPG';
+import karate3 from '@/assets/Imagenes/logros/ENSO_KAN_Seleccion karate_2024/IMG_9392.JPG';
+import karate4 from '@/assets/Imagenes/logros/ENSO_KAN_Seleccion karate_2024/IMG_9393.JPG';
+
+// Array de imágenes con sus metadatos
+const images = [
+  {
+    src: img1.src,
+    alt: "1º lugar Torneo fútbol Intercolegial ITSA BGC 2024",
+    title: "1º lugar Torneo fútbol Intercolegial ITSA BGC 2024"
+  },
+  {
+    src: img2.src,
+    alt: "1º lugar Torneo fútbol SEMS BGC 2020",
+    title: "1º lugar Torneo fútbol SEMS BGC 2020"
+  },
+  {
+    src: img3.src,
+    alt: "1º lugar Selección voleibol Femenil Copa Jalisco 2023",
+    title: "1º lugar Selección voleibol Femenil Copa Jalisco 2023"
+  },
+  {
+    src: img4.src,
+    alt: "2º lugar Torneo voleibol UTEG BGC&LIC 2024",
+    title: "2º lugar Torneo voleibol UTEG BGC&LIC 2024"
+  },
+  {
+    src: img5.src,
+    alt: "2º Lugar nuevos valores Voleibol Go BGC 2025",
+    title: "2º Lugar nuevos valores Voleibol Go BGC 2025"
+  },
+  {
+    src: img6.src,
+    alt: "3º Copa leones negros fútbol BGC 2025",
+    title: "3º Copa leones negros fútbol BGC 2025"
+  },
+  {
+    src: img7.src,
+    alt: "CHEER DANCE 1º lugar Show 2022",
+    title: "CHEER DANCE 1º lugar Show 2022"
+  },
+  {
+    src: img8.src,
+    alt: "CHEER DANCE 2º lugar Pomps 2025",
+    title: "CHEER DANCE 2º lugar Pomps 2025"
+  },
+  {
+    src: img9.src,
+    alt: "CHEER DANCE 3º lugar Jazz Individual 2022",
+    title: "CHEER DANCE 3º lugar Jazz Individual 2022"
+  },
+  {
+    src: img10.src,
+    alt: "Copa EMBUSEN selección Karate 2025",
+    title: "Copa EMBUSEN selección Karate 2025"
+  },
+  {
+    src: img11.src,
+    alt: "Obra de teatro Lobo lobita Argentina 2024",
+    title: "Obra de teatro Lobo lobita Argentina 2024"
+  },
+  {
+    src: img12.src,
+    alt: "Pase Nacional Fútbol bardas LIC Femenil 2022",
+    title: "Pase Nacional Fútbol bardas LIC Femenil 2022"
+  },
+  {
+    src: img13.src,
+    alt: "Pase Regional Fútbol bardas varonil y Femenil CONDDE 2022",
+    title: "Pase Regional Fútbol bardas varonil y Femenil CONDDE 2022"
+  },
+  {
+    src: img14.src,
+    alt: "Pase regional Fútbol bardas Femenil y Varonil 2023",
+    title: "Pase regional Fútbol bardas Femenil y Varonil 2023"
+  },
+  {
+    src: cheerDance1.src,
+    alt: "CHEER DANCE Reggaeton & Jazz 2021 - Imagen 1",
+    title: "CHEER DANCE Reggaeton & Jazz 2021"
+  },
+  {
+    src: cheerDance2.src,
+    alt: "CHEER DANCE Reggaeton & Jazz 2021 - Imagen 2",
+    title: "CHEER DANCE Reggaeton & Jazz 2021"
+  },
+  {
+    src: cheerDance3.src,
+    alt: "CHEER DANCE Reggaeton & Jazz 2021 - Imagen 3",
+    title: "CHEER DANCE Reggaeton & Jazz 2021"
+  },
+  {
+    src: karate1.src,
+    alt: "ENSO KAN Selección karate 2024 - Imagen 1",
+    title: "ENSO KAN Selección karate 2024"
+  },
+  {
+    src: karate2.src,
+    alt: "ENSO KAN Selección karate 2024 - Imagen 2",
+    title: "ENSO KAN Selección karate 2024"
+  },
+  {
+    src: karate3.src,
+    alt: "ENSO KAN Selección karate 2024 - Imagen 3",
+    title: "ENSO KAN Selección karate 2024"
+  },
+  {
+    src: karate4.src,
+    alt: "ENSO KAN Selección karate 2024 - Imagen 4",
+    title: "ENSO KAN Selección karate 2024"
+  }
+];
+
+// Dividir las imágenes en dos filas
+const midPoint = Math.ceil(images.length / 2);
+const firstRowImages = images.slice(0, midPoint);
+const secondRowImages = images.slice(midPoint);
 ---
 
 <div class="gallery-container">
-  <div class={`grid gap-4 ${gridCols}`}>
-    {images.map((image, index) => (
-      <div class="gallery-item group cursor-pointer relative overflow-hidden rounded-lg" data-index={index}>
-        <img
-          src={image.src}
-          alt={image.alt}
-          class="w-full h-64 object-cover transition-all duration-300 group-hover:scale-105"
-          loading="lazy"
-        />
-        
-        <div class="absolute inset-0 bg-transparent bg-opacity-0 group-hover:bg-opacity-30 backdrop-blur-sm transition-all duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100">
-          <div class="text-center flex flex-col justify-center items-center text-white transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-            {image.title && (
-              <h3 class="text-lg font-semibold mb-3 px-4">{image.title}</h3>
-            )}
-            <button class="border-b-2 max-w-32 border-white flex  justify-center items-center">
-             <Fullscreen />
-              Ver foto
-            </button>
-          </div>
-        </div>
-      </div>
-    ))}
+  <!-- Primera fila del carousel -->
+   <h3 class="mx-auto text-center  text-4xl font-bold m-8">Algunos de nuestro eventos</h3>
+  <div class="splide carousel-row" id="carousel-1">
+    <div class="splide__track">
+      <ul class="splide__list">
+        {firstRowImages.map((image, index) => (
+          <li class="splide__slide">
+            <div class="gallery-item group cursor-pointer relative overflow-hidden rounded-lg" data-index={index}>
+              <img
+                src={image.src}
+                alt={image.alt}
+                class="w-full h-64 object-cover transition-all duration-300 group-hover:scale-105"
+                loading="lazy"
+              />
+              
+              <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 backdrop-blur-sm transition-all duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100">
+                <div class="text-center flex flex-col justify-center items-center text-white transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                  {image.title && (
+                    <h3 class="text-lg font-semibold mb-3 px-4">{image.title}</h3>
+                  )}
+                  <button class="border-b-2 max-w-32 border-white flex justify-center items-center gap-2">
+                    <Fullscreen size={16} />
+                    Ver foto
+                  </button>
+                </div>
+              </div>
+            </div>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </div>
+
+  <!-- Segunda fila del carousel -->
+  <div class="splide carousel-row" id="carousel-2">
+    <div class="splide__track">
+      <ul class="splide__list">
+        {secondRowImages.map((image, index) => (
+          <li class="splide__slide">
+            <div class="gallery-item group cursor-pointer relative overflow-hidden rounded-lg" data-index={index + midPoint}>
+              <img
+                src={image.src}
+                alt={image.alt}
+                class="w-full h-64 object-cover transition-all duration-300 group-hover:scale-105"
+                loading="lazy"
+              />
+              
+              <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 backdrop-blur-sm transition-all duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100">
+                <div class="text-center flex flex-col justify-center items-center text-white transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                  {image.title && (
+                    <h3 class="text-lg font-semibold mb-3 px-4">{image.title}</h3>
+                  )}
+                  <button class="border-b-2 max-w-32 border-white flex justify-center items-center gap-2">
+                    <Fullscreen size={16} />
+                    Ver foto
+                  </button>
+                </div>
+              </div>
+            </div>
+          </li>
+        ))}
+      </ul>
+    </div>
   </div>
 
   <!-- Modal -->
@@ -82,6 +250,27 @@ const gridCols = `grid-cols-1 sm:grid-cols-2 md:grid-cols-${Math.min(columns, 4)
     padding: 1rem;
   }
 
+  .carousel-row {
+    margin-bottom: 2rem;
+  }
+
+  .carousel-row:last-child {
+    margin-bottom: 0;
+  }
+
+  .splide__slide {
+    padding: 0 0.5rem;
+  }
+
+  .gallery-item {
+    height: 16rem; /* h-64 equivalent */
+    border-radius: 0.5rem;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+  }
+
+  /* Estilos del modal */
   .modal-overlay {
     position: fixed;
     top: 0;
@@ -226,7 +415,58 @@ const gridCols = `grid-cols-1 sm:grid-cols-2 md:grid-cols-${Math.min(columns, 4)
 </style>
 
 <script>
+  import Splide from "@splidejs/splide";
+  import { AutoScroll } from "@splidejs/splide-extension-auto-scroll";
+  import "@splidejs/splide/dist/css/splide.min.css";
+
   document.addEventListener('DOMContentLoaded', function() {
+    // Inicializar los carousels con Splide
+    const carousel1 = new Splide('#carousel-1', {
+      type: 'loop',
+      perPage: 4,
+      perMove: 1,
+      gap: '1rem',
+      autoScroll: {
+        speed: 0.5,
+        pauseOnHover: true,
+        pauseOnFocus: true,
+      },
+      breakpoints: {
+        768: {
+          perPage: 2,
+        },
+        480: {
+          perPage: 1,
+        },
+      },
+    });
+
+    const carousel2 = new Splide('#carousel-2', {
+      type: 'loop',
+      perPage: 4,
+      perMove: 1,
+      gap: '1rem',
+      direction: 'rtl', // Dirección opuesta para efecto visual
+      autoScroll: {
+        speed: 0.5,
+        pauseOnHover: true,
+        pauseOnFocus: true,
+      },
+      breakpoints: {
+        768: {
+          perPage: 2,
+        },
+        480: {
+          perPage: 1,
+        },
+      },
+    });
+
+    // Montar los carousels con la extensión AutoScroll
+    carousel1.mount({ AutoScroll });
+    carousel2.mount({ AutoScroll });
+
+    // Funcionalidad del modal
     const galleryItems = document.querySelectorAll('.gallery-item');
     const modal = document.getElementById('gallery-modal');
     const modalImage = document.getElementById('modal-image');
@@ -252,11 +492,19 @@ const gridCols = `grid-cols-1 sm:grid-cols-2 md:grid-cols-${Math.min(columns, 4)
       updateModalContent();
       modal.classList.add('active');
       document.body.style.overflow = 'hidden';
+      
+      // Pausar ambos carousels cuando se abre el modal
+      carousel1.Components.AutoScroll.pause();
+      carousel2.Components.AutoScroll.pause();
     }
 
     function closeModal() {
       modal.classList.remove('active');
       document.body.style.overflow = '';
+      
+      // Reanudar ambos carousels cuando se cierra el modal
+      carousel1.Components.AutoScroll.play();
+      carousel2.Components.AutoScroll.play();
     }
 
     function updateModalContent() {

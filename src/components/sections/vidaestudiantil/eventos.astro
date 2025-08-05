@@ -1,0 +1,346 @@
+---
+// EventosCarousel.astro
+
+// Configuración de eventos centralizada
+const eventos = [
+  {
+    id: 1,
+    fecha: {
+      mes: "Agosto",
+      dia: "15"
+    },
+    titulo: "Pruebas de laboratorio de urgencia",
+    descripcion: "Pruebas de laboratorio de urgencia para la interpretación clínica y la toma de decisiones por la DRA. CLAUDIA VERÓNICA MEDEROS TORRES",
+    hora: "15:00 h",
+    dirigidoA: "Alumnos y público en general",
+    lugar: "Sala de Juntas ",
+    coordinador: "Mtra. Jovana Irene Cabrales Alfaro",
+    calendarData: {
+      title: "Pruebas de laboratorio de urgencia para la interpretación clínica",
+      start: "2025-08-15T15:00:00",
+      end: "2025-08-15T17:00:00",
+      description: "Conferencia magistral sobre pruebas de laboratorio de urgencia para la interpretación clínica y la toma de decisiones. Impartida por la DRA. CLAUDIA VERÓNICA MEDEROS TORRES. Dirigido a alumnos y público en general.",
+      location: " Campus UNE"
+    }
+  },
+  {
+    id: 2,
+    fecha: {
+      mes: "Agosto",
+      dia: "29"
+    },
+    titulo: "Conferencia Magistral",
+    descripcion: "Conferencia especializada impartida por la MTRA. NOEMÍ MÁRQUEZ GARCÍA. Una oportunidad única de aprendizaje académico.",
+    hora: "10:00 h",
+    dirigidoA: "Alumnos y público en general",
+    lugar: "Sala de Juntas ",
+    coordinador: "Lic. Carlos Mauricio Calleros López",
+    calendarData: {
+      title: "Conferencia Magistral - MTRA. NOEMÍ MÁRQUEZ GARCÍA",
+      start: "2025-08-29T10:00:00",
+      end: "2025-08-29T12:00:00",
+      description: "Conferencia magistral impartida por la MTRA. NOEMÍ MÁRQUEZ GARCÍA. Dirigido a alumnos y público en general. Evento académico de alto nivel.",
+      location: " Campus UNE"
+    }
+  },
+  // Agrega más eventos aquí según necesites
+  // {
+  //   id: 3,
+  //   fecha: { mes: "Septiembre", dia: "05" },
+  //   titulo: "Tercer Evento",
+  //   descripcion: "Descripción del tercer evento...",
+  //   hora: "14:00 h",
+  //   dirigidoA: "Estudiantes de posgrado",
+  //   lugar: "Auditorio Principal",
+  //   coordinador: "Dr. Juan Pérez",
+  //   calendarData: {
+  //     title: "Tercer Evento",
+  //     start: "2025-09-05T14:00:00",
+  //     end: "2025-09-05T16:00:00",
+  //     description: "Descripción del tercer evento...",
+  //     location: "Auditorio Principal - Campus UNE"
+  //   }
+  // }
+];
+
+const totalEventos = eventos.length;
+const usarCarousel = totalEventos > 3;
+---
+
+<div class="eventos-section">
+  {usarCarousel ? (
+    <!-- Carousel para más de 3 eventos -->
+    <div id="eventos-carousel" class="splide">
+      <div class="splide__track py-8">
+        <ul class="splide__list">
+          {eventos.map((evento) => (
+            <li class="splide__slide flex flex-col justify-center items-center min-h-[500px]">
+              <div class="bg-white rounded-lg shadow-lg p-8 mx-2 h-full border-t-4 border-red-600 flex flex-col justify-center items-center text-center max-w-sm w-full event-card">
+                <div class="mb-6">
+                  <div class="text-sm text-gray-600 font-semibold mb-2">
+                    {evento.fecha.mes}
+                  </div>
+                  <div class="text-4xl font-bold text-gray-800">{evento.fecha.dia}</div>
+                </div>
+
+                <h3 class="text-xl font-bold text-gray-800 mb-6">
+                  {evento.titulo}
+                </h3>
+
+                <p class="text-gray-600 text-sm leading-relaxed mb-6 flex-grow flex items-center">
+                  {evento.descripcion}
+                </p>
+
+                <div class="text-sm text-gray-500 mb-4">{evento.hora}</div>
+
+                <div class="text-xs text-gray-500 mb-4">
+                  <div class="mb-1">
+                    <strong>Dirigido a:</strong> {evento.dirigidoA}
+                  </div>
+                  <div class="mb-1">
+                    <strong>Lugar:</strong> {evento.lugar}
+                  </div>
+                  <div>
+                    <strong>Coordinador:</strong> {evento.coordinador}
+                  </div>
+                </div>
+
+                <button
+                  class="calendar-event-btn w-full border-b border-b-blue-600 hover:bg-blue-600 hover:rounded-md hover:text-white py-3 px-4 text-sm font-medium transition-colors duration-200 cursor-pointer"
+                  data-event-title={evento.calendarData.title}
+                  data-event-start={evento.calendarData.start}
+                  data-event-end={evento.calendarData.end}
+                  data-event-description={evento.calendarData.description}
+                  data-event-location={evento.calendarData.location}
+                >
+                  Agregar a mi calendario
+                </button>
+              </div>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  ) : (
+    <!-- Grid estático para 3 o menos eventos -->
+    <div class={`static-grid grid-${totalEventos} py-8`}>
+      {eventos.map((evento) => (
+        <div class="bg-white rounded-lg shadow-lg p-8 border-t-4 border-red-600 flex flex-col justify-center items-center text-center max-w-sm w-full event-card min-h-[500px]">
+          <div class="mb-6">
+            <div class="text-sm text-gray-600 font-semibold mb-2">
+              {evento.fecha.mes}
+            </div>
+            <div class="text-4xl font-bold text-gray-800">{evento.fecha.dia}</div>
+          </div>
+
+          <h3 class="text-xl font-bold text-gray-800 mb-6">
+            {evento.titulo}
+          </h3>
+
+          <p class="text-gray-600 text-sm leading-relaxed mb-6 flex-grow flex items-center">
+            {evento.descripcion}
+          </p>
+
+          <div class="text-sm text-gray-500 mb-4">{evento.hora}</div>
+
+          <div class="text-xs text-gray-500 mb-4">
+            <div class="mb-1">
+              <strong>Dirigido a:</strong> {evento.dirigidoA}
+            </div>
+            <div class="mb-1">
+              <strong>Lugar:</strong> {evento.lugar}
+            </div>
+            <div>
+              <strong>Coordinador:</strong> {evento.coordinador}
+            </div>
+          </div>
+
+          <button
+            class="calendar-event-btn w-full border-b border-b-blue-600 hover:bg-blue-600 hover:rounded-md hover:text-white py-3 px-4 text-sm font-medium transition-colors duration-200 cursor-pointer"
+            data-event-title={evento.calendarData.title}
+            data-event-start={evento.calendarData.start}
+            data-event-end={evento.calendarData.end}
+            data-event-description={evento.calendarData.description}
+            data-event-location={evento.calendarData.location}
+          >
+            Agregar a mi calendario
+          </button>
+        </div>
+      ))}
+    </div>
+  )}
+</div>
+
+<script>
+  // Función para agregar al calendario
+  function addToCalendar(eventData) {
+    console.log("addToCalendar llamada con:", eventData);
+
+    const formatDateForGoogle = (dateStr) => {
+      return new Date(dateStr).toISOString().replace(/[-:]/g, "").split(".")[0] + "Z";
+    };
+
+    const googleCalendarUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(eventData.title)}&dates=${formatDateForGoogle(eventData.startDate)}/${formatDateForGoogle(eventData.endDate)}&details=${encodeURIComponent(eventData.description)}&location=${encodeURIComponent(eventData.location)}`;
+
+    console.log("URL generada:", googleCalendarUrl);
+    window.open(googleCalendarUrl, "_blank");
+  }
+
+  // Función para configurar event listeners
+  function setupCalendarButtons() {
+    const calendarBtns = document.querySelectorAll(".calendar-event-btn");
+    console.log(`Encontrados ${calendarBtns.length} botones de calendario`);
+
+    calendarBtns.forEach((btn, index) => {
+      console.log(`Configurando botón ${index + 1}`);
+      btn.removeEventListener("click", handleCalendarClick);
+      btn.addEventListener("click", handleCalendarClick);
+    });
+  }
+
+  // Handler para el click del botón
+  function handleCalendarClick(event) {
+    const btn = event.target;
+    console.log("Botón clickeado:", btn);
+
+    const eventData = {
+      title: btn.dataset.eventTitle,
+      startDate: btn.dataset.eventStart,
+      endDate: btn.dataset.eventEnd,
+      description: btn.dataset.eventDescription,
+      location: btn.dataset.eventLocation,
+    };
+
+    console.log("Datos del evento extraídos:", eventData);
+    addToCalendar(eventData);
+  }
+
+  // Función para inicializar el carousel si es necesario
+  function initializeCarousel() {
+    const carousel = document.getElementById("eventos-carousel");
+    if (carousel) {
+      import("@splidejs/splide").then(({ Splide }) => {
+        import("@splidejs/splide-extension-auto-scroll").then(({ AutoScroll }) => {
+          new Splide("#eventos-carousel", {
+            type: "loop",
+            perPage: 3,
+            perMove: 1,
+            gap: "1rem",
+            autoplay: true,
+            interval: 3000,
+            pauseOnHover: true,
+            pauseOnFocus: true,
+            breakpoints: {
+              1024: {
+                perPage: 2,
+              },
+              768: {
+                perPage: 1,
+              },
+            },
+            extensions: {
+              AutoScroll: AutoScroll,
+            },
+            autoScroll: {
+              speed: 0.5,
+              pauseOnHover: true,
+            },
+          }).mount({ AutoScroll });
+        });
+      });
+    }
+  }
+
+  // Event listeners
+  document.addEventListener("DOMContentLoaded", function () {
+    console.log("DOM cargado, configurando componente...");
+    setupCalendarButtons();
+    initializeCarousel();
+  });
+
+  document.addEventListener("astro:page-load", function () {
+    console.log("astro:page-load disparado, reconfigurando...");
+    setupCalendarButtons();
+    initializeCarousel();
+  });
+
+  document.addEventListener("splide:mounted", function () {
+    console.log("Splide montado, reconfigurando botones...");
+    setupCalendarButtons();
+  });
+</script>
+
+<style>
+  @import "@splidejs/splide/dist/css/splide.min.css";
+
+  /* Estilos para el grid estático */
+  .static-grid {
+    display: grid;
+    gap: 1rem;
+    justify-items: center;
+  }
+
+  .static-grid.grid-1 {
+    grid-template-columns: 1fr;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+
+  .static-grid.grid-2 {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .static-grid.grid-3 {
+    grid-template-columns: repeat(3, 1fr);
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  /* Responsive para grid estático */
+  @media (max-width: 1024px) {
+    .static-grid.grid-3 {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .static-grid.grid-2,
+    .static-grid.grid-3 {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* Estilos del carousel */
+  .splide__slide {
+    display: flex;
+    align-items: stretch;
+  }
+
+  .splide__slide > div {
+    width: 100%;
+  }
+
+  .splide__arrow {
+    width: 3rem;
+    height: 3rem;
+  }
+
+  .splide__arrow svg {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+
+  /* Hover effects en las cards */
+  .event-card:hover {
+    transform: translateY(-4px);
+    transition: transform 0.3s ease;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  }
+
+  /* Colores personalizados UNE */
+  .border-rojo-une {
+    border-color: #dc2626; /* Ajusta según el color exacto de UNE */
+  }
+</style>

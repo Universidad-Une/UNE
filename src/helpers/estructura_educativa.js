@@ -14,7 +14,7 @@ export const programasEducativos = {
             duracion: "6 años",
             iniciosCursos: "Agosto",
             inscripciones: "Abiertas",
-            url: "/primaria/montessori",
+            url: "/oferta/colegio-une/Primaria",
           },
         ],
       },
@@ -23,18 +23,18 @@ export const programasEducativos = {
 
   Secundaria: {
     "EDUCACIÓN BÁSICA": {
-      "Secundaria Montessori": {
+      "Secundaria": {
         "Av. México": [
           {
             modalidad: "Escolarizada",
             incorporacion: "SEJ",
             imagen: "secundaria",
             descripcion:
-              "Educación secundaria con metodología Montessori que fomenta el pensamiento crítico y la autonomía en el aprendizaje del adolescente.",
+              "Educación secundaria general orientada al desarrollo integral del adolescente, con énfasis en el pensamiento crítico, la autonomía y la construcción activa del conocimiento.",
             duracion: "3 años",
             iniciosCursos: "Agosto",
             inscripciones: "Abiertas",
-            url: "/secundaria/montessori",
+            url: "/oferta/colegio-une/Secundaria",
           },
         ],
         "PLAZA DEL SOL": [
@@ -43,11 +43,11 @@ export const programasEducativos = {
             incorporacion: "SEJ",
             imagen: "secundaria",
             descripcion:
-              "Educación secundaria con metodología Montessori que fomenta el pensamiento crítico y la autonomía en el aprendizaje del adolescente.",
+              "Educación secundaria general orientada al desarrollo integral del adolescente, con énfasis en el pensamiento crítico, la autonomía y la construcción activa del conocimiento.",
             duracion: "3 años",
             iniciosCursos: "Agosto",
             inscripciones: "Abiertas",
-            url: "/secundaria/montessori",
+            url: "/oferta/colegio-une/Secundaria",
           },
         ],
         TESISTÁN: [
@@ -56,11 +56,11 @@ export const programasEducativos = {
             incorporacion: "SEJ",
             imagen: "secundaria",
             descripcion:
-              "Educación secundaria con metodología Montessori que fomenta el pensamiento crítico y la autonomía en el aprendizaje del adolescente.",
+              "Educación secundaria general orientada al desarrollo integral del adolescente, con énfasis en el pensamiento crítico, la autonomía y la construcción activa del conocimiento.",
             duracion: "3 años",
             iniciosCursos: "Agosto",
             inscripciones: "Abiertas",
-            url: "/secundaria/montessori",
+            url: "/oferta/colegio-une/Secundaria",
           },
         ],
         TLAJOMULCO: [
@@ -69,11 +69,11 @@ export const programasEducativos = {
             incorporacion: "SEJ",
             imagen: "secundaria",
             descripcion:
-              "Educación secundaria con metodología Montessori que fomenta el pensamiento crítico y la autonomía en el aprendizaje del adolescente.",
+              "Educación secundaria general orientada al desarrollo integral del adolescente, con énfasis en el pensamiento crítico, la autonomía y la construcción activa del conocimiento.",
             duracion: "3 años",
             iniciosCursos: "Agosto",
             inscripciones: "Abiertas",
-            url: "/secundaria/montessori",
+            url: "/oferta/colegio-une/Secundaria",
           },
         ],
         TLAQUEPAQUE: [
@@ -82,11 +82,11 @@ export const programasEducativos = {
             incorporacion: "SEJ",
             imagen: "secundaria",
             descripcion:
-              "Educación secundaria con metodología Montessori que fomenta el pensamiento crítico y la autonomía en el aprendizaje del adolescente.",
+              "Educación secundaria general orientada al desarrollo integral del adolescente, con énfasis en el pensamiento crítico, la autonomía y la construcción activa del conocimiento.",
             duracion: "3 años",
             iniciosCursos: "Agosto",
             inscripciones: "Abiertas",
-            url: "/secundaria/montessori",
+            url: "/oferta/colegio-une/Secundaria",
           },
         ],
         TONALÁ: [
@@ -95,19 +95,19 @@ export const programasEducativos = {
             incorporacion: "SEJ",
             imagen: "secundaria",
             descripcion:
-              "Educación secundaria con metodología Montessori que fomenta el pensamiento crítico y la autonomía en el aprendizaje del adolescente.",
+              "Educación secundaria general orientada al desarrollo integral del adolescente, con énfasis en el pensamiento crítico, la autonomía y la construcción activa del conocimiento.",
             duracion: "3 años",
             iniciosCursos: "Agosto",
             inscripciones: "Abiertas",
-            url: "/secundaria/montessori",
+            url: "/oferta/colegio-une/Secundaria",
           },
         ],
       },
     },
   },
-   Bachillerato: {
+  Bachillerato: {
     "EDUCACIÓN MEDIA SUPERIOR": {
-      BIS: {
+      "Bachillerato Intensivo Semiescolarizado": {
         CARACOL: [
           {
             modalidad: "Semiescolarizada",
@@ -118,7 +118,7 @@ export const programasEducativos = {
             duracion: "6 semestres",
             iniciosCursos: "Agosto",
             inscripciones: "Abiertas",
-            url: "/bachillerato/bis",
+            url: "/oferta/colegio-une/Bachillerato-sej",
           },
         ],
         CENTRO: [
@@ -131,7 +131,7 @@ export const programasEducativos = {
             duracion: "6 semestres",
             iniciosCursos: "Agosto",
             inscripciones: "Abiertas",
-            url: "/src/components/sections/planteles/bachilleratp-sej",
+            url: "/oferta/colegio-une/Bachillerato-sej",
           },
         ],
         "CENTRO MÉDICO": [
@@ -144,7 +144,7 @@ export const programasEducativos = {
             duracion: "6 semestres",
             iniciosCursos: "Agosto",
             inscripciones: "Abiertas",
-            url: "/bachillerato/bis",
+            url: "/oferta/colegio-une/Bachillerato-sej",
           },
         ],
         CHAPULTEPEC: [
@@ -157,7 +157,7 @@ export const programasEducativos = {
             duracion: "6 semestres",
             iniciosCursos: "Agosto",
             inscripciones: "Abiertas",
-            url: "/bachillerato/bis",
+            url: "/oferta/colegio-une/Bachillerato-sej",
           },
         ],
         MILENIO: [
@@ -170,7 +170,7 @@ export const programasEducativos = {
             duracion: "6 semestres",
             iniciosCursos: "Agosto",
             inscripciones: "Abiertas",
-            url: "/bachillerato/bis",
+            url: "/oferta/colegio-une/Bachillerato-sej",
           },
         ],
         TEPATITLÁN: [
@@ -183,7 +183,7 @@ export const programasEducativos = {
             duracion: "6 semestres",
             iniciosCursos: "Agosto",
             inscripciones: "Abiertas",
-            url: "/bachillerato/bis",
+            url: "/oferta/colegio-une/Bachillerato-sej",
           },
         ],
         TESISTÁN: [
@@ -196,7 +196,7 @@ export const programasEducativos = {
             duracion: "6 semestres",
             iniciosCursos: "Agosto",
             inscripciones: "Abiertas",
-            url: "/bachillerato/bis",
+            url: "/oferta/colegio-une/Bachillerato-sej",
           },
         ],
         TLAJOMULCO: [
@@ -209,7 +209,7 @@ export const programasEducativos = {
             duracion: "6 semestres",
             iniciosCursos: "Agosto",
             inscripciones: "Abiertas",
-            url: "/bachillerato/bis",
+            url: "/oferta/colegio-une/Bachillerato-sej",
           },
         ],
         TLAQUEPAQUE: [
@@ -222,7 +222,7 @@ export const programasEducativos = {
             duracion: "6 semestres",
             iniciosCursos: "Agosto",
             inscripciones: "Abiertas",
-            url: "/bachillerato/bis",
+            url: "/oferta/colegio-une/Bachillerato-sej",
           },
         ],
         TONALÁ: [
@@ -235,7 +235,7 @@ export const programasEducativos = {
             duracion: "6 semestres",
             iniciosCursos: "Agosto",
             inscripciones: "Abiertas",
-            url: "/bachillerato/bis",
+            url: "/oferta/colegio-une/Bachillerato-sej",
           },
         ],
         ZAPOPAN: [
@@ -248,7 +248,7 @@ export const programasEducativos = {
             duracion: "6 semestres",
             iniciosCursos: "Agosto",
             inscripciones: "Abiertas",
-            url: "/bachillerato/bis",
+            url: "/oferta/colegio-une/Bachillerato-sej",
           },
         ],
       },
@@ -263,7 +263,7 @@ export const programasEducativos = {
             duracion: "6 semestres",
             iniciosCursos: "Agosto",
             inscripciones: "Abiertas",
-            url: "/bachillerato/general",
+            url: "/oferta/colegio-une/Bachillerato-udg",
           },
         ],
         CENTRO: [
@@ -276,7 +276,7 @@ export const programasEducativos = {
             duracion: "6 semestres",
             iniciosCursos: "Agosto",
             inscripciones: "Abiertas",
-            url: "/bachillerato/general",
+            url: "/oferta/colegio-une/Bachillerato-udg",
           },
         ],
         "CENTRO MÉDICO": [
@@ -289,7 +289,7 @@ export const programasEducativos = {
             duracion: "6 semestres",
             iniciosCursos: "Agosto",
             inscripciones: "Abiertas",
-            url: "/bachillerato/general",
+            url: "/oferta/colegio-une/Bachillerato-udg",
           },
         ],
         MILENIO: [
@@ -302,7 +302,7 @@ export const programasEducativos = {
             duracion: "6 semestres",
             iniciosCursos: "Agosto",
             inscripciones: "Abiertas",
-            url: "/bachillerato/general",
+            url: "/oferta/colegio-une/Bachillerato-udg",
           },
         ],
         "PLAZA DEL SOL": [
@@ -315,7 +315,7 @@ export const programasEducativos = {
             duracion: "6 semestres",
             iniciosCursos: "Agosto",
             inscripciones: "Abiertas",
-            url: "/bachillerato/general",
+            url: "/oferta/colegio-une/Bachillerato-udg",
           },
         ],
         TESISTÁN: [
@@ -328,7 +328,7 @@ export const programasEducativos = {
             duracion: "6 semestres",
             iniciosCursos: "Agosto",
             inscripciones: "Abiertas",
-            url: "/bachillerato/general",
+            url: "/oferta/colegio-une/Bachillerato-udg",
           },
         ],
         TLAJOMULCO: [
@@ -341,7 +341,7 @@ export const programasEducativos = {
             duracion: "6 semestres",
             iniciosCursos: "Agosto",
             inscripciones: "Abiertas",
-            url: "/bachillerato/general",
+            url: "/oferta/colegio-une/Bachillerato-udg",
           },
         ],
         TLAQUEPAQUE: [
@@ -354,7 +354,7 @@ export const programasEducativos = {
             duracion: "6 semestres",
             iniciosCursos: "Agosto",
             inscripciones: "Abiertas",
-            url: "/bachillerato/general",
+            url: "/oferta/colegio-une/Bachillerato-udg",
           },
         ],
         TONALÁ: [
@@ -367,7 +367,7 @@ export const programasEducativos = {
             duracion: "6 semestres",
             iniciosCursos: "Agosto",
             inscripciones: "Abiertas",
-            url: "/bachillerato/general",
+            url: "/oferta/colegio-une/Bachillerato-udg",
           },
         ],
         ZAPOPAN: [
@@ -380,7 +380,7 @@ export const programasEducativos = {
             duracion: "6 semestres",
             iniciosCursos: "Agosto",
             inscripciones: "Abiertas",
-            url: "/bachillerato/general",
+            url: "/oferta/colegio-une/Bachillerato-udg",
           },
         ],
       },
@@ -1544,7 +1544,7 @@ export const programasEducativos = {
           },
         ],
       },
-      "ingenieria En Inteligencia de Datos y Ciberseguridad": {
+      "Ingeniería en Inteligencia de Datos y Ciberseguridad": {
         "CAMPUS PUERTO VALLARTA": [
           {
             modalidad: "Escolarizada",
@@ -1604,7 +1604,7 @@ export const programasEducativos = {
           },
         ],
       },
-      "Ingenieria Mecánica": {
+      "Ingeniería Mecánica": {
         "Avenida México": [
           {
             modalidad: "Escolarizada",
@@ -1656,7 +1656,7 @@ export const programasEducativos = {
           },
         ],
       },
-      "Ingenieria en Desarrollo Software": {
+      "Ingeniería en Desarrollo Software": {
         "Avenida México": [
           {
             modalidad: "Escolarizada",
@@ -1839,7 +1839,7 @@ export const programasEducativos = {
       },
     },
     "Económico Administrativa": {
-      "administración de sistemas de información": {
+      "Administración de sistemas de información": {
         "UNE en línea": [
           {
             modalidad: "En linea",
@@ -2741,7 +2741,7 @@ export const programasEducativos = {
       },
     },
   },
-  Maestrías: {
+ Maestrías: {
     "ADMINISTRACIÓN Y NEGOCIOS": {
       "Maestría en Administración de Negocios": {
         "TORRE QUETZAL": [
@@ -2749,6 +2749,7 @@ export const programasEducativos = {
             modalidad: "Escolarizada",
             incorporacion: "SICYT",
             imagen: "Finanzas",
+            url: "/oferta/maestrias/mst_administracion_negocios",
             descripcion:
               "Desarrolla habilidades gerenciales avanzadas para liderar organizaciones exitosas en el entorno empresarial global.",
           },
@@ -2758,6 +2759,7 @@ export const programasEducativos = {
             modalidad: "Escolarizada",
             incorporacion: "SICYT",
             imagen: "Finanzas",
+            url: "/oferta/maestrias/mst_administracion_negocios",
             descripcion:
               "Desarrolla habilidades gerenciales avanzadas para liderar organizaciones exitosas en el entorno empresarial global.",
           },
@@ -2767,6 +2769,7 @@ export const programasEducativos = {
             modalidad: "Escolarizada",
             incorporacion: "SICYT",
             imagen: "Finanzas",
+            url: "/oferta/maestrias/mst_administracion_negocios",
             descripcion:
               "Desarrolla habilidades gerenciales avanzadas para liderar organizaciones exitosas en el entorno empresarial global.",
           },
@@ -2778,6 +2781,7 @@ export const programasEducativos = {
             modalidad: "Escolarizada",
             incorporacion: "SICYT",
             imagen: "RecursosHumanos",
+            url: "/oferta/maestrias/mst_administracion_recursos_humanos",
             descripcion:
               "Especialízate en la gestión del talento humano y el desarrollo organizacional para crear ambientes laborales productivos.",
           },
@@ -2787,6 +2791,7 @@ export const programasEducativos = {
             modalidad: "Escolarizada",
             incorporacion: "SICYT",
             imagen: "RecursosHumanos",
+            url: "/oferta/maestrias/mst_administracion_recursos_humanos",
             descripcion:
               "Especialízate en la gestión del talento humano y el desarrollo organizacional para crear ambientes laborales productivos.",
           },
@@ -2798,6 +2803,7 @@ export const programasEducativos = {
             modalidad: "Escolarizada",
             incorporacion: "SICYT",
             imagen: "Finanzas",
+            url: "/oferta/maestrias/mst_finanzas_estrategicas",
             descripcion:
               "Domina las estrategias financieras corporativas y la toma de decisiones de inversión para maximizar el valor empresarial.",
           },
@@ -2807,6 +2813,7 @@ export const programasEducativos = {
             modalidad: "Escolarizada",
             incorporacion: "SICYT",
             imagen: "Finanzas",
+            url: "/oferta/maestrias/mst_finanzas_estrategicas",
             descripcion:
               "Domina las estrategias financieras corporativas y la toma de decisiones de inversión para maximizar el valor empresarial.",
           },
@@ -2814,6 +2821,7 @@ export const programasEducativos = {
             modalidad: "Ejecutiva",
             incorporacion: "SICYT",
             imagen: "FinanzasEstrategicas",
+            url: "/oferta/maestrias/mst_finanzas_estrategicas",
             descripcion:
               "Domina las estrategias financieras corporativas y la toma de decisiones de inversión para maximizar el valor empresarial.",
           },
@@ -2827,6 +2835,7 @@ export const programasEducativos = {
             modalidad: "Escolarizada",
             incorporacion: "SICYT",
             imagen: "DerechoLaboral",
+            url: "/oferta/maestrias/mst_derecho_laboral",
             descripcion:
               "Conviértete en experto en legislación laboral y relaciones obrero-patronales para asesorar empresas y trabajadores.",
           },
@@ -2836,6 +2845,7 @@ export const programasEducativos = {
             modalidad: "Escolarizada",
             incorporacion: "SICYT",
             imagen: "DerechoLaboral",
+            url: "/oferta/maestrias/mst_derecho_laboral",
             descripcion:
               "Conviértete en experto en legislación laboral y relaciones obrero-patronales para asesorar empresas y trabajadores.",
           },
@@ -2847,6 +2857,7 @@ export const programasEducativos = {
             modalidad: "Escolarizada",
             incorporacion: "SICYT",
             imagen: "CienciasPenales",
+            url: "/oferta/maestrias/mst_ciencias_penales",
             descripcion:
               "Especialízate en derecho penal, criminología y justicia para contribuir al sistema de seguridad y justicia.",
           },
@@ -2860,6 +2871,7 @@ export const programasEducativos = {
             modalidad: "Escolarizada",
             incorporacion: "SICYT",
             imagen: "Educacion",
+            url: "/oferta/maestrias/maestria_educacion",
             descripcion:
               "Impulsa la innovación educativa y mejora los procesos de enseñanza-aprendizaje con metodologías avanzadas.",
           },
@@ -2867,6 +2879,7 @@ export const programasEducativos = {
             modalidad: "En Línea",
             incorporacion: "SICYT",
             imagen: "Educacion",
+            url: "/oferta/maestrias/maestria_educacion",
             descripcion:
               "Impulsa la innovación educativa y mejora los procesos de enseñanza-aprendizaje con metodologías avanzadas.",
           },
@@ -2876,6 +2889,7 @@ export const programasEducativos = {
             modalidad: "Escolarizada",
             incorporacion: "SICYT",
             imagen: "Educacion",
+            url: "/oferta/maestrias/maestria_educacion",
             descripcion:
               "Impulsa la innovación educativa y mejora los procesos de enseñanza-aprendizaje con metodologías avanzadas.",
           },
@@ -2885,6 +2899,7 @@ export const programasEducativos = {
             modalidad: "Escolarizada",
             incorporacion: "SICYT",
             imagen: "CienciasEducacion",
+            url: "/oferta/maestrias/maestria_educacion",
             descripcion:
               "Impulsa la innovación educativa y mejora los procesos de enseñanza-aprendizaje con metodologías avanzadas.",
           },
@@ -2898,6 +2913,7 @@ export const programasEducativos = {
             modalidad: "Escolarizada",
             incorporacion: "SICYT",
             imagen: "Hospitalaria",
+            url: "/oferta/maestrias/mst_administracion_hospitalaria",
             descripcion:
               "Nueva oferta académica. Lidera la gestión eficiente de instituciones de salud y mejora la calidad de atención médica.",
           },
@@ -2907,6 +2923,7 @@ export const programasEducativos = {
             modalidad: "Escolarizada",
             incorporacion: "SICYT",
             imagen: "Hospitalaria",
+            url: "/oferta/maestrias/mst_administracion_hospitalaria",
             descripcion:
               "Nueva oferta académica. Lidera la gestión eficiente de instituciones de salud y mejora la calidad de atención médica.",
           },
@@ -2914,6 +2931,7 @@ export const programasEducativos = {
             modalidad: "Ejecutiva",
             incorporacion: "SICYT",
             imagen: "AdmHospitalaria",
+            url: "/oferta/maestrias/mst_administracion_hospitalaria",
             descripcion:
               "Nueva oferta académica. Lidera la gestión eficiente de instituciones de salud y mejora la calidad de atención médica.",
           },
@@ -2927,6 +2945,7 @@ export const programasEducativos = {
             modalidad: "Escolarizada",
             incorporacion: "SICYT",
             imagen: "Terapia",
+            url: "/oferta/maestrias/mst_terapia_familiar_sistemica",
             descripcion:
               "Desarrolla competencias terapéuticas para el trabajo con familias y sistemas humanos desde el enfoque sistémico.",
           },
@@ -2936,6 +2955,7 @@ export const programasEducativos = {
             modalidad: "Escolarizada",
             incorporacion: "SICYT",
             imagen: "Terapia",
+            url: "/oferta/maestrias/mst_terapia_familiar_sistemica",
             descripcion:
               "Desarrolla competencias terapéuticas para el trabajo con familias y sistemas humanos desde el enfoque sistémico.",
           },
@@ -2943,6 +2963,7 @@ export const programasEducativos = {
             modalidad: "Viernes y Sábado",
             incorporacion: "SICYT",
             imagen: "Terapia",
+            url: "/oferta/maestrias/mst_terapia_familiar_sistemica",
             descripcion:
               "Desarrolla competencias terapéuticas para el trabajo con familias y sistemas humanos desde el enfoque sistémico.",
           },
@@ -2952,6 +2973,7 @@ export const programasEducativos = {
             modalidad: "Escolarizada",
             incorporacion: "SICYT",
             imagen: "TerapiaFamiliar",
+            url: "/oferta/maestrias/mst_terapia_familiar_sistemica",
             descripcion:
               "Desarrolla competencias terapéuticas para el trabajo con familias y sistemas humanos desde el enfoque sistémico.",
           },
@@ -3076,7 +3098,6 @@ export const programasEducativos = {
       },
     },
   },
- 
 };
 
 export const areas = [
