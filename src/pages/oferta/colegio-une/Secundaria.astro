@@ -6,6 +6,8 @@ import ImagenCard from "@/assets/Imagenes/CardsNiveles/Secundaria.webp";
 import ColegioUNE from "@/assets/Logos/Colegio.webp";
 import SecondaryCard from "@components/sections/detallesOferta/card.astro";
 import Planteles from "@components/sections/detallesOferta/planteles.astro";
+import { getImageById } from "@helpers/imageMap.js";
+
 import Costos from "@components/sections/detallesOferta/costos.astro";
 import Requisitos from "@/components/sections/detallesOferta/requisitos.astro";
 import PlanEstudios from "@/components/sections/detallesOferta/planEstudios.astro";
@@ -13,6 +15,7 @@ import Perfiles from "@/components/sections/detallesOferta/perfiles.astro";
 import FAQComponent from "@/components/sections/detallesOferta/preguntas.astro";
 import CTAinscripcion from "@/components/sections/shared/ctaInscripcion.astro";
 import { crearPlantelesEspecificos } from "@/helpers/planteles"
+
 
 const planteles = [
   {
@@ -22,7 +25,7 @@ const planteles = [
     direccion: "Av. México #1255, Col. Agua Zarca, Puerto Vallarta, Jalisco",
     ciudad: "Puerto Vallarta",
     url: "/planteles/avenida-mexico",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/PuertoVallarta.webp",
+    imagen: getImageById("1"), // Ahora usa la imagen importada
     lat: 20.669418,
     lon: -105.226917,
   },
@@ -33,7 +36,7 @@ const planteles = [
     direccion: "Chimalhuacán #6, Col. Ciudad del Sol, Guadalajara, Jalisco",
     ciudad: "Guadalajara ZMG",
     url: "/planteles/plaza-del-sol",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/PlazaSol.webp",
+    imagen: getImageById("2"),
     lat: 20.651805,
     lon: -103.402918,
   },
@@ -41,11 +44,10 @@ const planteles = [
     id: "3",
     nombre: "Tesistán",
     codigo: "00010",
-    direccion:
-      "Av. Juan Gil Preciado #3897, Col. Hogares de Nuevo México, Zapopan, Jalisco",
+    direccion: "Av. Juan Gil Preciado #3897, Col. Hogares de Nuevo México, Zapopan, Jalisco",
     ciudad: "Guadalajara ZMG",
     url: "/planteles/tesistan",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/Tesistan.webp",
+    imagen: getImageById("3"),
     lat: 20.806203,
     lon: -102.763903,
   },
@@ -53,11 +55,10 @@ const planteles = [
     id: "4",
     nombre: "Tlajomulco",
     codigo: "00012",
-    direccion:
-      "Av. López Mateos #10100, Col. Los Gavilanes Poniente, Tlajomulco de Zúñiga, Jalisco",
+    direccion: "Av. López Mateos #10100, Col. Los Gavilanes Poniente, Tlajomulco de Zúñiga, Jalisco",
     ciudad: "Guadalajara ZMG",
     url: "/planteles/tlajomulco",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/Tlajomulco.webp",
+    imagen: getImageById("4"),
     lat: 20.576464164603113,
     lon: -103.45243680650722,
   },
@@ -65,11 +66,10 @@ const planteles = [
     id: "5",
     nombre: "Tlaquepaque",
     codigo: "00013",
-    direccion:
-      "Blvd. Marcelino García Barragán #2056, Col. Bosques del Boulevard, Tlaquepaque, Jalisco",
+    direccion: "Blvd. Marcelino García Barragán #2056, Col. Bosques del Boulevard, Tlaquepaque, Jalisco",
     ciudad: "Guadalajara ZMG",
     url: "/planteles/tlaquepaque",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/Tlaquepaque.webp",
+    imagen: getImageById("5"),
     lat: 20.645650028567157,
     lon: -103.32094530771215,
   },
@@ -80,11 +80,12 @@ const planteles = [
     direccion: "Av. Tonaltecas #333, Col. Agua Escondida, Tonalá, Jalisco",
     ciudad: "Guadalajara ZMG",
     url: "/planteles/tonala",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/Tonala.webp",
+    imagen: getImageById("6"),
     lat: 20.63176692188573,
     lon: -103.24439406488241,
   },
 ];
+
 
 const ciudades = ["Guadalajara ZMG", "Puerto Vallarta"];
 

@@ -28,6 +28,8 @@ const nombresPlanteles = [
   "Zapopan",
 ];
 
+import { getImageById } from "@helpers/imageMap.js";
+
 const planteles = [
   {
     id: "1",
@@ -35,7 +37,7 @@ const planteles = [
     direccion: "Av. República No.10, Col. San Juan de Dios",
     ciudad: "Guadalajara ZMG",
     url: "/planteles/centro",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/Centro.webp",
+    imagen: getImageById("9"), // Centro
     lat: 20.67744801539995,
     lon: -103.34031672627513,
   },
@@ -45,7 +47,7 @@ const planteles = [
     direccion: "José María Lozano #1077, Col. Belisario Domínguez",
     ciudad: "Guadalajara ZMG",
     url: "/planteles/centro-medico",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/CentroMedico.webp",
+    imagen: getImageById("10"), // CentroMedico
     lat: 20.684590788642307,
     lon: -103.3256397932448,
   },
@@ -55,7 +57,7 @@ const planteles = [
     direccion: "Av. López Mateos Sur #4154, Col. La Giralda",
     ciudad: "Guadalajara ZMG",
     url: "/planteles/milenio",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/Milenio.webp",
+    imagen: getImageById("13"), // Milenio
     lat: 20.64540739939039,
     lon: -103.40630313415286,
   },
@@ -65,7 +67,7 @@ const planteles = [
     direccion: "Blvd. Fco. Medina Ascencio #2180, Col. Díaz Ordaz",
     ciudad: "Puerto Vallarta",
     url: "/planteles/plaza-caracol",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/PuertoVallarta.webp",
+    imagen: getImageById("8"), // Caracol (mejor que PuertoVallarta para Plaza Caracol)
     lat: 20.639287162026815,
     lon: -105.23323589513319,
   },
@@ -75,7 +77,7 @@ const planteles = [
     direccion: "Av. López Mateos #10100, Col. Los Gavilanes Poniente",
     ciudad: "Guadalajara ZMG",
     url: "/planteles/tlajomulco",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/Tlajomulco.webp",
+    imagen: getImageById("4"), // Tlajomulco
     lat: 20.576464164603113,
     lon: -103.45243680650722,
   },
@@ -85,7 +87,7 @@ const planteles = [
     direccion: "Av. Juan Gil Preciado #3897, Col. Hogares de Nuevo México",
     ciudad: "Guadalajara ZMG",
     url: "/planteles/tesistan",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/Tesistan.webp",
+    imagen: getImageById("3"), // Tesistan
     lat: 20.806203,
     lon: -102.763903,
   },
@@ -95,7 +97,7 @@ const planteles = [
     direccion: "Calle Dr. Ricardo Alcalá #505, Av. Matamoros, Centro",
     ciudad: "Tepatitlán de Morelos",
     url: "/planteles/tepatitlan",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/Tepatitlan.webp",
+    imagen: getImageById("14"), // Tepatitlan
     lat: 20.8062946507024,
     lon: -102.76382902869392,
   },
@@ -106,7 +108,7 @@ const planteles = [
       "Blvd. Marcelino García Barragán #2056, Col. Bosques del Boulevard",
     ciudad: "Guadalajara ZMG",
     url: "/planteles/tlaquepaque",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/Tlaquepaque.webp",
+    imagen: getImageById("5"), // Tlaquepaque
     lat: 20.645650028567157,
     lon: -103.32094530771215,
   },
@@ -116,7 +118,7 @@ const planteles = [
     direccion: "Av. Tonaltecas #333, Col. Agua Escondida",
     ciudad: "Guadalajara ZMG",
     url: "/planteles/tonala",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/Tonala.webp",
+    imagen: getImageById("6"), // Tonala
     lat: 20.63176692188573,
     lon: -103.24439406488241,
   },
@@ -126,7 +128,7 @@ const planteles = [
     direccion: "Av. Vallarta #1458, Col. Americana",
     ciudad: "Guadalajara ZMG",
     url: "/planteles/chapultepec",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/Chapultepec.webp",
+    imagen: getImageById("11"), // Chapultepec
     lat: 20.67471004174908,
     lon: -103.36909119392195,
   },
@@ -136,7 +138,7 @@ const planteles = [
     direccion: "Plaza Caudillos",
     ciudad: "Guadalajara ZMG",
     url: "/planteles/zapopan",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/Zapopan.webp",
+    imagen: getImageById("17"), // Zapopan
     lat: 20.720900646775917,
     lon: -103.38975281813357,
   },

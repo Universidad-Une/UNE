@@ -13,6 +13,8 @@ import Perfiles from "@/components/sections/detallesOferta/perfiles.astro";
 import FAQComponent from "@/components/sections/detallesOferta/preguntas.astro";
 import CTAinscripcion from "@/components/sections/shared/ctaInscripcion.astro";
 import { crearPlantelPersonalizado } from "@helpers/planteles";
+import { getImageById } from "@helpers/imageMap.js";
+
 const planteles = [
   {
     id: "1",
@@ -20,9 +22,9 @@ const planteles = [
     direccion: "Chimalhuacán #6 Col. Ciudad del Sol Guadalajara, Jalisco",
     ciudad: "Guadalajara",
     url: "/planteles/plaza-del-sol",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/PlazaSol.webp",
-    lat: 20.651805, // Actualizado
-    lon: -103.402918, // Actualizado
+    imagen: getImageById("2"), // Cambiado: usa Plaza del Sol (ID 2)
+    lat: 20.651805,
+    lon: -103.402918,
   },
 ];
 
