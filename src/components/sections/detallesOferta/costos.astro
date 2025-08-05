@@ -8,6 +8,7 @@ const {
 } = Astro.props;
 
 import Uniforme from "@assets/Imagenes/Uniformes/Gral.webp";
+import Falda from "@assets/Imagenes/Uniformes/Falda.webp";
 
 // Función para detectar si hay turnos diferentes
 function hayTurnosDiferentes(planteles) {
@@ -360,7 +361,7 @@ function obtenerDescripcionSelector() {
                   <div class="relative h-80 w-full rounded-lg overflow-hidden">
                     <!-- Imagen de fondo -->
                     <img 
-                      src={item.imagen || Uniforme} 
+                      src={Falda.src} 
                       alt={item.nombre} 
                       class="w-full h-full object-cover"
                     />
