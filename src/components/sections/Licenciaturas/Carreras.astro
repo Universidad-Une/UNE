@@ -1,5 +1,8 @@
 ---
 import { programasEducativos } from "@helpers/estructura_educativa";
+import { getImageUrl } from "@/helpers/imageManager.js"; // 👈 AGREGAR ESTA LÍNEA
+
+
 
 // Función para obtener la primera imagen disponible de los planteles
 function getPrimeraImagenDePlanteles(planteles) {
@@ -79,6 +82,11 @@ const carreras = licenciaturas.map((licenciatura, index) => {
 
   // Usar la imagen tal como viene, o el nombre del programa como fallback
   const imagenNombre = licenciatura.imagen || licenciatura.nombre;
+const imagenUrl = getImageUrl(imagenNombre, "licenciaturas");
+console.log(`🖼️ Image for ${imagenNombre}:`, imagenUrl, typeof imagenUrl);
+
+// Si imagenUrl no es string, usar fallback
+const imagenUrlFinal = typeof imagenUrl === 'string' ? imagenUrl : '/src/assets/Imagenes/CardsLicenciaturas/Arquitectura.webp';
 
   // Obtener el color para el badge principal (primera incorporación)
   const colorBadge = getColorBadge(todasLasIncorporaciones[0]);
@@ -88,7 +96,8 @@ const carreras = licenciaturas.map((licenciatura, index) => {
     nombre: `Lic. en ${licenciatura.nombre}`,
     descripcion: getDescripcionFromPlanteles(licenciatura.planteles),
     area: licenciatura.area,
-    imagen: imagenNombre, // Mantener la imagen sin cambios
+     imagen: imagenNombre,
+    imagenUrl: imagenUrlFinal, // 👈 usar la variable con fallback
     categoria: licenciatura.area,
     incorporacion: todasLasIncorporaciones.join(", "),
     modalidad: todasLasModalidades.join(", "),
@@ -177,7 +186,7 @@ export { carreras, areas };
               <div class="relative">
                 <div class="h-48 flex items-center justify-center">
                   <img
-                    src={`/src/assets/Imagenes/CardsLicenciaturas/${carrera.imagen}.webp`}
+                    src={carrera.imagenUrl}
                     alt={carrera.imagen}
                     class="w-full h-full object-cover"
                   />
@@ -241,48 +250,6 @@ export { carreras, areas };
       >
         Mostrar más
       </button>
-    </div>
-  </div>
-</div>
-
-<!-- Modal de planteles -->
-<div
-  id="planteles-modal"
-  class="fixed inset-0 z-50 hidden flex items-center justify-center modal-overlay"
->
-  <div
-    class="absolute inset-0 bg-opacity-40 backdrop-blur-sm transition-opacity duration-300 opacity-0"
-    id="modal-backdrop"
-  >
-  </div>
-  <div
-    class="bg-white rounded-lg p-6 max-w-2xl w-full mx-4 relative z-10 transform transition-all duration-300 scale-95 opacity-0 max-h-10/12 overflow-y-auto"
-    id="modal-content"
-  >
-    <div class="flex justify-between items-center mb-4">
-      <h3 id="modal-title" class="text-lg font-medium text-gray-900">
-        Planteles disponibles
-      </h3>
-      <button
-        id="close-modal"
-        class="text-gray-400 hover:text-gray-600 transition-colors duration-200 hover:scale-110"
-      >
-        <svg
-          class="w-6 h-6"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M6 18L18 6M6 6l12 12"></path>
-        </svg>
-      </button>
-    </div>
-    <div id="planteles-list" class="space-y-4">
-      <!-- Los planteles se insertan aquí dinámicamente -->
     </div>
   </div>
 </div>
@@ -567,6 +534,47 @@ export { carreras, areas };
   });
 </script>
 
+<!-- Modal de planteles -->
+<div
+  id="planteles-modal"
+  class="fixed inset-0 z-50 hidden flex items-center justify-center modal-overlay"
+>
+  <div
+    class="absolute inset-0 bg-opacity-40 backdrop-blur-sm transition-opacity duration-300 opacity-0"
+    id="modal-backdrop"
+  >
+  </div>
+  <div
+    class="bg-white rounded-lg p-6 max-w-2xl w-full mx-4 relative z-10 transform transition-all duration-300 scale-95 opacity-0 max-h-10/12 overflow-y-auto"
+    id="modal-content"
+  >
+    <div class="flex justify-between items-center mb-4">
+      <h3 id="modal-title" class="text-lg font-medium text-gray-900">
+        Planteles disponibles
+      </h3>
+      <button
+        id="close-modal"
+        class="text-gray-400 hover:text-gray-600 transition-colors duration-200 hover:scale-110"
+      >
+        <svg
+          class="w-6 h-6"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+      </button>
+    </div>
+    <div id="planteles-list" class="space-y-4">
+      <!-- Los planteles se insertan aquí dinámicamente -->
+    </div>
+  </div>
+</div>
 <style>
   /* Estilos para el scroll personalizado */
 
