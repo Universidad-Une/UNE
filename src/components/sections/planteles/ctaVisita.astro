@@ -1,5 +1,7 @@
 ---
 // BlogScaleSection.astro
+// Importar la imagen
+import visitaImage from '@/assets/Imagenes/Middles/Visita.png';
 ---
 
 <section class="relative min-h-89 flex items-center justify-center pt-8">
@@ -7,14 +9,14 @@
   <div
     id="scalingElement"
     class="relative w-full mx-auto px-6 pt-12 pb-12 text-center text-white will-change-transform transition-transform duration-75 ease-out bg-cover bg-center bg-no-repeat rounded-t-2xl"
-    style="transform: scale(0.8); background-image: url('/src/assets//Imagenes/Middles/Visita.png');"
+    style={`transform: scale(0.8); background-image: url('${visitaImage.src}');`}
   >
     <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-8 leading-tight">
       ¡Visítanos y Conoce tu Futuro Campus!
     </h2>
 
     <p
-      class="text-lg  lg:text-xl mb-12 max-w-3xl mx-auto leading-relaxed opacity-90"
+      class="text-lg lg:text-xl mb-12 max-w-3xl mx-auto leading-relaxed opacity-90"
     >
       ¿Listo para dar el siguiente paso? Agenda una cita con nosotros y descubre
       de cerca todo lo que nuestro plantel tiene para ofrecerte. Recorre

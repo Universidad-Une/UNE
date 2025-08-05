@@ -131,7 +131,7 @@ export const programasEducativos = {
             duracion: "6 semestres",
             iniciosCursos: "Agosto",
             inscripciones: "Abiertas",
-            url: "/bachillerato/bis",
+            url: "/src/components/sections/planteles/bachilleratp-sej",
           },
         ],
         "CENTRO MÉDICO": [
