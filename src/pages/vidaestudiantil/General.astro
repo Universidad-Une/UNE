@@ -1,12 +1,9 @@
 ---
 import Layout from "@/layouts/Layout.astro";
-
 import comunidadImagen from "@/assets/Imagenes/Secciones/Water.webp";
 import comunidadEgresados from "@/assets/Imagenes/Middles/Egresos.webp";
-import ImagenCard from "@/assets/Imagenes/CardsNiveles/Nivel.webp";
-import LogoCard from "@/assets/Logos/Licenciatura.webp";
-import InformativeCard from "@components/sections/detallesOferta/card.astro";
 import Galeria from "@/components/sections/shared/Galeria.astro";
+import Eventos from "@/components/sections/vidaestudiantil/eventos.astro";
 
 // Ejemplo 1: Array de imágenes básico
 const images = [
@@ -58,7 +55,6 @@ const images = [
 
           {/* Botones Verticales */}
           <div class="flex flex-col items-center space-y-4">
-           
             <button
               class="text-white font-medium py-2 px-5 shadow border-b-2 border-white"
             >
@@ -114,12 +110,8 @@ const images = [
 
             <!-- Botones de acción -->
             <div class="flex flex-col sm:flex-row gap-4">
-              <button
-                class="inline-flex items-center justify-center px-6 py-3 border border-gray-300 rounded-full text-base font-medium text-gray-700 bg-white hover:bg-gray-50 hover:border-gray-400 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
-              >
-                Ver calendario de eventos
-              </button>
-              <a href="/Vivetuuniversidad/General"
+              <a
+                href="/Vivetuuniversidad/General"
                 class="inline-flex items-center justify-center px-6 py-3 border border-gray-300 rounded-full text-base font-medium text-gray-700 bg-white hover:bg-gray-50 hover:border-gray-400 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
               >
                 Explorar talleres
@@ -243,25 +235,6 @@ const images = [
             guidance personalizado de profesionales senior de tu área de
             interés.
           </p>
-
-          <!-- Botón -->
-          <button
-            class="inline-flex items-center px-6 py-3 bg-red-600 text-white font-semibold rounded-full hover:bg-red-700 transition-colors duration-200 text-sm"
-          >
-            ENCONTRAR UN MENTOR
-            <svg
-              class="ml-2 w-4 h-4"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M9 5l7 7-7 7"></path>
-            </svg>
-          </button>
         </div>
       </div>
     </section>
@@ -317,136 +290,10 @@ const images = [
         Próximos Eventos
       </h2>
 
-      <div id="eventos-carousel" class="splide">
-        <div class="splide__track py-8">
-          <ul class="splide__list">
-            <!-- Evento 1 - Webinar UX/UI -->
-            <li
-              class="splide__slide flex flex-col justify-center items-center min-h-[500px]"
-            >
-              <div
-                class="bg-white rounded-lg shadow-lg p-8 mx-2 h-full border-t-4 border-rojo-une flex flex-col justify-center items-center text-center max-w-sm w-full"
-              >
-                <div class="mb-6">
-                  <div class="text-sm text-gray-600 font-semibold mb-2">
-                    Junio
-                  </div>
-                  <div class="text-4xl font-bold text-gray-800">30</div>
-                </div>
-
-                <h3 class="text-xl font-bold text-gray-800 mb-6">
-                  Webinar de UX/UI
-                </h3>
-
-                <p
-                  class="text-gray-600 text-sm leading-relaxed mb-6 flex-grow flex items-center"
-                >
-                  ¿Te apasiona el diseño digital? No te pierdas nuestro Webinar
-                  de UX/UI "Aprende a crear experiencias que conecten con el
-                  usuario"
-                </p>
-
-                <div class="text-sm text-gray-500 mb-6">11:00 h</div>
-
-                <button
-                  class="calendar-event-btn w-full border-b border-b-blue-600 hover:bg-blue-600 hover:rounded-md hover:text-white py-3 px-4 text-sm font-medium transition-colors duration-200 cursor-pointer"
-                  data-event-title="Webinar de UX/UI - Aprende a crear experiencias que conecten"
-                  data-event-start="2024-06-30T11:00:00"
-                  data-event-end="2024-06-30T12:30:00"
-                  data-event-description="¿Te apasiona el diseño digital? No te pierdas nuestro Webinar de UX/UI donde aprenderás a crear experiencias que conecten con el usuario"
-                  data-event-location="Online - Zoom"
-                >
-                  Agregar a mi calendario
-                </button>
-              </div>
-            </li>
-
-            <!-- Evento 2 - Hackathon -->
-            <li
-              class="splide__slide flex flex-col justify-center items-center min-h-[500px]"
-            >
-              <div
-                class="bg-white rounded-lg shadow-lg p-8 mx-2 h-full border-t-4 border-rojo-une flex flex-col justify-center items-center text-center max-w-sm w-full"
-              >
-                <div class="mb-6">
-                  <div class="text-sm text-gray-600 font-semibold mb-2">
-                    Julio
-                  </div>
-                  <div class="text-4xl font-bold text-gray-800">15</div>
-                </div>
-
-                <h3 class="text-xl font-bold text-gray-800 mb-6">
-                  Hackathon UNE 2024
-                </h3>
-
-                <p
-                  class="text-gray-600 text-sm leading-relaxed mb-6 flex-grow flex items-center"
-                >
-                  48 horas de innovación pura. Desarrolla soluciones
-                  tecnológicas que impacten positivamente la sociedad
-                </p>
-
-                <div class="text-sm text-gray-500 mb-6">09:00 h</div>
-
-                <button
-                  class="calendar-event-btn w-full border-b border-b-blue-600 hover:bg-blue-600 hover:rounded-md hover:text-white py-3 px-4 text-sm font-medium transition-colors duration-200 cursor-pointer"
-                  data-event-title="Hackathon UNE 2024 - 48 horas de innovación"
-                  data-event-start="2024-07-15T09:00:00"
-                  data-event-end="2024-07-17T18:00:00"
-                  data-event-description="48 horas de innovación pura. Desarrolla soluciones tecnológicas que impacten positivamente la sociedad. Premios hasta $50,000 MXN"
-                  data-event-location="Campus UNE - Guadalajara"
-                >
-                  Agregar a mi calendario
-                </button>
-              </div>
-            </li>
-
-            <!-- Evento 3 - Workshop IA -->
-            <li
-              class="splide__slide flex flex-col justify-center items-center min-h-[500px]"
-            >
-              <div
-                class="bg-white rounded-lg shadow-lg p-8 mx-2 h-full border-t-4 border-rojo-une flex flex-col justify-center items-center text-center max-w-sm w-full"
-              >
-                <div class="mb-6">
-                  <div class="text-sm text-gray-600 font-semibold mb-2">
-                    Agosto
-                  </div>
-                  <div class="text-4xl font-bold text-gray-800">5</div>
-                </div>
-
-                <h3 class="text-xl font-bold text-gray-800 mb-6">
-                  Workshop de IA
-                </h3>
-
-                <p
-                  class="text-gray-600 text-sm leading-relaxed mb-6 flex-grow flex items-center"
-                >
-                  Introducción práctica a Machine Learning y desarrollo de
-                  modelos de IA con Python y TensorFlow
-                </p>
-
-                <div class="text-sm text-gray-500 mb-6">14:00 h</div>
-
-                <button
-                  class="calendar-event-btn w-full border-b border-b-blue-600 hover:bg-blue-600 hover:rounded-md hover:text-white py-3 px-4 text-sm font-medium transition-colors duration-200 cursor-pointer"
-                  data-event-title="Workshop de IA - Machine Learning con Python"
-                  data-event-start="2024-08-05T14:00:00"
-                  data-event-end="2024-08-05T17:00:00"
-                  data-event-description="Introducción práctica a Machine Learning y desarrollo de modelos de IA con Python y TensorFlow. Incluye certificado de participación"
-                  data-event-location="Lab de IA - Campus UNE"
-                >
-                  Agregar a mi calendario
-                </button>
-              </div>
-            </li>
-          </ul>
-        </div>
-      </div>
+    <Eventos/>
     </section>
 
-   <section class="max-w-6xl mx-auto p-6 mt-12">
-      <!-- Título principal -->
+    <!-- <section class="max-w-6xl mx-auto p-6 mt-12">
       <div class="text-center mb-8">
         <h2 class="text-2xl font-bold text-gray-800 relative">
           <span class="bg-white px-4"
@@ -455,7 +302,6 @@ const images = [
         </h2>
       </div>
 
-      <!-- Tabs Navigation -->
       <div class="flex justify-center mb-8">
         <div class="bg-gray-100 p-1 rounded-lg">
           <button
@@ -479,12 +325,9 @@ const images = [
         </div>
       </div>
 
-      <!-- Tab Content -->
       <div class="tab-content-container">
-        <!-- Webinars Content -->
         <div id="webinars-content" class="tab-content active">
           <div class="grid md:grid-cols-2 gap-6">
-            <!-- Webinar 1 -->
             <div
               class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300"
             >
@@ -509,7 +352,6 @@ const images = [
               </div>
             </div>
 
-            <!-- Webinar 2 -->
             <div
               class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300"
             >
@@ -539,10 +381,8 @@ const images = [
           </div>
         </div>
 
-        <!-- Torneos Content -->
         <div id="torneos-content" class="tab-content">
           <div class="grid md:grid-cols-2 gap-6">
-            <!-- Torneo 1 -->
             <div
               class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300"
             >
@@ -568,7 +408,6 @@ const images = [
               </div>
             </div>
 
-            <!-- Torneo 2 -->
             <div
               class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300"
             >
@@ -596,10 +435,8 @@ const images = [
           </div>
         </div>
 
-        <!-- Talleres Content -->
         <div id="talleres-content" class="tab-content">
           <div class="grid md:grid-cols-2 gap-6">
-            <!-- Taller 1 -->
             <div
               class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300"
             >
@@ -625,7 +462,6 @@ const images = [
               </div>
             </div>
 
-            <!-- Taller 2 -->
             <div
               class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300"
             >
@@ -655,96 +491,14 @@ const images = [
           </div>
         </div>
       </div>
-    </section>
+    </section> -->
 
+    <Galeria  />
 
-    <!-- Uso básico -->
-    <Galeria images={images} />
-
-    <!-- Con más columnas (máximo recomendado 6) 
-    <Gallery images={images} columns={3} />
     
-    <Gallery images={galleryImages} columns={4} />
-    -->
   </main>
 </Layout>
 
-<script>
-  // Función para agregar al calendario (genérica para múltiples eventos)
-  function addToCalendar(eventData) {
-    console.log("addToCalendar llamada con:", eventData);
-
-    // Formato de fechas para Google Calendar (YYYYMMDDTHHMMSS)
-    const formatDateForGoogle = (dateStr) => {
-      return (
-        new Date(dateStr).toISOString().replace(/[-:]/g, "").split(".")[0] + "Z"
-      );
-    };
-
-    // Crear URL para Google Calendar
-    const googleCalendarUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(eventData.title)}&dates=${formatDateForGoogle(eventData.startDate)}/${formatDateForGoogle(eventData.endDate)}&details=${encodeURIComponent(eventData.description)}&location=${encodeURIComponent(eventData.location)}`;
-
-    console.log("URL generada:", googleCalendarUrl);
-
-    // Abrir Google Calendar en nueva pestaña
-    window.open(googleCalendarUrl, "_blank");
-  }
-
-  // Función para configurar event listeners
-  function setupCalendarButtons() {
-    // Buscar todos los botones de calendario
-    const calendarBtns = document.querySelectorAll(".calendar-event-btn");
-    console.log(`Encontrados ${calendarBtns.length} botones de calendario`);
-
-    calendarBtns.forEach((btn, index) => {
-      console.log(`Configurando botón ${index + 1}`);
-
-      // Remover listener previo si existe
-      btn.removeEventListener("click", handleCalendarClick);
-
-      // Agregar nuevo listener
-      btn.addEventListener("click", handleCalendarClick);
-    });
-  }
-
-  // Handler para el click del botón
-  function handleCalendarClick(event) {
-    const btn = event.target;
-    console.log("Botón clickeado:", btn);
-
-    // Extraer datos del evento desde los atributos data-*
-    const eventData = {
-      title: btn.dataset.eventTitle,
-      startDate: btn.dataset.eventStart,
-      endDate: btn.dataset.eventEnd,
-      description: btn.dataset.eventDescription,
-      location: btn.dataset.eventLocation,
-    };
-
-    console.log("Datos del evento extraídos:", eventData);
-
-    // Llamar función de calendario
-    addToCalendar(eventData);
-  }
-
-  // Event listener cuando el DOM esté cargado
-  document.addEventListener("DOMContentLoaded", function () {
-    console.log("DOM cargado, configurando botones...");
-    setupCalendarButtons();
-  });
-
-  // Para compatibilidad con navegación SPA de Astro
-  document.addEventListener("astro:page-load", function () {
-    console.log("astro:page-load disparado, reconfigurando botones...");
-    setupCalendarButtons();
-  });
-
-  // También escuchar cuando Splide se inicializa (por si acaso)
-  document.addEventListener("splide:mounted", function () {
-    console.log("Splide montado, reconfigurando botones...");
-    setupCalendarButtons();
-  });
-</script>
 
 <style>
   .general-bg {
@@ -789,37 +543,3 @@ const images = [
       0 10px 10px -5px rgba(0, 0, 0, 0.04);
   }
 </style>
-
-<script>
-  import Splide from "@splidejs/splide";
-  import { AutoScroll } from "@splidejs/splide-extension-auto-scroll";
-  import "@splidejs/splide/dist/css/splide.min.css";
-
-  document.addEventListener("DOMContentLoaded", function () {
-    new Splide("#eventos-carousel", {
-      type: "loop",
-      perPage: 3,
-      perMove: 1,
-      gap: "1rem",
-      autoplay: true,
-      interval: 3000,
-      pauseOnHover: true,
-      pauseOnFocus: true,
-      breakpoints: {
-        1024: {
-          perPage: 2,
-        },
-        768: {
-          perPage: 1,
-        },
-      },
-      extensions: {
-        AutoScroll: AutoScroll,
-      },
-      autoScroll: {
-        speed: 0.5,
-        pauseOnHover: true,
-      },
-    }).mount({ AutoScroll });
-  });
-</script>
