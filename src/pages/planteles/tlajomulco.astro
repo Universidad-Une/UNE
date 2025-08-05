@@ -5,8 +5,8 @@ const programas = obtenerProgramasPorPlantel("TLAJOMULCO");
 import { Phone, Clock1, MapPin } from "@lucide/astro";
 import Carreradeplantel from "@/components/sections/planteles/Carreradeplantel.astro";
 import CtaVisita from "@/components/sections/planteles/ctaVisita.astro";
+import Video from "@/assets/Videos/planteles/Une Tlajo.webm";
 ---
-
 
 <Layout>
   <main class="min-h-screen">
@@ -35,10 +35,10 @@ import CtaVisita from "@/components/sections/planteles/ctaVisita.astro";
             <p
               class="text-lg md:text-xl leading-relaxed mb-8 font-light max-w-2xl"
             >
-              En nuestro plantel Tlajomulco, lo importante eres tú. Con un ambiente
-              cálido y una comunidad unida, este plantel ofrece programas
-              académicos de calidad, atención personalizada y un fuerte vínculo
-              con la comunidad local.
+              En nuestro plantel Tlajomulco, lo importante eres tú. Con un
+              ambiente cálido y una comunidad unida, este plantel ofrece
+              programas académicos de calidad, atención personalizada y un
+              fuerte vínculo con la comunidad local.
             </p>
 
             {/* Desktop Buttons - Hidden on mobile */}
@@ -54,7 +54,7 @@ import CtaVisita from "@/components/sections/planteles/ctaVisita.astro";
 
               <a
                 href="/contacto/formulario-inscripcion"
-                class="border-2 border-white text-white   hover:scale-105 hover:shadow-xl transition-all duration-300 px-8 py-3 rounded-lg font-semibold text-lg"
+                class="border-2 border-white text-white hover:scale-105 hover:shadow-xl transition-all duration-300 px-8 py-3 rounded-lg font-semibold text-lg"
               >
                 Inscribirme
               </a>
@@ -66,7 +66,6 @@ import CtaVisita from "@/components/sections/planteles/ctaVisita.astro";
             class="flex flex-col items-center lg:items-end lg:justify-end space-y-6 lg:h-full"
           >
             {/* Stats Card */}
-           
 
             {/* Mobile Buttons - Visible only on mobile */}
             <div class="flex lg:hidden flex-col w-full max-w-sm space-y-4">
@@ -75,65 +74,64 @@ import CtaVisita from "@/components/sections/planteles/ctaVisita.astro";
               >
                 Agendar una visita
               </button>
-             
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="bg-white py-16 px-4">
-      <div class="max-w-6xl mx-auto">
-        <!-- Header -->
-        <div class="text-center mb-12">
+    <section class="bg-white py-20 px-6">
+      <div class="max-w-7xl mx-auto">
+        <!-- Encabezado -->
+        <div class="text-center mb-16">
           <button
-            class="bg-azul text-white px-6 py-2 rounded-full text-sm font-medium mb-6 hover:bg-blue-700 transition-colors"
+            class="bg-azul-une text-white px-8 py-2 rounded-full text-sm font-medium mb-5 hover:bg-blue-700 transition-colors"
           >
-            Acerca de Torre Milenio
+            Acerca de UNE Tlajomulco
           </button>
 
-          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+          <h2
+            class="text-3xl md:text-5xl font-bold text-gray-900 leading-tight mb-6"
+          >
             Educación de calidad, más cerca de ti
           </h2>
 
-          <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-            Desde hace más de una década, Torre Milenio ha sido una puerta de
-            acceso a la educación profesional en el corazón de la ciudad.
+          <p class="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            UNE Tlajomulco es un campus universitario que ha crecido
+            significativamente en la región. Se distingue por su amplia oferta
+            académica, que incluye licenciaturas, bachillerato y posgrados en
+            áreas clave como Ciencias de la Salud, Ingenierías y Negocios. El
+            campus cuenta con instalaciones modernas y especializadas, como
+            laboratorios equipados y canchas deportivas, que brindan a los
+            estudiantes una experiencia de aprendizaje completa y práctica.
           </p>
         </div>
 
-        <!-- Content Grid -->
-        <div class="grid md:grid-cols-2 gap-12 items-center">
-          <!-- Video/Image Container -->
+        <!-- Contenido distribuido -->
+        <div class="grid md:grid-cols-2 gap-16 items-center">
+          <!-- Contenedor de video -->
           <div class="relative">
-            <div class="rounded-2xl overflow-hidden shadow-2xl">
+            <div class="rounded-2xl overflow-hidden shadow-xl">
               <video
+                src={Video}
+                alt="Campus UNE Centro Médico"
                 class="w-full h-auto object-cover"
                 autoplay
                 muted
                 loop
-                playsinline
-              >
-                <source src="/torre-milenio-video.mp4" type="video/mp4" />
-                <!-- Fallback image if video doesn't load -->
-                <img
-                  src="/torre-milenio-building.webp"
-                  alt="Torre Milenio - Vista aérea del edificio"
-                  class="w-full h-auto object-cover"
-                />
-              </video>
+                controls></video>
             </div>
           </div>
 
-          <!-- Features List -->
+          <!-- Lista de características -->
           <div class="space-y-6">
-            <div class="flex items-start space-x-4">
+            <div class="flex items-start gap-4">
               <div class="flex-shrink-0">
                 <div
-                  class="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center"
+                  class="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center"
                 >
                   <svg
-                    class="w-4 h-4 text-green-600"
+                    class="w-5 h-5 text-green-600"
                     fill="currentColor"
                     viewBox="0 0 20 20"
                   >
@@ -144,18 +142,18 @@ import CtaVisita from "@/components/sections/planteles/ctaVisita.astro";
                   </svg>
                 </div>
               </div>
-              <p class="text-lg text-gray-700">
+              <p class="text-lg text-gray-800 font-medium leading-snug">
                 Ubicación estratégica en tu ciudad
               </p>
             </div>
 
-            <div class="flex items-start space-x-4">
+            <div class="flex items-start gap-4">
               <div class="flex-shrink-0">
                 <div
-                  class="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center"
+                  class="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center"
                 >
                   <svg
-                    class="w-4 h-4 text-green-600"
+                    class="w-5 h-5 text-green-600"
                     fill="currentColor"
                     viewBox="0 0 20 20"
                   >
@@ -166,18 +164,18 @@ import CtaVisita from "@/components/sections/planteles/ctaVisita.astro";
                   </svg>
                 </div>
               </div>
-              <p class="text-lg text-gray-700">
+              <p class="text-lg text-gray-800 font-medium leading-snug">
                 Grupos reducidos y atención personalizada
               </p>
             </div>
 
-            <div class="flex items-start space-x-4">
+            <div class="flex items-start gap-4">
               <div class="flex-shrink-0">
                 <div
-                  class="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center"
+                  class="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center"
                 >
                   <svg
-                    class="w-4 h-4 text-green-600"
+                    class="w-5 h-5 text-green-600"
                     fill="currentColor"
                     viewBox="0 0 20 20"
                   >
@@ -188,18 +186,18 @@ import CtaVisita from "@/components/sections/planteles/ctaVisita.astro";
                   </svg>
                 </div>
               </div>
-              <p class="text-lg text-gray-700">
+              <p class="text-lg text-gray-800 font-medium leading-snug">
                 Conexión directa con el sector productivo local
               </p>
             </div>
 
-            <div class="flex items-start space-x-4">
+            <div class="flex items-start gap-4">
               <div class="flex-shrink-0">
                 <div
-                  class="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center"
+                  class="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center"
                 >
                   <svg
-                    class="w-4 h-4 text-green-600"
+                    class="w-5 h-5 text-green-600"
                     fill="currentColor"
                     viewBox="0 0 20 20"
                   >
@@ -210,7 +208,7 @@ import CtaVisita from "@/components/sections/planteles/ctaVisita.astro";
                   </svg>
                 </div>
               </div>
-              <p class="text-lg text-gray-700">
+              <p class="text-lg text-gray-800 font-medium leading-snug">
                 Actividades extracurriculares y vinculación social
               </p>
             </div>
@@ -246,17 +244,15 @@ import CtaVisita from "@/components/sections/planteles/ctaVisita.astro";
               </div>
               <h3 class="text-xl font-semibold">Dirección</h3>
             </div>
-            <button
-             
+            <a href="https://www.google.com/maps?ll=20.57658,-103.452884&z=17&t=m&hl=es-419&gl=US&mapclient=embed&cid=6794049727650230011" target="_blank"
               class="text-blue-100 hover:text-white transition-colors cursor-pointer text-left"
             >
-              Av. López Mateos Sur #4175<br />
-              Col. La Giralda Zapopan,<br />
-              Jalisco
-            </button>
+            Av. López Mateos #10100 Col. Los Gavilanes Poniente Tlajomulco de Zuñiga, Jalisco
+              
+            </a>
           </div>
 
-          <!-- Teléfonos -->
+         <!-- Teléfonos -->
           <div class="text-center md:text-left">
             <div class="flex items-center justify-center md:justify-start mb-4">
               <div
@@ -266,31 +262,56 @@ import CtaVisita from "@/components/sections/planteles/ctaVisita.astro";
               </div>
               <h3 class="text-xl font-semibold">Teléfonos</h3>
             </div>
-            <div class="space-y-2">
-              <a
-                href="tel:+528000436"
-                class="block text-blue-100 hover:text-white transition-colors"
-              >
-                (33) 800 0436
-              </a>
+
+            <!-- Container for phone numbers - horizontal on desktop, vertical on mobile -->
+            <div
+              class="flex flex-col md:flex-row md:space-x-6 space-y-3 md:space-y-0"
+            >
+              <!-- Teléfono principal -->
+              <div class="flex flex-col">
+                <span class="text-blue-100 text-sm">Teléfono:</span>
+                <a
+                  href="tel:+523380000863"
+                  class="text-white hover:text-blue-200 transition-colors font-medium"
+                >
+                  (33) 8000 0863
+                </a>
+              </div>
+
+              <!-- WhatsApp -->
+              <div class="flex flex-col">
+                <span class="text-blue-100 text-sm">WhatsApp:</span>
+                <a
+                  href="https://wa.me/3380000834"
+                  target="_blank"
+                  class="whatsapp-btn inline-flex items-center px-3 py-1 rounded-lg text-white hover:text-blue-200 font-medium hover:bg-opacity-10 transition-colors"
+                >
+                  <svg
+                    class="w-4 h-4 mr-2"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.382"
+                    ></path>
+                  </svg>
+                  (33) 8000 0834
+                </a>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-     <Carreradeplantel
+    <Carreradeplantel
       titulo="Nuestras Carreras Profesionales"
       descripcion="Descubre nuestra amplia oferta académica diseñada para formar líderes en diferentes áreas del conocimiento"
       programas={programas}
       itemsPerPage={10}
     />
 
-
-
-   
-
-    <CtaVisita/>
+    <CtaVisita />
   </main>
 </Layout>
 
@@ -305,4 +326,3 @@ import CtaVisita from "@/components/sections/planteles/ctaVisita.astro";
     }
   }
 </style>
-

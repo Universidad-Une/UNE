@@ -6,7 +6,7 @@ import { obtenerProgramasPorPlantel } from "@helpers/estructura_educativa";
 const programasCentro = obtenerProgramasPorPlantel("CHAPULTEPEC");
 import { Calendar, UserPlus, Phone, Clock1, MapPin } from "@lucide/astro";
 import Carreradeplantel from "@/components/sections/planteles/Carreradeplantel.astro";
-import Instalaciones from "@/components/sections/planteles/Instalaciones.astro";
+import Video from "@/assets/Videos/planteles/Chapultepec.webm";
 import CtaVisita from "@/components/sections/planteles/ctaVisita.astro";
 ---
 
@@ -105,13 +105,16 @@ import CtaVisita from "@/components/sections/planteles/ctaVisita.astro";
         <!-- Content Grid -->
         <div class="grid md:grid-cols-2 gap-12 items-center">
           <!-- Image Container -->
-          <div class="relative">
+           <div class="relative">
             <div class="rounded-2xl overflow-hidden shadow-2xl">
-              <img
-                src={Card.src}
-                alt="Plantel UNE Chapultepec"
+              <video
+                src={Video}
+                alt="Campus UNE Centro Médico"
                 class="w-full h-auto object-cover"
-              />
+                autoplay
+                muted
+                loop
+                controls></video>
             </div>
           </div>
 

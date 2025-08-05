@@ -1,118 +1,13 @@
 ﻿---
 import Layout from "@/layouts/Layout.astro";
-import Card from "@/assets/Imagenes/CardPlantelesInterior/CentroMedico.webp";
-import Cover from "@/assets/Imagenes/Middles/Sillas.webp";
+import Video from "@/assets/Videos/planteles/Centro Medico.webm";
 
 import { obtenerProgramasPorPlantel } from "@helpers/estructura_educativa";
 const programasCentro = obtenerProgramasPorPlantel("CENTRO \nMÉDICO");
 
-import { Calendar, UserPlus, Phone, Clock1, MapPin } from "@lucide/astro";
+import { Phone, Clock1, MapPin } from "@lucide/astro";
 import Carreradeplantel from "@/components/sections/planteles/Carreradeplantel.astro";
-import Instalaciones from "@/components/sections/planteles/Instalaciones.astro";
 import CtaVisita from "@/components/sections/planteles/ctaVisita.astro";
-
-// Datos de ejemplo que podrías recibir de una API o base de datos
-const carrerasData = [
-  {
-    id: "1",
-    titulo: "Lic. en Cirujano Dentista",
-    descripcion:
-      "Formando profesionales de la salud bucal altamente capacitados para prevenir, diagnosticar y tratar enfermedades orales, restaurando la salud y estética de la sonrisa.",
-    duracion: "4 años",
-    modalidad: "Presencial",
-    inicio: "Agosto/Enero",
-    icono: "dental",
-    buttonText: "Ver detalles",
-  },
-  {
-    id: "2",
-    titulo: "Lic. en Cultura Física y del Deporte",
-    descripcion:
-      "Formación en entrenamiento, educación física y promoción de la salud a través del deporte.",
-    duracion: "4 años",
-    modalidad: "Presencial",
-    inicio: "Agosto/Enero",
-    icono: "deportes",
-    buttonText: "Ver detalles",
-  },
-  {
-    id: "3",
-    titulo: "Lic. en Enfermería",
-    descripcion:
-      "Capacitación avanzada en el cuidado integral del paciente, administración de tratamientos y promoción de la salud.",
-    duracion: "4 años",
-    modalidad: "Presencial",
-    inicio: "Agosto/Enero",
-    icono: "enfermeria",
-    buttonText: "Ver detalles",
-  },
-  {
-    id: "4",
-    titulo: "Ing. en Sistemas Computacionales",
-    descripcion:
-      "Formación integral en desarrollo de software, sistemas de información y tecnologías emergentes para la transformación digital.",
-    duracion: "4 años",
-    modalidad: "Presencial",
-    inicio: "Agosto/Enero",
-    icono: "tecnologia",
-    buttonText: "Ver detalles",
-  },
-  {
-    id: "5",
-    titulo: "Lic. en Medicina",
-    descripcion:
-      "Formación médica integral con enfoque en la atención primaria, diagnóstico y tratamiento de enfermedades.",
-    duracion: "6 años",
-    modalidad: "Presencial",
-    inicio: "Agosto/Enero",
-    icono: "medicina",
-    buttonText: "Ver detalles",
-  },
-  {
-    id: "6",
-    titulo: "Ing. Industrial",
-    descripción:
-      "Optimización de procesos, gestión de la calidad y mejora continua en sistemas productivos y organizacionales.",
-    duracion: "4 años",
-    modalidad: "Presencial",
-    inicio: "Agosto/Enero",
-    icono: "ingenieria",
-    buttonText: "Ver detalles",
-  },
-];
-
-const facilitiesData = [
-  {
-    icon: '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.781 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 9.586V5L8 4z" />',
-    title: "Laboratorios",
-    description:
-      "Laboratorios especializados equipados con tecnología de última generación para todas las carreras.",
-  },
-  {
-    icon: '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />',
-    title: "Biblioteca Central",
-    description:
-      "100,000+ volúmenes, bases de datos digitales, espacios de estudio colaborativo y salas silenciosas.",
-  },
-  {
-    icon: '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />',
-    title: "Centro Deportivo",
-    description:
-      "Gimnasio completo, alberca olímpica, canchas profesionales y programas deportivos competitivos.",
-  },
-  {
-    icon: '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7v8a2 2 0 002 2h6M8 7V5a2 2 0 012-2h4.586a1 1 0 01.707.293l4.414 4.414a1 1 0 01.293.707V15a2 2 0 01-2 2h-2M8 7H6a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2v-2" />',
-    title: "Estacionamiento",
-    description:
-      "800 cajones de estacionamiento con seguridad 24/7, área techada y estaciones de carga eléctrica.",
-  },
-  {
-    icon: '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 4V2a1 1 0 011-1h8a1 1 0 011 1v2m0 0V3a1 1 0 011 1v8.5a1 1 0 01-.68.95l-2.5.83a1 1 0 00-.32.32l-.83 2.5a1 1 0 01-.95.68H8.5a1 1 0 01-.95-.68l-.83-2.5a1 1 0 00-.32-.32l-2.5-.83a1 1 0 01-.68-.95V4a1 1 0 011-1V4z" />',
-    title: "Centro Cultural",
-    description:
-      "Auditorio para 1,000 personas, salas de ensayo, galería de arte y espacios para eventos culturales.",
-  },
-];
 ---
 
 <Layout>
@@ -161,7 +56,7 @@ const facilitiesData = [
 
               <a
                 href="/contacto/formulario-inscripcion"
-                class="border-2 border-white text-white   hover:scale-105 hover:shadow-xl transition-all duration-300 px-8 py-3 rounded-lg font-semibold text-lg"
+                class="border-2 border-white text-white hover:scale-105 hover:shadow-xl transition-all duration-300 px-8 py-3 rounded-lg font-semibold text-lg"
               >
                 Inscribirme
               </a>
@@ -213,11 +108,14 @@ const facilitiesData = [
           <!-- Image Container -->
           <div class="relative">
             <div class="rounded-2xl overflow-hidden shadow-2xl">
-              <img
-                src={Card.src}
+              <video
+                src={Video}
                 alt="Campus UNE Centro Médico"
                 class="w-full h-auto object-cover"
-              />
+                autoplay
+                muted
+                loop
+                controls></video>
             </div>
           </div>
 
@@ -313,8 +211,6 @@ const facilitiesData = [
                 Clínica dental para cuidado integral de tu salud bucal
               </p>
             </div>
-
-            
           </div>
         </div>
       </div>
