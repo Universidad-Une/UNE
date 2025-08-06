@@ -104,19 +104,23 @@ function getGridCols(dropdownClass) {
 <!-- Top Bar -->
 <div class="hidden md:flex w-full h-14 bg-rojo-une items-center justify-end gap-5 px-4 rounded-b-3xl">
   {topBarLinks.map(link => (
-    <a href={link.href}>
+    <a 
+      href={link.href} 
+      target="_blank" 
+      rel="noopener noreferrer"
+    >
       <img 
         src={link.img.src} 
         alt={link.alt} 
-        class="h-18 w-auto" 
+        class="h-12 w-auto" 
         loading="lazy"
         decoding="async"
-        width="auto"
         height="48"
       />
     </a>
   ))}
 </div>
+
 
 <header class="bg-white/50 backdrop-blur-[10.2px] shadow-sm sticky top-0 z-50">
   <div class="w-full">
@@ -176,7 +180,7 @@ function getGridCols(dropdownClass) {
               </div>
               <div class="grid grid-cols-1 md:grid-cols-5 gap-3">
                 {[...ofertaAcademica.colegioUNE, ...ofertaAcademica.medioSuperior].map(link => (
-                  <a href={link.href} class="group block p-3 rounded-lg hover:bg-blue-50 transition-colors duration-200">
+                  <a href={link.href} target="_blank" rel="noopener noreferrer" class="group block p-3 rounded-lg hover:bg-blue-50 transition-colors duration-200">
                     <h3 class="font-semibold text-gray-900 group-hover:text-azul-une">{link.title}</h3>
                   </a>
                 ))}
@@ -266,7 +270,7 @@ function getGridCols(dropdownClass) {
                       <h3 class="text-gray-300 font-semibold py-2 px-2 text-sm">Medio Superior</h3>
                       <div class="ml-2 space-y-1">
                         {ofertaAcademica.medioSuperior.map(link => (
-                          <a href={link.href} class="block text-gray-300 py-2 px-2 text-sm hover:text-white hover:bg-blue-800 rounded">
+                          <a href={link.href} target="_blank" rel="noopener noreferrer" class="block text-gray-300 py-2 px-2 text-sm hover:text-white hover:bg-blue-800 rounded">
                             {link.title}
                           </a>
                         ))}

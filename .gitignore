@@ -27,3 +27,40 @@ pnpm-debug.log*
 .utils/venv/
 .PLANTEL
 .PLANTEL/*
+
+
+
+# Testing frameworks
+playwright-report/
+test-results/
+tests/
+
+# Playwright configuration
+playwright.config.js
+
+# Python cache and utilities
+utils/__pycache__/
+utils/check_links.py
+utils/requirements.txt
+utils/selenium_config.py
+utils/analize.py
+utils/selenium_utils.py
+utils/test_enlaces_selenium.py
+utils/vulnerability_report.json
+
+# Python general
+*.pyc
+__pycache__/
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.env
+.venv/
+
+# Testing general
+coverage/
+.nyc_output/
+.coverage
+*.lcov

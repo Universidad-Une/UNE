@@ -6,6 +6,9 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
+     "test": "playwright test",
+    "test:headed": "playwright test --headed",
+    "test:ui": "playwright test --ui",
     "astro": "astro"
   },
   "dependencies": {
@@ -20,5 +23,9 @@
     "gsap": "^3.13.0",
     "pdf-lib": "^1.17.1",
     "tailwindcss": "^4.1.11"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.54.2",
+    "playwright": "^1.54.2"
   }
 }
