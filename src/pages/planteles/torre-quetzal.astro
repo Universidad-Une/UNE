@@ -5,6 +5,8 @@ const programas = obtenerProgramasPorPlantel("TORRE QUETZAL");
 import { Phone, Clock1, MapPin } from "@lucide/astro";
 import Carreradeplantel from "@/components/sections/planteles/Carreradeplantel.astro";
 import CtaVisita from "@/components/sections/planteles/ctaVisita.astro";
+import Card from "@/assets/Imagenes/CardPlantelesInterior/Quetzal.jpg";
+
 ---
 
 <Layout>
@@ -105,24 +107,13 @@ import CtaVisita from "@/components/sections/planteles/ctaVisita.astro";
           <!-- Video/Image Container -->
           <div class="relative">
             <div class="rounded-2xl overflow-hidden shadow-2xl">
-              <video
+              <img
+                src={Card.src}
+                alt="Plantel UNE Chapultepec"
                 class="w-full h-auto object-cover"
-                autoplay
-                muted
-                loop
-                playsinline
-              >
-                <source src="/torre-quetzal-video.mp4" type="video/mp4" />
-                <!-- Fallback image if video doesn't load -->
-                <img
-                  src="/torre-quetzal-campus.webp"
-                  alt="Torre Quetzal - Fachada principal del campus"
-                  class="w-full h-auto object-cover"
-                />
-              </video>
+              />
             </div>
           </div>
-
           <!-- Features List -->
           <div class="space-y-6">
             <div class="flex items-start space-x-4">
@@ -217,7 +208,7 @@ import CtaVisita from "@/components/sections/planteles/ctaVisita.astro";
       </div>
 
       <!-- Contact Footer -->
-      <section class="bg-azul-une text-white py-8">
+      <section class="bg-azul-une text-white py-8 mt-12">
         <div class="max-w-6xl mx-auto px-4">
           <div class="grid md:grid-cols-3 gap-8">
             <!-- Horarios -->

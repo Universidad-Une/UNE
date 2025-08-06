@@ -5,6 +5,8 @@ const programas = obtenerProgramasPorPlantel("TEPATITLÁN");
 import { Phone, Clock1, MapPin } from "@lucide/astro";
 import Carreradeplantel from "@/components/sections/planteles/Carreradeplantel.astro";
 import CtaVisita from "@/components/sections/planteles/ctaVisita.astro";
+import Video from "@/assets/Videos/planteles/Tepatitlan.webm";
+
 ---
 
 <Layout>
@@ -94,7 +96,7 @@ import CtaVisita from "@/components/sections/planteles/ctaVisita.astro";
           </h2>
 
           <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-            Desde de una 2024, en Tepatitlán ha sido una puerta de acceso a la
+            Desde 2024, en Tepatitlán ha sido una puerta de acceso a la
             educación profesional en el corazón de la ciudad de Tepatitlán de
             Morelos, permitiendo acceder a educación de calidad .
           </p>
@@ -106,23 +108,15 @@ import CtaVisita from "@/components/sections/planteles/ctaVisita.astro";
           <div class="relative">
             <div class="rounded-2xl overflow-hidden shadow-2xl">
               <video
+                src={Video}
+                alt="Campus UNE Centro Médico"
                 class="w-full h-auto object-cover"
                 autoplay
                 muted
                 loop
-                playsinline
-              >
-                <source src="/torre-milenio-video.mp4" type="video/mp4" />
-                <!-- Fallback image if video doesn't load -->
-                <img
-                  src="/torre-milenio-building.webp"
-                  alt="Torre Milenio - Vista aérea del edificio"
-                  class="w-full h-auto object-cover"
-                />
-              </video>
+                controls></video>
             </div>
           </div>
-
           <!-- Features List -->
           <div class="space-y-6">
             <div class="flex items-start space-x-4">

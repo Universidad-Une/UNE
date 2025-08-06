@@ -2,8 +2,6 @@
 import { programasEducativos } from "@helpers/estructura_educativa";
 import { getImageUrl } from "@/helpers/imageManager.js"; // 👈 AGREGAR ESTA LÍNEA
 
-
-
 // Función para obtener la primera imagen disponible de los planteles
 function getPrimeraImagenDePlanteles(planteles) {
   for (const plantelInfo of Object.values(planteles)) {
@@ -79,9 +77,19 @@ const carreras = Maestrías.map((maestria, index) => {
       }
     });
   });
+  
   // Usar la imagen tal como viene, o el nombre del programa como fallback
   const imagenNombre = maestria.imagen || maestria.nombre;
+  
+  // 🔍 LOG: Mostrar valor original antes de transformación
+  console.log(`\n📋 Procesando: ${maestria.nombre}`);
+  console.log(`📁 Imagen original (imagenNombre): "${imagenNombre}"`);
+  
   const imagenUrl = getImageUrl(imagenNombre, "maestrias");
+  
+  // 🔍 LOG: Mostrar resultado de getImageUrl
+  console.log(`🔧 Resultado getImageUrl(): ${typeof imagenUrl === 'string' ? `"${imagenUrl}"` : imagenUrl}`);
+  console.log(`📝 Tipo de dato: ${typeof imagenUrl}`);
 
   // Si imagenUrl no es string, usar fallback
   const imagenUrlFinal =
@@ -89,6 +97,10 @@ const carreras = Maestrías.map((maestria, index) => {
       ? imagenUrl
       : "/src/assets/Imagenes/CardsLicenciaturas/Arquitectura.webp";
 
+  // 🔍 LOG: Mostrar URL final
+  console.log(`✅ URL final (imagenUrlFinal): "${imagenUrlFinal}"`);
+  console.log(`${typeof imagenUrl === "string" ? "✅ Sin fallback" : "⚠️  Usando fallback"}`);
+  console.log(`${"=".repeat(60)}`);
 
   // Obtener el color para el badge principal (primera incorporación)
   const colorBadge = getColorBadge(todasLasIncorporaciones[0]);
@@ -98,7 +110,7 @@ const carreras = Maestrías.map((maestria, index) => {
     nombre: `${maestria.nombre}`,
     descripcion: getDescripcionFromPlanteles(maestria.planteles),
     area: maestria.area,
-      imagen: imagenNombre,
+    imagen: imagenNombre,
     imagenUrl: imagenUrlFinal, // 👈 usar la variable con fallback
     categoria: maestria.area,
     incorporacion: todasLasIncorporaciones.join(", "),
@@ -117,13 +129,18 @@ const carreras = Maestrías.map((maestria, index) => {
   };
 });
 
+// 🔍 LOG: Resumen final
+console.log(`\n📊 RESUMEN DE TRANSFORMACIÓN:`);
+console.log(`📚 Total de maestrías procesadas: ${carreras.length}`);
+console.log(`🎯 Maestrías con imagen original: ${carreras.filter(c => c.imagen).length}`);
+console.log(`⚠️  Maestrías con fallback: ${carreras.filter(c => c.imagenUrl === "/src/assets/Imagenes/CardsLicenciaturas/Arquitectura.webp").length}`);
+
 // Obtener todas las áreas únicas de maestrías
 const areasUnicas = [...new Set(Maestrías.map(maestria => maestria.area))];
 const areas = ["Todas", ...areasUnicas.sort()];
 
 export { carreras, areas };
 ---
-
 <div class="lg:max-w-9/12 mx-auto llg:px-4 py-8">
   <div class="mb-8">
     <h1 class="text-3xl font-bold text-gray-900 mb-2">MAESTRÍAS</h1>

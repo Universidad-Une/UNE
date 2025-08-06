@@ -5,6 +5,8 @@ const programas = obtenerProgramasPorPlantel("TONALÁ");
 import { Phone, Clock1, MapPin } from "@lucide/astro";
 import Carreradeplantel from "@/components/sections/planteles/Carreradeplantel.astro";
 import CtaVisita from "@/components/sections/planteles/ctaVisita.astro";
+import Card from "@/assets/Imagenes/CardPlantelesInterior/Tonala.jpg";
+
 ---
 
 <Layout>
@@ -108,21 +110,11 @@ import CtaVisita from "@/components/sections/planteles/ctaVisita.astro";
           <!-- Video/Image Container -->
           <div class="relative">
             <div class="rounded-2xl overflow-hidden shadow-2xl">
-              <video
+              <img
+                src={Card.src}
+                alt="Plantel UNE Chapultepec"
                 class="w-full h-auto object-cover"
-                autoplay
-                muted
-                loop
-                playsinline
-              >
-                <source src="/torre-milenio-video.mp4" type="video/mp4" />
-                <!-- Fallback image if video doesn't load -->
-                <img
-                  src="/torre-milenio-building.webp"
-                  alt="Torre Milenio - Vista aérea del edificio"
-                  class="w-full h-auto object-cover"
-                />
-              </video>
+              />
             </div>
           </div>
 

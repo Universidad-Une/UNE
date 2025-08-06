@@ -5,6 +5,8 @@ const programas = obtenerProgramasPorPlantel("LAS JUNTAS");
 import { Phone, Clock1, MapPin } from "@lucide/astro";
 import Carreradeplantel from "@/components/sections/planteles/Carreradeplantel.astro";
 import CtaVisita from "@/components/sections/planteles/ctaVisita.astro";
+import Card from "@/assets/Imagenes/CardPlantelesInterior/Juntas.jpeg";
+
 ---
 
 <Layout>
@@ -106,23 +108,13 @@ import CtaVisita from "@/components/sections/planteles/ctaVisita.astro";
         <!-- Content Grid -->
         <div class="grid md:grid-cols-2 gap-12 items-center">
           <!-- Video/Image Container -->
-          <div class="relative">
+           <div class="relative">
             <div class="rounded-2xl overflow-hidden shadow-2xl">
-              <video
+              <img
+                src={Card.src}
+                alt="Campus UNE Puerto Vallarta"
                 class="w-full h-auto object-cover"
-                autoplay
-                muted
-                loop
-                playsinline
-              >
-                <source src="/torre-milenio-video.mp4" type="video/mp4" />
-                <!-- Fallback image if video doesn't load -->
-                <img
-                  src="/torre-milenio-building.webp"
-                  alt="Torre Milenio - Vista aérea del edificio"
-                  class="w-full h-auto object-cover"
-                />
-              </video>
+              />
             </div>
           </div>
 
@@ -321,12 +313,12 @@ import CtaVisita from "@/components/sections/planteles/ctaVisita.astro";
 
 <style>
   .plantel-bg {
-    background-image: url("/src/assets/Imagenes/Heros/Planteles/Plazadelsol.webp");
+    background-image: url("/src/assets/Imagenes/Heros/Planteles/Juntas.jpg");
   }
 
   @media (max-width: 767px) {
     .plantel-bg {
-      background-image: url("/src/assets/Imagenes/Heros/Planteles/Plazadelsol_mobile.webp");
+      background-image: url("/src/assets/Imagenes/Heros/Planteles/Juntas_mobile.webp");
     }
   }
 </style>

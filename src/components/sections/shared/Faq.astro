@@ -83,38 +83,38 @@
       <div class="flex flex-wrap gap-2 mb-6">
         <button
           class="tab-button px-4 py-2 text-sm font-medium rounded-full transition-all duration-200 bg-azul-une text-white"
-          data-tab="proceso-inscripcion"
+          data-tab="primaria"
           data-active="true"
         >
-          Proceso de Inscripción
+          Primaria
         </button>
         <button
           class="tab-button px-4 py-2 text-sm font-medium rounded-full transition-all duration-200 bg-gray-200 text-gray-700 hover:bg-gray-300"
-          data-tab="carreras-costos"
+          data-tab="secundaria"
           data-active="false"
         >
-          Carreras y Costos
+          Secundaria
         </button>
         <button
           class="tab-button px-4 py-2 text-sm font-medium rounded-full transition-all duration-200 bg-gray-200 text-gray-700 hover:bg-gray-300"
-          data-tab="documentos-requisitos"
+          data-tab="bachillerato"
           data-active="false"
         >
-          Documentos
+          Bachillerato
         </button>
         <button
           class="tab-button px-4 py-2 text-sm font-medium rounded-full transition-all duration-200 bg-gray-200 text-gray-700 hover:bg-gray-300"
-          data-tab="modalidades-becas"
+          data-tab="licenciatura"
           data-active="false"
         >
-          Modalidades y Becas
+          Licenciatura
         </button>
         <button
           class="tab-button px-4 py-2 text-sm font-medium rounded-full transition-all duration-200 bg-gray-200 text-gray-700 hover:bg-gray-300"
-          data-tab="vida-estudiantil"
+          data-tab="posgrado"
           data-active="false"
         >
-          Vida Estudiantil
+          Posgrado
         </button>
       </div>
 
@@ -158,111 +158,112 @@
 <script>
   document.addEventListener("DOMContentLoaded", function () {
     // Datos organizados por categorías más específicas
-    const faqData = {
-      "proceso-inscripcion": [
-        {
-          question: "¿Cómo me inscribo en UNE?",
-          answer:
-            "¡Es muy sencillo! Puedes inscribirte de manera <span class='text-azul-une font-semibold'>presencial visitando cualquiera de nuestros planteles</span> o desde la comodidad de tu hogar <span class='text-azul-une font-semibold'>llenando nuestro formulario en línea</span>. <a href='/contacto/formulario-inscripcion' class='text-azul-une hover:text-azul-une/80 font-medium underline transition-colors' target='_blank'>¡Inicia tu proceso aquí!</a> Nuestros asesores te acompañarán en cada paso.",
-        },
-        {
-          question: "¿Cuándo son las fechas de inscripción?",
-          answer:
-            "¡Tenemos <span class='text-green-600 font-bold'>inscripciones abiertas todo el año</span>! Esto significa que puedes comenzar tu educación cuando tú decidas. Algunas fechas pueden variar según el programa académico específico, por lo que te recomendamos <span class='text-azul-une font-medium'>consultar la página de tu programa de interés</span> para conocer los detalles exactos y no perderte ninguna oportunidad.",
-        },
-        {
-          question: "¿La inscripción tiene costo?",
-          answer:
-            "¡Excelente noticia! Tu inscripción está <span class='bg-azul-une/10 px-2 py-1 rounded text-azul-une font-bold'>SIN COSTO</span> por tiempo limitado. Aprovecha esta <span class='text-azul-une font-semibold bg-azul-une/10 px-2 py-1 rounded'>oportunidad exclusiva</span> y asegura tu lugar hoy mismo. ¡Es el momento perfecto para invertir en tu futuro!",
-        },
-        {
-          question: "¿Cuánto cuesta inscribirme?",
-          answer:
-            "El costo de inscripción varía según <span class='text-azul-une font-medium'>el nivel académico, modalidad y plantel</span> que elijas. Cada programa tiene sus propias características y beneficios únicos. Te invitamos a <span class='text-azul-une font-semibold'>visitar la página correspondiente</span> para conocer los detalles exactos y encontrar la opción que mejor se adapte a tu presupuesto y necesidades.",
-        },
-      ],
-      "carreras-costos": [
-        {
-          question: "¿Qué programas académicos están disponibles?",
-          answer:
-            "¡Tenemos la oferta educativa más completa! Ofrecemos <span class='text-azul-une font-bold'>educación integral desde primaria hasta posgrados</span> con más de 45 programas académicos de alta calidad. Nuestras áreas incluyen: <span class='bg-azul-une/10 px-2 py-1 rounded text-azul-une font-medium'>Ingeniería, Ciencias de la Salud, Diseño y Arquitectura, Derecho, Educación, Administración, Psicología, Criminología</span> y muchas más especialidades. También contamos con <span class='text-azul-une font-semibold'>educación continua y diplomados especializados</span> para que nunca dejes de crecer profesionalmente.",
-        },
-        {
-  question: "¿Cuánto cuesta estudiar en UNE?",
-  answer: `
-    En UNE, el modelo de colegiatura es accesible y transparente, con planes que se adaptan a tus posibilidades. Nuestro esquema <span class='bg-gradient-to-r from-green-50 to-blue-50 px-3 py-1 rounded-lg font-semibold text-gray-800'>TODO INCLUIDO</span> abarca el uso completo de plataformas digitales, biblioteca virtual con miles de recursos, laboratorios especializados y acompañamiento académico personalizado.
-    <br><br>
-    Además, considera algunos gastos complementarios comunes al inicio de tu formación, como el costo de la <span class='text-azul-une font-semibold'>credencial institucional</span> y el <span class='text-azul-une font-semibold'>uniforme oficial</span>, los cuales se informan detalladamente durante tu proceso de inscripción.
-    <br><br>
-    <span class='text-azul-une font-medium'>En UNE, tu formación es una inversión con impacto real en tu futuro profesional.</span>
-  `
-},
 
+    const faqData = {
+      primaria: [
         {
-          question: "¿Las carreras tienen validez oficial?",
+          question: "¿Cómo me inscribo a primaria Montessori en UNE?",
           answer:
-            "¡Por supuesto! <span class='text-green-600 font-bold'>Todas nuestras carreras cuentan con plena validez oficial</span>. Tenemos Reconocimiento de Validez Oficial de Estudios (RVOE) ante la SEP, así como incorporaciones especiales como <span class='text-azul-une font-medium'>SICYT (Secretaría de Innovación, Ciencia y Tecnología)</span> y convenios estratégicos con la <span class='text-azul-une font-medium'>Universidad de Guadalajara (UdeG)</span>. Tu título tendrá el respaldo y reconocimiento que mereces.",
+            "¡Es muy sencillo! Puedes inscribir a tu hijo/a de manera <span class='text-azul-une font-semibold'>presencial visitando cualquiera de nuestros planteles</span> o desde la comodidad de tu hogar <span class='text-azul-une font-semibold'>llenando nuestro formulario en línea</span>. <a href='/contacto/formulario-inscripcion' class='text-azul-une hover:text-azul-une/80 font-medium underline transition-colors' target='_blank'>¡Inicia el proceso aquí!</a> Nuestros asesores te acompañarán en cada paso.",
+        },
+        {
+          question: "¿Qué incluye la primaria Montessori en UNE?",
+          answer:
+            "Ofrecemos <span class='text-azul-une font-bold'>primaria Montessori completa</span> con metodología especializada que respeta el ritmo natural de aprendizaje de cada niño. Incluye acceso a nuestra <span class='text-azul-une font-medium'>biblioteca física y virtual</span>, <span class='text-azul-une font-medium'>Centro de Idiomas</span> para desarrollo temprano de lenguas extranjeras, y actividades complementarias que fortalecen las habilidades cognitivas y sociales.",
+        },
+        {
+          question: "¿Cuánto cuesta la primaria Montessori?",
+          answer:
+            "Nuestro modelo de colegiatura es accesible e incluye el uso completo de plataformas digitales, biblioteca virtual y materiales educativos especializados Montessori. Además, la inscripción está <span class='bg-azul-une/10 px-2 py-1 rounded text-azul-une font-bold'>SIN COSTO</span> por tiempo limitado.",
+        },
+        {
+          question: "¿La primaria Montessori tiene validez oficial?",
+          answer:
+            "¡Por supuesto! Nuestra primaria Montessori cuenta con <span class='text-green-600 font-bold'>plena validez oficial ante la SEP</span> y más de 30 años de experiencia formando estudiantes exitosos. Tu hijo/a recibirá un certificado oficial que le permitirá continuar sin problemas a secundaria.",
         },
       ],
-      "documentos-requisitos": [
+      secundaria: [
         {
-          question: "¿Qué documentos necesito para inscribirme?",
+          question: "¿Ofrecen educación secundaria?",
           answer:
-            "¡No te preocupes, son documentos muy accesibles! Necesitas la <span class='text-azul-une font-medium'>documentación básica</span>: acta de nacimiento, CURP, comprobante de domicilio, identificación oficial, fotografías tamaño infantil, y certificado o constancia de bachillerato. Dependiendo de tu nivel académico, podrían solicitarse algunos documentos adicionales. <span class='text-green-600 font-semibold'>Revisa los requisitos específicos</span> en la página de tu programa para tener todo listo y agilizar tu proceso.",
+            "Actualmente nos especializamos en <span class='text-azul-une font-semibold'>educación básica (primaria), bachillerato y educación superior</span>. Para secundaria, te recomendamos contactar directamente a nuestros <a href='/contacto/solicitarinformacion' class='text-azul-une hover:text-azul-une/80 font-semibold underline transition-colors'>asesores académicos</a> quienes podrán orientarte sobre las mejores opciones disponibles en nuestros planteles.",
         },
         {
-          question: "¿Puedo enviar documentos digitalizados?",
+          question:
+            "¿Puedo inscribirme directamente al bachillerato después de secundaria?",
           answer:
-            "Para garantizar la autenticidad y cumplir con los requisitos oficiales, <span class='text-azul-une font-semibold'>necesitamos tus documentos físicos originales</span>. ¡Pero no hay problema! Aunque puedes inscribirte desde cualquier parte del país, simplemente envía tus documentos mediante paquetería segura a nuestra <span class='text-azul-une font-medium'>dirección general</span>: Av. López Mateos Sur #4175 Col. La Giralda, Zapopan, Jalisco. ¡Así de fácil!",
+            "¡Por supuesto! Si ya terminaste la secundaria, puedes inscribirte directamente a nuestro <span class='text-azul-une font-bold'>bachillerato con validez oficial</span>. Ofrecemos modalidades flexibles: presencial, semipresencial, sabatina y fines de semana para que se adapte a tus necesidades.",
         },
         {
-          question: "¿Hay fecha límite para entregar documentos?",
+          question: "¿Qué documentos necesito si vengo de secundaria externa?",
           answer:
-            "¡No te preocupes! Los documentos <span class='text-azul-une font-semibold bg-azul-une/10 px-2 py-1 rounded'>se entregan al momento de tu inscripción</span> para mayor comodidad. Si te falta algún documento, <span class='text-green-600 font-medium'>¡tenemos solución!</span> Nuestros asesores académicos te guiarán paso a paso y evaluarán tu caso particular. Juntos encontraremos todas las opciones disponibles para que puedas <span class='text-azul-une font-medium'>iniciar tu educación sin obstáculos</span>.",
-        },
-      ],
-      "modalidades-becas": [
-        {
-          question: "¿Qué modalidades de estudio ofrecen?",
-          answer:
-            "¡Tenemos la modalidad perfecta para tu estilo de vida! Ofrecemos opciones <span class='text-azul-une font-semibold'>súper flexibles</span>: presencial, semipresencial, sabatina, fines de semana y en algunos casos horarios especiales como jueves y viernes. <span class='text-green-600 font-medium'>Cada modalidad está diseñada para adaptarse a tus necesidades</span>, ya sea que trabajes, tengas familia o cualquier otra responsabilidad. La disponibilidad específica depende del programa y plantel que elijas.",
-        },
-        {
-          question: "¿Qué becas están disponibles?",
-          answer:
-            "¡Tenemos <span class='text-azul-une font-bold bg-azul-une/10 px-2 py-1 rounded'>becas de hasta el 50%</span> de descuento en colegiaturas! Nuestros programas de apoyo académico se asignan mediante una <span class='text-azul-une font-medium'>evaluación integral</span> que considera tu perfil y situación particular. Como cada plantel maneja criterios y disponibilidad específicos, te invitamos a <a href='/contacto/solicitarinformacion' class='text-azul-une hover:text-azul-une/80 font-semibold underline transition-colors'>contactar directamente</a> con nuestros asesores académicos para conocer todas las opciones disponibles en tu ubicación y verificar si cumples con los requisitos. ¡Tu educación puede ser más accesible de lo que imaginas!",
-        },
-        {
-          question: "¿Puedo cambiar de modalidad durante la carrera?",
-          answer:
-            "La modalidad se mantiene durante toda tu carrera para garantizar la continuidad y calidad de tu formación académica. Sin embargo, <span class='text-green-600 font-semibold'>¡sí puedes solicitar cambio de plantel sin inconvenientes!</span> Esto te da flexibilidad por si te mudas o necesitas un campus más conveniente, siempre sujeto a disponibilidad de espacios.",
-        },
-        {
-          question: "¿Cómo funciona la modalidad híbrida?",
-          answer:
-            "Aunque no manejamos una modalidad híbrida tradicional, <span class='text-azul-une font-bold'>¡tenemos opciones aún mejores!</span> Ofrecemos la modalidad <span class='text-azul-une font-medium'>semiescolarizada</span> (puedes elegir turno matutino o vespertino), <span class='text-azul-une font-medium'>sabatina</span> (clases los sábados), <span class='text-azul-une font-medium'>fines de semana</span> (viernes y sábado), y en algunos casos horarios especiales como jueves y viernes. ¡Seguro encontramos la opción perfecta para ti!",
+            "Necesitas la <span class='text-azul-une font-medium'>documentación básica</span>: acta de nacimiento, CURP, comprobante de domicilio, identificación oficial, fotografías tamaño infantil, y <span class='text-azul-une font-semibold'>certificado de secundaria</span>. Nuestros asesores te guiarán paso a paso para agilizar tu proceso.",
         },
       ],
-      "vida-estudiantil": [
+      bachillerato: [
         {
-          question: "¿Qué servicios estudiantiles ofrecen?",
+          question: "¿Qué modalidades de bachillerato ofrecen?",
           answer:
-            "¡Tu experiencia universitaria será completa! Contamos con <span class='text-azul-une font-semibold'>biblioteca física y virtual</span> con recursos increíbles, laboratorios especializados en algunos planteles, centro de idiomas para ampliar tus oportunidades, bolsa de trabajo para conectarte con empleadores, y actividades deportivas para mantenerte activo. <span class='text-green-600 font-bold'>¡El plantel Tlajomulco es especial!</span> Cuenta con cancha deportiva y alberca de natación. ¡Estudiar nunca había sido tan completo!",
+            "Contamos con modalidades <span class='text-azul-une font-semibold'>súper flexibles</span>: presencial, semipresencial, sabatina, fines de semana y horarios especiales como jueves-viernes. <span class='text-green-600 font-medium'>Cada modalidad está diseñada para adaptarse a tus necesidades</span>, permitiendo que combines tus estudios con trabajo o actividades familiares.",
         },
         {
-          question: "¿Hay oportunidades de intercambio académico?",
+          question: "¿Cuánto cuesta el bachillerato en UNE?",
           answer:
-            "¡Por supuesto! Tenemos una <span class='text-azul-une font-bold'>red impresionante de más de 800 empresas e instituciones</span> con las que mantenemos convenios activos. Esto significa que tendrás acceso a <span class='text-green-600 font-semibold'>múltiples oportunidades de intercambio y prácticas profesionales</span> que enriquecerán tu formación y te abrirán puertas en el mundo laboral. ¡Tu futuro profesional empieza desde el aula!",
+            "El costo varía según <span class='text-azul-une font-medium'>la modalidad y plantel</span> que elijas. Nuestro modelo de colegiatura incluye plataformas digitales, biblioteca virtual y laboratorios especializados. ¡Tenemos <span class='text-azul-une font-bold bg-azul-une/10 px-2 py-1 rounded'>becas de hasta el 50%</span> disponibles!",
         },
         {
-          question: "¿Cómo es el acompañamiento académico?",
+          question: "¿El bachillerato tiene validez oficial?",
           answer:
-            "¡Nunca estarás solo en tu camino académico! Tendrás acceso a <span class='text-azul-une font-semibold'>asesorías personalizadas</span> diseñadas específicamente para tus necesidades, así como el <span class='text-green-600 font-medium'>apoyo constante y dedicado</span> de nuestro personal docente y administrativo durante toda tu carrera. Nuestro compromiso es tu éxito, desde el primer día hasta tu graduación.",
+            "¡Absolutamente! Nuestro bachillerato cuenta con <span class='text-green-600 font-bold'>plena validez oficial ante la SEP</span>, incorporaciones con <span class='text-azul-une font-medium'>SICYT</span> y convenios con la <span class='text-azul-une font-medium'>Universidad de Guadalajara</span>. Tu certificado tendrá el respaldo y reconocimiento total.",
         },
         {
-          question: "¿Qué pasa después de graduarme?",
+          question: "¿Puedo trabajar mientras estudio bachillerato?",
           answer:
-            "¡Tu relación con UNE apenas comienza al graduarte! Tendrás acceso de por vida a una <span class='text-azul-une font-bold'>red de contactos profesionales</span> que te abrirá puertas en tu carrera. Además, podrás <span class='text-green-600 font-semibold'>continuar creciendo</span> con nuestras especialidades, diplomados y programas de educación continua. <span class='text-azul-une font-medium'>Una vez UNE, siempre UNE</span> - serás parte de nuestra comunidad de egresados exitosos.",
+            "¡Claro que sí! Por eso tenemos modalidades como <span class='text-azul-une font-semibold'>sabatina, fines de semana y horarios especiales</span> diseñadas específicamente para personas que trabajan. <span class='text-green-600 font-medium'>Tu educación se adapta a tu ritmo de vida</span>, no al revés.",
+        },
+      ],
+      licenciatura: [
+        {
+          question: "¿Qué carreras universitarias están disponibles?",
+          answer:
+            "¡Tenemos más de 45 programas académicos! Nuestras áreas incluyen: <span class='bg-azul-une/10 px-2 py-1 rounded text-azul-une font-medium'>Ingeniería, Ciencias de la Salud, Diseño y Arquitectura, Derecho, Educación, Administración, Psicología, Criminología</span> y muchas especialidades más. <span class='text-azul-une font-bold'>Todas con validez oficial completa</span>.",
+        },
+        {
+          question: "¿Cuánto tiempo tardan en encontrar trabajo los egresados?",
+          answer:
+            "Nuestros graduados encuentran trabajo en un <span class='text-green-600 font-bold'>promedio de 2 meses</span> después de titularse. Esto es posible gracias a nuestra <span class='text-azul-une font-semibold'>red de más de 800 convenios empresariales</span> y nuestro enfoque práctico en la formación profesional.",
+        },
+        {
+          question: "¿Qué modalidades tienen las licenciaturas?",
+          answer:
+            "Ofrecemos opciones <span class='text-azul-une font-semibold'>súper flexibles</span>: presencial, semipresencial, sabatina, fines de semana y horarios especiales. <span class='text-green-600 font-medium'>Cada modalidad se adapta perfectamente</span> a tu estilo de vida, trabajo y responsabilidades familiares.",
+        },
+        {
+          question: "¿Las carreras del área de salud tienen laboratorios?",
+          answer:
+            "¡Por supuesto! Contamos con <span class='text-azul-une font-semibold'>laboratorios especializados</span> equipados con tecnología moderna para las carreras de salud. Esto garantiza que tengas una formación práctica sólida y estés preparado para el ejercicio profesional.",
+        },
+      ],
+      posgrado: [
+        {
+          question: "¿Ofrecen programas de posgrado?",
+          answer:
+            "Sí. UNE ofrece una amplia oferta académica de posgrado que incluye <span class='text-azul-une font-semibold'>maestrías, especialidades y diplomados</span> diseñados para profesionales que desean fortalecer sus competencias, actualizar sus conocimientos o especializarse en áreas específicas. Estos programas se imparten en modalidades flexibles y con enfoque práctico, permitiendo a los egresados integrarse de manera más competitiva en el ámbito laboral.",
+        },
+        {
+          question: "¿Los posgrados tienen modalidades flexibles?",
+          answer:
+            "¡Absolutamente! Entendemos que los profesionales tienen horarios ocupados, por eso ofrecemos <span class='text-azul-une font-semibold'>modalidades flexibles</span> incluyendo fines de semana y horarios ejecutivos que se adaptan a tu vida profesional y personal.",
+        },
+        {
+          question: "¿Qué incluyen los programas de educación continua?",
+          answer:
+            "Nuestros programas incluyen <span class='text-azul-une font-medium'>diplomados especializados, especialidades y cursos de actualización</span> en diversas áreas profesionales. Están diseñados para que nunca dejes de crecer y te mantengas actualizado en tu campo de expertise.",
+        },
+        {
+          question: "¿El Centro de Idiomas está disponible para profesionales?",
+          answer:
+            "¡Por supuesto! Nuestro <span class='text-azul-une font-bold'>Centro de Idiomas</span> está disponible para estudiantes, profesionales y público en general. Ofrecemos diversos idiomas con metodologías modernas y horarios flexibles para ampliar tus oportunidades profesionales.",
         },
       ],
     };
@@ -276,7 +277,7 @@
 
       if (!questions) {
         container.innerHTML =
-          '<div class="text-center text-gray-500 py-8">No hay preguntas disponibles para esta categoría.</div>';
+          '<div class="text-center text-gray-500 py-8">Selecciona una categoría para ver las preguntas de tu interés.</div>';
         return;
       }
 
