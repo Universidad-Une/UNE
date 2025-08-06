@@ -19,8 +19,17 @@ import { programasEducativos } from "@helpers/estructura_educativa.js";
   <div>
     <input
       type="text"
-      name="apellidos"
-      placeholder="Apellidos completos"
+      name="apellido_p"
+      placeholder="Apellido paterno"
+      class="w-full px-2 lg:px-4 py-1.5 lg:py-2.5 border-b focus:border-blue-500 outline-none transition-colors bg-transparent text-sm lg:text-base"
+      required
+    />
+  </div>
+  <div>
+    <input
+      type="text"
+      name="apellido_m"
+      placeholder="Apellido materno"
       class="w-full px-2 lg:px-4 py-1.5 lg:py-2.5 border-b focus:border-blue-500 outline-none transition-colors bg-transparent text-sm lg:text-base"
       required
     />
@@ -611,24 +620,79 @@ import { programasEducativos } from "@helpers/estructura_educativa.js";
     });
   }
 
-  // Event listener para envío del formulario
+  // Event listener para envío del formulario (MODIFICADO)
   if (form) {
     form.addEventListener("submit", function (e) {
       e.preventDefault();
 
       const formData = new FormData(this);
-      const data = Object.fromEntries(formData);
 
-      // Enriquecer datos
-      const selectedLevel = nivelEducativoSelect
-        ? nivelEducativoSelect.value
-        : "";
-      if (selectedLevel && processedData[selectedLevel]) {
-        data.nivel_educativo_nombre = processedData[selectedLevel].nombre;
-      }
+      // Crear objeto con las propiedades específicas que necesitas
+      const data = {
+        nombre: formData.get("nombre") || "",
+        apellido_p: formData.get("apellido_p") || "",
+        apellido_m: formData.get("apellido_m") || "",
+        correo: formData.get("correo") || "",
+        nivel_educativo: formData.get("nivel-educativo") || "",
+        plantel_interes: formData.get("plantel-interes") || "",
+        programa_interes: formData.get("programa-interes") || "",
+        telefono: formData.get("telefono") || "",
+        modalidad: formData.get("modalidad") || "",
+      };
 
-      console.log("Datos del formulario:", data);
-      alert("Formulario enviado correctamente");
+      // Imprimir los datos en consola con tipo de dato
+      console.log("=== DATOS DEL FORMULARIO ===");
+      console.log("nombre:", data.nombre, "| Tipo:", typeof data.nombre);
+      console.log(
+        "apellido_p:",
+        data.apellido_p,
+        "| Tipo:",
+        typeof data.apellido_p
+      );
+      console.log(
+        "apellido_m:",
+        data.apellido_m,
+        "| Tipo:",
+        typeof data.apellido_m
+      );
+      console.log("correo:", data.correo, "| Tipo:", typeof data.correo);
+      console.log(
+        "nivel_educativo:",
+        data.nivel_educativo,
+        "| Tipo:",
+        typeof data.nivel_educativo
+      );
+      console.log(
+        "plantel_interes:",
+        data.plantel_interes,
+        "| Tipo:",
+        typeof data.plantel_interes
+      );
+      console.log(
+        "programa_interes:",
+        data.programa_interes,
+        "| Tipo:",
+        typeof data.programa_interes
+      );
+      console.log("telefono:", data.telefono, "| Tipo:", typeof data.telefono);
+      console.log(
+        "modalidad:",
+        data.modalidad,
+        "| Tipo:",
+        typeof data.modalidad
+      );
+      console.log("=== OBJETO COMPLETO ===");
+      console.log("Datos completos:", data, "| Tipo:", typeof data);
+
+      // También puedes hacer un alert con los datos principales
+      alert(`Datos capturados:
+Nombre: ${data.nombre} ${data.apellido_p} ${data.apellido_m}
+Correo: ${data.correo}
+Teléfono: ${data.telefono}
+Nivel Educativo: ${data.nivel_educativo}
+Plantel: ${data.plantel_interes}
+Programa: ${data.programa_interes}
+Modalidad: ${data.modalidad}`);
     });
   }
 
