@@ -1,15 +1,11 @@
 ---
 import Layout from "@/layouts/Layout.astro";
-import Hero from "@/assets/Imagenes/Heros/Cirujano_dentista.webp";
-import Hero_mobile from "@/assets/Imagenes/Heros/Cirujano_dentista_mobile.webp";
+import Hero from "@/assets/Imagenes/Heros/Maestrias/Posgrados.jpg";
+import Hero_mobile from "@/assets/Imagenes/Heros/Maestrias/Posgrados_mobile.jpg";
 import ImagenCard from "@/assets/Imagenes/CardsNiveles/Nivel.webp";
 import LogoCard from "@/assets/Logos/Licenciatura.webp";
 import InformativeCard from "@components/sections/detallesOferta/card.astro";
-import Carreras from "@components/sections/Licenciaturas/Carreras.astro";
-import Estadisticas from "@components/sections/Licenciaturas/Estadisticas.astro";
-
 import Requisitos from "@/components/sections/detallesOferta/requisitos.astro";
-
 import FAQComponent from "@/components/sections/detallesOferta/preguntas.astro";
 import CTAinscripcion from "@/components/sections/shared/ctaInscripcion.astro";
 import { Calendar, UserPlus, Phone } from "@lucide/astro";
@@ -19,54 +15,95 @@ import Planteles from "@/components/sections/detallesOferta/planteles.astro";
 const requisitosInfo = {
   items: [
     "Acta de nacimiento (original)",
-    "Certificado total de bachillerato (original)",
+    "Título de nivel superior (copia o formato digital PDF a color por ambos lados)",
+    "Cédula Profesional (copia o formato digital PDF a color por ambos lados)",
+    "Certificado total de estudios de nivel superior (original)",
     "Oficio de validación de autenticidad del certificado de estudios (emitido por la autoridad correspondiente)",
-    "Equivalencia o grado superior, certificado parcial y contenidos temáticos",
-    "CURP (formato RENAPO)",
+    "Equivalencia o grado superior (certificado parcial y contenidos temáticos)",
+    "Clave Única de Registro de Población (CURP) - formato RENAPO",
     "Identificación oficial con fotografía (INE) - dos copias",
     "Comprobante de domicilio reciente (no mayor a 3 meses) - una copia",
-    "Cinco fotografías tamaño infantil, blanco y negro, papel mate, de estudio"
+    "Fotografías tamaño infantil (5 fotografías, blanco y negro, papel mate, de estudio)",
   ],
-  pdfUrl: "/pdfs/licenciatura_req.pdf",
+  pdfUrl: "pdfs/posgrado_req.pdf",
 };
 
 const faqs = [
-  
   {
-    question: "¿Cuál es la duración de una licenciatura?",
+    question: "¿Qué maestrías ofrece la Universidad UNE?",
     answer:
-      "Las licenciaturas tienen una duración promedio de 8 a 10 semestres, dependiendo del programa, la institución incorporadora (UDG o SICYT) y la modalidad elegida.",
+      "La Universidad UNE ofrece diversas maestrías en áreas como Administración y Negocios, Ciencias de la Salud, Ciencias Sociales y Derecho, Educación, y otras especialidades. Todas están incorporadas a SICYT y cuentan con validez oficial de la SEP.",
+  },
+  {
+    question: "¿Cuál es la duración de las maestrías?",
+    answer:
+      "Las maestrías en Universidad UNE tienen una duración promedio de 4 a 6 cuatrimestres (aproximadamente 1.5 a 2 años), dependiendo del programa específico y la modalidad elegida.",
   },
   {
     question: "¿Qué modalidades de estudio están disponibles?",
     answer:
-      "Las licenciaturas pueden cursarse en modalidad presencial, en línea, escolarizada o semiescolarizada, según la carrera y el plantel. Algunas combinan clases presenciales con actividades virtuales.",
+      "Ofrecemos tres modalidades flexibles: presencial, en línea y sabatina. La modalidad sabatina es ideal para profesionales que trabajan, mientras que la modalidad en línea permite estudiar desde cualquier lugar.",
   },
   {
-    question: "¿Puedo trabajar mientras estudio una licenciatura?",
+    question: "¿Las maestrías tienen validez oficial?",
     answer:
-      "Sí. Las modalidades en línea y semiescolarizada están diseñadas para ofrecer mayor flexibilidad y permitir compatibilizar tus estudios con otras actividades.",
+      "Sí, todas nuestras maestrías están incorporadas a SICYT (Secretaría de Innovación, Ciencia y Tecnología) y cuentan con validez oficial de la Secretaría de Educación Pública (SEP).",
   },
   {
-    question: "¿Cómo se evalúa el desempeño académico?",
+    question: "¿Cuáles son los requisitos de admisión?",
     answer:
-      "El sistema de evaluación incluye exámenes, proyectos, participación en clase, trabajos individuales o en equipo y actividades prácticas, según el enfoque de cada licenciatura.",
+      "Para ingresar a una maestría necesitas: título de licenciatura, certificado de estudios profesionales, acta de nacimiento, CURP, identificación oficial, comprobante de domicilio y fotografías tamaño título. Algunos programas pueden requerir documentación adicional.",
   },
   {
-    question: "¿Qué tipo de apoyo académico se brinda a los estudiantes?",
+    question: "¿Ofrecen becas para maestrías?",
     answer:
-      "La institución ofrece tutorías, asesorías académicas presenciales y virtuales, y acceso a plataformas educativas. En casos específicos, pueden gestionarse apoyos adicionales conforme a criterio institucional.",
+      "Sí, la Universidad UNE ofrece un sistema de becas institucionales accesibles y automáticas. Las becas se otorgan por excelencia académica (promedio mínimo de 8.5) y situación socioeconómica.",
+  },
+  {
+    question: "¿Cuándo inician las clases?",
+    answer:
+      "Las maestrías inician en diferentes períodos del año: enero (ciclo A) y agosto (ciclo B). Te recomendamos consultar las fechas específicas de cada programa al momento de tu inscripción.",
+  },
+  {
+    question: "¿En qué campus se imparten las maestrías?",
+    answer:
+      "Las maestrías se imparten en nuestros diferentes campus ubicados en Guadalajara, Zapopan, Tlajomulco, Tonalá, Puerto Vallarta y otras ubicaciones. La modalidad en línea está disponible desde cualquier ubicación.",
+  },
+  {
+    question: "¿Cuál es el proceso de titulación?",
+    answer:
+      "El proceso de titulación incluye opciones como tesis, tesina, examen profesional, estudios de especialidad, o experiencia profesional. Nuestro equipo académico te guiará durante todo el proceso.",
+  },
+  {
+    question: "¿Los horarios son compatibles con el trabajo?",
+    answer:
+      "Sí, nuestras modalidades están diseñadas para profesionales que trabajan. La modalidad sabatina se imparte los sábados, la modalidad vespertina en horarios de tarde, y la modalidad en línea ofrece total flexibilidad.",
+  },
+  {
+    question: "¿Qué reconocimiento tiene la Universidad UNE?",
+    answer:
+      "La Universidad UNE cuenta con más de 30 años de experiencia, más de 60,000 egresados, y nuestros graduados encuentran trabajo en un promedio de 2 meses. Tenemos más de 800 convenios con empresas e instituciones.",
   },
   {
     question:
-      "¿Las licenciaturas están incorporadas a alguna institución oficial?",
+      "¿Puedo estudiar una maestría si mi licenciatura es de otra área?",
     answer:
-      "Sí. Contamos con licenciaturas incorporadas a la Universidad de Guadalajara (UDG) y a la Secretaría de Innovación, Ciencia y Tecnología (SICYT) del Estado de Jalisco, lo que garantiza validez oficial de estudios.",
+      "En muchos casos sí es posible, especialmente en maestrías como Administración, Educación o áreas interdisciplinarias. Cada caso se evalúa individualmente considerando tu perfil profesional y experiencia laboral.",
   },
   {
-    question: "¿Dónde puedo obtener más información e inscribirme?",
+    question: "¿Qué costos tienen las maestrías?",
     answer:
-      "Puedes acudir directamente a las oficinas del plantel más cercano o visitar nuestro portal web para consultar la oferta académica, requisitos y fechas de inscripción.",
+      "Los costos varían según el programa y modalidad elegida. Contamos con planes de pago flexibles, becas institucionales y la inscripción inicial no tiene costo. Para información específica, contacta a nuestros asesores educativos.",
+  },
+  {
+    question: "¿Ofrecen apoyo académico durante los estudios?",
+    answer:
+      "Sí, brindamos acompañamiento académico integral que incluye asesorías personalizadas, tutorías, acceso a bibliotecas digitales, y apoyo en el proceso de titulación hasta la obtención de tu grado.",
+  },
+  {
+    question: "¿Cómo puedo inscribirme a una maestría?",
+    answer:
+      "Para inscribirte puedes contactarnos al (33) 8000 0823, visitar cualquiera de nuestros 18 campus, o llenar el formulario de contacto en nuestro sitio web. Un asesor educativo te guiará en todo el proceso.",
   },
 ];
 
@@ -75,27 +112,21 @@ const semestresDatos = [
     numero: 1,
     materias: [
       {
-        codigo: "ED1021",
-        nombre: "Introducción a la Educación",
-        creditos: 30,
+        codigo: "MCE101",
+        nombre: "Política Educativa",
+        creditos: 64,
         color: "verde",
       },
       {
-        codigo: "Filosofía y Ética en Educación",
-        nombre: "Filosofía y Ética en Educación",
-        creditos: 30,
+        codigo: "MCE102",
+        nombre: "Psicología Educativa",
+        creditos: 64,
         color: "verde",
       },
       {
-        codigo: "ED1024",
-        nombre: "Desarrollo Infantil y adolescente",
-        creditos: 30,
-        color: "verde",
-      },
-      {
-        codigo: "ED1027",
-        nombre: "Habilidades Básicas de Investigación",
-        creditos: 30,
+        codigo: "MCE103",
+        nombre: "Tecnopedagogía",
+        creditos: 64,
         color: "verde",
       },
     ],
@@ -104,27 +135,21 @@ const semestresDatos = [
     numero: 2,
     materias: [
       {
-        codigo: "FH1203",
-        nombre: "Pensamiento lógico y tecnológico",
-        creditos: 30,
+        codigo: "MCE201",
+        nombre: "Modelos de Aprendizaje en el Siglo XXI",
+        creditos: 64,
         color: "amarillo",
       },
       {
-        codigo: "ED2016",
-        nombre: "Desarrollo de la Psicomotricidad",
-        creditos: 30,
+        codigo: "MCE202",
+        nombre: "Programación Neurolingüística Educativa",
+        creditos: 64,
         color: "amarillo",
       },
       {
-        codigo: "HJ2026",
-        nombre: "Ética social cristiana",
-        creditos: 30,
-        color: "amarillo",
-      },
-      {
-        codigo: "ED1029",
-        nombre: "Historia de la Pedagogía moderna",
-        creditos: 30,
+        codigo: "MCE203",
+        nombre: "Investigación para la Educación",
+        creditos: 64,
         color: "amarillo",
       },
     ],
@@ -133,145 +158,95 @@ const semestresDatos = [
     numero: 3,
     materias: [
       {
-        codigo: "PS1201",
-        nombre: "Fundamentos de Psicología y Bienestar",
-        creditos: 30,
+        codigo: "MCE301",
+        nombre: "Diseño y Evaluación Curricular",
+        creditos: 64,
         color: "naranja",
       },
       {
-        codigo: "Gestión educativa institucional",
-        nombre: "Gestión educativa institucional",
-        creditos: 30,
+        codigo: "MCE302",
+        nombre: "Didáctica",
+        creditos: 64,
         color: "naranja",
       },
       {
-        codigo: "ED2012",
-        nombre: "Desarrollo Socioemocional",
-        creditos: 30,
-        color: "naranja",
-      },
-      {
-        codigo: "ED3027",
-        nombre: "Administración educativa",
-        creditos: 30,
+        codigo: "MCE303",
+        nombre: "Métodos de Evaluación Educativa",
+        creditos: 64,
         color: "naranja",
       },
     ],
   },
-  // Puedes agregar más semestres según necesites
+  {
+    numero: 4,
+    materias: [
+      {
+        codigo: "MCE401",
+        nombre: "Planificación y Gestión de Proyectos Educativos",
+        creditos: 64,
+        color: "azul",
+      },
+      {
+        codigo: "MCE402",
+        nombre: "Profesionalización Docente",
+        creditos: 64,
+        color: "azul",
+      },
+      {
+        codigo: "MCE403",
+        nombre: "Planificación Estratégica Educativa",
+        creditos: 64,
+        color: "azul",
+      },
+    ],
+  },
+  {
+    numero: 5,
+    materias: [
+      {
+        codigo: "MCE501",
+        nombre: "Seminario de Educación",
+        creditos: 64,
+        color: "morado",
+      },
+      {
+        codigo: "MCE502",
+        nombre: "Diseño y Gestión de Proyectos en Educación Virtual",
+        creditos: 64,
+        color: "morado",
+      },
+      {
+        codigo: "MCE503",
+        nombre: "Sistemas de Gestión de Calidad en la Educación",
+        creditos: 64,
+        color: "morado",
+      },
+    ],
+  },
 ];
 
 const planteles = [
   {
-    id: "1",
-    nombre: "Centro",
-    direccion: "Av. República No.10, Col. San Juan de Dios",
+    id: "15",
+    nombre: "Torre Quetzal",
+    codigo: "Torre Quetzak",
+    direccion: "Chimalhuacán #3569 Col. Ciudad del Sol Zapopan, Jalisco",
     ciudad: "Guadalajara ZMG",
-    url: "/plantel-centro",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/Centro.webp",
-    lat: 20.67744801539995,
-    lon: -103.34031672627513,
+    url: "/campus/torre-quetzal",
+    imagen: "/src/assets/Imagenes/CardsPlanteles/Torre-quetzal.webp",
+    lat: "20.651860618451966",
+    lon: "-103.40329340052432",
   },
   {
-    id: "2",
-    nombre: "Centro Médico",
-    direccion: "José María Lozano #1077, Col. Belisario Domínguez",
-    ciudad: "Guadalajara ZMG",
-    url: "/plantel-centro-medico",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/CentroMedico.webp",
-    lat: 20.684590788642307,
-    lon: -103.3256397932448,
-  },
-  {
-    id: "3",
-    nombre: "Milenio",
-    direccion: "Av. López Mateos Sur #4154, Col. La Giralda",
-    ciudad: "Guadalajara ZMG",
-    url: "/plantel-milenio",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/Milenio.webp",
-    lat: 20.64540739939039,
-    lon: -103.40630313415286,
-  },
-  {
-    id: "4",
-    nombre: "Puerto Vallarta - Plaza Caracol",
-    direccion: "Blvd. Fco. Medina Ascencio #2180, Col. Díaz Ordaz",
+    id: "16",
+    nombre: "Campus Puerto Vallarta",
+    codigo: "Campus",
+    direccion: "Carretera a Tepic No. 5657 Col. las Juntas C.P 48291",
     ciudad: "Puerto Vallarta",
-    url: "/plantel-plaza-caracol-puerto-vallarta",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/PuertoVallarta.webp",
-    lat: 20.639287162026815,
-    lon: -105.23323589513319,
-  },
-  {
-    id: "5",
-    nombre: "Tlajomulco",
-    direccion: "Av. López Mateos #10100, Col. Los Gavilanes Poniente",
-    ciudad: "Guadalajara ZMG",
-    url: "/plantel-tlajomulco",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/Tlajomulco.webp",
-    lat: 20.576464164603113,
-    lon: -103.45243680650722,
-  },
-  {
-    id: "6",
-    nombre: "Tesistán",
-    direccion: "Av. Juan Gil Preciado #3897, Col. Hogares de Nuevo México",
-    ciudad: "Guadalajara ZMG",
-    url: "/plantel-tesistan",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/Tesistan.webp",
-    lat: 20.806203,
-    lon: -102.763903,
-  },
-  {
-    id: "7",
-    nombre: "Tepatitlán",
-    direccion: "Calle Dr. Ricardo Alcalá #505, Av. Matamoros, Centro",
-    ciudad: "Tepatitlán de Morelos",
-    url: "/plantel-tepatitlan",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/Tepatitlan.webp",
-    lat: 20.8062946507024,
-    lon: -102.76382902869392,
-  },
-  {
-    id: "8",
-    nombre: "Tlaquepaque",
-    direccion:
-      "Blvd. Marcelino García Barragán #2056, Col. Bosques del Boulevard",
-    ciudad: "Guadalajara ZMG",
-    url: "/plantel-tlaquepaque",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/Tlaquepaque.webp",
-    lat: 20.645650028567157,
-    lon: -103.32094530771215,
-  },
-  {
-    id: "9",
-    nombre: "Tonalá",
-    direccion: "Av. Tonaltecas #333, Col. Agua Escondida",
-    ciudad: "Guadalajara ZMG",
-    url: "/plantel-tonala",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/Tonala.webp",
-    lat: 20.63176692188573,
-    lon: -103.24439406488241,
-  },
-  {
-    id: "10",
-    nombre: "Chapultepec",
-    direccion: "Av. Vallarta #1458, Col. Americana",
-    ciudad: "Guadalajara ZMG",
-    url: "/plantel-vallarta",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/Chapultepec.webp",
-    lat: 20.67471004174908,
-    lon: -103.36909119392195,
-  },
-  {
-    id: "11",
-    nombre: "Zapopan",
-    direccion: "Plaza Caudillos",
-    ciudad: "Guadalajara ZMG",
-    url: "/plantel-zapopan",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/Zapopan.webp",
-    lat: 20.720900646775917,
-    lon: -103.38975281813357,
+    url: "/campus/campus-puerto-vallarta",
+    imagen: "/src/assets/Imagenes/CardsPlanteles/Campus-Puerto-Vallarta.webp",
+    lat: "20.69715126066295",
+    lon: ", -105.23759816941552",
   },
 ];
 
@@ -310,19 +285,14 @@ const ciudades = [
         <div class="text-center text-white max-w-4xl mx-auto">
           {/* Main Title */}
           <h1 class="text-4xl md:text-7xl font-bold tracking-wider mb-4">
-            Lic. en Cirujano Dentista
+            Maestría en Ciencias de la Educación
           </h1>
-          <h2 class="text-2xl md:text-5xl font-bold tracking-wider mb-8">
-            Licenciaturas UNE
-          </h2>
 
           {/* Description */}
           <p
             class="text-lg md:text-xl leading-relaxed mb-16 max-w-3xl mx-auto font-light"
           >
-            Transforma sonrisas y mejora la calidad de vida a través del estudio
-            y la práctica de la odontología, en una carrera donde la ciencia, la
-            salud y la vocación por el bienestar se unen.
+           Transforma el aula desde el conocimiento. Desarrolla competencias para diseñar, liderar y evaluar procesos educativos con enfoque humanista y de calidad.
           </p>
         </div>
       </div>
@@ -339,25 +309,34 @@ const ciudades = [
             class="flex flex-col sm:flex-row gap-4 w-full justify-center text-white"
           >
             <!-- Agenda una Visita -->
-            <a href="/contacto/solicitarvisita"
+            <a
+              href="/contacto/solicitarvisita"
               class="hover:border-b hover:border-b-cyan-50 font-bold py-6 px-6 text-base transition-colors duration-300 shadow-lg flex flex-col items-center justify-center gap-2 whitespace-nowrap"
-             aria-label="Ir a AGENDA UNA VISITA" title="AGENDA UNA VISITA">
+              aria-label="Ir a AGENDA UNA VISITA"
+              title="AGENDA UNA VISITA"
+            >
               AGENDA UNA VISITA
               <Calendar size={20} />
             </a>
 
             <!-- Iniciar Inscripción -->
-            <a href="/contacto/formulario-inscripcion"
+            <a
+              href="/contacto/formulario-inscripcion"
               class="hover:border-b hover:border-b-cyan-50 font-bold py-3 px-6 text-base transition-colors duration-300 shadow-lg flex flex-col items-center justify-center gap-2 whitespace-nowrap"
-             aria-label="Ir a INICIAR INSCRIPCIÓN" title="INICIAR INSCRIPCIÓN">
+              aria-label="Ir a INICIAR INSCRIPCIÓN"
+              title="INICIAR INSCRIPCIÓN"
+            >
               INICIAR INSCRIPCIÓN
               <UserPlus size={20} />
             </a>
 
             <!-- Contactar -->
-             <a href="/contacto/solicitarinformacion"
+            <a
+              href="/contacto/solicitarinformacion"
               class="hover:border-b hover:border-b-cyan-50 font-bold py-3 px-6 text-base transition-colors duration-300 shadow-lg flex flex-col items-center justify-center gap-2 whitespace-nowrap"
-             aria-label="Ir a página de contacto" title="Contactar con nosotros">
+              aria-label="Ir a página de contacto"
+              title="Contactar con nosotros"
+            >
               CONTACTAR
               <Phone size={20} />
             </a>
@@ -370,29 +349,27 @@ const ciudades = [
       logoSrc={LogoCard.src}
       studentImageSrc={ImagenCard.src}
       title="Objetivo"
-      description="La Licenciatura en Cirujano Dentista te forma como un profesionista altamente capacitado para prevenir, diagnosticar y tratar enfermedades bucales con un enfoque integral y humano."
-      additionalText="Con una sólida formación teórico-práctica y un alto compromiso ético y social, estarás preparado para promover la salud bucodental, brindar atención personalizada y colaborar con instituciones de salud para transformar positivamente la calidad de vida de las personas."
+      description="Formar profesionales con habilidades para diseñar, evaluar y liderar proyectos educativos innovadores y pertinentes, que respondan a las necesidades de los distintos niveles del sistema educativo, con impacto positivo en la equidad, la calidad y la transformación social."
+      additionalText=""
       features={[
-        { icon: "CalendarDays", label: "Prácticas clínicas presenciales" },
-        { icon: "BookOpen", label: "Bases científicas sólidas" },
-        { icon: "School", label: "Validez oficial" },
-        { icon: "Clock", label: "Horarios accesibles" },
-        { icon: "BookmarkCheck", label: "Enfoque profesionalizante" },
+        { icon: "Clock", label: "Modalidades flexibles" },
+        { icon: "Users", label: "Profesores especialistas" },
+        { icon: "Trophy", label: "Más de 30 años de experiencia" },
+        { icon: "Briefcase", label: "Enfoque empresarial" },
+        { icon: "BookmarkCheck", label: "Proceso de titulación integral" },
       ]}
     />
 
-     <PlanEstudios titulo="Propuesta Educativa" semestres={semestresDatos} />
+    <PlanEstudios titulo="Propuesta Educativa" semestres={semestresDatos} />
 
-     <Planteles
+    <Planteles
       titulo="Encuentra tu campus más cercano"
       planteles={planteles}
       ciudades={ciudades}
       mostrarMasCercano={true}
     />
 
-    
-
-    <Requisitos nivel="Licenciatura" requisitos={requisitosInfo} />
+    <Requisitos nivel="Maestrías" requisitos={requisitosInfo} />
 
     <FAQComponent
       faqs={faqs}

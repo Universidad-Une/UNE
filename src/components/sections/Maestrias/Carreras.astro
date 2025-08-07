@@ -14,6 +14,18 @@ function getPrimeraImagenDePlanteles(planteles) {
   return null;
 }
 
+// Función para obtener la primera URL disponible de los planteles
+function getPrimeraUrlDePlanteles(planteles) {
+  for (const plantelInfo of Object.values(planteles)) {
+    for (const info of plantelInfo) {
+      if (info.url && info.url.trim() !== "") {
+        return info.url;
+      }
+    }
+  }
+  return null;
+}
+
 // Función para obtener el color del badge según la incorporación
 function getColorBadge(incorporacion) {
   switch (incorporacion) {
@@ -35,12 +47,14 @@ if (programasEducativos.Maestrías) {
       Object.entries(programas).forEach(([nombrePrograma, datosPrograma]) => {
         const planteles = datosPrograma.planteles || datosPrograma;
         const imagen = getPrimeraImagenDePlanteles(planteles);
+        const urlOriginal = getPrimeraUrlDePlanteles(planteles);
 
         Maestrías.push({
           nombre: nombrePrograma,
           area: area,
           planteles: planteles,
           imagen: imagen,
+          urlOriginal: urlOriginal,
         });
       });
     }
@@ -81,15 +95,7 @@ const carreras = Maestrías.map((maestria, index) => {
   // Usar la imagen tal como viene, o el nombre del programa como fallback
   const imagenNombre = maestria.imagen || maestria.nombre;
   
-  // 🔍 LOG: Mostrar valor original antes de transformación
-  console.log(`\n📋 Procesando: ${maestria.nombre}`);
-  console.log(`📁 Imagen original (imagenNombre): "${imagenNombre}"`);
-  
   const imagenUrl = getImageUrl(imagenNombre, "maestrias");
-  
-  // 🔍 LOG: Mostrar resultado de getImageUrl
-  console.log(`🔧 Resultado getImageUrl(): ${typeof imagenUrl === 'string' ? `"${imagenUrl}"` : imagenUrl}`);
-  console.log(`📝 Tipo de dato: ${typeof imagenUrl}`);
 
   // Si imagenUrl no es string, usar fallback
   const imagenUrlFinal =
@@ -97,10 +103,35 @@ const carreras = Maestrías.map((maestria, index) => {
       ? imagenUrl
       : "/src/assets/Imagenes/CardsLicenciaturas/Arquitectura.webp";
 
-  // 🔍 LOG: Mostrar URL final
-  console.log(`✅ URL final (imagenUrlFinal): "${imagenUrlFinal}"`);
-  console.log(`${typeof imagenUrl === "string" ? "✅ Sin fallback" : "⚠️  Usando fallback"}`);
-  console.log(`${"=".repeat(60)}`);
+  // 🔍 LOG: Información de URL
+  console.log(`🎯 Maestría: "${maestria.nombre}"`);
+  console.log(`🔗 URL original desde programasEducativos: "${maestria.urlOriginal || 'NO DISPONIBLE'}"`);
+  
+  // Generar slug solo como fallback si no hay URL original
+  let urlFinal = maestria.urlOriginal;
+  
+  if (!urlFinal) {
+    console.log(`⚠️  No se encontró URL original, generando slug...`);
+    
+    const paso1 = maestria.nombre.toLowerCase();
+    console.log(`📝 Paso 1 (toLowerCase): "${paso1}"`);
+    
+    const paso2 = paso1.replace(/\s+/g, "_");
+    console.log(`📝 Paso 2 (espacios → _): "${paso2}"`);
+    
+    const paso3 = paso2.replace(/[áéíóúñ]/g, (match) => {
+      const accents = { á: "a", é: "e", í: "i", ó: "o", ú: "u", ñ: "n" };
+      console.log(`   🔄 Reemplazando: "${match}" → "${accents[match]}"`);
+      return accents[match];
+    });
+    
+    const slugGenerado = paso3;
+    urlFinal = `/maestrias/${slugGenerado}`;
+    console.log(`✅ Slug generado: "${slugGenerado}"`);
+  }
+  
+  console.log(`📍 URL FINAL para href: "${urlFinal}"`);
+  console.log(`${"=".repeat(70)}`);
 
   // Obtener el color para el badge principal (primera incorporación)
   const colorBadge = getColorBadge(todasLasIncorporaciones[0]);
@@ -116,13 +147,7 @@ const carreras = Maestrías.map((maestria, index) => {
     incorporacion: todasLasIncorporaciones.join(", "),
     modalidad: todasLasModalidades.join(", "),
     colorBadge: colorBadge, // Agregar color del badge
-    slug: maestria.nombre
-      .toLowerCase()
-      .replace(/\s+/g, "_")
-      .replace(/[áéíóúñ]/g, (match) => {
-        const accents = { á: "a", é: "e", í: "i", ó: "o", ú: "u", ñ: "n" };
-        return accents[match];
-      }),
+    url: urlFinal, // 👈 Usar la URL original o generada como fallback
     planteles: planteles,
     plantelesDisponibles: planteles.length,
     plantelesDetalle: maestria.planteles,
@@ -130,10 +155,6 @@ const carreras = Maestrías.map((maestria, index) => {
 });
 
 // 🔍 LOG: Resumen final
-console.log(`\n📊 RESUMEN DE TRANSFORMACIÓN:`);
-console.log(`📚 Total de maestrías procesadas: ${carreras.length}`);
-console.log(`🎯 Maestrías con imagen original: ${carreras.filter(c => c.imagen).length}`);
-console.log(`⚠️  Maestrías con fallback: ${carreras.filter(c => c.imagenUrl === "/src/assets/Imagenes/CardsLicenciaturas/Arquitectura.webp").length}`);
 
 // Obtener todas las áreas únicas de maestrías
 const areasUnicas = [...new Set(Maestrías.map(maestria => maestria.area))];
@@ -243,7 +264,7 @@ export { carreras, areas };
                     Ver planteles
                   </button>
                   <a
-                    href={`/oferta/Maestrías/${carrera.slug}`}
+                    href={`${carrera.url}`}
                     class="w-full border border-red-500 text-red-500 py-2 px-4 rounded font-medium hover:bg-red-50 transition-colors block text-center"
                   >
                     Más información

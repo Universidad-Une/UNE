@@ -1,7 +1,7 @@
 ---
 import { Plus, Minus } from "@lucide/astro";
 
-// Definición de props
+// Definición de las propiedades del componente
 export interface Props {
   faqs: Array<{
     question: string;
@@ -11,14 +11,14 @@ export interface Props {
   subtitle?: string;
 }
 
-// Extraer las props con valores por defecto
-const { 
-  faqs = [], 
+// Extracción de props con valores por defecto
+const {
+  faqs = [],
   title = "Todo lo que necesitas saber, en un solo lugar.",
-  subtitle = ""
+  subtitle = "",
 } = Astro.props;
 
-// Dividir FAQs en dos columnas
+// Dividir las FAQs en dos columnas para el diseño
 const midpoint = Math.ceil(faqs.length / 2);
 const leftColumnFaqs = faqs.slice(0, midpoint);
 const rightColumnFaqs = faqs.slice(midpoint);
@@ -26,7 +26,6 @@ const rightColumnFaqs = faqs.slice(midpoint);
 
 <section class="py-16 bg-gray-50">
   <div class="container mx-auto px-4">
-    <!-- Section Title -->
     <div class="text-center mb-12">
       <h2 class="text-4xl font-bold text-blue-900 mb-4">
         {title}
@@ -34,127 +33,89 @@ const rightColumnFaqs = faqs.slice(midpoint);
       {subtitle && <p class="text-lg text-gray-600">{subtitle}</p>}
     </div>
 
-    <!-- FAQ Grid -->
     <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-4 items-start">
-      <!-- Columna Izquierda -->
       <div class="space-y-4">
-        {leftColumnFaqs.map((faq, index) => (
-          <div
-            class="faq-item bg-azul-une text-white rounded-lg cursor-pointer hover:bg-blue-800 transition-colors duration-300 group"
-            key={`left-${index}`}
-          >
-            <div class="faq-question p-6 flex items-center justify-between">
-              <h3 class="text-lg  pr-4">
-                {faq.question}
-              </h3>
-              <div class="flex-shrink-0">
-                <Plus class="faq-icon w-6 h-6 transition-transform duration-300" />
+        {
+          leftColumnFaqs.map((faq) => (
+            <div class="faq-item bg-azul-une text-white rounded-lg cursor-pointer hover:bg-blue-800 transition-colors duration-300 group">
+              <div class="faq-question p-6 flex items-center justify-between">
+                <h3 class="text-lg pr-4">{faq.question}</h3>
+                <div class="flex-shrink-0">
+                  <Plus class="icon-plus w-6 h-6" />
+                  <Minus class="icon-minus w-6 h-6 hidden" />
+                </div>
+              </div>
+              <div class="faq-answer overflow-hidden max-h-0 transition-all duration-300 ease-in-out">
+                <div class="bg-blue-800 p-6">
+                  <p class="text-white">{faq.answer}</p>
+                </div>
               </div>
             </div>
-            <div class="faq-answer overflow-hidden transition-all duration-300 ease-in-out max-h-0">
-              <div class="bg-blue-800 p-6">
-                <p class="text-white">
-                  {faq.answer}
-                </p>
-              </div>
-            </div>
-          </div>
-        ))}
+          ))
+        }
       </div>
 
-      <!-- Columna Derecha -->
       <div class="space-y-4">
-        {rightColumnFaqs.map((faq, index) => (
-          <div
-            class="faq-item bg-azul-une text-white rounded-lg cursor-pointer hover:bg-blue-800 transition-colors duration-300 group"
-            key={`right-${index}`}
-          >
-            <div class="faq-question p-6 flex items-center justify-between">
-              <h3 class="text-lg  pr-4">
-                {faq.question}
-              </h3>
-              <div class="flex-shrink-0">
-                <Plus class="faq-icon w-6 h-6 transition-transform duration-300" />
+        {
+          rightColumnFaqs.map((faq) => (
+            <div class="faq-item bg-azul-une text-white rounded-lg cursor-pointer hover:bg-blue-800 transition-colors duration-300 group">
+              <div class="faq-question p-6 flex items-center justify-between">
+                <h3 class="text-lg pr-4">{faq.question}</h3>
+                <div class="flex-shrink-0">
+                  <Plus class="icon-plus w-6 h-6" />
+                  <Minus class="icon-minus w-6 h-6 hidden" />
+                </div>
+              </div>
+              <div class="faq-answer overflow-hidden max-h-0 transition-all duration-300 ease-in-out">
+                <div class="bg-blue-800 p-6">
+                  <p class="text-white">{faq.answer}</p>
+                </div>
               </div>
             </div>
-            <div class="faq-answer overflow-hidden transition-all duration-300 ease-in-out max-h-0">
-              <div class="bg-blue-800 p-6">
-                <p class="text-white">
-                  {faq.answer}
-                </p>
-              </div>
-            </div>
-          </div>
-        ))}
+          ))
+        }
       </div>
     </div>
   </div>
 </section>
 
 <script>
-  // Add interactive functionality for FAQ items
-  document.addEventListener("DOMContentLoaded", function () {
+  document.addEventListener("DOMContentLoaded", () => {
     const faqItems = document.querySelectorAll(".faq-item");
 
     faqItems.forEach((item) => {
       const question = item.querySelector(".faq-question");
-      const answer = item.querySelector(".faq-answer");
-      const icon = item.querySelector(".faq-icon");
 
-      question.addEventListener("click", function () {
-        const isOpen = answer.style.maxHeight && answer.style.maxHeight !== "0px";
+      question.addEventListener("click", () => {
+        // Comprueba si el elemento clickeado ya está abierto
+        const isOpen = item.classList.contains("is-open");
 
-        // Close all other FAQ items
+        // Cierra todos los demás elementos antes de abrir el nuevo
         faqItems.forEach((otherItem) => {
           if (otherItem !== item) {
-            const otherAnswer = otherItem.querySelector(".faq-answer");
-            const otherIcon = otherItem.querySelector(".faq-icon");
-            
-            // Close other item
-            otherAnswer.style.maxHeight = "0px";
-            
-            // Change to Plus icon
-            otherIcon.outerHTML = `
-              <svg class="faq-icon w-6 h-6 transition-transform duration-300" 
-                   xmlns="http://www.w3.org/2000/svg" 
-                   width="24" height="24" viewBox="0 0 24 24" 
-                   fill="none" stroke="currentColor" stroke-width="2" 
-                   stroke-linecap="round" stroke-linejoin="round">
-                <path d="M12 6v6m0 0v6m0-6h6m-6 0H6"/>
-              </svg>
-            `;
+            otherItem.classList.remove("is-open");
           }
         });
 
-        if (isOpen) {
-          // Close current item
-          answer.style.maxHeight = "0px";
-          icon.outerHTML = `
-            <svg class="faq-icon w-6 h-6 transition-transform duration-300" 
-                 xmlns="http://www.w3.org/2000/svg" 
-                 width="24" height="24" viewBox="0 0 24 24" 
-                 fill="none" stroke="currentColor" stroke-width="2" 
-                 stroke-linecap="round" stroke-linejoin="round">
-              <path d="M12 6v6m0 0v6m0-6h6m-6 0H6"/>
-            </svg>
-          `;
-        } else {
-          // Open current item
-          const contentHeight = answer.querySelector("div").scrollHeight;
-          answer.style.maxHeight = contentHeight + "px";
-          
-          // Change to Minus icon
-          icon.outerHTML = `
-            <svg class="faq-icon w-6 h-6 transition-transform duration-300" 
-                 xmlns="http://www.w3.org/2000/svg" 
-                 width="24" height="24" viewBox="0 0 24 24" 
-                 fill="none" stroke="currentColor" stroke-width="2" 
-                 stroke-linecap="round" stroke-linejoin="round">
-              <path d="M18 12H6"/>
-            </svg>
-          `;
-        }
+        // Alterna la clase 'is-open' en el elemento clickeado
+        // Si estaba abierto, lo cierra. Si estaba cerrado, lo abre.
+        item.classList.toggle("is-open");
       });
     });
   });
 </script>
+
+<style>
+  .faq-item.is-open .faq-answer {
+    /* Usamos un valor suficientemente grande para que el contenido quepa */
+    max-height: 500px; /* Ajusta si tienes respuestas muy largas */
+  }
+
+  .faq-item.is-open .icon-plus {
+    display: none;
+  }
+
+  .faq-item.is-open .icon-minus {
+    display: block;
+  }
+</style>
