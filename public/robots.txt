@@ -1,0 +1,23 @@
+User-agent: *
+Allow: /
+
+# Bloquear archivos administrativos
+Disallow: /admin/
+Disallow: /_astro/
+Disallow: /api/
+
+# Permitir crawlers de buscadores importantes
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+# Sitemap
+Sitemap: https://tue-dominio.com/sitemap.xml
+
+# Crawl-delay para ser considerado con el servidor
+Crawl-delay: 1

@@ -2,7 +2,7 @@
 // src/components/MainSlider.astro
 import ComercialMp4 from "@/assets/Videos/Comercial.mp4";
 import Comercial_mobile from "@/assets/Videos/UNE_mobile.webm";
-import ComercialWebm from "@/assets/Videos/Comercial.webm";
+import ComercialWebm from "@/assets/Videos/Comercial_sa.webm";
 import { ArrowRight } from "@lucide/astro";
 ---
 
@@ -249,162 +249,7 @@ import { ArrowRight } from "@lucide/astro";
   </a>
 </div>
 
-<style>
-  /* Para Vite */
-  .oferta-bg {
-    background-image: url("/src/assets/Imagenes/Heros/Admision.jpg");
-  }
 
-  @media (max-width: 767px) {
-    .oferta-bg {
-      background-image: url("/src/assets/Imagenes/Heros/Admision_mobile2.jpg");
-    }
-  }
-
-  .historia-bg {
-    background-image: url("/src/assets/Imagenes/Heros/historia.jpg");
-  }
-
-  @media (max-width: 767px) {
-    .historia-bg {
-      background-image: url("/src/assets/Imagenes/Heros/Admision_mobile.jpg");
-    }
-  }
-
-  .becas-bg {
-  background-image: url('/src/assets/Imagenes/Heros/Becas.jpg');
-}
-
-@media (max-width: 767px) {
-  .becas-bg {
-    background-image: url('/src/assets/Imagenes/Heros/becas_mobile.jpg');
-  }
-}
-
-  /* Estilos base para Splide */
-  .splide {
-    position: relative;
-    width: 100%;
-  }
-
-  .splide__track {
-    position: relative;
-    overflow: hidden;
-    border-radius: 0.5rem;
-  }
-
-  .splide__list {
-    display: flex;
-    align-items: flex-start;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    transition: transform 0.6s ease;
-  }
-
-  .splide__slide {
-    flex-shrink: 0;
-    width: 100%;
-    opacity: 1;
-  }
-
-  /* Base styles for the progress line */
-  .progress-line {
-    position: relative;
-    overflow: visible; /* Changed from hidden to visible */
-    cursor: pointer;
-    /* white-space: nowrap; // Removed this to allow text wrapping */
-    padding-bottom: 8px;
-    transition: opacity 0.3s ease;
-  }
-
-  /* The gray background line */
-  .progress-line::before {
-    content: "";
-    position: absolute;
-    bottom: 0px;
-    left: 0%;
-    width: 100%;
-    height: 2px;
-    background: rgba(255, 255, 255, 0.3);
-    z-index: 1;
-    border-radius: 1px;
-  }
-
-  /* The active fill line */
-  .progress-line::after {
-    content: "";
-    position: absolute;
-    bottom: 0px;
-    left: 0%;
-    width: 0%;
-    height: 2px;
-    background: rgba(255, 255, 255, 1);
-    z-index: 2;
-    transform-origin: left center;
-    transition: width 0.3s ease-out;
-    border-radius: 1px;
-  }
-
-  /* Active state for current slide */
-  .progress-line.is-active::after {
-    width: 0%;
-    animation: progressFill var(--slide-duration) linear forwards;
-  }
-
-  /* Completed state for previous slides */
-  .progress-line.is-completed::after {
-    width: 100%;
-    animation: none;
-  }
-
-  /* Animation for the progress bar fill */
-  @keyframes progressFill {
-    from {
-      width: 0%;
-    }
-    to {
-      width: 100%;
-    }
-  }
-
-  /* Style for text of inactive slides */
-  .progress-line:not(.is-active):not(.is-completed) {
-    opacity: 0.6;
-  }
-
-  /* Style for text of active slide */
-  .progress-line.is-active {
-    opacity: 1;
-    color: white;
-    font-weight: 600;
-  }
-
-  /* Style for completed slides */
-  .progress-line.is-completed {
-    opacity: 0.8;
-  }
-
-  /* Paused state styles */
-  .progress-line.is-paused::after {
-    animation-play-state: paused;
-  }
-
-  /* Hover effect for navigation */
-  .progress-line:hover {
-    opacity: 1;
-    transform: translateY(-1px);
-    transition: all 0.2s ease;
-  }
-
-  /* Responsive adjustments (can be removed if handled purely by Tailwind) */
-  @media (max-width: 650px) {
-    .progress-line::before,
-    .progress-line::after {
-      width: 100%;
-    }
-  }
-</style>
 <script>
   import { Splide } from "@splidejs/splide";
 
@@ -476,12 +321,23 @@ import { ArrowRight } from "@lucide/astro";
       autoplay: false, // Disable built-in autoplay
       arrows: false,
       pagination: false,
-      keyboard: false,
+      keyboard: true,
       drag: false,
       speed: 600,
       pauseOnHover: false,
       pauseOnFocus: false,
       rewind: true,
+      accessibility: true,
+      ariaLabel: 'Carrusel principal de Universidad UNE',
+      ariaLabelledby: '',
+      ariaDescribedby: '',
+      // Evitar roles automáticos problemáticos
+      role: 'region',
+      roLive: 'polite',
+      // Configuraciones adicionales para evitar conflictos ARIA
+      updateOnMove: true,
+      trimSpace: false,
+      focus: 'center',
     });
 
     splideInstance.mount();
@@ -497,7 +353,6 @@ import { ArrowRight } from "@lucide/astro";
 
   // Handle slide changes
   function handleSlideChange(newIndex) {
-    console.log(`Slide changed to: ${newIndex}`);
 
     // Clear any existing intervals and timeouts
     clearInterval(videoProgressInterval);
@@ -759,3 +614,161 @@ import { ArrowRight } from "@lucide/astro";
     initializeSplide();
   });
 </script>
+
+
+<style>
+  /* Para Vite */
+  .oferta-bg {
+    background-image: url("/src/assets/Imagenes/Heros/Admision.jpg");
+  }
+
+  @media (max-width: 767px) {
+    .oferta-bg {
+      background-image: url("/src/assets/Imagenes/Heros/Admision_mobile2.jpg");
+    }
+  }
+
+  .historia-bg {
+    background-image: url("/src/assets/Imagenes/Heros/historia.jpg");
+  }
+
+  @media (max-width: 767px) {
+    .historia-bg {
+      background-image: url("/src/assets/Imagenes/Heros/Admision_mobile.jpg");
+    }
+  }
+
+  .becas-bg {
+  background-image: url('/src/assets/Imagenes/Heros/Becas.jpg');
+}
+
+@media (max-width: 767px) {
+  .becas-bg {
+    background-image: url('/src/assets/Imagenes/Heros/becas_mobile.jpg');
+  }
+}
+
+  /* Estilos base para Splide */
+  .splide {
+    position: relative;
+    width: 100%;
+  }
+
+  .splide__track {
+    position: relative;
+    overflow: hidden;
+    border-radius: 0.5rem;
+  }
+
+  .splide__list {
+    display: flex;
+    align-items: flex-start;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    transition: transform 0.6s ease;
+  }
+
+  .splide__slide {
+    flex-shrink: 0;
+    width: 100%;
+    opacity: 1;
+  }
+
+  /* Base styles for the progress line */
+  .progress-line {
+    position: relative;
+    overflow: visible; /* Changed from hidden to visible */
+    cursor: pointer;
+    /* white-space: nowrap; // Removed this to allow text wrapping */
+    padding-bottom: 8px;
+    transition: opacity 0.3s ease;
+  }
+
+  /* The gray background line */
+  .progress-line::before {
+    content: "";
+    position: absolute;
+    bottom: 0px;
+    left: 0%;
+    width: 100%;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.3);
+    z-index: 1;
+    border-radius: 1px;
+  }
+
+  /* The active fill line */
+  .progress-line::after {
+    content: "";
+    position: absolute;
+    bottom: 0px;
+    left: 0%;
+    width: 0%;
+    height: 2px;
+    background: rgba(255, 255, 255, 1);
+    z-index: 2;
+    transform-origin: left center;
+    transition: width 0.3s ease-out;
+    border-radius: 1px;
+  }
+
+  /* Active state for current slide */
+  .progress-line.is-active::after {
+    width: 0%;
+    animation: progressFill var(--slide-duration) linear forwards;
+  }
+
+  /* Completed state for previous slides */
+  .progress-line.is-completed::after {
+    width: 100%;
+    animation: none;
+  }
+
+  /* Animation for the progress bar fill */
+  @keyframes progressFill {
+    from {
+      width: 0%;
+    }
+    to {
+      width: 100%;
+    }
+  }
+
+  /* Style for text of inactive slides */
+  .progress-line:not(.is-active):not(.is-completed) {
+    opacity: 0.6;
+  }
+
+  /* Style for text of active slide */
+  .progress-line.is-active {
+    opacity: 1;
+    color: white;
+    font-weight: 600;
+  }
+
+  /* Style for completed slides */
+  .progress-line.is-completed {
+    opacity: 0.8;
+  }
+
+  /* Paused state styles */
+  .progress-line.is-paused::after {
+    animation-play-state: paused;
+  }
+
+  /* Hover effect for navigation */
+  .progress-line:hover {
+    opacity: 1;
+    transform: translateY(-1px);
+    transition: all 0.2s ease;
+  }
+
+  /* Responsive adjustments (can be removed if handled purely by Tailwind) */
+  @media (max-width: 650px) {
+    .progress-line::before,
+    .progress-line::after {
+      width: 100%;
+    }
+  }
+</style>

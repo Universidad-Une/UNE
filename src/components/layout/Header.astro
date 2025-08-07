@@ -97,9 +97,8 @@ function getGridCols(dropdownClass) {
 }
 ---
 
-<!-- Preload critical images -->
+<!-- Preload critical images only -->
 <link rel="preload" as="image" href={Logo_UNE.src} />
-<link rel="preload" as="image" href={UNE_Blanco.src} media="(max-width: 768px)" />
 
 <!-- Top Bar -->
 <div class="hidden md:flex w-full h-14 bg-rojo-une items-center justify-end gap-5 px-4 rounded-b-3xl">
@@ -120,7 +119,6 @@ function getGridCols(dropdownClass) {
     </a>
   ))}
 </div>
-
 
 <header class="bg-white/50 backdrop-blur-[10.2px] shadow-sm sticky top-0 z-50">
   <div class="w-full">
@@ -154,7 +152,7 @@ function getGridCols(dropdownClass) {
 
       <!-- Mobile Menu Button -->
       <div class="md:hidden">
-        <button type="button" class="mobile-menu-button p-2 rounded-md text-blue-900 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500">
+        <button type="button" class="mobile-menu-button p-2 rounded-md text-blue-900 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500" aria-label="Abrir menú" title="Mostrar opciones del menú">
           <Menu size={24} stroke-width={2} class="menu-icon" />
           <X size={24} stroke-width={2} class="close-icon hidden" />
         </button>
@@ -224,7 +222,7 @@ function getGridCols(dropdownClass) {
     <div class="w-full h-screen bg-azul-une flex transform -translate-x-full transition-transform duration-300 ease-in-out">
       <div class="w-[75%] h-full flex flex-col">
         <div class="flex items-center justify-between p-4 absolute w-full">
-          <!-- Logo blanco pre-cargado para móvil -->
+          <!-- Logo blanco cargado lazy para móvil -->
           <img 
             src={UNE_Blanco.src}
             alt="UNE" 
@@ -234,7 +232,7 @@ function getGridCols(dropdownClass) {
             loading="lazy"
             decoding="async"
           />
-          <button type="button" class="close-menu-button p-2 text-white hover:bg-blue-800 rounded-md">
+          <button type="button" class="close-menu-button p-2 text-white hover:bg-blue-800 rounded-md" aria-label="Cerrar ventana" title="Cerrar esta ventana">
             <X size={32} />
           </button>
         </div>
@@ -329,7 +327,8 @@ function getGridCols(dropdownClass) {
   </div>
 </header>
 
-<script>
+<!-- Script optimizado con defer para no bloquear FCP -->
+<script defer>
   // Mobile menu functionality
   const mobileMenuButton = document.querySelector(".mobile-menu-button");
   const mobileMenu = document.querySelector(".mobile-menu");
@@ -397,7 +396,7 @@ function getGridCols(dropdownClass) {
     dropdown.addEventListener("mouseleave", hideDropdown);
   });
 
-  // Mobile submenu functionality - Selector corregido
+  // Mobile submenu functionality
   document.querySelectorAll(".menu-section-button").forEach(section => {
     section.addEventListener("click", () => {
       const submenu = section.nextElementSibling;
