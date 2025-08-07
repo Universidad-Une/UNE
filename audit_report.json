@@ -1,0 +1,4878 @@
+{
+  "timestamp": "2025-08-06T23:23:40.461592",
+  "base_url": "http://localhost:4321",
+  "pages_tested": [
+    {
+      "url": "http://localhost:4321/",
+      "path": "/",
+      "performance": {
+        "url": "http://localhost:4321/",
+        "selenium_load_time": 2.6,
+        "browser_metrics": {
+          "domContentLoaded": 2369,
+          "firstPaint": 2132,
+          "loadTime": 2388,
+          "resources": 93
+        },
+        "status": "completed"
+      },
+      "seo": {
+        "url": "http://localhost:4321/",
+        "title": {
+          "content": "UNE - 30 Años Creyendo en Ti",
+          "length": 28,
+          "status": "good"
+        },
+        "meta_description": {
+          "content": "Universidad UNE - 30 años de excelencia educativa",
+          "length": 49,
+          "status": "warning"
+        },
+        "h1_tags": {
+          "count": 3,
+          "texts": [
+            "",
+            "",
+            "¡Respondemos tus preguntas!"
+          ],
+          "status": "warning"
+        },
+        "images": {
+          "total": 72,
+          "without_alt": 0,
+          "missing_alt_srcs": []
+        }
+      },
+      "astro": {
+        "url": "http://localhost:4321/",
+        "astro_components": 0,
+        "hydration_scripts": 33,
+        "internal_links": 123
+      }
+    },
+    {
+      "url": "http://localhost:4321/acerca/Admisiones",
+      "path": "/acerca/Admisiones",
+      "performance": {
+        "url": "http://localhost:4321/acerca/Admisiones",
+        "selenium_load_time": 2.38,
+        "browser_metrics": {
+          "domContentLoaded": 2175,
+          "firstPaint": 2100,
+          "loadTime": 2354,
+          "resources": 62
+        },
+        "status": "completed"
+      },
+      "seo": {
+        "url": "http://localhost:4321/acerca/Admisiones",
+        "title": {
+          "content": "",
+          "length": 0,
+          "status": "warning"
+        },
+        "meta_description": {
+          "status": "missing"
+        },
+        "h1_tags": {
+          "count": 1,
+          "texts": [
+            "ADMISIONES"
+          ],
+          "status": "good"
+        },
+        "images": {
+          "total": 15,
+          "without_alt": 0,
+          "missing_alt_srcs": []
+        }
+      },
+      "astro": {
+        "url": "http://localhost:4321/acerca/Admisiones",
+        "astro_components": 0,
+        "hydration_scripts": 9,
+        "internal_links": 69
+      }
+    },
+    {
+      "url": "http://localhost:4321/acerca/Apoyos",
+      "path": "/acerca/Apoyos",
+      "performance": {
+        "url": "http://localhost:4321/acerca/Apoyos",
+        "selenium_load_time": 2.0,
+        "browser_metrics": {
+          "domContentLoaded": 1724,
+          "firstPaint": 1676,
+          "loadTime": 1983,
+          "resources": 59
+        },
+        "status": "completed"
+      },
+      "seo": {
+        "url": "http://localhost:4321/acerca/Apoyos",
+        "title": {
+          "content": "",
+          "length": 0,
+          "status": "warning"
+        },
+        "meta_description": {
+          "status": "missing"
+        },
+        "h1_tags": {
+          "count": 2,
+          "texts": [
+            "Programas Académicos",
+            "Apoyos Disponibles por Modalidad"
+          ],
+          "status": "warning"
+        },
+        "images": {
+          "total": 11,
+          "without_alt": 0,
+          "missing_alt_srcs": []
+        }
+      },
+      "astro": {
+        "url": "http://localhost:4321/acerca/Apoyos",
+        "astro_components": 0,
+        "hydration_scripts": 7,
+        "internal_links": 68
+      }
+    },
+    {
+      "url": "http://localhost:4321/acerca/beneficios",
+      "path": "/acerca/beneficios",
+      "performance": {
+        "url": "http://localhost:4321/acerca/beneficios",
+        "selenium_load_time": 1.89,
+        "browser_metrics": {
+          "domContentLoaded": 1659,
+          "firstPaint": 1616,
+          "loadTime": 1815,
+          "resources": 58
+        },
+        "status": "completed"
+      },
+      "seo": {
+        "url": "http://localhost:4321/acerca/beneficios",
+        "title": {
+          "content": "",
+          "length": 0,
+          "status": "warning"
+        },
+        "meta_description": {
+          "status": "missing"
+        },
+        "h1_tags": {
+          "count": 1,
+          "texts": [
+            "Educación para cada etapa de tu vida"
+          ],
+          "status": "good"
+        },
+        "images": {
+          "total": 11,
+          "without_alt": 0,
+          "missing_alt_srcs": []
+        }
+      },
+      "astro": {
+        "url": "http://localhost:4321/acerca/beneficios",
+        "astro_components": 0,
+        "hydration_scripts": 7,
+        "internal_links": 71
+      }
+    },
+    {
+      "url": "http://localhost:4321/acerca/Compromiso-social",
+      "path": "/acerca/Compromiso-social",
+      "performance": {
+        "url": "http://localhost:4321/acerca/Compromiso-social",
+        "selenium_load_time": 2.22,
+        "browser_metrics": {
+          "domContentLoaded": 2020,
+          "firstPaint": 1972,
+          "loadTime": 2187,
+          "resources": 55
+        },
+        "status": "completed"
+      },
+      "seo": {
+        "url": "http://localhost:4321/acerca/Compromiso-social",
+        "title": {
+          "content": "",
+          "length": 0,
+          "status": "warning"
+        },
+        "meta_description": {
+          "status": "missing"
+        },
+        "h1_tags": {
+          "count": 1,
+          "texts": [
+            "FAQ"
+          ],
+          "status": "good"
+        },
+        "images": {
+          "total": 9,
+          "without_alt": 0,
+          "missing_alt_srcs": []
+        }
+      },
+      "astro": {
+        "url": "http://localhost:4321/acerca/Compromiso-social",
+        "astro_components": 0,
+        "hydration_scripts": 7,
+        "internal_links": 68
+      }
+    },
+    {
+      "url": "http://localhost:4321/acerca/historia",
+      "path": "/acerca/historia",
+      "performance": {
+        "url": "http://localhost:4321/acerca/historia",
+        "selenium_load_time": 2.03,
+        "browser_metrics": {
+          "domContentLoaded": 1765,
+          "firstPaint": 1744,
+          "loadTime": 2002,
+          "resources": 64
+        },
+        "status": "completed"
+      },
+      "seo": {
+        "url": "http://localhost:4321/acerca/historia",
+        "title": {
+          "content": "",
+          "length": 0,
+          "status": "warning"
+        },
+        "meta_description": {
+          "status": "missing"
+        },
+        "h1_tags": {
+          "count": 0,
+          "texts": [],
+          "status": "warning"
+        },
+        "images": {
+          "total": 26,
+          "without_alt": 0,
+          "missing_alt_srcs": []
+        }
+      },
+      "astro": {
+        "url": "http://localhost:4321/acerca/historia",
+        "astro_components": 0,
+        "hydration_scripts": 12,
+        "internal_links": 81
+      }
+    },
+    {
+      "url": "http://localhost:4321/acerca/oferta-academica",
+      "path": "/acerca/oferta-academica",
+      "performance": {
+        "url": "http://localhost:4321/acerca/oferta-academica",
+        "selenium_load_time": 1.53,
+        "browser_metrics": {
+          "domContentLoaded": 1363,
+          "firstPaint": 1348,
+          "loadTime": 1498,
+          "resources": 61
+        },
+        "status": "completed"
+      },
+      "seo": {
+        "url": "http://localhost:4321/acerca/oferta-academica",
+        "title": {
+          "content": "",
+          "length": 0,
+          "status": "warning"
+        },
+        "meta_description": {
+          "status": "missing"
+        },
+        "h1_tags": {
+          "count": 1,
+          "texts": [
+            "Oferta académica"
+          ],
+          "status": "good"
+        },
+        "images": {
+          "total": 11,
+          "without_alt": 0,
+          "missing_alt_srcs": []
+        }
+      },
+      "astro": {
+        "url": "http://localhost:4321/acerca/oferta-academica",
+        "astro_components": 0,
+        "hydration_scripts": 10,
+        "internal_links": 70
+      }
+    },
+    {
+      "url": "http://localhost:4321/acerca/Politicas",
+      "path": "/acerca/Politicas",
+      "performance": {
+        "url": "http://localhost:4321/acerca/Politicas",
+        "selenium_load_time": 1.34,
+        "browser_metrics": {
+          "domContentLoaded": 1161,
+          "firstPaint": 1152,
+          "loadTime": 1313,
+          "resources": 53
+        },
+        "status": "completed"
+      },
+      "seo": {
+        "url": "http://localhost:4321/acerca/Politicas",
+        "title": {
+          "content": "",
+          "length": 0,
+          "status": "warning"
+        },
+        "meta_description": {
+          "status": "missing"
+        },
+        "h1_tags": {
+          "count": 1,
+          "texts": [
+            "POLÍTICAS DE PRIVACIDAD"
+          ],
+          "status": "good"
+        },
+        "images": {
+          "total": 9,
+          "without_alt": 0,
+          "missing_alt_srcs": []
+        }
+      },
+      "astro": {
+        "url": "http://localhost:4321/acerca/Politicas",
+        "astro_components": 0,
+        "hydration_scripts": 7,
+        "internal_links": 68
+      }
+    },
+    {
+      "url": "http://localhost:4321/acerca/PreguntasFrecuentes",
+      "path": "/acerca/PreguntasFrecuentes",
+      "performance": {
+        "url": "http://localhost:4321/acerca/PreguntasFrecuentes",
+        "selenium_load_time": 1.79,
+        "browser_metrics": {
+          "domContentLoaded": 1628,
+          "firstPaint": 1592,
+          "loadTime": 1670,
+          "resources": 53
+        },
+        "status": "completed"
+      },
+      "seo": {
+        "url": "http://localhost:4321/acerca/PreguntasFrecuentes",
+        "title": {
+          "content": "",
+          "length": 0,
+          "status": "warning"
+        },
+        "meta_description": {
+          "status": "missing"
+        },
+        "h1_tags": {
+          "count": 1,
+          "texts": [
+            "FAQ"
+          ],
+          "status": "good"
+        },
+        "images": {
+          "total": 9,
+          "without_alt": 0,
+          "missing_alt_srcs": []
+        }
+      },
+      "astro": {
+        "url": "http://localhost:4321/acerca/PreguntasFrecuentes",
+        "astro_components": 0,
+        "hydration_scripts": 7,
+        "internal_links": 68
+      }
+    },
+    {
+      "url": "http://localhost:4321/acerca/Terminos-condiciones",
+      "path": "/acerca/Terminos-condiciones",
+      "performance": {
+        "url": "http://localhost:4321/acerca/Terminos-condiciones",
+        "selenium_load_time": 1.44,
+        "browser_metrics": {
+          "domContentLoaded": 1225,
+          "firstPaint": 1220,
+          "loadTime": 1344,
+          "resources": 52
+        },
+        "status": "completed"
+      },
+      "seo": {
+        "url": "http://localhost:4321/acerca/Terminos-condiciones",
+        "title": {
+          "content": "",
+          "length": 0,
+          "status": "warning"
+        },
+        "meta_description": {
+          "status": "missing"
+        },
+        "h1_tags": {
+          "count": 1,
+          "texts": [
+            "TÉRMINOS Y CONDICIONES"
+          ],
+          "status": "good"
+        },
+        "images": {
+          "total": 9,
+          "without_alt": 0,
+          "missing_alt_srcs": []
+        }
+      },
+      "astro": {
+        "url": "http://localhost:4321/acerca/Terminos-condiciones",
+        "astro_components": 0,
+        "hydration_scripts": 7,
+        "internal_links": 68
+      }
+    },
+    {
+      "url": "http://localhost:4321/blog",
+      "path": "/blog",
+      "performance": {
+        "url": "http://localhost:4321/blog",
+        "selenium_load_time": 1.46,
+        "browser_metrics": {
+          "domContentLoaded": 1342,
+          "firstPaint": 1280,
+          "loadTime": 1429,
+          "resources": 57
+        },
+        "status": "completed"
+      },
+      "seo": {
+        "url": "http://localhost:4321/blog",
+        "title": {
+          "content": "",
+          "length": 0,
+          "status": "warning"
+        },
+        "meta_description": {
+          "status": "missing"
+        },
+        "h1_tags": {
+          "count": 0,
+          "texts": [],
+          "status": "warning"
+        },
+        "images": {
+          "total": 14,
+          "without_alt": 0,
+          "missing_alt_srcs": []
+        }
+      },
+      "astro": {
+        "url": "http://localhost:4321/blog",
+        "astro_components": 0,
+        "hydration_scripts": 8,
+        "internal_links": 72
+      }
+    },
+    {
+      "url": "http://localhost:4321/blog/articulos/DesarrolloSoftware",
+      "path": "/blog/articulos/DesarrolloSoftware",
+      "performance": {
+        "url": "http://localhost:4321/blog/articulos/DesarrolloSoftware",
+        "selenium_load_time": 1.4,
+        "browser_metrics": {
+          "domContentLoaded": 1334,
+          "firstPaint": 1292,
+          "loadTime": 1354,
+          "resources": 53
+        },
+        "status": "completed"
+      },
+      "seo": {
+        "url": "http://localhost:4321/blog/articulos/DesarrolloSoftware",
+        "title": {
+          "content": "",
+          "length": 0,
+          "status": "warning"
+        },
+        "meta_description": {
+          "status": "missing"
+        },
+        "h1_tags": {
+          "count": 2,
+          "texts": [
+            "Desarrollo Ágil en la Ingeniería de Software",
+            "Desarrollo Ágil en la Ingeniería de Software: Adaptándose a los Cambios del Mercado y Mejorando la Colaboración"
+          ],
+          "status": "warning"
+        },
+        "images": {
+          "total": 10,
+          "without_alt": 0,
+          "missing_alt_srcs": []
+        }
+      },
+      "astro": {
+        "url": "http://localhost:4321/blog/articulos/DesarrolloSoftware",
+        "astro_components": 0,
+        "hydration_scripts": 8,
+        "internal_links": 68
+      }
+    },
+    {
+      "url": "http://localhost:4321/contacto/atencion-estudiantes",
+      "path": "/contacto/atencion-estudiantes",
+      "performance": {
+        "url": "http://localhost:4321/contacto/atencion-estudiantes",
+        "selenium_load_time": 2.03,
+        "browser_metrics": {
+          "domContentLoaded": 1470,
+          "firstPaint": 1452,
+          "loadTime": 2017,
+          "resources": 69
+        },
+        "status": "completed"
+      },
+      "seo": {
+        "url": "http://localhost:4321/contacto/atencion-estudiantes",
+        "title": {
+          "content": "",
+          "length": 0,
+          "status": "warning"
+        },
+        "meta_description": {
+          "status": "missing"
+        },
+        "h1_tags": {
+          "count": 1,
+          "texts": [
+            "Estamos aquí para apoyarte en tu camino académico"
+          ],
+          "status": "good"
+        },
+        "images": {
+          "total": 11,
+          "without_alt": 0,
+          "missing_alt_srcs": []
+        }
+      },
+      "astro": {
+        "url": "http://localhost:4321/contacto/atencion-estudiantes",
+        "astro_components": 0,
+        "hydration_scripts": 9,
+        "internal_links": 68
+      }
+    },
+    {
+      "url": "http://localhost:4321/contacto/formulario-inscripcion",
+      "path": "/contacto/formulario-inscripcion",
+      "performance": {
+        "url": "http://localhost:4321/contacto/formulario-inscripcion",
+        "selenium_load_time": 1.78,
+        "browser_metrics": {
+          "domContentLoaded": 1477,
+          "firstPaint": 1456,
+          "loadTime": 1762,
+          "resources": 58
+        },
+        "status": "completed"
+      },
+      "seo": {
+        "url": "http://localhost:4321/contacto/formulario-inscripcion",
+        "title": {
+          "content": "",
+          "length": 0,
+          "status": "warning"
+        },
+        "meta_description": {
+          "status": "missing"
+        },
+        "h1_tags": {
+          "count": 1,
+          "texts": [
+            "Bienvenido a tu proceso de Inscripción"
+          ],
+          "status": "good"
+        },
+        "images": {
+          "total": 11,
+          "without_alt": 0,
+          "missing_alt_srcs": []
+        }
+      },
+      "astro": {
+        "url": "http://localhost:4321/contacto/formulario-inscripcion",
+        "astro_components": 0,
+        "hydration_scripts": 8,
+        "internal_links": 68
+      }
+    },
+    {
+      "url": "http://localhost:4321/contacto/solicitarinformacion",
+      "path": "/contacto/solicitarinformacion",
+      "performance": {
+        "url": "http://localhost:4321/contacto/solicitarinformacion",
+        "selenium_load_time": 1.7,
+        "browser_metrics": {
+          "domContentLoaded": 1269,
+          "firstPaint": 1260,
+          "loadTime": 1682,
+          "resources": 67
+        },
+        "status": "completed"
+      },
+      "seo": {
+        "url": "http://localhost:4321/contacto/solicitarinformacion",
+        "title": {
+          "content": "",
+          "length": 0,
+          "status": "warning"
+        },
+        "meta_description": {
+          "status": "missing"
+        },
+        "h1_tags": {
+          "count": 1,
+          "texts": [
+            "Estamos aquí para\nayudarte"
+          ],
+          "status": "good"
+        },
+        "images": {
+          "total": 11,
+          "without_alt": 0,
+          "missing_alt_srcs": []
+        }
+      },
+      "astro": {
+        "url": "http://localhost:4321/contacto/solicitarinformacion",
+        "astro_components": 0,
+        "hydration_scripts": 8,
+        "internal_links": 70
+      }
+    },
+    {
+      "url": "http://localhost:4321/contacto/solicitarvisita",
+      "path": "/contacto/solicitarvisita",
+      "performance": {
+        "url": "http://localhost:4321/contacto/solicitarvisita",
+        "selenium_load_time": 1.69,
+        "browser_metrics": {
+          "domContentLoaded": 1321,
+          "firstPaint": 1308,
+          "loadTime": 1674,
+          "resources": 65
+        },
+        "status": "completed"
+      },
+      "seo": {
+        "url": "http://localhost:4321/contacto/solicitarvisita",
+        "title": {
+          "content": "",
+          "length": 0,
+          "status": "warning"
+        },
+        "meta_description": {
+          "status": "missing"
+        },
+        "h1_tags": {
+          "count": 1,
+          "texts": [
+            "No te pierdas la oportunidad de conocernos"
+          ],
+          "status": "good"
+        },
+        "images": {
+          "total": 11,
+          "without_alt": 0,
+          "missing_alt_srcs": []
+        }
+      },
+      "astro": {
+        "url": "http://localhost:4321/contacto/solicitarvisita",
+        "astro_components": 0,
+        "hydration_scripts": 7,
+        "internal_links": 70
+      }
+    },
+    {
+      "url": "http://localhost:4321/informacionescolar/Bibliotecas",
+      "path": "/informacionescolar/Bibliotecas",
+      "performance": {
+        "url": "http://localhost:4321/informacionescolar/Bibliotecas",
+        "selenium_load_time": 1.96,
+        "browser_metrics": {
+          "domContentLoaded": 1545,
+          "firstPaint": 1500,
+          "loadTime": 1944,
+          "resources": 64
+        },
+        "status": "completed"
+      },
+      "seo": {
+        "url": "http://localhost:4321/informacionescolar/Bibliotecas",
+        "title": {
+          "content": "",
+          "length": 0,
+          "status": "warning"
+        },
+        "meta_description": {
+          "status": "missing"
+        },
+        "h1_tags": {
+          "count": 1,
+          "texts": [
+            "Bibliotecas UNE"
+          ],
+          "status": "good"
+        },
+        "images": {
+          "total": 11,
+          "without_alt": 0,
+          "missing_alt_srcs": []
+        }
+      },
+      "astro": {
+        "url": "http://localhost:4321/informacionescolar/Bibliotecas",
+        "astro_components": 0,
+        "hydration_scripts": 7,
+        "internal_links": 69
+      }
+    },
+    {
+      "url": "http://localhost:4321/informacionescolar/Control-escolar",
+      "path": "/informacionescolar/Control-escolar",
+      "performance": {
+        "url": "http://localhost:4321/informacionescolar/Control-escolar",
+        "selenium_load_time": 2.57,
+        "browser_metrics": {
+          "domContentLoaded": 1832,
+          "firstPaint": 1808,
+          "loadTime": 2548,
+          "resources": 63
+        },
+        "status": "completed"
+      },
+      "seo": {
+        "url": "http://localhost:4321/informacionescolar/Control-escolar",
+        "title": {
+          "content": "",
+          "length": 0,
+          "status": "warning"
+        },
+        "meta_description": {
+          "status": "missing"
+        },
+        "h1_tags": {
+          "count": 1,
+          "texts": [
+            "Control Escolar"
+          ],
+          "status": "good"
+        },
+        "images": {
+          "total": 9,
+          "without_alt": 0,
+          "missing_alt_srcs": []
+        }
+      },
+      "astro": {
+        "url": "http://localhost:4321/informacionescolar/Control-escolar",
+        "astro_components": 0,
+        "hydration_scripts": 7,
+        "internal_links": 68
+      }
+    },
+    {
+      "url": "http://localhost:4321/informacionescolar/Practicasprofesionales",
+      "path": "/informacionescolar/Practicasprofesionales",
+      "performance": {
+        "url": "http://localhost:4321/informacionescolar/Practicasprofesionales",
+        "selenium_load_time": 1.39,
+        "browser_metrics": {
+          "domContentLoaded": 1253,
+          "firstPaint": 1192,
+          "loadTime": 1343,
+          "resources": 57
+        },
+        "status": "completed"
+      },
+      "seo": {
+        "url": "http://localhost:4321/informacionescolar/Practicasprofesionales",
+        "title": {
+          "content": "",
+          "length": 0,
+          "status": "warning"
+        },
+        "meta_description": {
+          "status": "missing"
+        },
+        "h1_tags": {
+          "count": 1,
+          "texts": [
+            "TITULACIÓN"
+          ],
+          "status": "good"
+        },
+        "images": {
+          "total": 17,
+          "without_alt": 0,
+          "missing_alt_srcs": []
+        }
+      },
+      "astro": {
+        "url": "http://localhost:4321/informacionescolar/Practicasprofesionales",
+        "astro_components": 0,
+        "hydration_scripts": 7,
+        "internal_links": 68
+      }
+    },
+    {
+      "url": "http://localhost:4321/informacionescolar/serviciosescolares",
+      "path": "/informacionescolar/serviciosescolares",
+      "performance": {
+        "url": "http://localhost:4321/informacionescolar/serviciosescolares",
+        "selenium_load_time": 1.49,
+        "browser_metrics": {
+          "domContentLoaded": 1314,
+          "firstPaint": 1356,
+          "loadTime": 1372,
+          "resources": 59
+        },
+        "status": "completed"
+      },
+      "seo": {
+        "url": "http://localhost:4321/informacionescolar/serviciosescolares",
+        "title": {
+          "content": "",
+          "length": 0,
+          "status": "warning"
+        },
+        "meta_description": {
+          "status": "missing"
+        },
+        "h1_tags": {
+          "count": 1,
+          "texts": [
+            "SERVICIOS ESCOLARES"
+          ],
+          "status": "good"
+        },
+        "images": {
+          "total": 13,
+          "without_alt": 0,
+          "missing_alt_srcs": []
+        }
+      },
+      "astro": {
+        "url": "http://localhost:4321/informacionescolar/serviciosescolares",
+        "astro_components": 0,
+        "hydration_scripts": 9,
+        "internal_links": 70
+      }
+    },
+    {
+      "url": "http://localhost:4321/informacionescolar/Serviciosocial",
+      "path": "/informacionescolar/Serviciosocial",
+      "performance": {
+        "url": "http://localhost:4321/informacionescolar/Serviciosocial",
+        "selenium_load_time": 1.45,
+        "browser_metrics": {
+          "domContentLoaded": 1306,
+          "firstPaint": 1340,
+          "loadTime": 1423,
+          "resources": 57
+        },
+        "status": "completed"
+      },
+      "seo": {
+        "url": "http://localhost:4321/informacionescolar/Serviciosocial",
+        "title": {
+          "content": "",
+          "length": 0,
+          "status": "warning"
+        },
+        "meta_description": {
+          "status": "missing"
+        },
+        "h1_tags": {
+          "count": 1,
+          "texts": [
+            "SERVICIO SOCIAL"
+          ],
+          "status": "good"
+        },
+        "images": {
+          "total": 16,
+          "without_alt": 0,
+          "missing_alt_srcs": []
+        }
+      },
+      "astro": {
+        "url": "http://localhost:4321/informacionescolar/Serviciosocial",
+        "astro_components": 0,
+        "hydration_scripts": 7,
+        "internal_links": 68
+      }
+    },
+    {
+      "url": "http://localhost:4321/oferta/Continua",
+      "path": "/oferta/Continua",
+      "performance": {
+        "url": "http://localhost:4321/oferta/Continua",
+        "selenium_load_time": 1.51,
+        "browser_metrics": {
+          "domContentLoaded": 1318,
+          "firstPaint": 1244,
+          "loadTime": 1496,
+          "resources": 68
+        },
+        "status": "completed"
+      },
+      "seo": {
+        "url": "http://localhost:4321/oferta/Continua",
+        "title": {
+          "content": "",
+          "length": 0,
+          "status": "warning"
+        },
+        "meta_description": {
+          "status": "missing"
+        },
+        "h1_tags": {
+          "count": 3,
+          "texts": [
+            "Conviértete en experto",
+            "EDUCACIÓN CONTINUA",
+            "¿Listo para impulsar tu aprendizaje?"
+          ],
+          "status": "warning"
+        },
+        "images": {
+          "total": 21,
+          "without_alt": 0,
+          "missing_alt_srcs": []
+        }
+      },
+      "astro": {
+        "url": "http://localhost:4321/oferta/Continua",
+        "astro_components": 0,
+        "hydration_scripts": 9,
+        "internal_links": 85
+      }
+    },
+    {
+      "url": "http://localhost:4321/oferta/Diplomados",
+      "path": "/oferta/Diplomados",
+      "performance": {
+        "url": "http://localhost:4321/oferta/Diplomados",
+        "selenium_load_time": 1.64,
+        "browser_metrics": {
+          "domContentLoaded": 1395,
+          "firstPaint": 1384,
+          "loadTime": 1618,
+          "resources": 61
+        },
+        "status": "completed"
+      },
+      "seo": {
+        "url": "http://localhost:4321/oferta/Diplomados",
+        "title": {
+          "content": "",
+          "length": 0,
+          "status": "warning"
+        },
+        "meta_description": {
+          "status": "missing"
+        },
+        "h1_tags": {
+          "count": 2,
+          "texts": [
+            "Diplomados",
+            "¿Listo para impulsar tu aprendizaje?"
+          ],
+          "status": "warning"
+        },
+        "images": {
+          "total": 15,
+          "without_alt": 0,
+          "missing_alt_srcs": []
+        }
+      },
+      "astro": {
+        "url": "http://localhost:4321/oferta/Diplomados",
+        "astro_components": 0,
+        "hydration_scripts": 8,
+        "internal_links": 77
+      }
+    },
+    {
+      "url": "http://localhost:4321/oferta/Especialidades",
+      "path": "/oferta/Especialidades",
+      "performance": {
+        "url": "http://localhost:4321/oferta/Especialidades",
+        "selenium_load_time": 1.47,
+        "browser_metrics": {
+          "domContentLoaded": 1207,
+          "firstPaint": 1180,
+          "loadTime": 1459,
+          "resources": 66
+        },
+        "status": "completed"
+      },
+      "seo": {
+        "url": "http://localhost:4321/oferta/Especialidades",
+        "title": {
+          "content": "",
+          "length": 0,
+          "status": "warning"
+        },
+        "meta_description": {
+          "status": "missing"
+        },
+        "h1_tags": {
+          "count": 3,
+          "texts": [
+            "Especialidades UNE",
+            "ESPECIALIDADES",
+            "¿Listo para impulsar tu aprendizaje?"
+          ],
+          "status": "warning"
+        },
+        "images": {
+          "total": 16,
+          "without_alt": 2,
+          "missing_alt_srcs": [
+            "http://localhost:4321/@fs/C:/Users/Eliez/VSCode/Universidad-UNE/UNE/src/assets/Imagenes/CardsEspecialidades/Educacion.webp?origWidth=368&origHeight=265&origFormat=webp",
+            "http://localhost:4321/@fs/C:/Users/Eliez/VSCode/Universidad-UNE/UNE/src/assets/Imagenes/CardsEspecialidades/Educacion.webp?origWidth=368&origHeight=265&origFormat=webp"
+          ]
+        }
+      },
+      "astro": {
+        "url": "http://localhost:4321/oferta/Especialidades",
+        "astro_components": 0,
+        "hydration_scripts": 9,
+        "internal_links": 80
+      }
+    },
+    {
+      "url": "http://localhost:4321/oferta/Licenciaturas",
+      "path": "/oferta/Licenciaturas",
+      "performance": {
+        "url": "http://localhost:4321/oferta/Licenciaturas",
+        "selenium_load_time": 1.57,
+        "browser_metrics": {
+          "domContentLoaded": 1152,
+          "firstPaint": 1144,
+          "loadTime": 1507,
+          "resources": 99
+        },
+        "status": "completed"
+      },
+      "seo": {
+        "url": "http://localhost:4321/oferta/Licenciaturas",
+        "title": {
+          "content": "",
+          "length": 0,
+          "status": "warning"
+        },
+        "meta_description": {
+          "status": "missing"
+        },
+        "h1_tags": {
+          "count": 3,
+          "texts": [
+            "Licenciaturas UNE",
+            "ÁREAS DE CONOCIMIENTO",
+            "¿Listo para impulsar tu aprendizaje?"
+          ],
+          "status": "warning"
+        },
+        "images": {
+          "total": 48,
+          "without_alt": 0,
+          "missing_alt_srcs": []
+        }
+      },
+      "astro": {
+        "url": "http://localhost:4321/oferta/Licenciaturas",
+        "astro_components": 0,
+        "hydration_scripts": 9,
+        "internal_links": 112
+      }
+    },
+    {
+      "url": "http://localhost:4321/oferta/Maestria",
+      "path": "/oferta/Maestria",
+      "performance": {
+        "url": "http://localhost:4321/oferta/Maestria",
+        "selenium_load_time": 1.44,
+        "browser_metrics": {
+          "domContentLoaded": 1203,
+          "firstPaint": 1148,
+          "loadTime": 1379,
+          "resources": 69
+        },
+        "status": "completed"
+      },
+      "seo": {
+        "url": "http://localhost:4321/oferta/Maestria",
+        "title": {
+          "content": "",
+          "length": 0,
+          "status": "warning"
+        },
+        "meta_description": {
+          "status": "missing"
+        },
+        "h1_tags": {
+          "count": 3,
+          "texts": [
+            "Maestrías UNE",
+            "MAESTRÍAS",
+            "¿Listo para impulsar tu aprendizaje?"
+          ],
+          "status": "warning"
+        },
+        "images": {
+          "total": 22,
+          "without_alt": 0,
+          "missing_alt_srcs": []
+        }
+      },
+      "astro": {
+        "url": "http://localhost:4321/oferta/Maestria",
+        "astro_components": 0,
+        "hydration_scripts": 9,
+        "internal_links": 86
+      }
+    },
+    {
+      "url": "http://localhost:4321/oferta/colegio-une/Bachillerato-sej",
+      "path": "/oferta/colegio-une/Bachillerato-sej",
+      "performance": {
+        "url": "http://localhost:4321/oferta/colegio-une/Bachillerato-sej",
+        "selenium_load_time": 1.65,
+        "browser_metrics": {
+          "domContentLoaded": 1236,
+          "firstPaint": 1140,
+          "loadTime": 1534,
+          "resources": 84
+        },
+        "status": "completed"
+      },
+      "seo": {
+        "url": "http://localhost:4321/oferta/colegio-une/Bachillerato-sej",
+        "title": {
+          "content": "",
+          "length": 0,
+          "status": "warning"
+        },
+        "meta_description": {
+          "status": "missing"
+        },
+        "h1_tags": {
+          "count": 5,
+          "texts": [
+            "Bachillerato Intensivo Semiescolarizado",
+            "Encuentra tu campus más cercano",
+            "CONOCE NUESTROS COSTOS",
+            "Propuesta Educativa",
+            "¿Listo para impulsar tu aprendizaje?"
+          ],
+          "status": "warning"
+        },
+        "images": {
+          "total": 43,
+          "without_alt": 0,
+          "missing_alt_srcs": []
+        }
+      },
+      "astro": {
+        "url": "http://localhost:4321/oferta/colegio-une/Bachillerato-sej",
+        "astro_components": 0,
+        "hydration_scripts": 16,
+        "internal_links": 118
+      }
+    },
+    {
+      "url": "http://localhost:4321/oferta/colegio-une/Bachillerato-udg",
+      "path": "/oferta/colegio-une/Bachillerato-udg",
+      "performance": {
+        "url": "http://localhost:4321/oferta/colegio-une/Bachillerato-udg",
+        "selenium_load_time": 1.6,
+        "browser_metrics": {
+          "domContentLoaded": 1183,
+          "firstPaint": 1160,
+          "loadTime": 1529,
+          "resources": 77
+        },
+        "status": "completed"
+      },
+      "seo": {
+        "url": "http://localhost:4321/oferta/colegio-une/Bachillerato-udg",
+        "title": {
+          "content": "",
+          "length": 0,
+          "status": "warning"
+        },
+        "meta_description": {
+          "status": "missing"
+        },
+        "h1_tags": {
+          "count": 5,
+          "texts": [
+            "Bachillerato UDG",
+            "Encuentra tu campus más cercano",
+            "CONOCE NUESTROS COSTOS",
+            "Propuesta Educativa",
+            "¿Listo para impulsar tu aprendizaje?"
+          ],
+          "status": "warning"
+        },
+        "images": {
+          "total": 41,
+          "without_alt": 0,
+          "missing_alt_srcs": []
+        }
+      },
+      "astro": {
+        "url": "http://localhost:4321/oferta/colegio-une/Bachillerato-udg",
+        "astro_components": 0,
+        "hydration_scripts": 16,
+        "internal_links": 114
+      }
+    },
+    {
+      "url": "http://localhost:4321/oferta/colegio-une/Bachillerato",
+      "path": "/oferta/colegio-une/Bachillerato",
+      "performance": {
+        "url": "http://localhost:4321/oferta/colegio-une/Bachillerato",
+        "selenium_load_time": 1.44,
+        "browser_metrics": {
+          "domContentLoaded": 1287,
+          "firstPaint": 1296,
+          "loadTime": 1358,
+          "resources": 76
+        },
+        "status": "completed"
+      },
+      "seo": {
+        "url": "http://localhost:4321/oferta/colegio-une/Bachillerato",
+        "title": {
+          "content": "",
+          "length": 0,
+          "status": "warning"
+        },
+        "meta_description": {
+          "status": "missing"
+        },
+        "h1_tags": {
+          "count": 5,
+          "texts": [
+            "Bachillerato UDG",
+            "Encuentra tu campus más cercano",
+            "CONOCE NUESTROS COSTOS",
+            "Propuesta Educativa",
+            "¿Listo para impulsar tu aprendizaje?"
+          ],
+          "status": "warning"
+        },
+        "images": {
+          "total": 41,
+          "without_alt": 0,
+          "missing_alt_srcs": []
+        }
+      },
+      "astro": {
+        "url": "http://localhost:4321/oferta/colegio-une/Bachillerato",
+        "astro_components": 0,
+        "hydration_scripts": 16,
+        "internal_links": 114
+      }
+    },
+    {
+      "url": "http://localhost:4321/oferta/colegio-une/Primaria",
+      "path": "/oferta/colegio-une/Primaria",
+      "performance": {
+        "url": "http://localhost:4321/oferta/colegio-une/Primaria",
+        "selenium_load_time": 1.46,
+        "browser_metrics": {
+          "domContentLoaded": 1121,
+          "firstPaint": 1100,
+          "loadTime": 1440,
+          "resources": 74
+        },
+        "status": "completed"
+      },
+      "seo": {
+        "url": "http://localhost:4321/oferta/colegio-une/Primaria",
+        "title": {
+          "content": "",
+          "length": 0,
+          "status": "warning"
+        },
+        "meta_description": {
+          "status": "missing"
+        },
+        "h1_tags": {
+          "count": 4,
+          "texts": [
+            "PRIMARIA",
+            "Encuentra tu campus más cercano",
+            "CONOCE NUESTROS COSTOS",
+            "¿Listo para impulsar tu aprendizaje?"
+          ],
+          "status": "warning"
+        },
+        "images": {
+          "total": 24,
+          "without_alt": 0,
+          "missing_alt_srcs": []
+        }
+      },
+      "astro": {
+        "url": "http://localhost:4321/oferta/colegio-une/Primaria",
+        "astro_components": 0,
+        "hydration_scripts": 15,
+        "internal_links": 77
+      }
+    },
+    {
+      "url": "http://localhost:4321/oferta/colegio-une/Secundaria",
+      "path": "/oferta/colegio-une/Secundaria",
+      "performance": {
+        "url": "http://localhost:4321/oferta/colegio-une/Secundaria",
+        "selenium_load_time": 1.34,
+        "browser_metrics": {
+          "domContentLoaded": 1232,
+          "firstPaint": 1220,
+          "loadTime": 1331,
+          "resources": 74
+        },
+        "status": "completed"
+      },
+      "seo": {
+        "url": "http://localhost:4321/oferta/colegio-une/Secundaria",
+        "title": {
+          "content": "",
+          "length": 0,
+          "status": "warning"
+        },
+        "meta_description": {
+          "status": "missing"
+        },
+        "h1_tags": {
+          "count": 5,
+          "texts": [
+            "Secundaria",
+            "Encuentra tu campus más cercano",
+            "CONOCE NUESTROS COSTOS",
+            "Propuesta Educativa",
+            "¿Listo para impulsar tu aprendizaje?"
+          ],
+          "status": "warning"
+        },
+        "images": {
+          "total": 34,
+          "without_alt": 0,
+          "missing_alt_srcs": []
+        }
+      },
+      "astro": {
+        "url": "http://localhost:4321/oferta/colegio-une/Secundaria",
+        "astro_components": 0,
+        "hydration_scripts": 16,
+        "internal_links": 97
+      }
+    },
+    {
+      "url": "http://localhost:4321/oferta/licenciaturas/abogado",
+      "path": "/oferta/licenciaturas/abogado",
+      "performance": {
+        "url": "http://localhost:4321/oferta/licenciaturas/abogado",
+        "selenium_load_time": 1.27,
+        "browser_metrics": {
+          "domContentLoaded": 1132,
+          "firstPaint": 1120,
+          "loadTime": 1205,
+          "resources": 63
+        },
+        "status": "completed"
+      },
+      "seo": {
+        "url": "http://localhost:4321/oferta/licenciaturas/abogado",
+        "title": {
+          "content": "",
+          "length": 0,
+          "status": "warning"
+        },
+        "meta_description": {
+          "status": "missing"
+        },
+        "h1_tags": {
+          "count": 4,
+          "texts": [
+            "Lic. en Abogado",
+            "Propuesta Educativa",
+            "Encuentra tu campus más cercano",
+            "¿Listo para impulsar tu aprendizaje?"
+          ],
+          "status": "warning"
+        },
+        "images": {
+          "total": 16,
+          "without_alt": 0,
+          "missing_alt_srcs": []
+        }
+      },
+      "astro": {
+        "url": "http://localhost:4321/oferta/licenciaturas/abogado",
+        "astro_components": 0,
+        "hydration_scripts": 12,
+        "internal_links": 77
+      }
+    },
+    {
+      "url": "http://localhost:4321/oferta/licenciaturas/administracion",
+      "path": "/oferta/licenciaturas/administracion",
+      "performance": {
+        "url": "http://localhost:4321/oferta/licenciaturas/administracion",
+        "selenium_load_time": 1.26,
+        "browser_metrics": {
+          "domContentLoaded": 1099,
+          "firstPaint": 1100,
+          "loadTime": 1229,
+          "resources": 63
+        },
+        "status": "completed"
+      },
+      "seo": {
+        "url": "http://localhost:4321/oferta/licenciaturas/administracion",
+        "title": {
+          "content": "",
+          "length": 0,
+          "status": "warning"
+        },
+        "meta_description": {
+          "status": "missing"
+        },
+        "h1_tags": {
+          "count": 4,
+          "texts": [
+            "Administración",
+            "Propuesta Educativa",
+            "Encuentra tu campus más cercano",
+            "¿Listo para impulsar tu aprendizaje?"
+          ],
+          "status": "warning"
+        },
+        "images": {
+          "total": 16,
+          "without_alt": 0,
+          "missing_alt_srcs": []
+        }
+      },
+      "astro": {
+        "url": "http://localhost:4321/oferta/licenciaturas/administracion",
+        "astro_components": 0,
+        "hydration_scripts": 12,
+        "internal_links": 77
+      }
+    },
+    {
+      "url": "http://localhost:4321/oferta/licenciaturas/administracion_de_empresas",
+      "path": "/oferta/licenciaturas/administracion_de_empresas",
+      "performance": {
+        "url": "http://localhost:4321/oferta/licenciaturas/administracion_de_empresas",
+        "selenium_load_time": 1.4,
+        "browser_metrics": {
+          "domContentLoaded": 1116,
+          "firstPaint": 1116,
+          "loadTime": 1387,
+          "resources": 72
+        },
+        "status": "completed"
+      },
+      "seo": {
+        "url": "http://localhost:4321/oferta/licenciaturas/administracion_de_empresas",
+        "title": {
+          "content": "",
+          "length": 0,
+          "status": "warning"
+        },
+        "meta_description": {
+          "status": "missing"
+        },
+        "h1_tags": {
+          "count": 4,
+          "texts": [
+            "Lic. en Administración de empresas",
+            "Propuesta Educativa",
+            "Encuentra tu campus más cercano",
+            "¿Listo para impulsar tu aprendizaje?"
+          ],
+          "status": "warning"
+        },
+        "images": {
+          "total": 38,
+          "without_alt": 0,
+          "missing_alt_srcs": []
+        }
+      },
+      "astro": {
+        "url": "http://localhost:4321/oferta/licenciaturas/administracion_de_empresas",
+        "astro_components": 0,
+        "hydration_scripts": 12,
+        "internal_links": 121
+      }
+    },
+    {
+      "url": "http://localhost:4321/oferta/licenciaturas/administracion_de_sistemas_de_informacion",
+      "path": "/oferta/licenciaturas/administracion_de_sistemas_de_informacion",
+      "performance": {
+        "url": "http://localhost:4321/oferta/licenciaturas/administracion_de_sistemas_de_informacion",
+        "selenium_load_time": 1.32,
+        "browser_metrics": {
+          "domContentLoaded": 1111,
+          "firstPaint": 1100,
+          "loadTime": 1290,
+          "resources": 64
+        },
+        "status": "completed"
+      },
+      "seo": {
+        "url": "http://localhost:4321/oferta/licenciaturas/administracion_de_sistemas_de_informacion",
+        "title": {
+          "content": "",
+          "length": 0,
+          "status": "warning"
+        },
+        "meta_description": {
+          "status": "missing"
+        },
+        "h1_tags": {
+          "count": 3,
+          "texts": [
+            "Administración de Sistemas de Información",
+            "Encuentra tu campus más cercano",
+            "¿Listo para impulsar tu aprendizaje?"
+          ],
+          "status": "warning"
+        },
+        "images": {
+          "total": 16,
+          "without_alt": 0,
+          "missing_alt_srcs": []
+        }
+      },
+      "astro": {
+        "url": "http://localhost:4321/oferta/licenciaturas/administracion_de_sistemas_de_informacion",
+        "astro_components": 0,
+        "hydration_scripts": 11,
+        "internal_links": 77
+      }
+    },
+    {
+      "url": "http://localhost:4321/oferta/licenciaturas/alta_direccion",
+      "path": "/oferta/licenciaturas/alta_direccion",
+      "performance": {
+        "url": "http://localhost:4321/oferta/licenciaturas/alta_direccion",
+        "selenium_load_time": 1.41,
+        "browser_metrics": {
+          "domContentLoaded": 1112,
+          "firstPaint": 1100,
+          "loadTime": 1365,
+          "resources": 68
+        },
+        "status": "completed"
+      },
+      "seo": {
+        "url": "http://localhost:4321/oferta/licenciaturas/alta_direccion",
+        "title": {
+          "content": "",
+          "length": 0,
+          "status": "warning"
+        },
+        "meta_description": {
+          "status": "missing"
+        },
+        "h1_tags": {
+          "count": 4,
+          "texts": [
+            "Lic. en Alta dirección",
+            "Propuesta Educativa",
+            "Encuentra tu campus más cercano",
+            "¿Listo para impulsar tu aprendizaje?"
+          ],
+          "status": "warning"
+        },
+        "images": {
+          "total": 20,
+          "without_alt": 0,
+          "missing_alt_srcs": []
+        }
+      },
+      "astro": {
+        "url": "http://localhost:4321/oferta/licenciaturas/alta_direccion",
+        "astro_components": 0,
+        "hydration_scripts": 12,
+        "internal_links": 85
+      }
+    },
+    {
+      "url": "http://localhost:4321/oferta/licenciaturas/arquitectura",
+      "path": "/oferta/licenciaturas/arquitectura",
+      "performance": {
+        "url": "http://localhost:4321/oferta/licenciaturas/arquitectura",
+        "selenium_load_time": 1.28,
+        "browser_metrics": {
+          "domContentLoaded": 1115,
+          "firstPaint": 1100,
+          "loadTime": 1255,
+          "resources": 65
+        },
+        "status": "completed"
+      },
+      "seo": {
+        "url": "http://localhost:4321/oferta/licenciaturas/arquitectura",
+        "title": {
+          "content": "",
+          "length": 0,
+          "status": "warning"
+        },
+        "meta_description": {
+          "status": "missing"
+        },
+        "h1_tags": {
+          "count": 4,
+          "texts": [
+            "Arquitectura",
+            "Propuesta Educativa",
+            "Encuentra tu campus más cercano",
+            "¿Listo para impulsar tu aprendizaje?"
+          ],
+          "status": "warning"
+        },
+        "images": {
+          "total": 28,
+          "without_alt": 0,
+          "missing_alt_srcs": []
+        }
+      },
+      "astro": {
+        "url": "http://localhost:4321/oferta/licenciaturas/arquitectura",
+        "astro_components": 0,
+        "hydration_scripts": 12,
+        "internal_links": 101
+      }
+    },
+    {
+      "url": "http://localhost:4321/oferta/licenciaturas/ciencias_de_la_comunicacion",
+      "path": "/oferta/licenciaturas/ciencias_de_la_comunicacion",
+      "performance": {
+        "url": "http://localhost:4321/oferta/licenciaturas/ciencias_de_la_comunicacion",
+        "selenium_load_time": 1.43,
+        "browser_metrics": {
+          "domContentLoaded": 1114,
+          "firstPaint": 1100,
+          "loadTime": 1419,
+          "resources": 70
+        },
+        "status": "completed"
+      },
+      "seo": {
+        "url": "http://localhost:4321/oferta/licenciaturas/ciencias_de_la_comunicacion",
+        "title": {
+          "content": "",
+          "length": 0,
+          "status": "warning"
+        },
+        "meta_description": {
+          "status": "missing"
+        },
+        "h1_tags": {
+          "count": 4,
+          "texts": [
+            "Ciencias de la comunicacion",
+            "Propuesta Educativa",
+            "Encuentra tu campus más cercano",
+            "¿Listo para impulsar tu aprendizaje?"
+          ],
+          "status": "warning"
+        },
+        "images": {
+          "total": 18,
+          "without_alt": 0,
+          "missing_alt_srcs": []
+        }
+      },
+      "astro": {
+        "url": "http://localhost:4321/oferta/licenciaturas/ciencias_de_la_comunicacion",
+        "astro_components": 0,
+        "hydration_scripts": 12,
+        "internal_links": 81
+      }
+    },
+    {
+      "url": "http://localhost:4321/oferta/licenciaturas/ciencias_de_la_educacion",
+      "path": "/oferta/licenciaturas/ciencias_de_la_educacion",
+      "performance": {
+        "url": "http://localhost:4321/oferta/licenciaturas/ciencias_de_la_educacion",
+        "selenium_load_time": 1.39,
+        "browser_metrics": {
+          "domContentLoaded": 1136,
+          "firstPaint": 1124,
+          "loadTime": 1358,
+          "resources": 67
+        },
+        "status": "completed"
+      },
+      "seo": {
+        "url": "http://localhost:4321/oferta/licenciaturas/ciencias_de_la_educacion",
+        "title": {
+          "content": "",
+          "length": 0,
+          "status": "warning"
+        },
+        "meta_description": {
+          "status": "missing"
+        },
+        "h1_tags": {
+          "count": 4,
+          "texts": [
+            "Ciencias de la educación",
+            "Propuesta Educativa",
+            "Encuentra tu campus más cercano",
+            "¿Listo para impulsar tu aprendizaje?"
+          ],
+          "status": "warning"
+        },
+        "images": {
+          "total": 22,
+          "without_alt": 0,
+          "missing_alt_srcs": []
+        }
+      },
+      "astro": {
+        "url": "http://localhost:4321/oferta/licenciaturas/ciencias_de_la_educacion",
+        "astro_components": 0,
+        "hydration_scripts": 12,
+        "internal_links": 89
+      }
+    },
+    {
+      "url": "http://localhost:4321/oferta/licenciaturas/cirujano_dentista",
+      "path": "/oferta/licenciaturas/cirujano_dentista",
+      "performance": {
+        "url": "http://localhost:4321/oferta/licenciaturas/cirujano_dentista",
+        "selenium_load_time": 1.33,
+        "browser_metrics": {
+          "domContentLoaded": 1107,
+          "firstPaint": 1092,
+          "loadTime": 1307,
+          "resources": 67
+        },
+        "status": "completed"
+      },
+      "seo": {
+        "url": "http://localhost:4321/oferta/licenciaturas/cirujano_dentista",
+        "title": {
+          "content": "",
+          "length": 0,
+          "status": "warning"
+        },
+        "meta_description": {
+          "status": "missing"
+        },
+        "h1_tags": {
+          "count": 4,
+          "texts": [
+            "Lic. en Cirujano Dentista",
+            "Propuesta Educativa",
+            "Encuentra tu campus más cercano",
+            "¿Listo para impulsar tu aprendizaje?"
+          ],
+          "status": "warning"
+        },
+        "images": {
+          "total": 26,
+          "without_alt": 0,
+          "missing_alt_srcs": []
+        }
+      },
+      "astro": {
+        "url": "http://localhost:4321/oferta/licenciaturas/cirujano_dentista",
+        "astro_components": 0,
+        "hydration_scripts": 12,
+        "internal_links": 97
+      }
+    },
+    {
+      "url": "http://localhost:4321/oferta/licenciaturas/comercio_negocios_globales",
+      "path": "/oferta/licenciaturas/comercio_negocios_globales",
+      "performance": {
+        "url": "http://localhost:4321/oferta/licenciaturas/comercio_negocios_globales",
+        "selenium_load_time": 1.51,
+        "browser_metrics": {
+          "domContentLoaded": 1392,
+          "firstPaint": 1408,
+          "loadTime": 1457,
+          "resources": 63
+        },
+        "status": "completed"
+      },
+      "seo": {
+        "url": "http://localhost:4321/oferta/licenciaturas/comercio_negocios_globales",
+        "title": {
+          "content": "",
+          "length": 0,
+          "status": "warning"
+        },
+        "meta_description": {
+          "status": "missing"
+        },
+        "h1_tags": {
+          "count": 4,
+          "texts": [
+            "Lic. en Cirujano Dentista",
+            "Propuesta Educativa",
+            "Encuentra tu campus más cercano",
+            "¿Listo para impulsar tu aprendizaje?"
+          ],
+          "status": "warning"
+        },
+        "images": {
+          "total": 36,
+          "without_alt": 0,
+          "missing_alt_srcs": []
+        }
+      },
+      "astro": {
+        "url": "http://localhost:4321/oferta/licenciaturas/comercio_negocios_globales",
+        "astro_components": 0,
+        "hydration_scripts": 12,
+        "internal_links": 117
+      }
+    },
+    {
+      "url": "http://localhost:4321/oferta/licenciaturas/contaduria",
+      "path": "/oferta/licenciaturas/contaduria",
+      "performance": {
+        "url": "http://localhost:4321/oferta/licenciaturas/contaduria",
+        "selenium_load_time": 1.52,
+        "browser_metrics": {
+          "domContentLoaded": 1402,
+          "firstPaint": 1412,
+          "loadTime": 1497,
+          "resources": 63
+        },
+        "status": "completed"
+      },
+      "seo": {
+        "url": "http://localhost:4321/oferta/licenciaturas/contaduria",
+        "title": {
+          "content": "",
+          "length": 0,
+          "status": "warning"
+        },
+        "meta_description": {
+          "status": "missing"
+        },
+        "h1_tags": {
+          "count": 4,
+          "texts": [
+            "Lic. en Cirujano Dentista",
+            "Propuesta Educativa",
+            "Encuentra tu campus más cercano",
+            "¿Listo para impulsar tu aprendizaje?"
+          ],
+          "status": "warning"
+        },
+        "images": {
+          "total": 36,
+          "without_alt": 0,
+          "missing_alt_srcs": []
+        }
+      },
+      "astro": {
+        "url": "http://localhost:4321/oferta/licenciaturas/contaduria",
+        "astro_components": 0,
+        "hydration_scripts": 12,
+        "internal_links": 117
+      }
+    },
+    {
+      "url": "http://localhost:4321/oferta/licenciaturas/contaduria_publica",
+      "path": "/oferta/licenciaturas/contaduria_publica",
+      "performance": {
+        "url": "http://localhost:4321/oferta/licenciaturas/contaduria_publica",
+        "selenium_load_time": 1.59,
+        "browser_metrics": {
+          "domContentLoaded": 1109,
+          "firstPaint": 1096,
+          "loadTime": 1540,
+          "resources": 77
+        },
+        "status": "completed"
+      },
+      "seo": {
+        "url": "http://localhost:4321/oferta/licenciaturas/contaduria_publica",
+        "title": {
+          "content": "",
+          "length": 0,
+          "status": "warning"
+        },
+        "meta_description": {
+          "status": "missing"
+        },
+        "h1_tags": {
+          "count": 4,
+          "texts": [
+            "Lic. en Contaduria pública",
+            "Propuesta Educativa",
+            "Encuentra tu campus más cercano",
+            "¿Listo para impulsar tu aprendizaje?"
+          ],
+          "status": "warning"
+        },
+        "images": {
+          "total": 16,
+          "without_alt": 0,
+          "missing_alt_srcs": []
+        }
+      },
+      "astro": {
+        "url": "http://localhost:4321/oferta/licenciaturas/contaduria_publica",
+        "astro_components": 0,
+        "hydration_scripts": 12,
+        "internal_links": 77
+      }
+    },
+    {
+      "url": "http://localhost:4321/oferta/licenciaturas/contaduria_y_auditoria",
+      "path": "/oferta/licenciaturas/contaduria_y_auditoria",
+      "performance": {
+        "url": "http://localhost:4321/oferta/licenciaturas/contaduria_y_auditoria",
+        "selenium_load_time": 1.98,
+        "browser_metrics": {
+          "domContentLoaded": 1677,
+          "firstPaint": 1656,
+          "loadTime": 1955,
+          "resources": 64
+        },
+        "status": "completed"
+      },
+      "seo": {
+        "url": "http://localhost:4321/oferta/licenciaturas/contaduria_y_auditoria",
+        "title": {
+          "content": "",
+          "length": 0,
+          "status": "warning"
+        },
+        "meta_description": {
+          "status": "missing"
+        },
+        "h1_tags": {
+          "count": 4,
+          "texts": [
+            "Lic. en Contaduría y Auditoría",
+            "Propuesta Educativa",
+            "Encuentra tu campus más cercano",
+            "¿Listo para impulsar tu aprendizaje?"
+          ],
+          "status": "warning"
+        },
+        "images": {
+          "total": 28,
+          "without_alt": 0,
+          "missing_alt_srcs": []
+        }
+      },
+      "astro": {
+        "url": "http://localhost:4321/oferta/licenciaturas/contaduria_y_auditoria",
+        "astro_components": 0,
+        "hydration_scripts": 12,
+        "internal_links": 101
+      }
+    },
+    {
+      "url": "http://localhost:4321/oferta/licenciaturas/criminologia_y_criminalistica",
+      "path": "/oferta/licenciaturas/criminologia_y_criminalistica",
+      "performance": {
+        "url": "http://localhost:4321/oferta/licenciaturas/criminologia_y_criminalistica",
+        "selenium_load_time": 2.54,
+        "browser_metrics": {
+          "domContentLoaded": 2029,
+          "firstPaint": 2000,
+          "loadTime": 2518,
+          "resources": 66
+        },
+        "status": "completed"
+      },
+      "seo": {
+        "url": "http://localhost:4321/oferta/licenciaturas/criminologia_y_criminalistica",
+        "title": {
+          "content": "",
+          "length": 0,
+          "status": "warning"
+        },
+        "meta_description": {
+          "status": "missing"
+        },
+        "h1_tags": {
+          "count": 4,
+          "texts": [
+            "Criminología y Criminalística",
+            "Propuesta Educativa",
+            "Encuentra tu campus más cercano",
+            "¿Listo para impulsar tu aprendizaje?"
+          ],
+          "status": "warning"
+        },
+        "images": {
+          "total": 22,
+          "without_alt": 0,
+          "missing_alt_srcs": []
+        }
+      },
+      "astro": {
+        "url": "http://localhost:4321/oferta/licenciaturas/criminologia_y_criminalistica",
+        "astro_components": 0,
+        "hydration_scripts": 12,
+        "internal_links": 89
+      }
+    },
+    {
+      "url": "http://localhost:4321/oferta/licenciaturas/cultura_fisica_y_del_deporte",
+      "path": "/oferta/licenciaturas/cultura_fisica_y_del_deporte",
+      "performance": {
+        "url": "http://localhost:4321/oferta/licenciaturas/cultura_fisica_y_del_deporte",
+        "selenium_load_time": 2.15,
+        "browser_metrics": {
+          "domContentLoaded": 1841,
+          "firstPaint": 1820,
+          "loadTime": 2117,
+          "resources": 64
+        },
+        "status": "completed"
+      },
+      "seo": {
+        "url": "http://localhost:4321/oferta/licenciaturas/cultura_fisica_y_del_deporte",
+        "title": {
+          "content": "",
+          "length": 0,
+          "status": "warning"
+        },
+        "meta_description": {
+          "status": "missing"
+        },
+        "h1_tags": {
+          "count": 4,
+          "texts": [
+            "Cultura Física y del Deporte",
+            "Propuesta Educativa",
+            "Encuentra tu campus más cercano",
+            "¿Listo para impulsar tu aprendizaje?"
+          ],
+          "status": "warning"
+        },
+        "images": {
+          "total": 22,
+          "without_alt": 0,
+          "missing_alt_srcs": []
+        }
+      },
+      "astro": {
+        "url": "http://localhost:4321/oferta/licenciaturas/cultura_fisica_y_del_deporte",
+        "astro_components": 0,
+        "hydration_scripts": 12,
+        "internal_links": 89
+      }
+    },
+    {
+      "url": "http://localhost:4321/oferta/licenciaturas/derecho",
+      "path": "/oferta/licenciaturas/derecho",
+      "performance": {
+        "url": "http://localhost:4321/oferta/licenciaturas/derecho",
+        "selenium_load_time": 2.07,
+        "browser_metrics": {
+          "domContentLoaded": 1842,
+          "firstPaint": 1808,
+          "loadTime": 1881,
+          "resources": 64
+        },
+        "status": "completed"
+      },
+      "seo": {
+        "url": "http://localhost:4321/oferta/licenciaturas/derecho",
+        "title": {
+          "content": "",
+          "length": 0,
+          "status": "warning"
+        },
+        "meta_description": {
+          "status": "missing"
+        },
+        "h1_tags": {
+          "count": 4,
+          "texts": [
+            "Lic. en Derecho",
+            "Propuesta Educativa",
+            "Encuentra tu campus más cercano",
+            "¿Listo para impulsar tu aprendizaje?"
+          ],
+          "status": "warning"
+        },
+        "images": {
+          "total": 40,
+          "without_alt": 0,
+          "missing_alt_srcs": []
+        }
+      },
+      "astro": {
+        "url": "http://localhost:4321/oferta/licenciaturas/derecho",
+        "astro_components": 0,
+        "hydration_scripts": 12,
+        "internal_links": 125
+      }
+    },
+    {
+      "url": "http://localhost:4321/oferta/licenciaturas/diseno_grafico",
+      "path": "/oferta/licenciaturas/diseno_grafico",
+      "performance": {
+        "url": "http://localhost:4321/oferta/licenciaturas/diseno_grafico",
+        "selenium_load_time": 2.59,
+        "browser_metrics": {
+          "domContentLoaded": 1791,
+          "firstPaint": 1764,
+          "loadTime": 2563,
+          "resources": 79
+        },
+        "status": "completed"
+      },
+      "seo": {
+        "url": "http://localhost:4321/oferta/licenciaturas/diseno_grafico",
+        "title": {
+          "content": "",
+          "length": 0,
+          "status": "warning"
+        },
+        "meta_description": {
+          "status": "missing"
+        },
+        "h1_tags": {
+          "count": 4,
+          "texts": [
+            "Diseño Gráfico",
+            "Propuesta Educativa",
+            "Encuentra tu campus más cercano",
+            "¿Listo para impulsar tu aprendizaje?"
+          ],
+          "status": "warning"
+        },
+        "images": {
+          "total": 18,
+          "without_alt": 0,
+          "missing_alt_srcs": []
+        }
+      },
+      "astro": {
+        "url": "http://localhost:4321/oferta/licenciaturas/diseno_grafico",
+        "astro_components": 0,
+        "hydration_scripts": 12,
+        "internal_links": 81
+      }
+    },
+    {
+      "url": "http://localhost:4321/oferta/licenciaturas/enfermeria",
+      "path": "/oferta/licenciaturas/enfermeria",
+      "performance": {
+        "url": "http://localhost:4321/oferta/licenciaturas/enfermeria",
+        "selenium_load_time": 2.33,
+        "browser_metrics": {
+          "domContentLoaded": 2062,
+          "firstPaint": 2008,
+          "loadTime": 2297,
+          "resources": 64
+        },
+        "status": "completed"
+      },
+      "seo": {
+        "url": "http://localhost:4321/oferta/licenciaturas/enfermeria",
+        "title": {
+          "content": "",
+          "length": 0,
+          "status": "warning"
+        },
+        "meta_description": {
+          "status": "missing"
+        },
+        "h1_tags": {
+          "count": 4,
+          "texts": [
+            "Lic. en Enfermería",
+            "Propuesta Educativa",
+            "Encuentra tu campus más cercano",
+            "¿Listo para impulsar tu aprendizaje?"
+          ],
+          "status": "warning"
+        },
+        "images": {
+          "total": 24,
+          "without_alt": 0,
+          "missing_alt_srcs": []
+        }
+      },
+      "astro": {
+        "url": "http://localhost:4321/oferta/licenciaturas/enfermeria",
+        "astro_components": 0,
+        "hydration_scripts": 12,
+        "internal_links": 93
+      }
+    },
+    {
+      "url": "http://localhost:4321/oferta/licenciaturas/gastronomia",
+      "path": "/oferta/licenciaturas/gastronomia",
+      "performance": {
+        "url": "http://localhost:4321/oferta/licenciaturas/gastronomia",
+        "selenium_load_time": 2.15,
+        "browser_metrics": {
+          "domContentLoaded": 1865,
+          "firstPaint": 1788,
+          "loadTime": 2110,
+          "resources": 65
+        },
+        "status": "completed"
+      },
+      "seo": {
+        "url": "http://localhost:4321/oferta/licenciaturas/gastronomia",
+        "title": {
+          "content": "",
+          "length": 0,
+          "status": "warning"
+        },
+        "meta_description": {
+          "status": "missing"
+        },
+        "h1_tags": {
+          "count": 4,
+          "texts": [
+            "Lic. en Gastronomía",
+            "Propuesta Educativa",
+            "Encuentra tu campus más cercano",
+            "¿Listo para impulsar tu aprendizaje?"
+          ],
+          "status": "warning"
+        },
+        "images": {
+          "total": 20,
+          "without_alt": 0,
+          "missing_alt_srcs": []
+        }
+      },
+      "astro": {
+        "url": "http://localhost:4321/oferta/licenciaturas/gastronomia",
+        "astro_components": 0,
+        "hydration_scripts": 12,
+        "internal_links": 85
+      }
+    },
+    {
+      "url": "http://localhost:4321/oferta/licenciaturas/gestion_y_creacion_de_pyme’s",
+      "path": "/oferta/licenciaturas/gestion_y_creacion_de_pyme’s",
+      "performance": {
+        "url": "http://localhost:4321/oferta/licenciaturas/gestion_y_creacion_de_pyme’s",
+        "selenium_load_time": 2.04,
+        "browser_metrics": {
+          "domContentLoaded": 1800,
+          "firstPaint": 1772,
+          "loadTime": 2007,
+          "resources": 68
+        },
+        "status": "completed"
+      },
+      "seo": {
+        "url": "http://localhost:4321/oferta/licenciaturas/gestion_y_creacion_de_pyme’s",
+        "title": {
+          "content": "",
+          "length": 0,
+          "status": "warning"
+        },
+        "meta_description": {
+          "status": "missing"
+        },
+        "h1_tags": {
+          "count": 3,
+          "texts": [
+            "Lic. en Gestión y Creación de PyMEs",
+            "Encuentra tu campus más cercano",
+            "¿Listo para impulsar tu aprendizaje?"
+          ],
+          "status": "warning"
+        },
+        "images": {
+          "total": 18,
+          "without_alt": 0,
+          "missing_alt_srcs": []
+        }
+      },
+      "astro": {
+        "url": "http://localhost:4321/oferta/licenciaturas/gestion_y_creacion_de_pyme’s",
+        "astro_components": 0,
+        "hydration_scripts": 11,
+        "internal_links": 81
+      }
+    },
+    {
+      "url": "http://localhost:4321/oferta/licenciaturas/idiomas",
+      "path": "/oferta/licenciaturas/idiomas",
+      "performance": {
+        "url": "http://localhost:4321/oferta/licenciaturas/idiomas",
+        "selenium_load_time": 1.29,
+        "browser_metrics": {
+          "domContentLoaded": 1151,
+          "firstPaint": 1088,
+          "loadTime": 1181,
+          "resources": 64
+        },
+        "status": "completed"
+      },
+      "seo": {
+        "url": "http://localhost:4321/oferta/licenciaturas/idiomas",
+        "title": {
+          "content": "",
+          "length": 0,
+          "status": "warning"
+        },
+        "meta_description": {
+          "status": "missing"
+        },
+        "h1_tags": {
+          "count": 4,
+          "texts": [
+            "Lic. en Cirujano Dentista",
+            "Propuesta Educativa",
+            "Encuentra tu campus más cercano",
+            "¿Listo para impulsar tu aprendizaje?"
+          ],
+          "status": "warning"
+        },
+        "images": {
+          "total": 36,
+          "without_alt": 0,
+          "missing_alt_srcs": []
+        }
+      },
+      "astro": {
+        "url": "http://localhost:4321/oferta/licenciaturas/idiomas",
+        "astro_components": 0,
+        "hydration_scripts": 12,
+        "internal_links": 117
+      }
+    },
+    {
+      "url": "http://localhost:4321/oferta/licenciaturas/ingenieria_civil",
+      "path": "/oferta/licenciaturas/ingenieria_civil",
+      "performance": {
+        "url": "http://localhost:4321/oferta/licenciaturas/ingenieria_civil",
+        "selenium_load_time": 1.3,
+        "browser_metrics": {
+          "domContentLoaded": 1139,
+          "firstPaint": 1084,
+          "loadTime": 1242,
+          "resources": 64
+        },
+        "status": "completed"
+      },
+      "seo": {
+        "url": "http://localhost:4321/oferta/licenciaturas/ingenieria_civil",
+        "title": {
+          "content": "",
+          "length": 0,
+          "status": "warning"
+        },
+        "meta_description": {
+          "status": "missing"
+        },
+        "h1_tags": {
+          "count": 4,
+          "texts": [
+            "Ingeniería Civil",
+            "Propuesta Educativa",
+            "Encuentra tu campus más cercano",
+            "¿Listo para impulsar tu aprendizaje?"
+          ],
+          "status": "warning"
+        },
+        "images": {
+          "total": 26,
+          "without_alt": 0,
+          "missing_alt_srcs": []
+        }
+      },
+      "astro": {
+        "url": "http://localhost:4321/oferta/licenciaturas/ingenieria_civil",
+        "astro_components": 0,
+        "hydration_scripts": 12,
+        "internal_links": 97
+      }
+    },
+    {
+      "url": "http://localhost:4321/oferta/licenciaturas/ingenieria_computacion",
+      "path": "/oferta/licenciaturas/ingenieria_computacion",
+      "performance": {
+        "url": "http://localhost:4321/oferta/licenciaturas/ingenieria_computacion",
+        "selenium_load_time": 1.34,
+        "browser_metrics": {
+          "domContentLoaded": 1147,
+          "firstPaint": 1096,
+          "loadTime": 1319,
+          "resources": 64
+        },
+        "status": "completed"
+      },
+      "seo": {
+        "url": "http://localhost:4321/oferta/licenciaturas/ingenieria_computacion",
+        "title": {
+          "content": "",
+          "length": 0,
+          "status": "warning"
+        },
+        "meta_description": {
+          "status": "missing"
+        },
+        "h1_tags": {
+          "count": 4,
+          "texts": [
+            "Ingeniería en Computación",
+            "Propuesta Educativa",
+            "Encuentra tu campus más cercano",
+            "¿Listo para impulsar tu aprendizaje?"
+          ],
+          "status": "warning"
+        },
+        "images": {
+          "total": 16,
+          "without_alt": 0,
+          "missing_alt_srcs": []
+        }
+      },
+      "astro": {
+        "url": "http://localhost:4321/oferta/licenciaturas/ingenieria_computacion",
+        "astro_components": 0,
+        "hydration_scripts": 12,
+        "internal_links": 77
+      }
+    },
+    {
+      "url": "http://localhost:4321/oferta/licenciaturas/ingenieria_en_comunicaciones_y_electronica",
+      "path": "/oferta/licenciaturas/ingenieria_en_comunicaciones_y_electronica",
+      "performance": {
+        "url": "http://localhost:4321/oferta/licenciaturas/ingenieria_en_comunicaciones_y_electronica",
+        "selenium_load_time": 1.56,
+        "browser_metrics": {
+          "domContentLoaded": 1127,
+          "firstPaint": 1112,
+          "loadTime": 1518,
+          "resources": 79
+        },
+        "status": "completed"
+      },
+      "seo": {
+        "url": "http://localhost:4321/oferta/licenciaturas/ingenieria_en_comunicaciones_y_electronica",
+        "title": {
+          "content": "",
+          "length": 0,
+          "status": "warning"
+        },
+        "meta_description": {
+          "status": "missing"
+        },
+        "h1_tags": {
+          "count": 4,
+          "texts": [
+            "Ingeniería en Comunicaciones y electronica.",
+            "Propuesta Educativa",
+            "Encuentra tu campus más cercano",
+            "¿Listo para impulsar tu aprendizaje?"
+          ],
+          "status": "warning"
+        },
+        "images": {
+          "total": 22,
+          "without_alt": 0,
+          "missing_alt_srcs": []
+        }
+      },
+      "astro": {
+        "url": "http://localhost:4321/oferta/licenciaturas/ingenieria_en_comunicaciones_y_electronica",
+        "astro_components": 0,
+        "hydration_scripts": 12,
+        "internal_links": 89
+      }
+    },
+    {
+      "url": "http://localhost:4321/oferta/licenciaturas/ingenieria_en_desarrollo_software",
+      "path": "/oferta/licenciaturas/ingenieria_en_desarrollo_software",
+      "performance": {
+        "url": "http://localhost:4321/oferta/licenciaturas/ingenieria_en_desarrollo_software",
+        "selenium_load_time": 1.34,
+        "browser_metrics": {
+          "domContentLoaded": 1134,
+          "firstPaint": 1136,
+          "loadTime": 1269,
+          "resources": 65
+        },
+        "status": "completed"
+      },
+      "seo": {
+        "url": "http://localhost:4321/oferta/licenciaturas/ingenieria_en_desarrollo_software",
+        "title": {
+          "content": "",
+          "length": 0,
+          "status": "warning"
+        },
+        "meta_description": {
+          "status": "missing"
+        },
+        "h1_tags": {
+          "count": 4,
+          "texts": [
+            "Ing. en Desarrollo de Software",
+            "Propuesta Educativa",
+            "Encuentra tu campus más cercano",
+            "¿Listo para impulsar tu aprendizaje?"
+          ],
+          "status": "warning"
+        },
+        "images": {
+          "total": 26,
+          "without_alt": 0,
+          "missing_alt_srcs": []
+        }
+      },
+      "astro": {
+        "url": "http://localhost:4321/oferta/licenciaturas/ingenieria_en_desarrollo_software",
+        "astro_components": 0,
+        "hydration_scripts": 12,
+        "internal_links": 97
+      }
+    },
+    {
+      "url": "http://localhost:4321/oferta/licenciaturas/ingenieria_en_inteligencia_de_datos_y_ciberseguridad",
+      "path": "/oferta/licenciaturas/ingenieria_en_inteligencia_de_datos_y_ciberseguridad",
+      "performance": {
+        "url": "http://localhost:4321/oferta/licenciaturas/ingenieria_en_inteligencia_de_datos_y_ciberseguridad",
+        "selenium_load_time": 1.22,
+        "browser_metrics": {
+          "domContentLoaded": 1082,
+          "firstPaint": 1072,
+          "loadTime": 1152,
+          "resources": 63
+        },
+        "status": "completed"
+      },
+      "seo": {
+        "url": "http://localhost:4321/oferta/licenciaturas/ingenieria_en_inteligencia_de_datos_y_ciberseguridad",
+        "title": {
+          "content": "",
+          "length": 0,
+          "status": "warning"
+        },
+        "meta_description": {
+          "status": "missing"
+        },
+        "h1_tags": {
+          "count": 4,
+          "texts": [
+            "Ing. en Inteligencia de Datos y Ciberseguridad",
+            "Propuesta Educativa",
+            "Encuentra tu campus más cercano",
+            "¿Listo para impulsar tu aprendizaje?"
+          ],
+          "status": "warning"
+        },
+        "images": {
+          "total": 28,
+          "without_alt": 0,
+          "missing_alt_srcs": []
+        }
+      },
+      "astro": {
+        "url": "http://localhost:4321/oferta/licenciaturas/ingenieria_en_inteligencia_de_datos_y_ciberseguridad",
+        "astro_components": 0,
+        "hydration_scripts": 12,
+        "internal_links": 101
+      }
+    },
+    {
+      "url": "http://localhost:4321/oferta/licenciaturas/ingenieria_industrial",
+      "path": "/oferta/licenciaturas/ingenieria_industrial",
+      "performance": {
+        "url": "http://localhost:4321/oferta/licenciaturas/ingenieria_industrial",
+        "selenium_load_time": 1.37,
+        "browser_metrics": {
+          "domContentLoaded": 1096,
+          "firstPaint": 1084,
+          "loadTime": 1318,
+          "resources": 68
+        },
+        "status": "completed"
+      },
+      "seo": {
+        "url": "http://localhost:4321/oferta/licenciaturas/ingenieria_industrial",
+        "title": {
+          "content": "",
+          "length": 0,
+          "status": "warning"
+        },
+        "meta_description": {
+          "status": "missing"
+        },
+        "h1_tags": {
+          "count": 4,
+          "texts": [
+            "Ingeniería Industrial",
+            "Propuesta Educativa",
+            "Encuentra tu campus más cercano",
+            "¿Listo para impulsar tu aprendizaje?"
+          ],
+          "status": "warning"
+        },
+        "images": {
+          "total": 20,
+          "without_alt": 0,
+          "missing_alt_srcs": []
+        }
+      },
+      "astro": {
+        "url": "http://localhost:4321/oferta/licenciaturas/ingenieria_industrial",
+        "astro_components": 0,
+        "hydration_scripts": 12,
+        "internal_links": 85
+      }
+    },
+    {
+      "url": "http://localhost:4321/oferta/licenciaturas/ingenieria_mecanica",
+      "path": "/oferta/licenciaturas/ingenieria_mecanica",
+      "performance": {
+        "url": "http://localhost:4321/oferta/licenciaturas/ingenieria_mecanica",
+        "selenium_load_time": 1.22,
+        "browser_metrics": {
+          "domContentLoaded": 1142,
+          "firstPaint": 1092,
+          "loadTime": 1174,
+          "resources": 64
+        },
+        "status": "completed"
+      },
+      "seo": {
+        "url": "http://localhost:4321/oferta/licenciaturas/ingenieria_mecanica",
+        "title": {
+          "content": "",
+          "length": 0,
+          "status": "warning"
+        },
+        "meta_description": {
+          "status": "missing"
+        },
+        "h1_tags": {
+          "count": 4,
+          "texts": [
+            "Ingeniería Mecánica",
+            "Propuesta Educativa",
+            "Encuentra tu campus más cercano",
+            "¿Listo para impulsar tu aprendizaje?"
+          ],
+          "status": "warning"
+        },
+        "images": {
+          "total": 26,
+          "without_alt": 0,
+          "missing_alt_srcs": []
+        }
+      },
+      "astro": {
+        "url": "http://localhost:4321/oferta/licenciaturas/ingenieria_mecanica",
+        "astro_components": 0,
+        "hydration_scripts": 12,
+        "internal_links": 97
+      }
+    },
+    {
+      "url": "http://localhost:4321/oferta/licenciaturas/ingenieria_quimica",
+      "path": "/oferta/licenciaturas/ingenieria_quimica",
+      "performance": {
+        "url": "http://localhost:4321/oferta/licenciaturas/ingenieria_quimica",
+        "selenium_load_time": 1.31,
+        "browser_metrics": {
+          "domContentLoaded": 1114,
+          "firstPaint": 1112,
+          "loadTime": 1296,
+          "resources": 64
+        },
+        "status": "completed"
+      },
+      "seo": {
+        "url": "http://localhost:4321/oferta/licenciaturas/ingenieria_quimica",
+        "title": {
+          "content": "",
+          "length": 0,
+          "status": "warning"
+        },
+        "meta_description": {
+          "status": "missing"
+        },
+        "h1_tags": {
+          "count": 4,
+          "texts": [
+            "Ingeniería Química",
+            "Propuesta Educativa",
+            "Encuentra tu campus más cercano",
+            "¿Listo para impulsar tu aprendizaje?"
+          ],
+          "status": "warning"
+        },
+        "images": {
+          "total": 20,
+          "without_alt": 0,
+          "missing_alt_srcs": []
+        }
+      },
+      "astro": {
+        "url": "http://localhost:4321/oferta/licenciaturas/ingenieria_quimica",
+        "astro_components": 0,
+        "hydration_scripts": 12,
+        "internal_links": 85
+      }
+    },
+    {
+      "url": "http://localhost:4321/oferta/licenciaturas/mercadotecnia",
+      "path": "/oferta/licenciaturas/mercadotecnia",
+      "performance": {
+        "url": "http://localhost:4321/oferta/licenciaturas/mercadotecnia",
+        "selenium_load_time": 1.69,
+        "browser_metrics": {
+          "domContentLoaded": 1408,
+          "firstPaint": 1356,
+          "loadTime": 1647,
+          "resources": 64
+        },
+        "status": "completed"
+      },
+      "seo": {
+        "url": "http://localhost:4321/oferta/licenciaturas/mercadotecnia",
+        "title": {
+          "content": "",
+          "length": 0,
+          "status": "warning"
+        },
+        "meta_description": {
+          "status": "missing"
+        },
+        "h1_tags": {
+          "count": 4,
+          "texts": [
+            "Lic. en Mercadotecnia",
+            "Propuesta Educativa",
+            "Encuentra tu campus más cercano",
+            "¿Listo para impulsar tu aprendizaje?"
+          ],
+          "status": "warning"
+        },
+        "images": {
+          "total": 42,
+          "without_alt": 0,
+          "missing_alt_srcs": []
+        }
+      },
+      "astro": {
+        "url": "http://localhost:4321/oferta/licenciaturas/mercadotecnia",
+        "astro_components": 0,
+        "hydration_scripts": 12,
+        "internal_links": 129
+      }
+    },
+    {
+      "url": "http://localhost:4321/oferta/licenciaturas/mercadotecnia_internacional",
+      "path": "/oferta/licenciaturas/mercadotecnia_internacional",
+      "performance": {
+        "url": "http://localhost:4321/oferta/licenciaturas/mercadotecnia_internacional",
+        "selenium_load_time": 1.35,
+        "browser_metrics": {
+          "domContentLoaded": 1143,
+          "firstPaint": 1132,
+          "loadTime": 1330,
+          "resources": 67
+        },
+        "status": "completed"
+      },
+      "seo": {
+        "url": "http://localhost:4321/oferta/licenciaturas/mercadotecnia_internacional",
+        "title": {
+          "content": "",
+          "length": 0,
+          "status": "warning"
+        },
+        "meta_description": {
+          "status": "missing"
+        },
+        "h1_tags": {
+          "count": 4,
+          "texts": [
+            "Lic. en Mercadotecnia Internacional",
+            "Propuesta Educativa",
+            "Encuentra tu campus más cercano",
+            "¿Listo para impulsar tu aprendizaje?"
+          ],
+          "status": "warning"
+        },
+        "images": {
+          "total": 18,
+          "without_alt": 0,
+          "missing_alt_srcs": []
+        }
+      },
+      "astro": {
+        "url": "http://localhost:4321/oferta/licenciaturas/mercadotecnia_internacional",
+        "astro_components": 0,
+        "hydration_scripts": 12,
+        "internal_links": 81
+      }
+    },
+    {
+      "url": "http://localhost:4321/oferta/licenciaturas/negocios_internacionales",
+      "path": "/oferta/licenciaturas/negocios_internacionales",
+      "performance": {
+        "url": "http://localhost:4321/oferta/licenciaturas/negocios_internacionales",
+        "selenium_load_time": 1.25,
+        "browser_metrics": {
+          "domContentLoaded": 1102,
+          "firstPaint": 1096,
+          "loadTime": 1219,
+          "resources": 64
+        },
+        "status": "completed"
+      },
+      "seo": {
+        "url": "http://localhost:4321/oferta/licenciaturas/negocios_internacionales",
+        "title": {
+          "content": "",
+          "length": 0,
+          "status": "warning"
+        },
+        "meta_description": {
+          "status": "missing"
+        },
+        "h1_tags": {
+          "count": 4,
+          "texts": [
+            "Lic. en Negocios Internacionales",
+            "Propuesta Educativa",
+            "Encuentra tu campus más cercano",
+            "¿Listo para impulsar tu aprendizaje?"
+          ],
+          "status": "warning"
+        },
+        "images": {
+          "total": 42,
+          "without_alt": 0,
+          "missing_alt_srcs": []
+        }
+      },
+      "astro": {
+        "url": "http://localhost:4321/oferta/licenciaturas/negocios_internacionales",
+        "astro_components": 0,
+        "hydration_scripts": 12,
+        "internal_links": 129
+      }
+    },
+    {
+      "url": "http://localhost:4321/oferta/licenciaturas/nutricion",
+      "path": "/oferta/licenciaturas/nutricion",
+      "performance": {
+        "url": "http://localhost:4321/oferta/licenciaturas/nutricion",
+        "selenium_load_time": 1.42,
+        "browser_metrics": {
+          "domContentLoaded": 1272,
+          "firstPaint": 1220,
+          "loadTime": 1378,
+          "resources": 64
+        },
+        "status": "completed"
+      },
+      "seo": {
+        "url": "http://localhost:4321/oferta/licenciaturas/nutricion",
+        "title": {
+          "content": "",
+          "length": 0,
+          "status": "warning"
+        },
+        "meta_description": {
+          "status": "missing"
+        },
+        "h1_tags": {
+          "count": 4,
+          "texts": [
+            "Lic. en Nutrición",
+            "Propuesta Educativa",
+            "Encuentra tu campus más cercano",
+            "¿Listo para impulsar tu aprendizaje?"
+          ],
+          "status": "warning"
+        },
+        "images": {
+          "total": 40,
+          "without_alt": 0,
+          "missing_alt_srcs": []
+        }
+      },
+      "astro": {
+        "url": "http://localhost:4321/oferta/licenciaturas/nutricion",
+        "astro_components": 0,
+        "hydration_scripts": 12,
+        "internal_links": 125
+      }
+    },
+    {
+      "url": "http://localhost:4321/oferta/licenciaturas/psicologia",
+      "path": "/oferta/licenciaturas/psicologia",
+      "performance": {
+        "url": "http://localhost:4321/oferta/licenciaturas/psicologia",
+        "selenium_load_time": 1.28,
+        "browser_metrics": {
+          "domContentLoaded": 1105,
+          "firstPaint": 1088,
+          "loadTime": 1227,
+          "resources": 64
+        },
+        "status": "completed"
+      },
+      "seo": {
+        "url": "http://localhost:4321/oferta/licenciaturas/psicologia",
+        "title": {
+          "content": "",
+          "length": 0,
+          "status": "warning"
+        },
+        "meta_description": {
+          "status": "missing"
+        },
+        "h1_tags": {
+          "count": 4,
+          "texts": [
+            "Lic. en Psicología",
+            "Propuesta Educativa",
+            "Encuentra tu campus más cercano",
+            "¿Listo para impulsar tu aprendizaje?"
+          ],
+          "status": "warning"
+        },
+        "images": {
+          "total": 38,
+          "without_alt": 0,
+          "missing_alt_srcs": []
+        }
+      },
+      "astro": {
+        "url": "http://localhost:4321/oferta/licenciaturas/psicologia",
+        "astro_components": 0,
+        "hydration_scripts": 12,
+        "internal_links": 121
+      }
+    },
+    {
+      "url": "http://localhost:4321/oferta/licenciaturas/quimico_farmaceutico_biologo",
+      "path": "/oferta/licenciaturas/quimico_farmaceutico_biologo",
+      "performance": {
+        "url": "http://localhost:4321/oferta/licenciaturas/quimico_farmaceutico_biologo",
+        "selenium_load_time": 1.26,
+        "browser_metrics": {
+          "domContentLoaded": 1116,
+          "firstPaint": 1104,
+          "loadTime": 1226,
+          "resources": 65
+        },
+        "status": "completed"
+      },
+      "seo": {
+        "url": "http://localhost:4321/oferta/licenciaturas/quimico_farmaceutico_biologo",
+        "title": {
+          "content": "",
+          "length": 0,
+          "status": "warning"
+        },
+        "meta_description": {
+          "status": "missing"
+        },
+        "h1_tags": {
+          "count": 4,
+          "texts": [
+            "Químico Farmacéutico Biólogo",
+            "Propuesta Educativa",
+            "Encuentra tu campus más cercano",
+            "¿Listo para impulsar tu aprendizaje?"
+          ],
+          "status": "warning"
+        },
+        "images": {
+          "total": 26,
+          "without_alt": 0,
+          "missing_alt_srcs": []
+        }
+      },
+      "astro": {
+        "url": "http://localhost:4321/oferta/licenciaturas/quimico_farmaceutico_biologo",
+        "astro_components": 0,
+        "hydration_scripts": 12,
+        "internal_links": 97
+      }
+    },
+    {
+      "url": "http://localhost:4321/oferta/licenciaturas/terapia_fisica",
+      "path": "/oferta/licenciaturas/terapia_fisica",
+      "performance": {
+        "url": "http://localhost:4321/oferta/licenciaturas/terapia_fisica",
+        "selenium_load_time": 1.36,
+        "browser_metrics": {
+          "domContentLoaded": 1107,
+          "firstPaint": 1092,
+          "loadTime": 1223,
+          "resources": 66
+        },
+        "status": "completed"
+      },
+      "seo": {
+        "url": "http://localhost:4321/oferta/licenciaturas/terapia_fisica",
+        "title": {
+          "content": "",
+          "length": 0,
+          "status": "warning"
+        },
+        "meta_description": {
+          "status": "missing"
+        },
+        "h1_tags": {
+          "count": 4,
+          "texts": [
+            "Lic. en Terapia Física",
+            "Propuesta Educativa",
+            "Encuentra tu campus más cercano",
+            "¿Listo para impulsar tu aprendizaje?"
+          ],
+          "status": "warning"
+        },
+        "images": {
+          "total": 30,
+          "without_alt": 0,
+          "missing_alt_srcs": []
+        }
+      },
+      "astro": {
+        "url": "http://localhost:4321/oferta/licenciaturas/terapia_fisica",
+        "astro_components": 0,
+        "hydration_scripts": 12,
+        "internal_links": 105
+      }
+    },
+    {
+      "url": "http://localhost:4321/oferta/licenciaturas/trabajo_social",
+      "path": "/oferta/licenciaturas/trabajo_social",
+      "performance": {
+        "url": "http://localhost:4321/oferta/licenciaturas/trabajo_social",
+        "selenium_load_time": 1.31,
+        "browser_metrics": {
+          "domContentLoaded": 1196,
+          "firstPaint": 1096,
+          "loadTime": 1299,
+          "resources": 64
+        },
+        "status": "completed"
+      },
+      "seo": {
+        "url": "http://localhost:4321/oferta/licenciaturas/trabajo_social",
+        "title": {
+          "content": "",
+          "length": 0,
+          "status": "warning"
+        },
+        "meta_description": {
+          "status": "missing"
+        },
+        "h1_tags": {
+          "count": 4,
+          "texts": [
+            "Lic. en trabajo social",
+            "Propuesta Educativa",
+            "Encuentra tu campus más cercano",
+            "¿Listo para impulsar tu aprendizaje?"
+          ],
+          "status": "warning"
+        },
+        "images": {
+          "total": 26,
+          "without_alt": 0,
+          "missing_alt_srcs": []
+        }
+      },
+      "astro": {
+        "url": "http://localhost:4321/oferta/licenciaturas/trabajo_social",
+        "astro_components": 0,
+        "hydration_scripts": 12,
+        "internal_links": 97
+      }
+    },
+    {
+      "url": "http://localhost:4321/oferta/maestrias/maestria_educacion",
+      "path": "/oferta/maestrias/maestria_educacion",
+      "performance": {
+        "url": "http://localhost:4321/oferta/maestrias/maestria_educacion",
+        "selenium_load_time": 1.81,
+        "browser_metrics": {
+          "domContentLoaded": 1577,
+          "firstPaint": 1532,
+          "loadTime": 1619,
+          "resources": 64
+        },
+        "status": "completed"
+      },
+      "seo": {
+        "url": "http://localhost:4321/oferta/maestrias/maestria_educacion",
+        "title": {
+          "content": "",
+          "length": 0,
+          "status": "warning"
+        },
+        "meta_description": {
+          "status": "missing"
+        },
+        "h1_tags": {
+          "count": 4,
+          "texts": [
+            "Lic. en Cirujano Dentista",
+            "Propuesta Educativa",
+            "Encuentra tu campus más cercano",
+            "¿Listo para impulsar tu aprendizaje?"
+          ],
+          "status": "warning"
+        },
+        "images": {
+          "total": 36,
+          "without_alt": 0,
+          "missing_alt_srcs": []
+        }
+      },
+      "astro": {
+        "url": "http://localhost:4321/oferta/maestrias/maestria_educacion",
+        "astro_components": 0,
+        "hydration_scripts": 12,
+        "internal_links": 117
+      }
+    },
+    {
+      "url": "http://localhost:4321/oferta/maestrias/maestria_en_derecho_laboral",
+      "path": "/oferta/maestrias/maestria_en_derecho_laboral",
+      "performance": {
+        "url": "http://localhost:4321/oferta/maestrias/maestria_en_derecho_laboral",
+        "selenium_load_time": 1.86,
+        "browser_metrics": {
+          "domContentLoaded": 1732,
+          "firstPaint": 1696,
+          "loadTime": 1766,
+          "resources": 64
+        },
+        "status": "completed"
+      },
+      "seo": {
+        "url": "http://localhost:4321/oferta/maestrias/maestria_en_derecho_laboral",
+        "title": {
+          "content": "",
+          "length": 0,
+          "status": "warning"
+        },
+        "meta_description": {
+          "status": "missing"
+        },
+        "h1_tags": {
+          "count": 4,
+          "texts": [
+            "Lic. en Cirujano Dentista",
+            "Propuesta Educativa",
+            "Encuentra tu campus más cercano",
+            "¿Listo para impulsar tu aprendizaje?"
+          ],
+          "status": "warning"
+        },
+        "images": {
+          "total": 36,
+          "without_alt": 0,
+          "missing_alt_srcs": []
+        }
+      },
+      "astro": {
+        "url": "http://localhost:4321/oferta/maestrias/maestria_en_derecho_laboral",
+        "astro_components": 0,
+        "hydration_scripts": 12,
+        "internal_links": 117
+      }
+    },
+    {
+      "url": "http://localhost:4321/oferta/maestrias/mst_administracion_hospitalaria",
+      "path": "/oferta/maestrias/mst_administracion_hospitalaria",
+      "performance": {
+        "url": "http://localhost:4321/oferta/maestrias/mst_administracion_hospitalaria",
+        "selenium_load_time": 1.84,
+        "browser_metrics": {
+          "domContentLoaded": 1736,
+          "firstPaint": 1744,
+          "loadTime": 1770,
+          "resources": 64
+        },
+        "status": "completed"
+      },
+      "seo": {
+        "url": "http://localhost:4321/oferta/maestrias/mst_administracion_hospitalaria",
+        "title": {
+          "content": "",
+          "length": 0,
+          "status": "warning"
+        },
+        "meta_description": {
+          "status": "missing"
+        },
+        "h1_tags": {
+          "count": 4,
+          "texts": [
+            "Lic. en Cirujano Dentista",
+            "Propuesta Educativa",
+            "Encuentra tu campus más cercano",
+            "¿Listo para impulsar tu aprendizaje?"
+          ],
+          "status": "warning"
+        },
+        "images": {
+          "total": 36,
+          "without_alt": 0,
+          "missing_alt_srcs": []
+        }
+      },
+      "astro": {
+        "url": "http://localhost:4321/oferta/maestrias/mst_administracion_hospitalaria",
+        "astro_components": 0,
+        "hydration_scripts": 12,
+        "internal_links": 117
+      }
+    },
+    {
+      "url": "http://localhost:4321/oferta/maestrias/mst_administracion_negocios",
+      "path": "/oferta/maestrias/mst_administracion_negocios",
+      "performance": {
+        "url": "http://localhost:4321/oferta/maestrias/mst_administracion_negocios",
+        "selenium_load_time": 1.31,
+        "browser_metrics": {
+          "domContentLoaded": 1228,
+          "firstPaint": 1256,
+          "loadTime": 1291,
+          "resources": 64
+        },
+        "status": "completed"
+      },
+      "seo": {
+        "url": "http://localhost:4321/oferta/maestrias/mst_administracion_negocios",
+        "title": {
+          "content": "",
+          "length": 0,
+          "status": "warning"
+        },
+        "meta_description": {
+          "status": "missing"
+        },
+        "h1_tags": {
+          "count": 4,
+          "texts": [
+            "Lic. en Cirujano Dentista",
+            "Propuesta Educativa",
+            "Encuentra tu campus más cercano",
+            "¿Listo para impulsar tu aprendizaje?"
+          ],
+          "status": "warning"
+        },
+        "images": {
+          "total": 36,
+          "without_alt": 0,
+          "missing_alt_srcs": []
+        }
+      },
+      "astro": {
+        "url": "http://localhost:4321/oferta/maestrias/mst_administracion_negocios",
+        "astro_components": 0,
+        "hydration_scripts": 12,
+        "internal_links": 117
+      }
+    },
+    {
+      "url": "http://localhost:4321/oferta/maestrias/mst_finanzas_estrategicas",
+      "path": "/oferta/maestrias/mst_finanzas_estrategicas",
+      "performance": {
+        "url": "http://localhost:4321/oferta/maestrias/mst_finanzas_estrategicas",
+        "selenium_load_time": 1.41,
+        "browser_metrics": {
+          "domContentLoaded": 1202,
+          "firstPaint": 1324,
+          "loadTime": 1285,
+          "resources": 64
+        },
+        "status": "completed"
+      },
+      "seo": {
+        "url": "http://localhost:4321/oferta/maestrias/mst_finanzas_estrategicas",
+        "title": {
+          "content": "",
+          "length": 0,
+          "status": "warning"
+        },
+        "meta_description": {
+          "status": "missing"
+        },
+        "h1_tags": {
+          "count": 4,
+          "texts": [
+            "Lic. en Cirujano Dentista",
+            "Propuesta Educativa",
+            "Encuentra tu campus más cercano",
+            "¿Listo para impulsar tu aprendizaje?"
+          ],
+          "status": "warning"
+        },
+        "images": {
+          "total": 36,
+          "without_alt": 0,
+          "missing_alt_srcs": []
+        }
+      },
+      "astro": {
+        "url": "http://localhost:4321/oferta/maestrias/mst_finanzas_estrategicas",
+        "astro_components": 0,
+        "hydration_scripts": 12,
+        "internal_links": 117
+      }
+    },
+    {
+      "url": "http://localhost:4321/oferta/maestrias/mst_terapia_familiar_sistemica",
+      "path": "/oferta/maestrias/mst_terapia_familiar_sistemica",
+      "performance": {
+        "url": "http://localhost:4321/oferta/maestrias/mst_terapia_familiar_sistemica",
+        "selenium_load_time": 1.37,
+        "browser_metrics": {
+          "domContentLoaded": 1234,
+          "firstPaint": 1252,
+          "loadTime": 1302,
+          "resources": 64
+        },
+        "status": "completed"
+      },
+      "seo": {
+        "url": "http://localhost:4321/oferta/maestrias/mst_terapia_familiar_sistemica",
+        "title": {
+          "content": "",
+          "length": 0,
+          "status": "warning"
+        },
+        "meta_description": {
+          "status": "missing"
+        },
+        "h1_tags": {
+          "count": 4,
+          "texts": [
+            "Lic. en Cirujano Dentista",
+            "Propuesta Educativa",
+            "Encuentra tu campus más cercano",
+            "¿Listo para impulsar tu aprendizaje?"
+          ],
+          "status": "warning"
+        },
+        "images": {
+          "total": 36,
+          "without_alt": 0,
+          "missing_alt_srcs": []
+        }
+      },
+      "astro": {
+        "url": "http://localhost:4321/oferta/maestrias/mst_terapia_familiar_sistemica",
+        "astro_components": 0,
+        "hydration_scripts": 12,
+        "internal_links": 117
+      }
+    },
+    {
+      "url": "http://localhost:4321/Orgulloune/General",
+      "path": "/Orgulloune/General",
+      "performance": {
+        "url": "http://localhost:4321/Orgulloune/General",
+        "selenium_load_time": 1.43,
+        "browser_metrics": {
+          "domContentLoaded": 1202,
+          "firstPaint": 1144,
+          "loadTime": 1411,
+          "resources": 73
+        },
+        "status": "completed"
+      },
+      "seo": {
+        "url": "http://localhost:4321/Orgulloune/General",
+        "title": {
+          "content": "",
+          "length": 0,
+          "status": "warning"
+        },
+        "meta_description": {
+          "status": "missing"
+        },
+        "h1_tags": {
+          "count": 1,
+          "texts": [
+            "Graduados UNE: Líderes que transforman industrias"
+          ],
+          "status": "good"
+        },
+        "images": {
+          "total": 16,
+          "without_alt": 0,
+          "missing_alt_srcs": []
+        }
+      },
+      "astro": {
+        "url": "http://localhost:4321/Orgulloune/General",
+        "astro_components": 0,
+        "hydration_scripts": 11,
+        "internal_links": 72
+      }
+    },
+    {
+      "url": "http://localhost:4321/Orgulloune/Graduaciones",
+      "path": "/Orgulloune/Graduaciones",
+      "performance": {
+        "url": "http://localhost:4321/Orgulloune/Graduaciones",
+        "selenium_load_time": 0.06,
+        "browser_metrics": {
+          "domContentLoaded": 30,
+          "firstPaint": null,
+          "loadTime": 31,
+          "resources": 0
+        },
+        "status": "completed"
+      },
+      "seo": {
+        "url": "http://localhost:4321/Orgulloune/Graduaciones",
+        "title": {
+          "content": "",
+          "length": 0,
+          "status": "warning"
+        },
+        "meta_description": {
+          "status": "missing"
+        },
+        "h1_tags": {
+          "count": 0,
+          "texts": [],
+          "status": "warning"
+        },
+        "images": {
+          "total": 0,
+          "without_alt": 0,
+          "missing_alt_srcs": []
+        }
+      },
+      "astro": {
+        "url": "http://localhost:4321/Orgulloune/Graduaciones",
+        "astro_components": 0,
+        "hydration_scripts": 0,
+        "internal_links": 0
+      }
+    },
+    {
+      "url": "http://localhost:4321/planteles/avenida-mexico",
+      "path": "/planteles/avenida-mexico",
+      "performance": {
+        "url": "http://localhost:4321/planteles/avenida-mexico",
+        "selenium_load_time": 1.31,
+        "browser_metrics": {
+          "domContentLoaded": 1084,
+          "firstPaint": 1052,
+          "loadTime": 1301,
+          "resources": 62
+        },
+        "status": "completed"
+      },
+      "seo": {
+        "url": "http://localhost:4321/planteles/avenida-mexico",
+        "title": {
+          "content": "",
+          "length": 0,
+          "status": "warning"
+        },
+        "meta_description": {
+          "status": "missing"
+        },
+        "h1_tags": {
+          "count": 1,
+          "texts": [
+            "Av. México"
+          ],
+          "status": "good"
+        },
+        "images": {
+          "total": 10,
+          "without_alt": 0,
+          "missing_alt_srcs": []
+        }
+      },
+      "astro": {
+        "url": "http://localhost:4321/planteles/avenida-mexico",
+        "astro_components": 0,
+        "hydration_scripts": 9,
+        "internal_links": 85
+      }
+    },
+    {
+      "url": "http://localhost:4321/planteles/campus-puerto-vallarta",
+      "path": "/planteles/campus-puerto-vallarta",
+      "performance": {
+        "url": "http://localhost:4321/planteles/campus-puerto-vallarta",
+        "selenium_load_time": 1.38,
+        "browser_metrics": {
+          "domContentLoaded": 1101,
+          "firstPaint": 1092,
+          "loadTime": 1368,
+          "resources": 68
+        },
+        "status": "completed"
+      },
+      "seo": {
+        "url": "http://localhost:4321/planteles/campus-puerto-vallarta",
+        "title": {
+          "content": "",
+          "length": 0,
+          "status": "warning"
+        },
+        "meta_description": {
+          "status": "missing"
+        },
+        "h1_tags": {
+          "count": 1,
+          "texts": [
+            "Campus Puerto Vallarta"
+          ],
+          "status": "good"
+        },
+        "images": {
+          "total": 10,
+          "without_alt": 0,
+          "missing_alt_srcs": []
+        }
+      },
+      "astro": {
+        "url": "http://localhost:4321/planteles/campus-puerto-vallarta",
+        "astro_components": 0,
+        "hydration_scripts": 9,
+        "internal_links": 84
+      }
+    },
+    {
+      "url": "http://localhost:4321/planteles/caracol",
+      "path": "/planteles/caracol",
+      "performance": {
+        "url": "http://localhost:4321/planteles/caracol",
+        "selenium_load_time": 1.21,
+        "browser_metrics": {
+          "domContentLoaded": 1073,
+          "firstPaint": 1056,
+          "loadTime": 1194,
+          "resources": 58
+        },
+        "status": "completed"
+      },
+      "seo": {
+        "url": "http://localhost:4321/planteles/caracol",
+        "title": {
+          "content": "",
+          "length": 0,
+          "status": "warning"
+        },
+        "meta_description": {
+          "status": "missing"
+        },
+        "h1_tags": {
+          "count": 1,
+          "texts": [
+            "Caracol"
+          ],
+          "status": "good"
+        },
+        "images": {
+          "total": 10,
+          "without_alt": 0,
+          "missing_alt_srcs": []
+        }
+      },
+      "astro": {
+        "url": "http://localhost:4321/planteles/caracol",
+        "astro_components": 0,
+        "hydration_scripts": 9,
+        "internal_links": 81
+      }
+    },
+    {
+      "url": "http://localhost:4321/planteles/centro-medico",
+      "path": "/planteles/centro-medico",
+      "performance": {
+        "url": "http://localhost:4321/planteles/centro-medico",
+        "selenium_load_time": 1.24,
+        "browser_metrics": {
+          "domContentLoaded": 1164,
+          "firstPaint": 1084,
+          "loadTime": 1192,
+          "resources": 57
+        },
+        "status": "completed"
+      },
+      "seo": {
+        "url": "http://localhost:4321/planteles/centro-medico",
+        "title": {
+          "content": "",
+          "length": 0,
+          "status": "warning"
+        },
+        "meta_description": {
+          "status": "missing"
+        },
+        "h1_tags": {
+          "count": 1,
+          "texts": [
+            "Centro médico"
+          ],
+          "status": "good"
+        },
+        "images": {
+          "total": 9,
+          "without_alt": 0,
+          "missing_alt_srcs": []
+        }
+      },
+      "astro": {
+        "url": "http://localhost:4321/planteles/centro-medico",
+        "astro_components": 0,
+        "hydration_scripts": 9,
+        "internal_links": 81
+      }
+    },
+    {
+      "url": "http://localhost:4321/planteles/centro",
+      "path": "/planteles/centro",
+      "performance": {
+        "url": "http://localhost:4321/planteles/centro",
+        "selenium_load_time": 1.31,
+        "browser_metrics": {
+          "domContentLoaded": 1084,
+          "firstPaint": 1072,
+          "loadTime": 1294,
+          "resources": 62
+        },
+        "status": "completed"
+      },
+      "seo": {
+        "url": "http://localhost:4321/planteles/centro",
+        "title": {
+          "content": "",
+          "length": 0,
+          "status": "warning"
+        },
+        "meta_description": {
+          "status": "missing"
+        },
+        "h1_tags": {
+          "count": 1,
+          "texts": [
+            "Centro"
+          ],
+          "status": "good"
+        },
+        "images": {
+          "total": 10,
+          "without_alt": 0,
+          "missing_alt_srcs": []
+        }
+      },
+      "astro": {
+        "url": "http://localhost:4321/planteles/centro",
+        "astro_components": 0,
+        "hydration_scripts": 9,
+        "internal_links": 93
+      }
+    },
+    {
+      "url": "http://localhost:4321/planteles/chapultepec",
+      "path": "/planteles/chapultepec",
+      "performance": {
+        "url": "http://localhost:4321/planteles/chapultepec",
+        "selenium_load_time": 1.31,
+        "browser_metrics": {
+          "domContentLoaded": 1138,
+          "firstPaint": 1072,
+          "loadTime": 1292,
+          "resources": 60
+        },
+        "status": "completed"
+      },
+      "seo": {
+        "url": "http://localhost:4321/planteles/chapultepec",
+        "title": {
+          "content": "",
+          "length": 0,
+          "status": "warning"
+        },
+        "meta_description": {
+          "status": "missing"
+        },
+        "h1_tags": {
+          "count": 1,
+          "texts": [
+            "Chapultepec"
+          ],
+          "status": "good"
+        },
+        "images": {
+          "total": 9,
+          "without_alt": 0,
+          "missing_alt_srcs": []
+        }
+      },
+      "astro": {
+        "url": "http://localhost:4321/planteles/chapultepec",
+        "astro_components": 0,
+        "hydration_scripts": 9,
+        "internal_links": 87
+      }
+    },
+    {
+      "url": "http://localhost:4321/planteles/general",
+      "path": "/planteles/general",
+      "performance": {
+        "url": "http://localhost:4321/planteles/general",
+        "selenium_load_time": 1.8,
+        "browser_metrics": {
+          "domContentLoaded": 1160,
+          "firstPaint": 1120,
+          "loadTime": 1791,
+          "resources": 86
+        },
+        "status": "completed"
+      },
+      "seo": {
+        "url": "http://localhost:4321/planteles/general",
+        "title": {
+          "content": "",
+          "length": 0,
+          "status": "warning"
+        },
+        "meta_description": {
+          "status": "missing"
+        },
+        "h1_tags": {
+          "count": 3,
+          "texts": [
+            "PLANTELES UNE",
+            "Encuentra tu plantel más cercano",
+            "¿Listo para impulsar tu aprendizaje?"
+          ],
+          "status": "warning"
+        },
+        "images": {
+          "total": 43,
+          "without_alt": 0,
+          "missing_alt_srcs": []
+        }
+      },
+      "astro": {
+        "url": "http://localhost:4321/planteles/general",
+        "astro_components": 0,
+        "hydration_scripts": 14,
+        "internal_links": 106
+      }
+    },
+    {
+      "url": "http://localhost:4321/planteles/las-juntas",
+      "path": "/planteles/las-juntas",
+      "performance": {
+        "url": "http://localhost:4321/planteles/las-juntas",
+        "selenium_load_time": 1.82,
+        "browser_metrics": {
+          "domContentLoaded": 1116,
+          "firstPaint": 1108,
+          "loadTime": 1776,
+          "resources": 68
+        },
+        "status": "completed"
+      },
+      "seo": {
+        "url": "http://localhost:4321/planteles/las-juntas",
+        "title": {
+          "content": "",
+          "length": 0,
+          "status": "warning"
+        },
+        "meta_description": {
+          "status": "missing"
+        },
+        "h1_tags": {
+          "count": 1,
+          "texts": [
+            "Las juntas"
+          ],
+          "status": "good"
+        },
+        "images": {
+          "total": 10,
+          "without_alt": 0,
+          "missing_alt_srcs": []
+        }
+      },
+      "astro": {
+        "url": "http://localhost:4321/planteles/las-juntas",
+        "astro_components": 0,
+        "hydration_scripts": 9,
+        "internal_links": 74
+      }
+    },
+    {
+      "url": "http://localhost:4321/planteles/milenio",
+      "path": "/planteles/milenio",
+      "performance": {
+        "url": "http://localhost:4321/planteles/milenio",
+        "selenium_load_time": 1.27,
+        "browser_metrics": {
+          "domContentLoaded": 1162,
+          "firstPaint": 1104,
+          "loadTime": 1201,
+          "resources": 58
+        },
+        "status": "completed"
+      },
+      "seo": {
+        "url": "http://localhost:4321/planteles/milenio",
+        "title": {
+          "content": "",
+          "length": 0,
+          "status": "warning"
+        },
+        "meta_description": {
+          "status": "missing"
+        },
+        "h1_tags": {
+          "count": 1,
+          "texts": [
+            "Plantel Milenio"
+          ],
+          "status": "good"
+        },
+        "images": {
+          "total": 9,
+          "without_alt": 0,
+          "missing_alt_srcs": []
+        }
+      },
+      "astro": {
+        "url": "http://localhost:4321/planteles/milenio",
+        "astro_components": 0,
+        "hydration_scripts": 9,
+        "internal_links": 84
+      }
+    },
+    {
+      "url": "http://localhost:4321/planteles/plaza-del-sol",
+      "path": "/planteles/plaza-del-sol",
+      "performance": {
+        "url": "http://localhost:4321/planteles/plaza-del-sol",
+        "selenium_load_time": 1.25,
+        "browser_metrics": {
+          "domContentLoaded": 1075,
+          "firstPaint": 1064,
+          "loadTime": 1238,
+          "resources": 62
+        },
+        "status": "completed"
+      },
+      "seo": {
+        "url": "http://localhost:4321/planteles/plaza-del-sol",
+        "title": {
+          "content": "",
+          "length": 0,
+          "status": "warning"
+        },
+        "meta_description": {
+          "status": "missing"
+        },
+        "h1_tags": {
+          "count": 1,
+          "texts": [
+            "Plaza del sol"
+          ],
+          "status": "good"
+        },
+        "images": {
+          "total": 10,
+          "without_alt": 0,
+          "missing_alt_srcs": []
+        }
+      },
+      "astro": {
+        "url": "http://localhost:4321/planteles/plaza-del-sol",
+        "astro_components": 0,
+        "hydration_scripts": 9,
+        "internal_links": 74
+      }
+    },
+    {
+      "url": "http://localhost:4321/planteles/tepatitlan",
+      "path": "/planteles/tepatitlan",
+      "performance": {
+        "url": "http://localhost:4321/planteles/tepatitlan",
+        "selenium_load_time": 1.39,
+        "browser_metrics": {
+          "domContentLoaded": 1178,
+          "firstPaint": 1104,
+          "loadTime": 1367,
+          "resources": 62
+        },
+        "status": "completed"
+      },
+      "seo": {
+        "url": "http://localhost:4321/planteles/tepatitlan",
+        "title": {
+          "content": "",
+          "length": 0,
+          "status": "warning"
+        },
+        "meta_description": {
+          "status": "missing"
+        },
+        "h1_tags": {
+          "count": 1,
+          "texts": [
+            "Tepatitlán"
+          ],
+          "status": "good"
+        },
+        "images": {
+          "total": 9,
+          "without_alt": 0,
+          "missing_alt_srcs": []
+        }
+      },
+      "astro": {
+        "url": "http://localhost:4321/planteles/tepatitlan",
+        "astro_components": 0,
+        "hydration_scripts": 9,
+        "internal_links": 87
+      }
+    },
+    {
+      "url": "http://localhost:4321/planteles/tesistan",
+      "path": "/planteles/tesistan",
+      "performance": {
+        "url": "http://localhost:4321/planteles/tesistan",
+        "selenium_load_time": 1.22,
+        "browser_metrics": {
+          "domContentLoaded": 1068,
+          "firstPaint": 1052,
+          "loadTime": 1205,
+          "resources": 59
+        },
+        "status": "completed"
+      },
+      "seo": {
+        "url": "http://localhost:4321/planteles/tesistan",
+        "title": {
+          "content": "",
+          "length": 0,
+          "status": "warning"
+        },
+        "meta_description": {
+          "status": "missing"
+        },
+        "h1_tags": {
+          "count": 1,
+          "texts": [
+            "Tesistán"
+          ],
+          "status": "good"
+        },
+        "images": {
+          "total": 10,
+          "without_alt": 0,
+          "missing_alt_srcs": []
+        }
+      },
+      "astro": {
+        "url": "http://localhost:4321/planteles/tesistan",
+        "astro_components": 0,
+        "hydration_scripts": 9,
+        "internal_links": 87
+      }
+    },
+    {
+      "url": "http://localhost:4321/planteles/tlajomulco",
+      "path": "/planteles/tlajomulco",
+      "performance": {
+        "url": "http://localhost:4321/planteles/tlajomulco",
+        "selenium_load_time": 1.37,
+        "browser_metrics": {
+          "domContentLoaded": 1167,
+          "firstPaint": 1100,
+          "loadTime": 1309,
+          "resources": 58
+        },
+        "status": "completed"
+      },
+      "seo": {
+        "url": "http://localhost:4321/planteles/tlajomulco",
+        "title": {
+          "content": "",
+          "length": 0,
+          "status": "warning"
+        },
+        "meta_description": {
+          "status": "missing"
+        },
+        "h1_tags": {
+          "count": 1,
+          "texts": [
+            "Tlajomulco"
+          ],
+          "status": "good"
+        },
+        "images": {
+          "total": 9,
+          "without_alt": 0,
+          "missing_alt_srcs": []
+        }
+      },
+      "astro": {
+        "url": "http://localhost:4321/planteles/tlajomulco",
+        "astro_components": 0,
+        "hydration_scripts": 9,
+        "internal_links": 95
+      }
+    },
+    {
+      "url": "http://localhost:4321/planteles/tlaquepaque",
+      "path": "/planteles/tlaquepaque",
+      "performance": {
+        "url": "http://localhost:4321/planteles/tlaquepaque",
+        "selenium_load_time": 1.28,
+        "browser_metrics": {
+          "domContentLoaded": 1110,
+          "firstPaint": 1088,
+          "loadTime": 1264,
+          "resources": 58
+        },
+        "status": "completed"
+      },
+      "seo": {
+        "url": "http://localhost:4321/planteles/tlaquepaque",
+        "title": {
+          "content": "",
+          "length": 0,
+          "status": "warning"
+        },
+        "meta_description": {
+          "status": "missing"
+        },
+        "h1_tags": {
+          "count": 1,
+          "texts": [
+            "Tlaquepaque"
+          ],
+          "status": "good"
+        },
+        "images": {
+          "total": 9,
+          "without_alt": 0,
+          "missing_alt_srcs": []
+        }
+      },
+      "astro": {
+        "url": "http://localhost:4321/planteles/tlaquepaque",
+        "astro_components": 0,
+        "hydration_scripts": 9,
+        "internal_links": 82
+      }
+    },
+    {
+      "url": "http://localhost:4321/planteles/tonala",
+      "path": "/planteles/tonala",
+      "performance": {
+        "url": "http://localhost:4321/planteles/tonala",
+        "selenium_load_time": 1.36,
+        "browser_metrics": {
+          "domContentLoaded": 1193,
+          "firstPaint": 1120,
+          "loadTime": 1340,
+          "resources": 61
+        },
+        "status": "completed"
+      },
+      "seo": {
+        "url": "http://localhost:4321/planteles/tonala",
+        "title": {
+          "content": "",
+          "length": 0,
+          "status": "warning"
+        },
+        "meta_description": {
+          "status": "missing"
+        },
+        "h1_tags": {
+          "count": 1,
+          "texts": [
+            "Tonalá"
+          ],
+          "status": "good"
+        },
+        "images": {
+          "total": 10,
+          "without_alt": 0,
+          "missing_alt_srcs": []
+        }
+      },
+      "astro": {
+        "url": "http://localhost:4321/planteles/tonala",
+        "astro_components": 0,
+        "hydration_scripts": 9,
+        "internal_links": 87
+      }
+    },
+    {
+      "url": "http://localhost:4321/planteles/torre-quetzal",
+      "path": "/planteles/torre-quetzal",
+      "performance": {
+        "url": "http://localhost:4321/planteles/torre-quetzal",
+        "selenium_load_time": 1.28,
+        "browser_metrics": {
+          "domContentLoaded": 1077,
+          "firstPaint": 1060,
+          "loadTime": 1246,
+          "resources": 60
+        },
+        "status": "completed"
+      },
+      "seo": {
+        "url": "http://localhost:4321/planteles/torre-quetzal",
+        "title": {
+          "content": "",
+          "length": 0,
+          "status": "warning"
+        },
+        "meta_description": {
+          "status": "missing"
+        },
+        "h1_tags": {
+          "count": 1,
+          "texts": [
+            "Torre Quetzal"
+          ],
+          "status": "good"
+        },
+        "images": {
+          "total": 10,
+          "without_alt": 0,
+          "missing_alt_srcs": []
+        }
+      },
+      "astro": {
+        "url": "http://localhost:4321/planteles/torre-quetzal",
+        "astro_components": 0,
+        "hydration_scripts": 9,
+        "internal_links": 82
+      }
+    },
+    {
+      "url": "http://localhost:4321/planteles/torre-une-milenio",
+      "path": "/planteles/torre-une-milenio",
+      "performance": {
+        "url": "http://localhost:4321/planteles/torre-une-milenio",
+        "selenium_load_time": 1.32,
+        "browser_metrics": {
+          "domContentLoaded": 1087,
+          "firstPaint": 1068,
+          "loadTime": 1310,
+          "resources": 63
+        },
+        "status": "completed"
+      },
+      "seo": {
+        "url": "http://localhost:4321/planteles/torre-une-milenio",
+        "title": {
+          "content": "",
+          "length": 0,
+          "status": "warning"
+        },
+        "meta_description": {
+          "status": "missing"
+        },
+        "h1_tags": {
+          "count": 1,
+          "texts": [
+            "Torre UNE Milenio"
+          ],
+          "status": "good"
+        },
+        "images": {
+          "total": 9,
+          "without_alt": 0,
+          "missing_alt_srcs": []
+        }
+      },
+      "astro": {
+        "url": "http://localhost:4321/planteles/torre-une-milenio",
+        "astro_components": 0,
+        "hydration_scripts": 9,
+        "internal_links": 78
+      }
+    },
+    {
+      "url": "http://localhost:4321/planteles/zapopan",
+      "path": "/planteles/zapopan",
+      "performance": {
+        "url": "http://localhost:4321/planteles/zapopan",
+        "selenium_load_time": 1.45,
+        "browser_metrics": {
+          "domContentLoaded": 1219,
+          "firstPaint": 1144,
+          "loadTime": 1411,
+          "resources": 60
+        },
+        "status": "completed"
+      },
+      "seo": {
+        "url": "http://localhost:4321/planteles/zapopan",
+        "title": {
+          "content": "",
+          "length": 0,
+          "status": "warning"
+        },
+        "meta_description": {
+          "status": "missing"
+        },
+        "h1_tags": {
+          "count": 1,
+          "texts": [
+            "Zapopan"
+          ],
+          "status": "good"
+        },
+        "images": {
+          "total": 9,
+          "without_alt": 0,
+          "missing_alt_srcs": []
+        }
+      },
+      "astro": {
+        "url": "http://localhost:4321/planteles/zapopan",
+        "astro_components": 0,
+        "hydration_scripts": 9,
+        "internal_links": 97
+      }
+    },
+    {
+      "url": "http://localhost:4321/vidaestudiantil/General",
+      "path": "/vidaestudiantil/General",
+      "performance": {
+        "url": "http://localhost:4321/vidaestudiantil/General",
+        "selenium_load_time": 1.37,
+        "browser_metrics": {
+          "domContentLoaded": 1267,
+          "firstPaint": 1148,
+          "loadTime": 1324,
+          "resources": 63
+        },
+        "status": "completed"
+      },
+      "seo": {
+        "url": "http://localhost:4321/vidaestudiantil/General",
+        "title": {
+          "content": "",
+          "length": 0,
+          "status": "warning"
+        },
+        "meta_description": {
+          "status": "missing"
+        },
+        "h1_tags": {
+          "count": 1,
+          "texts": [
+            "Comunidad UNE"
+          ],
+          "status": "good"
+        },
+        "images": {
+          "total": 66,
+          "without_alt": 1,
+          "missing_alt_srcs": [
+            ""
+          ]
+        }
+      },
+      "astro": {
+        "url": "http://localhost:4321/vidaestudiantil/General",
+        "astro_components": 0,
+        "hydration_scripts": 12,
+        "internal_links": 69
+      }
+    },
+    {
+      "url": "http://localhost:4321/Vivetuuniversidad/Congresos",
+      "path": "/Vivetuuniversidad/Congresos",
+      "performance": {
+        "url": "http://localhost:4321/Vivetuuniversidad/Congresos",
+        "selenium_load_time": 1.46,
+        "browser_metrics": {
+          "domContentLoaded": 1304,
+          "firstPaint": 1308,
+          "loadTime": 1386,
+          "resources": 64
+        },
+        "status": "completed"
+      },
+      "seo": {
+        "url": "http://localhost:4321/Vivetuuniversidad/Congresos",
+        "title": {
+          "content": "",
+          "length": 0,
+          "status": "warning"
+        },
+        "meta_description": {
+          "status": "missing"
+        },
+        "h1_tags": {
+          "count": 2,
+          "texts": [
+            "Congresos UNE",
+            "Congreso Psicología UNE"
+          ],
+          "status": "warning"
+        },
+        "images": {
+          "total": 12,
+          "without_alt": 0,
+          "missing_alt_srcs": []
+        }
+      },
+      "astro": {
+        "url": "http://localhost:4321/Vivetuuniversidad/Congresos",
+        "astro_components": 0,
+        "hydration_scripts": 10,
+        "internal_links": 73
+      }
+    },
+    {
+      "url": "http://localhost:4321/Vivetuuniversidad/General",
+      "path": "/Vivetuuniversidad/General",
+      "performance": {
+        "url": "http://localhost:4321/Vivetuuniversidad/General",
+        "selenium_load_time": 2.69,
+        "browser_metrics": {
+          "domContentLoaded": 1277,
+          "firstPaint": 1188,
+          "loadTime": 2618,
+          "resources": 103
+        },
+        "status": "completed"
+      },
+      "seo": {
+        "url": "http://localhost:4321/Vivetuuniversidad/General",
+        "title": {
+          "content": "",
+          "length": 0,
+          "status": "warning"
+        },
+        "meta_description": {
+          "status": "missing"
+        },
+        "h1_tags": {
+          "count": 1,
+          "texts": [
+            "Conoce todas las actividades que tenemos"
+          ],
+          "status": "good"
+        },
+        "images": {
+          "total": 171,
+          "without_alt": 1,
+          "missing_alt_srcs": [
+            ""
+          ]
+        }
+      },
+      "astro": {
+        "url": "http://localhost:4321/Vivetuuniversidad/General",
+        "astro_components": 0,
+        "hydration_scripts": 13,
+        "internal_links": 221
+      }
+    },
+    {
+      "url": "http://localhost:4321/Vivetuuniversidad/Actividades/Futbol",
+      "path": "/Vivetuuniversidad/Actividades/Futbol",
+      "performance": {
+        "url": "http://localhost:4321/Vivetuuniversidad/Actividades/Futbol",
+        "selenium_load_time": 1.53,
+        "browser_metrics": {
+          "domContentLoaded": 1365,
+          "firstPaint": 1320,
+          "loadTime": 1460,
+          "resources": 81
+        },
+        "status": "completed"
+      },
+      "seo": {
+        "url": "http://localhost:4321/Vivetuuniversidad/Actividades/Futbol",
+        "title": {
+          "content": "",
+          "length": 0,
+          "status": "warning"
+        },
+        "meta_description": {
+          "status": "missing"
+        },
+        "h1_tags": {
+          "count": 0,
+          "texts": [],
+          "status": "warning"
+        },
+        "images": {
+          "total": 69,
+          "without_alt": 1,
+          "missing_alt_srcs": [
+            ""
+          ]
+        }
+      },
+      "astro": {
+        "url": "http://localhost:4321/Vivetuuniversidad/Actividades/Futbol",
+        "astro_components": 0,
+        "hydration_scripts": 9,
+        "internal_links": 68
+      }
+    },
+    {
+      "url": "http://localhost:4321/Vivetuuniversidad/Actividades/Karate",
+      "path": "/Vivetuuniversidad/Actividades/Karate",
+      "performance": {
+        "url": "http://localhost:4321/Vivetuuniversidad/Actividades/Karate",
+        "selenium_load_time": 1.32,
+        "browser_metrics": {
+          "domContentLoaded": 1246,
+          "firstPaint": 1140,
+          "loadTime": 1269,
+          "resources": 78
+        },
+        "status": "completed"
+      },
+      "seo": {
+        "url": "http://localhost:4321/Vivetuuniversidad/Actividades/Karate",
+        "title": {
+          "content": "",
+          "length": 0,
+          "status": "warning"
+        },
+        "meta_description": {
+          "status": "missing"
+        },
+        "h1_tags": {
+          "count": 1,
+          "texts": [
+            "Encuentra tu campus más cercano"
+          ],
+          "status": "good"
+        },
+        "images": {
+          "total": 79,
+          "without_alt": 1,
+          "missing_alt_srcs": [
+            ""
+          ]
+        }
+      },
+      "astro": {
+        "url": "http://localhost:4321/Vivetuuniversidad/Actividades/Karate",
+        "astro_components": 0,
+        "hydration_scripts": 12,
+        "internal_links": 74
+      }
+    },
+    {
+      "url": "http://localhost:4321/Vivetuuniversidad/Congresos-2025/Arquitectura",
+      "path": "/Vivetuuniversidad/Congresos-2025/Arquitectura",
+      "performance": {
+        "url": "http://localhost:4321/Vivetuuniversidad/Congresos-2025/Arquitectura",
+        "selenium_load_time": 2.57,
+        "browser_metrics": {
+          "domContentLoaded": 1247,
+          "firstPaint": 1192,
+          "loadTime": 2560,
+          "resources": 63
+        },
+        "status": "completed"
+      },
+      "seo": {
+        "url": "http://localhost:4321/Vivetuuniversidad/Congresos-2025/Arquitectura",
+        "title": {
+          "content": "",
+          "length": 0,
+          "status": "warning"
+        },
+        "meta_description": {
+          "status": "missing"
+        },
+        "h1_tags": {
+          "count": 0,
+          "texts": [],
+          "status": "warning"
+        },
+        "images": {
+          "total": 9,
+          "without_alt": 0,
+          "missing_alt_srcs": []
+        }
+      },
+      "astro": {
+        "url": "http://localhost:4321/Vivetuuniversidad/Congresos-2025/Arquitectura",
+        "astro_components": 0,
+        "hydration_scripts": 7,
+        "internal_links": 68
+      }
+    },
+    {
+      "url": "http://localhost:4321/Vivetuuniversidad/Congresos-2025/Ciencias-de-la-salud",
+      "path": "/Vivetuuniversidad/Congresos-2025/Ciencias-de-la-salud",
+      "performance": {
+        "url": "http://localhost:4321/Vivetuuniversidad/Congresos-2025/Ciencias-de-la-salud",
+        "selenium_load_time": 1.96,
+        "browser_metrics": {
+          "domContentLoaded": 1647,
+          "firstPaint": 1596,
+          "loadTime": 1940,
+          "resources": 63
+        },
+        "status": "completed"
+      },
+      "seo": {
+        "url": "http://localhost:4321/Vivetuuniversidad/Congresos-2025/Ciencias-de-la-salud",
+        "title": {
+          "content": "",
+          "length": 0,
+          "status": "warning"
+        },
+        "meta_description": {
+          "status": "missing"
+        },
+        "h1_tags": {
+          "count": 0,
+          "texts": [],
+          "status": "warning"
+        },
+        "images": {
+          "total": 9,
+          "without_alt": 0,
+          "missing_alt_srcs": []
+        }
+      },
+      "astro": {
+        "url": "http://localhost:4321/Vivetuuniversidad/Congresos-2025/Ciencias-de-la-salud",
+        "astro_components": 0,
+        "hydration_scripts": 7,
+        "internal_links": 68
+      }
+    },
+    {
+      "url": "http://localhost:4321/Vivetuuniversidad/Congresos-2025/General",
+      "path": "/Vivetuuniversidad/Congresos-2025/General",
+      "performance": {
+        "url": "http://localhost:4321/Vivetuuniversidad/Congresos-2025/General",
+        "selenium_load_time": 1.74,
+        "browser_metrics": {
+          "domContentLoaded": 1668,
+          "firstPaint": 1600,
+          "loadTime": 1686,
+          "resources": 68
+        },
+        "status": "completed"
+      },
+      "seo": {
+        "url": "http://localhost:4321/Vivetuuniversidad/Congresos-2025/General",
+        "title": {
+          "content": "",
+          "length": 0,
+          "status": "warning"
+        },
+        "meta_description": {
+          "status": "missing"
+        },
+        "h1_tags": {
+          "count": 1,
+          "texts": [
+            "Conoce todas las actividades que tenemos"
+          ],
+          "status": "good"
+        },
+        "images": {
+          "total": 117,
+          "without_alt": 0,
+          "missing_alt_srcs": []
+        }
+      },
+      "astro": {
+        "url": "http://localhost:4321/Vivetuuniversidad/Congresos-2025/General",
+        "astro_components": 0,
+        "hydration_scripts": 11,
+        "internal_links": 221
+      }
+    },
+    {
+      "url": "http://localhost:4321/Vivetuuniversidad/Congresos-2025/Odontologia",
+      "path": "/Vivetuuniversidad/Congresos-2025/Odontologia",
+      "performance": {
+        "url": "http://localhost:4321/Vivetuuniversidad/Congresos-2025/Odontologia",
+        "selenium_load_time": 1.83,
+        "browser_metrics": {
+          "domContentLoaded": 1380,
+          "firstPaint": 1324,
+          "loadTime": 1798,
+          "resources": 63
+        },
+        "status": "completed"
+      },
+      "seo": {
+        "url": "http://localhost:4321/Vivetuuniversidad/Congresos-2025/Odontologia",
+        "title": {
+          "content": "",
+          "length": 0,
+          "status": "warning"
+        },
+        "meta_description": {
+          "status": "missing"
+        },
+        "h1_tags": {
+          "count": 0,
+          "texts": [],
+          "status": "warning"
+        },
+        "images": {
+          "total": 9,
+          "without_alt": 0,
+          "missing_alt_srcs": []
+        }
+      },
+      "astro": {
+        "url": "http://localhost:4321/Vivetuuniversidad/Congresos-2025/Odontologia",
+        "astro_components": 0,
+        "hydration_scripts": 7,
+        "internal_links": 68
+      }
+    },
+    {
+      "url": "http://localhost:4321/Vivetuuniversidad/Congresos-2025/Psicologia",
+      "path": "/Vivetuuniversidad/Congresos-2025/Psicologia",
+      "performance": {
+        "url": "http://localhost:4321/Vivetuuniversidad/Congresos-2025/Psicologia",
+        "selenium_load_time": 2.09,
+        "browser_metrics": {
+          "domContentLoaded": 1639,
+          "firstPaint": 1876,
+          "loadTime": 2075,
+          "resources": 63
+        },
+        "status": "completed"
+      },
+      "seo": {
+        "url": "http://localhost:4321/Vivetuuniversidad/Congresos-2025/Psicologia",
+        "title": {
+          "content": "",
+          "length": 0,
+          "status": "warning"
+        },
+        "meta_description": {
+          "status": "missing"
+        },
+        "h1_tags": {
+          "count": 0,
+          "texts": [],
+          "status": "warning"
+        },
+        "images": {
+          "total": 9,
+          "without_alt": 0,
+          "missing_alt_srcs": []
+        }
+      },
+      "astro": {
+        "url": "http://localhost:4321/Vivetuuniversidad/Congresos-2025/Psicologia",
+        "astro_components": 0,
+        "hydration_scripts": 7,
+        "internal_links": 68
+      }
+    },
+    {
+      "url": "http://localhost:4321/Vivetuuniversidad/Congresos-2025/Terapia-fisica-cultura",
+      "path": "/Vivetuuniversidad/Congresos-2025/Terapia-fisica-cultura",
+      "performance": {
+        "url": "http://localhost:4321/Vivetuuniversidad/Congresos-2025/Terapia-fisica-cultura",
+        "selenium_load_time": 2.05,
+        "browser_metrics": {
+          "domContentLoaded": 1668,
+          "firstPaint": 1636,
+          "loadTime": 2033,
+          "resources": 63
+        },
+        "status": "completed"
+      },
+      "seo": {
+        "url": "http://localhost:4321/Vivetuuniversidad/Congresos-2025/Terapia-fisica-cultura",
+        "title": {
+          "content": "",
+          "length": 0,
+          "status": "warning"
+        },
+        "meta_description": {
+          "status": "missing"
+        },
+        "h1_tags": {
+          "count": 0,
+          "texts": [],
+          "status": "warning"
+        },
+        "images": {
+          "total": 9,
+          "without_alt": 0,
+          "missing_alt_srcs": []
+        }
+      },
+      "astro": {
+        "url": "http://localhost:4321/Vivetuuniversidad/Congresos-2025/Terapia-fisica-cultura",
+        "astro_components": 0,
+        "hydration_scripts": 7,
+        "internal_links": 68
+      }
+    },
+    {
+      "url": "http://localhost:4321/blog/",
+      "path": "/blog/",
+      "performance": {
+        "url": "http://localhost:4321/blog/",
+        "selenium_load_time": 1.71,
+        "browser_metrics": {
+          "domContentLoaded": 1599,
+          "firstPaint": 1548,
+          "loadTime": 1615,
+          "resources": 58
+        },
+        "status": "completed"
+      },
+      "seo": {
+        "url": "http://localhost:4321/blog/",
+        "title": {
+          "content": "",
+          "length": 0,
+          "status": "warning"
+        },
+        "meta_description": {
+          "status": "missing"
+        },
+        "h1_tags": {
+          "count": 0,
+          "texts": [],
+          "status": "warning"
+        },
+        "images": {
+          "total": 14,
+          "without_alt": 0,
+          "missing_alt_srcs": []
+        }
+      },
+      "astro": {
+        "url": "http://localhost:4321/blog/",
+        "astro_components": 0,
+        "hydration_scripts": 8,
+        "internal_links": 72
+      }
+    },
+    {
+      "url": "http://localhost:4321/oferta/colegio-une/Bachillerato-sej/",
+      "path": "/oferta/colegio-une/Bachillerato-sej/",
+      "performance": {
+        "url": "http://localhost:4321/oferta/colegio-une/Bachillerato-sej/",
+        "selenium_load_time": 1.35,
+        "browser_metrics": {
+          "domContentLoaded": 1227,
+          "firstPaint": 1124,
+          "loadTime": 1245,
+          "resources": 77
+        },
+        "status": "completed"
+      },
+      "seo": {
+        "url": "http://localhost:4321/oferta/colegio-une/Bachillerato-sej/",
+        "title": {
+          "content": "",
+          "length": 0,
+          "status": "warning"
+        },
+        "meta_description": {
+          "status": "missing"
+        },
+        "h1_tags": {
+          "count": 5,
+          "texts": [
+            "Bachillerato Intensivo Semiescolarizado",
+            "Encuentra tu campus más cercano",
+            "CONOCE NUESTROS COSTOS",
+            "Propuesta Educativa",
+            "¿Listo para impulsar tu aprendizaje?"
+          ],
+          "status": "warning"
+        },
+        "images": {
+          "total": 43,
+          "without_alt": 0,
+          "missing_alt_srcs": []
+        }
+      },
+      "astro": {
+        "url": "http://localhost:4321/oferta/colegio-une/Bachillerato-sej/",
+        "astro_components": 0,
+        "hydration_scripts": 16,
+        "internal_links": 118
+      }
+    }
+  ],
+  "performance": {},
+  "accessibility": {},
+  "seo": {},
+  "errors": [],
+  "warnings": []
+}
