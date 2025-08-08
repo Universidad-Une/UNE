@@ -1,0 +1,302 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Hero from "@/assets/Imagenes/Heros/Maestrias/Posgrados.jpg";
+import Hero_mobile from "@/assets/Imagenes/Heros/Maestrias/Posgrados_mobile.jpg";
+import ImagenCard from "@/assets/Imagenes/CardsNiveles/Nivel.webp";
+import LogoCard from "@/assets/Logos/Licenciatura.webp";
+import InformativeCard from "@components/sections/detallesOferta/card.astro";
+import Requisitos from "@/components/sections/detallesOferta/requisitos.astro";
+import FAQComponent from "@/components/sections/detallesOferta/preguntas.astro";
+import CTAinscripcion from "@/components/sections/shared/ctaInscripcion.astro";
+import { Calendar, UserPlus, Phone } from "@lucide/astro";
+import PlanEstudios from "@/components/sections/detallesOferta/planEstudios.astro";
+import Planteles from "@/components/sections/detallesOferta/planteles.astro";
+
+const requisitosInfo = {
+  items: [
+    "Acta de nacimiento original (reciente expedición, no mayor a 3 meses)",
+    "Certificado total de licenciatura (original)",
+    "CURP (Clave Única de Registro de Población)",
+    "Constancia de validación de certificado",
+    "Copia de título y cédula profesional",
+    "Ocho fotografías tamaño infantil (blanco y negro, de estudio, ropa clara, papel mate)",
+    "Identificación Oficial con fotografía (IFE/INE o Pasaporte)",
+    "Comprobante de domicilio (máximo 3 meses)",
+    "Certificado Parcial de Licenciatura (sólo si aspiras a grado superior)",
+    "Resolución de Equivalencia emitida por la Secretaría de Innovación Ciencia y Tecnología (sólo si aspiras a grado superior)",
+    "3 copias de cada documento",
+    "Carta Aceptación de modalidad de Titulación expedida por área de titulación (si es inscripción para modalidad de titulación - en este caso no se solicitará Título y Cédula)",
+    "Todos los documentos deberán tener el nombre o nombres y apellidos exactamente como aparecen en el acta de nacimiento",
+    "Si los certificados de bachillerato o licenciatura son de otro estado, deberán estar legalizados por el Gobierno del Estado de procedencia (excepto si es del Sistema Educativo Nacional, Instituto Politécnico Nacional o UNAM)",
+  ],
+  pdfUrl: "pdfs/posgrado_req.pdf",
+};
+
+const faqs = [
+  {
+    question: "¿Qué es una especialidad en Educación?",
+    answer:
+      "Una especialidad en Educación es un programa de posgrado diseñado para que los profesionales profundicen en un área específica del ámbito educativo, como la docencia, la gestión escolar, la tecnología educativa o la innovación pedagógica, con un enfoque práctico y aplicado.",
+  },
+  {
+    question:
+      "¿Cuál es el objetivo de la Especialidad en Ciencias de la Educación de la UNE?",
+    answer:
+      "Esta especialidad busca que los estudiantes adquieran competencias para analizar el entorno educativo, detectar tendencias y desarrollar soluciones que mejoren los procesos de enseñanza-aprendizaje. El programa se enfoca en la innovación y la gestión de instituciones educativas.",
+  },
+  {
+    question: "¿Quién puede estudiar esta especialidad?",
+    answer:
+      "La especialidad está dirigida a profesionales de diversas áreas que deseen incursionar o mejorar su desempeño en el campo educativo. Es ideal para docentes, directivos, pedagogos y cualquier persona interesada en la innovación educativa.",
+  },
+  {
+    question: "¿Cuánto tiempo dura el programa en la UNE?",
+    answer:
+      "La Especialidad en Ciencias de la Educación tiene una duración de 3 cuatrimestres (aproximadamente 1 año).",
+  },
+  {
+    question: "¿Qué temas se abordan en el plan de estudios?",
+    answer:
+      "El plan de estudios incluye materias como Política Educativa, Psicología Educativa, Modelos de Aprendizaje en el siglo XXI, Programación Neurolingüística Educativa e Investigación para la Educación. Se centra en el análisis, diseño y evaluación de modelos educativos.",
+  },
+  {
+    question: "¿Qué modalidades de estudio están disponibles en la UNE?",
+    answer:
+      "La Universidad UNE ofrece esta especialidad en modalidades presencial y en línea, lo que permite a los estudiantes elegir la opción que mejor se adapte a sus necesidades y horarios.",
+  },
+  {
+    question: "¿Tiene validez oficial la especialidad?",
+    answer:
+      "Sí, la Especialidad en Ciencias de la Educación de la Universidad UNE cuenta con el Reconocimiento de Validez Oficial de Estudios (RVOE) de la Secretaría de Educación Pública (SEP).",
+  },
+  {
+    question: "¿Cuáles son los requisitos de admisión?",
+    answer:
+      "Los requisitos de admisión suelen incluir el título de licenciatura, certificado de estudios, acta de nacimiento, CURP y una identificación oficial. El proceso puede variar, por lo que se recomienda contactar a la universidad para obtener la información más actualizada.",
+  },
+  {
+    question: "¿Cómo me puedo inscribir o pedir más información?",
+    answer:
+      "Puedes contactar a la Universidad UNE directamente a través de sus canales oficiales, ya sea visitando alguno de sus campus, llamando a sus números de atención o llenando un formulario en su sitio web. Un asesor te proporcionará toda la información necesaria para el proceso de inscripción.",
+  },
+];
+
+const semestresDatos = [
+  {
+    numero: 1,
+    materias: [
+      {
+        codigo: "PE101",
+        nombre: "Política Educativa",
+        creditos: 32,
+        color: "verde",
+      },
+      {
+        codigo: "PSE101",
+        nombre: "Psicología Educativa",
+        creditos: 64,
+        color: "verde",
+      },
+      {
+        codigo: "TEC101",
+        nombre: "Tecnopedagogía",
+        creditos: 96,
+        color: "verde",
+      },
+    ],
+  },
+  {
+    numero: 2,
+    materias: [
+      {
+        codigo: "MA201",
+        nombre: "Modelo de Aprendizaje en el siglo XXI",
+        creditos: 32,
+        color: "amarillo",
+      },
+      {
+        codigo: "PNE201",
+        nombre: "Programación Neurolingüística Educativa",
+        creditos: 64,
+        color: "amarillo",
+      },
+      {
+        codigo: "IE201",
+        nombre: "Investigación para la Educación",
+        creditos: 96,
+        color: "amarillo",
+      },
+    ],
+  },
+  {
+    numero: 3,
+    materias: [
+      {
+        codigo: "DEC301",
+        nombre: "Diseño y Evaluación Curricular",
+        creditos: 32,
+        color: "naranja",
+      },
+      {
+        codigo: "DID301",
+        nombre: "Didáctica",
+        creditos: 64,
+        color: "naranja",
+      },
+      {
+        codigo: "MEE301",
+        nombre: "Métodos de Evaluación Educativa",
+        creditos: 96,
+        color: "naranja",
+      },
+    ],
+  },
+];
+
+const planteles = [
+  {
+    id: "15",
+    nombre: "Torre Quetzal",
+    codigo: "Torre Quetzak",
+    direccion: "Chimalhuacán #3569 Col. Ciudad del Sol Zapopan, Jalisco",
+    ciudad: "Guadalajara ZMG",
+    url: "/planteles/torre-quetzal",
+    imagen: "/src/assets/Imagenes/CardsPlanteles/Torre-quetzal.webp",
+    lat: "20.651860618451966",
+    lon: "-103.40329340052432",
+  },
+];
+
+const ciudades = [
+  "Guadalajara ZMG",
+  "Puerto Vallarta",
+  "Tepatitlán de Morelos",
+];
+---
+
+<Layout>
+  <main class="min-h-screen">
+    <!-- Hero Section -->
+
+    <section
+      class="relative min-h-[85vh] md:min-h-[65vh] bg-cover bg-center bg-no-repeat"
+    >
+      {/* Desktop Background */}
+      <div
+        class="absolute inset-0 hidden md:block bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: `url(${Hero.src})` }}
+      >
+      </div>
+
+      {/* Mobile Background */}
+      <div
+        class="absolute inset-0 block md:hidden bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: `url(${Hero_mobile.src})` }}
+      >
+      </div>
+
+      {/* Hero Content */}
+      <div
+        class="relative z-10 container mx-auto px-4 h-full min-h-[85vh] md:min-h-[65vh] flex flex-col justify-center"
+      >
+        <div class="text-center text-white max-w-7xl mx-auto">
+          {/* Main Title */}
+          <h1 class="text-4xl md:text-7xl font-bold tracking-wider mb-4">
+            Especialidad en Ciencias de la Educación
+          </h1>
+
+          {/* Description */}
+          <p
+            class="text-lg md:text-xl leading-relaxed mb-16 max-w-3xl mx-auto font-light"
+          >
+            Este programa de posgrado te otorga las competencias para ser un
+            agente de cambio, impulsando la innovación pedagógica y liderando la
+            transformación de los sistemas educativos para enfrentar los retos
+            del futuro.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Floating Card - ahora está fuera de la sección hero -->
+    <div class="relative -top-16 z-20 px-4">
+      <div class="bg-azul-une rounded-2xl px-8 shadow-2xl max-w-4xl mx-auto">
+        <div
+          class="flex flex-col sm:flex-row items-center justify-center gap-6"
+        >
+          <!-- CTA Buttons -->
+          <div
+            class="flex flex-col sm:flex-row gap-4 w-full justify-center text-white"
+          >
+            <!-- Agenda una Visita -->
+            <a
+              href="/contacto/solicitarvisita"
+              class="hover:border-b hover:border-b-cyan-50 font-bold py-6 px-6 text-base transition-colors duration-300 shadow-lg flex flex-col items-center justify-center gap-2 whitespace-nowrap"
+              aria-label="Ir a AGENDA UNA VISITA"
+              title="AGENDA UNA VISITA"
+            >
+              AGENDA UNA VISITA
+              <Calendar size={20} />
+            </a>
+
+            <!-- Iniciar Inscripción -->
+            <a
+              href="/contacto/formulario-inscripcion"
+              class="hover:border-b hover:border-b-cyan-50 font-bold py-3 px-6 text-base transition-colors duration-300 shadow-lg flex flex-col items-center justify-center gap-2 whitespace-nowrap"
+              aria-label="Ir a INICIAR INSCRIPCIÓN"
+              title="INICIAR INSCRIPCIÓN"
+            >
+              INICIAR INSCRIPCIÓN
+              <UserPlus size={20} />
+            </a>
+
+            <!-- Contactar -->
+            <a
+              href="/contacto/solicitarinformacion"
+              class="hover:border-b hover:border-b-cyan-50 font-bold py-3 px-6 text-base transition-colors duration-300 shadow-lg flex flex-col items-center justify-center gap-2 whitespace-nowrap"
+              aria-label="Ir a página de contacto"
+              title="Contactar con nosotros"
+            >
+              CONTACTAR
+              <Phone size={20} />
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <InformativeCard
+      logoSrc={LogoCard.src}
+      studentImageSrc={ImagenCard.src}
+      title="Objetivo"
+      description="Durante la especialidad, desarrollarás estrategias de aprendizaje innovadoras adaptadas a las necesidades del siglo XXI. Ideal para docentes que buscan ascender, directivos que desean mejorar la gestión y personas que quieran ser agentes de cambio en la educación"
+      additionalText=""
+      features={[
+        { icon: "Clock", label: "Modalidades flexibles" },
+        { icon: "Users", label: "Profesores especialistas" },
+        { icon: "Trophy", label: "Más de 30 años de experiencia" },
+        { icon: "Briefcase", label: "Enfoque empresarial" },
+        { icon: "BookmarkCheck", label: "Proceso de titulación integral" },
+      ]}
+    />
+
+    <PlanEstudios titulo="Propuesta Educativa" semestres={semestresDatos} />
+
+    <Planteles
+      titulo="Encuentra tu campus más cercano"
+      planteles={planteles}
+      ciudades={ciudades}
+      mostrarMasCercano={true}
+    />
+
+    <Requisitos nivel="Especialidades" requisitos={requisitosInfo} />
+
+    <FAQComponent
+      faqs={faqs}
+      title="Preguntas frecuentes"
+      subtitle="Encuentra respuestas a las dudas más comunes"
+    />
+
+    <CTAinscripcion />
+  </main>
+</Layout>
