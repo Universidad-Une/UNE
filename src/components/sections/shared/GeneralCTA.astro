@@ -46,9 +46,9 @@ const {
 
       <!-- Formulario -->
       <div class="">
-        <form id="contact-form" class=" flex flex-col justify-center items-center">
+        <form id="contact-form" class="space-y-6 flex flex-col justify-center items-center">
           <!-- Campo Nombre -->
-          <div class="relative">
+          <div class="relative w-full">
             <input
               type="text"
               id="nombre"
@@ -59,8 +59,32 @@ const {
             />
           </div>
 
+          <!-- Campo Apellidos (se dividirá automáticamente) -->
+          <div class="relative w-full">
+            <input
+              type="text"
+              id="apellidos"
+              name="apellidos"
+              placeholder="Apellidos"
+              required
+              class="w-full bg-transparent border-b-2 border-white/50 text-white placeholder-white/70 py-3 px-0 focus:outline-none focus:border-white transition-colors text-lg"
+            />
+          </div>
+
+          <!-- Campo Correo -->
+          <div class="relative w-full">
+            <input
+              type="email"
+              id="correo"
+              name="correo"
+              placeholder="Correo Electrónico"
+              required
+              class="w-full bg-transparent border-b-2 border-white/50 text-white placeholder-white/70 py-3 px-0 focus:outline-none focus:border-white transition-colors text-lg"
+            />
+          </div>
+
           <!-- Campo Teléfono -->
-          <div class="relative">
+          <div class="relative w-full">
             <input
               type="tel"
               id="telefono"
@@ -71,24 +95,14 @@ const {
             />
           </div>
 
-          <!-- Campo Correo -->
-          <div class="relative">
-            <input
-              type="email"
-              id="correo"
-              name="correo"
-              placeholder="Correo"
-              required
-              class="w-full bg-transparent border-b-2 border-white/50 text-white placeholder-white/70 py-3 px-0 focus:outline-none focus:border-white transition-colors text-lg"
-            />
-          </div>
-
           <!-- Botón Enviar -->
-          <div class="pt-4">
+          <div class="pt-4 w-full">
             <button
               type="submit"
-              class="bg-azul-une hover:bg-blue-700 text-white font-semibold py-3 px-8 rounded transition-colors duration-200 text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
-             aria-label="Enviar" title="Enviar">
+              id="submit-btn"
+              class="w-full bg-azul-une hover:bg-blue-700 text-white font-semibold py-3 px-8 rounded transition-colors duration-200 text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 disabled:opacity-50 disabled:cursor-not-allowed"
+              aria-label="Enviar formulario" 
+              title="Enviar formulario">
               Enviar
             </button>
           </div>
@@ -103,22 +117,134 @@ const {
     const form = document.getElementById('contact-form');
     
     if (form) {
-      form.addEventListener('submit', function(e) {
+      form.addEventListener('submit', async function(e) {
         e.preventDefault();
         
-        const formData = new FormData(form);
-        const data = Object.fromEntries(formData);
+        const formData = new FormData(this);
         
-        // Aquí puedes manejar el envío del formulario
-        console.log('Datos del formulario:', data);
+        // Obtener apellidos y dividirlos automáticamente
+        const apellidosCompletos = formData.get("apellidos") || "";
+        const apellidosArray = apellidosCompletos.trim().split(/\s+/); // Dividir por espacios
         
-        // Ejemplo de validación simple
-        if (data.nombre && data.telefono && data.correo) {
-          // Simulación de envío exitoso
-          alert('¡Gracias! Nos pondremos en contacto contigo pronto.');
-          form.reset();
-        } else {
-          alert('Por favor, completa todos los campos.');
+        // Asignar apellido paterno y materno
+        const apellidoPaterno = apellidosArray[0] || "";
+        const apellidoMaterno = apellidosArray.length > 1 ? apellidosArray.slice(1).join(" ") : "";
+        
+        // Crear objeto con las propiedades específicas que necesitas
+        const data = {
+          nombre: formData.get("nombre") || "",
+          apellido_p: apellidoPaterno,
+          apellido_m: apellidoMaterno,
+          correo: formData.get("correo") || "",
+          telefono: formData.get("telefono") || "",
+          // Datos genéricos (no visibles en el formulario)
+          nivel_educativo: "Bachillerato",
+          plantel_interes: "Campus Central",
+          programa_interes: "Información General",
+          modalidad: "Presencial"
+        };
+
+        // Imprimir los datos en consola
+        console.log("=== DATOS DEL FORMULARIO ===");
+        console.log("nombre:", data.nombre, "| Tipo:", typeof data.nombre);
+        console.log("apellido_p:", data.apellido_p, "| Tipo:", typeof data.apellido_p);
+        console.log("apellido_m:", data.apellido_m, "| Tipo:", typeof data.apellido_m);
+        console.log("correo:", data.correo, "| Tipo:", typeof data.correo);
+        console.log("telefono:", data.telefono, "| Tipo:", typeof data.telefono);
+        console.log("nivel_educativo (genérico):", data.nivel_educativo, "| Tipo:", typeof data.nivel_educativo);
+        console.log("plantel_interes (genérico):", data.plantel_interes, "| Tipo:", typeof data.plantel_interes);
+        console.log("programa_interes (genérico):", data.programa_interes, "| Tipo:", typeof data.programa_interes);
+        console.log("modalidad (genérica):", data.modalidad, "| Tipo:", typeof data.modalidad);
+        console.log("=== OBJETO COMPLETO ===");
+        console.log("Datos completos:", data, "| Tipo:", typeof data);
+        console.log("=== DIVISIÓN DE APELLIDOS ===");
+        console.log("Apellidos completos:", apellidosCompletos);
+        console.log("Array de apellidos:", apellidosArray);
+        console.log("Apellido paterno:", apellidoPaterno);
+        console.log("Apellido materno:", apellidoMaterno);
+
+        // Mostrar loading/spinner
+        const submitButton = document.getElementById('submit-btn');
+        const originalText = submitButton.textContent;
+        submitButton.disabled = true;
+        submitButton.textContent = 'Enviando...';
+
+        try {
+          console.log('\n=== ENVIANDO A LA API ===');
+          console.log('🚀 Iniciando petición...');
+          console.log('⏱️ Timestamp:', new Date().toISOString());
+
+          // Configuración de la petición a la API (usando endpoint Astro)
+          const apiUrl =  "https://www.universidad-une.com/api/v2/custom/une_create_crm"; // Tu endpoint local de Astro
+          const headers = {
+            'Content-Type': 'application/json'
+          };
+
+          console.log('🔗 URL:', apiUrl);
+          console.log('📋 Headers enviados:', headers);
+          console.log('📦 Datos JSON a enviar:');
+          console.log(JSON.stringify(data, null, 2));
+
+          // Realizar la petición usando fetch
+          const response = await fetch(apiUrl, {
+            method: 'POST',
+            headers: headers,
+            body: JSON.stringify(data)
+          });
+
+          console.log('\n=== RESPUESTA DE LA API ===');
+          console.log('📊 Status:', response.status);
+          console.log('📊 Status Text:', response.statusText);
+          console.log('✅ OK:', response.ok);
+          
+          // Log de headers de respuesta
+          console.log('📋 Headers de respuesta:');
+          for (let [key, value] of response.headers.entries()) {
+            console.log(`   ${key}: ${value}`);
+          }
+
+          // Obtener el texto de respuesta
+          const responseText = await response.text();
+          console.log('📦 Respuesta raw:', responseText);
+
+          // Intentar parsear como JSON
+          let responseData;
+          try {
+            responseData = JSON.parse(responseText);
+            console.log('📦 Respuesta JSON parseada:');
+            console.log(JSON.stringify(responseData, null, 2));
+          } catch (parseError) {
+            console.log('⚠️ La respuesta no es JSON válido');
+            responseData = { raw: responseText };
+          }
+
+          if (response.ok && responseData.success) {
+            console.log('✅ ÉXITO: Datos enviados correctamente');
+            
+           
+            
+             window.location.href = '/contacto/gracias';
+            
+          } else {
+            throw new Error(`Error en API: ${responseData.error || 'Error desconocido'}`);
+          }
+
+        } catch (error) {
+          console.error('\n❌ ERROR EN EL ENVÍO:');
+          console.error('🔥 Mensaje:', error.message);
+          console.error('🔥 Stack:', error.stack);
+          
+          // Mostrar error al usuario
+          if (error.message.includes('Failed to fetch')) {
+             window.location.href = '/contacto/gracias';
+          }
+
+        } finally {
+          // Restaurar botón
+          submitButton.disabled = false;
+          submitButton.textContent = originalText;
+          
+          console.log('⏱️ Proceso finalizado:', new Date().toISOString());
         }
       });
     }

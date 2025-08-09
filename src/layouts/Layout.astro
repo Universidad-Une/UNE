@@ -32,25 +32,24 @@ const fullTitle = title === defaultConfig.title ? title : `${title} | UNE`;
 // Headers de seguridad
 if (Astro.response) {
   // Content Security Policy
-  Astro.response.headers.set(
-    'Content-Security-Policy',
-    "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.clarity.ms; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self' https://www.clarity.ms; font-src 'self' https:; object-src 'none'; base-uri 'self'; frame-ancestors 'none';"
-  );
-  
-  // X-Frame-Options para prevenir clickjacking
-  Astro.response.headers.set('X-Frame-Options', 'DENY');
-  
-  // Cross-Origin Opener Policy
-  Astro.response.headers.set('Cross-Origin-Opener-Policy', 'same-origin');
+Astro.response.headers.set(
+  'Content-Security-Policy',
+  "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.clarity.ms; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self' https://www.clarity.ms https://www.universidad-une.com; font-src 'self' https:; object-src 'none'; base-uri 'self'; frame-ancestors 'none';"
+);
+
   
   // Strict Transport Security (solo para HTTPS)
   if (Astro.url.protocol === 'https:') {
     Astro.response.headers.set('Strict-Transport-Security', 'max-age=31536000; includeSubDomains; preload');
   }
+
+  // Content Security Policy
+Astro.response.headers.set(
+  'Content-Security-Policy',
+  "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.clarity.ms; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self' https://www.clarity.ms https://www.universidad-une.com; font-src 'self' https:; frame-src https://view.genially.com; object-src 'none'; base-uri 'self'; frame-ancestors 'none';"
+);
   
-  // Otros headers de seguridad
-  Astro.response.headers.set('X-Content-Type-Options', 'nosniff');
-  Astro.response.headers.set('Referrer-Policy', 'strict-origin-when-cross-origin');
+
 }
 ---
 

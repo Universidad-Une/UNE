@@ -750,10 +750,7 @@ import { programasEducativos } from "@helpers/estructura_educativa.js";
           console.log("✅ ÉXITO: Datos enviados correctamente");
 
           // Mostrar mensaje de éxito
-          alert(
-            `✅ ¡Formulario enviado exitosamente!\n\nDatos: ${data.nombre} ${data.apellido_p} ${data.apellido_m}\nCorreo: ${data.correo}\nTeléfono: ${data.telefono}`
-          );
-
+        
           // Redireccionar a la página de gracias
           console.log("🔄 Redirigiendo a /contacto/gracias...");
           window.location.href = "/contacto/gracias";
@@ -773,30 +770,27 @@ import { programasEducativos } from "@helpers/estructura_educativa.js";
           error.message.includes("Failed to fetch")
         ) {
           console.error("💡 Posible causa: Problema de CORS o conectividad");
-          alert(
-            "❌ Error de conectividad. Verifica tu conexión a internet e intenta de nuevo."
-          );
+         
         } else if (error.message.includes("404")) {
           console.error("💡 Posible causa: URL de API no encontrada");
-          alert("❌ Error: Servicio no disponible. Contacta al administrador.");
         } else if (
           error.message.includes("401") ||
           error.message.includes("403")
         ) {
           console.error("💡 Posible causa: Problema de autenticación");
-          alert("❌ Error de autorización. Contacta al administrador.");
         } else if (error.message.includes("500")) {
           console.error("💡 Posible causa: Error interno del servidor");
-          alert("❌ Error del servidor. Intenta de nuevo más tarde.");
         } else {
           console.error("💡 Error desconocido");
-          alert(`❌ Error inesperado: ${error.message}`);
         }
       } finally {
         // Restaurar botón
         if (submitButton) {
           submitButton.disabled = false;
           submitButton.textContent = originalText;
+           // Redireccionar a la página de gracias
+          console.log("🔄 Redirigiendo a /contacto/gracias...");
+          window.location.href = "/contacto/gracias";
         }
 
         console.log("⏱️ Proceso finalizado:", new Date().toISOString());

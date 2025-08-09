@@ -5,6 +5,7 @@ import {  Phone, Clock1, MapPin } from "@lucide/astro";
 import Carreradeplantel from "@/components/sections/planteles/Carreradeplantel.astro";
 import CtaVisita from "@/components/sections/planteles/ctaVisita.astro";
 import { obtenerProgramasPorPlantel } from "@helpers/estructura_educativa";
+import GaleriaPlantel from "@/components/sections/planteles/GaleriaPlantel.astro";
 const programasCentro = obtenerProgramasPorPlantel("CENTRO");
 
 ---
@@ -307,13 +308,11 @@ const programasCentro = obtenerProgramasPorPlantel("CENTRO");
       itemsPerPage={9}
     />
 
-    <!-- <Instalaciones
-      title="Espacios Diseñados para el Aprendizaje"
-      subtitle="Nuestras instalaciones de primer nivel proporcionan el ambiente perfecto para tu desarrollo académico y personal."
-      facilities={facilitiesData}
-    /> -->
+
 
     <CtaVisita />
+
+    <GaleriaPlantel plantel="CENTRO"/>
   </main>
 </Layout>
 

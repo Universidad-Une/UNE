@@ -2,12 +2,12 @@
 // UniversityTabs.astro
 
 // Imports de imágenes
-import ExcelenciaImg from '@/assets/Imagenes/Excelencia.webp';
-import InversionImg from '@/assets/Imagenes/Inversion.webp';
-import CampusSeguroImg from '@/assets/Imagenes/Campus_seguro.webp';
-import ExperienciaImg from '@/assets/Imagenes/Experiencia.webp';
-import ComunidadImg from '@/assets/Imagenes/Comunidad.webp';
-import CaminoImg from '@/assets/Imagenes/Camino.webp';
+import ExcelenciaImg from "@/assets/Imagenes/Excelencia.webp";
+import InversionImg from "@/assets/Imagenes/Inversion.webp";
+import CampusSeguroImg from "@/assets/Imagenes/Campus_seguro.webp";
+import ExperienciaImg from "@/assets/Imagenes/Experiencia.webp";
+import ComunidadImg from "@/assets/Imagenes/Comunidad.webp";
+import CaminoImg from "@/assets/Imagenes/Camino.webp";
 ---
 
 <div
@@ -47,13 +47,17 @@ import CaminoImg from '@/assets/Imagenes/Camino.webp';
       <button
         class="tab-button flex-1 py-3 px-6 text-sm font-medium rounded-full transition-all duration-200 bg-blue-700 text-white"
         data-tab="estudiante"
-       aria-label="Soy estudiante" title="Soy estudiante">
+        aria-label="Soy estudiante"
+        title="Soy estudiante"
+      >
         Soy estudiante
       </button>
       <button
         class="tab-button flex-1 py-3 px-6 text-sm font-medium rounded-full transition-all duration-200 text-gray-600 hover:text-blue-700"
         data-tab="padre"
-       aria-label="Soy Padre/Tutor" title="Soy Padre/Tutor">
+        aria-label="Soy Padre/Tutor"
+        title="Soy Padre/Tutor"
+      >
         Soy Padre/Tutor
       </button>
     </div>
@@ -91,7 +95,7 @@ import CaminoImg from '@/assets/Imagenes/Camino.webp';
                 ></path>
               </svg>
             </div>
-            <h3 class="text-lg font-bold text-gray-900 mb-2">
+            <h3 class="text-lg  text-gray-900 mb-2">
               Excelencia comprobada.
             </h3>
             <p class="text-gray-600 text-sm mb-4">
@@ -101,7 +105,9 @@ import CaminoImg from '@/assets/Imagenes/Camino.webp';
             <a
               href="/contacto/solicitarinformacion"
               class="text-blue-600 text-sm font-medium hover:text-blue-700 transition-colors flex items-center"
-             aria-label="Ir a Hablar con un académico" title="Hablar con un académico">
+              aria-label="Ir a Hablar con un académico"
+              title="Hablar con un académico"
+            >
               Hablar con un académico
               <svg
                 class="w-4 h-4 ml-1"
@@ -127,7 +133,7 @@ import CaminoImg from '@/assets/Imagenes/Camino.webp';
           <div class="relative h-56 overflow-hidden">
             <img
               src={InversionImg.src}
-              alt="Inversión en educación"
+              alt="Vive Tu Universidad - Comunidad estudiantil"
               class="w-full h-full object-cover"
               width={InversionImg.width}
               height={InversionImg.height}
@@ -146,22 +152,26 @@ import CaminoImg from '@/assets/Imagenes/Camino.webp';
                   stroke-linecap="round"
                   stroke-linejoin="round"
                   stroke-width="2"
-                  d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"
+                  d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
                 ></path>
               </svg>
             </div>
-            <h3 class="text-lg font-bold text-gray-900 mb-2">
-              Inversión inteligente en tu futuro
+            <h3 class="text-lg text-gray-900 mb-2">
+              Vive Tu Universidad
             </h3>
             <p class="text-gray-600 text-sm mb-4">
-              Planes de financiamiento flexibles, becas de excelencia académica
-              y opciones de pago que se adaptan a tu situación familiar
+              En VTU creemos que elegir una universidad es encontrar un lugar
+              donde puedas ser tú. Una comunidad auténtica, cercana y con
+              propósito donde se valora quién eres y se celebra lo que te hace
+              único.
             </p>
             <a
-              href="/acerca/Apoyos"
+              href="/Vivetuuniversidad/General"
               class="text-blue-600 text-sm font-medium hover:text-blue-700 transition-colors flex items-center"
-             aria-label="Ir a Conocer opciones de financiamiento" title="Conocer opciones de financiamiento">
-              Conocer opciones de financiamiento
+              aria-label="Conocer Vive Tu Universidad"
+              title="Conocer actividades y comunidad VTU"
+            >
+              Conoce todas las actividades que tenemos
               <svg
                 class="w-4 h-4 ml-1"
                 fill="none"
@@ -209,17 +219,19 @@ import CaminoImg from '@/assets/Imagenes/Camino.webp';
                 ></path>
               </svg>
             </div>
-            <h3 class="text-lg font-bold text-gray-900 mb-2 pr-16">
+            <h3 class="text-lg  text-gray-900 mb-2 pr-16">
               Un campus seguro y moderno
             </h3>
             <p class="text-gray-600 text-sm mb-4">
-              Instalaciones equipadas, protocolos de seguridad y un
-              ambiente universitario que promueve el bienestar estudiantil
+              Instalaciones equipadas, protocolos de seguridad y un ambiente
+              universitario que promueve el bienestar estudiantil
             </p>
             <a
               href="/planteles/general"
               class="text-blue-600 text-sm font-medium hover:text-blue-700 transition-colors flex items-center"
-             aria-label="Ir a Conocer nuestras instalaciones" title="Conocer nuestras instalaciones">
+              aria-label="Ir a Conocer nuestras instalaciones"
+              title="Conocer nuestras instalaciones"
+            >
               Conocer nuestras instalaciones
               <svg
                 class="w-4 h-4 ml-1"
@@ -281,7 +293,9 @@ import CaminoImg from '@/assets/Imagenes/Camino.webp';
             <a
               href="/Vivetuuniversidad/General"
               class="text-blue-600 text-sm font-medium hover:text-blue-700 transition-colors flex items-center"
-             aria-label="Ir a Descubrir talleres" title="Descubrir talleres">
+              aria-label="Ir a Descubrir talleres"
+              title="Descubrir talleres"
+            >
               Descubrir talleres
               <svg
                 class="w-4 h-4 ml-1"
@@ -339,7 +353,9 @@ import CaminoImg from '@/assets/Imagenes/Camino.webp';
             <a
               href="/vidaestudiantil/General"
               class="text-blue-600 text-sm font-medium hover:text-blue-700 transition-colors flex items-center"
-             aria-label="Ir a Explorar comunidad" title="Explorar comunidad">
+              aria-label="Ir a Explorar comunidad"
+              title="Explorar comunidad"
+            >
               Explorar comunidad
               <svg
                 class="w-4 h-4 ml-1"
@@ -397,7 +413,9 @@ import CaminoImg from '@/assets/Imagenes/Camino.webp';
             <a
               href="/acerca/oferta-academica"
               class="text-blue-600 text-sm font-medium hover:text-blue-700 transition-colors flex items-center"
-             aria-label="Ir a Ver oferta académica" title="Navegar a Ver oferta académica">
+              aria-label="Ir a Ver oferta académica"
+              title="Navegar a Ver oferta académica"
+            >
               Ver oferta académica
               <svg
                 class="w-4 h-4 ml-1"
@@ -422,44 +440,44 @@ import CaminoImg from '@/assets/Imagenes/Camino.webp';
 
 <script>
   // JavaScript para manejar las tabs y la funcionalidad
-  document.addEventListener('DOMContentLoaded', function() {
-    const tabButtons = document.querySelectorAll('.tab-button');
-    const tabContents = document.querySelectorAll('.tab-content');
-    const loadingElement = document.getElementById('tabs-loading');
-    const contentElement = document.getElementById('tabs-content');
+  document.addEventListener("DOMContentLoaded", function () {
+    const tabButtons = document.querySelectorAll(".tab-button");
+    const tabContents = document.querySelectorAll(".tab-content");
+    const loadingElement = document.getElementById("tabs-loading");
+    const contentElement = document.getElementById("tabs-content");
 
     // Simular carga y mostrar contenido
     setTimeout(() => {
       if (loadingElement && contentElement) {
-        loadingElement.style.display = 'none';
-        contentElement.classList.remove('hidden');
+        loadingElement.style.display = "none";
+        contentElement.classList.remove("hidden");
       }
     }, 1000);
 
     // Manejar clicks en tabs
-    tabButtons.forEach(button => {
-      button.addEventListener('click', function() {
-        const targetTab = this.getAttribute('data-tab');
-        
+    tabButtons.forEach((button) => {
+      button.addEventListener("click", function () {
+        const targetTab = this.getAttribute("data-tab");
+
         // Remover clases activas de todos los botones
-        tabButtons.forEach(btn => {
-          btn.classList.remove('bg-blue-700', 'text-white');
-          btn.classList.add('text-gray-600', 'hover:text-blue-700');
+        tabButtons.forEach((btn) => {
+          btn.classList.remove("bg-blue-700", "text-white");
+          btn.classList.add("text-gray-600", "hover:text-blue-700");
         });
-        
+
         // Agregar clases activas al botón clickeado
-        this.classList.remove('text-gray-600', 'hover:text-blue-700');
-        this.classList.add('bg-blue-700', 'text-white');
-        
+        this.classList.remove("text-gray-600", "hover:text-blue-700");
+        this.classList.add("bg-blue-700", "text-white");
+
         // Ocultar todos los contenidos de tabs
-        tabContents.forEach(content => {
-          content.classList.add('hidden');
+        tabContents.forEach((content) => {
+          content.classList.add("hidden");
         });
-        
+
         // Mostrar el contenido de la tab seleccionada
         const targetContent = document.getElementById(targetTab);
         if (targetContent) {
-          targetContent.classList.remove('hidden');
+          targetContent.classList.remove("hidden");
         }
       });
     });
@@ -470,13 +488,11 @@ import CaminoImg from '@/assets/Imagenes/Camino.webp';
   .tab-button {
     transition: all 0.2s ease-in-out;
   }
-  
+
   .tab-content {
     transition: opacity 0.3s ease-in-out;
   }
 </style>
-
-
 
 <script>
   // Intersection Observer para lazy loading del componente
