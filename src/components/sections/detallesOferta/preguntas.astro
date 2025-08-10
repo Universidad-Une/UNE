@@ -36,8 +36,8 @@ const rightColumnFaqs = faqs.slice(midpoint);
     <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-4 items-start">
       <div class="space-y-4">
         {
-          leftColumnFaqs.map((faq) => (
-            <div class="faq-item bg-azul-une text-white rounded-lg cursor-pointer hover:bg-blue-800 transition-colors duration-300 group">
+          leftColumnFaqs.map((faq, index) => (
+            <div class="faq-item bg-azul-une text-white rounded-lg cursor-pointer hover:bg-blue-800 transition-colors duration-300 group" data-faq-index={`left-${index}`}>
               <div class="faq-question p-6 flex items-center justify-between">
                 <h3 class="text-lg pr-4">{faq.question}</h3>
                 <div class="flex-shrink-0">
@@ -57,8 +57,8 @@ const rightColumnFaqs = faqs.slice(midpoint);
 
       <div class="space-y-4">
         {
-          rightColumnFaqs.map((faq) => (
-            <div class="faq-item bg-azul-une text-white rounded-lg cursor-pointer hover:bg-blue-800 transition-colors duration-300 group">
+          rightColumnFaqs.map((faq, index) => (
+            <div class="faq-item bg-azul-une text-white rounded-lg cursor-pointer hover:bg-blue-800 transition-colors duration-300 group" data-faq-index={`right-${index}`}>
               <div class="faq-question p-6 flex items-center justify-between">
                 <h3 class="text-lg pr-4">{faq.question}</h3>
                 <div class="flex-shrink-0">
@@ -80,13 +80,30 @@ const rightColumnFaqs = faqs.slice(midpoint);
 </section>
 
 <script>
-  document.addEventListener("DOMContentLoaded", () => {
+  function initializeFAQ() {
     const faqItems = document.querySelectorAll(".faq-item");
+    
+    if (faqItems.length === 0) {
+      console.warn("No FAQ items found");
+      return;
+    }
 
     faqItems.forEach((item) => {
       const question = item.querySelector(".faq-question");
+      
+      if (!question) {
+        console.warn("FAQ question element not found");
+        return;
+      }
 
-      question.addEventListener("click", () => {
+      // Remover event listeners previos para evitar duplicados
+      const newQuestion = question.cloneNode(true);
+      question.parentNode?.replaceChild(newQuestion, question);
+
+      newQuestion.addEventListener("click", (event) => {
+        event.preventDefault();
+        event.stopPropagation();
+        
         // Comprueba si el elemento clickeado ya está abierto
         const isOpen = item.classList.contains("is-open");
 
@@ -98,11 +115,25 @@ const rightColumnFaqs = faqs.slice(midpoint);
         });
 
         // Alterna la clase 'is-open' en el elemento clickeado
-        // Si estaba abierto, lo cierra. Si estaba cerrado, lo abre.
-        item.classList.toggle("is-open");
+        if (isOpen) {
+          item.classList.remove("is-open");
+        } else {
+          item.classList.add("is-open");
+        }
       });
     });
-  });
+  }
+
+  // Inicializar cuando el DOM esté completamente cargado
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initializeFAQ);
+  } else {
+    // Si el DOM ya está cargado, ejecutar inmediatamente
+    initializeFAQ();
+  }
+
+  // También inicializar después de navegación del lado del cliente (para SPAs)
+  document.addEventListener("astro:page-load", initializeFAQ);
 </script>
 
 <style>
@@ -117,5 +148,18 @@ const rightColumnFaqs = faqs.slice(midpoint);
 
   .faq-item.is-open .icon-minus {
     display: block;
+  }
+
+  /* Estilos adicionales para mejor UX */
+  .faq-item {
+    transition: all 0.3s ease;
+  }
+
+  .faq-question:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+
+  .faq-answer {
+    transition: max-height 0.3s ease-in-out;
   }
 </style>

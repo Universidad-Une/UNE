@@ -287,7 +287,7 @@ const logoUrl = Logosrc.src;
             
             // Detectar tipo de imagen por extensión o content-type
             const contentType = response.headers.get('content-type');
-            if (contentType?.includes('png') || url.toLowerCase().includes('.png')) {
+            if (contentType?.includes('png') || url.toLowerCase().includes('.webp')) {
               return await pdfDoc.embedPng(uint8Array);
             } else {
               return await pdfDoc.embedJpg(uint8Array);
