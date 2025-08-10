@@ -2,6 +2,7 @@
 import Layout from "@/layouts/Layout.astro";
 import { Search } from "@lucide/astro";
 import AccesosBibliotecas from "@/components/sections/Escolares/Accesos_bibliotecas.astro";
+import bibbliotecas from "@/assets/Imagenes/Bibliotecas/Estadio.webp"
 ---
 
 <Layout>
@@ -43,7 +44,7 @@ import AccesosBibliotecas from "@/components/sections/Escolares/Accesos_bibliote
                         <p class="text-gray-600 text-sm leading-relaxed">
                             Descubre todo el material que tiene UNE para ti,
                             accede a recursos digitales para complementar tus
-                            conocimeintos
+                            conocimientos
                         </p>
                     </div>
                 </div>
@@ -52,7 +53,7 @@ import AccesosBibliotecas from "@/components/sections/Escolares/Accesos_bibliote
 
         <AccesosBibliotecas />
 
-        <section class="py-16 bg-gray-50">
+        <section class="p-16 bg-gray-50">
             <div class="container mx-auto  max-w-7xl">
                 <!-- Primera sección: Acceso completo -->
                 <div class="grid md:grid-cols-2 gap-12 items-center mb-20">
@@ -78,7 +79,7 @@ import AccesosBibliotecas from "@/components/sections/Escolares/Accesos_bibliote
                     <!-- Imagen -->
                     <div class="relative">
                         <img
-                            src="/src/assets/Imagenes/Bibliotecas/Estadio.webp"
+                            src={bibbliotecas.src}
                             alt="Biblioteca digital con libros y tecnología"
                             class="w-96 h-auto rounded-lg shadow-lg"
                         />

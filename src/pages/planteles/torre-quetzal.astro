@@ -5,7 +5,8 @@ const programas = obtenerProgramasPorPlantel("TORRE QUETZAL");
 import { Phone, Clock1, MapPin } from "@lucide/astro";
 import Carreradeplantel from "@/components/sections/planteles/Carreradeplantel.astro";
 import CtaVisita from "@/components/sections/planteles/ctaVisita.astro";
-import Card from "@/assets/Imagenes/CardPlantelesInterior/Quetzal.jpg";
+import Card from "@/assets/Imagenes/CardPlantelesInterior/Quetzal.webp";
+import GaleriaPlantel from "@/components/sections/planteles/GaleriaPlantel.astro";
 
 ---
 
@@ -81,12 +82,12 @@ import Card from "@/assets/Imagenes/CardPlantelesInterior/Quetzal.jpg";
       </div>
     </section>
 
-    <section class="bg-white py-16 px-4">
+    <section class="bg-white py-16">
       <div class="max-w-6xl mx-auto">
         <!-- Header -->
         <div class="text-center mb-12">
           <button
-            class="bg-azul text-white px-6 py-2 rounded-full text-sm font-medium mb-6 hover:bg-blue-700 transition-colors"
+            class="bg-azul-une text-white px-6 py-2 rounded-full text-sm font-medium mb-6 hover:bg-blue-700 transition-colors"
            aria-label="Acerca de Torre Quetzal" title="Acerca de Torre Quetzal">
             Acerca de Torre Quetzal
           </button>
@@ -307,6 +308,8 @@ import Card from "@/assets/Imagenes/CardPlantelesInterior/Quetzal.jpg";
       />
 
       <CtaVisita />
+         <GaleriaPlantel plantel="Quetzal"/>
+
     </section>
   </main>
 

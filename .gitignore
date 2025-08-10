@@ -27,9 +27,7 @@ pnpm-debug.log*
 .utils/venv/
 .PLANTEL
 .PLANTEL/*
-
-
-
+backup/
 # Testing frameworks
 playwright-report/
 test-results/

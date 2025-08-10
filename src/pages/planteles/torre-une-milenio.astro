@@ -6,6 +6,7 @@ import { Phone, Clock1, MapPin } from "@lucide/astro";
 import Carreradeplantel from "@/components/sections/planteles/Carreradeplantel.astro";
 import CtaVisita from "@/components/sections/planteles/ctaVisita.astro";
 import Video from "@/assets/Videos/planteles/Torre Une.webm";
+import GaleriaPlantel from "@/components/sections/planteles/GaleriaPlantel.astro";
 ---
 
 <Layout>
@@ -35,7 +36,7 @@ import Video from "@/assets/Videos/planteles/Torre Une.webm";
             <p
               class="text-lg md:text-xl leading-relaxed mb-8 font-light max-w-2xl"
             >
-              En nuestro Torre Milenio, lo importante eres tú. Con un ambiente
+              En nuestra Torre Milenio, lo importante eres tú. Con un ambiente
               cálido y una comunidad unida, este plantel ofrece programas
               académicos de calidad, atención personalizada y un fuerte vínculo
               con la comunidad local.
@@ -48,14 +49,18 @@ import Video from "@/assets/Videos/planteles/Torre Une.webm";
               <a
                 href="/contacto/solicitarinformacion"
                 class="bg-red-600 hover:bg-red-700 hover:scale-105 hover:shadow-xl transition-all duration-300 text-white px-8 py-3 rounded-lg font-semibold text-lg"
-               aria-label="Ir a Solicitar información" title="Solicitar información">
+                aria-label="Ir a Solicitar información"
+                title="Solicitar información"
+              >
                 Solicitar información
               </a>
 
               <a
                 href="/contacto/formulario-inscripcion"
                 class="border-2 border-white text-white hover:scale-105 hover:shadow-xl transition-all duration-300 px-8 py-3 rounded-lg font-semibold text-lg"
-               aria-label="Ir a Inscribirme" title="Inscribirme">
+                aria-label="Ir a Inscribirme"
+                title="Inscribirme"
+              >
                 Inscribirme
               </a>
             </div>
@@ -71,7 +76,9 @@ import Video from "@/assets/Videos/planteles/Torre Une.webm";
             <div class="flex lg:hidden flex-col w-full max-w-sm space-y-4">
               <button
                 class="bg-red-600 hover:bg-red-700 transition-all duration-300 text-white px-8 py-3 rounded-lg font-semibold text-lg w-full"
-               aria-label="Agendar una visita" title="Agendar una visita">
+                aria-label="Agendar una visita"
+                title="Agendar una visita"
+              >
                 Agendar una visita
               </button>
             </div>
@@ -86,7 +93,9 @@ import Video from "@/assets/Videos/planteles/Torre Une.webm";
         <div class="text-center mb-12">
           <button
             class="bg-azul-une text-white px-6 py-2 rounded-full text-sm font-medium mb-6 hover:bg-blue-700 transition-colors"
-           aria-label="Acerca de Torre Milenio" title="Acerca de Torre Milenio">
+            aria-label="Acerca de Torre Milenio"
+            title="Acerca de Torre Milenio"
+          >
             Acerca de Torre Milenio
           </button>
 
@@ -237,13 +246,18 @@ import Video from "@/assets/Videos/planteles/Torre Une.webm";
               </div>
               <h3 class="text-xl font-semibold">Dirección</h3>
             </div>
-            <button
+            <a
+              href="https://maps.app.goo.gl/AGXhD7V2X2Mobudr6"
+              target="_blank"
+              rel="noopener noreferrer"
               class="text-blue-100 hover:text-white transition-colors cursor-pointer text-left"
-             aria-label="Av. López Mateos Sur #4175 Col. La Giralda Zapopan, Jalisco" title="Av. López Mateos Sur #4175 Col. La Giralda Zapopan, Jalisco">
+              aria-label="Av. López Mateos Sur #4175 Col. La Giralda Zapopan, Jalisco"
+              title="Av. López Mateos Sur #4175 Col. La Giralda Zapopan, Jalisco"
+            >
               Av. López Mateos Sur #4175<br />
               Col. La Giralda Zapopan,<br />
               Jalisco
-            </button>
+            </a>
           </div>
 
           <!-- Teléfonos -->
@@ -267,7 +281,9 @@ import Video from "@/assets/Videos/planteles/Torre Une.webm";
                 <a
                   href="tel:+523380000863"
                   class="text-white hover:text-blue-200 transition-colors font-medium"
-                 aria-label="Llamar a +523380000863" title="Número de teléfono: +523380000863">
+                  aria-label="Llamar a +523380000863"
+                  title="Número de teléfono: +523380000863"
+                >
                   (33) 8000 0863
                 </a>
               </div>
@@ -306,6 +322,7 @@ import Video from "@/assets/Videos/planteles/Torre Une.webm";
     />
 
     <CtaVisita />
+    <GaleriaPlantel plantel="TORRE MILENIO" />
   </main>
 </Layout>
 

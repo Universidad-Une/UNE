@@ -8,6 +8,8 @@ const programasCentro = obtenerProgramasPorPlantel("CENTRO \nMÉDICO");
 import { Phone, Clock1, MapPin } from "@lucide/astro";
 import Carreradeplantel from "@/components/sections/planteles/Carreradeplantel.astro";
 import CtaVisita from "@/components/sections/planteles/ctaVisita.astro";
+import GaleriaPlanteles from "@/components/sections/planteles/GaleriaPlanteles.astro";
+import GaleriaPlantel from "@/components/sections/planteles/GaleriaPlantel.astro";
 ---
 
 <Layout>
@@ -320,6 +322,7 @@ import CtaVisita from "@/components/sections/planteles/ctaVisita.astro";
 /> -->
 
     <CtaVisita />
+   <GaleriaPlantel plantel="CENTRO MEDICO"/>
   </main>
 </Layout>
 

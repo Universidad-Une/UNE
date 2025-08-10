@@ -5,7 +5,10 @@ import {  Phone, Clock1, MapPin } from "@lucide/astro";
 import Carreradeplantel from "@/components/sections/planteles/Carreradeplantel.astro";
 import CtaVisita from "@/components/sections/planteles/ctaVisita.astro";
 import { obtenerProgramasPorPlantel } from "@helpers/estructura_educativa";
+import GaleriaPlantel from "@/components/sections/planteles/GaleriaPlantel.astro";
 const programasCentro = obtenerProgramasPorPlantel("CENTRO");
+import Video from "@/assets/Videos/planteles/Centro.webm";
+
 
 ---
 
@@ -107,13 +110,16 @@ const programasCentro = obtenerProgramasPorPlantel("CENTRO");
         <!-- Content Grid -->
         <div class="grid md:grid-cols-2 gap-12 items-center">
           <!-- Video/Image Container -->
-          <div class="relative">
+            <div class="relative">
             <div class="rounded-2xl overflow-hidden shadow-2xl">
-              <img
-                src={Card.src}
-                alt="Campus UNE Centro Guadalajara"
+              <video
+                src={Video}
+                alt="Campus UNE Centro Médico"
                 class="w-full h-auto object-cover"
-              />
+                autoplay
+                muted
+                loop
+                controls></video>
             </div>
           </div>
 
@@ -307,13 +313,11 @@ const programasCentro = obtenerProgramasPorPlantel("CENTRO");
       itemsPerPage={9}
     />
 
-    <!-- <Instalaciones
-      title="Espacios Diseñados para el Aprendizaje"
-      subtitle="Nuestras instalaciones de primer nivel proporcionan el ambiente perfecto para tu desarrollo académico y personal."
-      facilities={facilitiesData}
-    /> -->
+
 
     <CtaVisita />
+
+    <GaleriaPlantel plantel="CENTRO"/>
   </main>
 </Layout>
 

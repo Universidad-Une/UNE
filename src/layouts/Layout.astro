@@ -31,25 +31,33 @@ const fullTitle = title === defaultConfig.title ? title : `${title} | UNE`;
 
 // Headers de seguridad
 if (Astro.response) {
-  // Content Security Policy
+  // Content Security Policy más permisivo
   Astro.response.headers.set(
     'Content-Security-Policy',
-    "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.clarity.ms; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self' https://www.clarity.ms; font-src 'self' https:; object-src 'none'; base-uri 'self'; frame-ancestors 'none';"
+    "default-src 'self' https: data:; " +
+    "script-src 'self' 'unsafe-inline' 'unsafe-eval' https: http: data:; " +
+    "style-src 'self' 'unsafe-inline' https: http: data:; " +
+    "img-src 'self' 'unsafe-inline' https: http: data: blob:; " +
+    "font-src 'self' https: http: data:; " +
+    "connect-src 'self' https: http: ws: wss:; " +
+    "media-src 'self' https: http: data: blob:; " +
+    "frame-src 'self' https: http:; " +
+    "child-src 'self' https: http:; " +
+    "worker-src 'self' https: http: blob:; " +
+    "object-src 'self' https: http: data:; " +
+    "base-uri 'self'; " +
+    "form-action 'self' https: http:; " +
+    "frame-ancestors 'self' https: http:;"
   );
-  
-  // X-Frame-Options para prevenir clickjacking
-  Astro.response.headers.set('X-Frame-Options', 'DENY');
-  
-  // Cross-Origin Opener Policy
-  Astro.response.headers.set('Cross-Origin-Opener-Policy', 'same-origin');
   
   // Strict Transport Security (solo para HTTPS)
   if (Astro.url.protocol === 'https:') {
     Astro.response.headers.set('Strict-Transport-Security', 'max-age=31536000; includeSubDomains; preload');
   }
-  
-  // Otros headers de seguridad
+
+  // Headers adicionales de seguridad permisivos
   Astro.response.headers.set('X-Content-Type-Options', 'nosniff');
+  Astro.response.headers.set('X-Frame-Options', 'ALLOWALL');
   Astro.response.headers.set('Referrer-Policy', 'strict-origin-when-cross-origin');
 }
 ---
@@ -84,38 +92,38 @@ if (Astro.response) {
     
     {/* Favicons completos - Configuración desde carpeta Favicon */}
     <link rel="icon" href="/Favicon/favicon.ico" sizes="any" />
-    <link rel="icon" href="/Favicon/favicon-16x16.png" type="image/png" sizes="16x16" />
-    <link rel="icon" href="/Favicon/favicon-32x32.png" type="image/png" sizes="32x32" />
-    <link rel="icon" href="/Favicon/favicon-96x96.png" type="image/png" sizes="96x96" />
+    <link rel="icon" href="/Favicon/favicon-16x16.webp" type="image/png" sizes="16x16" />
+    <link rel="icon" href="/Favicon/favicon-32x32.webp" type="image/png" sizes="32x32" />
+    <link rel="icon" href="/Favicon/favicon-96x96.webp" type="image/png" sizes="96x96" />
     
     {/* Apple Touch Icons */}
-    <link rel="apple-touch-icon" href="/Favicon/apple-icon.png" />
-    <link rel="apple-touch-icon" sizes="57x57" href="/Favicon/apple-icon-57x57.png" />
-    <link rel="apple-touch-icon" sizes="60x60" href="/Favicon/apple-icon-60x60.png" />
-    <link rel="apple-touch-icon" sizes="72x72" href="/Favicon/apple-icon-72x72.png" />
-    <link rel="apple-touch-icon" sizes="76x76" href="/Favicon/apple-icon-76x76.png" />
-    <link rel="apple-touch-icon" sizes="114x114" href="/Favicon/apple-icon-114x114.png" />
-    <link rel="apple-touch-icon" sizes="120x120" href="/Favicon/apple-icon-120x120.png" />
-    <link rel="apple-touch-icon" sizes="144x144" href="/Favicon/apple-icon-144x144.png" />
-    <link rel="apple-touch-icon" sizes="152x152" href="/Favicon/apple-icon-152x152.png" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/Favicon/apple-icon-180x180.png" />
-    <link rel="apple-touch-icon-precomposed" href="/Favicon/apple-icon-precomposed.png" />
+    <link rel="apple-touch-icon" href="/Favicon/apple-icon.webp" />
+    <link rel="apple-touch-icon" sizes="57x57" href="/Favicon/apple-icon-57x57.webp" />
+    <link rel="apple-touch-icon" sizes="60x60" href="/Favicon/apple-icon-60x60.webp" />
+    <link rel="apple-touch-icon" sizes="72x72" href="/Favicon/apple-icon-72x72.webp" />
+    <link rel="apple-touch-icon" sizes="76x76" href="/Favicon/apple-icon-76x76.webp" />
+    <link rel="apple-touch-icon" sizes="114x114" href="/Favicon/apple-icon-114x114.webp" />
+    <link rel="apple-touch-icon" sizes="120x120" href="/Favicon/apple-icon-120x120.webp" />
+    <link rel="apple-touch-icon" sizes="144x144" href="/Favicon/apple-icon-144x144.webp" />
+    <link rel="apple-touch-icon" sizes="152x152" href="/Favicon/apple-icon-152x152.webp" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/Favicon/apple-icon-180x180.webp" />
+    <link rel="apple-touch-icon-precomposed" href="/Favicon/apple-icon-precomposed.webp" />
     
     {/* Android Chrome Icons */}
-    <link rel="icon" type="image/png" sizes="36x36" href="/Favicon/android-icon-36x36.png" />
-    <link rel="icon" type="image/png" sizes="48x48" href="/Favicon/android-icon-48x48.png" />
-    <link rel="icon" type="image/png" sizes="72x72" href="/Favicon/android-icon-72x72.png" />
-    <link rel="icon" type="image/png" sizes="96x96" href="/Favicon/android-icon-96x96.png" />
-    <link rel="icon" type="image/png" sizes="144x144" href="/Favicon/android-icon-144x144.png" />
-    <link rel="icon" type="image/png" sizes="192x192" href="/Favicon/android-icon-192x192.png" />
+    <link rel="icon" type="image/png" sizes="36x36" href="/Favicon/android-icon-36x36.webp" />
+    <link rel="icon" type="image/png" sizes="48x48" href="/Favicon/android-icon-48x48.webp" />
+    <link rel="icon" type="image/png" sizes="72x72" href="/Favicon/android-icon-72x72.webp" />
+    <link rel="icon" type="image/png" sizes="96x96" href="/Favicon/android-icon-96x96.webp" />
+    <link rel="icon" type="image/png" sizes="144x144" href="/Favicon/android-icon-144x144.webp" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/Favicon/android-icon-192x192.webp" />
     
     {/* Microsoft Tiles */}
-    <meta name="msapplication-TileImage" content="/Favicon/ms-icon-144x144.png" />
+    <meta name="msapplication-TileImage" content="/Favicon/ms-icon-144x144.webp" />
     <meta name="msapplication-TileColor" content="#ffffff" />
-    <meta name="msapplication-square70x70logo" content="/Favicon/ms-icon-70x70.png" />
-    <meta name="msapplication-square150x150logo" content="/Favicon/ms-icon-150x150.png" />
-    <meta name="msapplication-wide310x150logo" content="/Favicon/ms-icon-310x310.png" />
-    <meta name="msapplication-square310x310logo" content="/Favicon/ms-icon-310x310.png" />
+    <meta name="msapplication-square70x70logo" content="/Favicon/ms-icon-70x70.webp" />
+    <meta name="msapplication-square150x150logo" content="/Favicon/ms-icon-150x150.webp" />
+    <meta name="msapplication-wide310x150logo" content="/Favicon/ms-icon-310x310.webp" />
+    <meta name="msapplication-square310x310logo" content="/Favicon/ms-icon-310x310.webp" />
     <meta name="msapplication-config" content="/Favicon/browserconfig.xml" />
     
     {/* Web App Manifest */}
@@ -126,6 +134,14 @@ if (Astro.response) {
     <meta name="apple-mobile-web-app-status-bar-style" content="default" />
     <meta name="apple-mobile-web-app-title" content="UNE" />
     
+    {/* Preconnect para CDNs populares */}
+    <link rel="preconnect" href="https://www.clarity.ms" />
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
+    <link rel="preconnect" href="https://unpkg.com" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    
     {/* Schema.org para Google */}
     <script type="application/ld+json">
       {JSON.stringify({
@@ -134,7 +150,7 @@ if (Astro.response) {
         "name": "UNE - Universidad de Especialidades",
         "alternateName": "Universidad de Jalisco - UNE",
         "url": Astro.url.origin,
-        "logo": `${Astro.url.origin}/Favicon/apple-icon-180x180.png`,
+        "logo": `${Astro.url.origin}/Favicon/apple-icon-180x180.webp`,
         "description": description || defaultConfig.description,
         "address": {
           "@type": "PostalAddress",
@@ -152,7 +168,7 @@ if (Astro.response) {
     <meta property="og:description" content={description || defaultConfig.description} />
     <meta property="og:type" content="website" />
     <meta property="og:url" content={Astro.url.href} />
-    <meta property="og:image" content={`${Astro.url.origin}/Favicon/apple-icon-180x180.png`} />
+    <meta property="og:image" content={`${Astro.url.origin}/Favicon/apple-icon-180x180.webp`} />
     <meta property="og:image:width" content="180" />
     <meta property="og:image:height" content="180" />
     <meta property="og:locale" content="es_MX" />
@@ -162,14 +178,11 @@ if (Astro.response) {
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={fullTitle} />
     <meta name="twitter:description" content={description || defaultConfig.description} />
-    <meta name="twitter:image" content={`${Astro.url.origin}/Favicon/apple-icon-180x180.png`} />
+    <meta name="twitter:image" content={`${Astro.url.origin}/Favicon/apple-icon-180x180.webp`} />
     <meta name="twitter:site" content="@UNEJalisco" />
     
     {/* Canonical URL para evitar contenido duplicado */}
     <link rel="canonical" href={Astro.url.href} />
-    
-    {/* Preconnect para Clarity para mejor performance */}
-    <link rel="preconnect" href="https://www.clarity.ms" />
   </head>
   
   <body class={bodyClass}>

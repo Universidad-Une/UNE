@@ -1,0 +1,639 @@
+---
+// GaleriaPlantel.astro
+export interface Props {
+  plantel: string;
+}
+
+const { plantel } = Astro.props;
+
+// Normalizar el nombre del plantel para la estructura de carpetas (espacios -> _)
+const normalizedPlantel = plantel.toUpperCase().replace(/\s+/g, '_');
+
+// Importar todas las imágenes del plantel específico
+const allImages = import.meta.glob(`@/assets/Imagenes/Galeria/ZMG/**/*.{png,jpg,jpeg,webp,svg}`, {
+  eager: true,
+  as: 'url'
+});
+
+console.log('Todas las imágenes encontradas:', Object.keys(allImages));
+console.log('Buscando plantel normalizado:', normalizedPlantel);
+console.log('Plantel original para display:', plantel);
+
+// Filtrar las imágenes que pertenecen al plantel específico
+const images = Object.entries(allImages)
+  .filter(([path]) => {
+    const includes = path.includes(`/ZMG/${normalizedPlantel}/`);
+    console.log(`Path: ${path}, incluye plantel normalizado: ${includes}`);
+    return includes;
+  })
+  .map(([path, url]) => ({
+    src: url as string,
+    alt: path.split('/').pop()?.split('.')[0] || 'Imagen del plantel',
+    name: path.split('/').pop()?.split('.')[0] || ''
+  }));
+
+---
+
+<div class="galeria-plantel " data-plantel={plantel} data-normalized-plantel={normalizedPlantel} data-images={JSON.stringify(images)}>
+  {images.length > 0 ? (
+    <div class="splide " id={`splide-${normalizedPlantel}`}>
+      <div class="splide__track py-12">
+        <ul class="splide__list ">
+          {images.map((image, index) => (
+            <li class="splide__slide" key={index}>
+              <div class="image-container" data-image-src={image.src} data-image-alt={image.alt} data-image-index={index} data-image-name={image.name}>
+                <img 
+                  src={image.src} 
+                  alt={image.alt}
+                  loading="lazy"
+                  class="slide-image"
+                />
+                <div class="image-caption">
+                
+                  <p>Mostrar: {plantel}</p>
+                </div>
+                <div class="zoom-icon">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <path d="M21 21L16.514 16.506M19 10.5C19 15.194 15.194 19 10.5 19S2 15.194 2 10.5 5.806 2 10.5 2 19 5.806 19 10.5Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M13.5 10.5H7.5M10.5 7.5V13.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </div>
+              </div>
+            </li>
+          ))}
+        </ul>
+      </div>
+      
+      <div class="splide__arrows">
+        <button class="splide__arrow splide__arrow--prev">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <button class="splide__arrow splide__arrow--next">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+      </div>
+      
+    </div>
+  ) : (
+    <div class="no-images">
+      <p>No se encontraron imágenes para el plantel: {plantel}</p>
+      <p>Verifique que existan imágenes en: /src/assets/Imagenes/Galeria/ZMG/{normalizedPlantel}/</p>
+    </div>
+  )}
+  
+  <!-- Modal para imagen ampliada -->
+  <div class="image-modal" id={`modal-${normalizedPlantel}`}>
+    <div class="modal-backdrop"></div>
+    <div class="modal-content">
+      <button class="modal-close">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+          <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+      
+      <!-- Flecha anterior -->
+      <button class="modal-arrow modal-arrow-prev">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
+          <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+      
+      <!-- Flecha siguiente -->
+      <button class="modal-arrow modal-arrow-next">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
+          <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+      
+      <img class="modal-image" src="" alt="" />
+      <div class="modal-info">
+        <h3 class="modal-title"></h3>
+        <p class="modal-plantel"></p>
+        <div class="modal-counter">
+          <span class="current-image">1</span> / <span class="total-images">0</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .galeria-plantel {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+  }
+
+  .no-images {
+    text-align: center;
+    padding: 3rem;
+    background: #f8f9fa;
+    border-radius: 12px;
+    border: 2px dashed #dee2e6;
+  }
+
+  .no-images p {
+    margin: 0.5rem 0;
+    color: #6c757d;
+  }
+
+  .image-container {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+
+  .image-container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  }
+
+  .slide-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+
+  .image-container:hover .slide-image {
+    transform: scale(1.05);
+  }
+
+  .zoom-icon {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #333;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+  }
+
+  .image-container:hover .zoom-icon {
+    opacity: 1;
+  }
+
+  .image-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+    color: white;
+    padding: 1.5rem 1rem 1rem;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+  }
+
+  .image-container:hover .image-caption {
+    transform: translateY(0);
+  }
+
+  .image-caption h3 {
+    margin: 0 0 0.25rem 0;
+    font-size: 1rem;
+    font-weight: 600;
+  }
+
+  .image-caption p {
+    margin: 0;
+    font-size: 0.8rem;
+    opacity: 0.9;
+  }
+
+  /* Modal Styles */
+  .image-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1000;
+    display: none;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .image-modal.active {
+    display: flex;
+  }
+
+  .modal-backdrop {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    cursor: pointer;
+  }
+
+  .modal-content {
+    position: relative;
+    max-width: 95vw;
+    max-height: 95vh;
+    background: transparent;
+    border-radius: 0;
+    overflow: hidden;
+    box-shadow: none;
+    animation: modalFadeIn 0.3s ease-out;
+  }
+
+  @keyframes modalFadeIn {
+    from {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  .modal-close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: rgba(0, 0, 0, 0.7);
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    cursor: pointer;
+    z-index: 1001;
+    transition: background 0.3s ease;
+  }
+
+  .modal-close:hover {
+    background: rgba(0, 0, 0, 0.9);
+  }
+
+  .modal-image {
+    width: 100%;
+    height: 100%;
+    max-height: 80vh;
+    object-fit: contain;
+    display: block;
+  }
+
+  .modal-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 1.5rem;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+    color: white;
+  }
+
+  .modal-title {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.25rem;
+    font-weight: 600;
+  }
+
+  .modal-plantel {
+    margin: 0 0 0.5rem 0;
+    font-size: 0.9rem;
+    opacity: 0.9;
+  }
+
+  .modal-counter {
+    font-size: 0.85rem;
+    opacity: 0.8;
+  }
+
+  .modal-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.7);
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    cursor: pointer;
+    z-index: 1002;
+    transition: all 0.3s ease;
+    opacity: 0.8;
+  }
+
+  .modal-arrow:hover {
+    background: rgba(0, 0, 0, 0.9);
+    opacity: 1;
+    transform: translateY(-50%) scale(1.1);
+  }
+
+  .modal-arrow-prev {
+    left: 20px;
+  }
+
+  .modal-arrow-next {
+    right: 20px;
+  }
+
+  .modal-arrow:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+    transform: translateY(-50%);
+  }
+
+  .modal-arrow:disabled:hover {
+    background: rgba(0, 0, 0, 0.7);
+    transform: translateY(-50%);
+  }
+
+  /* Estilos personalizados para Splide */
+  .splide__arrow {
+    background: rgba(255, 255, 255, 0.9);
+    border: none;
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #333;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+  }
+
+  .splide__arrow:hover {
+    background: white;
+    transform: scale(1.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  }
+
+  .splide__arrow:disabled {
+    opacity: 0.5;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .galeria-plantel {
+      padding: 1rem 0.5rem;
+    }
+    
+    .image-container {
+      height: 150px;
+    }
+    
+    .splide__arrow {
+      width: 40px;
+      height: 40px;
+    }
+    
+    .image-caption {
+      padding: 1rem 0.75rem 0.75rem;
+    }
+    
+    .image-caption h3 {
+      font-size: 0.9rem;
+    }
+    
+    .modal-content {
+      max-width: 95vw;
+      max-height: 95vh;
+    }
+    
+    .modal-info {
+      padding: 1rem;
+    }
+    
+    .zoom-icon {
+      width: 32px;
+      height: 32px;
+      top: 8px;
+      right: 8px;
+    }
+
+    .modal-arrow {
+      width: 40px;
+      height: 40px;
+    }
+
+    .modal-arrow-prev {
+      left: 10px;
+    }
+
+    .modal-arrow-next {
+      right: 10px;
+    }
+
+    .modal-image {
+      max-height: 70vh;
+    }
+  }
+</style>
+
+<script>
+  import Splide from "@splidejs/splide";
+  import { AutoScroll } from "@splidejs/splide-extension-auto-scroll";
+  import "@splidejs/splide/dist/css/splide.min.css";
+
+  // Obtener el plantel y las imágenes desde los data attributes
+  const galeriaElement = document.querySelector('.galeria-plantel') as HTMLElement;
+  
+  if (galeriaElement) {
+    const plantel = galeriaElement.getAttribute('data-plantel'); // Nombre original para mostrar
+    const normalizedPlantel = galeriaElement.getAttribute('data-normalized-plantel'); // Nombre normalizado para IDs
+    const imagesData = galeriaElement.getAttribute('data-images');
+    
+    let images = [];
+    try {
+      images = imagesData ? JSON.parse(imagesData) : [];
+    } catch (e) {
+      console.error('Error parsing images data:', e);
+      images = [];
+    }
+
+    console.log('Plantel original:', plantel);
+    console.log('Plantel normalizado:', normalizedPlantel);
+    console.log('Imágenes cargadas:', images);
+    
+    const splideElement = document.querySelector(`#splide-${normalizedPlantel}`) as HTMLElement;
+    
+    if (splideElement && images.length > 0) {
+      // Configuración del carousel
+      const splide = new Splide(`#splide-${normalizedPlantel}`, {
+        type: 'loop',
+        perPage: 4,
+        perMove: 0,
+        gap: '1rem',
+        autoplay: false,
+        interval: 3000,
+        pauseOnHover: true,
+        pauseOnFocus: true,
+        resetProgress: false,
+        height: '200px',
+        focus: 'center',
+        trimSpace: false,
+        pagination: false,
+        breakpoints: {
+          1024: {
+            perPage: 3,
+            height: '180px',
+          },
+          768: {
+            perPage: 2,
+            height: '150px',
+            gap: '0.75rem',
+          },
+          480: {
+            perPage: 1,
+            height: '150px',
+            gap: '0.5rem',
+          }
+        },
+        extensions: { AutoScroll },
+        autoScroll: {
+          speed: 0.5,
+          pauseOnHover: true,
+        },
+      });
+
+      // Montar el carousel
+      splide.mount({ AutoScroll });
+
+      // Funcionalidad del modal
+      const modal = document.getElementById(`modal-${normalizedPlantel}`);
+      const modalImage = modal?.querySelector('.modal-image') as HTMLImageElement;
+      const modalTitle = modal?.querySelector('.modal-title') as HTMLElement;
+      const modalPlantel = modal?.querySelector('.modal-plantel') as HTMLElement;
+      const modalClose = modal?.querySelector('.modal-close') as HTMLElement;
+      const modalBackdrop = modal?.querySelector('.modal-backdrop') as HTMLElement;
+      const modalArrowPrev = modal?.querySelector('.modal-arrow-prev') as HTMLButtonElement;
+      const modalArrowNext = modal?.querySelector('.modal-arrow-next') as HTMLButtonElement;
+      const currentImageSpan = modal?.querySelector('.current-image') as HTMLElement;
+      const totalImagesSpan = modal?.querySelector('.total-images') as HTMLElement;
+      
+      let currentImageIndex = 0;
+      const totalImages = images.length;
+
+      // Actualizar el contador total
+      if (totalImagesSpan) {
+        totalImagesSpan.textContent = totalImages.toString();
+      }
+
+      // Función para actualizar la imagen del modal
+      const updateModalImage = (index: number) => {
+        const image = images[index];
+        if (modalImage && image) {
+          modalImage.src = image.src;
+          modalImage.alt = image.alt;
+          // Usar el plantel original (con espacios) para mostrar
+          if (modalPlantel) modalPlantel.textContent = `Plantel ${plantel}`;
+          if (currentImageSpan) currentImageSpan.textContent = (index + 1).toString();
+          
+          currentImageIndex = index;
+          
+          // Actualizar estado de las flechas
+          if (modalArrowPrev) modalArrowPrev.disabled = index === 0;
+          if (modalArrowNext) modalArrowNext.disabled = index === totalImages - 1;
+        }
+      };
+
+      // Agregar event listeners para abrir modal
+      const imageContainers = document.querySelectorAll(`#splide-${normalizedPlantel} .image-container`);
+      imageContainers.forEach(container => {
+        container.addEventListener('click', (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          
+          const imageIndex = parseInt(container.getAttribute('data-image-index') || '0');
+          
+          console.log('Abriendo modal con imagen:', imageIndex);
+          
+          if (modal) {
+            updateModalImage(imageIndex);
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+          }
+        });
+      });
+
+      // Navegación con flechas
+      modalArrowPrev?.addEventListener('click', (e) => {
+        e.stopPropagation();
+        if (currentImageIndex > 0) {
+          updateModalImage(currentImageIndex - 1);
+        }
+      });
+
+      modalArrowNext?.addEventListener('click', (e) => {
+        e.stopPropagation();
+        if (currentImageIndex < totalImages - 1) {
+          updateModalImage(currentImageIndex + 1);
+        }
+      });
+
+      // Cerrar modal
+      const closeModal = () => {
+        if (modal) {
+          modal.classList.remove('active');
+          document.body.style.overflow = '';
+        }
+      };
+
+      modalClose?.addEventListener('click', (e) => {
+        e.stopPropagation();
+        closeModal();
+      });
+      
+      modalBackdrop?.addEventListener('click', closeModal);
+      
+      // Navegación con teclado
+      document.addEventListener('keydown', (e) => {
+        if (modal?.classList.contains('active')) {
+          switch(e.key) {
+            case 'Escape':
+              closeModal();
+              break;
+            case 'ArrowLeft':
+              e.preventDefault();
+              if (currentImageIndex > 0) {
+                updateModalImage(currentImageIndex - 1);
+              }
+              break;
+            case 'ArrowRight':
+              e.preventDefault();
+              if (currentImageIndex < totalImages - 1) {
+                updateModalImage(currentImageIndex + 1);
+              }
+              break;
+          }
+        }
+      });
+
+      // Eventos del carousel
+      splide.on('move', (newIndex, prevIndex) => {
+        console.log(`Cambiando de imagen ${prevIndex} a ${newIndex} en plantel ${plantel}`);
+      });
+    }
+  }
+</script>

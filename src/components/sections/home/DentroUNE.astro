@@ -1,5 +1,8 @@
 ---
-import videoSrc from 'src/assets/Videos/Universidad.webm';
+import videoSrc from 'src/assets/Videos/UExperiencia.mp4';
+
+// Generar un ID único para este componente
+const uniqueId = 'dentro-une-' + Math.random().toString(36).substr(2, 9);
 ---
 
 <!-- Título -->
@@ -8,14 +11,14 @@ import videoSrc from 'src/assets/Videos/Universidad.webm';
 </div>
 
 <!-- Sección principal -->
-<section class="bg-white py-16 px-4" id="uneSection">
+<section class="bg-white py-16 px-4" id={`${uniqueId}-section`}>
   <div class="max-w-7xl mx-auto">
     <div class="flex flex-col lg:flex-row gap-12 items-center">
       <!-- Video -->
       <div class="w-full lg:w-1/2 order-1 lg:order-2">
         <div class="relative rounded-2xl overflow-hidden shadow-2xl">
           <video
-            id="uneVideo"
+            id={`${uniqueId}-video`}
             class="w-full h-auto aspect-[4/3] object-cover"
             muted
             loop
@@ -35,74 +38,43 @@ import videoSrc from 'src/assets/Videos/Universidad.webm';
           <div class="absolute top-4 left-4 flex gap-2">
             <!-- Botón de play/pause -->
             <button
-              id="playPauseToggle"
+              id={`${uniqueId}-play-pause`}
               class="w-12 h-12 bg-black/60 hover:bg-black/80 rounded-full flex items-center justify-center shadow-lg transition-all duration-300 backdrop-blur-sm border border-white/20"
-             aria-label="Reproducir" title="Reproducir contenido multimedia">
-              <span id="playIcon">
-                <svg
-                  class="text-white w-6 h-6"
-                  fill="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M8 5v14l11-7z"/>
+              aria-label="Reproducir" 
+              title="Reproducir contenido multimedia"
+            >
+              <span id={`${uniqueId}-play-icon`} class="text-white">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polygon points="5,3 19,12 5,21"></polygon>
                 </svg>
               </span>
-              <span id="pauseIcon" class="hidden">
-                <svg
-                  class="text-white w-6 h-6"
-                  fill="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>
+              <span id={`${uniqueId}-pause-icon`} class="text-white hidden">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="6" y="4" width="4" height="16"></rect>
+                  <rect x="14" y="4" width="4" height="16"></rect>
                 </svg>
               </span>
             </button>
 
             <!-- Botón de audio -->
             <button
-              id="audioToggle"
+              id={`${uniqueId}-audio`}
               class="w-12 h-12 bg-black/60 hover:bg-black/80 rounded-full flex items-center justify-center shadow-lg transition-all duration-300 backdrop-blur-sm border border-white/20"
-             aria-label="Alternar opción" title="Cambiar estado de la opción">
-              <span id="muteIcon">
-                <svg
-                  class="text-white w-6 h-6"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"
-                  ></path>
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M17 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2"
-                  ></path>
+              aria-label="Alternar audio" 
+              title="Cambiar estado del audio"
+            >
+              <span id={`${uniqueId}-mute-icon`} class="text-white">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polygon points="11,5 6,9 2,9 2,15 6,15 11,19 11,5"></polygon>
+                  <line x1="23" y1="9" x2="17" y2="15"></line>
+                  <line x1="17" y1="9" x2="23" y2="15"></line>
                 </svg>
               </span>
-              <span id="unmuteIcon" class="hidden">
-                <svg
-                  class="text-white w-6 h-6"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728"
-                  ></path>
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"
-                  ></path>
+              <span id={`${uniqueId}-unmute-icon`} class="text-white hidden">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polygon points="11,5 6,9 2,9 2,15 6,15 11,19 11,5"></polygon>
+                  <path d="m19.07 4.93-10 10"></path>
+                  <path d="m21.44 12-6.84-6.84"></path>
                 </svg>
               </span>
             </button>
@@ -110,7 +82,8 @@ import videoSrc from 'src/assets/Videos/Universidad.webm';
         </div>
       </div>
 
-      <!-- Texto -->
+      <!-- Resto del contenido igual... -->
+           <!-- Texto -->
       <div class="w-full lg:w-1/2 order-2 lg:order-1">
         <div class="space-y-8">
           <!-- Evento 1 -->
@@ -129,7 +102,7 @@ import videoSrc from 'src/assets/Videos/Universidad.webm';
               <a
                 href="/vidaestudiantil/General"
                 class="inline-flex items-center text-sm font-medium text-gray-900 hover:text-blue-600 transition-colors group"
-               aria-label="Ir a Conocer todos los eventos" title="Conocer todos los eventos">
+              >
                 <span>Conocer todos los eventos</span>
                 <svg
                   class="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1"
@@ -166,7 +139,7 @@ import videoSrc from 'src/assets/Videos/Universidad.webm';
               </p>
               <a href="/Orgulloune/General"
                 class="inline-flex items-center text-sm font-medium text-gray-900 hover:text-blue-600 transition-colors group"
-               aria-label="Ir a ¡Postúlate o recomienda a un compañero!" title="¡Postúlate o recomienda a un compañero!">
+              >
                 <span>¡Postúlate o recomienda a un compañero!</span>
                 <svg
                   class="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1"
@@ -203,7 +176,7 @@ import videoSrc from 'src/assets/Videos/Universidad.webm';
               </p>
               <a href="acerca/Apoyos"
                 class="inline-flex items-center text-sm font-medium text-gray-900 hover:text-blue-600 transition-colors group"
-               aria-label="Ir a Conoce todo a lo que tienes acceso como estudiante." title="Conoce todo a lo que tienes acceso como estudiante.">
+              >
                 <span>Conoce todo a lo que tienes acceso como estudiante.</span>
                 <svg
                   class="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1"
@@ -227,6 +200,7 @@ import videoSrc from 'src/assets/Videos/Universidad.webm';
   </div>
 </section>
 
+
 <style>
   video {
     -webkit-playsinline: true;
@@ -237,143 +211,130 @@ import videoSrc from 'src/assets/Videos/Universidad.webm';
   }
 </style>
 
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    const video = document.getElementById('uneVideo') as HTMLVideoElement;
-    const audioToggle = document.getElementById('audioToggle');
-    const playPauseToggle = document.getElementById('playPauseToggle');
-    const muteIcon = document.getElementById('muteIcon');
-    const unmuteIcon = document.getElementById('unmuteIcon');
-    const playIcon = document.getElementById('playIcon');
-    const pauseIcon = document.getElementById('pauseIcon');
-    const section = document.getElementById('uneSection');
+<script define:vars={{ uniqueId }}>
+  function initializeVideoControls() {
+    const video = document.getElementById(`${uniqueId}-video`);
+    const audioToggle = document.getElementById(`${uniqueId}-audio`);
+    const playPauseToggle = document.getElementById(`${uniqueId}-play-pause`);
+    const muteIcon = document.getElementById(`${uniqueId}-mute-icon`);
+    const unmuteIcon = document.getElementById(`${uniqueId}-unmute-icon`);
+    const playIcon = document.getElementById(`${uniqueId}-play-icon`);
+    const pauseIcon = document.getElementById(`${uniqueId}-pause-icon`);
+    const section = document.getElementById(`${uniqueId}-section`);
+    
+    if (!video || !audioToggle || !playPauseToggle) {
+      return;
+    }
     
     let isVideoLoaded = false;
-    let hasStartedPlaying = false;
-
-    // Intersection Observer para lazy loading
+    
+    // Función simple para alternar play/pause
+    function togglePlayPause() {
+      if (video.paused) {
+        video.play().then(() => {
+          updatePlayPauseButton();
+        }).catch(e => {
+        });
+      } else {
+        video.pause();
+        updatePlayPauseButton();
+      }
+    }
+    
+    // Función para alternar audio
+    function toggleAudio() {
+      video.muted = !video.muted;
+      updateAudioButton();
+    }
+    
+    // Actualizar botón play/pause
+    function updatePlayPauseButton() {
+      if (video.paused) {
+        playIcon?.classList.remove('hidden');
+        pauseIcon?.classList.add('hidden');
+      } else {
+        playIcon?.classList.add('hidden');
+        pauseIcon?.classList.remove('hidden');
+      }
+    }
+    
+    // Actualizar botón audio
+    function updateAudioButton() {
+      if (video.muted) {
+        muteIcon?.classList.remove('hidden');
+        unmuteIcon?.classList.add('hidden');
+      } else {
+        muteIcon?.classList.add('hidden');
+        unmuteIcon?.classList.remove('hidden');
+      }
+    }
+    
+    // Cargar video
+    function loadVideo() {
+      if (isVideoLoaded) return;
+      
+      const videoSrc = video.getAttribute('data-src');
+      if (videoSrc) {
+        video.src = videoSrc;
+        video.load();
+        isVideoLoaded = true;
+      }
+    }
+    
+    // Event listeners
+    playPauseToggle.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      
+      if (!isVideoLoaded) {
+        loadVideo();
+        setTimeout(() => {
+          if (video.readyState >= 2) {
+            togglePlayPause();
+          }
+        }, 500);
+      } else {
+        togglePlayPause();
+      }
+    });
+    
+    audioToggle.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      
+      if (!isVideoLoaded) {
+        loadVideo();
+      }
+      toggleAudio();
+    });
+    
+    // Event listeners del video
+    video.addEventListener('play', updatePlayPauseButton);
+    video.addEventListener('pause', updatePlayPauseButton);
+    video.addEventListener('volumechange', updateAudioButton);
+    
+    // Lazy loading
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting && !isVideoLoaded) {
           loadVideo();
         }
       });
-    }, {
-      rootMargin: '200px 0px', // Empieza a cargar 200px antes de entrar al viewport
-      threshold: 0.1
-    });
-
-    // Observar la sección
+    }, { threshold: 0.1 });
+    
     if (section) {
       observer.observe(section);
     }
-
-    // Función para cargar el video
-    function loadVideo() {
-      if (isVideoLoaded) return;
-      
-      const videoSrc = video.getAttribute('data-src');
-      const source = video.querySelector('source');
-      
-      if (videoSrc && source) {
-        source.src = videoSrc;
-        video.src = videoSrc;
-        video.load();
-        isVideoLoaded = true;
-        
-        // Observer para iniciar reproducción cuando esté más cerca
-        const playObserver = new IntersectionObserver((entries) => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting && !hasStartedPlaying) {
-              video.play().then(() => {
-                hasStartedPlaying = true;
-                updatePlayPauseButton();
-              }).catch(e => {
-                console.log('Autoplay fue bloqueado:', e);
-              });
-            } else if (!entry.isIntersecting && hasStartedPlaying) {
-              video.pause();
-              updatePlayPauseButton();
-            }
-          });
-        }, {
-          rootMargin: '50px 0px', // Inicia cuando está muy cerca
-          threshold: 0.5
-        });
-        
-        playObserver.observe(section);
-      }
-    }
-
-    // Función para actualizar el botón de play/pause
-    function updatePlayPauseButton() {
-      if (!playIcon || !pauseIcon) return;
-      
-      if (video.paused) {
-        playIcon.classList.remove('hidden');
-        pauseIcon.classList.add('hidden');
-      } else {
-        playIcon.classList.add('hidden');
-        pauseIcon.classList.remove('hidden');
-      }
-    }
-
-    // Función para actualizar el botón de audio
-    function updateAudioButton() {
-      if (!muteIcon || !unmuteIcon) return;
-      
-      if (video.muted) {
-        muteIcon.classList.remove('hidden');
-        unmuteIcon.classList.add('hidden');
-      } else {
-        muteIcon.classList.add('hidden');
-        unmuteIcon.classList.remove('hidden');
-      }
-    }
-
-    // Event listener para el botón de play/pause
-    playPauseToggle?.addEventListener('click', () => {
-      if (!isVideoLoaded) {
-        loadVideo();
-        return;
-      }
-      
-      if (video.paused) {
-        video.play().then(() => {
-          hasStartedPlaying = true;
-          updatePlayPauseButton();
-        }).catch(e => {
-          console.log('Error al reproducir:', e);
-        });
-      } else {
-        video.pause();
-        updatePlayPauseButton();
-      }
-    });
-
-    // Event listener para el botón de audio
-    audioToggle?.addEventListener('click', () => {
-      if (!isVideoLoaded) return;
-      
-      video.muted = !video.muted;
-      updateAudioButton();
-    });
-
-    // Event listeners del video
-    video.addEventListener('play', updatePlayPauseButton);
-    video.addEventListener('pause', updatePlayPauseButton);
-    video.addEventListener('volumechange', updateAudioButton);
-
-    // Inicializar estados de los botones
+    
+    // Inicializar
     updatePlayPauseButton();
     updateAudioButton();
-
-    // Manejar visibilidad de la página
-    document.addEventListener('visibilitychange', () => {
-      if (document.hidden && hasStartedPlaying && !video.paused) {
-        video.pause();
-        updatePlayPauseButton();
-      }
-    });
-  });
+  }
+  
+  // Inicializar
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initializeVideoControls);
+  } else {
+    setTimeout(initializeVideoControls, 100);
+  }
 </script>

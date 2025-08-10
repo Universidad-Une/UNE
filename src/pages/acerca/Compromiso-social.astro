@@ -9,42 +9,42 @@ import { Search, Plus, Minus } from "@lucide/astro";
 <Layout>
     <main class="min-h-screen">
         <!-- Hero Section -->
-       <section class="relative min-h-[65vh] overflow-hidden bg-cover bg-center bg-no-repeat">
-      <!-- Desktop Background -->
-      <div
-        class="absolute inset-0 hidden md:block bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: `url(${Hero.src})` }}
-      ></div>
+        <section class="relative min-h-[65vh] overflow-hidden bg-cover bg-center bg-no-repeat">
+            <!-- Desktop Background -->
+            <div
+                class="absolute inset-0 hidden md:block bg-cover bg-center bg-no-repeat"
+                style={`background-image: url(${Hero.src})`}
+            ></div>
 
-      <!-- Mobile Background -->
-      <div
-        class="absolute inset-0 block md:hidden bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: `url(${HeroMobile.src})` }}
-      ></div>
+            <!-- Mobile Background -->
+            <div
+                class="absolute inset-0 block md:hidden bg-cover bg-center bg-no-repeat"
+                style={`background-image: url(${HeroMobile.src})`}
+            ></div>
 
-      <!-- Hero Content -->
-      <div class="relative z-10 container mx-auto px-4 h-full min-h-[65vh] flex flex-col md:flex-row items-center justify-center md:justify-end">
-        <div class="w-full max-w-7xl flex flex-col md:flex-row items-center justify-between">
-          <!-- Left side - FAQ Title -->
-          <div class="flex items-center space-x-4 mb-6 md:mb-0 md:space-x-8 text-white">
-            <div class="w-16 h-16 bg-white bg-opacity-20 rounded-full flex items-center justify-center">
-              <Search class="w-8 h-8 text-white" />
+            <!-- Hero Content -->
+            <div class="relative z-10 container mx-auto px-4 h-full min-h-[65vh] flex flex-col md:flex-row items-center justify-center md:justify-end">
+                <div class="w-full max-w-7xl flex flex-col md:flex-row items-center justify-between">
+                    <!-- Left side - FAQ Title -->
+                    <div class="flex items-center space-x-4 mb-6 md:mb-0 md:space-x-8 text-white">
+                        <div class="w-16 h-16 bg-white bg-opacity-20 rounded-full flex items-center justify-center">
+                            <Search class="w-8 h-8 text-white" />
+                        </div>
+                        <h1 class="text-4xl md:text-6xl font-bold tracking-wider">FAQ</h1>
+                    </div>
+
+                    <!-- Right side - Welcome message -->
+                    <div class="bg-white rounded-lg p-6 max-w-sm shadow-lg text-center md:text-left">
+                        <h2 class="text-xl font-bold text-gray-800 mb-3">
+                            ¡Hola! ¿Cómo podemos ayudarte?
+                        </h2>
+                        <p class="text-gray-600 text-sm leading-relaxed">
+                            Esta sección de Preguntas Frecuentes está diseñada para resolver tus dudas de manera ágil. Navega por nuestros temas o utiliza el buscador para encontrar respuestas instantáneas. Si no encuentras lo que buscas, no dudes en contactarnos.
+                        </p>
+                    </div>
+                </div>
             </div>
-            <h1 class="text-4xl md:text-6xl font-bold tracking-wider">FAQ</h1>
-          </div>
-
-          <!-- Right side - Welcome message -->
-          <div class="bg-white rounded-lg p-6 max-w-sm shadow-lg text-center md:text-left">
-            <h2 class="text-xl font-bold text-gray-800 mb-3">
-              ¡Hola! ¿Cómo podemos ayudarte?
-            </h2>
-            <p class="text-gray-600 text-sm leading-relaxed">
-              Esta sección de Preguntas Frecuentes está diseñada para resolver tus dudas de manera ágil. Navega por nuestros temas o utiliza el buscador para encontrar respuestas instantáneas. Si no encuentras lo que buscas, no dudes en contactarnos.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
+        </section>
 
         <!-- Main Content -->
         <section class="py-16 bg-gray-50">
@@ -60,18 +60,12 @@ import { Search, Plus, Minus } from "@lucide/astro";
                 <!-- FAQ Grid -->
                 <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-4">
                     <!-- FAQ Item 1 -->
-                    <div
-                        class="faq-item bg-azul-une text-white rounded-lg cursor-pointer hover:bg-blue-800 transition-colors duration-300 group"
-                    >
-                        <div
-                            class="faq-question p-6 flex items-center justify-between"
-                        >
+                    <div class="faq-item bg-azul-une text-white rounded-lg cursor-pointer hover:bg-blue-800 transition-colors duration-300 group">
+                        <div class="faq-question p-6 flex items-center justify-between">
                             <h3 class="text-lg font-semibold">
                                 ¿Cuáles son los requisitos de ingreso?
                             </h3>
-                            <Plus
-                                class="faq-icon w-6 h-6 transform group-hover:rotate-45 transition-transform duration-300"
-                            />
+                            <Plus class="faq-icon w-6 h-6 transform group-hover:rotate-45 transition-transform duration-300" />
                         </div>
                         <div class="faq-answer bg-blue-800 p-6 hidden">
                             <p class="text-white">
@@ -85,18 +79,12 @@ import { Search, Plus, Minus } from "@lucide/astro";
                     </div>
 
                     <!-- FAQ Item 2 -->
-                    <div
-                        class="faq-item bg-azul-une text-white rounded-lg cursor-pointer hover:bg-blue-800 transition-colors duration-300 group"
-                    >
-                        <div
-                            class="faq-question p-6 flex items-center justify-between"
-                        >
+                    <div class="faq-item bg-azul-une text-white rounded-lg cursor-pointer hover:bg-blue-800 transition-colors duration-300 group">
+                        <div class="faq-question p-6 flex items-center justify-between">
                             <h3 class="text-lg font-semibold">
                                 ¿Puedo revalidar materias de otra universidad?
                             </h3>
-                            <Plus
-                                class="faq-icon w-6 h-6 transform group-hover:rotate-45 transition-transform duration-300"
-                            />
+                            <Plus class="faq-icon w-6 h-6 transform group-hover:rotate-45 transition-transform duration-300" />
                         </div>
                         <div class="faq-answer bg-blue-800 p-6 hidden">
                             <p class="text-white">
@@ -110,18 +98,12 @@ import { Search, Plus, Minus } from "@lucide/astro";
                     </div>
 
                     <!-- FAQ Item 3 -->
-                    <div
-                        class="faq-item bg-azul-une text-white rounded-lg cursor-pointer hover:bg-blue-800 transition-colors duration-300 group"
-                    >
-                        <div
-                            class="faq-question p-6 flex items-center justify-between"
-                        >
+                    <div class="faq-item bg-azul-une text-white rounded-lg cursor-pointer hover:bg-blue-800 transition-colors duration-300 group">
+                        <div class="faq-question p-6 flex items-center justify-between">
                             <h3 class="text-lg font-semibold">
                                 ¿Las carreras están incorporadas a SICYT o UdeG?
                             </h3>
-                            <Plus
-                                class="faq-icon w-6 h-6 transform group-hover:rotate-45 transition-transform duration-300"
-                            />
+                            <Plus class="faq-icon w-6 h-6 transform group-hover:rotate-45 transition-transform duration-300" />
                         </div>
                         <div class="faq-answer bg-blue-800 p-6 hidden">
                             <p class="text-white">
@@ -134,18 +116,12 @@ import { Search, Plus, Minus } from "@lucide/astro";
                     </div>
 
                     <!-- FAQ Item 4 -->
-                    <div
-                        class="faq-item bg-azul-une text-white rounded-lg cursor-pointer hover:bg-blue-800 transition-colors duration-300 group"
-                    >
-                        <div
-                            class="faq-question p-6 flex items-center justify-between"
-                        >
+                    <div class="faq-item bg-azul-une text-white rounded-lg cursor-pointer hover:bg-blue-800 transition-colors duration-300 group">
+                        <div class="faq-question p-6 flex items-center justify-between">
                             <h3 class="text-lg font-semibold">
                                 ¿Cómo puedo agendar una visita?
                             </h3>
-                            <Plus
-                                class="faq-icon w-6 h-6 transform group-hover:rotate-45 transition-transform duration-300"
-                            />
+                            <Plus class="faq-icon w-6 h-6 transform group-hover:rotate-45 transition-transform duration-300" />
                         </div>
                         <div class="faq-answer bg-blue-800 p-6 hidden">
                             <p class="text-white">
@@ -158,18 +134,12 @@ import { Search, Plus, Minus } from "@lucide/astro";
                     </div>
 
                     <!-- FAQ Item 5 -->
-                    <div
-                        class="faq-item bg-azul-une text-white rounded-lg cursor-pointer hover:bg-blue-800 transition-colors duration-300 group"
-                    >
-                        <div
-                            class="faq-question p-6 flex items-center justify-between"
-                        >
+                    <div class="faq-item bg-azul-une text-white rounded-lg cursor-pointer hover:bg-blue-800 transition-colors duration-300 group">
+                        <div class="faq-question p-6 flex items-center justify-between">
                             <h3 class="text-lg font-semibold">
                                 ¿Ofrecen becas o apoyos económicos?
                             </h3>
-                            <Plus
-                                class="faq-icon w-6 h-6 transform group-hover:rotate-45 transition-transform duration-300"
-                            />
+                            <Plus class="faq-icon w-6 h-6 transform group-hover:rotate-45 transition-transform duration-300" />
                         </div>
                         <div class="faq-answer bg-blue-800 p-6 hidden">
                             <p class="text-white">
@@ -182,18 +152,12 @@ import { Search, Plus, Minus } from "@lucide/astro";
                     </div>
 
                     <!-- FAQ Item 6 -->
-                    <div
-                        class="faq-item bg-azul-une text-white rounded-lg cursor-pointer hover:bg-blue-800 transition-colors duration-300 group"
-                    >
-                        <div
-                            class="faq-question p-6 flex items-center justify-between"
-                        >
+                    <div class="faq-item bg-azul-une text-white rounded-lg cursor-pointer hover:bg-blue-800 transition-colors duration-300 group">
+                        <div class="faq-question p-6 flex items-center justify-between">
                             <h3 class="text-lg font-semibold">
                                 ¿Cuáles son las fechas de inicio de clases?
                             </h3>
-                            <Plus
-                                class="faq-icon w-6 h-6 transform group-hover:rotate-45 transition-transform duration-300"
-                            />
+                            <Plus class="faq-icon w-6 h-6 transform group-hover:rotate-45 transition-transform duration-300" />
                         </div>
                         <div class="faq-answer bg-blue-800 p-6 hidden">
                             <p class="text-white">
@@ -214,9 +178,7 @@ import { Search, Plus, Minus } from "@lucide/astro";
             style={`background-image: url(${Middle.src})`}
         >
             <div class="relative z-10 container mx-auto px-4">
-                <div
-                    class="max-w-4xl mx-auto grid md:grid-cols-2 gap-8 items-center"
-                >
+                <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-8 items-center">
                     <!-- Left side - Question -->
                     <div>
                         <h2 class="text-4xl font-bold mb-4">
@@ -230,34 +192,45 @@ import { Search, Plus, Minus } from "@lucide/astro";
 
                     <!-- Right side - Contact Form -->
                     <div class="space-y-5">
-                        <div>
-                            <input
-                                type="text"
-                                placeholder="Nombre completo"
-                                class="w-full px-4 py-3 bg-transparent border-b-2 border-gray-500 focus:border-white outline-none transition-colors duration-300"
-                            />
-                        </div>
-                        <div>
-                            <input
-                                type="tel"
-                                placeholder="Celular"
-                                class="w-full px-4 py-3 bg-transparent border-b-2 border-gray-500 focus:border-white outline-none transition-colors duration-300"
-                            />
-                        </div>
-                        <div>
-                            <textarea
-                                placeholder="Escribe tu duda..."
-                                rows="4"
-                                class="w-full px-4 py-3 bg-transparent border-b-2 border-gray-500 focus:border-white outline-none transition-colors duration-300 resize-none placeholder:text-gray-400"
-                            ></textarea>
-                        </div>
-                        <div class="flex justify-center pt-4">
-                            <button
-                                class="bg-red-600 hover:bg-red-700 text-white px-8 py-3 rounded-lg font-semibold transition-colors duration-300"
-                             aria-label="Registrar interés" title="Registrar interés">
-                                Registrar interés
-                            </button>
-                        </div>
+                        <form id="contact-form" class="space-y-5">
+                            <div>
+                                <input
+                                    type="text"
+                                    name="name"
+                                    placeholder="Nombre completo"
+                                    required
+                                    class="w-full px-4 py-3 bg-transparent border-b-2 border-gray-500 focus:border-white outline-none transition-colors duration-300 placeholder-gray-400"
+                                />
+                            </div>
+                            <div>
+                                <input
+                                    type="tel"
+                                    name="phone"
+                                    placeholder="Celular"
+                                    required
+                                    class="w-full px-4 py-3 bg-transparent border-b-2 border-gray-500 focus:border-white outline-none transition-colors duration-300 placeholder-gray-400"
+                                />
+                            </div>
+                            <div>
+                                <textarea
+                                    name="message"
+                                    placeholder="Escribe tu duda..."
+                                    rows="4"
+                                    required
+                                    class="w-full px-4 py-3 bg-transparent border-b-2 border-gray-500 focus:border-white outline-none transition-colors duration-300 resize-none placeholder-gray-400"
+                                ></textarea>
+                            </div>
+                            <div class="flex justify-center pt-4">
+                                <button
+                                    type="submit"
+                                    class="bg-red-600 hover:bg-red-700 text-white px-8 py-3 rounded-lg font-semibold transition-colors duration-300"
+                                    aria-label="Registrar interés" 
+                                    title="Registrar interés"
+                                >
+                                    Registrar interés
+                                </button>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -273,33 +246,90 @@ import { Search, Plus, Minus } from "@lucide/astro";
         faqItems.forEach((item) => {
             const question = item.querySelector(".faq-question");
             const answer = item.querySelector(".faq-answer");
-            const icon = item.querySelector(".faq-icon");
+            const iconContainer = item.querySelector(".faq-icon");
 
-            question.addEventListener("click", function () {
-                const isOpen = !answer.classList.contains("hidden");
+            if (question && answer && iconContainer) {
+                question.addEventListener("click", function () {
+                    const isOpen = !answer.classList.contains("hidden");
 
-                // Close all other FAQ items
-                faqItems.forEach((otherItem) => {
-                    if (otherItem !== item) {
-                        const otherAnswer =
-                            otherItem.querySelector(".faq-answer");
-                        const otherIcon = otherItem.querySelector(".faq-icon");
-                        otherAnswer.classList.add("hidden");
-                        // Replace with Plus icon (Lucide)
-                        otherIcon.outerHTML = '<svg class="faq-icon w-6 h-6 transform group-hover:rotate-45 transition-transform duration-300" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 6v6m0 0v6m0-6h6m-6 0H6"/></svg>';
+                    // Close all other FAQ items
+                    faqItems.forEach((otherItem) => {
+                        if (otherItem !== item) {
+                            const otherAnswer = otherItem.querySelector(".faq-answer");
+                            const otherIconContainer = otherItem.querySelector(".faq-icon");
+                            
+                            if (otherAnswer && otherIconContainer) {
+                                otherAnswer.classList.add("hidden");
+                                // Reset to Plus icon
+                                otherIconContainer.innerHTML = `
+                                    <path d="M12 6v6m0 0v6m0-6h6m-6 0H6"/>
+                                `;
+                            }
+                        }
+                    });
+
+                    if (isOpen) {
+                        // Close current item - show Plus icon
+                        answer.classList.add("hidden");
+                        iconContainer.innerHTML = `
+                            <path d="M12 6v6m0 0v6m0-6h6m-6 0H6"/>
+                        `;
+                    } else {
+                        // Open current item - show Minus icon
+                        answer.classList.remove("hidden");
+                        iconContainer.innerHTML = `
+                            <path d="M18 12H6"/>
+                        `;
                     }
                 });
-
-                if (isOpen) {
-                    // Close current item - show Plus icon
-                    answer.classList.add("hidden");
-                    icon.outerHTML = '<svg class="faq-icon w-6 h-6 transform group-hover:rotate-45 transition-transform duration-300" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 6v6m0 0v6m0-6h6m-6 0H6"/></svg>';
-                } else {
-                    // Open current item - show Minus icon
-                    answer.classList.remove("hidden");
-                    icon.outerHTML = '<svg class="faq-icon w-6 h-6 transform group-hover:rotate-45 transition-transform duration-300" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 12H6"/></svg>';
-                }
-            });
+            }
         });
+
+        // Handle contact form submission
+        const contactForm = document.getElementById("contact-form");
+        if (contactForm) {
+            contactForm.addEventListener("submit", function (e) {
+                e.preventDefault();
+                
+                const formData = new FormData(contactForm);
+                const data = {
+                    name: formData.get("name"),
+                    phone: formData.get("phone"),
+                    message: formData.get("message")
+                };
+
+                // Here you would typically send the data to your backend
+                console.log("Form data:", data);
+                
+                // Show success message (you can customize this)
+                alert("¡Gracias por tu interés! Te contactaremos pronto.");
+                
+                // Reset form
+                contactForm.reset();
+            });
+        }
     });
 </script>
+
+<style>
+    /* Ensure proper styling for placeholder text */
+    .placeholder-gray-400::placeholder {
+        color: rgb(156, 163, 175);
+    }
+    
+    /* Custom blue color if not defined in Tailwind config */
+    .bg-azul-une {
+        background-color: #1e40af; /* Fallback blue color */
+    }
+    
+    /* Smooth transitions for FAQ items */
+    .faq-answer {
+        transition: all 0.3s ease-in-out;
+    }
+    
+    /* Ensure icons maintain consistent size */
+    .faq-icon {
+        min-width: 1.5rem;
+        min-height: 1.5rem;
+    }
+</style>

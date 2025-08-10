@@ -1,0 +1,394 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Hero from "@/assets/Imagenes/Heros/Maestrias/Posgrados.webp";
+import Hero_mobile from "@/assets/Imagenes/Heros/Maestrias/Posgrados_mobile.webp";
+import ImagenCard from "@/assets/Imagenes/CardsNiveles/Nivel.webp";
+import LogoCard from "@/assets/Logos/Licenciatura.webp";
+import InformativeCard from "@components/sections/detallesOferta/card.astro";
+import Requisitos from "@/components/sections/detallesOferta/requisitos.astro";
+import FAQComponent from "@/components/sections/detallesOferta/preguntas.astro";
+import CTAinscripcion from "@/components/sections/shared/ctaInscripcion.astro";
+import { Calendar, UserPlus, Phone } from "@lucide/astro";
+import PlanEstudios from "@/components/sections/detallesOferta/planEstudios.astro";
+import Planteles from "@/components/sections/detallesOferta/planteles.astro";
+
+const requisitosInfo = {
+  items: [
+    "Acta de nacimiento (original)",
+    "Título de nivel superior (copia o formato digital PDF a color por ambos lados)",
+    "Cédula Profesional (copia o formato digital PDF a color por ambos lados)",
+    "Certificado total de estudios de nivel superior (original)",
+    "Oficio de validación de autenticidad del certificado de estudios (emitido por la autoridad correspondiente)",
+    "Equivalencia o grado superior (certificado parcial y contenidos temáticos)",
+    "Clave Única de Registro de Población (CURP) - formato RENAPO",
+    "Identificación oficial con fotografía (INE) - dos copias",
+    "Comprobante de domicilio reciente (no mayor a 3 meses) - una copia",
+    "Fotografías tamaño infantil (5 fotografías, blanco y negro, papel mate, de estudio)",
+  ],
+  pdfUrl: "pdfs/posgrado_req.pdf",
+};
+
+const faqs = [
+  {
+    question: "¿Qué maestrías ofrece la Universidad UNE?",
+    answer:
+      "La Universidad UNE ofrece diversas maestrías en áreas como Administración y Negocios, Ciencias de la Salud, Ciencias Sociales y Derecho, Educación, y otras especialidades. Todas están incorporadas a SICYT y cuentan con validez oficial de la SEP.",
+  },
+  {
+    question: "¿Cuál es la duración de las maestrías?",
+    answer:
+      "Las maestrías en Universidad UNE tienen una duración promedio de 4 a 6 cuatrimestres (aproximadamente 1.5 a 2 años), dependiendo del programa específico y la modalidad elegida.",
+  },
+  {
+    question: "¿Qué modalidades de estudio están disponibles?",
+    answer:
+      "Ofrecemos tres modalidades flexibles: presencial, en línea y sabatina. La modalidad sabatina es ideal para profesionales que trabajan, mientras que la modalidad en línea permite estudiar desde cualquier lugar.",
+  },
+  {
+    question: "¿Las maestrías tienen validez oficial?",
+    answer:
+      "Sí, todas nuestras maestrías están incorporadas a SICYT (Secretaría de Innovación, Ciencia y Tecnología) y cuentan con validez oficial de la Secretaría de Educación Pública (SEP).",
+  },
+  {
+    question: "¿Cuáles son los requisitos de admisión?",
+    answer:
+      "Para ingresar a una maestría necesitas: título de licenciatura, certificado de estudios profesionales, acta de nacimiento, CURP, identificación oficial, comprobante de domicilio y fotografías tamaño título. Algunos programas pueden requerir documentación adicional.",
+  },
+  {
+    question: "¿Ofrecen becas para maestrías?",
+    answer:
+      "Sí, la Universidad UNE ofrece un sistema de becas institucionales accesibles y automáticas. Las becas se otorgan por excelencia académica (promedio mínimo de 8.5) y situación socioeconómica.",
+  },
+  {
+    question: "¿Cuándo inician las clases?",
+    answer:
+      "Las maestrías inician en diferentes períodos del año: enero (ciclo A) y agosto (ciclo B). Te recomendamos consultar las fechas específicas de cada programa al momento de tu inscripción.",
+  },
+  {
+    question: "¿En qué campus se imparten las maestrías?",
+    answer:
+      "Las maestrías se imparten en nuestros diferentes campus ubicados en Guadalajara, Zapopan, Tlajomulco, Tonalá, Puerto Vallarta y otras ubicaciones. La modalidad en línea está disponible desde cualquier ubicación.",
+  },
+  {
+    question: "¿Cuál es el proceso de titulación?",
+    answer:
+      "El proceso de titulación incluye opciones como tesis, tesina, examen profesional, estudios de especialidad, o experiencia profesional. Nuestro equipo académico te guiará durante todo el proceso.",
+  },
+  {
+    question: "¿Los horarios son compatibles con el trabajo?",
+    answer:
+      "Sí, nuestras modalidades están diseñadas para profesionales que trabajan. La modalidad sabatina se imparte los sábados, la modalidad vespertina en horarios de tarde, y la modalidad en línea ofrece total flexibilidad.",
+  },
+  {
+    question: "¿Qué reconocimiento tiene la Universidad UNE?",
+    answer:
+      "La Universidad UNE cuenta con más de 30 años de experiencia, más de 60,000 egresados, y nuestros graduados encuentran trabajo en un promedio de 2 meses. Tenemos más de 800 convenios con empresas e instituciones.",
+  },
+  {
+    question:
+      "¿Puedo estudiar una maestría si mi licenciatura es de otra área?",
+    answer:
+      "En muchos casos sí es posible, especialmente en maestrías como Administración, Educación o áreas interdisciplinarias. Cada caso se evalúa individualmente considerando tu perfil profesional y experiencia laboral.",
+  },
+  {
+    question: "¿Qué costos tienen las maestrías?",
+    answer:
+      "Los costos varían según el programa y modalidad elegida. Contamos con planes de pago flexibles, becas institucionales y la inscripción inicial no tiene costo. Para información específica, contacta a nuestros asesores educativos.",
+  },
+  {
+    question: "¿Ofrecen apoyo académico durante los estudios?",
+    answer:
+      "Sí, brindamos acompañamiento académico integral que incluye asesorías personalizadas, tutorías, acceso a bibliotecas digitales, y apoyo en el proceso de titulación hasta la obtención de tu grado.",
+  },
+  {
+    question: "¿Cómo puedo inscribirme a una maestría?",
+    answer:
+      "Para inscribirte puedes contactarnos al (33) 8000 0823, visitar cualquiera de nuestros 18 campus, o llenar el formulario de contacto en nuestro sitio web. Un asesor educativo te guiará en todo el proceso.",
+  },
+];
+
+const semestresDatos = [
+  {
+    numero: 1,
+    materias: [
+      {
+        codigo: "MCP101",
+        nombre: "Investigación Aplicada al Derecho",
+        creditos: 64,
+        color: "verde",
+      },
+      {
+        codigo: "MCP102",
+        nombre: "Garantías y Derechos Humanos en el Procedimiento Penal",
+        creditos: 64,
+        color: "verde",
+      },
+      {
+        codigo: "MCP103",
+        nombre: "Teoría de la Ley y la Norma Penal",
+        creditos: 64,
+        color: "verde",
+      },
+    ],
+  },
+  {
+    numero: 2,
+    materias: [
+      {
+        codigo: "MCP201",
+        nombre: "Metodología Jurídica",
+        creditos: 64,
+        color: "amarillo",
+      },
+      {
+        codigo: "MCP202",
+        nombre: "Teoría del Delito",
+        creditos: 64,
+        color: "amarillo",
+      },
+      {
+        codigo: "MCP203",
+        nombre: "Teoría General del Procedimiento Penal",
+        creditos: 64,
+        color: "amarillo",
+      },
+    ],
+  },
+  {
+    numero: 3,
+    materias: [
+      {
+        codigo: "MCP301",
+        nombre: "Seminario de Investigación en Derecho I",
+        creditos: 64,
+        color: "naranja",
+      },
+      {
+        codigo: "MCP302",
+        nombre: "Medios de Impugnación y Amparo Penal",
+        creditos: 64,
+        color: "naranja",
+      },
+      {
+        codigo: "MCP303",
+        nombre: "Lógica y Argumentación Jurídica",
+        creditos: 64,
+        color: "naranja",
+      },
+    ],
+  },
+  {
+    numero: 4,
+    materias: [
+      {
+        codigo: "MCP401",
+        nombre: "Seminario de Investigación en Derecho II",
+        creditos: 64,
+        color: "azul",
+      },
+      {
+        codigo: "MCP402",
+        nombre: "Criminología y Criminalística",
+        creditos: 64,
+        color: "azul",
+      },
+      {
+        codigo: "MCP403",
+        nombre: "Procedimientos Penales Especiales",
+        creditos: 64,
+        color: "azul",
+      },
+    ],
+  },
+  {
+    numero: 5,
+    materias: [
+      {
+        codigo: "MCP501",
+        nombre: "Seminario de Investigación en Derecho III",
+        creditos: 64,
+        color: "morado",
+      },
+      {
+        codigo: "MCP502",
+        nombre: "Victimología",
+        creditos: 64,
+        color: "morado",
+      },
+      {
+        codigo: "MCP503",
+        nombre: "Derecho Penitenciario",
+        creditos: 64,
+        color: "morado",
+      },
+    ],
+  },
+  {
+    numero: 6,
+    materias: [
+      {
+        codigo: "MCP601",
+        nombre: "Presentación y Coloquio de Tesis",
+        creditos: 64,
+        color: "violeta",
+      },
+      {
+        codigo: "MCP602",
+        nombre: "Teorías Jurídicas Contemporáneas",
+        creditos: 64,
+        color: "violeta",
+      },
+      {
+        codigo: "MCP603",
+        nombre: "Procedimiento Penal en Juicios Orales",
+        creditos: 64,
+        color: "violeta",
+      },
+    ],
+  },
+];
+
+const planteles = [
+   {
+    id: "20",
+    nombre: "Las juntas",
+    direccion:
+      "Francisco Murguía #523 Col. Las Juntas Puerto Vallarta, Jalisco",
+    ciudad: "Puerto Vallarta",
+    url: "/planteles/Las-juntas",
+    imagen: "/src/assets/Imagenes/CardsPlanteles/Lasjuntas.webp",
+    lat: 20.696982077577214,
+    lon: -105.23748669247418,
+  },
+];
+
+const ciudades = [
+  "Guadalajara ZMG",
+  "Puerto Vallarta",
+  "Tepatitlán de Morelos",
+];
+---
+
+<Layout>
+  <main class="min-h-screen">
+    <!-- Hero Section -->
+
+    <section
+      class="relative min-h-[85vh] md:min-h-[65vh] bg-cover bg-center bg-no-repeat"
+    >
+      {/* Desktop Background */}
+      <div
+        class="absolute inset-0 hidden md:block bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: `url(${Hero.src})` }}
+      >
+      </div>
+
+      {/* Mobile Background */}
+      <div
+        class="absolute inset-0 block md:hidden bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: `url(${Hero_mobile.src})` }}
+      >
+      </div>
+
+      {/* Hero Content */}
+      <div
+        class="relative z-10 container mx-auto px-4 h-full min-h-[85vh] md:min-h-[65vh] flex flex-col justify-center"
+      >
+        <div class="text-center text-white max-w-4xl mx-auto">
+          {/* Main Title */}
+          <h1 class="text-4xl md:text-7xl font-bold tracking-wider mb-4">
+           Maestría en Ciencias Penales
+          </h1>
+
+          {/* Description */}
+          <p
+            class="text-lg md:text-xl leading-relaxed mb-16 max-w-3xl mx-auto font-light"
+          >
+         Profundiza en el sistema penal y la criminología con una mirada jurídica y analítica.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Floating Card - ahora está fuera de la sección hero -->
+    <div class="relative -top-16 z-20 px-4">
+      <div class="bg-azul-une rounded-2xl px-8 shadow-2xl max-w-4xl mx-auto">
+        <div
+          class="flex flex-col sm:flex-row items-center justify-center gap-6"
+        >
+          <!-- CTA Buttons -->
+          <div
+            class="flex flex-col sm:flex-row gap-4 w-full justify-center text-white"
+          >
+            <!-- Agenda una Visita -->
+            <a
+              href="/contacto/solicitarvisita"
+              class="hover:border-b hover:border-b-cyan-50 font-bold py-6 px-6 text-base transition-colors duration-300 shadow-lg flex flex-col items-center justify-center gap-2 whitespace-nowrap"
+              aria-label="Ir a AGENDA UNA VISITA"
+              title="AGENDA UNA VISITA"
+            >
+              AGENDA UNA VISITA
+              <Calendar size={20} />
+            </a>
+
+            <!-- Iniciar Inscripción -->
+            <a
+              href="/contacto/formulario-inscripcion"
+              class="hover:border-b hover:border-b-cyan-50 font-bold py-3 px-6 text-base transition-colors duration-300 shadow-lg flex flex-col items-center justify-center gap-2 whitespace-nowrap"
+              aria-label="Ir a INICIAR INSCRIPCIÓN"
+              title="INICIAR INSCRIPCIÓN"
+            >
+              INICIAR INSCRIPCIÓN
+              <UserPlus size={20} />
+            </a>
+
+            <!-- Contactar -->
+            <a
+              href="/contacto/solicitarinformacion"
+              class="hover:border-b hover:border-b-cyan-50 font-bold py-3 px-6 text-base transition-colors duration-300 shadow-lg flex flex-col items-center justify-center gap-2 whitespace-nowrap"
+              aria-label="Ir a página de contacto"
+              title="Contactar con nosotros"
+            >
+              CONTACTAR
+              <Phone size={20} />
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <InformativeCard
+      logoSrc={LogoCard.src}
+      studentImageSrc={ImagenCard.src}
+      title="Objetivo"
+      description="Desarrollar profesionales con conocimientos avanzados en derecho penal y criminología, capaces de analizar y aplicar el marco jurídico con enfoque humanista, garantista y ético, contribuyendo a la impartición de justicia y la seguridad jurídica."
+      additionalText=""
+      features={[
+        { icon: "Clock", label: "Modalidades flexibles" },
+        { icon: "Users", label: "Profesores especialistas" },
+        { icon: "Trophy", label: "Más de 30 años de experiencia" },
+        { icon: "Briefcase", label: "Enfoque empresarial" },
+        { icon: "BookmarkCheck", label: "Proceso de titulación integral" },
+      ]}
+    />
+
+    <PlanEstudios titulo="Propuesta Educativa" semestres={semestresDatos} />
+
+    <Planteles
+      titulo="Encuentra tu campus más cercano"
+      planteles={planteles}
+      ciudades={ciudades}
+      mostrarMasCercano={true}
+    />
+
+    <Requisitos nivel="Maestrías" requisitos={requisitosInfo} />
+
+    <FAQComponent
+      faqs={faqs}
+      title="Preguntas frecuentes"
+      subtitle="Encuentra respuestas a las dudas más comunes"
+    />
+
+    <CTAinscripcion />
+  </main>
+</Layout>

@@ -132,7 +132,9 @@ import { programasEducativos } from "@helpers/estructura_educativa.js";
     <button
       type="submit"
       class="w-full bg-red-500 hover:bg-red-600 text-white font-semibold py-2.5 lg:py-3 px-6 rounded-md transition-colors duration-200 text-sm lg:text-base"
-     aria-label="ENVIAR MENSAJE" title="ENVIAR MENSAJE">
+      aria-label="ENVIAR MENSAJE"
+      title="ENVIAR MENSAJE"
+    >
       ENVIAR MENSAJE
     </button>
   </div>
@@ -622,7 +624,7 @@ import { programasEducativos } from "@helpers/estructura_educativa.js";
 
   // Event listener para envío del formulario (MODIFICADO)
   if (form) {
-    form.addEventListener("submit", function (e) {
+    form.addEventListener("submit", async function (e) {
       e.preventDefault();
 
       const formData = new FormData(this);
@@ -684,15 +686,115 @@ import { programasEducativos } from "@helpers/estructura_educativa.js";
       console.log("=== OBJETO COMPLETO ===");
       console.log("Datos completos:", data, "| Tipo:", typeof data);
 
-      // También puedes hacer un alert con los datos principales
-      alert(`Datos capturados:
-Nombre: ${data.nombre} ${data.apellido_p} ${data.apellido_m}
-Correo: ${data.correo}
-Teléfono: ${data.telefono}
-Nivel Educativo: ${data.nivel_educativo}
-Plantel: ${data.plantel_interes}
-Programa: ${data.programa_interes}
-Modalidad: ${data.modalidad}`);
+      // Mostrar loading/spinner
+      const submitButton = this.querySelector('button[type="submit"]');
+      const originalText = submitButton ? submitButton.textContent : "";
+      if (submitButton) {
+        submitButton.disabled = true;
+        submitButton.textContent = "Enviando...";
+      }
+
+      try {
+        console.log("\n=== ENVIANDO A LA API ===");
+        console.log("🚀 Iniciando petición...");
+        console.log("⏱️ Timestamp:", new Date().toISOString());
+
+        // Configuración de la petición a la API
+        const apiUrl =
+          "https://www.universidad-une.com/api/v2/custom/une_create_crm";
+        const headers = {
+          "Content-Type": "application/json",
+          Authorization:
+            "Basic b3NjYXIubXVyb0B4bWFydHMuY29tOkxlZHhPc2Nhck11cm8=",
+        };
+
+        console.log("🔗 URL:", apiUrl);
+        console.log("📋 Headers enviados:", headers);
+        console.log("📦 Datos JSON a enviar:");
+        console.log(JSON.stringify(data, null, 2));
+
+        // Realizar la petición usando fetch
+        const response = await fetch(apiUrl, {
+          method: "POST",
+          headers: headers,
+          body: JSON.stringify(data),
+        });
+
+        console.log("\n=== RESPUESTA DE LA API ===");
+        console.log("📊 Status:", response.status);
+        console.log("📊 Status Text:", response.statusText);
+        console.log("✅ OK:", response.ok);
+
+        // Log de headers de respuesta
+        console.log("📋 Headers de respuesta:");
+        for (let [key, value] of response.headers.entries()) {
+          console.log(`   ${key}: ${value}`);
+        }
+
+        // Obtener el texto de respuesta
+        const responseText = await response.text();
+        console.log("📦 Respuesta raw:", responseText);
+
+        // Intentar parsear como JSON
+        let responseData;
+        try {
+          responseData = JSON.parse(responseText);
+          console.log("📦 Respuesta JSON parseada:");
+          console.log(JSON.stringify(responseData, null, 2));
+        } catch (parseError) {
+          console.log("⚠️ La respuesta no es JSON válido");
+          responseData = { raw: responseText };
+        }
+
+        if (response.ok) {
+          console.log("✅ ÉXITO: Datos enviados correctamente");
+
+          // Mostrar mensaje de éxito
+        
+          // Redireccionar a la página de gracias
+          console.log("🔄 Redirigiendo a /contacto/gracias...");
+          window.location.href = "/contacto/gracias";
+        } else {
+          throw new Error(
+            `Error HTTP: ${response.status} - ${response.statusText}`
+          );
+        }
+      } catch (error) {
+        console.error("\n❌ ERROR EN EL ENVÍO:");
+        console.error("🔥 Mensaje:", error.message);
+        console.error("🔥 Stack:", error.stack);
+
+        // Determinar tipo de error
+        if (
+          error.name === "TypeError" &&
+          error.message.includes("Failed to fetch")
+        ) {
+          console.error("💡 Posible causa: Problema de CORS o conectividad");
+         
+        } else if (error.message.includes("404")) {
+          console.error("💡 Posible causa: URL de API no encontrada");
+        } else if (
+          error.message.includes("401") ||
+          error.message.includes("403")
+        ) {
+          console.error("💡 Posible causa: Problema de autenticación");
+        } else if (error.message.includes("500")) {
+          console.error("💡 Posible causa: Error interno del servidor");
+        } else {
+          console.error("💡 Error desconocido");
+        }
+      } finally {
+        // Restaurar botón
+        if (submitButton) {
+          submitButton.disabled = false;
+          submitButton.textContent = originalText;
+           // Redireccionar a la página de gracias
+          console.log("🔄 Redirigiendo a /contacto/gracias...");
+          window.location.href = "/contacto/gracias";
+        }
+
+        console.log("⏱️ Proceso finalizado:", new Date().toISOString());
+      }
     });
   }
 

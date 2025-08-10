@@ -6,405 +6,512 @@ import LogoCard from "@/assets/Logos/UNE_30.webp";
 import LogoUDG from "@/assets/Logos/UDG.webp";
 import LogoSicyt from "@/assets/Logos/Sicyt-oscuro.webp";
 import LogoUNE from "@/assets/Logos/UNE_blanco.webp";
-import { Users, Calendar, MapPin, GraduationCap, Award, Clock, FileText, Phone, Mail, MapPinIcon, Globe, User } from "@lucide/astro";
+import {
+  Users,
+  Calendar,
+  MapPin,
+  GraduationCap,
+  Award,
+  Clock,
+  FileText,
+  Phone,
+  Mail,
+  MapPinIcon,
+  Globe,
+  User,
+} from "@lucide/astro";
 ---
 
 <Layout>
-    <!-- Hero Section -->
-    <section
-        class="control-escolar-bg relative min-h-[65vh] overflow-hidden bg-cover bg-center bg-no-repeat flex items-center justify-center"
+  <!-- Hero Section -->
+  <section
+    class="control-escolar-bg relative min-h-[65vh] overflow-hidden bg-cover bg-center bg-no-repeat flex items-center justify-center"
+  >
+    <div
+      class="relative z-10 container mx-auto px-4 h-full min-h-[85vh] md:min-h-[65vh] flex flex-col justify-center"
     >
-        <div
-            class="relative z-10 container mx-auto px-4 h-full min-h-[85vh] md:min-h-[65vh] flex flex-col justify-center"
+      <div class="text-white max-w-2xl">
+        <h1 class="text-4xl md:text-6xl font-bold mb-4 leading-tight">
+          Control Escolar
+        </h1>
+        <p class="text-lg md:text-xl mb-8 leading-relaxed font-light">
+          Gestiona todos tus trámites académicos de manera fácil y rápida.
+          Constancias, certificados, kardex y más documentos oficiales.
+        </p>
+        <button
+          class="bg-rojo-une hover:bg-red-700 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-colors duration-300 transform hover:scale-105"
+          onclick="window.location.href='#tramites-disponibles'"
+          aria-label="Ver Trámites Disponibles"
+          title="Ver Trámites Disponibles"
         >
-            <div class="text-white max-w-2xl">
-                <h1 class="text-4xl md:text-6xl font-bold mb-4 leading-tight">
-                   Control Escolar
-                </h1>
-                <p class="text-lg md:text-xl mb-8 leading-relaxed font-light">
-                    Gestiona todos tus trámites académicos de manera fácil y rápida. 
-                    Constancias, certificados, kardex y más documentos oficiales.
-                </p>
-                <button
-                    class="bg-rojo-une hover:bg-red-700 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-colors duration-300 transform hover:scale-105"
-                    onclick="window.location.href='#tramites-disponibles'"
-                 aria-label="Ver Trámites Disponibles" title="Ver Trámites Disponibles">
-                    Ver Trámites Disponibles
-                </button>
+          Ver Trámites Disponibles
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trámites Disponibles -->
+  <section id="tramites-disponibles" class="py-16 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+          Trámites Escolares Disponibles
+        </h2>
+        <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+          Consulta todos los documentos oficiales que puedes solicitar y su
+          modalidad de gestión.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Constancia de estudios -->
+        <div
+          class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
+        >
+          <div class="bg-azul-une text-white p-4">
+            <div class="flex items-center space-x-3">
+              <FileText class="w-6 h-6" />
+              <h3 class="text-lg font-bold">Constancia de Estudios</h3>
             </div>
+          </div>
+          <div class="p-6">
+            <p class="text-gray-600 mb-4">
+              Documento que certifica tu estatus como estudiante activo en la
+              institución.
+            </p>
+            <div class="flex items-center space-x-2">
+              <div class="flex items-center space-x-1">
+                <Globe class="w-4 h-4 text-green-600" />
+                <span class="text-sm text-green-600 font-medium">En línea</span>
+              </div>
+              <span class="text-gray-400">•</span>
+              <div class="flex items-center space-x-1">
+                <User class="w-4 h-4 text-blue-600" />
+                <span class="text-sm text-blue-600 font-medium">Presencial</span
+                >
+              </div>
+            </div>
+          </div>
         </div>
-    </section>
 
-    <!-- Trámites Disponibles -->
-    <section id="tramites-disponibles" class="py-16 bg-gray-50">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
-                    Trámites Escolares Disponibles
-                </h2>
-                <p class="text-lg text-gray-600 max-w-3xl mx-auto">
-                    Consulta todos los documentos oficiales que puedes solicitar y su modalidad de gestión.
-                </p>
+        <!-- Constancia con calificaciones -->
+        <div
+          class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
+        >
+          <div class="bg-rojo-une text-white p-4">
+            <div class="flex items-center space-x-3">
+              <Award class="w-6 h-6" />
+              <h3 class="text-lg font-bold">Constancia con Calificaciones</h3>
             </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- Constancia de estudios -->
-                <div class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
-                    <div class="bg-azul-une text-white p-4">
-                        <div class="flex items-center space-x-3">
-                            <FileText class="w-6 h-6" />
-                            <h3 class="text-lg font-bold">Constancia de Estudios</h3>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <p class="text-gray-600 mb-4">Documento que certifica tu estatus como estudiante activo en la institución.</p>
-                        <div class="flex items-center space-x-2">
-                            <div class="flex items-center space-x-1">
-                                <Globe class="w-4 h-4 text-green-600" />
-                                <span class="text-sm text-green-600 font-medium">En línea</span>
-                            </div>
-                            <span class="text-gray-400">•</span>
-                            <div class="flex items-center space-x-1">
-                                <User class="w-4 h-4 text-blue-600" />
-                                <span class="text-sm text-blue-600 font-medium">Presencial</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Constancia con calificaciones -->
-                <div class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
-                    <div class="bg-rojo-une text-white p-4">
-                        <div class="flex items-center space-x-3">
-                            <Award class="w-6 h-6" />
-                            <h3 class="text-lg font-bold">Constancia con Calificaciones</h3>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <p class="text-gray-600 mb-4">Documento oficial que incluye tu historial académico con calificaciones obtenidas.</p>
-                        <div class="flex items-center space-x-2">
-                            <div class="flex items-center space-x-1">
-                                <Globe class="w-4 h-4 text-green-600" />
-                                <span class="text-sm text-green-600 font-medium">En línea</span>
-                            </div>
-                            <span class="text-gray-400">•</span>
-                            <div class="flex items-center space-x-1">
-                                <User class="w-4 h-4 text-blue-600" />
-                                <span class="text-sm text-blue-600 font-medium">Presencial</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Certificado parcial -->
-                <div class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
-                    <div class="bg-purple-600 text-white p-4">
-                        <div class="flex items-center space-x-3">
-                            <GraduationCap class="w-6 h-6" />
-                            <h3 class="text-lg font-bold">Certificado Parcial</h3>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <p class="text-gray-600 mb-4">Certificado oficial de estudios realizados hasta la fecha, sin haber concluido la carrera.</p>
-                        <div class="flex items-center space-x-2">
-                            <div class="flex items-center space-x-1">
-                                <User class="w-4 h-4 text-blue-600" />
-                                <span class="text-sm text-blue-600 font-medium">Solo Presencial</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Certificado total -->
-                <div class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
-                    <div class="bg-green-600 text-white p-4">
-                        <div class="flex items-center space-x-3">
-                            <Award class="w-6 h-6" />
-                            <h3 class="text-lg font-bold">Certificado Total</h3>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <p class="text-gray-600 mb-4">Certificado completo de estudios al haber concluido satisfactoriamente tu carrera.</p>
-                        <div class="flex items-center space-x-2">
-                            <div class="flex items-center space-x-1">
-                                <User class="w-4 h-4 text-blue-600" />
-                                <span class="text-sm text-blue-600 font-medium">Solo Presencial</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Contenidos temáticos -->
-                <div class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
-                    <div class="bg-indigo-600 text-white p-4">
-                        <div class="flex items-center space-x-3">
-                            <FileText class="w-6 h-6" />
-                            <h3 class="text-lg font-bold">Contenidos Temáticos</h3>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <p class="text-gray-600 mb-4">Detalle oficial de los programas de estudio y contenidos de las materias cursadas.</p>
-                        <div class="flex items-center space-x-2">
-                            <div class="flex items-center space-x-1">
-                                <Globe class="w-4 h-4 text-green-600" />
-                                <span class="text-sm text-green-600 font-medium">En línea</span>
-                            </div>
-                            <span class="text-gray-400">•</span>
-                            <div class="flex items-center space-x-1">
-                                <User class="w-4 h-4 text-blue-600" />
-                                <span class="text-sm text-blue-600 font-medium">Presencial</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Credencial de estudiante -->
-                <div class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
-                    <div class="bg-orange-600 text-white p-4">
-                        <div class="flex items-center space-x-3">
-                            <Users class="w-6 h-6" />
-                            <h3 class="text-lg font-bold">Credencial de Estudiante</h3>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <p class="text-gray-600 mb-4">Identificación oficial como estudiante de la universidad, necesaria para descuentos y trámites.</p>
-                        <div class="flex items-center space-x-2">
-                            <div class="flex items-center space-x-1">
-                                <User class="w-4 h-4 text-blue-600" />
-                                <span class="text-sm text-blue-600 font-medium">Solo Presencial</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Kardex -->
-                <div class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 md:col-span-2 lg:col-span-1">
-                    <div class="bg-teal-600 text-white p-4">
-                        <div class="flex items-center space-x-3">
-                            <FileText class="w-6 h-6" />
-                            <h3 class="text-lg font-bold">Kardex</h3>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <p class="text-gray-600 mb-4">Historial académico completo con todas las materias, calificaciones y promedios obtenidos.</p>
-                        <div class="flex items-center space-x-2">
-                            <div class="flex items-center space-x-1">
-                                <Globe class="w-4 h-4 text-green-600" />
-                                <span class="text-sm text-green-600 font-medium">En línea</span>
-                            </div>
-                            <span class="text-gray-400">•</span>
-                            <div class="flex items-center space-x-1">
-                                <User class="w-4 h-4 text-blue-600" />
-                                <span class="text-sm text-blue-600 font-medium">Presencial</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+          </div>
+          <div class="p-6">
+            <p class="text-gray-600 mb-4">
+              Documento oficial que incluye tu historial académico con
+              calificaciones obtenidas.
+            </p>
+            <div class="flex items-center space-x-2">
+              <div class="flex items-center space-x-1">
+                <Globe class="w-4 h-4 text-green-600" />
+                <span class="text-sm text-green-600 font-medium">En línea</span>
+              </div>
+              <span class="text-gray-400">•</span>
+              <div class="flex items-center space-x-1">
+                <User class="w-4 h-4 text-blue-600" />
+                <span class="text-sm text-blue-600 font-medium">Presencial</span
+                >
+              </div>
             </div>
+          </div>
         </div>
-    </section>
 
-    <!-- Modalidades de Gestión -->
-    <section class="py-16 bg-white">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
-                    Modalidades de Gestión
-                </h2>
-                <p class="text-lg text-gray-600">
-                    Conoce las diferentes formas en que puedes solicitar tus documentos
-                </p>
+        <!-- Certificado parcial -->
+        <div
+          class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
+        >
+          <div class="bg-purple-600 text-white p-4">
+            <div class="flex items-center space-x-3">
+              <GraduationCap class="w-6 h-6" />
+              <h3 class="text-lg font-bold">Certificado Parcial</h3>
             </div>
-
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                <!-- Gestión En Línea -->
-                <div class="bg-green-50 rounded-lg shadow-lg overflow-hidden">
-                    <div class="bg-green-600 text-white p-6">
-                        <div class="flex items-center space-x-3">
-                            <Globe class="w-8 h-8" />
-                            <div>
-                                <h3 class="text-2xl font-bold">Gestión En Línea</h3>
-                                <p class="text-green-100">Rápido y conveniente</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="p-6 space-y-4">
-                        <div class="flex items-start space-x-3">
-                            <Clock class="w-5 h-5 text-green-600 mt-1" />
-                            <div>
-                                <h4 class="font-semibold text-gray-800 mb-2">Disponible 24/7</h4>
-                                <p class="text-gray-600">Solicita tus documentos en cualquier momento del día</p>
-                            </div>
-                        </div>
-                        
-                        <div class="flex items-start space-x-3">
-                            <FileText class="w-5 h-5 text-green-600 mt-1" />
-                            <div>
-                                <h4 class="font-semibold text-gray-800 mb-2">Documentos disponibles:</h4>
-                                <ul class="text-sm text-gray-600 space-y-1">
-                                    <li>• Constancia de estudios</li>
-                                    <li>• Constancia con calificaciones</li>
-                                    <li>• Contenidos temáticos</li>
-                                    <li>• Kardex</li>
-                                </ul>
-                            </div>
-                        </div>
-                        
-                        <div class="bg-green-100 p-4 rounded-lg">
-                            <p class="text-green-800 text-sm font-medium">
-                                💡 Tip: Los documentos en línea están disponibles inmediatamente después del pago
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Gestión Presencial -->
-                <div class="bg-blue-50 rounded-lg shadow-lg overflow-hidden">
-                    <div class="bg-blue-600 text-white p-6">
-                        <div class="flex items-center space-x-3">
-                            <User class="w-8 h-8" />
-                            <div>
-                                <h3 class="text-2xl font-bold">Gestión Presencial</h3>
-                                <p class="text-blue-100">Atención personalizada</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="p-6 space-y-4">
-                        <div class="flex items-start space-x-3">
-                            <MapPinIcon class="w-5 h-5 text-blue-600 mt-1" />
-                            <div>
-                                <h4 class="font-semibold text-gray-800 mb-2">Ubicación</h4>
-                                <p class="text-gray-600">Oficinas de Control Escolar en campus</p>
-                            </div>
-                        </div>
-                        
-                        <div class="flex items-start space-x-3">
-                            <FileText class="w-5 h-5 text-blue-600 mt-1" />
-                            <div>
-                                <h4 class="font-semibold text-gray-800 mb-2">Todos los documentos disponibles:</h4>
-                                <ul class="text-sm text-gray-600 space-y-1">
-                                    <li>• Certificado parcial <span class="text-blue-600 font-medium">(Solo presencial)</span></li>
-                                    <li>• Certificado total <span class="text-blue-600 font-medium">(Solo presencial)</span></li>
-                                    <li>• Credencial de estudiante <span class="text-blue-600 font-medium">(Solo presencial)</span></li>
-                                    <li>• Todos los documentos en línea</li>
-                                </ul>
-                            </div>
-                        </div>
-                        
-                        <div class="bg-blue-100 p-4 rounded-lg">
-                            <p class="text-blue-800 text-sm font-medium">
-                                📋 Nota: Algunos documentos requieren firma original y sello oficial
-                            </p>
-                        </div>
-                    </div>
-                </div>
+          </div>
+          <div class="p-6">
+            <p class="text-gray-600 mb-4">
+              Certificado oficial de estudios realizados hasta la fecha, sin
+              haber concluido la carrera.
+            </p>
+            <div class="flex items-center space-x-2">
+              <div class="flex items-center space-x-1">
+                <User class="w-4 h-4 text-blue-600" />
+                <span class="text-sm text-blue-600 font-medium"
+                  >Solo Presencial</span
+                >
+              </div>
             </div>
+          </div>
         </div>
-    </section>
 
-    <!-- Información de Contacto -->
-    <section class="py-16 bg-gray-50">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
-                    Información y Contacto
-                </h2>
-                <p class="text-lg text-gray-600">
-                    ¿Necesitas ayuda con tus trámites? Contáctanos
-                </p>
+        <!-- Certificado total -->
+        <div
+          class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
+        >
+          <div class="bg-green-600 text-white p-4">
+            <div class="flex items-center space-x-3">
+              <Award class="w-6 h-6" />
+              <h3 class="text-lg font-bold">Certificado Total</h3>
             </div>
-
-            <div class="max-w-4xl mx-auto">
-                <div class="bg-white rounded-lg shadow-lg p-8">
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                        <div class="space-y-6">
-                            <div class="flex items-start space-x-4">
-                                <div class="flex items-center justify-center w-12 h-12 bg-azul-une/10 rounded-full">
-                                    <MapPinIcon class="w-6 h-6 text-azul-une" />
-                                </div>
-                                <div>
-                                    <h4 class="font-semibold text-gray-800">Dirección</h4>
-                                    <p class="text-gray-600">Quetzalcóatl 510, Cd. del Sol, Zapopan</p>
-                                </div>
-                            </div>
-
-                            <div class="flex items-start space-x-4">
-                                <div class="flex items-center justify-center w-12 h-12 bg-rojo-une/10 rounded-full">
-                                    <Phone class="w-6 h-6 text-rojo-une" />
-                                </div>
-                                <div>
-                                    <h4 class="font-semibold text-gray-800">Teléfono</h4>
-                                    <p class="text-gray-600">3647 8432 Ext. 3422</p>
-                                </div>
-                            </div>
-
-                            <div class="flex items-start space-x-4">
-                                <div class="flex items-center justify-center w-12 h-12 bg-rojo-une/10 rounded-full">
-                                    <Mail class="w-6 h-6 text-rojo-une" />
-                                </div>
-                                <div>
-                                    <h4 class="font-semibold text-gray-800">Email</h4>
-                                    <p class="text-gray-600">controlescolar@universidad-une.com</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="space-y-6">
-                            <div class="flex items-start space-x-4">
-                                <div class="flex items-center justify-center w-12 h-12 bg-azul-une/10 rounded-full">
-                                    <Clock class="w-6 h-6 text-azul-une" />
-                                </div>
-                                <div>
-                                    <h4 class="font-semibold text-gray-800">Horarios de Atención</h4>
-                                    <p class="text-gray-600">Lunes a Viernes: 9:00-14:00 y 16:00-19:00</p>
-                                    <p class="text-gray-600">Sábados: 9:00-14:00</p>
-                                </div>
-                            </div>
-
-                            <div class="bg-azul-une/10 p-4 rounded-lg">
-                                <h4 class="font-semibold text-azul-une mb-2">Plataforma en línea</h4>
-                                <p class="text-gray-600 text-sm">Accede al portal estudiantil para gestionar tus trámites en línea las 24 horas del día.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+          </div>
+          <div class="p-6">
+            <p class="text-gray-600 mb-4">
+              Certificado completo de estudios al haber concluido
+              satisfactoriamente tu carrera.
+            </p>
+            <div class="flex items-center space-x-2">
+              <div class="flex items-center space-x-1">
+                <User class="w-4 h-4 text-blue-600" />
+                <span class="text-sm text-blue-600 font-medium"
+                  >Solo Presencial</span
+                >
+              </div>
             </div>
+          </div>
         </div>
-    </section>
 
-
-
-    <!-- CTA Final -->
-    <section class="py-16 bg-azul-une">
-        <div class="container mx-auto px-4 text-center">
-            <div class="max-w-3xl mx-auto">
-                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
-                    ¿Necesitas Algún Documento?
-                </h2>
-                <p class="text-xl text-blue-100 mb-8">
-                    Solicita tus documentos escolares de manera rápida y segura. Atención personalizada para resolver todas tus dudas.
-                </p>
-                <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                   
-                    <button class="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-azul-une transition-colors duration-300" aria-label="Contactar Soporte" title="Contactar Soporte">
-                        Contactar Soporte
-                    </button>
-                </div>
+        <!-- Contenidos temáticos -->
+        <div
+          class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
+        >
+          <div class="bg-indigo-600 text-white p-4">
+            <div class="flex items-center space-x-3">
+              <FileText class="w-6 h-6" />
+              <h3 class="text-lg font-bold">Contenidos Temáticos</h3>
             </div>
+          </div>
+          <div class="p-6">
+            <p class="text-gray-600 mb-4">
+              Detalle oficial de los programas de estudio y contenidos de las
+              materias cursadas.
+            </p>
+            <div class="flex items-center space-x-2">
+              <div class="flex items-center space-x-1">
+                <Globe class="w-4 h-4 text-green-600" />
+                <span class="text-sm text-green-600 font-medium">En línea</span>
+              </div>
+              <span class="text-gray-400">•</span>
+              <div class="flex items-center space-x-1">
+                <User class="w-4 h-4 text-blue-600" />
+                <span class="text-sm text-blue-600 font-medium">Presencial</span
+                >
+              </div>
+            </div>
+          </div>
         </div>
-    </section>
+
+        <!-- Credencial de estudiante -->
+        <div
+          class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
+        >
+          <div class="bg-orange-600 text-white p-4">
+            <div class="flex items-center space-x-3">
+              <Users class="w-6 h-6" />
+              <h3 class="text-lg font-bold">Credencial de Estudiante</h3>
+            </div>
+          </div>
+          <div class="p-6">
+            <p class="text-gray-600 mb-4">
+              Identificación oficial como estudiante de la universidad,
+              necesaria para descuentos y trámites.
+            </p>
+            <div class="flex items-center space-x-2">
+              <div class="flex items-center space-x-1">
+                <User class="w-4 h-4 text-blue-600" />
+                <span class="text-sm text-blue-600 font-medium"
+                  >Solo Presencial</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Kardex -->
+        <div
+          class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 md:col-span-2 lg:col-span-1"
+        >
+          <div class="bg-teal-600 text-white p-4">
+            <div class="flex items-center space-x-3">
+              <FileText class="w-6 h-6" />
+              <h3 class="text-lg font-bold">Kardex</h3>
+            </div>
+          </div>
+          <div class="p-6">
+            <p class="text-gray-600 mb-4">
+              Historial académico completo con todas las materias,
+              calificaciones y promedios obtenidos.
+            </p>
+            <div class="flex items-center space-x-2">
+              <div class="flex items-center space-x-1">
+                <Globe class="w-4 h-4 text-green-600" />
+                <span class="text-sm text-green-600 font-medium">En línea</span>
+              </div>
+              <span class="text-gray-400">•</span>
+              <div class="flex items-center space-x-1">
+                <User class="w-4 h-4 text-blue-600" />
+                <span class="text-sm text-blue-600 font-medium">Presencial</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Modalidades de Gestión -->
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+          Modalidades de Gestión
+        </h2>
+        <p class="text-lg text-gray-600">
+          Conoce las diferentes formas en que puedes solicitar tus documentos
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <!-- Gestión En Línea -->
+        <div class="bg-green-50 rounded-lg shadow-lg overflow-hidden">
+          <div class="bg-green-600 text-white p-6">
+            <div class="flex items-center space-x-3">
+              <Globe class="w-8 h-8" />
+              <div>
+                <h3 class="text-2xl font-bold">Gestión En Línea</h3>
+                <p class="text-green-100">Rápido y conveniente</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="p-6 space-y-4">
+            <div class="flex items-start space-x-3">
+              <Clock class="w-5 h-5 text-green-600 mt-1" />
+              <div>
+                <h4 class="font-semibold text-gray-800 mb-2">
+                  Disponible 24/7
+                </h4>
+                <p class="text-gray-600">
+                  Solicita tus documentos en cualquier momento del día
+                </p>
+              </div>
+            </div>
+
+            <div class="flex items-start space-x-3">
+              <FileText class="w-5 h-5 text-green-600 mt-1" />
+              <div>
+                <h4 class="font-semibold text-gray-800 mb-2">
+                  Documentos disponibles:
+                </h4>
+                <ul class="text-sm text-gray-600 space-y-1">
+                  <li>• Constancia de estudios</li>
+                  <li>• Constancia con calificaciones</li>
+                  <li>• Contenidos temáticos</li>
+                  <li>• Kardex</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="bg-green-100 p-4 rounded-lg">
+              <p class="text-green-800 text-sm font-medium">
+                💡 Tip: Los documentos en línea están disponibles inmediatamente
+                después del pago
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Gestión Presencial -->
+        <div class="bg-blue-50 rounded-lg shadow-lg overflow-hidden">
+          <div class="bg-blue-600 text-white p-6">
+            <div class="flex items-center space-x-3">
+              <User class="w-8 h-8" />
+              <div>
+                <h3 class="text-2xl font-bold">Gestión Presencial</h3>
+                <p class="text-blue-100">Atención personalizada</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="p-6 space-y-4">
+            <div class="flex items-start space-x-3">
+              <MapPinIcon class="w-5 h-5 text-blue-600 mt-1" />
+              <div>
+                <h4 class="font-semibold text-gray-800 mb-2">Ubicación</h4>
+                <p class="text-gray-600">
+                  Oficinas de Control Escolar en campus
+                </p>
+              </div>
+            </div>
+
+            <div class="flex items-start space-x-3">
+              <FileText class="w-5 h-5 text-blue-600 mt-1" />
+              <div>
+                <h4 class="font-semibold text-gray-800 mb-2">
+                  Todos los documentos disponibles:
+                </h4>
+                <ul class="text-sm text-gray-600 space-y-1">
+                  <li>
+                    • Certificado parcial <span
+                      class="text-blue-600 font-medium">(Solo presencial)</span>
+                  </li>
+                  <li>
+                    • Certificado total <span class="text-blue-600 font-medium"
+                      >(Solo presencial)</span>
+                  </li>
+                  <li>
+                    • Credencial de estudiante <span
+                      class="text-blue-600 font-medium">(Solo presencial)</span>
+                  </li>
+                  <li>• Todos los documentos en línea</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="bg-blue-100 p-4 rounded-lg">
+              <p class="text-blue-800 text-sm font-medium">
+                📋 Nota: Algunos documentos requieren firma original y sello
+                oficial
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Información de Contacto -->
+  <section class="py-16 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+          Información y Contacto
+        </h2>
+        <p class="text-lg text-gray-600">
+          ¿Necesitas ayuda con tus trámites? Contáctanos
+        </p>
+      </div>
+
+      <div class="max-w-4xl mx-auto">
+        <div class="bg-white rounded-lg shadow-lg p-8">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="space-y-6">
+              <div class="flex items-start space-x-4">
+                <div
+                  class="flex items-center justify-center w-12 h-12 bg-azul-une/10 rounded-full"
+                >
+                  <MapPinIcon class="w-6 h-6 text-azul-une" />
+                </div>
+                <div>
+                  <h4 class="font-semibold text-gray-800">Dirección</h4>
+                  <p class="text-gray-600">
+                    Quetzalcóatl 510, Cd. del Sol, Zapopan
+                  </p>
+                </div>
+              </div>
+
+              <div class="flex items-start space-x-4">
+                <div
+                  class="flex items-center justify-center w-12 h-12 bg-rojo-une/10 rounded-full"
+                >
+                  <Phone class="w-6 h-6 text-rojo-une" />
+                </div>
+                <div>
+                  <h4 class="font-semibold text-gray-800">Teléfono</h4>
+                  <p class="text-gray-600">3647 8432 Ext. 3422</p>
+                </div>
+              </div>
+
+              <div class="flex items-start space-x-4">
+                <div
+                  class="flex items-center justify-center w-12 h-12 bg-rojo-une/10 rounded-full"
+                >
+                  <Mail class="w-6 h-6 text-rojo-une" />
+                </div>
+                <div>
+                  <h4 class="font-semibold text-gray-800">Email</h4>
+                  <p class="text-gray-600">
+                    controlescolar@universidad-une.com
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="space-y-6">
+              <div class="flex items-start space-x-4">
+                <div
+                  class="flex items-center justify-center w-12 h-12 bg-azul-une/10 rounded-full"
+                >
+                  <Clock class="w-6 h-6 text-azul-une" />
+                </div>
+                <div>
+                  <h4 class="font-semibold text-gray-800">
+                    Horarios de Atención
+                  </h4>
+                  <p class="text-gray-600">
+                    Lunes a viernes: 9:00-14:00 y 16:00-19:00
+                  </p>
+                  <p class="text-gray-600">Sábados: 9:00-14:00</p>
+                </div>
+              </div>
+
+              <div class="bg-azul-une/10 p-4 rounded-lg">
+                <h4 class="font-semibold text-azul-une mb-2">
+                  Plataforma en línea
+                </h4>
+                <p class="text-gray-600 text-sm">
+                  Accede al portal estudiantil para gestionar tus trámites en
+                  línea las 24 horas del día.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Final -->
+  <section class="py-16 bg-azul-une">
+    <div class="container mx-auto px-4 text-center">
+      <div class="max-w-3xl mx-auto">
+        <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
+          ¿Necesitas Algún Documento?
+        </h2>
+        <p class="text-xl text-blue-100 mb-8">
+          Solicita tus documentos escolares de manera rápida y segura. Atención
+          personalizada para resolver todas tus dudas.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a
+            href="/contacto/atencion-estudiantes/"
+            class="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-azul-une transition-colors duration-300"
+            aria-label="Contactar Soporte"
+            title="Contactar Soporte"
+            rel="noopener noreferrer"
+          >
+            Contactar Soporte
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
 </Layout>
 
 <style>
-    .control-escolar-bg {
-        background-image: url("/src/assets/Imagenes/Heros/Permanencia.webp");
-    }
+  .control-escolar-bg {
+    background-image: url("/src/assets/Imagenes/Heros/Permanencia.webp");
+  }
 
-    @media (max-width: 767px) {
-        .control-escolar-bg {
-            background-image: url("/src/assets/Imagenes/Heros/Permanencia_mobile.webp");
-        }
+  @media (max-width: 767px) {
+    .control-escolar-bg {
+      background-image: url("/src/assets/Imagenes/Heros/Permanencia_mobile.webp");
     }
+  }
 </style>

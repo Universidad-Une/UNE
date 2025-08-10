@@ -1,0 +1,297 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Hero from "@/assets/Imagenes/Heros/Maestrias/Posgrados.webp";
+import Hero_mobile from "@/assets/Imagenes/Heros/Maestrias/Posgrados_mobile.webp";
+import ImagenCard from "@/assets/Imagenes/CardsNiveles/Nivel.webp";
+import LogoCard from "@/assets/Logos/Licenciatura.webp";
+import InformativeCard from "@components/sections/detallesOferta/card.astro";
+import Requisitos from "@/components/sections/detallesOferta/requisitos.astro";
+import FAQComponent from "@/components/sections/detallesOferta/preguntas.astro";
+import CTAinscripcion from "@/components/sections/shared/ctaInscripcion.astro";
+import { Calendar, UserPlus, Phone } from "@lucide/astro";
+import PlanEstudios from "@/components/sections/detallesOferta/planEstudios.astro";
+import Planteles from "@/components/sections/detallesOferta/planteles.astro";
+
+const requisitosInfo = {
+  items: [
+    "Acta de nacimiento original (reciente expedición, no mayor a 3 meses)",
+    "Certificado total de licenciatura (original)",
+    "CURP (Clave Única de Registro de Población)",
+    "Constancia de validación de certificado",
+    "Copia de título y cédula profesional",
+    "Ocho fotografías tamaño infantil (blanco y negro, de estudio, ropa clara, papel mate)",
+    "Identificación Oficial con fotografía (IFE/INE o Pasaporte)",
+    "Comprobante de domicilio (máximo 3 meses)",
+    "Certificado Parcial de Licenciatura (sólo si aspiras a grado superior)",
+    "Resolución de Equivalencia emitida por la Secretaría de Innovación Ciencia y Tecnología (sólo si aspiras a grado superior)",
+    "3 copias de cada documento",
+    "Carta Aceptación de modalidad de Titulación expedida por área de titulación (si es inscripción para modalidad de titulación - en este caso no se solicitará Título y Cédula)",
+    "Todos los documentos deberán tener el nombre o nombres y apellidos exactamente como aparecen en el acta de nacimiento",
+    "Si los certificados de bachillerato o licenciatura son de otro estado, deberán estar legalizados por el Gobierno del Estado de procedencia (excepto si es del Sistema Educativo Nacional, Instituto Politécnico Nacional o UNAM)"
+  ],
+  pdfUrl: "pdfs/posgrado_req.pdf"
+};
+
+const faqs = [
+  {
+    question: "¿Qué es una especialidad y cómo se diferencia de una maestría?",
+    answer:
+      "Una especialidad es un posgrado que te brinda conocimientos muy específicos y prácticos en un área concreta, en este caso, la administración de negocios. Por lo general, es más corta que una maestría y está enfocada en desarrollar habilidades para la aplicación inmediata en el mundo laboral.",
+  },
+  {
+    question: "¿Cuánto tiempo dura la Especialidad en Administración de Negocios en la UNE?",
+    answer:
+      "La especialidad tiene una duración de 1 año y medio, distribuidos en seis cuatrimestres.",
+  },
+  {
+    question: "¿Qué temas clave se estudian en esta especialidad?",
+    answer:
+      "El plan de estudios está diseñado para fortalecer tus habilidades directivas, enfocándose en áreas como la Administración Estratégica, Finanzas Corporativas, Mercadotecnia y Gestión de Proyectos, entre otras materias relevantes para la gestión empresarial.",
+  },
+
+  {
+    question: "¿Es necesario tener una licenciatura en administración para cursar esta especialidad?",
+    answer:
+      "No, no es necesario. Esta especialidad está diseñada para profesionales de diversas áreas que deseen adquirir herramientas sólidas de gestión empresarial, como ingenieros, arquitectos, médicos o comunicólogos, entre otros.",
+  },
+  {
+    question: "¿La Especialidad en Administración de Negocios tiene validez oficial?",
+    answer:
+      "Sí, como todos los programas de la Universidad UNE, esta especialidad está incorporada a la Secretaría de Educación Pública (SEP) y cuenta con validez oficial (RVOE).",
+  },
+  {
+    question: "¿Hay opciones para obtener becas?",
+    answer:
+      "Sí. La Universidad UNE cuenta con un sistema de becas institucionales que se otorgan por excelencia académica (con un promedio mínimo de 8.5) y por situación socioeconómica.",
+  },
+  {
+    question: "¿Cuáles son los requisitos para inscribirse?",
+    answer:
+      "Los requisitos básicos incluyen: Título de licenciatura, Certificado de estudios profesionales, Acta de nacimiento, CURP, Identificación oficial vigente, y Comprobante de domicilio.",
+  },
+  {
+    question: "¿Cómo puedo obtener más información o inscribirme?",
+    answer:
+      "Puedes contactar directamente a la Universidad UNE a través de su sitio web, llamando a su número de teléfono o visitando cualquiera de sus campus. Un asesor te guiará en todo el proceso de inscripción.",
+  },
+];
+
+const semestresDatos = [
+  {
+    numero: 1,
+    materias: [
+      {
+        codigo: "MTD101",
+        nombre: "Modelo de Toma de Decisiones",
+        creditos: 32,
+        color: "verde",
+      },
+      {
+        codigo: "FC101",
+        nombre: "Finanzas Corporativas",
+        creditos: 64,
+        color: "verde",
+      },
+      {
+        codigo: "CC101",
+        nombre: "Comportamiento del Consumidor",
+        creditos: 96,
+        color: "verde",
+      },
+    ],
+  },
+  {
+    numero: 2,
+    materias: [
+      {
+        codigo: "IDN201",
+        nombre: "Innovación y Desarrollo de Negocios",
+        creditos: 32,
+        color: "amarillo",
+      },
+      {
+        codigo: "M201",
+        nombre: "Mercadotecnia 2.0",
+        creditos: 64,
+        color: "amarillo",
+      },
+      {
+        codigo: "GRE201",
+        nombre: "Gestión de Riesgo Empresarial",
+        creditos: 96,
+        color: "amarillo",
+      },
+    ],
+  },
+  {
+    numero: 3,
+    materias: [
+      {
+        codigo: "GDEF301",
+        nombre: "Gestión y Desarrollo de Empresas Familiares",
+        creditos: 32,
+        color: "naranja",
+      },
+      {
+        codigo: "DLO301",
+        nombre: "Dirección y Liderazgo Organizacional",
+        creditos: 64,
+        color: "naranja",
+      },
+      {
+        codigo: "MC301",
+        nombre: "Marketing Corporativo",
+        creditos: 96,
+        color: "naranja",
+      },
+    ],
+  },
+];
+
+const planteles = [
+  {
+    id: "15",
+    nombre: "Torre Quetzal",
+    codigo: "Torre Quetzak",
+    direccion: "Chimalhuacán #3569 Col. Ciudad del Sol Zapopan, Jalisco",
+    ciudad: "Guadalajara ZMG",
+    url: "/planteles/torre-quetzal",
+    imagen: "/src/assets/Imagenes/CardsPlanteles/Torre-quetzal.webp",
+    lat: "20.651860618451966",
+    lon: "-103.40329340052432",
+  },
+];
+
+const ciudades = [
+  "Guadalajara ZMG",
+  "Puerto Vallarta",
+  "Tepatitlán de Morelos",
+];
+---
+
+<Layout>
+  <main class="min-h-screen">
+    <!-- Hero Section -->
+
+    <section
+      class="relative min-h-[85vh] md:min-h-[65vh] bg-cover bg-center bg-no-repeat"
+    >
+      {/* Desktop Background */}
+      <div
+        class="absolute inset-0 hidden md:block bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: `url(${Hero.src})` }}
+      >
+      </div>
+
+      {/* Mobile Background */}
+      <div
+        class="absolute inset-0 block md:hidden bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: `url(${Hero_mobile.src})` }}
+      >
+      </div>
+
+      {/* Hero Content */}
+      <div
+        class="relative z-10 container mx-auto px-4 h-full min-h-[85vh] md:min-h-[65vh] flex flex-col justify-center"
+      >
+        <div class="text-center text-white max-w-7xl mx-auto">
+          {/* Main Title */}
+          <h1 class="text-4xl md:text-7xl font-bold tracking-wider mb-4">
+            Especialidad en Administración de Negocios
+          </h1>
+
+          {/* Description */}
+          <p
+            class="text-lg md:text-xl leading-relaxed mb-16 max-w-3xl mx-auto font-light"
+          >
+            Programa de posgrado orientado a formar profesionales con visión
+            estratégica, capaces de liderar organizaciones, optimizar recursos y
+            tomar decisiones efectivas en entornos empresariales dinámicos y
+            competitivos.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Floating Card - ahora está fuera de la sección hero -->
+    <div class="relative -top-16 z-20 px-4">
+      <div class="bg-azul-une rounded-2xl px-8 shadow-2xl max-w-4xl mx-auto">
+        <div
+          class="flex flex-col sm:flex-row items-center justify-center gap-6"
+        >
+          <!-- CTA Buttons -->
+          <div
+            class="flex flex-col sm:flex-row gap-4 w-full justify-center text-white"
+          >
+            <!-- Agenda una Visita -->
+            <a
+              href="/contacto/solicitarvisita"
+              class="hover:border-b hover:border-b-cyan-50 font-bold py-6 px-6 text-base transition-colors duration-300 shadow-lg flex flex-col items-center justify-center gap-2 whitespace-nowrap"
+              aria-label="Ir a AGENDA UNA VISITA"
+              title="AGENDA UNA VISITA"
+            >
+              AGENDA UNA VISITA
+              <Calendar size={20} />
+            </a>
+
+            <!-- Iniciar Inscripción -->
+            <a
+              href="/contacto/formulario-inscripcion"
+              class="hover:border-b hover:border-b-cyan-50 font-bold py-3 px-6 text-base transition-colors duration-300 shadow-lg flex flex-col items-center justify-center gap-2 whitespace-nowrap"
+              aria-label="Ir a INICIAR INSCRIPCIÓN"
+              title="INICIAR INSCRIPCIÓN"
+            >
+              INICIAR INSCRIPCIÓN
+              <UserPlus size={20} />
+            </a>
+
+            <!-- Contactar -->
+            <a
+              href="/contacto/solicitarinformacion"
+              class="hover:border-b hover:border-b-cyan-50 font-bold py-3 px-6 text-base transition-colors duration-300 shadow-lg flex flex-col items-center justify-center gap-2 whitespace-nowrap"
+              aria-label="Ir a página de contacto"
+              title="Contactar con nosotros"
+            >
+              CONTACTAR
+              <Phone size={20} />
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <InformativeCard
+      logoSrc={LogoCard.src}
+      studentImageSrc={ImagenCard.src}
+      title="Objetivo"
+      description="Desarrollar competencias directivas y analíticas en los profesionales para que puedan diseñar, implementar y evaluar estrategias de negocio que impulsen el crecimiento organizacional, fomenten la innovación y aseguren la sostenibilidad empresarial en mercados globalizados.."
+      additionalText=""
+      features={[
+        { icon: "Clock", label: "Modalidades flexibles" },
+        { icon: "Users", label: "Profesores especialistas" },
+        { icon: "Trophy", label: "Más de 30 años de experiencia" },
+        { icon: "Briefcase", label: "Enfoque empresarial" },
+        { icon: "BookmarkCheck", label: "Proceso de titulación integral" },
+      ]}
+    />
+
+    <PlanEstudios titulo="Propuesta Educativa" semestres={semestresDatos} />
+
+    <Planteles
+      titulo="Encuentra tu campus más cercano"
+      planteles={planteles}
+      ciudades={ciudades}
+      mostrarMasCercano={true}
+    />
+
+    <Requisitos nivel="Especialidades" requisitos={requisitosInfo} />
+
+    <FAQComponent
+      faqs={faqs}
+      title="Preguntas frecuentes"
+      subtitle="Encuentra respuestas a las dudas más comunes"
+    />
+
+    <CTAinscripcion />
+  </main>
+</Layout>

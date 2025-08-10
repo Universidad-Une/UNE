@@ -10,7 +10,7 @@ import ChapultepecImg from "@/assets/Imagenes/CardsPlanteles/Chapultepec.webp";
 import PuertoVallartaImg from "@/assets/Imagenes/CardsPlanteles/PuertoVallarta.webp";
 import MilenioImg from "@/assets/Imagenes/CardsPlanteles/Milenio.webp";
 import CaracolImg from "@/assets/Imagenes/CardsPlanteles/Caracol.webp";
-import Juntas from "@/assets/Imagenes/CardsPlanteles/LasJuntas.jpg";
+import Juntas from "@/assets/Imagenes/CardsPlanteles/LasJuntas.webp";
 import PlazaSolImg from "@/assets/Imagenes/CardsPlanteles/PlazaSol.webp";
 import TepatitlanImg from "@/assets/Imagenes/CardsPlanteles/Tepatitlan.webp";
 import TesistanImg from "@/assets/Imagenes/CardsPlanteles/Tesistan.webp";
@@ -21,7 +21,6 @@ import TorreMilenioImg from "@/assets/Imagenes/CardsPlanteles/Torre-milenio.webp
 import TorreQuetzalImg from "@/assets/Imagenes/CardsPlanteles/Torre-quetzal.webp";
 import ZapopanImg from "@/assets/Imagenes/CardsPlanteles/Zapopan.webp";
 
-// Datos de planteles con imágenes importadas
 const planteles = [
   {
     id: "7",
@@ -232,7 +231,6 @@ const {
 // Extraer ciudades únicas de los planteles
 const ciudadesDisponibles = [...new Set(planteles.map((p) => p.ciudad))];
 ---
-
 <div class="w-full mx-auto py-6 px-4 sm:px-6 md:px-12">
   <div class="flex justify-between items-center mb-8 flex-wrap gap-4">
     <div>
@@ -278,7 +276,7 @@ const ciudadesDisponibles = [...new Set(planteles.map((p) => p.ciudad))];
 
   <div class="flex gap-2 mb-6 flex-wrap">
     <div class="relative">
-      <div class="w-[400px] relative">
+      <div class="w-full max-w-[400px] relative">
         <Search
           class="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4"
         />
@@ -293,10 +291,20 @@ const ciudadesDisponibles = [...new Set(planteles.map((p) => p.ciudad))];
           id="clear-search-btn"
           class="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600 opacity-0 transition-opacity"
           type="button"
-         aria-label="Buscar" title="Realizar búsqueda">
+          aria-label="Limpiar búsqueda" 
+          title="Limpiar búsqueda">
           <X class="w-4 h-4" />
         </button>
       </div>
+      
+      <!-- Dropdown de autocomplete -->
+      <div
+        id="autocomplete-dropdown"
+        class="hidden absolute z-10 w-full max-w-[400px] bg-white border border-gray-300 rounded-lg shadow-lg mt-1"
+      >
+        <!-- Las sugerencias se insertan aquí dinámicamente -->
+      </div>
+      
       <div
         id="no-results-message"
         class="hidden text-center text-gray-500 text-sm mt-2"
@@ -306,16 +314,17 @@ const ciudadesDisponibles = [...new Set(planteles.map((p) => p.ciudad))];
     </div>
 
     <button
-      class="ciudad-tab px-4 py-2 rounded-full text-sm font-medium transition-colors active"
-      data-ciudad="todos"
-     aria-label="Todos" title="Todos">
+      class="ciudad-tab px-4 py-2 rounded-full text-sm font-medium transition-colors bg-blue-600 text-white"
+      data-ciudad-tab="todos"
+      aria-label="Todos" 
+      title="Todos">
       Todos
     </button>
     {
       ciudadesDisponibles.map((ciudad) => (
         <button
-          class="ciudad-tab px-4 py-2 rounded-full text-sm font-medium transition-colors"
-          data-ciudad={ciudad}
+          class="ciudad-tab px-4 py-2 rounded-full text-sm font-medium transition-colors bg-gray-200 text-gray-700 hover:bg-gray-300"
+          data-ciudad-tab={ciudad}
         >
           {ciudad}
         </button>
@@ -323,6 +332,7 @@ const ciudadesDisponibles = [...new Set(planteles.map((p) => p.ciudad))];
     }
   </div>
 
+  <!-- Desktop Grid -->
   <div
     class="hidden md:grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3"
     id="desktop-grid"
@@ -331,10 +341,10 @@ const ciudadesDisponibles = [...new Set(planteles.map((p) => p.ciudad))];
       planteles.map((plantel) => (
         <div
           class="bg-white max-w-[550px] rounded-3xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 campus-card"
-          data-ciudad={plantel.ciudad}
-          data-id={plantel.id}
-          data-nombre={plantel.nombre.toLowerCase()}
-          data-direccion={plantel.direccion.toLowerCase()}
+          data-ciudad-card={plantel.ciudad}
+          data-plantel-id={plantel.id}
+          data-plantel-nombre={plantel.nombre.toLowerCase()}
+          data-plantel-direccion={plantel.direccion.toLowerCase()}
           data-lat={plantel.lat}
           data-lon={plantel.lon}
         >
@@ -391,6 +401,7 @@ const ciudadesDisponibles = [...new Set(planteles.map((p) => p.ciudad))];
     }
   </div>
 
+  <!-- Mobile Carousel -->
   <div class="block md:hidden splide" id="mobile-carousel">
     <div class="splide__track py-12">
       <ul class="splide__list">
@@ -399,10 +410,10 @@ const ciudadesDisponibles = [...new Set(planteles.map((p) => p.ciudad))];
             <li class="splide__slide">
               <div
                 class="bg-white rounded-3xl shadow-lg overflow-hidden transition-all duration-300 campus-card h-full"
-                data-ciudad={plantel.ciudad}
-                data-id={plantel.id}
-                data-nombre={plantel.nombre.toLowerCase()}
-                data-direccion={plantel.direccion.toLowerCase()}
+                data-ciudad-card={plantel.ciudad}
+                data-plantel-id={plantel.id}
+                data-plantel-nombre={plantel.nombre.toLowerCase()}
+                data-plantel-direccion={plantel.direccion.toLowerCase()}
                 data-lat={plantel.lat}
                 data-lon={plantel.lon}
               >
@@ -464,6 +475,429 @@ const ciudadesDisponibles = [...new Set(planteles.map((p) => p.ciudad))];
     </div>
   </div>
 </div>
+
+
+<script>
+  import Splide from "@splidejs/splide";
+  import "@splidejs/splide/dist/css/splide.min.css";
+
+  // Función para inicializar toda la lógica del cliente
+  function initCampusFinder() {
+    // Obtener datos desde el contexto del componente o desde atributos data-*
+    // Asumiendo que las props están disponibles en el contexto de Astro
+    const planteles = window.plantelesData || [];
+    const placeholder = window.placeholderText || "Buscar plantel...";
+    
+    let splideInstance = null;
+    let selectedIndex = -1; // Para navegación con teclado
+
+    // 1. Inicializar el carrusel (Splide) en vistas móviles
+    const mobileCarousel = document.getElementById("mobile-carousel");
+    if (mobileCarousel && window.innerWidth < 768) {
+      splideInstance = new Splide("#mobile-carousel", {
+        type: "loop",
+        padding: "1.3rem",
+        perPage: 1,
+        gap: ".5rem",
+        arrows: false,
+        pagination: false,
+        autoplay: true,
+        interval: 3000,
+        pauseOnHover: true,
+        pauseOnFocus: true,
+        resetProgress: false,
+        speed: 800,
+        easing: 'cubic-bezier(0.25, 1, 0.5, 1)',
+      }).mount();
+    }
+
+    // 2. Elementos del DOM
+    const searchInput = document.getElementById("campus-search-input");
+    const clearButton = document.getElementById("clear-search-btn");
+    const dropdown = document.getElementById("autocomplete-dropdown");
+    const noResultsMessage = document.getElementById("no-results-message");
+    
+    if (!searchInput || !clearButton || !dropdown || !noResultsMessage) {
+      console.warn("Algunos elementos del DOM no se encontraron");
+      return;
+    }
+
+    // 3. Lógica del filtro de ciudades
+    const filterButtons = document.querySelectorAll("[data-ciudad-tab]");
+    const campusCards = document.querySelectorAll(".campus-card");
+    const activeClasses = "bg-blue-600 text-white";
+    const inactiveClasses = "bg-gray-200 text-gray-700 hover:bg-gray-300";
+
+    const setActiveTab = (button) => {
+      filterButtons.forEach((btn) => {
+        btn.className = `px-4 py-2 rounded-full text-sm font-medium transition-colors ${inactiveClasses}`;
+      });
+      button.className = `px-4 py-2 rounded-full text-sm font-medium transition-colors ${activeClasses}`;
+    };
+
+    const filterCards = (targetCiudad, searchTerm = "") => {
+      let visibleSlides = [];
+      let hasVisibleCards = false;
+
+      campusCards.forEach((card) => {
+        const cardCiudad = card.dataset.ciudadCard;
+        const cardNombre = card.dataset.plantelNombre || "";
+        const cardDireccion = card.dataset.plantelDireccion || "";
+        const parentContainer = card.closest(".splide__slide") || card;
+
+        const matchesCiudad =
+          targetCiudad === "todos" || cardCiudad === targetCiudad;
+        const matchesSearch =
+          !searchTerm ||
+          cardNombre.includes(searchTerm.toLowerCase()) ||
+          cardCiudad.toLowerCase().includes(searchTerm.toLowerCase()) ||
+          cardDireccion.includes(searchTerm.toLowerCase());
+
+        const isVisible = matchesCiudad && matchesSearch;
+
+        parentContainer.style.display = isVisible ? "block" : "none";
+
+        if (isVisible) {
+          hasVisibleCards = true;
+          if (card.closest(".splide__slide")) {
+            visibleSlides.push(parentContainer);
+          }
+        }
+      });
+
+      // Mostrar/ocultar mensaje de "no encontrado"
+      noResultsMessage.classList.toggle("hidden", hasVisibleCards);
+
+      // Actualizar el carrusel si existe
+      if (splideInstance) {
+        const list = splideInstance.Components.Elements.list;
+        list.innerHTML = "";
+        visibleSlides.forEach((slide) => list.appendChild(slide));
+        splideInstance.refresh();
+      }
+    };
+
+    // 4. Funciones del autocomplete
+    const highlightText = (text, searchTerm) => {
+      if (!searchTerm) return text;
+      const regex = new RegExp(`(${searchTerm})`, "gi");
+      return text.replace(regex, '<span class="highlight-text">$1</span>');
+    };
+
+    const getSuggestions = (searchTerm) => {
+      if (!searchTerm || searchTerm.length < 1) return [];
+
+      const suggestions = [];
+      const lowerSearchTerm = searchTerm.toLowerCase();
+
+      planteles.forEach((plantel) => {
+        const nombre = plantel.nombre.toLowerCase();
+        const ciudad = plantel.ciudad.toLowerCase();
+        const direccion = plantel.direccion.toLowerCase();
+
+        if (
+          nombre.includes(lowerSearchTerm) ||
+          ciudad.includes(lowerSearchTerm) ||
+          direccion.includes(lowerSearchTerm)
+        ) {
+          suggestions.push(plantel);
+        }
+      });
+
+      return suggestions.slice(0, 5); // Máximo 5 sugerencias
+    };
+
+    const showSuggestions = (suggestions, searchTerm) => {
+      if (suggestions.length === 0) {
+        dropdown.classList.add("hidden");
+        return;
+      }
+
+      const suggestionItems = suggestions
+        .map((plantel, index) => {
+          const highlightedNombre = highlightText(plantel.nombre, searchTerm);
+          const highlightedCiudad = highlightText(plantel.ciudad, searchTerm);
+
+          return `
+          <div class="autocomplete-item p-6 border-b border-gray-200 last:border-b-0" data-index="${index}" data-plantel-id="${plantel.id}">
+            <div class="font-medium text-gray-900">${highlightedNombre}</div>
+            <div class="text-sm text-gray-600">${highlightedCiudad} • ${plantel.direccion}</div>
+          </div>
+        `;
+        })
+        .join("");
+
+      dropdown.innerHTML = suggestionItems;
+      dropdown.classList.remove("hidden");
+      selectedIndex = -1;
+    };
+
+    const hideSuggestions = () => {
+      dropdown.classList.add("hidden");
+      selectedIndex = -1;
+    };
+
+    const selectSuggestion = (plantel) => {
+      searchInput.value = plantel.nombre;
+      hideSuggestions();
+
+      // Filtrar y resaltar el plantel seleccionado
+      filterCards("todos", plantel.nombre);
+      highlightCard(plantel.id);
+
+      // Mostrar el botón de limpiar
+      clearButton.classList.remove("opacity-0");
+    };
+
+    // 5. Event listeners del autocomplete
+    searchInput.addEventListener("input", (e) => {
+      const searchTerm = e.target.value.trim();
+
+      if (searchTerm.length === 0) {
+        hideSuggestions();
+        clearButton.classList.add("opacity-0");
+        filterCards("todos");
+        return;
+      }
+
+      clearButton.classList.remove("opacity-0");
+
+      const suggestions = getSuggestions(searchTerm);
+      showSuggestions(suggestions, searchTerm);
+
+      // Filtrar tarjetas en tiempo real
+      const currentTab =
+        document.querySelector("[data-ciudad-tab].bg-blue-600")?.dataset
+          .ciudadTab || "todos";
+      filterCards(currentTab, searchTerm);
+    });
+
+    searchInput.addEventListener("keydown", (e) => {
+      const items = dropdown.querySelectorAll(".autocomplete-item");
+
+      switch (e.key) {
+        case "ArrowDown":
+          e.preventDefault();
+          selectedIndex = Math.min(selectedIndex + 1, items.length - 1);
+          updateSelection(items);
+          break;
+
+        case "ArrowUp":
+          e.preventDefault();
+          selectedIndex = Math.max(selectedIndex - 1, -1);
+          updateSelection(items);
+          break;
+
+        case "Enter":
+          e.preventDefault();
+          if (selectedIndex >= 0 && items[selectedIndex]) {
+            const plantelId = items[selectedIndex].dataset.plantelId;
+            const plantel = planteles.find((p) => p.id === plantelId);
+            if (plantel) selectSuggestion(plantel);
+          }
+          break;
+
+        case "Escape":
+          hideSuggestions();
+          searchInput.blur();
+          break;
+      }
+    });
+
+    const updateSelection = (items) => {
+      items.forEach((item, index) => {
+        item.classList.toggle("selected", index === selectedIndex);
+      });
+    };
+
+    // Click en sugerencias
+    dropdown.addEventListener("click", (e) => {
+      const item = e.target.closest(".autocomplete-item");
+      if (item) {
+        const plantelId = item.dataset.plantelId;
+        const plantel = planteles.find((p) => p.id === plantelId);
+        if (plantel) selectSuggestion(plantel);
+      }
+    });
+
+    // Botón de limpiar
+    clearButton.addEventListener("click", () => {
+      searchInput.value = "";
+      clearButton.classList.add("opacity-0");
+      hideSuggestions();
+      filterCards("todos");
+      searchInput.focus();
+    });
+
+    // Cerrar dropdown al hacer click fuera
+    document.addEventListener("click", (e) => {
+      if (!searchInput.contains(e.target) && !dropdown.contains(e.target)) {
+        hideSuggestions();
+      }
+    });
+
+    // 6. Lógica del filtro de ciudades
+    filterButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const targetCiudad = button.dataset.ciudadTab;
+        setActiveTab(button);
+        const searchTerm = searchInput.value.trim();
+        filterCards(targetCiudad, searchTerm);
+      });
+    });
+
+    // 7. Función para resaltar tarjetas
+    const highlightCard = (plantelId) => {
+      // Remover resaltado previo
+      document
+        .querySelectorAll(".highlight-card")
+        .forEach((c) => c.classList.remove("highlight-card"));
+
+      const cardToHighlight = document.querySelector(
+        `.campus-card[data-plantel-id="${plantelId}"]`
+      );
+      if (cardToHighlight) {
+        // Mostrar la tarjeta si está oculta por un filtro
+        const ciudad = cardToHighlight.dataset.ciudadCard;
+        const tabButton = document.querySelector(
+          `[data-ciudad-tab="${ciudad}"]`
+        );
+        if (tabButton) {
+          setActiveTab(tabButton);
+        }
+
+        // Mover a la vista y resaltar
+        cardToHighlight.scrollIntoView({ behavior: "smooth", block: "center" });
+        cardToHighlight.classList.add("highlight-card");
+
+        if (splideInstance && window.innerWidth < 768) {
+          const slideIndex = Array.from(
+            cardToHighlight.closest(".splide__list").children
+          ).indexOf(cardToHighlight.closest(".splide__slide"));
+          if (slideIndex > -1) {
+            splideInstance.go(slideIndex);
+          }
+        }
+
+        setTimeout(
+          () => cardToHighlight.classList.remove("highlight-card"),
+          3000
+        );
+      }
+    };
+
+    // 8. Lógica para "Mostrar el más cercano"
+    const findNearestBtn = document.getElementById("find-nearest-btn");
+    const resultParagraph = document.getElementById("nearest-campus-result");
+
+    if (findNearestBtn && resultParagraph) {
+      const haversineDistance = (coords1, coords2) => {
+        const toRad = (x) => (x * Math.PI) / 180;
+        const R = 6371; // Radio de la Tierra en km
+        const dLat = toRad(coords2.lat - coords1.lat);
+        const dLon = toRad(coords2.lon - coords1.lon);
+        const a =
+          Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+          Math.cos(toRad(coords1.lat)) *
+            Math.cos(toRad(coords2.lat)) *
+            Math.sin(dLon / 2) *
+            Math.sin(dLon / 2);
+        const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+        return R * c;
+      };
+
+      findNearestBtn.addEventListener("click", () => {
+        resultParagraph.textContent = "Buscando tu ubicación...";
+        resultParagraph.style.color = "#374151";
+
+        if (!navigator.geolocation) {
+          resultParagraph.textContent =
+            "La geolocalización no es soportada por tu navegador.";
+          resultParagraph.style.color = "#dc2626";
+          return;
+        }
+
+        const geoOptions = {
+          enableHighAccuracy: true,
+          timeout: 10000,
+          maximumAge: 0,
+        };
+
+        const successCallback = (position) => {
+          const userCoords = {
+            lat: position.coords.latitude,
+            lon: position.coords.longitude,
+          };
+
+          let nearestCampus = planteles.reduce(
+            (nearest, plantel) => {
+              const distance = haversineDistance(userCoords, {
+                lat: plantel.lat,
+                lon: plantel.lon,
+              });
+              if (distance < nearest.minDistance) {
+                return { minDistance: distance, plantel };
+              }
+              return nearest;
+            },
+            { minDistance: Infinity, plantel: null }
+          );
+
+          if (nearestCampus.plantel) {
+            resultParagraph.innerHTML = `📍 El plantel más cercano es <strong>${nearestCampus.plantel.nombre}</strong> (a ${nearestCampus.minDistance.toFixed(1)} km aproximadamente).`;
+            resultParagraph.style.color = "#10b981";
+            highlightCard(nearestCampus.plantel.id);
+          } else {
+            resultParagraph.textContent =
+              "No se encontraron planteles para calcular la distancia.";
+            resultParagraph.style.color = "#dc2626";
+          }
+        };
+
+        const errorCallback = (error) => {
+          let message = "No se pudo obtener tu ubicación. ";
+          console.error("Error de Geolocalización:", error);
+
+          switch (error.code) {
+            case error.PERMISSION_DENIED:
+              message +=
+                "Permiso denegado. Por favor, permite el acceso a tu ubicación en los ajustes de tu navegador.";
+              break;
+            case error.POSITION_UNAVAILABLE:
+              message +=
+                "La información de ubicación no está disponible. Puede que no tengas señal GPS o estés en un lugar sin buena cobertura de red.";
+              break;
+            case error.TIMEOUT:
+              message +=
+                "La solicitud de ubicación tardó demasiado en responder. Inténtalo de nuevo en un lugar con mejor señal.";
+              break;
+            default:
+              message += `Ocurrió un error desconocido (Código: ${error.code}).`;
+              break;
+          }
+          resultParagraph.textContent = message;
+          resultParagraph.style.color = "#dc2626";
+        };
+
+        navigator.geolocation.getCurrentPosition(
+          successCallback,
+          errorCallback,
+          geoOptions
+        );
+      });
+    }
+  }
+
+  // Ejecutar el script una vez el DOM esté listo
+  document.addEventListener("DOMContentLoaded", initCampusFinder);
+</script>
+
+<script is:inline define:vars={{ planteles, placeholder }}>
+  // Hacer las variables disponibles globalmente para el script principal
+  window.plantelesData = planteles;
+  window.soloUnPlantel = false; // Ya que no existe en el frontmatter, usamos false
+  window.placeholderText = placeholder;
+</script>
 
 <script>
   // JavaScript que se ejecuta en el cliente
@@ -641,493 +1075,26 @@ const ciudadesDisponibles = [...new Set(planteles.map((p) => p.ciudad))];
   });
 </script>
 
+
 <style>
-  .ciudad-tab {
-    background-color: #f3f4f6; /* bg-gray-100 */
-    color: #374151; /* text-gray-700 */
-  }
+  
 
-  .ciudad-tab:hover {
-    background-color: #e5e7eb; /* bg-gray-200 */
-  }
-
-  .ciudad-tab.active {
-    background-color: #dc2626; /* bg-red-600 */
-    color: #ffffff; /* text-white */
-  }
-
-  .ciudad-tab.active:hover {
-    background-color: #b91c1c; /* bg-red-700 */
-  }
-</style>
-<style>
-  .bg-rojo-une {
-    background-color: #dc2626;
-  }
-  .hover\:bg-rojo-une:hover {
-    background-color: #b91c1c;
-  }
-  .text-rojo-une {
-    color: #dc2626;
-  }
-
-  /* Estilos para resaltar la tarjeta */
   .highlight-card {
-    box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.7) !important;
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
     transform: scale(1.02);
   }
-
-  /* Estilos para resaltar texto en autocomplete */
+  
   .highlight-text {
     background-color: #fef3c7;
     font-weight: 600;
   }
-
-  /* Estilos Splide */
-  .splide__slide {
-    padding: 0 0.5rem;
-  }
-  .splide__arrow {
-    background: rgba(255, 255, 255, 0.9);
-    border: 1px solid #e2e8f0;
-  }
-  .splide__arrow:hover {
-    background: #ffffff;
-  }
-  .splide__arrow svg {
-    fill: #64748b;
-  }
-  .splide__pagination__page.is-active {
-    background: #dc2626;
-  }
-
-  /* Estilos para dropdown de autocomplete */
-  .autocomplete-item {
-    padding: 0.75rem 1rem;
-    border-bottom: 1px solid #f3f4f6;
-    cursor: pointer;
-    transition: background-color 0.2s;
-  }
-  .autocomplete-item:hover,
+  
   .autocomplete-item.selected {
-    background-color: #f8fafc;
+    background-color: #f3f4f6;
   }
-  .autocomplete-item:last-child {
-    border-bottom: none;
+  
+  .autocomplete-item:hover {
+    background-color: #f9fafb;
+    cursor: pointer;
   }
 </style>
-
-<script>
-  import Splide from "@splidejs/splide";
-  import "@splidejs/splide/dist/css/splide.min.css";
-
-  // Función para inicializar toda la lógica del cliente
-  function initCampusFinder() {
-    const wrapper = document.getElementById("campus-finder-wrapper");
-    if (!wrapper) return;
-
-    // 1. Leer las props del atributo data-*
-    const { planteles, soloUnPlantel, placeholder } = JSON.parse(
-      wrapper.dataset.props
-    );
-    let splideInstance = null;
-    let selectedIndex = -1; // Para navegación con teclado
-
-    // 2. Inicializar el carrusel (Splide) en vistas móviles
-    const mobileCarousel = document.getElementById("mobile-carousel");
-    if (mobileCarousel && window.innerWidth < 768) {
-      splideInstance = new Splide("#mobile-carousel", {
-        type: "loop",
-        padding: "1.3rem",
-        perPage: 1,
-        gap: ".1rem",
-        arrows: false,
-        pagination: false,
-        autoplay: true,
-        interval: 4000,
-        pauseOnHover: true,
-      }).mount();
-    }
-
-    // Si solo hay un plantel, no se necesita la lógica de filtros ni de búsqueda
-    if (soloUnPlantel) return;
-
-    // 3. Elementos del autocomplete
-    const searchInput = document.getElementById("campus-search-input");
-    const clearButton = document.getElementById("clear-search-btn");
-    const dropdown = document.getElementById("autocomplete-dropdown");
-    const noResultsMessage = document.getElementById("no-results-message");
-
-    // 4. Lógica del filtro de ciudades
-    const filterButtons = document.querySelectorAll("[data-ciudad-tab]");
-    const campusCards = document.querySelectorAll(".campus-card");
-    const activeClasses = "bg-blue-600 text-white";
-    const inactiveClasses = "bg-gray-200 text-gray-700 hover:bg-gray-300";
-
-    const setActiveTab = (button) => {
-      filterButtons.forEach((btn) => {
-        btn.className = `px-4 py-2 rounded-full text-sm font-medium transition-colors ${inactiveClasses}`;
-      });
-      button.className = `px-4 py-2 rounded-full text-sm font-medium transition-colors ${activeClasses}`;
-    };
-
-    const filterCards = (targetCiudad, searchTerm = "") => {
-      let visibleSlides = [];
-      let hasVisibleCards = false;
-
-      campusCards.forEach((card) => {
-        const cardCiudad = card.dataset.ciudadCard;
-        const cardNombre = card.dataset.plantelNombre || "";
-        const cardDireccion = card.dataset.plantelDireccion || "";
-        const parentContainer = card.closest(".splide__slide") || card;
-
-        const matchesCiudad =
-          targetCiudad === "todos" || cardCiudad === targetCiudad;
-        const matchesSearch =
-          !searchTerm ||
-          cardNombre.includes(searchTerm.toLowerCase()) ||
-          cardCiudad.toLowerCase().includes(searchTerm.toLowerCase()) ||
-          cardDireccion.includes(searchTerm.toLowerCase());
-
-        const isVisible = matchesCiudad && matchesSearch;
-
-        parentContainer.style.display = isVisible ? "block" : "none";
-
-        if (isVisible) {
-          hasVisibleCards = true;
-          if (card.closest(".splide__slide")) {
-            visibleSlides.push(parentContainer);
-          }
-        }
-      });
-
-      // Mostrar/ocultar mensaje de "no encontrado"
-      noResultsMessage.classList.toggle("hidden", hasVisibleCards);
-
-      // Actualizar el carrusel si existe
-      if (splideInstance) {
-        const list = splideInstance.Components.Elements.list;
-        list.innerHTML = "";
-        visibleSlides.forEach((slide) => list.appendChild(slide));
-        splideInstance.refresh();
-      }
-    };
-
-    // 5. Funciones del autocomplete
-    const highlightText = (text, searchTerm) => {
-      if (!searchTerm) return text;
-      const regex = new RegExp(`(${searchTerm})`, "gi");
-      return text.replace(regex, '<span class="highlight-text">$1</span>');
-    };
-
-    const getSuggestions = (searchTerm) => {
-      if (!searchTerm || searchTerm.length < 1) return [];
-
-      const suggestions = [];
-      const lowerSearchTerm = searchTerm.toLowerCase();
-
-      planteles.forEach((plantel) => {
-        const nombre = plantel.nombre.toLowerCase();
-        const ciudad = plantel.ciudad.toLowerCase();
-        const direccion = plantel.direccion.toLowerCase();
-
-        if (
-          nombre.includes(lowerSearchTerm) ||
-          ciudad.includes(lowerSearchTerm) ||
-          direccion.includes(lowerSearchTerm)
-        ) {
-          suggestions.push(plantel);
-        }
-      });
-
-      return suggestions.slice(0, 5); // Máximo 5 sugerencias
-    };
-
-    const showSuggestions = (suggestions, searchTerm) => {
-      if (suggestions.length === 0) {
-        dropdown.classList.add("hidden");
-        return;
-      }
-
-      const suggestionItems = suggestions
-        .map((plantel, index) => {
-          const highlightedNombre = highlightText(plantel.nombre, searchTerm);
-          const highlightedCiudad = highlightText(plantel.ciudad, searchTerm);
-
-          return `
-          <div class="autocomplete-item p-6 border-b border-rojo-une" data-index="${index}" data-plantel-id="${plantel.id}">
-            <div class="font-medium text-gray-900">${highlightedNombre}</div>
-            <div class="text-sm text-gray-600">${highlightedCiudad} • ${plantel.direccion}</div>
-          </div>
-        `;
-        })
-        .join("");
-
-      dropdown.innerHTML = suggestionItems;
-      dropdown.classList.remove("hidden");
-      selectedIndex = -1;
-    };
-
-    const hideSuggestions = () => {
-      dropdown.classList.add("hidden");
-      selectedIndex = -1;
-    };
-
-    const selectSuggestion = (plantel) => {
-      searchInput.value = plantel.nombre;
-      hideSuggestions();
-
-      // Filtrar y resaltar el plantel seleccionado
-      filterCards("todos", plantel.nombre);
-      highlightCard(plantel.id);
-
-      // Mostrar el botón de limpiar
-      clearButton.classList.remove("opacity-0");
-    };
-
-    // 6. Event listeners del autocomplete
-    searchInput.addEventListener("input", (e) => {
-      const searchTerm = e.target.value.trim();
-
-      if (searchTerm.length === 0) {
-        hideSuggestions();
-        clearButton.classList.add("opacity-0");
-        filterCards("todos");
-        return;
-      }
-
-      clearButton.classList.remove("opacity-0");
-
-      const suggestions = getSuggestions(searchTerm);
-      showSuggestions(suggestions, searchTerm);
-
-      // Filtrar tarjetas en tiempo real
-      const currentTab =
-        document.querySelector("[data-ciudad-tab].bg-blue-600")?.dataset
-          .ciudadTab || "todos";
-      filterCards(currentTab, searchTerm);
-    });
-
-    searchInput.addEventListener("keydown", (e) => {
-      const items = dropdown.querySelectorAll(".autocomplete-item");
-
-      switch (e.key) {
-        case "ArrowDown":
-          e.preventDefault();
-          selectedIndex = Math.min(selectedIndex + 1, items.length - 1);
-          updateSelection(items);
-          break;
-
-        case "ArrowUp":
-          e.preventDefault();
-          selectedIndex = Math.max(selectedIndex - 1, -1);
-          updateSelection(items);
-          break;
-
-        case "Enter":
-          e.preventDefault();
-          if (selectedIndex >= 0 && items[selectedIndex]) {
-            const plantelId = items[selectedIndex].dataset.plantelId;
-            const plantel = planteles.find((p) => p.id === plantelId);
-            if (plantel) selectSuggestion(plantel);
-          }
-          break;
-
-        case "Escape":
-          hideSuggestions();
-          searchInput.blur();
-          break;
-      }
-    });
-
-    const updateSelection = (items) => {
-      items.forEach((item, index) => {
-        item.classList.toggle("selected", index === selectedIndex);
-      });
-    };
-
-    // Click en sugerencias
-    dropdown.addEventListener("click", (e) => {
-      const item = e.target.closest(".autocomplete-item");
-      if (item) {
-        const plantelId = item.dataset.plantelId;
-        const plantel = planteles.find((p) => p.id === plantelId);
-        if (plantel) selectSuggestion(plantel);
-      }
-    });
-
-    // Botón de limpiar
-    clearButton.addEventListener("click", () => {
-      searchInput.value = "";
-      clearButton.classList.add("opacity-0");
-      hideSuggestions();
-      filterCards("todos");
-      searchInput.focus();
-    });
-
-    // Cerrar dropdown al hacer click fuera
-    document.addEventListener("click", (e) => {
-      if (!searchInput.contains(e.target) && !dropdown.contains(e.target)) {
-        hideSuggestions();
-      }
-    });
-
-    // 7. Lógica del filtro de ciudades (actualizada)
-    filterButtons.forEach((button) => {
-      button.addEventListener("click", () => {
-        const targetCiudad = button.dataset.ciudadTab;
-        setActiveTab(button);
-        const searchTerm = searchInput.value.trim();
-        filterCards(targetCiudad, searchTerm);
-      });
-    });
-
-    // Iniciar con "Todos" activo
-    const todosButton = document.querySelector('[data-ciudad-tab="todos"]');
-    if (todosButton) {
-      setActiveTab(todosButton);
-    }
-
-    // 8. Función para resaltar tarjetas
-    const highlightCard = (plantelId) => {
-      // Remover resaltado previo
-      document
-        .querySelectorAll(".highlight-card")
-        .forEach((c) => c.classList.remove("highlight-card"));
-
-      const cardToHighlight = document.querySelector(
-        `.campus-card[data-plantel-id="${plantelId}"]`
-      );
-      if (cardToHighlight) {
-        // Mostrar la tarjeta si está oculta por un filtro
-        const ciudad = cardToHighlight.dataset.ciudadCard;
-        const tabButton = document.querySelector(
-          `[data-ciudad-tab="${ciudad}"]`
-        );
-        if (tabButton) {
-          setActiveTab(tabButton);
-        }
-
-        // Mover a la vista y resaltar
-        cardToHighlight.scrollIntoView({ behavior: "smooth", block: "center" });
-        cardToHighlight.classList.add("highlight-card");
-
-        if (splideInstance && window.innerWidth < 768) {
-          const slideIndex = Array.from(
-            cardToHighlight.closest(".splide__list").children
-          ).indexOf(cardToHighlight.closest(".splide__slide"));
-          if (slideIndex > -1) {
-            splideInstance.go(slideIndex);
-          }
-        }
-
-        setTimeout(
-          () => cardToHighlight.classList.remove("highlight-card"),
-          3000
-        );
-      }
-    };
-
-    // 9. Lógica para "Mostrar el más cercano"
-    const findNearestBtn = document.getElementById("find-nearest-btn");
-    const resultParagraph = document.getElementById("nearest-campus-result");
-
-    const haversineDistance = (coords1, coords2) => {
-      const toRad = (x) => (x * Math.PI) / 180;
-      const R = 6371; // Radio de la Tierra en km
-      const dLat = toRad(coords2.lat - coords1.lat);
-      const dLon = toRad(coords2.lon - coords1.lon);
-      const a =
-        Math.sin(dLat / 2) * Math.sin(dLat / 2) +
-        Math.cos(toRad(coords1.lat)) *
-          Math.cos(toRad(coords2.lat)) *
-          Math.sin(dLon / 2) *
-          Math.sin(dLon / 2);
-      const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-      return R * c;
-    };
-
-    findNearestBtn.addEventListener("click", () => {
-      resultParagraph.textContent = "Buscando tu ubicación...";
-      resultParagraph.style.color = "#374151";
-
-      if (!navigator.geolocation) {
-        resultParagraph.textContent =
-          "La geolocalización no es soportada por tu navegador.";
-        resultParagraph.style.color = "#dc2626";
-        return;
-      }
-
-      const geoOptions = {
-        enableHighAccuracy: true,
-        timeout: 10000,
-        maximumAge: 0,
-      };
-
-      const successCallback = (position) => {
-        const userCoords = {
-          lat: position.coords.latitude,
-          lon: position.coords.longitude,
-        };
-
-        let nearestCampus = planteles.reduce(
-          (nearest, plantel) => {
-            const distance = haversineDistance(userCoords, {
-              lat: plantel.lat,
-              lon: plantel.lon,
-            });
-            if (distance < nearest.minDistance) {
-              return { minDistance: distance, plantel };
-            }
-            return nearest;
-          },
-          { minDistance: Infinity, plantel: null }
-        );
-
-        if (nearestCampus.plantel) {
-          resultParagraph.innerHTML = `📍 El plantel más cercano es <strong>${nearestCampus.plantel.nombre}</strong> (a ${nearestCampus.minDistance.toFixed(1)} km aproximadamente).`;
-          resultParagraph.style.color = "#10b981";
-          highlightCard(nearestCampus.plantel.id);
-        } else {
-          resultParagraph.textContent =
-            "No se encontraron planteles para calcular la distancia.";
-          resultParagraph.style.color = "#dc2626";
-        }
-      };
-
-      const errorCallback = (error) => {
-        let message = "No se pudo obtener tu ubicación. ";
-        console.error("Error de Geolocalización:", error);
-
-        switch (error.code) {
-          case error.PERMISSION_DENIED:
-            message +=
-              "Permiso denegado. Por favor, permite el acceso a tu ubicación en los ajustes de tu navegador.";
-            break;
-          case error.POSITION_UNAVAILABLE:
-            message +=
-              "La información de ubicación no está disponible. Puede que no tengas señal GPS o estés en un lugar sin buena cobertura de red.";
-            break;
-          case error.TIMEOUT:
-            message +=
-              "La solicitud de ubicación tardó demasiado en responder. Inténtalo de nuevo en un lugar con mejor señal.";
-            break;
-          default:
-            message += `Ocurrió un error desconocido (Código: ${error.code}).`;
-            break;
-        }
-        resultParagraph.textContent = message;
-        resultParagraph.style.color = "#dc2626";
-      };
-
-      navigator.geolocation.getCurrentPosition(
-        successCallback,
-        errorCallback,
-        geoOptions
-      );
-    });
-  }
-
-  // Ejecutar el script una vez el DOM esté listo
-  document.addEventListener("DOMContentLoaded", initCampusFinder);
-</script>
