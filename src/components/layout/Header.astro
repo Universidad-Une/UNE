@@ -85,6 +85,7 @@ const ofertaAcademica = {
     { href: "/oferta/Diplomados", title: "Diplomados", desc: "Programas breves sin grado académico" },
   ]
 };
+
 // Función para determinar el grid columns
 function getGridCols(dropdownClass) {
   switch(dropdownClass) {
@@ -101,7 +102,7 @@ function getGridCols(dropdownClass) {
 <link rel="preload" as="image" href={Logo_UNE.src} />
 
 <!-- Top Bar -->
-<div class="hidden md:flex w-full h-14 bg-rojo-une items-center justify-end gap-5 px-4 rounded-b-3xl">
+<div class="hidden lg:flex w-full h-14 bg-rojo-une items-center justify-end gap-5 px-4 rounded-b-3xl">
   {topBarLinks.map(link => (
     <a 
       href={link.href} 
@@ -111,7 +112,7 @@ function getGridCols(dropdownClass) {
       <img 
         src={link.img.src} 
         alt={link.alt} 
-        class="h-12 w-auto" 
+        class="h-18 w-auto" 
         loading="lazy"
         decoding="async"
         height="48"
@@ -120,8 +121,8 @@ function getGridCols(dropdownClass) {
   ))}
 </div>
 
-<header class="bg-white/50 backdrop-blur-[10.2px] shadow-sm sticky top-0 z-50">
-  <div class="w-full">
+<header class="bg-white/50 backdrop-blur-[10.2px] shadow-sm sticky top-0 z-50 w-full relative">
+  <div class="max-w-full mx-auto px-4">
     <div class="flex items-center justify-between h-24">
       <!-- Logo -->
       <div class="flex-shrink-0">
@@ -129,7 +130,7 @@ function getGridCols(dropdownClass) {
           <img 
             src={Logo_UNE.src} 
             alt="UNE" 
-            class="h-20 w-auto md:h-14 lg:h-24 lg:border-0" 
+            class="h-20 w-auto md:h-14 lg:h-24 lg:border-0 max-w-full" 
             width="auto"
             height="96"
             decoding="async"
@@ -162,8 +163,8 @@ function getGridCols(dropdownClass) {
 
   <!-- Desktop Dropdowns -->
   {navItems.map(item => (
-    <div class={`dropdown-menu ${item.dropdownClass} absolute left-0 right-0 top-full bg-white border-t border-gray-200 shadow-lg opacity-0 invisible transform translate-y-2 transition-all duration-300 ease-out z-50`}>
-      <div class="container mx-auto px-4 py-6">
+    <div class={`dropdown-menu ${item.dropdownClass} absolute w-full top-full bg-white border-t border-gray-200 shadow-lg opacity-0 invisible transform translate-y-2 transition-all duration-300 ease-out z-50 hidden md:block`}>
+      <div class="max-w-7xl mx-auto px-4 py-6">
         {item.customContent ? (
           <!-- Oferta Académica Custom Content -->
           <div>
@@ -178,7 +179,7 @@ function getGridCols(dropdownClass) {
               </div>
               <div class="grid grid-cols-1 md:grid-cols-5 gap-3">
                 {[...ofertaAcademica.colegioUNE, ...ofertaAcademica.medioSuperior].map(link => (
-                  <a href={link.href} target="_blank" rel="noopener noreferrer" class="group block p-3 rounded-lg hover:bg-blue-50 transition-colors duration-200">
+                  <a href={link.href}  rel="noopener noreferrer" class="group block p-3 rounded-lg hover:bg-blue-50 transition-colors duration-200">
                     <h3 class="font-semibold text-gray-900 group-hover:text-azul-une">{link.title}</h3>
                   </a>
                 ))}
@@ -217,115 +218,116 @@ function getGridCols(dropdownClass) {
     </div>
   ))}
 
-  <!-- Mobile Menu -->
-  <div class="mobile-menu fixed inset-0 z-50 opacity-0 invisible transition-opacity duration-300 ease-in-out">
-    <div class="w-full h-screen bg-azul-une flex transform -translate-x-full transition-transform duration-300 ease-in-out">
-      <div class="w-[75%] h-full flex flex-col">
-        <div class="flex items-center justify-between p-4 absolute w-full">
-          <!-- Logo blanco cargado lazy para móvil -->
-          <img 
-            src={UNE_Blanco.src}
-            alt="UNE" 
-            class="h-20 w-auto mobile-logo" 
-            width="auto"
-            height="80"
-            loading="lazy"
-            decoding="async"
-          />
-          <button type="button" class="close-menu-button p-2 text-white hover:bg-blue-800 rounded-md" aria-label="Cerrar ventana" title="Cerrar esta ventana">
-            <X size={32} />
-          </button>
-        </div>
+</header>
 
-        <nav class="flex-1 p-4 overflow-y-auto mt-40">
-          <div class="mb-4">
-            <a href="/" class="menu-section flex items-center justify-between w-full text-left text-white font-bold py-3 px-2 hover:bg-blue-800 rounded-md transition-colors duration-200" aria-label="Ir a INICIO" title="Navegar a INICIO">
-              <span class="font-bold text-lg tracking-wide">INICIO</span>
-            </a>
-          </div>
-
-          {navItems.map(item => (
-            <div class="mb-4">
-              <button class="menu-section-button flex items-center justify-between w-full text-left text-white font-bold py-3 px-2 hover:bg-blue-800 rounded-md transition-colors duration-200">
-                <span class="font-bold text-lg tracking-wide">{item.label.toUpperCase()}</span>
-                <ChevronDown size={20} class="chevron transform transition-transform duration-200" />
-              </button>
-              <div class="submenu hidden ml-4 mt-2 space-y-1">
-                {item.customContent ? (
-                  <!-- Mobile Oferta Académica -->
-                  <>
-                    <div class="mb-2">
-                      <h3 class="text-gray-300 font-semibold py-2 px-2 text-sm">Colegio UNE</h3>
-                      <div class="ml-2 space-y-1">
-                        {ofertaAcademica.colegioUNE.map(link => (
-                          <a href={link.href} class="block text-gray-300 py-2 px-2 text-sm hover:text-white hover:bg-blue-800 rounded">
-                            {link.title}
-                          </a>
-                        ))}
-                      </div>
-                    </div>
-                    <div class="mb-2">
-                      <h3 class="text-gray-300 font-semibold py-2 px-2 text-sm">Medio Superior</h3>
-                      <div class="ml-2 space-y-1">
-                        {ofertaAcademica.medioSuperior.map(link => (
-                          <a href={link.href} target="_blank" rel="noopener noreferrer" class="block text-gray-300 py-2 px-2 text-sm hover:text-white hover:bg-blue-800 rounded">
-                            {link.title}
-                          </a>
-                        ))}
-                      </div>
-                    </div>
-                    <div class="mb-2">
-                      <h3 class="text-gray-300 font-semibold py-2 px-2 text-sm">Educación Superior</h3>
-                      <div class="ml-2 space-y-1">
-                        {ofertaAcademica.educacionSuperior.map(link => (
-                          <a href={link.href} class="block text-gray-300 py-2 px-2 text-sm hover:text-white hover:bg-blue-800 rounded">
-                            {link.title}
-                          </a>
-                        ))}
-                      </div>
-                    </div>
-                    <div>
-                      <h3 class="text-gray-300 font-semibold py-2 px-2 text-sm">Educación Continua</h3>
-                      <div class="ml-2 space-y-1">
-                        {ofertaAcademica.educacionContinua.map(link => (
-                          <a href={link.href} class="block text-gray-300 py-2 px-2 text-sm hover:text-white hover:bg-blue-800 rounded">
-                            {link.title}
-                          </a>
-                        ))}
-                      </div>
-                    </div>
-                  </>
-                ) : (
-                  item.links?.map(link => (
-                    <a href={link.href} class="block text-gray-300 py-2 px-2 text-sm hover:text-white hover:bg-blue-800 rounded">
-                      {link.title}
-                    </a>
-                  ))
-                )}
-              </div>
-            </div>
-          ))}
-        </nav>
+<!-- Mobile Menu -->
+<div class="mobile-menu fixed inset-0 z-50 opacity-0 invisible transition-opacity duration-300 ease-in-out">
+  <div class="w-full h-screen bg-azul-une flex transform -translate-x-full transition-transform duration-300 ease-in-out">
+    <div class="w-[75%] h-full flex flex-col">
+      <div class="flex items-center justify-between p-4 absolute w-full">
+        <!-- Logo blanco cargado lazy para móvil -->
+        <img 
+          src={UNE_Blanco.src}
+          alt="UNE" 
+          class="h-20 w-auto mobile-logo" 
+          width="auto"
+          height="80"
+          loading="lazy"
+          decoding="async"
+        />
+        <button type="button" class="close-menu-button p-2 text-white hover:bg-blue-800 rounded-md" aria-label="Cerrar ventana" title="Cerrar esta ventana">
+          <X size={32} />
+        </button>
       </div>
 
-      <div class="w-[25%] h-full flex items-center justify-center">
-        <div class="w-full h-[70dvh] bg-rojo-une flex flex-col items-center justify-center gap-5 space-y-4 px-4 rounded-l-2xl">
-          {topBarLinks.map(link => (
-            <img 
-              src={link.img.src} 
-              alt={link.alt} 
-              class="h-20 w-auto" 
-              loading="lazy"
-              decoding="async"
-              width="auto"
-              height="80"
-            />
-          ))}
+      <nav class="flex-1 p-4 overflow-y-auto mt-40">
+        <div class="mb-4">
+          <a href="/" class="menu-section flex items-center justify-between w-full text-left text-white font-bold py-3 px-2 hover:bg-blue-800 rounded-md transition-colors duration-200" aria-label="Ir a INICIO" title="Navegar a INICIO">
+            <span class="font-bold text-lg tracking-wide">INICIO</span>
+          </a>
         </div>
+
+        {navItems.map(item => (
+          <div class="mb-4">
+            <button class="menu-section-button flex items-center justify-between w-full text-left text-white font-bold py-3 px-2 hover:bg-blue-800 rounded-md transition-colors duration-200">
+              <span class="font-bold text-lg tracking-wide">{item.label.toUpperCase()}</span>
+              <ChevronDown size={20} class="chevron transform transition-transform duration-200" />
+            </button>
+            <div class="submenu hidden ml-4 mt-2 space-y-1">
+              {item.customContent ? (
+                <!-- Mobile Oferta Académica -->
+                <>
+                  <div class="mb-2">
+                    <h3 class="text-gray-300 font-semibold py-2 px-2 text-sm">Colegio UNE</h3>
+                    <div class="ml-2 space-y-1">
+                      {ofertaAcademica.colegioUNE.map(link => (
+                        <a href={link.href} class="block text-gray-300 py-2 px-2 text-sm hover:text-white hover:bg-blue-800 rounded">
+                          {link.title}
+                        </a>
+                      ))}
+                    </div>
+                  </div>
+                  <div class="mb-2">
+                    <h3 class="text-gray-300 font-semibold py-2 px-2 text-sm">Medio Superior</h3>
+                    <div class="ml-2 space-y-1">
+                      {ofertaAcademica.medioSuperior.map(link => (
+                        <a href={link.href} target="_blank" rel="noopener noreferrer" class="block text-gray-300 py-2 px-2 text-sm hover:text-white hover:bg-blue-800 rounded">
+                          {link.title}
+                        </a>
+                      ))}
+                    </div>
+                  </div>
+                  <div class="mb-2">
+                    <h3 class="text-gray-300 font-semibold py-2 px-2 text-sm">Educación Superior</h3>
+                    <div class="ml-2 space-y-1">
+                      {ofertaAcademica.educacionSuperior.map(link => (
+                        <a href={link.href} class="block text-gray-300 py-2 px-2 text-sm hover:text-white hover:bg-blue-800 rounded">
+                          {link.title}
+                        </a>
+                      ))}
+                    </div>
+                  </div>
+                  <div>
+                    <h3 class="text-gray-300 font-semibold py-2 px-2 text-sm">Educación Continua</h3>
+                    <div class="ml-2 space-y-1">
+                      {ofertaAcademica.educacionContinua.map(link => (
+                        <a href={link.href} class="block text-gray-300 py-2 px-2 text-sm hover:text-white hover:bg-blue-800 rounded">
+                          {link.title}
+                        </a>
+                      ))}
+                    </div>
+                  </div>
+                </>
+              ) : (
+                item.links?.map(link => (
+                  <a href={link.href} class="block text-gray-300 py-2 px-2 text-sm hover:text-white hover:bg-blue-800 rounded">
+                    {link.title}
+                  </a>
+                ))
+              )}
+            </div>
+          </div>
+        ))}
+      </nav>
+    </div>
+
+    <div class="w-[25%] h-full flex items-center justify-center">
+      <div class="w-full h-[70dvh] bg-rojo-une flex flex-col items-center justify-center gap-5 space-y-4 px-4 rounded-l-2xl">
+        {topBarLinks.map(link => (
+          <img 
+            src={link.img.src} 
+            alt={link.alt} 
+            class="h-20 w-auto" 
+            loading="lazy"
+            decoding="async"
+            width="auto"
+            height="80"
+          />
+        ))}
       </div>
     </div>
   </div>
-</header>
+</div>
 
 <!-- Script optimizado con defer para no bloquear FCP -->
 <script defer>
@@ -419,6 +421,11 @@ function getGridCols(dropdownClass) {
 </script>
 
 <style>
+  body { 
+    overflow-x: hidden; 
+    max-width: 100vw; 
+  }
+  
   .dropdown-menu {
     transform: translateY(8px);
   }
