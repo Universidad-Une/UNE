@@ -5,7 +5,8 @@ const programas = obtenerProgramasPorPlantel("TORRE QUETZAL");
 import { Phone, Clock1, MapPin } from "@lucide/astro";
 import Carreradeplantel from "@/components/sections/planteles/Carreradeplantel.astro";
 import CtaVisita from "@/components/sections/planteles/ctaVisita.astro";
-import Card from "@/assets/Imagenes/CardPlantelesInterior/Quetzal.jpg";
+import Card from "@/assets/Imagenes/CardPlantelesInterior/Quetzal.webp";
+import GaleriaPlantel from "@/components/sections/planteles/GaleriaPlantel.astro";
 
 ---
 
@@ -307,6 +308,8 @@ import Card from "@/assets/Imagenes/CardPlantelesInterior/Quetzal.jpg";
       />
 
       <CtaVisita />
+         <GaleriaPlantel plantel="Quetzal"/>
+
     </section>
   </main>
 

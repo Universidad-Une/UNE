@@ -7,6 +7,8 @@ import CtaVisita from "@/components/sections/planteles/ctaVisita.astro";
 import { obtenerProgramasPorPlantel } from "@helpers/estructura_educativa";
 import GaleriaPlantel from "@/components/sections/planteles/GaleriaPlantel.astro";
 const programasCentro = obtenerProgramasPorPlantel("CENTRO");
+import Video from "@/assets/Videos/planteles/Centro.webm";
+
 
 ---
 
@@ -108,13 +110,16 @@ const programasCentro = obtenerProgramasPorPlantel("CENTRO");
         <!-- Content Grid -->
         <div class="grid md:grid-cols-2 gap-12 items-center">
           <!-- Video/Image Container -->
-          <div class="relative">
+            <div class="relative">
             <div class="rounded-2xl overflow-hidden shadow-2xl">
-              <img
-                src={Card.src}
-                alt="Campus UNE Centro Guadalajara"
+              <video
+                src={Video}
+                alt="Campus UNE Centro Médico"
                 class="w-full h-auto object-cover"
-              />
+                autoplay
+                muted
+                loop
+                controls></video>
             </div>
           </div>
 

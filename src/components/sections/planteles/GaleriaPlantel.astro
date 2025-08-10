@@ -6,6 +6,9 @@ export interface Props {
 
 const { plantel } = Astro.props;
 
+// Normalizar el nombre del plantel para la estructura de carpetas (espacios -> _)
+const normalizedPlantel = plantel.toUpperCase().replace(/\s+/g, '_');
+
 // Importar todas las imágenes del plantel específico
 const allImages = import.meta.glob(`@/assets/Imagenes/Galeria/ZMG/**/*.{png,jpg,jpeg,webp,svg}`, {
   eager: true,
@@ -13,13 +16,14 @@ const allImages = import.meta.glob(`@/assets/Imagenes/Galeria/ZMG/**/*.{png,jpg,
 });
 
 console.log('Todas las imágenes encontradas:', Object.keys(allImages));
-console.log('Buscando plantel:', plantel.toUpperCase());
+console.log('Buscando plantel normalizado:', normalizedPlantel);
+console.log('Plantel original para display:', plantel);
 
 // Filtrar las imágenes que pertenecen al plantel específico
 const images = Object.entries(allImages)
   .filter(([path]) => {
-    const includes = path.includes(`/ZMG/${plantel.toUpperCase()}/`);
-    console.log(`Path: ${path}, incluye plantel: ${includes}`);
+    const includes = path.includes(`/ZMG/${normalizedPlantel}/`);
+    console.log(`Path: ${path}, incluye plantel normalizado: ${includes}`);
     return includes;
   })
   .map(([path, url]) => ({
@@ -28,17 +32,16 @@ const images = Object.entries(allImages)
     name: path.split('/').pop()?.split('.')[0] || ''
   }));
 
-console.log('Imágenes filtradas:', images);
 ---
 
-<div class="galeria-plantel">
+<div class="galeria-plantel " data-plantel={plantel} data-normalized-plantel={normalizedPlantel} data-images={JSON.stringify(images)}>
   {images.length > 0 ? (
-    <div class="splide" id={`splide-${plantel}`}>
-      <div class="splide__track">
-        <ul class="splide__list">
+    <div class="splide " id={`splide-${normalizedPlantel}`}>
+      <div class="splide__track py-12">
+        <ul class="splide__list ">
           {images.map((image, index) => (
             <li class="splide__slide" key={index}>
-              <div class="image-container" data-image-src={image.src} data-image-alt={image.alt} data-image-index={index}>
+              <div class="image-container" data-image-src={image.src} data-image-alt={image.alt} data-image-index={index} data-image-name={image.name}>
                 <img 
                   src={image.src} 
                   alt={image.alt}
@@ -46,8 +49,8 @@ console.log('Imágenes filtradas:', images);
                   class="slide-image"
                 />
                 <div class="image-caption">
-                  <h3>{image.name}</h3>
-                  <p>Plantel {plantel}</p>
+                
+                  <p>Mostrar: {plantel}</p>
                 </div>
                 <div class="zoom-icon">
                   <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -61,7 +64,6 @@ console.log('Imágenes filtradas:', images);
         </ul>
       </div>
       
-      <!-- Controles del carousel -->
       <div class="splide__arrows">
         <button class="splide__arrow splide__arrow--prev">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -75,18 +77,16 @@ console.log('Imágenes filtradas:', images);
         </button>
       </div>
       
-      <!-- Indicadores -->
-      <div class="splide__pagination"></div>
     </div>
   ) : (
     <div class="no-images">
       <p>No se encontraron imágenes para el plantel: {plantel}</p>
-      <p>Verifique que existan imágenes en: /src/assets/Imagenes/Galeria/ZMG/{plantel.toUpperCase()}/</p>
+      <p>Verifique que existan imágenes en: /src/assets/Imagenes/Galeria/ZMG/{normalizedPlantel}/</p>
     </div>
   )}
   
   <!-- Modal para imagen ampliada -->
-  <div class="image-modal" id={`modal-${plantel}`}>
+  <div class="image-modal" id={`modal-${normalizedPlantel}`}>
     <div class="modal-backdrop"></div>
     <div class="modal-content">
       <button class="modal-close">
@@ -114,7 +114,7 @@ console.log('Imágenes filtradas:', images);
         <h3 class="modal-title"></h3>
         <p class="modal-plantel"></p>
         <div class="modal-counter">
-          <span class="current-image">1</span> / <span class="total-images">{images.length}</span>
+          <span class="current-image">1</span> / <span class="total-images">0</span>
         </div>
       </div>
     </div>
@@ -145,7 +145,7 @@ console.log('Imágenes filtradas:', images);
   .image-container {
     position: relative;
     width: 100%;
-    height: 200px; /* Reducido de 400px para mostrar más imágenes */
+    height: 200px;
     overflow: hidden;
     border-radius: 8px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
@@ -247,13 +247,13 @@ console.log('Imágenes filtradas:', images);
 
   .modal-content {
     position: relative;
-    max-width: 90vw;
-    max-height: 90vh;
-    background: white;
-    border-radius: 12px;
+    max-width: 95vw;
+    max-height: 95vh;
+    background: transparent;
+    border-radius: 0;
     overflow: hidden;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-    animation: modalFadeIn 0.3s ease;
+    box-shadow: none;
+    animation: modalFadeIn 0.3s ease-out;
   }
 
   @keyframes modalFadeIn {
@@ -291,35 +291,37 @@ console.log('Imágenes filtradas:', images);
 
   .modal-image {
     width: 100%;
-    height: auto;
-    max-height: 70vh;
+    height: 100%;
+    max-height: 80vh;
     object-fit: contain;
     display: block;
   }
 
   .modal-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
     padding: 1.5rem;
-    background: white;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+    color: white;
   }
 
   .modal-title {
     margin: 0 0 0.5rem 0;
     font-size: 1.25rem;
     font-weight: 600;
-    color: #333;
   }
 
   .modal-plantel {
-    margin: 0;
-    color: #666;
+    margin: 0 0 0.5rem 0;
     font-size: 0.9rem;
+    opacity: 0.9;
   }
 
   .modal-counter {
-    margin-top: 0.5rem;
     font-size: 0.85rem;
-    color: #888;
-    text-align: center;
+    opacity: 0.8;
   }
 
   .modal-arrow {
@@ -391,24 +393,6 @@ console.log('Imágenes filtradas:', images);
     opacity: 0.5;
   }
 
-  .splide__pagination {
-    bottom: -3rem;
-  }
-
-  .splide__pagination__page {
-    background: #ccc;
-    border-radius: 50%;
-    width: 12px;
-    height: 12px;
-    margin: 0 6px;
-    transition: all 0.3s ease;
-  }
-
-  .splide__pagination__page.is-active {
-    background: #007bff;
-    transform: scale(1.2);
-  }
-
   /* Responsive */
   @media (max-width: 768px) {
     .galeria-plantel {
@@ -460,6 +444,10 @@ console.log('Imágenes filtradas:', images);
     .modal-arrow-next {
       right: 10px;
     }
+
+    .modal-image {
+      max-height: 70vh;
+    }
   }
 </style>
 
@@ -468,149 +456,184 @@ console.log('Imágenes filtradas:', images);
   import { AutoScroll } from "@splidejs/splide-extension-auto-scroll";
   import "@splidejs/splide/dist/css/splide.min.css";
 
-  // Obtener el plantel desde el id del elemento
-  const splideElement = document.querySelector('[id^="splide-"]') as HTMLElement;
+  // Obtener el plantel y las imágenes desde los data attributes
+  const galeriaElement = document.querySelector('.galeria-plantel') as HTMLElement;
   
-  if (splideElement) {
-    const plantel = splideElement.id.replace('splide-', '');
+  if (galeriaElement) {
+    const plantel = galeriaElement.getAttribute('data-plantel'); // Nombre original para mostrar
+    const normalizedPlantel = galeriaElement.getAttribute('data-normalized-plantel'); // Nombre normalizado para IDs
+    const imagesData = galeriaElement.getAttribute('data-images');
     
-    // Configuración del carousel
-    const splide = new Splide(`#splide-${plantel}`, {
-      type: 'loop',
-      perPage: 4, // Mostrar 4 imágenes por página
-      perMove: 1,
-      gap: '1rem',
-      autoplay: true,
-      interval: 3000, // Más rápido para autoscroll
-      pauseOnHover: true,
-      pauseOnFocus: true,
-      resetProgress: false,
-      height: '200px',
-      focus: 'center',
-      trimSpace: false,
-      breakpoints: {
-        1024: {
-          perPage: 3,
-          height: '180px',
-        },
-        768: {
-          perPage: 2,
-          height: '150px',
-          gap: '0.75rem',
-        },
-        480: {
-          perPage: 1,
-          height: '150px',
-          gap: '0.5rem',
-        }
-      },
-      // Configuración de AutoScroll
-      extensions: { AutoScroll },
-      autoScroll: {
-        speed: 0.5, // Velocidad más lenta para mejor visualización
+    let images = [];
+    try {
+      images = imagesData ? JSON.parse(imagesData) : [];
+    } catch (e) {
+      console.error('Error parsing images data:', e);
+      images = [];
+    }
+
+    console.log('Plantel original:', plantel);
+    console.log('Plantel normalizado:', normalizedPlantel);
+    console.log('Imágenes cargadas:', images);
+    
+    const splideElement = document.querySelector(`#splide-${normalizedPlantel}`) as HTMLElement;
+    
+    if (splideElement && images.length > 0) {
+      // Configuración del carousel
+      const splide = new Splide(`#splide-${normalizedPlantel}`, {
+        type: 'loop',
+        perPage: 4,
+        perMove: 0,
+        gap: '1rem',
+        autoplay: false,
+        interval: 3000,
         pauseOnHover: true,
-      },
-    });
+        pauseOnFocus: true,
+        resetProgress: false,
+        height: '200px',
+        focus: 'center',
+        trimSpace: false,
+        pagination: false,
+        breakpoints: {
+          1024: {
+            perPage: 3,
+            height: '180px',
+          },
+          768: {
+            perPage: 2,
+            height: '150px',
+            gap: '0.75rem',
+          },
+          480: {
+            perPage: 1,
+            height: '150px',
+            gap: '0.5rem',
+          }
+        },
+        extensions: { AutoScroll },
+        autoScroll: {
+          speed: 0.5,
+          pauseOnHover: true,
+        },
+      });
 
-    // Montar el carousel
-    splide.mount({ AutoScroll });
+      // Montar el carousel
+      splide.mount({ AutoScroll });
 
-    // Funcionalidad del modal
-    const modal = document.getElementById(`modal-${plantel}`);
-    const modalImage = modal?.querySelector('.modal-image') as HTMLImageElement;
-    const modalTitle = modal?.querySelector('.modal-title') as HTMLElement;
-    const modalPlantel = modal?.querySelector('.modal-plantel') as HTMLElement;
-    const modalClose = modal?.querySelector('.modal-close') as HTMLElement;
-    const modalBackdrop = modal?.querySelector('.modal-backdrop') as HTMLElement;
-    const modalArrowPrev = modal?.querySelector('.modal-arrow-prev') as HTMLButtonElement;
-    const modalArrowNext = modal?.querySelector('.modal-arrow-next') as HTMLButtonElement;
-    const currentImageSpan = modal?.querySelector('.current-image') as HTMLElement;
-    
-    let currentImageIndex = 0;
-    const totalImages = images.length;
+      // Funcionalidad del modal
+      const modal = document.getElementById(`modal-${normalizedPlantel}`);
+      const modalImage = modal?.querySelector('.modal-image') as HTMLImageElement;
+      const modalTitle = modal?.querySelector('.modal-title') as HTMLElement;
+      const modalPlantel = modal?.querySelector('.modal-plantel') as HTMLElement;
+      const modalClose = modal?.querySelector('.modal-close') as HTMLElement;
+      const modalBackdrop = modal?.querySelector('.modal-backdrop') as HTMLElement;
+      const modalArrowPrev = modal?.querySelector('.modal-arrow-prev') as HTMLButtonElement;
+      const modalArrowNext = modal?.querySelector('.modal-arrow-next') as HTMLButtonElement;
+      const currentImageSpan = modal?.querySelector('.current-image') as HTMLElement;
+      const totalImagesSpan = modal?.querySelector('.total-images') as HTMLElement;
+      
+      let currentImageIndex = 0;
+      const totalImages = images.length;
 
-    // Función para actualizar la imagen del modal
-    const updateModalImage = (index: number) => {
-      const image = images[index];
-      if (modalImage && image) {
-        modalImage.src = image.src;
-        modalImage.alt = image.alt;
-        if (modalTitle) modalTitle.textContent = image.name;
-        if (modalPlantel) modalPlantel.textContent = `Plantel ${plantel}`;
-        if (currentImageSpan) currentImageSpan.textContent = (index + 1).toString();
-        
-        currentImageIndex = index;
-        
-        // Actualizar estado de las flechas
-        if (modalArrowPrev) modalArrowPrev.disabled = index === 0;
-        if (modalArrowNext) modalArrowNext.disabled = index === totalImages - 1;
+      // Actualizar el contador total
+      if (totalImagesSpan) {
+        totalImagesSpan.textContent = totalImages.toString();
       }
-    };
 
-    // Agregar event listeners para abrir modal
-    const imageContainers = document.querySelectorAll(`#splide-${plantel} .image-container`);
-    imageContainers.forEach(container => {
-      container.addEventListener('click', () => {
-        const imageIndex = parseInt(container.getAttribute('data-image-index') || '0');
-        
-        if (modal) {
-          updateModalImage(imageIndex);
-          modal.classList.add('active');
-          document.body.style.overflow = 'hidden'; // Prevenir scroll
+      // Función para actualizar la imagen del modal
+      const updateModalImage = (index: number) => {
+        const image = images[index];
+        if (modalImage && image) {
+          modalImage.src = image.src;
+          modalImage.alt = image.alt;
+          // Usar el plantel original (con espacios) para mostrar
+          if (modalPlantel) modalPlantel.textContent = `Plantel ${plantel}`;
+          if (currentImageSpan) currentImageSpan.textContent = (index + 1).toString();
+          
+          currentImageIndex = index;
+          
+          // Actualizar estado de las flechas
+          if (modalArrowPrev) modalArrowPrev.disabled = index === 0;
+          if (modalArrowNext) modalArrowNext.disabled = index === totalImages - 1;
+        }
+      };
+
+      // Agregar event listeners para abrir modal
+      const imageContainers = document.querySelectorAll(`#splide-${normalizedPlantel} .image-container`);
+      imageContainers.forEach(container => {
+        container.addEventListener('click', (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          
+          const imageIndex = parseInt(container.getAttribute('data-image-index') || '0');
+          
+          console.log('Abriendo modal con imagen:', imageIndex);
+          
+          if (modal) {
+            updateModalImage(imageIndex);
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+          }
+        });
+      });
+
+      // Navegación con flechas
+      modalArrowPrev?.addEventListener('click', (e) => {
+        e.stopPropagation();
+        if (currentImageIndex > 0) {
+          updateModalImage(currentImageIndex - 1);
         }
       });
-    });
 
-    // Navegación con flechas
-    modalArrowPrev?.addEventListener('click', () => {
-      if (currentImageIndex > 0) {
-        updateModalImage(currentImageIndex - 1);
-      }
-    });
-
-    modalArrowNext?.addEventListener('click', () => {
-      if (currentImageIndex < totalImages - 1) {
-        updateModalImage(currentImageIndex + 1);
-      }
-    });
-
-    // Cerrar modal
-    const closeModal = () => {
-      if (modal) {
-        modal.classList.remove('active');
-        document.body.style.overflow = ''; // Restaurar scroll
-      }
-    };
-
-    modalClose?.addEventListener('click', closeModal);
-    modalBackdrop?.addEventListener('click', closeModal);
-    
-    // Navegación con teclado
-    document.addEventListener('keydown', (e) => {
-      if (modal?.classList.contains('active')) {
-        switch(e.key) {
-          case 'Escape':
-            closeModal();
-            break;
-          case 'ArrowLeft':
-            e.preventDefault();
-            if (currentImageIndex > 0) {
-              updateModalImage(currentImageIndex - 1);
-            }
-            break;
-          case 'ArrowRight':
-            e.preventDefault();
-            if (currentImageIndex < totalImages - 1) {
-              updateModalImage(currentImageIndex + 1);
-            }
-            break;
+      modalArrowNext?.addEventListener('click', (e) => {
+        e.stopPropagation();
+        if (currentImageIndex < totalImages - 1) {
+          updateModalImage(currentImageIndex + 1);
         }
-      }
-    });
+      });
 
-    // Opcional: Eventos del carousel
-    splide.on('move', (newIndex, prevIndex) => {
-      console.log(`Cambiando de imagen ${prevIndex} a ${newIndex} en plantel ${plantel}`);
-    });
+      // Cerrar modal
+      const closeModal = () => {
+        if (modal) {
+          modal.classList.remove('active');
+          document.body.style.overflow = '';
+        }
+      };
+
+      modalClose?.addEventListener('click', (e) => {
+        e.stopPropagation();
+        closeModal();
+      });
+      
+      modalBackdrop?.addEventListener('click', closeModal);
+      
+      // Navegación con teclado
+      document.addEventListener('keydown', (e) => {
+        if (modal?.classList.contains('active')) {
+          switch(e.key) {
+            case 'Escape':
+              closeModal();
+              break;
+            case 'ArrowLeft':
+              e.preventDefault();
+              if (currentImageIndex > 0) {
+                updateModalImage(currentImageIndex - 1);
+              }
+              break;
+            case 'ArrowRight':
+              e.preventDefault();
+              if (currentImageIndex < totalImages - 1) {
+                updateModalImage(currentImageIndex + 1);
+              }
+              break;
+          }
+        }
+      });
+
+      // Eventos del carousel
+      splide.on('move', (newIndex, prevIndex) => {
+        console.log(`Cambiando de imagen ${prevIndex} a ${newIndex} en plantel ${plantel}`);
+      });
+    }
   }
 </script>

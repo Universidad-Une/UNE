@@ -5,7 +5,8 @@ const programas = obtenerProgramasPorPlantel("TONALÁ");
 import { Phone, Clock1, MapPin } from "@lucide/astro";
 import Carreradeplantel from "@/components/sections/planteles/Carreradeplantel.astro";
 import CtaVisita from "@/components/sections/planteles/ctaVisita.astro";
-import Card from "@/assets/Imagenes/CardPlantelesInterior/Tonala.jpg";
+import Card from "@/assets/Imagenes/CardPlantelesInterior/Tonala.webp";
+import GaleriaPlantel from "@/components/sections/planteles/GaleriaPlantel.astro";
 
 ---
 
@@ -307,6 +308,7 @@ import Card from "@/assets/Imagenes/CardPlantelesInterior/Tonala.jpg";
     />
 
     <CtaVisita />
+     <GaleriaPlantel plantel="Tonala"/>
   </main>
 </Layout>
 
