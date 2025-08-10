@@ -5,29 +5,7 @@ import comunidadEgresados from "@/assets/Imagenes/Middles/Egresos.webp";
 import Galeria from "@/components/sections/shared/Galeria.astro";
 import Eventos from "@/components/sections/vidaestudiantil/eventos.astro";
 
-// Ejemplo 1: Array de imágenes básico
-const images = [
-  {
-    src: "/src/assets/Imagenes/GaleriaCongresos/Vallarta.webp",
-    alt: "Congreso de Derecho 2024",
-    title: "Inauguración del evento",
-  },
-  {
-    src: "/src/assets/Imagenes/GaleriaCongresos/Vallarta.webp",
-    alt: "Ponencia principal",
-    title: "Dr. Smith presentando",
-  },
-  {
-    src: "/src/assets/Imagenes/GaleriaCongresos/Vallarta.webp",
-    alt: "Mesa redonda",
-    title: "Panel de expertos",
-  },
-  {
-    src: "/src/assets/Imagenes/GaleriaCongresos/Vallarta.webp",
-    alt: "Networking",
-    title: "Momento de networking",
-  },
-];
+
 ---
 
 <Layout>
@@ -53,13 +31,7 @@ const images = [
             que están transformando el futuro tecnológico de México
           </p>
 
-          {/* Botones Verticales */}
-          <div class="flex flex-col items-center space-y-4">
-            <button
-              class="text-white font-medium py-2 px-5 shadow border-b-2 border-white"
-             aria-label="Conocer eventos" title="Conocer eventos">
-              Conocer eventos
-            </button>
+         
           </div>
         </div>
       </div>
@@ -201,90 +173,87 @@ const images = [
       </div>
     </section>
 
-    <section class="relative h-96 lg:h-[500px]">
-      <!-- Imagen de fondo con overlay -->
-      <div class="absolute inset-0">
-        <img
-          src={comunidadEgresados.src}
-          alt="Comunidad de egresados en evento profesional"
-          class="w-full h-full object-cover"
-        />
-      </div>
+   <section class="relative h-96 lg:h-[500px]">
+ <!-- Imagen de fondo con overlay -->
+ <div class="absolute inset-0">
+   <img
+     src={comunidadEgresados.src}
+     alt="Comunidad de egresados en evento profesional"
+     class="w-full h-full object-cover"
+   />
+ </div>
+ 
+ <!-- Card desktop - posicionada a la derecha -->
+ <div
+   class="hidden lg:block absolute right-8 top-1/2 transform -translate-y-1/2 w-96"
+ >
+   <div
+     class="bg-white rounded-lg shadow-xl border-t-4 border-blue-600 p-8"
+   >
+     <!-- Badge -->
+     <div class="mb-4">
+       <span class="text-sm font-medium text-gray-600"> Red alumnos </span>
+     </div>
+     
+     <!-- Título -->
+     <h2 class="text-2xl font-bold text-gray-900 mb-4 leading-tight">
+       Conecta con profesionales que ya llegaron donde tú quieres estar
+     </h2>
+     
+     <!-- Descripción -->
+     <p class="text-gray-600 text-sm leading-relaxed mb-6">
+       Pronto habrá noticias sobre nuestra red de egresados. Podrás conectar
+       con profesionales senior que trabajan en empresas tecnológicas líderes
+       y recibir orientación personalizada para tu desarrollo profesional.
+     </p>
+   </div>
+ </div>
+</section>
 
-      <!-- Card desktop - posicionada a la derecha -->
-      <div
-        class="hidden lg:block absolute right-8 top-1/2 transform -translate-y-1/2 w-96"
-      >
-        <div
-          class="bg-white rounded-lg shadow-xl border-t-4 border-blue-600 p-8"
-        >
-          <!-- Badge -->
-          <div class="mb-4">
-            <span class="text-sm font-medium text-gray-600"> Red alumnos </span>
-          </div>
-
-          <!-- Título -->
-          <h2 class="text-2xl font-bold text-gray-900 mb-4 leading-tight">
-            Conecta con profesionales que ya llegaron donde tú quieres estar
-          </h2>
-
-          <!-- Descripción -->
-          <p class="text-gray-600 text-sm leading-relaxed mb-6">
-            Nuestros egresados trabajan en: Google, Microsoft, Mercado Libre,
-            Softtek, Oracle, Amazon y más de 500 empresas líderes. Recibe
-            orirentación personalizado de profesionales senior de tu área de
-            interés.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Versión móvil - card centrada -->
-    <section class="lg:hidden py-12 px-4">
-      <div class="max-w-md mx-auto">
-        <div
-          class="bg-white rounded-lg shadow-xl border-t-4 border-blue-600 p-6 text-center"
-        >
-          <!-- Badge móvil -->
-          <div class="mb-4">
-            <span class="text-sm font-medium text-gray-600"> Red alumnos </span>
-          </div>
-
-          <!-- Título móvil -->
-          <h2 class="text-xl font-bold text-gray-900 mb-4 leading-tight">
-            Conecta con profesionales que ya llegaron donde tú quieres estar
-          </h2>
-
-          <!-- Descripción móvil -->
-          <p class="text-gray-600 text-sm leading-relaxed mb-6">
-            Nuestros egresados trabajan en: Google, Microsoft, Mercado Libre,
-            Softtek, Oracle, Amazon y más de 500 empresas líderes. Recibe
-            orirentación personalizado de profesionales senior de tu área de
-            interés.
-          </p>
-
-          <!-- Botón móvil -->
-          <button
-            class="w-full inline-flex items-center justify-center px-6 py-3 bg-red-600 text-white font-semibold rounded-full hover:bg-red-700 transition-colors duration-200 text-sm"
-           aria-label="ENCONTRAR UN MENTOR" title="ENCONTRAR UN MENTOR">
-            ENCONTRAR UN MENTOR
-            <svg
-              class="ml-2 w-4 h-4"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M9 5l7 7-7 7"></path>
-            </svg>
-          </button>
-        </div>
-      </div>
-    </section>
-
+<!-- Versión móvil - card centrada -->
+<section class="lg:hidden py-12 px-4">
+ <div class="max-w-md mx-auto">
+   <div
+     class="bg-white rounded-lg shadow-xl border-t-4 border-blue-600 p-6 text-center"
+   >
+     <!-- Badge móvil -->
+     <div class="mb-4">
+       <span class="text-sm font-medium text-gray-600"> Red alumnos </span>
+     </div>
+     
+     <!-- Título móvil -->
+     <h2 class="text-xl font-bold text-gray-900 mb-4 leading-tight">
+       Conecta con profesionales que ya llegaron donde tú quieres estar
+     </h2>
+     
+     <!-- Descripción móvil -->
+     <p class="text-gray-600 text-sm leading-relaxed mb-6">
+       Pronto habrá noticias sobre nuestra red de egresados. Podrás conectar
+       con profesionales senior que trabajan en empresas tecnológicas líderes
+       y recibir orientación personalizada para tu desarrollo profesional.
+     </p>
+     
+     <!-- Botón móvil -->
+     <button
+       class="w-full inline-flex items-center justify-center px-6 py-3 bg-red-600 text-white font-semibold rounded-full hover:bg-red-700 transition-colors duration-200 text-sm"
+       aria-label="ENCONTRAR UN MENTOR" title="ENCONTRAR UN MENTOR">
+       ENCONTRAR UN MENTOR
+       <svg
+         class="ml-2 w-4 h-4"
+         fill="none"
+         stroke="currentColor"
+         viewBox="0 0 24 24"
+       >
+         <path
+           stroke-linecap="round"
+           stroke-linejoin="round"
+           stroke-width="2"
+           d="M9 5l7 7-7 7"></path>
+       </svg>
+     </button>
+   </div>
+ </div>
+</section>
     <section class="max-w-7xl mx-auto px-4 py-8">
       <h2 class="text-3xl font-bold text-center mb-8 text-gray-800">
         Próximos Eventos
@@ -293,7 +262,7 @@ const images = [
     <Eventos/>
     </section>
 
-    <!-- <section class="max-w-6xl mx-auto p-6 mt-12">
+   <section class="max-w-6xl mx-auto p-6 mt-12">
       <div class="text-center mb-8">
         <h2 class="text-2xl font-bold text-gray-800 relative">
           <span class="bg-white px-4"
