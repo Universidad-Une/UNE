@@ -2,12 +2,12 @@
 // UniversityTabs.astro
 
 // Imports de imágenes
-import ExcelenciaImg from "@/assets/Imagenes/Excelencia.webp";
-import InversionImg from "@/assets/Imagenes/Inversion.webp";
-import CampusSeguroImg from "@/assets/Imagenes/Campus_seguro.webp";
-import ExperienciaImg from "@/assets/Imagenes/Experiencia.webp";
-import ComunidadImg from "@/assets/Imagenes/Comunidad.webp";
-import CaminoImg from "@/assets/Imagenes/Camino.webp";
+import ExcelenciaImg from '@/assets/Imagenes/Excelencia.webp';
+import InversionImg from '@/assets/Imagenes/Inversion.webp';
+import CampusSeguroImg from '@/assets/Imagenes/Campus_seguro.webp';
+import ExperienciaImg from '@/assets/Imagenes/Experiencia.webp';
+import ComunidadImg from '@/assets/Imagenes/Comunidad.webp';
+import CaminoImg from '@/assets/Imagenes/Camino.webp';
 ---
 
 <div
@@ -47,220 +47,29 @@ import CaminoImg from "@/assets/Imagenes/Camino.webp";
       <button
         class="tab-button flex-1 py-3 px-6 text-sm font-medium rounded-full transition-all duration-200 bg-blue-700 text-white"
         data-tab="estudiante"
-        aria-label="Soy estudiante"
-        title="Soy estudiante"
-      >
+       aria-label="Soy estudiante" title="Soy estudiante">
         Soy estudiante
       </button>
       <button
         class="tab-button flex-1 py-3 px-6 text-sm font-medium rounded-full transition-all duration-200 text-gray-600 hover:text-blue-700"
         data-tab="padre"
-        aria-label="Soy Padre/Tutor"
-        title="Soy Padre/Tutor"
-      >
+       aria-label="Soy Padre/Tutor" title="Soy Padre/Tutor">
         Soy Padre/Tutor
       </button>
     </div>
 
     <!-- Tab Content -->
+    <!-- SECCIÓN ESTUDIANTE - Contenido dirigido a estudiantes -->
     <div class="tab-content" id="estudiante">
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <!-- Card 1 - Excelencia Académica -->
-        <div
-          class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300 min-h-[450px]"
-        >
-          <div class="relative h-56 overflow-hidden">
-            <img
-              src={ExcelenciaImg.src}
-              alt="Excelencia académica"
-              class="w-full h-full object-cover"
-              width={ExcelenciaImg.width}
-              height={ExcelenciaImg.height}
-              loading="lazy"
-            />
-          </div>
-          <div class="p-6">
-            <div class="flex items-center mb-3">
-              <svg
-                class="w-5 h-5 text-gray-600 mr-2"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
-                ></path>
-              </svg>
-            </div>
-            <h3 class="text-lg  text-gray-900 mb-2">
-              Excelencia comprobada.
-            </h3>
-            <p class="text-gray-600 text-sm mb-4">
-              Programas con acreditaciones internacionales, profesores expertos
-              y metodologías que potencian el aprendizaje real de tu hijo
-            </p>
-            <a
-              href="/contacto/solicitarinformacion"
-              class="text-blue-600 text-sm font-medium hover:text-blue-700 transition-colors flex items-center"
-              aria-label="Ir a Hablar con un académico"
-              title="Hablar con un académico"
-            >
-              Hablar con un académico
-              <svg
-                class="w-4 h-4 ml-1"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-                ></path>
-              </svg>
-            </a>
-          </div>
-        </div>
-
-        <!-- Card 2 - Inversión -->
-        <div
-          class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300 min-h-[450px]"
-        >
-          <div class="relative h-56 overflow-hidden">
-            <img
-              src={InversionImg.src}
-              alt="Vive Tu Universidad - Comunidad estudiantil"
-              class="w-full h-full object-cover"
-              width={InversionImg.width}
-              height={InversionImg.height}
-              loading="lazy"
-            />
-          </div>
-          <div class="p-6">
-            <div class="flex items-center mb-3">
-              <svg
-                class="w-5 h-5 text-gray-600 mr-2"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
-                ></path>
-              </svg>
-            </div>
-            <h3 class="text-lg text-gray-900 mb-2">
-              Vive Tu Universidad
-            </h3>
-            <p class="text-gray-600 text-sm mb-4">
-              En VTU creemos que elegir una universidad es encontrar un lugar
-              donde puedas ser tú. Una comunidad auténtica, cercana y con
-              propósito donde se valora quién eres y se celebra lo que te hace
-              único.
-            </p>
-            <a
-              href="/Vivetuuniversidad/General"
-              class="text-blue-600 text-sm font-medium hover:text-blue-700 transition-colors flex items-center"
-              aria-label="Conocer Vive Tu Universidad"
-              title="Conocer actividades y comunidad VTU"
-            >
-              Conoce todas las actividades que tenemos
-              <svg
-                class="w-4 h-4 ml-1"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-                ></path>
-              </svg>
-            </a>
-          </div>
-        </div>
-
-        <!-- Card 3 - Campus Seguro -->
-        <div
-          class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300 min-h-[450px]"
-        >
-          <div class="relative h-56 overflow-hidden">
-            <img
-              src={CampusSeguroImg.src}
-              alt="Campus seguro"
-              class="w-full h-full object-cover"
-              width={CampusSeguroImg.width}
-              height={CampusSeguroImg.height}
-              loading="lazy"
-            />
-          </div>
-          <div class="p-6">
-            <div class="flex items-center mb-3">
-              <svg
-                class="w-5 h-5 text-gray-600 mr-2"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
-                ></path>
-              </svg>
-            </div>
-            <h3 class="text-lg  text-gray-900 mb-2 pr-16">
-              Un campus seguro y moderno
-            </h3>
-            <p class="text-gray-600 text-sm mb-4">
-              Instalaciones equipadas, protocolos de seguridad y un ambiente
-              universitario que promueve el bienestar estudiantil
-            </p>
-            <a
-              href="/planteles/general"
-              class="text-blue-600 text-sm font-medium hover:text-blue-700 transition-colors flex items-center"
-              aria-label="Ir a Conocer nuestras instalaciones"
-              title="Conocer nuestras instalaciones"
-            >
-              Conocer nuestras instalaciones
-              <svg
-                class="w-4 h-4 ml-1"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-                ></path>
-              </svg>
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="tab-content hidden" id="padre">
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Card 1 - Experiencia Única (para estudiantes) -->
         <div
           class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300 min-h-[450px]"
         >
           <div class="relative h-56 overflow-hidden">
             <img
               src={ExperienciaImg.src}
-              alt="Semana Cultural UDG"
+              alt="Vive una experiencia única"
               class="w-full h-full object-cover"
               width={ExperienciaImg.width}
               height={ExperienciaImg.height}
@@ -288,14 +97,12 @@ import CaminoImg from "@/assets/Imagenes/Camino.webp";
             </h3>
             <p class="text-gray-600 text-sm mb-4">
               Desarrollo completo: actividades prácticas, contactos valiosos y
-              un futuro asegurado.
+              un futuro asegurado para tu carrera profesional.
             </p>
             <a
               href="/Vivetuuniversidad/General"
               class="text-blue-600 text-sm font-medium hover:text-blue-700 transition-colors flex items-center"
-              aria-label="Ir a Descubrir talleres"
-              title="Descubrir talleres"
-            >
+             aria-label="Ir a Descubrir talleres" title="Descubrir talleres">
               Descubrir talleres
               <svg
                 class="w-4 h-4 ml-1"
@@ -314,13 +121,14 @@ import CaminoImg from "@/assets/Imagenes/Camino.webp";
           </div>
         </div>
 
+        <!-- Card 2 - Comunidad (para estudiantes) -->
         <div
           class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300 min-h-[450px]"
         >
           <div class="relative h-56 overflow-hidden">
             <img
               src={ComunidadImg.src}
-              alt="Congreso Económico Administrativo"
+              alt="Más que un campus, una comunidad"
               class="w-full h-full object-cover"
               width={ComunidadImg.width}
               height={ComunidadImg.height}
@@ -347,15 +155,13 @@ import CaminoImg from "@/assets/Imagenes/Camino.webp";
               Más que un campus, una comunidad
             </h3>
             <p class="text-gray-600 text-sm mb-4">
-              Una comunidad comprometida llena de retos y desafíos, con
-              actividades para todos
+              Conecta con estudiantes de tu carrera, participa en actividades y 
+              forma parte de una comunidad comprometida con tu crecimiento.
             </p>
             <a
               href="/vidaestudiantil/General"
               class="text-blue-600 text-sm font-medium hover:text-blue-700 transition-colors flex items-center"
-              aria-label="Ir a Explorar comunidad"
-              title="Explorar comunidad"
-            >
+             aria-label="Ir a Explorar comunidad" title="Explorar comunidad">
               Explorar comunidad
               <svg
                 class="w-4 h-4 ml-1"
@@ -374,13 +180,14 @@ import CaminoImg from "@/assets/Imagenes/Camino.webp";
           </div>
         </div>
 
+        <!-- Card 3 - Camino Profesional (para estudiantes) -->
         <div
           class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300 min-h-[450px]"
         >
           <div class="relative h-56 overflow-hidden">
             <img
               src={CaminoImg.src}
-              alt="Licenciaturas UNE"
+              alt="Descubre tu camino profesional"
               class="w-full h-full object-cover"
               width={CaminoImg.width}
               height={CaminoImg.height}
@@ -407,16 +214,196 @@ import CaminoImg from "@/assets/Imagenes/Camino.webp";
               Descubre tu camino profesional
             </h3>
             <p class="text-gray-600 text-sm mb-4">
-              Bachillerato, licenciaturas, maestrías o diplomados. Encuentra el
-              programa que impulse tu futuro.
+              Encuentra la carrera que impulse tu futuro: bachillerato, 
+              licenciaturas, maestrías o diplomados diseñados para tu éxito.
             </p>
             <a
               href="/acerca/oferta-academica"
               class="text-blue-600 text-sm font-medium hover:text-blue-700 transition-colors flex items-center"
-              aria-label="Ir a Ver oferta académica"
-              title="Navegar a Ver oferta académica"
-            >
+             aria-label="Ir a Ver oferta académica" title="Ver oferta académica">
               Ver oferta académica
+              <svg
+                class="w-4 h-4 ml-1"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                ></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECCIÓN PADRE/TUTOR - Contenido dirigido a padres -->
+    <div class="tab-content hidden" id="padre">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Card 1 - Excelencia Académica (para padres) -->
+        <div
+          class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300 min-h-[450px]"
+        >
+          <div class="relative h-56 overflow-hidden">
+            <img
+              src={ExcelenciaImg.src}
+              alt="Excelencia académica comprobada"
+              class="w-full h-full object-cover"
+              width={ExcelenciaImg.width}
+              height={ExcelenciaImg.height}
+              loading="lazy"
+            />
+          </div>
+          <div class="p-6">
+            <div class="flex items-center mb-3">
+              <svg
+                class="w-5 h-5 text-gray-600 mr-2"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                ></path>
+              </svg>
+            </div>
+            <h3 class="text-lg font-bold text-gray-900 mb-2">
+              Excelencia académica comprobada
+            </h3>
+            <p class="text-gray-600 text-sm mb-4">
+              Programas con acreditaciones internacionales, profesores expertos
+              y metodologías que potencian el aprendizaje real de su hijo.
+            </p>
+            <a
+              href="/contacto/solicitarinformacion"
+              class="text-blue-600 text-sm font-medium hover:text-blue-700 transition-colors flex items-center"
+             aria-label="Ir a Hablar con un académico" title="Hablar con un académico">
+              Hablar con un académico
+              <svg
+                class="w-4 h-4 ml-1"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                ></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Card 2 - Inversión Inteligente (para padres) -->
+        <div
+          class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300 min-h-[450px]"
+        >
+          <div class="relative h-56 overflow-hidden">
+            <img
+              src={InversionImg.src}
+              alt="Inversión inteligente en educación"
+              class="w-full h-full object-cover"
+              width={InversionImg.width}
+              height={InversionImg.height}
+              loading="lazy"
+            />
+          </div>
+          <div class="p-6">
+            <div class="flex items-center mb-3">
+              <svg
+                class="w-5 h-5 text-gray-600 mr-2"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"
+                ></path>
+              </svg>
+            </div>
+            <h3 class="text-lg font-bold text-gray-900 mb-2">
+              Inversión inteligente en el futuro
+            </h3>
+            <p class="text-gray-600 text-sm mb-4">
+              Planes de financiamiento flexibles, becas de excelencia académica
+              y opciones de pago que se adaptan a su situación familiar.
+            </p>
+            <a
+              href="/acerca/Apoyos"
+              class="text-blue-600 text-sm font-medium hover:text-blue-700 transition-colors flex items-center"
+             aria-label="Ir a Conocer opciones de financiamiento" title="Conocer opciones de financiamiento">
+              Conocer opciones de financiamiento
+              <svg
+                class="w-4 h-4 ml-1"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                ></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Card 3 - Campus Seguro (para padres) -->
+        <div
+          class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300 min-h-[450px]"
+        >
+          <div class="relative h-56 overflow-hidden">
+            <img
+              src={CampusSeguroImg.src}
+              alt="Un campus seguro y moderno"
+              class="w-full h-full object-cover"
+              width={CampusSeguroImg.width}
+              height={CampusSeguroImg.height}
+              loading="lazy"
+            />
+          </div>
+          <div class="p-6">
+            <div class="flex items-center mb-3">
+              <svg
+                class="w-5 h-5 text-gray-600 mr-2"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
+                ></path>
+              </svg>
+            </div>
+            <h3 class="text-lg font-bold text-gray-900 mb-2">
+              Un campus seguro y moderno
+            </h3>
+            <p class="text-gray-600 text-sm mb-4">
+              Instalaciones equipadas, protocolos de seguridad y un
+              ambiente universitario que promueve el bienestar de su hijo.
+            </p>
+            <a
+              href="/planteles/general"
+              class="text-blue-600 text-sm font-medium hover:text-blue-700 transition-colors flex items-center"
+             aria-label="Ir a Conocer nuestras instalaciones" title="Conocer nuestras instalaciones">
+              Conocer nuestras instalaciones
               <svg
                 class="w-4 h-4 ml-1"
                 fill="none"
@@ -440,44 +427,44 @@ import CaminoImg from "@/assets/Imagenes/Camino.webp";
 
 <script>
   // JavaScript para manejar las tabs y la funcionalidad
-  document.addEventListener("DOMContentLoaded", function () {
-    const tabButtons = document.querySelectorAll(".tab-button");
-    const tabContents = document.querySelectorAll(".tab-content");
-    const loadingElement = document.getElementById("tabs-loading");
-    const contentElement = document.getElementById("tabs-content");
+  document.addEventListener('DOMContentLoaded', function() {
+    const tabButtons = document.querySelectorAll('.tab-button');
+    const tabContents = document.querySelectorAll('.tab-content');
+    const loadingElement = document.getElementById('tabs-loading');
+    const contentElement = document.getElementById('tabs-content');
 
     // Simular carga y mostrar contenido
     setTimeout(() => {
       if (loadingElement && contentElement) {
-        loadingElement.style.display = "none";
-        contentElement.classList.remove("hidden");
+        loadingElement.style.display = 'none';
+        contentElement.classList.remove('hidden');
       }
     }, 1000);
 
     // Manejar clicks en tabs
-    tabButtons.forEach((button) => {
-      button.addEventListener("click", function () {
-        const targetTab = this.getAttribute("data-tab");
-
+    tabButtons.forEach(button => {
+      button.addEventListener('click', function() {
+        const targetTab = this.getAttribute('data-tab');
+        
         // Remover clases activas de todos los botones
-        tabButtons.forEach((btn) => {
-          btn.classList.remove("bg-blue-700", "text-white");
-          btn.classList.add("text-gray-600", "hover:text-blue-700");
+        tabButtons.forEach(btn => {
+          btn.classList.remove('bg-blue-700', 'text-white');
+          btn.classList.add('text-gray-600', 'hover:text-blue-700');
         });
-
+        
         // Agregar clases activas al botón clickeado
-        this.classList.remove("text-gray-600", "hover:text-blue-700");
-        this.classList.add("bg-blue-700", "text-white");
-
+        this.classList.remove('text-gray-600', 'hover:text-blue-700');
+        this.classList.add('bg-blue-700', 'text-white');
+        
         // Ocultar todos los contenidos de tabs
-        tabContents.forEach((content) => {
-          content.classList.add("hidden");
+        tabContents.forEach(content => {
+          content.classList.add('hidden');
         });
-
+        
         // Mostrar el contenido de la tab seleccionada
         const targetContent = document.getElementById(targetTab);
         if (targetContent) {
-          targetContent.classList.remove("hidden");
+          targetContent.classList.remove('hidden');
         }
       });
     });
@@ -488,7 +475,7 @@ import CaminoImg from "@/assets/Imagenes/Camino.webp";
   .tab-button {
     transition: all 0.2s ease-in-out;
   }
-
+  
   .tab-content {
     transition: opacity 0.3s ease-in-out;
   }

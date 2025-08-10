@@ -1,7 +1,7 @@
 ---
 // src/components/MainSlider.astro
 import ComercialMp4 from "@/assets/Videos/Comercial.mp4";
-import Comercial_mobile from "@/assets/Videos/UNE_mobile.webm";
+import Comercial_mobile from "@/assets/Videos/UNE_mobile3.mp4";
 import ComercialWebm from "@/assets/Videos/Comercial_sa.webm";
 import { ArrowRight } from "@lucide/astro";
 ---
@@ -17,22 +17,27 @@ import { ArrowRight } from "@lucide/astro";
               autoplay
               muted
               playsinline
+              preload="metadata"
+              webkit-playsinline="true"
               class="w-full h-full object-cover"
             >
+              <!-- Móvil primero - debe ser MP4 -->
+              <source
+                src={Comercial_mobile}
+                type="video/mp4"
+                media="(max-width: 767px)"
+              />
+              <!-- Desktop - WebM primero (mejor compresión) -->
               <source
                 src={ComercialWebm}
                 type="video/webm"
                 media="(min-width: 768px)"
               />
+              <!-- Desktop - MP4 como fallback -->
               <source
                 src={ComercialMp4}
                 type="video/mp4"
                 media="(min-width: 768px)"
-              />
-              <source
-                src={Comercial_mobile}
-                type="video/mp4"
-                media="(max-width: 767px)"
               />
               Tu navegador no soporta video HTML5.
             </video>
@@ -64,7 +69,9 @@ import { ArrowRight } from "@lucide/astro";
             <a
               class="bg-rojo-une py-4 px-8 rounded-md mt-12 text-white"
               href="acerca/oferta-academica"
-               aria-label="Ir a Explorar oferta" title="Explorar oferta">Explorar oferta
+              aria-label="Ir a Explorar oferta"
+              title="Explorar oferta"
+              >Explorar oferta
             </a>
             <div
               class="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent pointer-events-none"
@@ -78,20 +85,34 @@ import { ArrowRight } from "@lucide/astro";
             class="historia-bg w-full overflow-hidden h-[650px] bg-cover bg-center bg-no-repeat flex items-center justify-center"
           >
             <div class="text-center flex flex-col items-center">
-              <h2
-                class="text-white text-4xl sm:text-5xl lg:text-6xl font-bold mb-4"
-              >
-                NUESTRA HISTORIA
+              <style>
+                @media (max-width: 939px) {
+                  .titulo-completo { display: none !important; }
+                  .titulo-corto { display: block !important; }
+                }
+                @media (min-width: 940px) {
+                  .titulo-completo { display: block !important; }
+                  .titulo-corto { display: none !important; }
+                }
+              </style>
+              <h2 class="text-white text-4xl sm:text-5xl lg:text-6xl font-bold mb-4">
+                <!-- Título corto para pantallas menores a 940px -->
+                <span class="titulo-corto">HISTORIA</span>
+                <!-- Título completo para pantallas de 940px+ -->
+                <span class="titulo-completo">NUESTRA HISTORIA</span>
               </h2>
-              <p
-                class="text-white/90 text-lg sm:text-xl max-w-2xl mx-auto px-6"
-              >
-                30 años construyendo futuro, formando profesionales exitosos
+              <p class="text-white/90 text-lg sm:text-xl max-w-2xl mx-auto px-6">
+                <!-- Texto corto para pantallas menores a 940px -->
+                <span class="titulo-corto">30 años</span>
+                <!-- Texto completo para pantallas de 940px+ -->
+                <span class="titulo-completo">30 años construyendo futuro, formando profesionales exitosos</span>
               </p>
               <a
                 class="bg-rojo-une py-4 px-8 rounded-md mt-24 text-white"
                 href="acerca/historia"
-                 aria-label="Ir a Conocer más de UNE" title="Navegar a Conocer más de UNE">Conocer más de UNE
+                aria-label="Ir a Conocer más de UNE"
+                title="Navegar a Conocer más de UNE"
+                >Conocer más de UNE
               </a>
             </div>
             <div
@@ -120,7 +141,9 @@ import { ArrowRight } from "@lucide/astro";
               <a
                 class="bg-rojo-une py-4 px-8 rounded-md mt-24 text-white"
                 href="acerca/Apoyos"
-                 aria-label="Ir a Descubrir apoyos" title="Descubrir apoyos">Descubrir apoyos
+                aria-label="Ir a Descubrir apoyos"
+                title="Descubrir apoyos"
+                >Descubrir apoyos
               </a>
             </div>
             <div
@@ -237,7 +260,9 @@ import { ArrowRight } from "@lucide/astro";
     class="flex font-normal md:font-bold text-xl md:text-2xl uppercase h-14 bg-rojo-une text-white w-auto px-8 md:px-12 py-2.5 gap-8 md:gap-12 rounded-2xl
           group transition-colors duration-300 ease-in-out justify-center md:justify-between"
     href="/contacto/solicitarinformacion"
-   aria-label="Ir a contáctanos" title="contáctanos">
+    aria-label="Ir a contáctanos"
+    title="contáctanos"
+  >
     contáctanos
     <span
       class="border-2 border-white rounded-full p-1
@@ -248,7 +273,6 @@ import { ArrowRight } from "@lucide/astro";
     </span>
   </a>
 </div>
-
 
 <script>
   import { Splide } from "@splidejs/splide";
@@ -328,16 +352,16 @@ import { ArrowRight } from "@lucide/astro";
       pauseOnFocus: false,
       rewind: true,
       accessibility: true,
-      ariaLabel: 'Carrusel principal de Universidad UNE',
-      ariaLabelledby: '',
-      ariaDescribedby: '',
+      ariaLabel: "Carrusel principal de Universidad UNE",
+      ariaLabelledby: "",
+      ariaDescribedby: "",
       // Evitar roles automáticos problemáticos
-      role: 'region',
-      roLive: 'polite',
+      role: "region",
+      roLive: "polite",
       // Configuraciones adicionales para evitar conflictos ARIA
       updateOnMove: true,
       trimSpace: false,
-      focus: 'center',
+      focus: "center",
     });
 
     splideInstance.mount();
@@ -353,7 +377,6 @@ import { ArrowRight } from "@lucide/astro";
 
   // Handle slide changes
   function handleSlideChange(newIndex) {
-
     // Clear any existing intervals and timeouts
     clearInterval(videoProgressInterval);
     clearInterval(slideProgressInterval);
@@ -526,7 +549,7 @@ import { ArrowRight } from "@lucide/astro";
     if (firstProgressLine) {
       firstProgressLine.style.setProperty(
         "--slide-duration",
-        `${remainingTimeMs / 1000}s`,
+        `${remainingTimeMs / 1000}s`
       );
 
       firstProgressLine.classList.remove("is-active");
@@ -615,38 +638,37 @@ import { ArrowRight } from "@lucide/astro";
   });
 </script>
 
-
 <style>
   /* Para Vite */
   .oferta-bg {
-    background-image: url("/src/assets/Imagenes/Heros/Admision.jpg");
+    background-image: url("/src/assets/Imagenes/Heros/Admision.webp");
   }
 
   @media (max-width: 767px) {
     .oferta-bg {
-      background-image: url("/src/assets/Imagenes/Heros/Admision_mobile2.jpg");
+      background-image: url("/src/assets/Imagenes/Heros/Admision_mobile2.webp");
     }
   }
 
   .historia-bg {
-    background-image: url("/src/assets/Imagenes/Heros/historia.jpg");
+    background-image: url("/src/assets/Imagenes/Heros/historia.webp");
   }
 
   @media (max-width: 767px) {
     .historia-bg {
-      background-image: url("/src/assets/Imagenes/Heros/Admision_mobile.jpg");
+      background-image: url("/src/assets/Imagenes/Heros/Admision_mobile.webp");
     }
   }
 
   .becas-bg {
-  background-image: url('/src/assets/Imagenes/Heros/Becas.jpg');
-}
-
-@media (max-width: 767px) {
-  .becas-bg {
-    background-image: url('/src/assets/Imagenes/Heros/becas_mobile.jpg');
+    background-image: url("/src/assets/Imagenes/Heros/Becas.webp");
   }
-}
+
+  @media (max-width: 767px) {
+    .becas-bg {
+      background-image: url("/src/assets/Imagenes/Heros/becas_mobile.webp");
+    }
+  }
 
   /* Estilos base para Splide */
   .splide {
