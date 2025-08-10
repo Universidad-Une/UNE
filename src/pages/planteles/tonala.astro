@@ -7,7 +7,6 @@ import Carreradeplantel from "@/components/sections/planteles/Carreradeplantel.a
 import CtaVisita from "@/components/sections/planteles/ctaVisita.astro";
 import Card from "@/assets/Imagenes/CardPlantelesInterior/Tonala.webp";
 import GaleriaPlantel from "@/components/sections/planteles/GaleriaPlantel.astro";
-
 ---
 
 <Layout>
@@ -50,14 +49,18 @@ import GaleriaPlantel from "@/components/sections/planteles/GaleriaPlantel.astro
               <a
                 href="/contacto/solicitarinformacion"
                 class="bg-red-600 hover:bg-red-700 hover:scale-105 hover:shadow-xl transition-all duration-300 text-white px-8 py-3 rounded-lg font-semibold text-lg"
-               aria-label="Ir a Solicitar información" title="Solicitar información">
+                aria-label="Ir a Solicitar información"
+                title="Solicitar información"
+              >
                 Solicitar información
               </a>
 
               <a
                 href="/contacto/formulario-inscripcion"
                 class="border-2 border-white text-white hover:scale-105 hover:shadow-xl transition-all duration-300 px-8 py-3 rounded-lg font-semibold text-lg"
-               aria-label="Ir a Inscribirme" title="Inscribirme">
+                aria-label="Ir a Inscribirme"
+                title="Inscribirme"
+              >
                 Inscribirme
               </a>
             </div>
@@ -73,7 +76,9 @@ import GaleriaPlantel from "@/components/sections/planteles/GaleriaPlantel.astro
             <div class="flex lg:hidden flex-col w-full max-w-sm space-y-4">
               <button
                 class="bg-red-600 hover:bg-red-700 transition-all duration-300 text-white px-8 py-3 rounded-lg font-semibold text-lg w-full"
-               aria-label="Agendar una visita" title="Agendar una visita">
+                aria-label="Agendar una visita"
+                title="Agendar una visita"
+              >
                 Agendar una visita
               </button>
             </div>
@@ -88,7 +93,9 @@ import GaleriaPlantel from "@/components/sections/planteles/GaleriaPlantel.astro
         <div class="text-center mb-12">
           <button
             class="bg-azul-une text-white px-6 py-2 rounded-full text-sm font-medium mb-6 hover:bg-blue-700 transition-colors"
-           aria-label="Acerca de plantel Tonalá" title="Acerca de plantel Tonalá">
+            aria-label="Acerca de plantel Tonalá"
+            title="Acerca de plantel Tonalá"
+          >
             Acerca de plantel Tonalá
           </button>
 
@@ -240,11 +247,16 @@ import GaleriaPlantel from "@/components/sections/planteles/GaleriaPlantel.astro
               </div>
               <h3 class="text-xl font-semibold">Dirección</h3>
             </div>
-            <button
+            <a
+              href="https://maps.app.goo.gl/FUPSzfDHbqmEdptf7"
               class="text-blue-100 hover:text-white transition-colors cursor-pointer text-left"
-             aria-label="Av. Tonaltecas #333 Col. Agua Escondida Tonalá, Jalisco" title="Av. Tonaltecas #333 Col. Agua Escondida Tonalá, Jalisco">
+              aria-label="Av. Tonaltecas #333 Col. Agua Escondida Tonalá, Jalisco"
+              title="Av. Tonaltecas #333 Col. Agua Escondida Tonalá, Jalisco"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               Av. Tonaltecas #333 Col. Agua Escondida Tonalá, Jalisco
-            </button>
+            </a>
           </div>
 
           <!-- Teléfonos -->
@@ -269,7 +281,9 @@ import GaleriaPlantel from "@/components/sections/planteles/GaleriaPlantel.astro
                 <a
                   href="tel:+523380000863"
                   class="text-white hover:text-blue-200 transition-colors font-medium"
-                 aria-label="Llamar a +523380000863" title="Número de teléfono: +523380000863">
+                  aria-label="Llamar a +523380000863"
+                  title="Número de teléfono: +523380000863"
+                >
                   (33) 8000 0863
                 </a>
               </div>
@@ -308,7 +322,7 @@ import GaleriaPlantel from "@/components/sections/planteles/GaleriaPlantel.astro
     />
 
     <CtaVisita />
-     <GaleriaPlantel plantel="Tonala"/>
+    <GaleriaPlantel plantel="Tonala" />
   </main>
 </Layout>
 

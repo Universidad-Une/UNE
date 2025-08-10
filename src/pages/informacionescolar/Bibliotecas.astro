@@ -2,6 +2,7 @@
 import Layout from "@/layouts/Layout.astro";
 import { Search } from "@lucide/astro";
 import AccesosBibliotecas from "@/components/sections/Escolares/Accesos_bibliotecas.astro";
+import bibbliotecas from "@/assets/Imagenes/Bibliotecas/Estadio.webp"
 ---
 
 <Layout>
@@ -78,7 +79,7 @@ import AccesosBibliotecas from "@/components/sections/Escolares/Accesos_bibliote
                     <!-- Imagen -->
                     <div class="relative">
                         <img
-                            src="/src/assets/Imagenes/Bibliotecas/Estadio.webp"
+                            src={bibbliotecas.src}
                             alt="Biblioteca digital con libros y tecnología"
                             class="w-96 h-auto rounded-lg shadow-lg"
                         />
