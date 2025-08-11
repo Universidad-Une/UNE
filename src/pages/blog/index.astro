@@ -1,6 +1,217 @@
 ---
 import Layout from "@/layouts/Layout.astro";
-import CardBlog from "@components/sections/blog/Grid.astro";
+import Grid from "@components/sections/blog/Grid.astro";
+
+// Import dinámico con sintaxis más específica
+const imageModules = import.meta.glob('/src/assets/Imagenes/Heros/Blogs/*.(png|jpg|jpeg|webp)', { 
+  eager: true,
+  import: 'default'
+});
+
+// Función helper más robusta
+function getImageUrl(imageName: string): string {
+  for (const [path, module] of Object.entries(imageModules)) {
+    if (path.toLowerCase().includes(imageName.toLowerCase())) {
+      return (module as any).src || '';
+    }
+  }
+  return '';
+}
+
+const cardsData = [
+  {
+    imageUrl: getImageUrl('Negligencia') || '/placeholder-blog.jpg',
+    title: "Cuando la negligencia gana, premia la tragedia",
+    description: "Las explosiones industriales en Beirut (2020) y Shandong, China (2025), han evidenciado las consecuencias devastadoras de la negligencia en la seguridad industrial.",
+    link: "/blog/negligencia-tragedia",
+    author: "Ing. Rodrigo de Jesús Robledo Olguín",
+    date: "30 jul. 2025",
+    category: "Comunidad UNE"
+  },
+  {
+    imageUrl: getImageUrl('Aparatos') || '/placeholder-blog.jpg',
+    title: "El impacto de los aparatos electrónicos en el desarrollo cerebral de los niños",
+    description: "Un análisis de ventajas y desventajas sobre cómo los dispositivos electrónicos afectan el desarrollo cerebral infantil en la era digital.",
+    link: "/blog/aparatos-electronicos-ninos",
+    author: "Sofía Hernández Castillo",
+    date: "10 jul. 2025",
+    category: "Comunidad UNE"
+  },
+  {
+    imageUrl: getImageUrl('BLOG_IA') || '/placeholder-blog.jpg',
+    title: "Desarrollo Ágil en la Ingeniería de Software",
+    description: "Adaptándose a los Cambios del Mercado y Mejorando la Colaboración. La Ingeniería en Desarrollo de Software ha evolucionado significativamente.",
+    link: "/blog/desarrollo-agil-software",
+    author: "Ing. Juan Carlos González Aldana",
+    date: "11 jun. 2025",
+    category: "Comunidad UNE"
+  },
+  {
+    imageUrl: getImageUrl('Cuidados') || '/placeholder-blog.jpg',
+    title: "Cuidados Paliativos",
+    description: "Importancia y beneficios en la atención de pacientes. Según la OMS se estima que anualmente 40 millones de personas necesitan cuidados paliativos.",
+    link: "/blog/cuidados-paliativos",
+    author: "M.Ed. Jovana Irene Cabrales Alfaro",
+    date: "30 abr. 2025",
+    category: "Comunidad UNE"
+  },
+  {
+    imageUrl: getImageUrl('Alimentacion') || '/placeholder-blog.jpg',
+    title: "Alimentación y enfermedades autoinmunes",
+    description: "Las enfermedades autoinmunes son trastornos en los que el sistema inmunológico ataca erróneamente las células sanas del cuerpo.",
+    link: "/blog/alimentacion-autoinmunes",
+    date: "30 abr. 2025",
+    category: "Comunidad UNE"
+  },
+  {
+    imageUrl: getImageUrl('Empirismo') || '/placeholder-blog.jpg',
+    title: "Emprendimiento Deportivo: Convierte tu Pasión en un Negocio Rentable",
+    description: "Michael Jordan, LeBron James... Grandes ejemplos de cómo convertir la pasión deportiva en un negocio exitoso.",
+    link: "/blog/emprendimiento-deportivo",
+    author: "Lic. CFYD Luis Fernando García Reynoso",
+    date: "12 feb. 2025",
+    category: "Comunidad UNE"
+  },
+  {
+    imageUrl: getImageUrl('Ingenieriavs') || '/placeholder-blog.jpg',
+    title: "¿LA ARQUITECTURA vs INGENIERÍA?",
+    description: "La Relación Entre Arquitectura e Ingeniería: Una Alianza que Construye el Futuro. Dos disciplinas complementarias, no antagónicas.",
+    link: "/blog/arquitectura-vs-ingenieria",
+    author: "Mtro. José de Jesús Sánchez Lozano",
+    date: "28 ene. 2025",
+    category: "Cultural"
+  },
+  {
+    imageUrl: getImageUrl('lactancia') || '/placeholder-blog.jpg',
+    title: "Lactancia materna: La importancia en el desarrollo del infante",
+    description: "La leche materna es el alimento más importante durante los 6 primeros meses de vida, según la OMS.",
+    link: "/blog/lactancia-materna",
+    author: "MNC. Odette M Sahagún Anguiano",
+    date: "21 ene. 2025",
+    category: "Comunidad UNE"
+  },
+  {
+    imageUrl: getImageUrl('bruxismo') || '/placeholder-blog.jpg',
+    title: "Rechinas tus dientes y los ves desgastados... Tienes Bruxismo dental",
+    description: "El bruxismo es un hábito involuntario que consiste en apretar y/o rechinar los dientes, ya sea durante el día o durante la noche.",
+    link: "/blog/bruxismo-dental",
+    author: "CD. Enrique Romero Martín",
+    date: "13 dic. 2024",
+    category: "Comunidad UNE"
+  },
+  {
+    imageUrl: getImageUrl('paralisis') || '/placeholder-blog.jpg',
+    title: "Parálisis facial",
+    description: "La parálisis facial es una condición que afecta la movilidad de los músculos faciales, la sensibilidad de la lengua y en algunas ocasiones la audición.",
+    link: "/blog/paralisis-facial",
+    date: "13 dic. 2024",
+    category: "Comunidad UNE"
+  },
+  {
+    imageUrl: getImageUrl('dilema') || '/placeholder-blog.jpg',
+    title: "El dilema ético del entrenamiento deportivo",
+    description: "El mundo del entrenamiento deportivo ha experimentado cambios significativos en las últimas décadas, planteando importantes dilemas éticos.",
+    link: "/blog/dilema-etico-entrenamiento",
+    author: "Lic. CFYD Luis Fernando García Reynoso",
+    date: "12 dic. 2024",
+    category: "Comunidad UNE"
+  },
+  {
+    imageUrl: getImageUrl('BLOG_IA') || '/placeholder-blog.jpg',
+    title: "Que la Inteligencia Artificial no opaque a la humana",
+    description: "La Inteligencia Artificial puede ser una gran oportunidad para acelerar la consecución de los objetivos de desarrollo sostenible.",
+    link: "/blog/inteligencia-artificial-humana",
+    author: "Juan Carlos González Aldana",
+    date: "29 nov. 2024",
+    category: "Comunidad UNE"
+  },
+  {
+    imageUrl: getImageUrl('Mercadotecnia') || '/placeholder-blog.jpg',
+    title: "La importancia de la Mercadotecnia en las Empresas",
+    description: "Hoy en día en el mundo hay una gran competencia entre las grandes, medianas y pequeñas empresas, haciendo fundamental el papel de la mercadotecnia.",
+    link: "/blog/importancia-mercadotecnia",
+    author: "LEM. Marcela Izquierdo Echeagaray",
+    date: "29 nov. 2024",
+    category: "Comunidad UNE"
+  },
+  {
+    imageUrl: getImageUrl('Maya') || '/placeholder-blog.jpg',
+    title: "La Deformación Craneal en la Zona Maya: ¿Símbolo de Estatus Social o Norma de Percepción Estética?",
+    description: "En lo que genéricamente se ha denominado Zona maya, dentro del vasto territorio mesoamericano, se practicaba la deformación craneal como símbolo cultural.",
+    link: "/blog/deformacion-craneal-maya",
+    author: "José Manuel Mercado Márquez",
+    date: "30 oct. 2024",
+    category: "Comunidad UNE"
+  },
+  {
+    imageUrl: getImageUrl('Evolucion') || '/placeholder-blog.jpg',
+    title: "La Evolución de la Gastronomía Mexicana | La Guía Michelin y sus Vínculos Internacionales",
+    description: "La gastronomía mexicana, rica en sabores, colores y tradiciones. La Universidad UNE reconoce la importancia de preservar y evolucionar estas tradiciones.",
+    link: "/blog/evolucion-gastronomia-mexicana",
+    author: "Chef Arturo Fierros Rodríguez",
+    date: "30 oct. 2024",
+    category: "Comunidad UNE"
+  },
+  {
+    imageUrl: getImageUrl('Enfermeria_blog') || '/placeholder-blog.jpg',
+    title: "ENFERMERÍA UNA BUENA OPCIÓN PROFESIONAL",
+    description: "El centro Universitario UNE, cuenta con una licenciatura en enfermería con excelentes docentes, alta calidad académica e instalaciones de vanguardia.",
+    link: "/blog/enfermeria-opcion-profesional",
+    date: "7 oct. 2024",
+    category: "Comunidad UNE"
+  },
+  {
+    imageUrl: getImageUrl('Blog_cultura_fisica') || '/placeholder-blog.jpg',
+    title: "La importancia de la actualización continua en la Licenciatura en Cultura Física y Deportes",
+    description: "La actualización continua en la Licenciatura en Cultura Física y Deportes en Jalisco a la luz de la legislación deportiva.",
+    link: "/blog/actualizacion-cultura-fisica",
+    author: "Lic. CFYD Luis Fernando García Reynoso",
+    date: "3 oct. 2024",
+    category: "Comunidad UNE"
+  },
+  {
+    imageUrl: getImageUrl('Planeacionestrategica') || '/placeholder-blog.jpg',
+    title: "La Planeación Estratégica en las Empresas",
+    description: "La planeación estratégica es un proceso indispensable para el éxito permanente de cualquier organización en el mundo empresarial actual.",
+    link: "/blog/planeacion-estrategica-empresas",
+    author: "Lic. Christian Gilberto Solórzano Valdez",
+    date: "24 sep. 2024",
+    category: "Comunidad UNE"
+  },
+  {
+    imageUrl: getImageUrl('sindromedeburnuot') || '/placeholder-blog.jpg',
+    title: "EL SÍNDROME DE BURNOUT",
+    description: "¿Cuándo el trabajo se convierte en una carga insoportable? El Síndrome de Burnout, también conocido como síndrome del trabajador quemado.",
+    link: "/blog/sindrome-burnout",
+    date: "12 sep. 2024",
+    category: "Comunidad UNE"
+  },
+  {
+    imageUrl: getImageUrl('Lenguaje') || '/placeholder-blog.jpg',
+    title: "El Lenguaje de la Piel",
+    description: "Tatuajes y escarificaciones entre los pobladores de la zona maya. Prácticas significativas en diversas culturas alrededor del mundo.",
+    link: "/blog/lenguaje-piel-tatuajes",
+    date: "9 sep. 2024",
+    category: "Comunidad UNE"
+  },
+  {
+    imageUrl: getImageUrl('lago_chapala') || '/placeholder-blog.jpg',
+    title: "Las Crónicas del Lago de Chapala",
+    description: "El Lago de Chapala ha sido testigo de sequías severas y de sorprendentes recuperaciones. En tiempos secos, su lecho se convierte en tierra fértil.",
+    link: "/blog/cronicas-lago-chapala",
+    author: "Mtro. Arq. José Manuel Mercado Márquez",
+    date: "30 ago. 2024",
+    category: "Comunidad UNE"
+  },
+  {
+    imageUrl: getImageUrl('ingenieria-y-seguridad') || '/placeholder-blog.jpg',
+    title: "INGENIERÍA Y SEGURIDAD, LECCIONES DEL 22 DE ABRIL",
+    description: "Hoy, 22 de abril, marcamos un día oscuro en la historia de Guadalajara. Un evento trágico que sacudió nuestros cimientos y dejó importantes lecciones.",
+    link: "/blog/ingenieria-seguridad-22-abril",
+    date: "22 abr. 2024",
+    category: "Sociedad"
+  }
+];
 ---
 
 <Layout>
@@ -42,51 +253,15 @@ import CardBlog from "@components/sections/blog/Grid.astro";
     </div>
   </section>
 
-  <div
-    class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto"
-  >
-    <!-- Card 1 - Desarrollo Ágil -->
-    <CardBlog
-      imageUrl="/images/desarrollo-agil.webp"
-      title="Desarrollo Ágil en la Ingeniería de Software"
-      description="Desarrollo Ágil en la Ingeniería de Software: Adaptándose a los Cambios del Mercado y Mejorando la Colaboración Autor: Ing. Juan Carlos González Aldana La Ingeniería en Desarrollo de Software ha evolu..."
-      link="/blog/articulos/DesarrolloSoftware"
-      linkText="Leer más"
-    />
-
-    <!-- Card 2 - Cuidados Paliativos -->
-    <CardBlog
-      imageUrl="/images/cuidados-paliativos.webp"
-      title="Cuidados Paliativos en Enfermería"
-      description="Desarrollo Ágil en la Ingeniería de Software: Adaptándose a los Cambios del Mercado y Mejorando la Colaboración Autor: Ing. Juan Carlos González Aldana La Ingeniería en Desarrollo de Software ha evolu..."
-      link="/articulos/cuidados-paliativos"
-      linkText="Leer más"
-    />
-
-    <!-- Card 3 - Inteligencia Artificial -->
-    <CardBlog
-      imageUrl="/images/ia-opaque.webp"
-      title="Inteligencia Artificial Opaque Humana"
-      description="Desarrollo Ágil en la Ingeniería de Software: Adaptándose a los Cambios del Mercado y Mejorando la Colaboración Autor: Ing. Juan Carlos González Aldana La Ingeniería en Desarrollo de Software ha evolu..."
-      link="/articulos/inteligencia-artificial"
-      linkText="Leer más"
-    />
-
-    <CardBlog
-      imageUrl="/images/ia-opaque.webp"
-      title="Inteligencia Artificial Opaque Humana"
-      description="Desarrollo Ágil en la Ingeniería de Software: Adaptándose a los Cambios del Mercado y Mejorando la Colaboración Autor: Ing. Juan Carlos González Aldana La Ingeniería en Desarrollo de Software ha evolu..."
-      link="/articulos/inteligencia-artificial"
-      linkText="Leer más"
-    />
-  </div>
+  <!-- Grid Section -->
+  <Grid cardsData={cardsData} />
 </Layout>
 
 <style>
   .apoyos-bg {
     background-image: url("/src/assets/Imagenes/Heros/Blog.webp");
   }
-
+  
   @media (max-width: 767px) {
     .apoyos-bg {
       background-image: url("/src/assets/Imagenes/Heros/Becas_mobile.webp");
