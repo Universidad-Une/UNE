@@ -61,6 +61,7 @@ const navItems = [
       { href: "/acerca/beneficios", title: "Beneficios permanencia", desc: "Apoyos y servicios que fortalecen tu experiencia." },
       { href: "/contacto/solicitarvisita", title: "Agendar una visita", desc: "Explora nuestro campus de forma personalizada." },
       { href: "/contacto/solicitarinformacion", title: "Contacto", desc: "Canales directos para resolver tus dudas." },
+      { href: "https://intranet.universidad-une.com/web/login", title: "Acceso administrativos", desc: "Portal de login" },
     ]
   }
 ];
@@ -165,7 +166,7 @@ function getGridCols(dropdownClass) {
   <!-- Desktop Dropdowns -->
   {navItems.map(item => (
     <div class={`dropdown-menu ${item.dropdownClass} absolute w-full top-full bg-white border-t border-gray-200 shadow-lg opacity-0 invisible transform translate-y-2 transition-all duration-300 ease-out z-50 hidden md:block`}>
-      <div class="max-w-7xl mx-auto px-4 py-6">
+      <div class="mx-2 px-4 py-6">
         {item.customContent ? (
           <!-- Oferta Académica Custom Content -->
           <div>

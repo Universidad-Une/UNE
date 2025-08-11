@@ -30,6 +30,7 @@ function getColorBadge(incorporacion) {
 const licenciaturas = [];
 
 if (programasEducativos.Licenciaturas) {
+  console.log(programasEducativos.Licenciaturas)
   Object.entries(programasEducativos.Licenciaturas).forEach(
     ([area, programas]) => {
       Object.entries(programas).forEach(([nombrePrograma, datosPrograma]) => {
@@ -247,7 +248,9 @@ export { carreras, areas };
       <button
         id="show-more-btn"
         class="bg-blue-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-700 transition-colors"
-       aria-label="Mostrar más" title="Mostrar más">
+        aria-label="Mostrar más"
+        title="Mostrar más"
+      >
         Mostrar más
       </button>
     </div>
@@ -414,6 +417,8 @@ export { carreras, areas };
       plantelesList.innerHTML = planteles
         .map((plantel, index) => {
           const detalles = plantelesDetalle[plantel] || [];
+          console.log('Plantel value:', plantel);
+console.log('Is URL?', plantel.startsWith('http'));
           return `
             <div class="p-4 border border-gray-200 rounded-lg transform transition-all duration-300 translate-y-2 opacity-0 plantel-item" 
                  style="animation-delay: ${index * 100}ms">
@@ -453,13 +458,18 @@ export { carreras, areas };
                   <span>Llamar al plantel</span>
                 </a>
                 <a 
-                  href="/planteles/${plantel
-                    .toLowerCase()
-                    .normalize("NFD")
-                    .replace(/[\u0300-\u036f]/g, "") // elimina tildes
-                    .replace(/ /g, "-")}"
-                  class="flex items-center justify-center gap-2 py-2 px-3 bg-gray-100 text-gray-800 rounded-lg hover:bg-red-100 hover:text-red-700 transition-all duration-200"
-                >
+                href="${
+                  plantel.startsWith("http://") ||
+                  plantel.startsWith("https://")
+                    ? plantel
+                    : `/planteles/${plantel
+                        .toLowerCase()
+                        .normalize("NFD")
+                        .replace(/[\u0300-\u036f]/g, "")
+                        .replace(/ /g, "-")}`
+                }"
+  class="flex items-center justify-center gap-2 py-2 px-3 bg-gray-100 text-gray-800 rounded-lg hover:bg-red-100 hover:text-red-700 transition-all duration-200"
+>
                   <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
@@ -555,7 +565,9 @@ export { carreras, areas };
       <button
         id="close-modal"
         class="text-gray-400 hover:text-gray-600 transition-colors duration-200 hover:scale-110"
-       aria-label="Cerrar ventana" title="Cerrar esta ventana">
+        aria-label="Cerrar ventana"
+        title="Cerrar esta ventana"
+      >
         <svg
           class="w-6 h-6"
           fill="none"

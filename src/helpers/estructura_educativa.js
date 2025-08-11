@@ -1879,7 +1879,7 @@ export const programasEducativos = {
           },
         ],
       },
-      administración: {
+      Administración: {
         "CAMPUS PUERTO VALLARTA": [
           {
             modalidad: "Semiescolarizada",
@@ -1896,6 +1896,17 @@ export const programasEducativos = {
             descripcion:
               "Forma parte del motor que mueve a las organizaciones. Aprende a liderar equipos, optimizar recursos y tomar decisiones con impacto.",
           },
+        ],
+        "UNE EN LÍNEA": [
+          {
+            modalidad: "En línea",
+            incorporacion: "SICYT",
+            imagen: "administracion",
+            url: "https://www.une-enlinea.com/lic-en-administracion",
+            descripcion:
+              "Forma parte del motor que mueve a las organizaciones. Aprende a liderar equipos, optimizar recursos y tomar decisiones con impacto.",
+          },
+         
         ],
         "TORRE QUETZAL": [
           {
