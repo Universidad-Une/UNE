@@ -44,6 +44,7 @@ const navItems = [
     dropdownClass: "vida-dropdown",
     links: [
       { href: "/vidaestudiantil/General", title: "Comunidad UNE", desc: "Descubre todo lo que es UNE" },
+       { href: "https://alumnado.universidad-une.com/login?_gl=1*dgyjqr*_gcl_aw*R0NMLjE3NDk4NzM1NzguQ2owS0NRandtS19DQmhDRUFSSXNBTUt3Y0Q2U2ZoNjJtX19nTm1Ebm9acE9QQ1FkRm5UWEpHOHktRTdpUXU4RXZHN2RIZGJOQXNDbmV3d2FBb0d5RUFMd193Y0I.*_gcl_au*NjE2NzUyMDY3LjE3NDczMjYxMDc.*_ga*NzE1MDMwOTMxLjE3NDczMjYxMDg.*_ga_0K62QWN6DM*czE3NTQ4MDM0MzIkbzE1MCRnMCR0MTc1NDgwMzQzMiRqNjAkbDAkaDA.", title: "Iniciar sesión", desc: "Accede a la plataforma de estudiantes" },
       { href: "/Vivetuuniversidad/General", title: "Vive tu universidad", desc: "Actividades deportivas" },
       { href: "/blog/", title: "Blog", desc: "Descubre sobre nuevos temas." },
       { href: "/Orgulloune/General", title: "Orgullo UNE", desc: "Conoce los egresados más destacados" },
@@ -91,7 +92,7 @@ function getGridCols(dropdownClass) {
   switch(dropdownClass) {
     case 'admisiones-dropdown': return 'grid-cols-4';
     case 'informacion-dropdown': return 'grid-cols-4';
-    case 'vida-dropdown': return 'grid-cols-6';
+    case 'vida-dropdown': return 'grid-cols-7';
     case 'nosotros-dropdown': return 'grid-cols-5';
     default: return 'grid-cols-4';
   }
@@ -311,21 +312,27 @@ function getGridCols(dropdownClass) {
       </nav>
     </div>
 
-    <div class="w-[25%] h-full flex items-center justify-center">
-      <div class="w-full h-[70dvh] bg-rojo-une flex flex-col items-center justify-center gap-5 space-y-4 px-4 rounded-l-2xl">
-        {topBarLinks.map(link => (
-          <img 
-            src={link.img.src} 
-            alt={link.alt} 
-            class="h-20 w-auto" 
-            loading="lazy"
-            decoding="async"
-            width="auto"
-            height="80"
-          />
-        ))}
-      </div>
-    </div>
+   <div class="w-[25%] h-full flex items-center justify-center">
+  <div class="w-full h-[70dvh] bg-rojo-une flex flex-col items-center justify-center gap-5 space-y-4 px-4 rounded-l-2xl">
+    {topBarLinks.map(link => (
+      <a 
+        href={link.href} 
+        target="_blank" 
+        rel="noopener noreferrer"
+      >
+        <img 
+          src={link.img.src} 
+          alt={link.alt} 
+          class="h-20 w-auto" 
+          loading="lazy"
+          decoding="async"
+          width="auto"
+          height="80"
+        />
+      </a>
+    ))}
+  </div>
+</div>
   </div>
 </div>
 
