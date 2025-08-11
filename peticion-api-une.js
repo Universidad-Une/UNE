@@ -2,14 +2,14 @@ import https from 'https';
 import { URL } from 'url';
 
 // Configuración de la petición
-const apiUrl = 'https://www.universidad-une.com/api/v2/custom/une_create_crm';
+const apiUrl = 'https:/intranet.universidad-une.com/api/v2/custom/une_create_crm';
 const headers = {
     'Content-Type': 'application/json',
     'Authorization': 'Basic b3NjYXIubXVyb0B4bWFydHMuY29tOkxlZHhPc2Nhck11cm8='
 };
 
 const requestData = {
-    "nombre": "Test-ELI",
+    "nombre": "Test-node",
     "apellido_p": "Casares",
     "apellido_m": "Rojas",
     "correo": "test-api@xmarts.com",
