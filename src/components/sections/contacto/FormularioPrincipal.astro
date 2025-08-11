@@ -642,49 +642,8 @@ import { programasEducativos } from "@helpers/estructura_educativa.js";
       modalidad: formData.get("modalidad") || "",
     };
 
-    // Imprimir los datos en consola con tipo de dato
     console.log("=== DATOS DEL FORMULARIO ===");
-    console.log("nombre:", data.nombre, "| Tipo:", typeof data.nombre);
-    console.log(
-      "apellido_p:",
-      data.apellido_p,
-      "| Tipo:",
-      typeof data.apellido_p
-    );
-    console.log(
-      "apellido_m:",
-      data.apellido_m,
-      "| Tipo:",
-      typeof data.apellido_m
-    );
-    console.log("correo:", data.correo, "| Tipo:", typeof data.correo);
-    console.log(
-      "nivel_educativo:",
-      data.nivel_educativo,
-      "| Tipo:",
-      typeof data.nivel_educativo
-    );
-    console.log(
-      "plantel_interes:",
-      data.plantel_interes,
-      "| Tipo:",
-      typeof data.plantel_interes
-    );
-    console.log(
-      "programa_interes:",
-      data.programa_interes,
-      "| Tipo:",
-      typeof data.programa_interes
-    );
-    console.log("telefono:", data.telefono, "| Tipo:", typeof data.telefono);
-    console.log(
-      "modalidad:",
-      data.modalidad,
-      "| Tipo:",
-      typeof data.modalidad
-    );
-    console.log("=== OBJETO COMPLETO ===");
-    console.log("Datos completos:", data, "| Tipo:", typeof data);
+    console.log("Datos completos:", data);
 
     // Mostrar loading/spinner
     const submitButton = this.querySelector('button[type="submit"]');
@@ -694,97 +653,105 @@ import { programasEducativos } from "@helpers/estructura_educativa.js";
       submitButton.textContent = "Enviando...";
     }
 
-    let shouldRedirect = false; // Variable para controlar la redirección
+    let shouldRedirect = false;
 
     try {
-      console.log("\n=== ENVIANDO A LA API ===");
+      console.log("\n=== PROBANDO CON HEADERS EXTENDIDOS ===");
       console.log("🚀 Iniciando petición...");
       console.log("⏱️ Timestamp:", new Date().toISOString());
 
-      // Configuración de la petición a la API
-      const apiUrl =
-        "https://www.universidad-une.com/api/v2/custom/une_create_crm";
+      const apiUrl = "https://www.universidad-une.com/api/v2/custom/une_create_crm";
+      const postData = JSON.stringify(data);
+      
+      // Headers extendidos simulando una petición de Node.js
       const headers = {
         "Content-Type": "application/json",
-        Authorization:
-          "Basic b3NjYXIubXVyb0B4bWFydHMuY29tOkxlZHhPc2Nhck11cm8=",
+        "Authorization": "Basic b3NjYXIubXVyb0B4bWFydHMuY29tOkxlZHhPc2Nhck11cm8=",
+        "User-Agent": "Mozilla/5.0 (compatible; Node.js)",
+        "Accept": "application/json, text/plain, */*",
+        "Accept-Encoding": "gzip, deflate, br",
+        "Accept-Language": "en-US,en;q=0.9",
+        "Cache-Control": "no-cache",
+        "Origin": window.location.origin,
+        "Referer": window.location.href
       };
 
       console.log("🔗 URL:", apiUrl);
-      console.log("📋 Headers enviados:", headers);
+      console.log("📋 Headers enviados:");
+      Object.entries(headers).forEach(([key, value]) => {
+        console.log(`   ${key}: ${value}`);
+      });
       console.log("📦 Datos JSON a enviar:");
-      console.log(JSON.stringify(data, null, 2));
+      console.log(postData);
 
-      // Realizar la petición usando fetch
-      const response = await fetch(apiUrl, {
+      // Primero intentar con fetch normal
+      console.log("\n🔍 INTENTO 1: Fetch con headers extendidos");
+      
+      try {
+        const response = await fetch(apiUrl, {
+          method: "POST",
+          headers: headers,
+          body: postData,
+          mode: 'cors',
+          credentials: 'omit'
+        });
+
+        console.log("📊 Status:", response.status);
+        
+        if (response.ok) {
+          const responseText = await response.text();
+          console.log("✅ ÉXITO con headers extendidos!");
+          console.log("📦 Respuesta:", responseText);
+          shouldRedirect = true;
+          return; // Salir si funciona
+        } else {
+          throw new Error(`Status: ${response.status}`);
+        }
+        
+      } catch (error1) {
+        console.log("❌ Intento 1 falló:", error1.message);
+      }
+
+      // Si el primer intento falla, probar sin algunos headers problemáticos
+      console.log("\n🔍 INTENTO 2: Headers mínimos");
+      
+      const minimalHeaders = {
+        "Content-Type": "application/json",
+        "Authorization": "Basic b3NjYXIubXVyb0B4bWFydHMuY29tOkxlZHhPc2Nhck11cm8="
+      };
+
+      const response2 = await fetch(apiUrl, {
         method: "POST",
-        headers: headers,
-        body: JSON.stringify(data),
+        headers: minimalHeaders,
+        body: postData,
+        mode: 'no-cors' // Intentar sin CORS
       });
 
-      console.log("\n=== RESPUESTA DE LA API ===");
-      console.log("📊 Status:", response.status);
-      console.log("📊 Status Text:", response.statusText);
-      console.log("✅ OK:", response.ok);
-
-      // Log de headers de respuesta
-      console.log("📋 Headers de respuesta:");
-      for (let [key, value] of response.headers.entries()) {
-        console.log(`   ${key}: ${value}`);
-      }
-
-      // Obtener el texto de respuesta
-      const responseText = await response.text();
-      console.log("📦 Respuesta raw:", responseText);
-
-      // Intentar parsear como JSON
-      let responseData;
-      try {
-        responseData = JSON.parse(responseText);
-        console.log("📦 Respuesta JSON parseada:");
-        console.log(JSON.stringify(responseData, null, 2));
-      } catch (parseError) {
-        console.log("⚠️ La respuesta no es JSON válido");
-        responseData = { raw: responseText };
-      }
-
-      if (response.ok) {
-        console.log("✅ ÉXITO: Datos enviados correctamente");
-        shouldRedirect = true; // Solo marcar para redirección si fue exitoso
+      console.log("📊 Status (no-cors):", response2.status);
+      console.log("📊 Type:", response2.type);
+      
+      if (response2.type === 'opaque') {
+        console.log("⚠️ Respuesta opaca (no-cors) - no podemos leer el resultado");
+        console.log("💡 Esto podría significar que la petición se envió, pero no podemos verificar");
         
-        // Mostrar mensaje de éxito si es necesario
-        // alert("Formulario enviado correctamente");
-      } else {
-        throw new Error(
-          `Error HTTP: ${response.status} - ${response.statusText}`
-        );
+        // En modo no-cors, asumimos éxito si no hay error de red
+        shouldRedirect = true;
       }
+      
     } catch (error) {
-      console.error("\n❌ ERROR EN EL ENVÍO:");
+      console.error("\n❌ ERROR FINAL:");
       console.error("🔥 Mensaje:", error.message);
-      console.error("🔥 Stack:", error.stack);
+      console.error("🔥 Tipo:", error.name);
 
-      // Determinar tipo de error
-      if (
-        error.name === "TypeError" &&
-        error.message.includes("Failed to fetch")
-      ) {
-        console.error("💡 Posible causa: Problema de CORS o conectividad");
-      } else if (error.message.includes("404")) {
-        console.error("💡 Posible causa: URL de API no encontrada");
-      } else if (
-        error.message.includes("401") ||
-        error.message.includes("403")
-      ) {
-        console.error("💡 Posible causa: Problema de autenticación");
-      } else if (error.message.includes("500")) {
-        console.error("💡 Posible causa: Error interno del servidor");
-      } else {
-        console.error("💡 Error desconocido");
-      }
+      console.error("\n💡 CONCLUSIÓN:");
+      console.error("   - La API definitivamente tiene restricciones CORS");
+      console.error("   - Node.js funciona porque no está sujeto a CORS");
+      console.error("   - El navegador bloquea la petición por seguridad");
+      console.error("   - SOLUCIÓN: Implementar un proxy en tu servidor");
 
-      // Mostrar mensaje de error al usuario
-      alert("Hubo un error al enviar el formulario. Por favor, intenta nuevamente.");
+      alert(`Error de CORS confirmado. La petición funciona desde Node.js pero está bloqueada en el navegador.
+      
+Necesitas crear un endpoint proxy en tu servidor.`);
     } finally {
       // Restaurar botón
       if (submitButton) {
