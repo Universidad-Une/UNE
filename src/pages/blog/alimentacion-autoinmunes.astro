@@ -1,0 +1,300 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Hero from "@assets/Imagenes/Heros/Blogs/Software.webp"
+---
+
+<Layout>
+  <!-- Hero Section -->
+  <div class="relative overflow-hidden bg-gradient-to-br from-slate-50 to-blue-50">
+    <div class="max-w-6xl mx-auto px-6 py-12">
+      <!-- Date and Tags -->
+      <div class="text-center mb-8">
+        <p class="text-red-500 font-semibold text-sm mb-4 fade-in">Abril 2025</p>
+        
+        <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4 max-w-4xl mx-auto leading-tight fade-in">
+          Alimentación y Enfermedades Autoinmunes
+        </h1>
+        
+        <p class="text-lg text-gray-600 mb-8 max-w-3xl mx-auto leading-relaxed fade-in">
+          El papel crucial de la nutrición en el manejo de trastornos autoinmunes y la modulación de la respuesta inmune
+        </p>
+
+        <!-- Tags -->
+        <div class="flex flex-wrap justify-center gap-4 mb-12 fade-in">
+          <span class="bg-blue-800 text-white px-6 py-2 rounded-full text-sm font-medium">
+            Abril 2025
+          </span>
+          <span class="bg-blue-800 text-white px-6 py-2 rounded-full text-sm font-medium">
+            Licenciatura en Nutrición
+          </span>
+          <span class="bg-blue-800 text-white px-6 py-2 rounded-full text-sm font-medium">
+            Nutrición
+          </span>
+        </div>
+      </div>
+
+      <!-- Hero Image Section -->
+      <div class="relative fade-in">
+        <div class="bg-gradient-to-r from-blue-900 via-blue-800 to-indigo-900 rounded-2xl overflow-hidden shadow-2xl">
+          <div class="relative flex flex-col lg:flex-row items-center justify-between p-8 md:p-12">
+            <!-- Left Side - Laptop Mockup -->
+            <div class="flex-shrink-0 mb-8 lg:mb-0">
+              <div class="relative">
+                <div class="bg-gray-800 rounded-lg p-2 shadow-xl transform -rotate-6 hover:rotate-0 transition-transform duration-300">
+                  <div class="bg-blue-900 rounded-md overflow-hidden">
+                    <img 
+                      src={Hero} 
+                      alt="Nutrition Dashboard"
+                      class="w-80 h-48 object-cover"
+                    />
+                  </div>
+                </div>
+                
+                <!-- Floating Charts -->
+                <div class="absolute -right-8 -top-4 bg-white rounded-lg p-3 shadow-lg transform rotate-12 animate-bounce">
+                  <div class="w-16 h-12 bg-gradient-to-r from-blue-400 to-purple-500 rounded opacity-80"></div>
+                </div>
+                
+                <div class="absolute -left-6 -bottom-6 bg-white rounded-lg p-2 shadow-lg animate-pulse">
+                  <div class="w-12 h-8 bg-gradient-to-r from-green-400 to-blue-400 rounded opacity-80"></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right Side - Text Content -->
+            <div class="flex-1 lg:ml-12 text-white text-center lg:text-left">
+              <div class="flex items-center justify-center lg:justify-start mb-4">
+                <div class="w-8 h-8 bg-yellow-400 rounded-full flex items-center justify-center mr-3">
+                  <svg class="w-4 h-4 text-gray-900" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clip-rule="evenodd"></path>
+                  </svg>
+                </div>
+                <span class="text-yellow-400 font-semibold text-sm">SALUD</span>
+              </div>
+              
+              <h2 class="text-3xl md:text-4xl font-bold mb-4 leading-tight">
+                ALIMENTACIÓN Y<br>
+                ENFERMEDADES AUTOINMUNES
+              </h2>
+              
+              <p class="text-blue-100 text-lg mb-6 leading-relaxed">
+                Nutrición como herramienta terapéutica
+              </p>
+              
+              <div class="flex items-center justify-center lg:justify-start space-x-4">
+                <div class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+                <span class="text-green-400 text-sm font-medium">En línea</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Decorative Elements -->
+        <div class="absolute -top-6 -left-6 w-24 h-24 border-2 border-dashed border-blue-300 rounded-lg opacity-50"></div>
+        <div class="absolute -bottom-4 -right-4 w-16 h-16 border-2 border-dashed border-blue-300 rounded-lg opacity-50"></div>
+        
+        <!-- Floating Icons -->
+        <div class="absolute top-1/2 -right-8 transform -translate-y-1/2 hidden lg:block">
+          <div class="bg-orange-100 rounded-full p-3 shadow-lg hover:scale-110 transition-transform">
+            <svg class="w-6 h-6 text-orange-500" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"></path>
+            </svg>
+          </div>
+        </div>
+
+        <div class="absolute bottom-12 -left-8 hidden lg:block">
+          <div class="bg-green-100 rounded-full p-3 shadow-lg hover:scale-110 transition-transform">
+            <svg class="w-6 h-6 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Dotted Connection Lines -->
+        <div class="absolute top-20 right-12 w-32 h-0.5 border-t-2 border-dotted border-blue-300 opacity-60 hidden lg:block"></div>
+        <div class="absolute bottom-20 left-12 w-24 h-0.5 border-t-2 border-dotted border-blue-300 opacity-60 hidden lg:block"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Blog Content -->
+  <div class="bg-white">
+    <div class="max-w-4xl mx-auto px-6 py-12">
+      <article class="prose prose-lg prose-blue max-w-none">
+        <h1 class="blog-title fade-in">Alimentación y enfermedades autoinmunes</h1>
+
+        <p class="blog-paragraph fade-in">
+          Las enfermedades autoinmunes son trastornos en los que el sistema inmunológico ataca erróneamente las células sanas del cuerpo, lo que puede llevar a inflamación y daño en diferentes órganos. La alimentación puede desempeñar un papel crucial en la gestión de estos trastornos, influenciando tanto la inflamación como la respuesta inmune. En este artículo, exploraremos cómo ciertos patrones y alimentos pueden afectar a las enfermedades autoinmunes, respaldados por investigaciones recientes.
+        </p>
+
+        <h2 class="blog-subtitle fade-in">El Papel de la Alimentación en las Enfermedades Autoinmunes</h2>
+
+        <h2 class="blog-subtitle fade-in">1. Inflamación y Dieta</h2>
+
+        <p class="blog-paragraph fade-in">
+          La inflamación es un componente clave en muchas enfermedades autoinmunes. Se ha demostrado que ciertos alimentos pueden exacerbar esta inflamación, mientras que otros pueden tener efectos antiinflamatorios. Por ejemplo, las dietas ricas en azúcares, grasas saturadas y procesadas pueden promover la inflamación (Esser et al., 2020). En contraste, las dietas ricas en antioxidantes, como las que incluyen frutas, verduras, y ácidos grasos omega-3, pueden ayudar a reducirla (Bleich et al., 2019).
+        </p>
+
+        <h2 class="blog-subtitle fade-in">2. Dieta Mediterránea y Enfermedades Autoinmunes</h2>
+
+        <p class="blog-paragraph fade-in">
+          Estudios han sugerido que la dieta mediterránea, que enfatiza el consumo de frutas, verduras, legumbres, cereales integrales, pescado y grasas saludables como el aceite de oliva, está asociada con un menor riesgo de desarrollar enfermedades autoinmunes (Zhang et al., 2019). Los componentes de esta dieta no solo ayudan a combatir la inflamación, sino que también pueden modular el sistema inmunológico.
+        </p>
+
+        <h2 class="blog-subtitle fade-in">3. Grupos de Alimentos Específicos</h2>
+
+        <p class="blog-paragraph fade-in">
+          <strong>Gluten:</strong> La intolerancia al gluten es común en trastornos autoinmunes como la enfermedad celíaca. Evitar el gluten puede reducir los síntomas en personas con sensibilidad (Lynch et al., 2021).
+        </p>
+
+        <p class="blog-paragraph fade-in">
+          <strong>Lácteos:</strong> Algunos pacientes reportan mejoría al eliminar los productos lácteos, aunque esto puede variar de una persona a otra (Molloy et al., 2018).
+        </p>
+
+        <p class="blog-paragraph fade-in">
+          <strong>Azúcares añadidos y alimentos procesados:</strong> Estos pueden contribuir a la inflamación y deberían ser limitados en la dieta (Holt et al., 2020).
+        </p>
+
+        <h2 class="blog-subtitle fade-in">4. Suplementación y Nutrientes Clave</h2>
+
+        <p class="blog-paragraph fade-in">
+          <strong>Vitamina D:</strong> Se ha asociado con la modulación de la respuesta inmune, y la deficiencia de vitamina D se ha conectado a un aumento en el riesgo de enfermedades autoinmunes (García et al., 2020).
+        </p>
+
+        <p class="blog-paragraph fade-in">
+          <strong>Ácidos Grasos Omega-3:</strong> Estos ácidos pueden reducir la inflamación y se encuentran en pescados grasos, nueces y semillas (Calder, 2017).
+        </p>
+
+        <h2 class="blog-subtitle fade-in">Conclusión</h2>
+
+        <p class="blog-paragraph fade-in">
+          La alimentación juega un papel esencial en el manejo de las enfermedades autoinmunes. Adoptar un enfoque dietético que reduzca la inflamación y fomente la salud inmunológica podría ser beneficioso para personas que padecen estos trastornos. Es importante que cada paciente trabaje junto a un profesional de la salud para adaptar su dieta a sus necesidades específicas.
+        </p>
+
+        <h2 class="blog-subtitle fade-in">¿Quieres transformar vidas a través de la nutrición?</h2>
+
+        <p class="blog-paragraph fade-in">
+          Si te apasiona la nutrición y deseas profundizar en cómo la alimentación puede influir en la prevención y manejo de enfermedades como las autoinmunes, nuestra Licenciatura en Nutrición es para ti. Forma parte de la próxima generación de expertos capaces de transformar vidas mediante el conocimiento científico y la intervención nutricional personalizada.
+        </p>
+
+        <p class="blog-paragraph fade-in">
+          Da el primer paso hacia tu futuro profesional. Tu carrera en nutrición comienza aquí.
+        </p>
+
+        <p class="blog-paragraph fade-in font-semibold text-green-600">
+          SOLICITAR INFORMACIÓN
+        </p>
+
+        <section id="bibliografia" class="bibliografia-section fade-in">
+          <h2 class="text-2xl font-bold text-green-600 mb-6 border-l-4 border-green-600 pl-4">Bibliografía</h2>
+          <ol class="space-y-3 text-gray-700 leading-relaxed">
+            <li>Bleich, K., et al. (2019). Diet and inflammation: A review. <em>Nutrients</em>, 11(2), 421.</li>
+            <li>Calder, P. C. (2017). Omega-3 fatty acids and inflammatory processes: from molecules to man. <em>Biochemical Society Transactions</em>, 45(5), 989-993.</li>
+            <li>Esser, N., et al. (2020). Metabolic inflammation: A key feature of obesity. <em>Diabetes & Metabolism</em>, 46(3), 179-188.</li>
+            <li>García, A., et al. (2020). Vitamin D and autoimmune disease: A systematic review. <em>Frontiers in Immunology</em>, 11, 254.</li>
+            <li>Holt, G., et al. (2020). The health effects of sugar: A review of the epidemiological evidence. <em>Nutrients</em>, 12(2), 352.</li>
+            <li>Lynch, S. F., et al. (2021). Gluten sensitivity and autoimmune diseases. <em>Journal of Autoimmunity</em>, 117, 102600.</li>
+            <li>Molloy, P. F., et al. (2018). Dairy consumption and autoimmune diseases: A review. <em>European Journal of Clinical Nutrition</em>, 72(6), 848-859.</li>
+            <li>Zhang, H., et al. (2019). Mediterranean diet and immune system. <em>Molecules</em>, 24(1).</li>
+          </ol>
+        </section>
+      </article>
+    </div>
+  </div>
+</Layout>
+
+<style>
+/* Blog Content Styles */
+.blog-title {
+  font-size: 2.5rem;
+  color: #001970;
+  margin-bottom: 20px;
+  max-width: 100%;
+  text-align: left;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.blog-subtitle {
+  color: #001970;
+  margin-top: 30px;
+  margin-bottom: 16px;
+  max-width: 100%;
+  text-align: left;
+  font-size: 1.6rem;
+  font-weight: 700;
+  border-left: 4px solid #2a7f62;
+  padding-left: 12px;
+  line-height: 1.3;
+}
+
+.blog-paragraph {
+  font-size: 18px;
+  line-height: 1.8;
+  color: #333;
+  max-width: 100%;
+  margin-bottom: 16px;
+  font-weight: 400;
+  text-align: justify;
+}
+
+.bibliografia-section {
+  font-size: 16px;
+  line-height: 1.7;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+/* Fade-in animations */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.fade-in:nth-child(1) { animation-delay: 0.1s; }
+.fade-in:nth-child(2) { animation-delay: 0.2s; }
+.fade-in:nth-child(3) { animation-delay: 0.3s; }
+.fade-in:nth-child(4) { animation-delay: 0.4s; }
+.fade-in:nth-child(5) { animation-delay: 0.5s; }
+.fade-in:nth-child(6) { animation-delay: 0.6s; }
+.fade-in:nth-child(7) { animation-delay: 0.7s; }
+.fade-in:nth-child(8) { animation-delay: 0.8s; }
+.fade-in:nth-child(9) { animation-delay: 0.9s; }
+.fade-in:nth-child(10) { animation-delay: 1.0s; }
+.fade-in:nth-child(11) { animation-delay: 1.1s; }
+.fade-in:nth-child(12) { animation-delay: 1.2s; }
+.fade-in:nth-child(13) { animation-delay: 1.3s; }
+.fade-in:nth-child(14) { animation-delay: 1.4s; }
+.fade-in:nth-child(15) { animation-delay: 1.5s; }
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+</style>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  // Activar animaciones al hacer scroll
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.animationPlayState = 'running';
+      }
+    });
+  }, observerOptions);
+
+  // Observar todos los elementos con fade-in
+  document.querySelectorAll('.fade-in').forEach(el => {
+    observer.observe(el);
+  });
+});
+</script>

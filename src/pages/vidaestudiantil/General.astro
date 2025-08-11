@@ -4,8 +4,6 @@ import comunidadImagen from "@/assets/Imagenes/Secciones/Water.webp";
 import comunidadEgresados from "@/assets/Imagenes/Middles/Egresos.webp";
 import Galeria from "@/components/sections/shared/Galeria.astro";
 import Eventos from "@/components/sections/vidaestudiantil/eventos.astro";
-
-
 ---
 
 <Layout>
@@ -30,231 +28,141 @@ import Eventos from "@/components/sections/vidaestudiantil/eventos.astro";
             Únete a una comunidad de más de 5,000 estudiantes y profesionales
             que están transformando el futuro tecnológico de México
           </p>
-
-         
-          </div>
         </div>
       </div>
     </section>
+  </main>
 
-    <section class="bg-white py-12 px-4 sm:px-6 lg:px-8">
-      <div class="max-w-7xl mx-auto">
-        <!-- Layout principal -->
-        <div class="lg:grid lg:grid-cols-2 lg:gap-12 lg:items-center">
-          <!-- Contenido de texto -->
-          <div class="mb-8 lg:mb-0">
-            <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-8">
-              Tu experiencia va más allá del aula
-            </h2>
+  <section class="bg-white py-12 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto">
+      <!-- Layout principal -->
+      <div class="lg:grid lg:grid-cols-2 lg:gap-12 lg:items-center">
+        <!-- Contenido de texto -->
+        <div class="mb-8 lg:mb-0">
+          <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-8">
+            Tu experiencia va más allá del aula
+          </h2>
 
-            <!-- Clubs Tecnológicos -->
-            <div class="mb-8">
-              <h3 class="text-xl font-bold text-gray-900 mb-3">
-                Clubs Tecnológicos
-              </h3>
-              <p class="text-gray-600 text-base leading-relaxed">
-                Robótica, Desarrollo Web, IA, Ciberseguridad y más. Encuentra tu
-                tribu y desarrolla proyectos increíbles.
-              </p>
-            </div>
-
-            <!-- Eventos y Competencia -->
-            <div class="mb-8">
-              <h3 class="text-xl font-bold text-gray-900 mb-3">
-                Eventos y Competencia
-              </h3>
-              <p class="text-gray-600 text-base leading-relaxed">
-                Hackathons, conferencias tech, torneos de programación y
-                networking events que conectan estudiantes con la industria.
-              </p>
-            </div>
-
-            <!-- Espacios de Innovación -->
-            <div class="mb-10">
-              <h3 class="text-xl font-bold text-gray-900 mb-3">
-                Espacios de Innovación
-              </h3>
-              <p class="text-gray-600 text-base leading-relaxed">
-                Labs equipados, espacios de coworking y áreas de estudio
-                colaborativo diseñadas para tu éxito.
-              </p>
-            </div>
-
-            <!-- Botones de acción -->
-            <div class="flex flex-col sm:flex-row gap-4">
-              <a
-                href="/Vivetuuniversidad/General"
-                class="inline-flex items-center justify-center px-6 py-3 border border-gray-300 rounded-full text-base font-medium text-gray-700 bg-white hover:bg-gray-50 hover:border-gray-400 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
-               aria-label="Ir a Explorar talleres" title="Explorar talleres">
-                Explorar talleres
-              </a>
-            </div>
-          </div>
-
-          <!-- Imagen -->
-          <div class="relative flex items-center justify-center">
-            <img
-              src={comunidadImagen.src}
-              alt="Comunidad UNE"
-              class="w-1/2 h-full object-cover rounded-2xl shadow-xl"
-              loading="lazy"
-            />
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Versión móvil alternativa con imagen arriba -->
-    <section class="bg-white py-12 px-4 sm:px-6 lg:px-8 lg:hidden">
-      <div class="max-w-md mx-auto text-center">
-        <!-- Título móvil -->
-        <h2 class="text-2xl font-bold text-gray-900 mb-6">
-          Tu experiencia va más allá del aula
-        </h2>
-
-        <!-- Imagen móvil -->
-        <div class="mb-8">
-          <div class="aspect-w-3 aspect-h-4 max-w-xs mx-auto">
-            <img
-              src={comunidadImagen.src}
-              alt="Comunidad UNE"
-              class="w-full h-full object-cover rounded-2xl shadow-lg"
-              loading="lazy"
-            />
-          </div>
-        </div>
-
-        <!-- Botones móvil -->
-        <div class="flex flex-col gap-3 mb-8">
-          <button
-            class="w-full px-6 py-3 border border-gray-300 rounded-full text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 transition-colors duration-200"
-           aria-label="Ver calendario de eventos" title="Ver calendario de eventos">
-            Ver calendario de eventos
-          </button>
-          <button
-            class="w-full px-6 py-3 border border-gray-300 rounded-full text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 transition-colors duration-200"
-           aria-label="Explorar talleres" title="Explorar talleres">
-            Explorar talleres
-          </button>
-        </div>
-
-        <!-- Contenido de secciones móvil -->
-        <div class="text-left space-y-6">
-          <div>
-            <h3 class="text-lg font-bold text-gray-900 mb-2 text-center">
+          <!-- Clubs Tecnológicos -->
+          <div class="mb-8">
+            <h3 class="text-xl font-bold text-gray-900 mb-3">
               Clubs Tecnológicos
             </h3>
-            <p class="text-gray-600 text-sm leading-relaxed text-center">
+            <p class="text-gray-600 text-base leading-relaxed">
               Robótica, Desarrollo Web, IA, Ciberseguridad y más. Encuentra tu
               tribu y desarrolla proyectos increíbles.
             </p>
           </div>
 
-          <div>
-            <h3 class="text-lg font-bold text-gray-900 mb-2 text-center">
+          <!-- Eventos y Competencia -->
+          <div class="mb-8">
+            <h3 class="text-xl font-bold text-gray-900 mb-3">
               Eventos y Competencia
             </h3>
-            <p class="text-gray-600 text-sm leading-relaxed text-center">
+            <p class="text-gray-600 text-base leading-relaxed">
               Hackathons, conferencias tech, torneos de programación y
               networking events que conectan estudiantes con la industria.
             </p>
           </div>
 
-          <div>
-            <h3 class="text-lg font-bold text-gray-900 mb-2 text-center">
+          <!-- Espacios de Innovación -->
+          <div class="mb-10">
+            <h3 class="text-xl font-bold text-gray-900 mb-3">
               Espacios de Innovación
             </h3>
-            <p class="text-gray-600 text-sm leading-relaxed text-center">
+            <p class="text-gray-600 text-base leading-relaxed">
               Labs equipados, espacios de coworking y áreas de estudio
               colaborativo diseñadas para tu éxito.
             </p>
           </div>
+
+          <!-- Botones de acción -->
+          <div class="flex flex-col sm:flex-row gap-4">
+            <a
+              href="/Vivetuuniversidad/General"
+              class="inline-flex items-center justify-center px-6 py-3 border border-gray-300 rounded-full text-base font-medium text-gray-700 bg-white hover:bg-gray-50 hover:border-gray-400 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+              aria-label="Ir a Explorar talleres"
+              title="Explorar talleres"
+            >
+              Explorar talleres
+            </a>
+          </div>
+        </div>
+
+        <!-- Imagen -->
+        <div class="relative flex items-center justify-center">
+          <img
+            src={comunidadImagen.src}
+            alt="Comunidad UNE"
+            class="w-1/2 h-full object-cover rounded-2xl shadow-xl"
+            loading="lazy"
+          />
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-   <section class="relative h-96 lg:h-[500px]">
- <!-- Imagen de fondo con overlay -->
- <div class="absolute inset-0">
-   <img
-     src={comunidadEgresados.src}
-     alt="Comunidad de egresados en evento profesional"
-     class="w-full h-full object-cover"
-   />
- </div>
- 
- <!-- Card desktop - posicionada a la derecha -->
- <div
-   class="hidden lg:block absolute right-8 top-1/2 transform -translate-y-1/2 w-96"
- >
-   <div
-     class="bg-white rounded-lg shadow-xl border-t-4 border-blue-600 p-8"
-   >
-     <!-- Badge -->
-     <div class="mb-4">
-       <span class="text-sm font-medium text-gray-600"> Red alumnos </span>
-     </div>
-     
-     <!-- Título -->
-     <h2 class="text-2xl font-bold text-gray-900 mb-4 leading-tight">
-       Conecta con profesionales que ya llegaron donde tú quieres estar
-     </h2>
-     
-     <!-- Descripción -->
-     <p class="text-gray-600 text-sm leading-relaxed mb-6">
-       Pronto habrá noticias sobre nuestra red de egresados. Podrás conectar
-       con profesionales senior que trabajan en empresas tecnológicas líderes
-       y recibir orientación personalizada para tu desarrollo profesional.
-     </p>
-   </div>
- </div>
-</section>
+  <section class="relative h-96 lg:h-[500px]">
+    <!-- Imagen de fondo con overlay -->
+    <div class="absolute inset-0">
+      <img
+        src={comunidadEgresados.src}
+        alt="Comunidad de egresados en evento profesional"
+        class="w-full h-full object-cover"
+      />
+    </div>
 
-<!-- Versión móvil - card centrada -->
-<section class="lg:hidden py-12 px-4">
- <div class="max-w-md mx-auto">
-   <div
-     class="bg-white rounded-lg shadow-xl border-t-4 border-blue-600 p-6 text-center"
-   >
-     <!-- Badge móvil -->
-     <div class="mb-4">
-       <span class="text-sm font-medium text-gray-600"> Red alumnos </span>
-     </div>
-     
-     <!-- Título móvil -->
-     <h2 class="text-xl font-bold text-gray-900 mb-4 leading-tight">
-       Conecta con profesionales que ya llegaron donde tú quieres estar
-     </h2>
-     
-     <!-- Descripción móvil -->
-     <p class="text-gray-600 text-sm leading-relaxed mb-6">
-       Pronto habrá noticias sobre nuestra red de egresados. Podrás conectar
-       con profesionales senior que trabajan en empresas tecnológicas líderes
-       y recibir orientación personalizada para tu desarrollo profesional.
-     </p>
-     
-     <!-- Botón móvil -->
-     <button
-       class="w-full inline-flex items-center justify-center px-6 py-3 bg-red-600 text-white font-semibold rounded-full hover:bg-red-700 transition-colors duration-200 text-sm"
-       aria-label="ENCONTRAR UN MENTOR" title="ENCONTRAR UN MENTOR">
-       ENCONTRAR UN MENTOR
-       <svg
-         class="ml-2 w-4 h-4"
-         fill="none"
-         stroke="currentColor"
-         viewBox="0 0 24 24"
-       >
-         <path
-           stroke-linecap="round"
-           stroke-linejoin="round"
-           stroke-width="2"
-           d="M9 5l7 7-7 7"></path>
-       </svg>
-     </button>
-   </div>
- </div>
-</section>
-    <section class="max-w-7xl mx-auto px-4 py-8">
+    <!-- Card desktop - posicionada a la derecha -->
+    <div
+      class="hidden lg:block absolute right-8 top-1/2 transform -translate-y-1/2 w-96"
+    >
+      <div class="bg-white rounded-lg shadow-xl border-t-4 border-blue-600 p-8">
+        <!-- Badge -->
+        <div class="mb-4">
+          <span class="text-sm font-medium text-gray-600"> Red alumnos </span>
+        </div>
+
+        <!-- Título -->
+        <h2 class="text-2xl font-bold text-gray-900 mb-4 leading-tight">
+          Conecta con profesionales que ya llegaron donde tú quieres estar
+        </h2>
+
+        <!-- Descripción -->
+        <p class="text-gray-600 text-sm leading-relaxed mb-6">
+          Pronto habrá noticias sobre nuestra red de egresados. Podrás conectar
+          con profesionales senior que trabajan en empresas tecnológicas líderes
+          y recibir orientación personalizada para tu desarrollo profesional.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Versión móvil - card centrada -->
+  <section class="lg:hidden py-12 px-4">
+    <div class="max-w-md mx-auto">
+      <div
+        class="bg-white rounded-lg shadow-xl border-t-4 border-blue-600 p-6 text-center"
+      >
+        <!-- Badge móvil -->
+        <div class="mb-4">
+          <span class="text-sm font-medium text-gray-600"> Red alumnos </span>
+        </div>
+
+        <!-- Título móvil -->
+        <h2 class="text-xl font-bold text-gray-900 mb-4 leading-tight">
+          Conecta con profesionales que ya llegaron donde tú quieres estar
+        </h2>
+
+        <!-- Descripción móvil -->
+        <p class="text-gray-600 text-sm leading-relaxed mb-6">
+          Pronto habrá noticias sobre nuestra red de egresados. Podrás conectar
+          con profesionales senior que trabajan en empresas tecnológicas líderes
+          y recibir orientación personalizada para tu desarrollo profesional.
+        </p>
+      </div>
+    </div>
+  </section>
+  <!--     <section class="max-w-7xl mx-auto px-4 py-8">
       <h2 class="text-3xl font-bold text-center mb-8 text-gray-800">
         Próximos Eventos
       </h2>
@@ -462,12 +370,8 @@ import Eventos from "@/components/sections/vidaestudiantil/eventos.astro";
       </div>
     </section> -->
 
-    <Galeria  />
-
-    
-  </main>
+  <Galeria />
 </Layout>
-
 
 <style>
   .general-bg {

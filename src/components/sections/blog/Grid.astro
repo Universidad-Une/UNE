@@ -1,60 +1,43 @@
 ---
-// Card.astro
+// Grid.astro
+import Card from "@components/sections/blog/CardBlog.astro";
+
 export interface Props {
-  imageUrl: string;
-  title: string;
-  description: string;
-  link: string;
-  linkText?: string;
+  cardsData: Array<{
+    imageUrl: string;
+    title: string;
+    description: string;
+    link: string;
+    linkText?: string;
+  }>;
 }
 
-const { imageUrl, title, description, link, linkText = "Leer más" } = Astro.props;
+const { cardsData } = Astro.props;
 ---
 
-<div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300 max-w-sm">
-  <!-- Image Container -->
-  <div class="relative h-48 overflow-hidden">
-    <img 
-      src={imageUrl} 
-      alt={title}
-      class="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
-    />
-    <!-- Gradient overlay if needed -->
-    <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
-  </div>
-  
-  <!-- Content -->
-  <div class="p-6">
-    <h3 class="font-bold text-lg text-gray-900 mb-3 line-clamp-2">
-      {title}
-    </h3>
-    
-    <p class="text-gray-600 text-sm leading-relaxed mb-4 line-clamp-3">
-      {description}
-    </p>
-    
-    <!-- Link -->
-    <a 
-      href={link}
-      class="inline-block text-red-600 hover:text-red-700 font-medium text-sm transition-colors duration-200 hover:underline"
-     aria-label="Ir a {linkText}" title="{linkText}">
-      {linkText}
-    </a>
-  </div>
-</div>
+<section class="py-16 bg-white">
+  <div class="container mx-auto px-4">
+    <!-- Título opcional para la sección -->
+    <div class="text-center mb-12">
+      <h2 class="text-3xl font-bold text-gray-800 mb-4">
+        Nuestros Últimos Artículos
+      </h2>
+      <p class="text-gray-600 max-w-2xl mx-auto">
+        Descubre contenido de valor que te ayudará en tu crecimiento personal y profesional
+      </p>
+    </div>
 
-<style>
-  .line-clamp-2 {
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-  }
-  
-  .line-clamp-3 {
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-  }
-</style>
+    <!-- Grid de Cards -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+      {cardsData.map((card) => (
+        <Card 
+          imageUrl={card.imageUrl}
+          title={card.title}
+          description={card.description}
+          link={card.link}
+          linkText={card.linkText}
+        />
+      ))}
+    </div>
+  </div>
+</section>
