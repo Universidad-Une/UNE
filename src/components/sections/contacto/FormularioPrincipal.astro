@@ -660,13 +660,12 @@ import { programasEducativos } from "@helpers/estructura_educativa.js";
       console.log("🚀 Iniciando petición...");
       console.log("⏱️ Timestamp:", new Date().toISOString());
 
-      const apiUrl = "https://www.universidad-une.com/api/v2/custom/une_create_crm";
+      const apiUrl = "https://intranet.universidad-une.com/api/v2/custom/une_create_crm";
       const postData = JSON.stringify(data);
       
       // Headers extendidos simulando una petición de Node.js
       const headers = {
         "Content-Type": "application/json",
-        "Authorization": "Basic b3NjYXIubXVyb0B4bWFydHMuY29tOkxlZHhPc2Nhck11cm8=",
         "User-Agent": "Mozilla/5.0 (compatible; Node.js)",
         "Accept": "application/json, text/plain, */*",
         "Accept-Encoding": "gzip, deflate, br",
@@ -763,10 +762,7 @@ Necesitas crear un endpoint proxy en tu servidor.`);
     }
 
     // Solo redirigir si la petición fue exitosa
-    if (shouldRedirect) {
-      console.log("🔄 Redirigiendo a /contacto/gracias...");
-      window.location.href = "/contacto/gracias";
-    }
+   
   });
 }
 
