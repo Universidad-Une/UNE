@@ -665,22 +665,8 @@ import { programasEducativos } from "@helpers/estructura_educativa.js";
           body: JSON.stringify(data),
         });
 
-        console.log("=== RESPUESTA DEL SERVIDOR ===");
-        console.log("Status:", response.status);
-        console.log("Status Text:", response.statusText);
-        console.log("Headers:", response.headers);
-
-        // Intentar leer la respuesta como texto
-        const responseText = await response.text();
-        console.log("Response Body (text):", responseText);
-
-        // Intentar parsear como JSON si es posible
-        try {
-          const responseJson = JSON.parse(responseText);
-          console.log("Response Body (JSON):", responseJson);
-        } catch (jsonError) {
-          console.log("No es JSON válido:", jsonError.message);
-        }
+       
+       console.log(response)
 
         if (response.ok) {
           console.log("✅ Datos enviados correctamente");
