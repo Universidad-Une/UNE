@@ -9,7 +9,7 @@ import Galeria from "@/components/sections/vtu/Galeria.astro";
 import Actividades from "@/components/sections/vtu/Actividades.astro";
 // Configuración de planteles con diferentes casos
 
-import {planteles} from "@helpers/vtuactividades.js";
+import {actividades} from "@helpers/vtuactividades.js";
 
 const ciudades = [
   "Tlajomulco",
@@ -135,9 +135,8 @@ const ciudades = [
 
     <Actividades
       titulo="Conoce todas las actividades que tenemos"
-      planteles={planteles}
+      actividades={actividades}
       ciudades={ciudades}
-      mostrarMasCercano={false}
     />
 
     
