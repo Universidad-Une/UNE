@@ -622,39 +622,40 @@ import { programasEducativos } from "@helpers/estructura_educativa.js";
     });
   }
 
-  // Envio de form
-  if (form) {
-    form.addEventListener("submit", async function (e) {
-      e.preventDefault();
+ // Envio de form
+if (form) {
+  form.addEventListener("submit", async function (e) {
+    e.preventDefault();
 
-      const formData = new FormData(this);
-      // Crear objeto con las propiedades específicas que necesitas
-      const data = {
-        nombre: formData.get("nombre") || "",
-        apellido_p: formData.get("apellido_p") || "",
-        apellido_m: formData.get("apellido_m") || "",
-        correo: formData.get("correo") || "",
-        telefono: formData.get("telefono") || "",
-        nivel_educativo: formData.get("nivelEducativo") || "",
-        plantel_interes: formData.get("plantelInteres") || "",
-        programa_interes: formData.get("programaInteres") || "",
-        modalidad: formData.get("modalidad") || "",
-        medio: "Página web",
-      };
+    const formData = new FormData(this);
+    // Crear objeto con las propiedades específicas que necesitas
+    const data = {
+      nombre: formData.get("nombre") || "",
+      apellido_p: formData.get("apellido_p") || "",
+      apellido_m: formData.get("apellido_m") || "",
+      correo: formData.get("correo") || "",
+      telefono: formData.get("telefono") || "",
+      nivel_educativo: formData.get("nivelEducativo") || "",
+      plantel_interes: formData.get("plantelInteres") || "",
+      programa_interes: formData.get("programaInteres") || "",
+      modalidad: formData.get("modalidad") || "",
+      medio: "Página web",
+    };
 
-      console.log("=== DATOS DEL FORMULARIO ===");
-      console.log("Datos completos:", data);
+    console.log("=== DATOS DEL FORMULARIO ===");
+    console.log("Datos completos:", data);
 
-      // Mostrar loading
-      const submitButton = this.querySelector('button[type="submit"]');
-      const originalText = submitButton ? submitButton.textContent : "";
-      if (submitButton) {
-        submitButton.disabled = true;
-        submitButton.textContent = "Enviando...";
-      }
+    // Mostrar loading
+    const submitButton = this.querySelector('button[type="submit"]');
+    const originalText = submitButton ? submitButton.textContent : "";
+    if (submitButton) {
+      submitButton.disabled = true;
+      submitButton.textContent = "Enviando...";
+    }
 
-      const apiUrl = "https://intranet.universidad-une.com/api/createleads";
+    const apiUrl = "https://intranet.universidad-une.com/api/createleads";
 
+    try {
       const response = await fetch(apiUrl, {
         method: "POST",
         headers: {
@@ -663,11 +664,57 @@ import { programasEducativos } from "@helpers/estructura_educativa.js";
         body: JSON.stringify(data),
       });
 
-      console.log(response);
-      console.log("Datos header")
+      console.log("=== RESPUESTA DEL SERVIDOR ===");
+      console.log("Status:", response.status);
+      console.log("Headers:", response.headers);
 
-    });
-  }
+      if (response.ok) {
+        const result = await response.json();
+        console.log("✅ Respuesta exitosa:", result);
+        
+        // Verificar si el servidor confirmó éxito
+        if (result.status === "success") {
+          // Mostrar mensaje de éxito
+          alert(`¡Gracias! Tu mensaje fue enviado correctamente. Lead ID: ${result.lead_id}`);
+          
+          // Opcional: limpiar formulario
+          this.reset();
+          
+          // Opcional: redirigir o mostrar contenido de agradecimiento
+          // window.location.href = "/gracias";
+        } else {
+          // El servidor respondió pero indicó error
+          console.warn("⚠️ Servidor reportó error:", result.message);
+          alert("Hubo un problema al enviar tu mensaje. Por favor intenta nuevamente.");
+        }
+      } else {
+        // Error HTTP (4xx, 5xx)
+        console.error("❌ Error HTTP:", response.status, response.statusText);
+        
+        // Intentar leer mensaje de error del servidor
+        try {
+          const errorData = await response.json();
+          console.error("Detalles del error:", errorData);
+        } catch (parseError) {
+          console.error("No se pudo parsear respuesta de error");
+        }
+        
+        alert("Error del servidor. Por favor intenta más tarde.");
+      }
+
+    } catch (error) {
+      // Error de red o conexión
+      console.error("❌ Error de conexión:", error);
+      alert("Error de conexión. Verifica tu internet e intenta nuevamente.");
+    } finally {
+      // Restaurar botón siempre
+      if (submitButton) {
+        submitButton.disabled = false;
+        submitButton.textContent = originalText;
+      }
+    }
+  });
+}
 
   // Event delegation para radio buttons de modalidad
   if (modalidadOptions) {
