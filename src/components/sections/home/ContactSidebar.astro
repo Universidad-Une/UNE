@@ -1,0 +1,245 @@
+---
+// ContactSidebar.astro
+interface Props {
+  whatsappNumber?: string;
+  phoneNumber?: string;
+  email?: string;
+}
+
+const {
+  whatsappNumber = "521234567890", // Formato internacional sin +
+  phoneNumber = "tel:+521234567890",
+  email = "contacto@une.edu.mx"
+} = Astro.props;
+
+const whatsappMessage = encodeURIComponent("Hola, me interesa obtener más información sobre los programas académicos de UNE.");
+---
+
+<aside class="contact-sidebar" aria-label="Contacto rápido">
+  <div class="contact-buttons">
+  {/* WhatsApp */}
+  <a
+    href="https://wa.me/3380000863?text=Hola,%20visit%C3%A9%20su%20sitio%20web%20y%20me%20gustar%C3%ADa%20recibir%20informaci%C3%B3n%20sobre%20las%20carreras%20y%20programas%20que%20ofrecen.%20%C2%BFPodr%C3%ADan%20ayudarme?"
+    target="_blank"
+    rel="noopener noreferrer"
+    class="contact-btn whatsapp-btn"
+    title="Enviar WhatsApp"
+    aria-label="Contactar por WhatsApp"
+  >
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.893 3.386"/>
+    </svg>
+    <span class="btn-text">WhatsApp</span>
+  </a>
+
+  {/* Teléfono */}
+  <a
+    href="tel:+523380000863"
+    class="contact-btn phone-btn"
+    title="Llamar por teléfono"
+    aria-label="Llamar por teléfono"
+  >
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+    </svg>
+    <span class="btn-text">Teléfono</span>
+  </a>
+
+  {/* Email */}
+  <a
+    href="mailto:informes@universidad-une.com"
+    class="contact-btn email-btn"
+    title="Enviar correo electrónico"
+    aria-label="Enviar correo electrónico"
+  >
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+    </svg>
+    <span class="btn-text">Email</span>
+  </a>
+</div>
+</aside>
+
+<style>
+.contact-sidebar {
+  position: fixed;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  z-index: 1000;
+  pointer-events: none;
+}
+
+.contact-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  pointer-events: auto;
+}
+
+.contact-btn {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 60px;
+  height: 60px;
+  border-radius: 30px 0 0 30px;
+  color: white;
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: -2px 2px 12px rgba(0, 0, 0, 0.15);
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+  padding-left: 18px;
+  margin-left: 0;
+}
+
+.contact-btn:hover {
+  width: 180px;
+  margin-left: -120px;
+  box-shadow: -4px 4px 20px rgba(0, 0, 0, 0.25);
+}
+
+.contact-btn svg {
+  flex-shrink: 0;
+  z-index: 2;
+  position: relative;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-text {
+  margin-left: 16px;
+  font-size: 14px;
+  font-weight: 600;
+  opacity: 0;
+  transform: translateX(-10px);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  white-space: nowrap;
+  z-index: 2;
+}
+
+.contact-btn:hover .btn-text {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Colores específicos */
+.whatsapp-btn {
+  background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+}
+
+.whatsapp-btn:hover {
+  background: linear-gradient(135deg, #25D366 0%, #075E54 100%);
+}
+
+.phone-btn {
+  background: linear-gradient(135deg, #2196F3 0%, #1976D2 100%);
+}
+
+.phone-btn:hover {
+  background: linear-gradient(135deg, #2196F3 0%, #0D47A1 100%);
+}
+
+.email-btn {
+  background: linear-gradient(135deg, #FF5722 0%, #D84315 100%);
+}
+
+.email-btn:hover {
+  background: linear-gradient(135deg, #FF5722 0%, #BF360C 100%);
+}
+
+/* Animación de entrada */
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%) translateY(-50%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0) translateY(-50%);
+    opacity: 1;
+  }
+}
+
+.contact-sidebar {
+  animation: slideInRight 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.contact-btn:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.contact-btn:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.contact-btn:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .contact-sidebar {
+    right: 0;
+    top: auto;
+    bottom: 100px;
+    transform: none;
+  }
+  
+  .contact-buttons {
+    gap: 12px;
+  }
+  
+  .contact-btn {
+    width: 50px;
+    height: 50px;
+    border-radius: 25px 0 0 25px;
+    padding-left: 15px;
+  }
+  
+  .contact-btn svg {
+    width: 20px;
+    height: 20px;
+  }
+  
+  .contact-btn:hover {
+    width: 150px;
+    margin-left: -100px;
+  }
+  
+  .btn-text {
+    margin-left: 12px;
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-btn:hover {
+    width: 120px;
+    margin-left: -70px;
+  }
+  
+  .btn-text {
+    margin-left: 10px;
+    font-size: 12px;
+  }
+}
+
+/* Estados de accesibilidad */
+.contact-btn:focus {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}
+
+.contact-btn:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}
+
+/* Ocultar en pantallas muy pequeñas si es necesario */
+@media (max-width: 360px) {
+  .contact-sidebar {
+    display: none;
+  }
+}
+</style>

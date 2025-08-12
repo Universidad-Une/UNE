@@ -83,10 +83,10 @@ export const planteles = [
   },
   {
     id: "13",
-    nombre: "Basquetbol",
+    nombre: "Básquetbol",
     codigo: "00015",
     direccion:
-      "Entrenamientos de basquetbol, fundamentos del juego y participación en ligas deportivas",
+      "Entrenamientos de Básquetbol, fundamentos del juego y participación en ligas deportivas",
     ciudad: "Tlajomulco",
     url: "/Vivetuuniversidad/Actividades/Futbol",
     imagen: "/Images/VTU/Cards/Basketball.webp",

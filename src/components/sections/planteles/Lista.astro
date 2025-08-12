@@ -26,9 +26,12 @@ const planteles = [
     id: "7",
     nombre: "Centro",
     codigo: "00015",
-    direccion: "Av. República No.10 Col. San Juan de Dios, Guadalajara, Jalisco",
+    direccion:
+      "Av. República No.10 Col. San Juan de Dios, Guadalajara, Jalisco",
     ciudad: "Guadalajara ZMG",
     url: "/planteles/centro",
+    celular: "3380000863",
+    whatsapp: "3380000823",
     imagen: CentroImg,
     lat: 20.67744801539995,
     lon: -103.34031672627513,
@@ -37,9 +40,12 @@ const planteles = [
     id: "8",
     nombre: "Centro Médico",
     codigo: "00016",
-    direccion: "José María Lozano #1077 Col. Belisario Domínguez Guadalajara, Jalisco",
+    direccion:
+      "José María Lozano #1077 Col. Belisario Domínguez Guadalajara, Jalisco",
     ciudad: "Guadalajara ZMG",
     url: "/planteles/centro-medico",
+    celular: "3380000863",
+    whatsapp: "3380000825",
     imagen: CentroMedicoImg,
     lat: 20.684590788642307,
     lon: -103.3256397932448,
@@ -51,6 +57,8 @@ const planteles = [
     direccion: "Carretera a Tepic No. 5657 Col. las Juntas C.P 48291",
     ciudad: "Puerto Vallarta",
     url: "/planteles/campus-puerto-vallarta",
+    celular: "3380000837",
+    whatsapp: "3221180436",
     imagen: CampusPuertoVallartaImg,
     lat: 20.69715126066295,
     lon: -105.23759816941552,
@@ -62,6 +70,8 @@ const planteles = [
     direccion: "Av. Vallarta #1458 Col. Americana Guadalajara, Jalisco",
     ciudad: "Guadalajara ZMG",
     url: "/planteles/chapultepec",
+    celular: "3380000863",
+    whatsapp: "3380000832",
     imagen: ChapultepecImg,
     lat: 20.67471004174908,
     lon: -103.36909119392195,
@@ -73,40 +83,50 @@ const planteles = [
     direccion: "Av. México #1255, Col. Agua Zarca, Puerto Vallarta, Jalisco",
     ciudad: "Puerto Vallarta",
     url: "/planteles/avenida-mexico",
+    celular: "3380000837",
+    whatsapp: "3222324470",
     imagen: PuertoVallartaImg,
     lat: 20.669418,
     lon: -105.226917,
   },
   {
-  id: "20",
-  nombre: "Las juntas",
-  codigo: "00022", // ✅ Agregar código
-  direccion: "Francisco Murguía #523 Col. Las Juntas Puerto Vallarta, Jalisco",
-  ciudad: "Puerto Vallarta", // ✅ Corregir ciudad
-  url: "/planteles/las-juntas",
-  imagen: Juntas,
-  lat: 20.696982077577214,
-  lon: -105.23748669247418,
-},
+    id: "20",
+    nombre: "Las juntas",
+    codigo: "00022",
+    direccion:
+      "Francisco Murguía #523 Col. Las Juntas Puerto Vallarta, Jalisco",
+    ciudad: "Puerto Vallarta",
+    url: "/planteles/las-juntas",
+    celular: "3221003288",
+    whatsapp: "3221003288",
+    imagen: Juntas,
+    lat: 20.696982077577214,
+    lon: -105.23748669247418,
+  },
   {
     id: "9",
     nombre: "Milenio",
     codigo: "00017",
-    direccion: "Av. Adolfo López Mateos Sur 4154, La Giralda, 45088 Zapopan, Jal",
+    direccion:
+      "Av. Adolfo López Mateos Sur 4154, La Giralda, 45088 Zapopan, Jal",
     ciudad: "Guadalajara ZMG",
     url: "/planteles/milenio",
+    celular: "3380000863",
+    whatsapp: "3380000828",
     imagen: MilenioImg,
     lat: 20.64540739939039,
     lon: -103.40630313415286,
   },
   {
     id: "10",
-    nombre: "Plaza Caracol",
+    nombre: "Caracol",
     codigo: "00018",
     direccion:
       "Av. Francisco Medina Ascencio #2190, Plaza Caracol, Puerto Vallarta, Jalisco",
     ciudad: "Puerto Vallarta",
     url: "/planteles/caracol",
+    celular: "3222934739",
+    whatsapp: "3221098023",
     imagen: CaracolImg,
     lat: 20.639287162026815,
     lon: -105.23323589513319,
@@ -118,6 +138,8 @@ const planteles = [
     direccion: "Chimalhuacán #6, Col. Ciudad del Sol, Guadalajara, Jalisco",
     ciudad: "Guadalajara ZMG",
     url: "/planteles/plaza-del-sol",
+    celular: "3380000863",
+    whatsapp: "3380000829",
     imagen: PlazaSolImg,
     lat: 20.651805,
     lon: -103.402918,
@@ -126,9 +148,12 @@ const planteles = [
     id: "11",
     nombre: "Tepatitlán",
     codigo: "00019",
-    direccion: "Col. Alameda. Av. Matamoros #505, Tepatitlán de Morelos, Jalisco",
+    direccion:
+      "Col. Alameda. Av. Matamoros #505, Tepatitlán de Morelos, Jalisco",
     ciudad: "Tepatitlán de Morelos",
     url: "/planteles/tepatitlan",
+    celular: "3380000863",
+    whatsapp: "3781851785",
     imagen: TepatitlanImg,
     lat: 20.8062946507024,
     lon: -102.76382902869392,
@@ -141,6 +166,8 @@ const planteles = [
       "Av. Juan Gil Preciado #3897, Col. Hogares de Nuevo México, Zapopan, Jalisco",
     ciudad: "Guadalajara ZMG",
     url: "/planteles/tesistan",
+    celular: "3380000863",
+    whatsapp: "3380000836",
     imagen: TesistanImg,
     lat: 20.806203,
     lon: -102.763903,
@@ -153,6 +180,8 @@ const planteles = [
       "Av. López Mateos #10100, Col. Los Gavilanes Poniente, Tlajomulco de Zúñiga, Jalisco",
     ciudad: "Guadalajara ZMG",
     url: "/planteles/tlajomulco",
+    celular: "3380000863",
+    whatsapp: "3380000834",
     imagen: TlajomulcoImg,
     lat: 20.576464164603113,
     lon: -103.45243680650722,
@@ -165,6 +194,8 @@ const planteles = [
       "Blvd. Marcelino García Barragán #2056, Col. Bosques del Boulevard, Tlaquepaque, Jalisco",
     ciudad: "Guadalajara ZMG",
     url: "/planteles/tlaquepaque",
+    celular: "3380000863",
+    whatsapp: "3380000833",
     imagen: TlaquepaqueImg,
     lat: 20.645650028567157,
     lon: -103.32094530771215,
@@ -176,6 +207,8 @@ const planteles = [
     direccion: "Av. Tonaltecas #333, Col. Agua Escondida, Tonalá, Jalisco",
     ciudad: "Guadalajara ZMG",
     url: "/planteles/tonala",
+    celular: "3380000863",
+    whatsapp: "3380000835",
     imagen: TonalaImg,
     lat: 20.63176692188573,
     lon: -103.24439406488241,
@@ -187,6 +220,8 @@ const planteles = [
     direccion: "Av. López Mateos Sur #4175 Col. La Giralda Zapopan, Jalisco",
     ciudad: "Guadalajara ZMG",
     url: "/planteles/torre-une-milenio",
+    celular: "3380000863",
+    whatsapp: "3380000831",
     imagen: TorreMilenioImg,
     lat: 20.645336,
     lon: -103.405938,
@@ -198,6 +233,8 @@ const planteles = [
     direccion: "Chimalhuacán #3569 Col. Ciudad del Sol Zapopan, Jalisco",
     ciudad: "Guadalajara ZMG",
     url: "/planteles/torre-quetzal",
+    celular: "3380000863",
+    whatsapp: "3380000830",
     imagen: TorreQuetzalImg,
     lat: 20.651860618451966,
     lon: -103.40329340052432,
@@ -209,6 +246,8 @@ const planteles = [
     direccion: "Plaza Caudillos Zapopan, Jalisco",
     ciudad: "Guadalajara ZMG",
     url: "/planteles/zapopan",
+    celular: "3380000863",
+    whatsapp: "3380000846",
     imagen: ZapopanImg,
     lat: 20.720900646775917,
     lon: -103.38975281813357,
@@ -231,6 +270,8 @@ const {
 // Extraer ciudades únicas de los planteles
 const ciudadesDisponibles = [...new Set(planteles.map((p) => p.ciudad))];
 ---
+
+
 <div class="w-full mx-auto py-6 px-4 sm:px-6 md:px-12">
   <div class="flex justify-between items-center mb-8 flex-wrap gap-4">
     <div>
@@ -291,12 +332,13 @@ const ciudadesDisponibles = [...new Set(planteles.map((p) => p.ciudad))];
           id="clear-search-btn"
           class="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600 opacity-0 transition-opacity"
           type="button"
-          aria-label="Limpiar búsqueda" 
-          title="Limpiar búsqueda">
+          aria-label="Limpiar búsqueda"
+          title="Limpiar búsqueda"
+        >
           <X class="w-4 h-4" />
         </button>
       </div>
-      
+
       <!-- Dropdown de autocomplete -->
       <div
         id="autocomplete-dropdown"
@@ -304,7 +346,7 @@ const ciudadesDisponibles = [...new Set(planteles.map((p) => p.ciudad))];
       >
         <!-- Las sugerencias se insertan aquí dinámicamente -->
       </div>
-      
+
       <div
         id="no-results-message"
         class="hidden text-center text-gray-500 text-sm mt-2"
@@ -316,8 +358,9 @@ const ciudadesDisponibles = [...new Set(planteles.map((p) => p.ciudad))];
     <button
       class="ciudad-tab px-4 py-2 rounded-full text-sm font-medium transition-colors bg-blue-600 text-white"
       data-ciudad-tab="todos"
-      aria-label="Todos" 
-      title="Todos">
+      aria-label="Todos"
+      title="Todos"
+    >
       Todos
     </button>
     {
@@ -340,7 +383,7 @@ const ciudadesDisponibles = [...new Set(planteles.map((p) => p.ciudad))];
     {
       planteles.map((plantel) => (
         <div
-          class="bg-white max-w-[550px] rounded-3xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 campus-card"
+          class="bg-white max-w-[550px] rounded-3xl shadow-lg overflow-hidden hover:shadow-xl hover:-translate-y-2 transition-all duration-300 campus-card relative"
           data-ciudad-card={plantel.ciudad}
           data-plantel-id={plantel.id}
           data-plantel-nombre={plantel.nombre.toLowerCase()}
@@ -378,7 +421,7 @@ const ciudadesDisponibles = [...new Set(planteles.map((p) => p.ciudad))];
                 </p>
               </div>
 
-              <div class="">
+              <div class="flex justify-between items-end">
                 <a
                   href={plantel.url}
                   class="group relative max-w-52 py-2 text-sm font-medium text-rojo-une 
@@ -393,6 +436,44 @@ const ciudadesDisponibles = [...new Set(planteles.map((p) => p.ciudad))];
            group-hover:-translate-y-full"
                   />
                 </a>
+
+                <!-- Iconos en la parte inferior derecha -->
+                <div class="flex gap-2">
+                  <button
+                    class="p-2 rounded-full bg-gray-100 hover:bg-gray-200 transition-colors"
+                    onclick={`window.open('https://www.google.com/maps?q=${plantel.lat},${plantel.lon}', '_blank')`}
+                    title="Ver en Google Maps"
+                    aria-label="Ver en Google Maps"
+                  >
+                    <svg class="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                    </svg>
+                  </button>
+                  
+                  <a
+                    href={`tel:${plantel.celular}`}
+                    class="p-2 rounded-full bg-blue-100 hover:bg-blue-200 transition-colors"
+                    title={`Llamar al ${plantel.celular}`}
+                    aria-label={`Llamar al ${plantel.celular}`}
+                  >
+                    <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+                    </svg>
+                  </a>
+                  
+                  <a
+                    href={`https://wa.me/52${plantel.whatsapp}?text=Hola,%20visité%20la%20página%20web%20y%20me%20interesó%20el%20plantel%20${encodeURIComponent(plantel.nombre)}`}
+                    target="_blank"
+                    class="p-2 rounded-full bg-green-100 hover:bg-green-200 transition-colors"
+                    title="Contactar por WhatsApp"
+                    aria-label="Contactar por WhatsApp"
+                  >
+                    <svg class="w-5 h-5 text-green-600" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.485 3.587"/>
+                    </svg>
+                  </a>
+                </div>
               </div>
             </div>
           </div>
@@ -409,7 +490,7 @@ const ciudadesDisponibles = [...new Set(planteles.map((p) => p.ciudad))];
           planteles.map((plantel) => (
             <li class="splide__slide">
               <div
-                class="bg-white rounded-3xl shadow-lg overflow-hidden transition-all duration-300 campus-card h-full"
+                class="bg-white rounded-3xl shadow-lg overflow-hidden hover:shadow-xl hover:-translate-y-2 transition-all duration-300 campus-card h-full relative"
                 data-ciudad-card={plantel.ciudad}
                 data-plantel-id={plantel.id}
                 data-plantel-nombre={plantel.nombre.toLowerCase()}
@@ -457,13 +538,51 @@ const ciudadesDisponibles = [...new Set(planteles.map((p) => p.ciudad))];
                     <p class="text-gray-600 text-sm mb-4 leading-relaxed">
                       {plantel.direccion}
                     </p>
-                    <div class="flex flex-col justify-center items-center gap-3">
+                    <div class="flex justify-between items-center gap-3">
                       <a
                         href={plantel.url}
                         class="bg-rojo-une text-white px-4 py-2 rounded text-sm font-medium hover:bg-red-700 transition-colors"
                       >
                         CONOCE EL PLANTEL
                       </a>
+                      
+                      <!-- Iconos para mobile -->
+                      <div class="flex gap-2">
+                        <button
+                          class="p-2 rounded-full bg-gray-100 hover:bg-gray-200 transition-colors"
+                          onclick={`window.open('https://www.google.com/maps?q=${plantel.lat},${plantel.lon}', '_blank')`}
+                          title="Ver en Google Maps"
+                          aria-label="Ver en Google Maps"
+                        >
+                          <svg class="w-4 h-4 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                          </svg>
+                        </button>
+                        
+                        <a
+                          href={`tel:${plantel.celular}`}
+                          class="p-2 rounded-full bg-blue-100 hover:bg-blue-200 transition-colors"
+                          title={`Llamar al ${plantel.celular}`}
+                          aria-label={`Llamar al ${plantel.celular}`}
+                        >
+                          <svg class="w-4 h-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+                          </svg>
+                        </a>
+                        
+                        <a
+                          href={`https://wa.me/52${plantel.whatsapp}?text=Hola,%20visité%20la%20página%20web%20y%20me%20interesó%20el%20plantel%20${encodeURIComponent(plantel.nombre)}`}
+                          target="_blank"
+                          class="p-2 rounded-full bg-green-100 hover:bg-green-200 transition-colors"
+                          title="Contactar por WhatsApp"
+                          aria-label="Contactar por WhatsApp"
+                        >
+                          <svg class="w-4 h-4 text-green-600" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.485 3.587"/>
+                          </svg>
+                        </a>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -475,8 +594,6 @@ const ciudadesDisponibles = [...new Set(planteles.map((p) => p.ciudad))];
     </div>
   </div>
 </div>
-
-
 <script>
   import Splide from "@splidejs/splide";
   import "@splidejs/splide/dist/css/splide.min.css";
@@ -487,7 +604,7 @@ const ciudadesDisponibles = [...new Set(planteles.map((p) => p.ciudad))];
     // Asumiendo que las props están disponibles en el contexto de Astro
     const planteles = window.plantelesData || [];
     const placeholder = window.placeholderText || "Buscar plantel...";
-    
+
     let splideInstance = null;
     let selectedIndex = -1; // Para navegación con teclado
 
@@ -507,7 +624,7 @@ const ciudadesDisponibles = [...new Set(planteles.map((p) => p.ciudad))];
         pauseOnFocus: true,
         resetProgress: false,
         speed: 800,
-        easing: 'cubic-bezier(0.25, 1, 0.5, 1)',
+        easing: "cubic-bezier(0.25, 1, 0.5, 1)",
       }).mount();
     }
 
@@ -516,7 +633,7 @@ const ciudadesDisponibles = [...new Set(planteles.map((p) => p.ciudad))];
     const clearButton = document.getElementById("clear-search-btn");
     const dropdown = document.getElementById("autocomplete-dropdown");
     const noResultsMessage = document.getElementById("no-results-message");
-    
+
     if (!searchInput || !clearButton || !dropdown || !noResultsMessage) {
       console.warn("Algunos elementos del DOM no se encontraron");
       return;
@@ -1075,24 +1192,21 @@ const ciudadesDisponibles = [...new Set(planteles.map((p) => p.ciudad))];
   });
 </script>
 
-
 <style>
-  
-
   .highlight-card {
     box-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
     transform: scale(1.02);
   }
-  
+
   .highlight-text {
     background-color: #fef3c7;
     font-weight: 600;
   }
-  
+
   .autocomplete-item.selected {
     background-color: #f3f4f6;
   }
-  
+
   .autocomplete-item:hover {
     background-color: #f9fafb;
     cursor: pointer;

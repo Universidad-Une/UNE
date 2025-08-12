@@ -15,6 +15,7 @@ import DentroUNE from "@/components/sections/home/DentroUNE.astro";
 import Blog from "@/components/sections/home/Blog.astro";
 import Frecuents from "@/components/sections/shared/Faq.astro";
 import GeneralCTA from "@/components/sections/shared/GeneralCTA.astro";
+import ContactSidebar from "@/components/sections/home/ContactSidebar.astro";
 
 const pageTitle = "UNE - 30 Años Creyendo en Ti";
 const pageDescription = "Universidad UNE - 30 años de excelencia educativa";
@@ -31,15 +32,19 @@ const pageDescription = "Universidad UNE - 30 años de excelencia educativa";
     <Tabs />
     <CallAction />
     <SobreUNE />
-    <Estadisticas/>
+    <Estadisticas />
     <DescubreUNE />
     <DentroUNE />
     <Blog />
     <Frecuents />
     <GeneralCTA />
+    <ContactSidebar
+      whatsappNumber="521234567890"
+      phoneNumber="tel:+521234567890"
+      email="contacto@une.edu.mx"
+    />
   </main>
 </Layout>
-
 
 <script>
   // Script minimalista - solo manejo de visibilidad
