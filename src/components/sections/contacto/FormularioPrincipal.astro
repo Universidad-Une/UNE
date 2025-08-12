@@ -622,85 +622,105 @@ import { programasEducativos } from "@helpers/estructura_educativa.js";
     });
   }
 
-  // Event listener para envío del formulario (MODIFICADO)
-// Event listener para envío del formulario (CORREGIDO)
-// Event listener para envío del formulario (CORREGIDO)
-if (form) {
-  form.addEventListener("submit", async function (e) {
-    e.preventDefault();
+  // Envio de form
+  if (form) {
+    form.addEventListener("submit", async function (e) {
+      e.preventDefault();
 
-    const formData = new FormData(this);
+      const formData = new FormData(this);
+      // Crear objeto con las propiedades específicas que necesitas
+      const data = {
+        nombre: formData.get("nombre") || "",
+        apellido_p: formData.get("apellido_p") || "",
+        apellido_m: formData.get("apellido_m") || "",
+        correo: formData.get("correo") || "",
+        telefono: formData.get("telefono") || "",
+        nivel_educativo: formData.get("nivelEducativo") || "",
+        plantel_interes: formData.get("plantelInteres") || "",
+        programa_interes: formData.get("programaInteres") || "",
+        modalidad: formData.get("modalidad") || "",
+      };
 
-    // Crear objeto con las propiedades específicas que necesitas
-    const data = {
-      nombre: formData.get("nombre") || "",
-      apellido_p: formData.get("apellido_p") || "",
-      apellido_m: formData.get("apellido_m") || "",
-      correo: formData.get("correo") || "",
-      telefono: formData.get("telefono") || "",
-      nivel_educativo: formData.get("nivelEducativo") || "",
-      plantel_interes: formData.get("plantelInteres") || "",
-      programa_interes: formData.get("programaInteres") || "",
-      modalidad: formData.get("modalidad") || ""
-    };
+      console.log("=== DATOS DEL FORMULARIO ===");
+      console.log("Datos completos:", data);
 
-    // Validación adicional para campos requeridos
-    if (!data.nivel_educativo) {
-      alert("Por favor selecciona un nivel educativo");
-      return;
-    }
-    
-    if (!data.plantel_interes) {
-      alert("Por favor selecciona un plantel de interés");
-      return;
-    }
-
-    console.log("=== DATOS DEL FORMULARIO ===");
-    console.log("Datos completos:", data);
-
-    // Mostrar loading/spinner
-    const submitButton = this.querySelector('button[type="submit"]');
-    const originalText = submitButton ? submitButton.textContent : "";
-    if (submitButton) {
-      submitButton.disabled = true;
-      submitButton.textContent = "Enviando...";
-    }
-
-    try {
-      const apiUrl = "https://intranet.universidad-une.com/api/v2/custom/une_create_crm";
-      
-      // Usar modo no-cors para evitar problemas de CORS
-      const response = await fetch(apiUrl, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data),
-        mode: "no-cors" // Esto permite enviar sin restricciones CORS
-      });
-
-      // En modo no-cors, response.type será "opaque" y no podemos leer el contenido
-      // pero sabemos que se envió si no hay error de red
-      console.log("✅ Datos enviados (modo no-cors)");
-      console.log("Response type:", response.type);
-      
-      // Mostrar éxito ya que sabemos que el API responde correctamente
-      alert("Formulario enviado correctamente");
-      this.reset(); // Limpiar el formulario
-      resetDependentFields("area"); // Resetear campos dependientes
-      
-    } catch (error) {
-      console.error("❌ Error de red:", error);
-      alert("Error de conexión. Por favor, verifica tu internet e inténtalo de nuevo.");
-    } finally {
-      // Restaurar botón
+      // Mostrar loading
+      const submitButton = this.querySelector('button[type="submit"]');
+      const originalText = submitButton ? submitButton.textContent : "";
       if (submitButton) {
-        submitButton.disabled = false;
-        submitButton.textContent = originalText;
+        submitButton.disabled = true;
+        submitButton.textContent = "Enviando...";
       }
-    }
-  });
-}
+
+      try {
+        const apiUrl =
+          "https://intranet.universidad-une.com/api/v2/custom/une_create_crm";
+
+        const response = await fetch(apiUrl, {
+          method: "POST",
+          
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(data),
+        });
+
+        console.log("=== RESPUESTA DEL SERVIDOR ===");
+        console.log("Status:", response.status);
+        console.log("Status Text:", response.statusText);
+        console.log("Headers:", response.headers);
+
+        // Intentar leer la respuesta como texto
+        const responseText = await response.text();
+        console.log("Response Body (text):", responseText);
+
+        // Intentar parsear como JSON si es posible
+        try {
+          const responseJson = JSON.parse(responseText);
+          console.log("Response Body (JSON):", responseJson);
+        } catch (jsonError) {
+          console.log("No es JSON válido:", jsonError.message);
+        }
+
+        if (response.ok) {
+          console.log("✅ Datos enviados correctamente");
+          alert("Formulario enviado correctamente");
+          this.reset();
+          resetDependentFields("area");
+        } else {
+          console.error(
+            "❌ Error del servidor:",
+            response.status,
+            response.statusText
+          );
+          alert(
+            `Error del servidor: ${response.status} - ${response.statusText}`
+          );
+        }
+      } catch (error) {
+        console.error("❌ Error de red o CORS:", error);
+        console.error("Tipo de error:", error.constructor.name);
+        console.error("Mensaje:", error.message);
+
+        // El error CORS impide leer la respuesta, pero la solicitud sí llega al servidor
+        if (error.message.includes("fetch")) {
+          alert(
+            "Hay un problema de configuración CORS, pero es posible que los datos se hayan enviado. Revisa con el administrador del sistema."
+          );
+        } else {
+          alert(
+            "Error al enviar el formulario. Por favor, inténtalo de nuevo."
+          );
+        }
+      } finally {
+        // Restaurar botón
+        if (submitButton) {
+          submitButton.disabled = false;
+          submitButton.textContent = originalText;
+        }
+      }
+    });
+  }
 
   // Event delegation para radio buttons de modalidad
   if (modalidadOptions) {
