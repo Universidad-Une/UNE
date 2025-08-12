@@ -639,6 +639,7 @@ import { programasEducativos } from "@helpers/estructura_educativa.js";
         plantel_interes: formData.get("plantelInteres") || "",
         programa_interes: formData.get("programaInteres") || "",
         modalidad: formData.get("modalidad") || "",
+        medio: "Página web",
       };
 
       console.log("=== DATOS DEL FORMULARIO ===");
@@ -656,7 +657,6 @@ import { programasEducativos } from "@helpers/estructura_educativa.js";
 
       const response = await fetch(apiUrl, {
         method: "POST",
-        mode: "no-cors", 
         headers: {
           "Content-Type": "application/json",
         },
