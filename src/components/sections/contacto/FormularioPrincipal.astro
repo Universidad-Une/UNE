@@ -652,58 +652,20 @@ import { programasEducativos } from "@helpers/estructura_educativa.js";
         submitButton.textContent = "Enviando...";
       }
 
-      try {
-        const apiUrl =
-          "https://intranet.universidad-une.com/api/createleads";
+      const apiUrl = "https://intranet.universidad-une.com/api/createleads";
 
-        const response = await fetch(apiUrl, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(data),
-        });
+      const response = await fetch(apiUrl, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
 
-       
-       console.log(response)
+      console.log(response);
 
-        if (response.ok) {
-          console.log("✅ Datos enviados correctamente");
-          alert("Formulario enviado correctamente");
-          this.reset();
-          resetDependentFields("area");
-        } else {
-          console.error(
-            "❌ Error del servidor:",
-            response.status,
-            response.statusText
-          );
-          alert(
-            `Error del servidor: ${response.status} - ${response.statusText}`
-          );
-        }
-      } catch (error) {
-        console.error("❌ Error de red o CORS:", error);
-        console.error("Tipo de error:", error.constructor.name);
-        console.error("Mensaje:", error.message);
-
-        // El error CORS impide leer la respuesta, pero la solicitud sí llega al servidor
-        if (error.message.includes("fetch")) {
-          alert(
-            "Hay un problema de configuración CORS, pero es posible que los datos se hayan enviado. Revisa con el administrador del sistema."
-          );
-        } else {
-          alert(
-            "Error al enviar el formulario. Por favor, inténtalo de nuevo."
-          );
-        }
-      } finally {
-        // Restaurar botón
-        if (submitButton) {
-          submitButton.disabled = false;
-          submitButton.textContent = originalText;
-        }
-      }
+      console.error("Constructor:", error.constructor.name);
+      console.error("Mensaje:", error.message);
     });
   }
 
