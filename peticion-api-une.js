@@ -2,7 +2,7 @@ import https from 'https';
 import { URL } from 'url';
 
 // Configuración de la petición
-const apiUrl = 'https:/intranet.universidad-une.com/api/v2/custom/une_create_crm';
+const apiUrl = 'https:/www.universidad-une.com/api/createleads';
 const headers = {
     'Content-Type': 'application/json',
     'Authorization': 'Basic b3NjYXIubXVyb0B4bWFydHMuY29tOkxlZHhPc2Nhck11cm8='
