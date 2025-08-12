@@ -624,6 +624,7 @@ import { programasEducativos } from "@helpers/estructura_educativa.js";
 
   // Event listener para envío del formulario (MODIFICADO)
 // Event listener para envío del formulario (CORREGIDO)
+// Event listener para envío del formulario (CORREGIDO)
 if (form) {
   form.addEventListener("submit", async function (e) {
     e.preventDefault();
@@ -637,11 +638,22 @@ if (form) {
       apellido_m: formData.get("apellido_m") || "",
       correo: formData.get("correo") || "",
       telefono: formData.get("telefono") || "",
-      nivel_educativo: formData.get("nivelEducativo") || "", // CORREGIDO: era "nivel-educativo"
-      plantel_interes: formData.get("plantelInteres") || "", // CORREGIDO: era "plantel-interes" 
-      programa_interes: formData.get("programaInteres") || "", // CORREGIDO: era "programa-interes"
-      modalidad: formData.get("modalidad") || "",
+      nivel_educativo: formData.get("nivelEducativo") || "",
+      plantel_interes: formData.get("plantelInteres") || "",
+      programa_interes: formData.get("programaInteres") || "",
+      modalidad: formData.get("modalidad") || ""
     };
+
+    // Validación adicional para campos requeridos
+    if (!data.nivel_educativo) {
+      alert("Por favor selecciona un nivel educativo");
+      return;
+    }
+    
+    if (!data.plantel_interes) {
+      alert("Por favor selecciona un plantel de interés");
+      return;
+    }
 
     console.log("=== DATOS DEL FORMULARIO ===");
     console.log("Datos completos:", data);
