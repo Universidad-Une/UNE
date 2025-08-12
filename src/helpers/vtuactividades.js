@@ -1,4 +1,4 @@
-export const planteles = [
+export const actividades = [
   {
     id: "1",
     nombre: "Fútbol",
@@ -321,7 +321,7 @@ export const planteles = [
       "Curso de álgebra básica, resolución de ecuaciones y fundamentos matemáticos",
     ciudad: "Tonalá",
     url: "/Vivetuuniversidad/Actividades/Futbol",
-    imagen: "/Images/VTU/Cards/Programacion.webp",
+    imagen: "/Images/VTU/Cards/Baldor.jpg",
   },
   
   {

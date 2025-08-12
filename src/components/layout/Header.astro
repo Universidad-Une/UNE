@@ -9,7 +9,7 @@ import VTU from "@logos/VTU_blanco.webp";
 // Configuración de datos
 const topBarLinks = [
   { href: "https://www.une-enlinea.com/", img: UNE_enlinea, alt: "UNE en línea" },
-  { href: "/Vivetuuniversidad/General", img: VTU, alt: "Vive tu Universidad" },
+  { href: "/Vivetuuniversidad/", img: VTU, alt: "Vive tu Universidad" },
   { href: "https://sites.google.com/universidad-une.com/enjoyenglish", img: Enjoy, alt: "Enjoy English" },
 ];
 
@@ -45,7 +45,7 @@ const navItems = [
     links: [
       { href: "/vidaestudiantil/General", title: "Comunidad UNE", desc: "Descubre todo lo que es UNE" },
        { href: "https://alumnado.universidad-une.com/login?_gl=1*dgyjqr*_gcl_aw*R0NMLjE3NDk4NzM1NzguQ2owS0NRandtS19DQmhDRUFSSXNBTUt3Y0Q2U2ZoNjJtX19nTm1Ebm9acE9QQ1FkRm5UWEpHOHktRTdpUXU4RXZHN2RIZGJOQXNDbmV3d2FBb0d5RUFMd193Y0I.*_gcl_au*NjE2NzUyMDY3LjE3NDczMjYxMDc.*_ga*NzE1MDMwOTMxLjE3NDczMjYxMDg.*_ga_0K62QWN6DM*czE3NTQ4MDM0MzIkbzE1MCRnMCR0MTc1NDgwMzQzMiRqNjAkbDAkaDA.", title: "Iniciar sesión", desc: "Accede a la plataforma de estudiantes" },
-      { href: "/Vivetuuniversidad/General", title: "Vive tu universidad", desc: "Actividades deportivas" },
+      { href: "/Vivetuuniversidad/", title: "Vive tu universidad", desc: "Actividades deportivas" },
       { href: "/blog/", title: "Blog", desc: "Descubre sobre nuevos temas." },
       { href: "/Orgulloune/General", title: "Orgullo UNE", desc: "Conoce los egresados más destacados" },
       { href: "/Vivetuuniversidad/Congresos", title: "Congresos UNE", desc: "Participa en eventos académicos y profesionales" },
@@ -143,11 +143,11 @@ function getGridCols(dropdownClass) {
 
       <!-- Desktop Navigation -->
       <nav class="hidden md:flex lg:space-x-4 items-center">
-        {navItems.map((item) => (
-          <div class="relative group">
-            <button class="flex items-center px-3 py-2 hover:text-red-600 font-bold transition-colors duration-200">
+        {navItems.map((item, index) => (
+          <div class="relative group" data-dropdown-index={index}>
+            <button class="flex items-center px-3 py-2 hover:text-red-600 font-bold transition-colors duration-200 dropdown-trigger">
               {item.label}
-              <ChevronDown size={16} class="ml-1 transform group-hover:rotate-180 transition-transform duration-200" />
+              <ChevronDown size={16} class="ml-1 transform group-hover:rotate-180 transition-transform duration-200 chevron-icon" />
             </button>
           </div>
         ))}
@@ -370,40 +370,122 @@ function getGridCols(dropdownClass) {
   mobileMenuButton?.addEventListener("click", () => toggleMenu(true));
   closeMenuButton?.addEventListener("click", () => toggleMenu(false));
 
-  // Desktop dropdown functionality
+  // Desktop dropdown functionality with click-to-pin
   const navItems = document.querySelectorAll("nav .group");
   const dropdowns = document.querySelectorAll(".dropdown-menu");
   const dropdownMap = ["admisiones-dropdown", "oferta-dropdown", "informacion-dropdown", "vida-dropdown", "nosotros-dropdown"];
+  
+  // Estado para trackear dropdowns abiertos por click
+  let pinnedDropdown = null;
+  let hoverTimeout = null;
+
+  function showDropdown(dropdown, trigger) {
+    clearTimeout(hoverTimeout);
+    
+    // Cerrar todos los otros dropdowns
+    dropdowns.forEach(d => {
+      if (d !== dropdown) {
+        d.classList.remove("opacity-100", "visible", "translate-y-0");
+        d.classList.add("opacity-0", "invisible", "translate-y-2");
+      }
+    });
+
+    // Mostrar el dropdown actual
+    dropdown.classList.remove("opacity-0", "invisible", "translate-y-2");
+    dropdown.classList.add("opacity-100", "visible", "translate-y-0");
+    
+    // Rotar el chevron
+    const chevron = trigger.querySelector(".chevron-icon");
+    if (chevron) {
+      chevron.style.transform = "rotate(180deg)";
+    }
+  }
+
+  function hideDropdown(dropdown, trigger, force = false) {
+    // Si el dropdown está pinned (abierto por click) y no es forzado, no cerrar
+    if (pinnedDropdown === dropdown && !force) {
+      return;
+    }
+
+    hoverTimeout = setTimeout(() => {
+      // Verificar nuevamente si no está pinned
+      if (pinnedDropdown === dropdown && !force) {
+        return;
+      }
+      
+      dropdown.classList.remove("opacity-100", "visible", "translate-y-0");
+      dropdown.classList.add("opacity-0", "invisible", "translate-y-2");
+      
+      // Restaurar el chevron
+      const chevron = trigger.querySelector(".chevron-icon");
+      if (chevron) {
+        chevron.style.transform = "rotate(0deg)";
+      }
+    }, 100);
+  }
+
+  function unpinDropdown(dropdown, trigger) {
+    if (pinnedDropdown === dropdown) {
+      pinnedDropdown = null;
+      // El dropdown se cerrará automáticamente si el mouse no está encima
+      hideDropdown(dropdown, trigger, false);
+    }
+  }
 
   navItems.forEach((item, index) => {
     const dropdown = document.querySelector(`.${dropdownMap[index]}`);
-    if (!dropdown) return;
+    const trigger = item.querySelector(".dropdown-trigger");
+    
+    if (!dropdown || !trigger) return;
 
-    let hoverTimeout;
-    const showDropdown = () => {
+    // Hover events
+    item.addEventListener("mouseenter", () => {
+      showDropdown(dropdown, trigger);
+    });
+
+    item.addEventListener("mouseleave", () => {
+      hideDropdown(dropdown, trigger);
+    });
+
+    dropdown.addEventListener("mouseenter", () => {
       clearTimeout(hoverTimeout);
-      dropdowns.forEach(d => {
-        const isCurrentDropdown = d === dropdown;
-        d.classList.toggle("opacity-100", isCurrentDropdown);
-        d.classList.toggle("visible", isCurrentDropdown);
-        d.classList.toggle("opacity-0", !isCurrentDropdown);
-        d.classList.toggle("invisible", !isCurrentDropdown);
-        d.classList.toggle("translate-y-0", isCurrentDropdown);
-        d.classList.toggle("translate-y-2", !isCurrentDropdown);
-      });
-    };
+    });
 
-    const hideDropdown = () => {
-      hoverTimeout = setTimeout(() => {
-        dropdown.classList.remove("opacity-100", "visible", "translate-y-0");
-        dropdown.classList.add("opacity-0", "invisible", "translate-y-2");
-      }, 100);
-    };
+    dropdown.addEventListener("mouseleave", () => {
+      hideDropdown(dropdown, trigger);
+    });
 
-    item.addEventListener("mouseenter", showDropdown);
-    item.addEventListener("mouseleave", hideDropdown);
-    dropdown.addEventListener("mouseenter", () => clearTimeout(hoverTimeout));
-    dropdown.addEventListener("mouseleave", hideDropdown);
+    // Click event para pin/unpin
+    trigger.addEventListener("click", (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      
+      if (pinnedDropdown === dropdown) {
+        // Si ya está pinned, despinnearlo
+        unpinDropdown(dropdown, trigger);
+      } else {
+        // Pinnearlo
+        pinnedDropdown = dropdown;
+        showDropdown(dropdown, trigger);
+      }
+    });
+  });
+
+  // Cerrar dropdown pinned al hacer click fuera
+  document.addEventListener("click", (e) => {
+    if (pinnedDropdown) {
+      // Verificar si el click fue fuera del dropdown y su trigger
+      const isInsideDropdown = pinnedDropdown.contains(e.target);
+      const isInsideTrigger = Array.from(navItems).some(item => 
+        item.contains(e.target)
+      );
+      
+      if (!isInsideDropdown && !isInsideTrigger) {
+        const index = Array.from(dropdowns).indexOf(pinnedDropdown);
+        const trigger = document.querySelector(`nav .group[data-dropdown-index="${index}"] .dropdown-trigger`);
+        unpinDropdown(pinnedDropdown, trigger);
+      }
+    }
   });
 
   // Mobile submenu functionality
@@ -420,6 +502,15 @@ function getGridCols(dropdownClass) {
   document.addEventListener("keydown", e => {
     if (e.key === "Escape") {
       toggleMenu(false);
+      
+      // Cerrar dropdown pinned
+      if (pinnedDropdown) {
+        const index = Array.from(dropdowns).indexOf(pinnedDropdown);
+        const trigger = document.querySelector(`nav .group[data-dropdown-index="${index}"] .dropdown-trigger`);
+        unpinDropdown(pinnedDropdown, trigger);
+      }
+      
+      // Cerrar todos los dropdowns
       dropdowns.forEach(dropdown => {
         dropdown.classList.remove("opacity-100", "visible", "translate-y-0");
         dropdown.classList.add("opacity-0", "invisible", "translate-y-2");
@@ -444,5 +535,15 @@ function getGridCols(dropdownClass) {
 
   .dropdown-menu.translate-y-2 {
     transform: translateY(8px);
+  }
+
+  /* Añadir cursor pointer a los triggers */
+  .dropdown-trigger {
+    cursor: pointer;
+  }
+
+  /* Transición suave para el chevron */
+  .chevron-icon {
+    transition: transform 0.2s ease;
   }
 </style>

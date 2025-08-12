@@ -4,15 +4,15 @@ import Layout from "@/layouts/Layout.astro";
 // Importar todas las imágenes usando import.meta.glob
 const allImages = import.meta.glob('/src/assets/Imagenes/Graduaciones/*.{png,jpg,jpeg,webp,svg}', {
   eager: true,
-  as: 'url'
+  query: '?url',
 });
 
 // Crear array de objetos con información de las imágenes
-const graduationImages = Object.entries(allImages).map(([path, url]) => {
+const graduationImages = Object.entries(allImages).map(([path, module]) => {
   const fileName = path.split('/').pop();
   const name = fileName?.split('.')[0] || '';
   return {
-    src: url,
+    src: module.default || module,
     alt: `Graduación ${name}`,
     name: name,
     path: path
@@ -37,11 +37,17 @@ const graduationImages = Object.entries(allImages).map(([path, url]) => {
       </div>
     </header>
 
-    <!-- Contador de imágenes -->
+    <!-- Contador de imágenes y loading -->
     <div class="text-center mb-8">
       <span class="inline-block bg-white/80 backdrop-blur-sm px-6 py-2 rounded-full text-gray-700 font-medium shadow-sm border border-gray-200">
-        {graduationImages.length} fotografías de graduación
+        <span id="loadedCounter">0</span> de {graduationImages.length} fotografías cargadas
       </span>
+      <div id="loadingProgress" class="mt-4 max-w-md mx-auto">
+        <div class="bg-gray-200 rounded-full h-2">
+          <div id="progressBar" class="bg-blue-600 h-2 rounded-full transition-all duration-300" style="width: 0%"></div>
+        </div>
+        <p class="text-sm text-gray-500 mt-2">Cargando galería...</p>
+      </div>
     </div>
 
     <!-- Galería -->
@@ -50,47 +56,26 @@ const graduationImages = Object.entries(allImages).map(([path, url]) => {
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6" id="imageGrid">
           {graduationImages.map((image, index) => (
             <div 
-              class="group relative overflow-hidden rounded-xl bg-white shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 cursor-pointer gallery-item"
+              class="group relative overflow-hidden rounded-xl bg-white shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 cursor-pointer gallery-item opacity-0"
               key={index}
               data-image-index={index}
-              style={index >= 20 ? "display: none;" : ""}
+              style={`animation-delay: ${Math.floor(index / 10) * 100}ms;`}
             >
-              <div class="aspect-square overflow-hidden">
+              <div class="aspect-square overflow-hidden relative">
+                <!-- Skeleton loader inicial -->
+                <div class="absolute inset-0 bg-gray-200 animate-pulse flex items-center justify-center image-skeleton">
+                  <svg class="w-8 h-8 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clip-rule="evenodd"></path>
+                  </svg>
+                </div>
+                
                 <img 
-                  src={index < 12 ? image.src : ""}
                   data-src={image.src}
                   alt={image.alt}
-                  class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 lazy-image"
-                  loading={index < 6 ? "eager" : "lazy"}
+                  class="w-full h-full object-cover transition-all duration-500 group-hover:scale-110 lazy-image opacity-0"
+                  loading="lazy"
                   decoding="async"
                 />
-                
-                <!-- Skeleton loader -->
-                {index >= 12 && (
-                  <div class="absolute inset-0 bg-gray-200 animate-pulse flex items-center justify-center image-skeleton">
-                    <svg class="w-8 h-8 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
-                      <path fill-rule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clip-rule="evenodd"></path>
-                    </svg>
-                  </div>
-        
-        <!-- Botón cargar más -->
-        <div class="text-center mt-12" id="loadMoreContainer" style={graduationImages.length <= 20 ? "display: none;" : ""}>
-          <button 
-            id="loadMoreBtn"
-            class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-8 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
-          >
-            <span class="flex items-center gap-2">
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
-              </svg>
-              Cargar más fotografías
-            </span>
-          </button>
-          <p class="text-gray-500 mt-3 text-sm">
-            <span id="loadedCount">20</span> de {graduationImages.length} fotografías mostradas
-          </p>
-        </div>
-                )}
               </div>
               
               <!-- Overlay con información -->
@@ -150,6 +135,11 @@ const graduationImages = Object.entries(allImages).map(([path, url]) => {
           class="max-w-full max-h-full object-contain rounded-lg shadow-2xl"
         />
         
+        <!-- Loading spinner para lightbox -->
+        <div id="lightboxLoader" class="absolute inset-0 bg-black/50 flex items-center justify-center hidden">
+          <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-white"></div>
+        </div>
+        
         <!-- Botón anterior -->
         <button 
           id="prevImage" 
@@ -201,171 +191,306 @@ const graduationImages = Object.entries(allImages).map(([path, url]) => {
   @keyframes fadeInUp {
     from {
       opacity: 0;
-      transform: translateY(30px);
+      transform: translateY(30px) scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+  
+  @keyframes slideIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
     }
     to {
       opacity: 1;
       transform: translateY(0);
     }
   }
-
-  .grid > div {
+  
+  .gallery-item {
     animation: fadeInUp 0.6s ease-out forwards;
-    animation-delay: calc(var(--index, 0) * 0.1s);
+  }
+  
+  .lazy-image {
+    transition: opacity 0.5s ease, transform 0.3s ease;
+  }
+  
+  .lazy-image.loaded {
+    opacity: 1 !important;
+  }
+  
+  /* Optimización para viewport grande */
+  @media (min-width: 1920px) {
+    .container {
+      max-width: 1800px;
+    }
+    
+    #imageGrid {
+      grid-template-columns: repeat(6, 1fr);
+    }
+  }
+  
+  /* Preload hint para imágenes críticas */
+  .critical-image {
+    content-visibility: auto;
+    contain-intrinsic-size: 300px 300px;
   }
 </style>
 
 <script define:vars={{ images: graduationImages }}>
-  // Array de imágenes para el lightbox ya está disponible como variable 'images'
+  console.log('Total images to load:', images.length);
   
   let currentImageIndex = 0;
-  let loadedImagesCount = 20;
-  const LOAD_BATCH_SIZE = 20;
+  let loadedImagesCount = 0;
+  let isLoadingComplete = false;
   
-  // Intersection Observer para lazy loading
+  // Cache para imágenes precargadas
+  const imageCache = new Map();
+  
+  // Configuración optimizada del Intersection Observer
   const imageObserver = new IntersectionObserver((entries, observer) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        const img = entry.target;
-        const skeleton = img.parentNode.querySelector('.image-skeleton');
-        
-        if (img.dataset.src && !img.src) {
-          img.src = img.dataset.src;
-          img.onload = () => {
-            img.style.opacity = '1';
-            if (skeleton) skeleton.style.display = 'none';
-          };
-          observer.unobserve(img);
-        }
+        loadImage(entry.target);
+        observer.unobserve(entry.target);
       }
     });
   }, {
-    rootMargin: '50px'
+    rootMargin: '100px', // Más agresivo para mejor UX
+    threshold: 0.1
   });
   
-  // Función para cargar más imágenes
-  function loadMoreImages() {
-    const grid = document.getElementById('imageGrid');
-    const items = grid.querySelectorAll('.gallery-item');
-    const loadMoreBtn = document.getElementById('loadMoreBtn');
-    const loadedCount = document.getElementById('loadedCount');
-    const loadMoreContainer = document.getElementById('loadMoreContainer');
+  // Función optimizada para cargar imágenes
+  function loadImage(img) {
+    const src = img.dataset.src;
+    if (!src || img.classList.contains('loading')) return;
     
-    let newlyVisible = 0;
+    img.classList.add('loading');
+    const skeleton = img.parentNode.querySelector('.image-skeleton');
     
-    for (let i = loadedImagesCount; i < Math.min(loadedImagesCount + LOAD_BATCH_SIZE, items.length); i++) {
-      items[i].style.display = 'block';
-      items[i].style.animation = `fadeInUp 0.6s ease-out forwards`;
-      items[i].style.animationDelay = `${newlyVisible * 0.1}s`;
-      
-      // Observar la nueva imagen para lazy loading
-      const img = items[i].querySelector('.lazy-image');
-      if (img) {
-        imageObserver.observe(img);
-      }
-      
-      newlyVisible++;
+    // Verificar si ya está en cache
+    if (imageCache.has(src)) {
+      applyImageSrc(img, src, skeleton);
+      return;
     }
     
-    loadedImagesCount += newlyVisible;
-    loadedCount.textContent = loadedImagesCount;
+    // Crear nueva imagen para preload
+    const newImg = new Image();
+    newImg.onload = () => {
+      imageCache.set(src, true);
+      applyImageSrc(img, src, skeleton);
+      updateProgress();
+    };
     
-    // Ocultar botón si ya se cargaron todas
-    if (loadedImagesCount >= items.length) {
-      loadMoreContainer.style.display = 'none';
-    }
+    newImg.onerror = () => {
+      console.error('Error loading image:', src);
+      hideImageElement(img);
+      updateProgress();
+    };
     
-    // Actualizar event listeners para nuevos elementos
-    updateGalleryEventListeners();
+    newImg.src = src;
   }
   
-  // Función para actualizar event listeners
-  function updateGalleryEventListeners() {
-    const galleryItems = document.querySelectorAll('.gallery-item');
-    galleryItems.forEach(item => {
-      // Remover listeners existentes y agregar nuevos
-      item.removeEventListener('click', handleGalleryClick);
-      item.addEventListener('click', handleGalleryClick);
+  // Aplicar imagen cargada
+  function applyImageSrc(img, src, skeleton) {
+    img.src = src;
+    img.classList.add('loaded');
+    if (skeleton) {
+      skeleton.style.opacity = '0';
+      setTimeout(() => skeleton.remove(), 500);
+    }
+    img.classList.remove('loading');
+  }
+  
+  // Ocultar imagen con error
+  function hideImageElement(img) {
+    const parent = img.closest('.gallery-item');
+    if (parent) {
+      parent.style.display = 'none';
+    }
+  }
+  
+  // Actualizar progreso de carga
+  function updateProgress() {
+    loadedImagesCount++;
+    const progress = (loadedImagesCount / images.length) * 100;
+    
+    const progressBar = document.getElementById('progressBar');
+    const loadedCounter = document.getElementById('loadedCounter');
+    const loadingProgress = document.getElementById('loadingProgress');
+    
+    if (progressBar) progressBar.style.width = `${progress}%`;
+    if (loadedCounter) loadedCounter.textContent = loadedImagesCount.toString();
+    
+    // Ocultar barra de progreso cuando termine
+    if (loadedImagesCount >= images.length && loadingProgress) {
+      setTimeout(() => {
+        loadingProgress.style.opacity = '0';
+        setTimeout(() => loadingProgress.remove(), 500);
+      }, 1000);
+      isLoadingComplete = true;
+    }
+  }
+  
+  // Precargar imágenes críticas (primeras 12)
+  function preloadCriticalImages() {
+    const criticalCount = Math.min(12, images.length);
+    
+    for (let i = 0; i < criticalCount; i++) {
+      const img = new Image();
+      img.onload = () => {
+        imageCache.set(images[i].src, true);
+        updateProgress();
+      };
+      img.onerror = () => updateProgress();
+      img.src = images[i].src;
+    }
+  }
+  
+  // Configurar lazy loading en lotes
+  function setupLazyLoading() {
+    const lazyImages = document.querySelectorAll('.lazy-image');
+    
+    // Cargar inmediatamente las primeras 12 si están en cache
+    lazyImages.forEach((img, index) => {
+      if (index < 12 && imageCache.has(img.dataset.src)) {
+        loadImage(img);
+      } else {
+        imageObserver.observe(img);
+      }
     });
   }
   
-  // Handler para clicks en galería
-  function handleGalleryClick() {
-    openLightbox(this);
+  // Precargar siguiente y anterior imagen en lightbox
+  function preloadAdjacentImages(currentIndex) {
+    const preloadIndexes = [
+      currentIndex - 1 >= 0 ? currentIndex - 1 : images.length - 1,
+      currentIndex + 1 < images.length ? currentIndex + 1 : 0
+    ];
+    
+    preloadIndexes.forEach(index => {
+      const src = images[index].src;
+      if (!imageCache.has(src)) {
+        const img = new Image();
+        img.onload = () => imageCache.set(src, true);
+        img.src = src;
+      }
+    });
   }
   
-  // Función para abrir lightbox
-  function openLightbox(element) {
-    currentImageIndex = parseInt(element.dataset.imageIndex);
+  // Event listeners para galería
+  function setupGalleryEvents() {
+    const galleryItems = document.querySelectorAll('.gallery-item');
+    galleryItems.forEach(item => {
+      item.addEventListener('click', function() {
+        const index = parseInt(this.getAttribute('data-image-index'));
+        openLightbox(index);
+      });
+    });
+  }
+  
+  // Funciones del lightbox optimizadas
+  function openLightbox(index) {
+    currentImageIndex = index;
     showImage();
-    document.getElementById('lightbox').classList.remove('hidden');
-    document.body.style.overflow = 'hidden';
+    preloadAdjacentImages(index);
+    
+    const lightbox = document.getElementById('lightbox');
+    if (lightbox) {
+      lightbox.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+    }
   }
   
-  // Función para mostrar imagen actual
   function showImage() {
+    if (!images || images.length === 0) return;
+    
     const image = images[currentImageIndex];
     const lightboxImage = document.getElementById('lightboxImage');
+    const lightboxLoader = document.getElementById('lightboxLoader');
     const imageCounter = document.getElementById('imageCounter');
     const imageName = document.getElementById('imageName');
     
-    lightboxImage.src = image.src;
-    lightboxImage.alt = image.alt;
-    imageCounter.textContent = `${currentImageIndex + 1} de ${images.length}`;
-    imageName.textContent = image.name;
-  }
-  
-  // Función para cerrar lightbox
-  function closeLightbox() {
-    document.getElementById('lightbox').classList.add('hidden');
-    document.body.style.overflow = 'auto';
-  }
-  
-  // Función para imagen anterior
-  function prevImage() {
-    currentImageIndex = currentImageIndex > 0 ? currentImageIndex - 1 : images.length - 1;
-    showImage();
-  }
-  
-  // Función para imagen siguiente
-  function nextImage() {
-    currentImageIndex = currentImageIndex < images.length - 1 ? currentImageIndex + 1 : 0;
-    showImage();
-  }
-  
-  // Event listeners
-  document.addEventListener('DOMContentLoaded', function() {
-    // Configurar lazy loading para imágenes iniciales
-    const initialImages = document.querySelectorAll('.lazy-image');
-    initialImages.forEach(img => {
-      if (img.src || img.dataset.src) {
-        imageObserver.observe(img);
-      }
-    });
+    // Mostrar loader
+    if (lightboxLoader) lightboxLoader.classList.remove('hidden');
     
-    // Event listener para botón cargar más
-    const loadMoreBtn = document.getElementById('loadMoreBtn');
-    if (loadMoreBtn) {
-      loadMoreBtn.addEventListener('click', loadMoreImages);
+    // Cargar imagen
+    if (lightboxImage) {
+      lightboxImage.onload = () => {
+        if (lightboxLoader) lightboxLoader.classList.add('hidden');
+      };
+      lightboxImage.src = image.src;
+      lightboxImage.alt = image.alt;
     }
     
-    // Event listeners para abrir lightbox (inicial)
-    updateGalleryEventListeners();
+    // Actualizar información
+    if (imageCounter) {
+      imageCounter.textContent = `${currentImageIndex + 1} de ${images.length}`;
+    }
+    if (imageName) {
+      imageName.textContent = image.name;
+    }
     
-    // Cerrar lightbox
-    document.getElementById('closeLightbox').addEventListener('click', closeLightbox);
-    document.getElementById('lightbox').addEventListener('click', function(e) {
-      if (e.target === this) closeLightbox();
-    });
+    // Precargar siguientes imágenes
+    preloadAdjacentImages(currentImageIndex);
+  }
+  
+  function closeLightbox() {
+    const lightbox = document.getElementById('lightbox');
+    if (lightbox) {
+      lightbox.classList.add('hidden');
+      document.body.style.overflow = 'auto';
+    }
+  }
+  
+  function prevImage() {
+    if (images && images.length > 0) {
+      currentImageIndex = currentImageIndex > 0 ? currentImageIndex - 1 : images.length - 1;
+      showImage();
+    }
+  }
+  
+  function nextImage() {
+    if (images && images.length > 0) {
+      currentImageIndex = currentImageIndex < images.length - 1 ? currentImageIndex + 1 : 0;
+      showImage();
+    }
+  }
+  
+  // Inicialización
+  document.addEventListener('DOMContentLoaded', function() {
+    if (!images || images.length === 0) {
+      console.warn('No images available');
+      return;
+    }
     
-    // Navegación con botones
-    document.getElementById('prevImage').addEventListener('click', prevImage);
-    document.getElementById('nextImage').addEventListener('click', nextImage);
+    // Iniciar carga optimizada
+    preloadCriticalImages();
+    setupLazyLoading();
+    setupGalleryEvents();
+    
+    // Event listeners del lightbox
+    const closeLightboxBtn = document.getElementById('closeLightbox');
+    const lightbox = document.getElementById('lightbox');
+    const prevBtn = document.getElementById('prevImage');
+    const nextBtn = document.getElementById('nextImage');
+    
+    if (closeLightboxBtn) closeLightboxBtn.addEventListener('click', closeLightbox);
+    if (lightbox) {
+      lightbox.addEventListener('click', function(e) {
+        if (e.target === this) closeLightbox();
+      });
+    }
+    if (prevBtn) prevBtn.addEventListener('click', prevImage);
+    if (nextBtn) nextBtn.addEventListener('click', nextImage);
     
     // Navegación con teclado
     document.addEventListener('keydown', function(e) {
       const lightbox = document.getElementById('lightbox');
-      if (!lightbox.classList.contains('hidden')) {
+      if (lightbox && !lightbox.classList.contains('hidden')) {
         switch(e.key) {
           case 'Escape':
             closeLightbox();
@@ -382,23 +507,39 @@ const graduationImages = Object.entries(allImages).map(([path, url]) => {
       }
     });
     
-    // Añadir índices para la animación escalonada
-    const items = document.querySelectorAll('.grid > div');
-    items.forEach((item, index) => {
-      item.style.setProperty('--index', index.toString());
-    });
-
-    // Lazy loading mejorado y manejo de errores de imágenes
-    const lazyImages = document.querySelectorAll('.lazy-image');
-    
-    lazyImages.forEach(img => {
-      img.addEventListener('error', function() {
-        this.style.display = 'none';
-        const parent = this.closest('.group');
-        if (parent) {
-          parent.style.display = 'none';
+    // Optimización: Precargar más imágenes cuando el usuario hace scroll
+    let scrollTimeout;
+    window.addEventListener('scroll', () => {
+      clearTimeout(scrollTimeout);
+      scrollTimeout = setTimeout(() => {
+        if (!isLoadingComplete) {
+          const visibleImages = document.querySelectorAll('.lazy-image:not(.loaded)');
+          visibleImages.forEach(img => {
+            const rect = img.getBoundingClientRect();
+            if (rect.top < window.innerHeight + 200) {
+              loadImage(img);
+            }
+          });
         }
-      });
+      }, 100);
     });
   });
 </script>
+
+<style>
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .grid > div {
+    animation: fadeInUp 0.6s ease-out forwards;
+    animation-delay: calc(var(--index, 0) * 0.1s);
+  }
+</style>

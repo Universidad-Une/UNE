@@ -15,29 +15,27 @@ export interface Plantel {
 
 export interface Props {
   titulo?: string;
-  planteles: Plantel[];
+  actividades: Plantel[];
   ciudades?: string[];
-  mostrarMasCercano?: boolean;
 }
 
 const {
   titulo = "Encuentra tu campus más cercano",
-  planteles,
+  actividades,
   ciudades = [],
-  mostrarMasCercano = false, // Cambiado a false por defecto
 } = Astro.props;
 
 // Lógica de servidor sin cambios
 const ciudadesDisponibles =
   ciudades.length > 0
-    ? ciudades.filter((ciudad) => planteles.some((p) => p.ciudad === ciudad))
-    : [...new Set(planteles.map((p) => p.ciudad))];
+    ? ciudades.filter((ciudad) => actividades.some((p) => p.ciudad === ciudad))
+    : [...new Set(actividades.map((p) => p.ciudad))];
 
-const soloUnPlantel = planteles.length === 1;
+const soloUnPlantel = actividades.length === 1;
 
 // Pasamos los datos al cliente a través de atributos data-*
 const componentProps = {
-  planteles,
+  actividades,
   soloUnPlantel,
 };
 ---
@@ -72,7 +70,7 @@ const componentProps = {
     id="desktop-grid"
   >
     {
-      planteles.map((plantel) => (
+      actividades.map((plantel) => (
         <div
           class="bg-white  max-w-lg rounded-3xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 campus-card"
           data-ciudad-card={plantel.ciudad}
@@ -141,7 +139,7 @@ const componentProps = {
     <div class="splide__track py-12">
       <ul class="splide__list">
         {
-          planteles.map((plantel) => (
+          actividades.map((plantel) => (
             <li class="splide__slide">
               <div
                 class="bg-white rounded-3xl shadow-lg overflow-hidden transition-all duration-300 campus-card h-full"
@@ -257,7 +255,7 @@ const componentProps = {
     if (!wrapper) return;
 
     // 1. Leer las props del atributo data-*
-    const { planteles, soloUnPlantel } = JSON.parse(wrapper.dataset.props);
+    const { actividades, soloUnPlantel } = JSON.parse(wrapper.dataset.props);
     let splideInstance = null;
 
     // 2. Inicializar el carrusel (Splide) en vistas móviles

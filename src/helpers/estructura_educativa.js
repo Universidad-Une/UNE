@@ -2759,7 +2759,7 @@ export const programasEducativos = {
           {
             modalidad: "Escolarizada",
             incorporacion: "SICYT",
-            imagen: "Finanzas",
+            imagen: "Negocios",
             url: "/oferta/maestrias/mst_administracion_negocios",
             descripcion:
               "Desarrolla habilidades gerenciales avanzadas para liderar organizaciones exitosas en el entorno empresarial global.",

@@ -104,8 +104,7 @@ const carreras = Maestrías.map((maestria, index) => {
       : "/src/assets/Imagenes/CardsLicenciaturas/Arquitectura.webp";
 
   // 🔍 LOG: Información de URL
-  console.log(`🎯 Maestría: "${maestria.nombre}"`);
-  console.log(`🔗 URL original desde programasEducativos: "${maestria.urlOriginal || 'NO DISPONIBLE'}"`);
+
   
   // Generar slug solo como fallback si no hay URL original
   let urlFinal = maestria.urlOriginal;
@@ -130,8 +129,6 @@ const carreras = Maestrías.map((maestria, index) => {
     console.log(`✅ Slug generado: "${slugGenerado}"`);
   }
   
-  console.log(`📍 URL FINAL para href: "${urlFinal}"`);
-  console.log(`${"=".repeat(70)}`);
 
   // Obtener el color para el badge principal (primera incorporación)
   const colorBadge = getColorBadge(todasLasIncorporaciones[0]);
