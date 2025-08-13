@@ -23,7 +23,7 @@ export const programasEducativos = {
 
   Secundaria: {
     "EDUCACIÓN BÁSICA": {
-      "Secundaria": {
+      Secundaria: {
         "Av. México": [
           {
             modalidad: "Escolarizada",
@@ -478,6 +478,13 @@ export const programasEducativos = {
             descripcion: "txt",
           },
         ],
+        "UNE  EN  LÍNEA": [
+          {
+            modalidad: "En línea",
+            incorporacion: "SICYT",
+            hoja_fuente: "GDL",
+          },
+        ],
         ZAPOPAN: [
           {
             modalidad: "Escolarizada",
@@ -506,6 +513,13 @@ export const programasEducativos = {
             url: "/oferta/licenciaturas/ciencias_de_la_comunicacion",
             descripcion:
               "Conviértete en un comunicador versátil y creativo, preparado para impactar en medios digitales, corporativos y sociales.",
+          },
+        ],
+        "UNE  EN  LÍNEA": [
+          {
+            modalidad: "En línea",
+            incorporacion: "SICYT",
+            hoja_fuente: "GDL",
           },
         ],
         MILENIO: [
@@ -663,6 +677,13 @@ export const programasEducativos = {
             url: "/oferta/licenciaturas/derecho",
             descripcion:
               "Conviértete en un profesional del derecho con sólida formación jurídica, listo para defender la justicia y asesorar con responsabilidad.",
+          },
+        ],
+        "UNE  EN  LÍNEA": [
+          {
+            modalidad: "En línea",
+            incorporacion: "SICYT",
+            hoja_fuente: "GDL",
           },
         ],
         "CAMPUS PUERTO VALLARTA": [
@@ -834,6 +855,15 @@ export const programasEducativos = {
             incorporacion: "SICYT",
             url: "/oferta/licenciaturas/derecho",
             descripcion: "txt",
+          },
+        ],
+      },
+      Educación: {
+        "UNE  EN  LÍNEA": [
+          {
+            modalidad: "En línea",
+            incorporacion: "SICYT",
+            hoja_fuente: "GDL",
           },
         ],
       },
@@ -1221,6 +1251,13 @@ export const programasEducativos = {
               "Comprende la conducta humana y contribuye al bienestar emocional, social y mental de las personas.",
           },
         ],
+        "UNE  EN  LÍNEA": [
+          {
+            modalidad: "En línea",
+            incorporacion: "SICYT",
+            hoja_fuente: "GDL",
+          },
+        ],
         "CAMPUS PUERTO VALLARTA": [
           {
             modalidad: "Escolarizada",
@@ -1251,6 +1288,13 @@ export const programasEducativos = {
             url: "/oferta/licenciaturas/psicologia",
             descripcion:
               "Comprende la conducta humana y contribuye al bienestar emocional, social y mental de las personas.",
+          },
+        ],
+        "UNE  EN  LÍNEA": [
+          {
+            modalidad: "En línea",
+            incorporacion: "SICYT",
+            hoja_fuente: "GDL",
           },
         ],
         CENTRO: [
@@ -1525,6 +1569,13 @@ export const programasEducativos = {
             url: "/oferta/licenciaturas/ingenieria_industrial",
             descripcion:
               "Optimiza recursos, mejora procesos y lidera la eficiencia en cualquier tipo de organización.",
+          },
+        ],
+        "UNE  EN  LÍNEA": [
+          {
+            modalidad: "En línea",
+            incorporacion: "SICYT",
+            hoja_fuente: "GDL",
           },
         ],
         MILENIO: [
@@ -1906,7 +1957,6 @@ export const programasEducativos = {
             descripcion:
               "Forma parte del motor que mueve a las organizaciones. Aprende a liderar equipos, optimizar recursos y tomar decisiones con impacto.",
           },
-         
         ],
         "TORRE QUETZAL": [
           {
@@ -2119,6 +2169,15 @@ export const programasEducativos = {
           },
         ],
       },
+      Contaduría: {
+        "UNE  EN  LÍNEA": [
+          {
+            modalidad: "En línea",
+            incorporacion: "SICYT",
+            hoja_fuente: "GDL",
+          },
+        ],
+      },
 
       "Contaduría y Auditoría": {
         "Avenida México": [
@@ -2201,6 +2260,24 @@ export const programasEducativos = {
             url: "/oferta/licenciaturas/contaduria_y_auditoria",
             descripcion:
               "Domina la información financiera con precisión y responsabilidad. Aprende a gestionar, auditar y tomar decisiones contables clave.",
+          },
+        ],
+      },
+      Comunicación: {
+        "UNE  EN  LÍNEA": [
+          {
+            modalidad: "En línea",
+            incorporacion: "SICYT",
+            hoja_fuente: "GDL",
+          },
+        ],
+      },
+      "Comercio y Negocios Globales": {
+        "UNE  EN  LÍNEA": [
+          {
+            modalidad: "En línea",
+            incorporacion: "SICYT",
+            hoja_fuente: "GDL",
           },
         ],
       },
@@ -2288,6 +2365,13 @@ export const programasEducativos = {
             url: "/oferta/licenciaturas/mercadotecnia",
             descripcion:
               "Desarrolla estrategias creativas para posicionar marcas, conectar con consumidores y expandir negocios a nivel global.",
+          },
+        ],
+        "UNE  EN  LÍNEA": [
+          {
+            modalidad: "En línea",
+            incorporacion: "SICYT",
+            hoja_fuente: "GDL",
           },
         ],
         "CENTRO \nMÉDICO": [
@@ -2752,7 +2836,7 @@ export const programasEducativos = {
       },
     },
   },
- Maestrías: {
+  Maestrías: {
     "ADMINISTRACIÓN Y NEGOCIOS": {
       "Maestría en Administración de Negocios": {
         "TORRE QUETZAL": [
