@@ -2849,6 +2849,13 @@ export const programasEducativos = {
               "Desarrolla habilidades gerenciales avanzadas para liderar organizaciones exitosas en el entorno empresarial global.",
           },
         ],
+        "UNE  EN  LÍNEA": [
+          {
+            modalidad: "En línea",
+            incorporacion: "SICYT",
+            hoja_fuente: "GDL",
+          },
+        ],
         "PUERTO VALLARTA LAS JUNTAS": [
           {
             modalidad: "Escolarizada",
@@ -2977,6 +2984,13 @@ export const programasEducativos = {
             url: "/oferta/maestrias/maestria_educacion",
             descripcion:
               "Impulsa la innovación educativa y mejora los procesos de enseñanza-aprendizaje con metodologías avanzadas.",
+          },
+        ],
+        "UNE  EN  LÍNEA": [
+          {
+            modalidad: "En línea",
+            incorporacion: "SICYT",
+            hoja_fuente: "GDL",
           },
         ],
         ZAPOPAN: [

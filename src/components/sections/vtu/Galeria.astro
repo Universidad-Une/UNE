@@ -1,140 +1,44 @@
 ---
 import { Fullscreen } from '@lucide/astro';
 
-// Importar todas las imágenes
-// Imágenes individuales en la raíz
-import img1 from '@/assets/Imagenes/logros/1o lugar_Torneo futbol_Intercolegial_ITSA_BGC_2024.webp';
-import img2 from '@/assets/Imagenes/logros/1o lugar_Torneo futbol_SEMS_BGC_2020.webp';
-import img3 from '@/assets/Imagenes/logros/1olugar_Seleccion voleibol_Femenil_Copa Jalisco_2023.webp';
-import img4 from '@/assets/Imagenes/logros/2olugar_Torneo voleibol UTEG_BGC&LIC_2024.webp';
-import img5 from '@/assets/Imagenes/logros/2o_Lugar nuevos valores Voleibol Go_BGC_2025.webp';
-import img6 from '@/assets/Imagenes/logros/3o_Copa leones negros futbol_BGC_2025.webp';
-import img7 from '@/assets/Imagenes/logros/CHEER_DANCE_1olugar_Show_2022.webp';
-import img8 from '@/assets/Imagenes/logros/CHEER_DANCE_2olugar_Pomps_2025.webp';
-import img9 from '@/assets/Imagenes/logros/CHEER_DANCE_3olugar_Jazz_Individual_2022.webp';
-import img10 from '@/assets/Imagenes/logros/Copa_EMBUSEN_selección Karate_2025.webp';
-import img11 from '@/assets/Imagenes/logros/Obra de teatro_Lobo lobita_Argentina_2024.webp';
-import img12 from '@/assets/Imagenes/logros/Pase Nacional_Futbol bardas_LIC_Femenil_2022.webp';
-import img13 from '@/assets/Imagenes/logros/Pase Reginal_Futbol bardas_varonil y Femenil_CONDDE_2022.webp';
-import img14 from '@/assets/Imagenes/logros/Pase regional_Futbol bardas_Femenil y Varonil_2023.webp';
+// Props del componente
+export interface Props {
+  actividad: string;
+}
 
-// Imágenes de carpetas
-import cheerDance1 from '@/assets/Imagenes/logros/CHEER_DANCE_Reggaeton &Jazz_2021/IMG_9381.webp';
-import cheerDance2 from '@/assets/Imagenes/logros/CHEER_DANCE_Reggaeton &Jazz_2021/IMG_9383.webp';
-import cheerDance3 from '@/assets/Imagenes/logros/CHEER_DANCE_Reggaeton &Jazz_2021/IMG_9388.webp';
+const { actividad } = Astro.props;
 
-import karate1 from '@/assets/Imagenes/logros/ENSO_KAN_Seleccion karate_2024/IMG_9390.webp';
-import karate2 from '@/assets/Imagenes/logros/ENSO_KAN_Seleccion karate_2024/IMG_9391.webp';
-import karate3 from '@/assets/Imagenes/logros/ENSO_KAN_Seleccion karate_2024/IMG_9392.webp';
-import karate4 from '@/assets/Imagenes/logros/ENSO_KAN_Seleccion karate_2024/IMG_9393.webp';
-// Array de imágenes con sus metadatos
-const images = [
-  {
-    src: img1.src,
-    alt: "1º lugar Torneo fútbol Intercolegial ITSA BGC 2024",
-    title: "1º lugar Torneo fútbol Intercolegial ITSA BGC 2024"
-  },
-  {
-    src: img2.src,
-    alt: "1º lugar Torneo fútbol SEMS BGC 2020",
-    title: "1º lugar Torneo fútbol SEMS BGC 2020"
-  },
-  {
-    src: img3.src,
-    alt: "1º lugar Selección voleibol Femenil Copa Jalisco 2023",
-    title: "1º lugar Selección voleibol Femenil Copa Jalisco 2023"
-  },
-  {
-    src: img4.src,
-    alt: "2º lugar Torneo voleibol UTEG BGC&LIC 2024",
-    title: "2º lugar Torneo voleibol UTEG BGC&LIC 2024"
-  },
-  {
-    src: img5.src,
-    alt: "2º Lugar nuevos valores Voleibol Go BGC 2025",
-    title: "2º Lugar nuevos valores Voleibol Go BGC 2025"
-  },
-  {
-    src: img6.src,
-    alt: "3º Copa leones negros fútbol BGC 2025",
-    title: "3º Copa leones negros fútbol BGC 2025"
-  },
-  {
-    src: img7.src,
-    alt: "CHEER DANCE 1º lugar Show 2022",
-    title: "CHEER DANCE 1º lugar Show 2022"
-  },
-  {
-    src: img8.src,
-    alt: "CHEER DANCE 2º lugar Pomps 2025",
-    title: "CHEER DANCE 2º lugar Pomps 2025"
-  },
-  {
-    src: img9.src,
-    alt: "CHEER DANCE 3º lugar Jazz Individual 2022",
-    title: "CHEER DANCE 3º lugar Jazz Individual 2022"
-  },
-  {
-    src: img10.src,
-    alt: "Copa EMBUSEN selección Karate 2025",
-    title: "Copa EMBUSEN selección Karate 2025"
-  },
-  {
-    src: img11.src,
-    alt: "Obra de teatro Lobo lobita Argentina 2024",
-    title: "Obra de teatro Lobo lobita Argentina 2024"
-  },
-  {
-    src: img12.src,
-    alt: "Pase Nacional Fútbol bardas LIC Femenil 2022",
-    title: "Pase Nacional Fútbol bardas LIC Femenil 2022"
-  },
-  {
-    src: img13.src,
-    alt: "Pase Regional Fútbol bardas varonil y Femenil CONDDE 2022",
-    title: "Pase Regional Fútbol bardas varonil y Femenil CONDDE 2022"
-  },
-  {
-    src: img14.src,
-    alt: "Pase regional Fútbol bardas Femenil y Varonil 2023",
-    title: "Pase regional Fútbol bardas Femenil y Varonil 2023"
-  },
-  {
-    src: cheerDance1.src,
-    alt: "CHEER DANCE Reggaeton & Jazz 2021 - Imagen 1",
-    title: "CHEER DANCE Reggaeton & Jazz 2021"
-  },
-  {
-    src: cheerDance2.src,
-    alt: "CHEER DANCE Reggaeton & Jazz 2021 - Imagen 2",
-    title: "CHEER DANCE Reggaeton & Jazz 2021"
-  },
-  {
-    src: cheerDance3.src,
-    alt: "CHEER DANCE Reggaeton & Jazz 2021 - Imagen 3",
-    title: "CHEER DANCE Reggaeton & Jazz 2021"
-  },
-  {
-    src: karate1.src,
-    alt: "ENSO KAN Selección karate 2024 - Imagen 1",
-    title: "ENSO KAN Selección karate 2024"
-  },
-  {
-    src: karate2.src,
-    alt: "ENSO KAN Selección karate 2024 - Imagen 2",
-    title: "ENSO KAN Selección karate 2024"
-  },
-  {
-    src: karate3.src,
-    alt: "ENSO KAN Selección karate 2024 - Imagen 3",
-    title: "ENSO KAN Selección karate 2024"
-  },
-  {
-    src: karate4.src,
-    alt: "ENSO KAN Selección karate 2024 - Imagen 4",
-    title: "ENSO KAN Selección karate 2024"
-  }
-];
+// Importar todas las imágenes de todas las carpetas
+const allImages = import.meta.glob('/src/assets/Imagenes/VTU/Galeria/**/*.(jpg|jpeg|png|gif|webp)', { eager: true });
+
+// Filtrar las imágenes por la actividad específica
+function getImagesFromFolder(folderName: string) {
+  const folderPath = `/src/assets/Imagenes/VTU/Galeria/${folderName}/`;
+  
+  const filteredImages = Object.entries(allImages)
+    .filter(([path]) => path.includes(folderPath))
+    .map(([path, module]: [string, any]) => {
+      // Extraer el nombre del archivo sin la extensión para usarlo como título
+      const fileName = path.split('/').pop()?.split('.')[0] || '';
+      const title = fileName.charAt(0).toUpperCase() + fileName.slice(1).replace(/[-_]/g, ' ');
+      
+      // Obtener la URL correcta de la imagen
+      const imageSrc = module.default?.src || module.default || module.src || path;
+      
+      return {
+        src: imageSrc,
+        alt: `${folderName} - ${title}`,
+        title: title,
+        path: path
+      };
+    })
+    .sort((a, b) => a.title.localeCompare(b.title)); // Ordenar alfabéticamente
+  
+  return filteredImages;
+}
+
+// Obtener las imágenes de la carpeta especificada
+const images = getImagesFromFolder(actividad);
 
 // Dividir las imágenes en dos filas
 const midPoint = Math.ceil(images.length / 2);
@@ -142,18 +46,24 @@ const firstRowImages = images.slice(0, midPoint);
 const secondRowImages = images.slice(midPoint);
 ---
 
+{images.length > 0 ? (
 <div class="gallery-container">
+  <div class="gallery-header mb-6">
+    <h2 class="text-2xl font-bold text-center capitalize">{actividad}</h2>
+    <p class="text-center text-gray-600 mt-2">{images.length} {images.length === 1 ? 'imagen' : 'imágenes'}</p>
+  </div>
+
   <!-- Primera fila del carousel -->
-  <div class="splide carousel-row" id="carousel-1">
+  <div class="splide carousel-row" id={`carousel-1-${actividad}`}>
     <div class="splide__track">
       <ul class="splide__list">
         {firstRowImages.map((image, index) => (
           <li class="splide__slide">
-            <div class="gallery-item group cursor-pointer relative overflow-hidden rounded-lg" data-index={index}>
+            <div class="gallery-item group relative overflow-hidden rounded-lg">
               <img
                 src={image.src}
                 alt={image.alt}
-                class="w-full h-64 object-cover transition-all duration-300 group-hover:scale-105"
+                class="w-80 h-60 object-cover transition-all duration-300 group-hover:scale-105"
                 loading="lazy"
               />
               
@@ -162,10 +72,6 @@ const secondRowImages = images.slice(midPoint);
                   {image.title && (
                     <h3 class="text-lg font-semibold mb-3 px-4">{image.title}</h3>
                   )}
-                  <button class="border-b-2 max-w-32 border-white flex justify-center items-center gap-2">
-                    <Fullscreen size={16} />
-                    Ver foto
-                  </button>
                 </div>
               </div>
             </div>
@@ -175,17 +81,18 @@ const secondRowImages = images.slice(midPoint);
     </div>
   </div>
 
+  {secondRowImages.length > 0 && (
   <!-- Segunda fila del carousel -->
-  <div class="splide carousel-row" id="carousel-2">
+  <div class="splide carousel-row" id={`carousel-2-${actividad}`}>
     <div class="splide__track">
       <ul class="splide__list">
         {secondRowImages.map((image, index) => (
           <li class="splide__slide">
-            <div class="gallery-item group cursor-pointer relative overflow-hidden rounded-lg" data-index={index + midPoint}>
+            <div class="gallery-item group relative overflow-hidden rounded-lg">
               <img
                 src={image.src}
                 alt={image.alt}
-                class="w-full h-64 object-cover transition-all duration-300 group-hover:scale-105"
+                class="w-80 h-60 object-cover transition-all duration-300 group-hover:scale-105"
                 loading="lazy"
               />
               
@@ -194,10 +101,6 @@ const secondRowImages = images.slice(midPoint);
                   {image.title && (
                     <h3 class="text-lg font-semibold mb-3 px-4">{image.title}</h3>
                   )}
-                  <button class="border-b-2 max-w-32 border-white flex justify-center items-center gap-2">
-                    <Fullscreen size={16} />
-                    Ver foto
-                  </button>
                 </div>
               </div>
             </div>
@@ -206,350 +109,46 @@ const secondRowImages = images.slice(midPoint);
       </ul>
     </div>
   </div>
-
-  <!-- Modal -->
-  <div id="gallery-modal" class="modal-overlay">
-    <div class="modal-content">
-      <button id="close-modal" class="close-btn" aria-label="Cerrar modal">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <line x1="18" y1="6" x2="6" y2="18"></line>
-          <line x1="6" y1="6" x2="18" y2="18"></line>
-        </svg>
-      </button>
-      
-      <div class="modal-image-container">
-        <button id="prev-btn" class="nav-btn prev-btn" aria-label="Imagen anterior">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <polyline points="15,18 9,12 15,6"></polyline>
-          </svg>
-        </button>
-        
-        <img id="modal-image" src="" alt="" class="modal-image" />
-        
-        <button id="next-btn" class="nav-btn next-btn" aria-label="Siguiente imagen">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <polyline points="9,18 15,12 9,6"></polyline>
-          </svg>
-        </button>
-      </div>
-      
-      <div id="modal-title" class="modal-title"></div>
-      <div class="modal-counter">
-        <span id="current-index">1</span> / <span id="total-images">{images.length}</span>
-      </div>
-    </div>
+  )}
+</div>
+) : (
+<div class="gallery-empty">
+  <div class="text-center py-12">
+    <p class="text-gray-500 text-lg">No se encontraron imágenes para la actividad: <span class="font-semibold capitalize">{actividad}</span></p>
+    <p class="text-gray-400 text-sm mt-2">Verifica que la carpeta existe en: /src/assets/Imagenes/VTU/Galeria/{actividad}</p>
   </div>
 </div>
-
-<style>
-  .gallery-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 1rem;
-  }
-
-  .carousel-row {
-    margin-bottom: 2rem;
-  }
-
-  .carousel-row:last-child {
-    margin-bottom: 0;
-  }
-
-  .splide__slide {
-    padding: 0 0.5rem;
-  }
-
-  .gallery-item {
-    height: 16rem; /* h-64 equivalent */
-    border-radius: 0.5rem;
-    overflow: hidden;
-    position: relative;
-    cursor: pointer;
-  }
-
-  /* Estilos del modal */
-  .modal-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.9);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 1000;
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.3s ease;
-  }
-
-  .modal-overlay.active {
-    opacity: 1;
-    visibility: visible;
-  }
-
-  .modal-content {
-    position: relative;
-    max-width: 90vw;
-    max-height: 90vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .close-btn {
-    position: absolute;
-    top: -50px;
-    right: 0;
-    background: rgba(255, 255, 255, 0.2);
-    border: none;
-    color: white;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: background 0.3s ease;
-    z-index: 1001;
-  }
-
-  .close-btn:hover {
-    background: rgba(255, 255, 255, 0.3);
-  }
-
-  .modal-image-container {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    max-width: 100%;
-    max-height: calc(90vh - 100px);
-  }
-
-  .modal-image {
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: contain;
-    border-radius: 8px;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-  }
-
-  .nav-btn {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgba(255, 255, 255, 0.2);
-    border: none;
-    color: white;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    backdrop-filter: blur(10px);
-  }
-
-  .nav-btn:hover {
-    background: rgba(255, 255, 255, 0.3);
-    transform: translateY(-50%) scale(1.1);
-  }
-
-  .prev-btn {
-    left: -70px;
-  }
-
-  .next-btn {
-    right: -70px;
-  }
-
-  .modal-title {
-    color: white;
-    text-align: center;
-    margin-top: 1rem;
-    font-size: 1.2rem;
-    font-weight: 500;
-  }
-
-  .modal-counter {
-    color: rgba(255, 255, 255, 0.8);
-    text-align: center;
-    margin-top: 0.5rem;
-    font-size: 0.9rem;
-  }
-
-  /* Responsive */
-  @media (max-width: 768px) {
-    .modal-content {
-      max-width: 95vw;
-      max-height: 95vh;
-    }
-
-    .nav-btn {
-      width: 40px;
-      height: 40px;
-    }
-
-    .prev-btn {
-      left: -50px;
-    }
-
-    .next-btn {
-      right: -50px;
-    }
-
-    .close-btn {
-      top: -40px;
-      width: 35px;
-      height: 35px;
-    }
-  }
-</style>
+)}
 
 <script>
   import Splide from "@splidejs/splide";
-  import { AutoScroll } from "@splidejs/splide-extension-auto-scroll";
   import "@splidejs/splide/dist/css/splide.min.css";
 
   document.addEventListener('DOMContentLoaded', function() {
-    // Inicializar los carousels con Splide
-    const carousel1 = new Splide('#carousel-1', {
-      type: 'loop',
-      perPage: 4,
-      perMove: 1,
-      gap: '1rem',
-      autoScroll: {
-        speed: 0.5,
-        pauseOnHover: true,
-        pauseOnFocus: true,
-      },
-      breakpoints: {
-        768: {
-          perPage: 2,
-        },
-        480: {
-          perPage: 1,
-        },
-      },
-    });
-
-    const carousel2 = new Splide('#carousel-2', {
-      type: 'loop',
-      perPage: 4,
-      perMove: 1,
-      gap: '1rem',
-      direction: 'rtl', // Dirección opuesta para efecto visual
-      autoScroll: {
-        speed: 0.5,
-        pauseOnHover: true,
-        pauseOnFocus: true,
-      },
-      breakpoints: {
-        768: {
-          perPage: 2,
-        },
-        480: {
-          perPage: 1,
-        },
-      },
-    });
-
-    // Montar los carousels con la extensión AutoScroll
-    carousel1.mount({ AutoScroll });
-    carousel2.mount({ AutoScroll });
-
-    // Funcionalidad del modal
-    const galleryItems = document.querySelectorAll('.gallery-item');
-    const modal = document.getElementById('gallery-modal');
-    const modalImage = document.getElementById('modal-image');
-    const modalTitle = document.getElementById('modal-title');
-    const currentIndexSpan = document.getElementById('current-index');
-    const closeBtn = document.getElementById('close-modal');
-    const prevBtn = document.getElementById('prev-btn');
-    const nextBtn = document.getElementById('next-btn');
+    // Inicializar todos los carousels de Splide con autoscroll
+    const carousels = document.querySelectorAll('.splide');
     
-    let currentIndex = 0;
-    const images = Array.from(galleryItems).map(item => {
-      const img = item.querySelector('img');
-      const title = img.alt;
-      return {
-        src: img.src,
-        alt: img.alt,
-        title: title
-      };
-    });
-
-    function openModal(index) {
-      currentIndex = index;
-      updateModalContent();
-      modal.classList.add('active');
-      document.body.style.overflow = 'hidden';
-      
-      // Pausar ambos carousels cuando se abre el modal
-      carousel1.Components.AutoScroll.pause();
-      carousel2.Components.AutoScroll.pause();
-    }
-
-    function closeModal() {
-      modal.classList.remove('active');
-      document.body.style.overflow = '';
-      
-      // Reanudar ambos carousels cuando se cierra el modal
-      carousel1.Components.AutoScroll.play();
-      carousel2.Components.AutoScroll.play();
-    }
-
-    function updateModalContent() {
-      const image = images[currentIndex];
-      modalImage.src = image.src;
-      modalImage.alt = image.alt;
-      modalTitle.textContent = image.title || '';
-      currentIndexSpan.textContent = currentIndex + 1;
-    }
-
-    function nextImage() {
-      currentIndex = (currentIndex + 1) % images.length;
-      updateModalContent();
-    }
-
-    function prevImage() {
-      currentIndex = (currentIndex - 1 + images.length) % images.length;
-      updateModalContent();
-    }
-
-    // Event listeners
-    galleryItems.forEach((item, index) => {
-      item.addEventListener('click', () => openModal(index));
-    });
-
-    closeBtn.addEventListener('click', closeModal);
-    nextBtn.addEventListener('click', nextImage);
-    prevBtn.addEventListener('click', prevImage);
-
-    // Close modal on ESC key
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && modal.classList.contains('active')) {
-        closeModal();
-      }
-      if (e.key === 'ArrowRight' && modal.classList.contains('active')) {
-        nextImage();
-      }
-      if (e.key === 'ArrowLeft' && modal.classList.contains('active')) {
-        prevImage();
-      }
-    });
-
-    // Close modal on overlay click
-    modal.addEventListener('click', (e) => {
-      if (e.target === modal) {
-        closeModal();
-      }
+    carousels.forEach((carousel) => {
+      new Splide(carousel, {
+        type: 'loop',
+        perPage: 3,
+        perMove: 1,
+        gap: '1rem',
+        pagination: false,
+        arrows: true,
+        autoplay: true,
+        interval: 3000,
+        pauseOnHover: true,
+        pauseOnFocus: true,
+        breakpoints: {
+          1024: {
+            perPage: 2,
+          },
+          640: {
+            perPage: 1,
+          },
+        },
+      }).mount();
     });
   });
 </script>

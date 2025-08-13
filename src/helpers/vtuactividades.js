@@ -168,7 +168,7 @@ export const actividades = [
       "Clases de danza jazz, técnicas de movimiento y expresión artística",
     ciudad: "Plaza del sol",
     url: "/Vivetuuniversidad/Actividades/Futbol",
-    imagen: "/Images/VTU/Cards/Latinos.webp",
+    imagen: "/Images/VTU/Cards/Jazz.webp",
   },
   {
     id: "22",
@@ -178,11 +178,11 @@ export const actividades = [
       "Clases de técnica vocal, interpretación musical y desarrollo del oído musical",
     ciudad: "Plaza del sol",
     url: "/Vivetuuniversidad/Actividades/Futbol",
-    imagen: "/Images/VTU/Cards/Teatro.webp",
+    imagen: "/Images/VTU/Cards/Cantoo.jpg",
   },
   {
     id: "23",
-    nombre: "Dibujo / Pintura	",
+    nombre: "Dibujo y Pintura	",
     codigo: "00015",
     direccion:
       "Taller de dibujo y pintura con diferentes técnicas artísticas y estilos",
@@ -311,7 +311,7 @@ export const actividades = [
       "Curso de desarrollo de habilidades comunicativas, redacción y oratoria",
     ciudad: "Tonalá",
     url: "/Vivetuuniversidad/Actividades/Futbol",
-    imagen: "/Images/VTU/Cards/Teatro.webp",
+    imagen: "/Images/VTU/Cards/Oral.jpg",
   },
   {
     id: "40",
@@ -342,7 +342,7 @@ export const actividades = [
       "Clases de danza jazz, técnicas de movimiento y expresión artística",
     ciudad: "Tonalá",
     url: "/Vivetuuniversidad/Actividades/Futbol",
-    imagen: "/Images/VTU/Cards/Latinos.webp",
+    imagen: "/Images/VTU/Cards/Jazz.webp",
   },
  
 
@@ -376,16 +376,7 @@ export const actividades = [
     url: "/Vivetuuniversidad/Actividades/Futbol",
     imagen: "/Images/VTU/Cards/Administrativos.webp",
   },
-  {
-    id: "50",
-    nombre: "GENERANDO IMPACTO POSITIVO",
-    codigo: "00015",
-    direccion:
-      "Programa de responsabilidad social y proyectos de impacto comunitario",
-    ciudad: "Caracol",
-    url: "/Vivetuuniversidad/Actividades/Futbol",
-    imagen: "/Images/VTU/Cards/Administrativos.webp",
-  },
+
   
   {
     id: "52",
@@ -395,7 +386,7 @@ export const actividades = [
       "Curso de lenguaje de señas mexicano para comunicación inclusiva",
     ciudad: "Caracol",
     url: "/Vivetuuniversidad/Actividades/Futbol",
-    imagen: "/Images/VTU/Cards/Teatro.webp",
+    imagen: "/Images/VTU/Cards/Senas.jpg",
   },
 
   
@@ -460,7 +451,7 @@ export const actividades = [
       "Curso de desarrollo de habilidades comunicativas, redacción y oratoria",
     ciudad: "Tonalá",
     url: "/Vivetuuniversidad/Actividades/Futbol",
-    imagen: "/Images/VTU/Cards/Futbol.webp",
+    imagen: "/Images/VTU/Cards/Oral.jpg",
   },
  
  
@@ -472,7 +463,7 @@ export const actividades = [
       "Clases de danza jazz, técnicas de movimiento y expresión artística",
     ciudad: "Tonalá",
     url: "/Vivetuuniversidad/Actividades/Futbol",
-    imagen: "/Images/VTU/Cards/Futbol.webp",
+    imagen: "/Images/VTU/Cards/Jazz.webp",
   },
 
   {
@@ -483,20 +474,11 @@ export const actividades = [
       "Clases de teatro y actuación, desarrollo de habilidades escénicas y expresión dramática",
     ciudad: "Tonalá",
     url: "/Vivetuuniversidad/Actividades/Futbol",
-    imagen: "/Images/VTU/Cards/Futbol.webp",
+    imagen: "/Images/VTU/Cards/Teatro.webp",
   },
  
   
-  {
-    id: "48",
-    nombre: "PRINCIPIOS DE PRIMEROS AUXILIOS	",
-    codigo: "00015",
-    direccion:
-      "Curso básico de primeros auxilios y atención de emergencias médicas",
-    ciudad: "Caracol",
-    url: "/Vivetuuniversidad/Actividades/Futbol",
-    imagen: "/Images/VTU/Cards/Futbol.webp",
-  },
+  
   
   {
     id: "50",
@@ -506,7 +488,7 @@ export const actividades = [
       "Programa de responsabilidad social y proyectos de impacto comunitario",
     ciudad: "Caracol",
     url: "/Vivetuuniversidad/Actividades/Futbol",
-    imagen: "/Images/VTU/Cards/Futbol.webp",
+    imagen: "/Images/VTU/Cards/Administrativos.webp",
   },
   {
     id: "51",
@@ -516,16 +498,7 @@ export const actividades = [
       "Curso completo de primeros auxilios, RCP y manejo de situaciones de emergencia",
     ciudad: "Caracol",
     url: "/Vivetuuniversidad/Actividades/Futbol",
-    imagen: "/Images/VTU/Cards/Futbol.webp",
+    imagen: "/Images/VTU/Cards/aid.jpg",
   },
-  {
-    id: "52",
-    nombre: "LENGUAJE DE SEÑAS	",
-    codigo: "00015",
-    direccion:
-      "Curso de lenguaje de señas mexicano para comunicación inclusiva",
-    ciudad: "Caracol",
-    url: "/Vivetuuniversidad/Actividades/Futbol",
-    imagen: "/Images/VTU/Cards/Futbol.webp",
-  },
+ 
 ];
