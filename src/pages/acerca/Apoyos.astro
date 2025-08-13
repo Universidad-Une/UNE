@@ -322,150 +322,149 @@ import { Check } from "@lucide/astro";
   </section>
 
   <!-- Sección de Notificaciones -->
-  <section
+<section
     class="py-16 bg-cover bg-center bg-no-repeat relative"
     style={`background-image: url(${Cover.src})`}
-  >
+>
     <div class="container mx-auto px-4 relative z-10">
-      <div
-        class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center text-white"
-      >
-        <div>
-          <h2 class="text-3xl sm:text-4xl font-bold text-white mb-6">
-            ¿Quieres ser notificado de la próxima convocatoria?
-          </h2>
+        <div
+            class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center text-white"
+        >
+            <div>
+                <h2 class="text-3xl sm:text-4xl font-bold text-white mb-6">
+                    ¿Quieres ser notificado de la próxima convocatoria?
+                </h2>
+            </div>
+            <form id="notification-form" class="space-y-4">
+                <!-- En mobile: inputs en columna uno debajo del otro -->
+                <div class="flex flex-col gap-4 text-white">
+                    <input
+                        type="text"
+                        name="nombre"
+                        placeholder="Nombre"
+                        required
+                        class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-red-500 "
+                    />
+                    <input
+                        type="text"
+                        name="apellido"
+                        placeholder="Apellido"
+                        required
+                        class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-red-500 "
+                    />
+                    <input
+                        type="email"
+                        name="correo"
+                        placeholder="Correo electrónico"
+                        required
+                        class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-red-500 "
+                    />
+                    <input
+                        type="tel"
+                        name="telefono"
+                        placeholder="Celular"
+                        required
+                        class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-red-500 "
+                    />
+                </div>
+                <button
+                    type="submit"
+                    id="notification-btn"
+                    class="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-6 rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                    aria-label="Registrar Interés" 
+                    title="Registrar Interés"
+                >
+                    <span class="btn-text">Registrar Interés</span>
+                    <span class="btn-loading hidden">Enviando...</span>
+                </button>
+            </form>
         </div>
-        <form id="notification-form" class="space-y-4">
-          <!-- En mobile: inputs en columna uno debajo del otro -->
-          <div class="flex flex-col gap-4 text-white">
-            <input
-              type="text"
-              name="nombre"
-              placeholder="Nombre"
-              required
-              class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-red-500 "
-            />
-            <input
-              type="text"
-              name="apellidos"
-              placeholder="Apellidos"
-              required
-              class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-red-500 "
-            />
-            <input
-              type="email"
-              name="correo"
-              placeholder="Correo electrónico"
-              required
-              class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-red-500 "
-            />
-            <input
-              type="tel"
-              name="telefono"
-              placeholder="Celular"
-              required
-              class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-red-500 "
-            />
-          </div>
-          <button
-            type="submit"
-            id="notification-btn"
-            class="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-6 rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-            aria-label="Registrar Interés" 
-            title="Registrar Interés"
-          >
-            <span class="btn-text">Registrar Interés</span>
-            <span class="btn-loading hidden">Enviando...</span>
-          </button>
-        </form>
-      </div>
     </div>
-  </section>
-</Layout>
+</section>
 
 <script>
-  document.addEventListener("DOMContentLoaded", function () {
-    // Notification form functionality
-    const notificationForm = document.getElementById('notification-form');
-    const submitBtn = document.getElementById('notification-btn');
-    const btnText = submitBtn.querySelector('.btn-text');
-    const btnLoading = submitBtn.querySelector('.btn-loading');
+document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('notification-form');
+    
+    if (form) {
+        form.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(this);
+            
+            // Obtener apellido y dividirlo automáticamente
+            const apellidoCompleto = formData.get("apellido") || "";
+            const apellidosArray = apellidoCompleto.trim().split(/\s+/);
+            
+            // Asignar apellido paterno y materno
+            const apellido_p = apellidosArray[0] || "No proporcionado";
+            const apellido_m = apellidosArray.length > 1 ? apellidosArray.slice(1).join(" ") : "No proporcionado";
+            
+            // Crear objeto con las propiedades específicas
+            const data = {
+                nombre: formData.get("nombre") || "",
+                apellido_p: apellido_p,
+                apellido_m: apellido_m,
+                correo: formData.get("correo") || "",
+                telefono: formData.get("telefono") || "",
+                medio: "Página web",
+                modalidad: "Escolarizada",
+                nivel_educativo: "",
+                plantel_interes: "",
+                programa_interes: ""
+            };
 
-    if (notificationForm && submitBtn) {
-      notificationForm.addEventListener('submit', async function(e) {
-        e.preventDefault();
+            console.log("Datos a enviar:", data);
 
-        // Get form data
-        const formData = new FormData(notificationForm);
-        const nombre = formData.get('nombre').trim();
-        const apellidos = formData.get('apellidos').trim();
-        const correo = formData.get('correo').trim();
-        const telefono = formData.get('telefono').trim();
+            // Mostrar loading en botón
+            const submitButton = document.getElementById('notification-btn');
+            const btnText = submitButton.querySelector('.btn-text');
+            const btnLoading = submitButton.querySelector('.btn-loading');
+            
+            submitButton.disabled = true;
+            btnText.classList.add('hidden');
+            btnLoading.classList.remove('hidden');
 
-        // Basic validation
-        if (!nombre || !apellidos || !correo || !telefono) {
-          alert('Por favor completa todos los campos');
-          return;
-        }
+            try {
+                const apiUrl = "https://intranet.universidad-une.com/api/createleads";
+                
+                const response = await fetch(apiUrl, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(data)
+                });
 
-        // Email validation
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailRegex.test(correo)) {
-          alert('Por favor ingresa un correo electrónico válido');
-          return;
-        }
+                console.log("Status:", response.status);
+                const responseText = await response.text();
+                console.log("Respuesta:", responseText);
 
-        // Split apellidos into apellido_p and apellido_m
-        const apellidosParts = apellidos.split(' ');
-        const apellido_p = apellidosParts[0] || '';
-        const apellido_m = apellidosParts[1] || 'Pendiente';
+                if (response.ok) {
+                    console.log("Enviado correctamente");
+                    window.location.href = '/contacto/gracias';
+                } else {
+                    throw new Error(`Error ${response.status}`);
+                }
 
-        // Disable button and show loading
-        submitBtn.disabled = true;
-        btnText.classList.add('hidden');
-        btnLoading.classList.remove('hidden');
+            } catch (error) {
+                console.error("Error:", error.message);
+                // En caso de error, también redirigir
+                window.location.href = '/contacto/gracias';
 
-        try {
-          const requestData = {
-            "nombre": nombre,
-            "apellido_p": apellido_p,
-            "apellido_m": apellido_m,
-            "correo": correo,
-            "nivel_educativo": "Pendiente",
-            "plantel_interes": "Pendiente",
-            "programa_interes": "Pendiente",
-            "telefono": telefono,
-            "modalidad": "Pendiente"
-          };
-
-          const response = await fetch('https://www.universidad-une.com/api/v2/custom/une_create_crm', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-              'Authorization': 'Basic b3NjYXIubXVyb0B4bWFydHMuY29tOkxlZHhPc2Nhck11cm8='
-            },
-            body: JSON.stringify(requestData)
-          });
-
-          if (response.ok) {
-            // Redirect to thank you page without showing any alert
-            window.location.href = '/contacto/gracias';
-          } else {
-            throw new Error(`Error ${response.status}`);
-          }
-
-        } catch (error) {
-          alert('Hubo un error al enviar tu mensaje. Por favor intenta nuevamente.');
-          
-          // Re-enable button
-          submitBtn.disabled = false;
-          btnText.classList.remove('hidden');
-          btnLoading.classList.add('hidden');
-        }
-      });
+            } finally {
+                // Restaurar botón
+                submitButton.disabled = false;
+                btnText.classList.remove('hidden');
+                btnLoading.classList.add('hidden');
+            }
+        });
     }
-  });
+});
 </script>
+</Layout>
+
+
 
 <style>
   .apoyos-bg {
