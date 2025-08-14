@@ -6,12 +6,13 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-     "test": "playwright test",
+    "test": "playwright test",
     "test:headed": "playwright test --headed",
     "test:ui": "playwright test --ui",
     "astro": "astro"
   },
   "dependencies": {
+    "@astrojs/sitemap": "^3.5.0",
     "@lucide/astro": "^0.525.0",
     "@microsoft/clarity": "^1.0.0",
     "@pdf-lib/fontkit": "^1.1.1",
