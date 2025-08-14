@@ -1,0 +1,190 @@
+# Auto-generated redirects for UNE migration
+# Generated on: 2025-08-14T17:47:21.825Z
+# Total redirects: 178
+
+# Manual mappings (verified)
+/licenciaturas /oferta/licenciaturas 301
+/nosotros /acerca/historia 301
+/planteles /planteles 301
+/blog /blog 301
+/contacto /contacto/solicitarinformacion 301
+/contacto /contacto/solicitarinformacion 301
+/nosotros /acerca/historia 301
+/planteles /planteles 301
+/licenciaturas /oferta/licenciaturas 301
+/blog /blog 301
+
+# High confidence redirects (auto-approved)
+/Vivetuuniversidad /Vivetuuniversidad 301  # String similarity: 100.0%
+/demo /demo 301  # String similarity: 100.0%
+/plantel-centro /planteles/centro 301  # Pattern: planteles
+/plantel-centro-medico /planteles/centro-medico 301  # Pattern: planteles
+/plantel-milenio /planteles/milenio 301  # Pattern: planteles
+/plantel-tepatitlan /planteles/tepatitlan 301  # Pattern: planteles
+/plantel-tesistan /planteles/tesistan 301  # Pattern: planteles
+/plantel-tlajomulco /planteles/tlajomulco 301  # Pattern: planteles
+/plantel-tlaquepaque /planteles/tlaquepaque 301  # Pattern: planteles
+/plantel-tonala /planteles/tonala 301  # Pattern: planteles
+/plantel-zapopan /planteles/zapopan 301  # Pattern: planteles
+/Orgulloune/General /Orgulloune/General 301  # String similarity: 100.0%
+/Orgulloune/Graduaciones /Orgulloune/Graduaciones 301  # String similarity: 100.0%
+/Vivetuuniversidad/Actividades/Actuacion /Vivetuuniversidad/Actividades/Actuacion 301  # String similarity: 100.0%
+/Vivetuuniversidad/Actividades/Baldor /Vivetuuniversidad/Actividades/Baldor 301  # String similarity: 100.0%
+/Vivetuuniversidad/Actividades/Basquetbol /Vivetuuniversidad/Actividades/Basquetbol 301  # String similarity: 100.0%
+/Vivetuuniversidad/Actividades/Bisuteria /Vivetuuniversidad/Actividades/Bisuteria 301  # String similarity: 100.0%
+/Vivetuuniversidad/Actividades/Box /Vivetuuniversidad/Actividades/Box 301  # String similarity: 100.0%
+/Vivetuuniversidad/Actividades/Canto /Vivetuuniversidad/Actividades/Canto 301  # String similarity: 100.0%
+/Vivetuuniversidad/Actividades/DEJANDO_HUELLAS /Vivetuuniversidad/Actividades/DEJANDO_HUELLAS 301  # String similarity: 100.0%
+/Vivetuuniversidad/Actividades/Danza /Vivetuuniversidad/Actividades/Danza 301  # String similarity: 100.0%
+/Vivetuuniversidad/Actividades/Defensa_personal_Karate /Vivetuuniversidad/Actividades/Defensa_personal_Karate 301  # String similarity: 100.0%
+/Vivetuuniversidad/Actividades/Deportivo /Vivetuuniversidad/Actividades/Deportivo 301  # String similarity: 100.0%
+/Vivetuuniversidad/Actividades/Dibujo /Vivetuuniversidad/Actividades/Dibujo 301  # String similarity: 100.0%
+/Vivetuuniversidad/Actividades/Dibujo_y_Pintura /Vivetuuniversidad/Actividades/Dibujo_y_Pintura 301  # String similarity: 100.0%
+/Vivetuuniversidad/Actividades/Expresion_Oral_y_Escrita /Vivetuuniversidad/Actividades/Expresion_Oral_y_Escrita 301  # String similarity: 100.0%
+/Vivetuuniversidad/Actividades/Futbol /Vivetuuniversidad/Actividades/Futbol 301  # String similarity: 100.0%
+/Vivetuuniversidad/Congresos /Vivetuuniversidad/Congresos 301  # String similarity: 100.0%
+/Vivetuuniversidad/Congresos-2025/Arquitectura /Vivetuuniversidad/Congresos-2025/Arquitectura 301  # String similarity: 100.0%
+/Vivetuuniversidad/Congresos-2025/Ciencias-de-la-salud /Vivetuuniversidad/Congresos-2025/Ciencias-de-la-salud 301  # String similarity: 100.0%
+/Vivetuuniversidad/Congresos-2025/General /Vivetuuniversidad/Congresos-2025/General 301  # String similarity: 100.0%
+/Vivetuuniversidad/Congresos-2025/Odontologia /Vivetuuniversidad/Congresos-2025/Odontologia 301  # String similarity: 100.0%
+/Vivetuuniversidad/Congresos-2025/Psicologia /Vivetuuniversidad/Congresos-2025/Psicologia 301  # String similarity: 100.0%
+/Vivetuuniversidad/Congresos-2025/Terapia-fisica-cultura /Vivetuuniversidad/Congresos-2025/Terapia-fisica-cultura 301  # String similarity: 100.0%
+/acerca/Admisiones /acerca/Admisiones 301  # String similarity: 100.0%
+/acerca/Apoyos /acerca/Apoyos 301  # String similarity: 100.0%
+/acerca/Compromiso-social /acerca/Compromiso-social 301  # String similarity: 100.0%
+/acerca/Politicas /acerca/Politicas 301  # String similarity: 100.0%
+/acerca/PreguntasFrecuentes /acerca/PreguntasFrecuentes 301  # String similarity: 100.0%
+/acerca/Terminos-condiciones /acerca/Terminos-condiciones 301  # String similarity: 100.0%
+/acerca/beneficios /acerca/beneficios 301  # String similarity: 100.0%
+/acerca/historia /acerca/historia 301  # String similarity: 100.0%
+/acerca/oferta-academica /acerca/oferta-academica 301  # String similarity: 100.0%
+/campus/campus-puerto-vallarta /planteles/campus-puerto-vallarta 301  # String similarity: 91.5%
+/informacionescolar/Bibliotecas /informacionescolar/Bibliotecas 301  # String similarity: 100.0%
+/informacionescolar/Control-escolar /informacionescolar/Control-escolar 301  # String similarity: 100.0%
+/informacionescolar/Practicasprofesionales /informacionescolar/Practicasprofesionales 301  # String similarity: 100.0%
+/informacionescolar/Serviciosocial /informacionescolar/Serviciosocial 301  # String similarity: 100.0%
+/informacionescolar/serviciosescolares /informacionescolar/serviciosescolares 301  # String similarity: 100.0%
+/oferta/Continua /oferta/Continua 301  # String similarity: 100.0%
+/oferta/Diplomados /oferta/Diplomados 301  # String similarity: 100.0%
+/oferta/Especialidades /oferta/Especialidades 301  # String similarity: 100.0%
+/oferta/Licenciaturas /oferta/Licenciaturas 301  # String similarity: 100.0%
+/oferta/Maestria /oferta/Maestria 301  # String similarity: 100.0%
+/oferta/colegio-une/Bachillerato /oferta/colegio-une/Bachillerato 301  # String similarity: 100.0%
+/oferta/colegio-une/Bachillerato-sej /oferta/colegio-une/Bachillerato-sej 301  # String similarity: 100.0%
+/oferta/colegio-une/Bachillerato-udg /oferta/colegio-une/Bachillerato-udg 301  # String similarity: 100.0%
+/oferta/colegio-une/Primaria /oferta/colegio-une/Primaria 301  # String similarity: 100.0%
+/oferta/colegio-une/Secundaria /oferta/colegio-une/Secundaria 301  # String similarity: 100.0%
+/oferta/continua/curso_en_administracion_del_tiempo /oferta/continua/curso_en_administracion_del_tiempo 301  # String similarity: 100.0%
+/oferta/continua/curso_en_atencion_al_cliente /oferta/continua/curso_en_atencion_al_cliente 301  # String similarity: 100.0%
+/oferta/continua/curso_en_finanzas_personales /oferta/continua/curso_en_finanzas_personales 301  # String similarity: 100.0%
+/oferta/continua/curso_en_gestion_de_calidad_5s_y_9s /oferta/continua/curso_en_gestion_de_calidad_5s_y_9s 301  # String similarity: 100.0%
+/oferta/continua/curso_en_liderazgo_gerencial /oferta/continua/curso_en_liderazgo_gerencial 301  # String similarity: 100.0%
+/oferta/continua/curso_en_modelos_de_trabajo_flexible /oferta/continua/curso_en_modelos_de_trabajo_flexible 301  # String similarity: 100.0%
+/oferta/continua/curso_en_redaccion_y_expresion_formal_empresarial /oferta/continua/curso_en_redaccion_y_expresion_formal_empresarial 301  # String similarity: 100.0%
+/oferta/continua/curso_en_tecnica_de_ventas /oferta/continua/curso_en_tecnica_de_ventas 301  # String similarity: 100.0%
+/oferta/diplomados/diplomado-comunicacion-efectiva /oferta/diplomados/diplomado-comunicacion-efectiva 301  # String similarity: 100.0%
+/oferta/diplomados/diplomado-nominas-impuestos-y-seguro-social /oferta/diplomados/diplomado-nominas-impuestos-y-seguro-social 301  # String similarity: 100.0%
+/oferta/especialidades/especialidad_en_administracion_de_negocios /oferta/especialidades/especialidad_en_administracion_de_negocios 301  # String similarity: 100.0%
+/oferta/especialidades/especialidad_en_ciencias_de_la_educacion /oferta/especialidades/especialidad_en_ciencias_de_la_educacion 301  # String similarity: 100.0%
+/oferta/licenciaturas/abogado /oferta/licenciaturas/abogado 301  # String similarity: 100.0%
+/oferta/licenciaturas/administracion /oferta/licenciaturas/administracion 301  # String similarity: 100.0%
+/oferta/licenciaturas/administracion_de_empresas /oferta/licenciaturas/administracion_de_empresas 301  # String similarity: 100.0%
+/oferta/licenciaturas/administracion_de_sistemas_de_informacion /oferta/licenciaturas/administracion_de_sistemas_de_informacion 301  # String similarity: 100.0%
+/oferta/licenciaturas/alta_direccion /oferta/licenciaturas/alta_direccion 301  # String similarity: 100.0%
+/oferta/licenciaturas/arquitectura /oferta/licenciaturas/arquitectura 301  # String similarity: 100.0%
+/oferta/licenciaturas/ciencias_de_la_comunicacion /oferta/licenciaturas/ciencias_de_la_comunicacion 301  # String similarity: 100.0%
+/oferta/licenciaturas/ciencias_de_la_educacion /oferta/licenciaturas/ciencias_de_la_educacion 301  # String similarity: 100.0%
+/oferta/licenciaturas/cirujano_dentista /oferta/licenciaturas/cirujano_dentista 301  # String similarity: 100.0%
+/oferta/licenciaturas/comercio_negocios_globales /oferta/licenciaturas/comercio_negocios_globales 301  # String similarity: 100.0%
+/oferta/licenciaturas/contaduria /oferta/licenciaturas/contaduria 301  # String similarity: 100.0%
+/oferta/licenciaturas/contaduria_publica /oferta/licenciaturas/contaduria_publica 301  # String similarity: 100.0%
+/oferta/licenciaturas/contaduria_y_auditoria /oferta/licenciaturas/contaduria_y_auditoria 301  # String similarity: 100.0%
+/oferta/licenciaturas/criminologia_y_criminalistica /oferta/licenciaturas/criminologia_y_criminalistica 301  # String similarity: 100.0%
+/oferta/licenciaturas/cultura_fisica_y_del_deporte /oferta/licenciaturas/cultura_fisica_y_del_deporte 301  # String similarity: 100.0%
+/oferta/licenciaturas/derecho /oferta/licenciaturas/derecho 301  # String similarity: 100.0%
+/oferta/licenciaturas/diseno_grafico /oferta/licenciaturas/diseno_grafico 301  # String similarity: 100.0%
+/oferta/licenciaturas/enfermeria /oferta/licenciaturas/enfermeria 301  # String similarity: 100.0%
+/oferta/licenciaturas/gastronomia /oferta/licenciaturas/gastronomia 301  # String similarity: 100.0%
+/oferta/licenciaturas/idiomas /oferta/licenciaturas/idiomas 301  # String similarity: 100.0%
+/oferta/licenciaturas/ingenieria_civil /oferta/licenciaturas/ingenieria_civil 301  # String similarity: 100.0%
+/oferta/licenciaturas/ingenieria_computacion /oferta/licenciaturas/ingenieria_computacion 301  # String similarity: 100.0%
+/oferta/licenciaturas/ingenieria_en_comunicaciones_y_electronica /oferta/licenciaturas/ingenieria_en_comunicaciones_y_electronica 301  # String similarity: 100.0%
+/oferta/licenciaturas/ingenieria_en_desarrollo_software /oferta/licenciaturas/ingenieria_en_desarrollo_software 301  # String similarity: 100.0%
+/oferta/licenciaturas/ingenieria_en_inteligencia_de_datos_y_ciberseguridad /oferta/licenciaturas/ingenieria_en_inteligencia_de_datos_y_ciberseguridad 301  # String similarity: 100.0%
+/oferta/licenciaturas/ingenieria_industrial /oferta/licenciaturas/ingenieria_industrial 301  # String similarity: 100.0%
+/oferta/licenciaturas/ingenieria_mecanica /oferta/licenciaturas/ingenieria_mecanica 301  # String similarity: 100.0%
+/oferta/licenciaturas/ingenieria_quimica /oferta/licenciaturas/ingenieria_quimica 301  # String similarity: 100.0%
+/oferta/licenciaturas/mercadotecnia /oferta/licenciaturas/mercadotecnia 301  # String similarity: 100.0%
+/oferta/licenciaturas/mercadotecnia_internacional /oferta/licenciaturas/mercadotecnia_internacional 301  # String similarity: 100.0%
+/oferta/licenciaturas/negocios_internacionales /oferta/licenciaturas/negocios_internacionales 301  # String similarity: 100.0%
+/oferta/licenciaturas/nutricion /oferta/licenciaturas/nutricion 301  # String similarity: 100.0%
+/oferta/licenciaturas/psicologia /oferta/licenciaturas/psicologia 301  # String similarity: 100.0%
+/oferta/licenciaturas/quimico_farmaceutico_biologo /oferta/licenciaturas/quimico_farmaceutico_biologo 301  # String similarity: 100.0%
+/oferta/licenciaturas/terapia_fisica /oferta/licenciaturas/terapia_fisica 301  # String similarity: 100.0%
+/oferta/maestrias/maestria_educacion /oferta/maestrias/maestria_educacion 301  # String similarity: 100.0%
+/oferta/maestrias/mst_administracion_hospitalaria /oferta/maestrias/mst_administracion_hospitalaria 301  # String similarity: 100.0%
+/oferta/maestrias/mst_administracion_negocios /oferta/maestrias/mst_administracion_negocios 301  # String similarity: 100.0%
+/oferta/maestrias/mst_administracion_recursos_humanos /oferta/maestrias/mst_administracion_recursos_humanos 301  # String similarity: 100.0%
+/oferta/maestrias/mst_ciencias_penales /oferta/maestrias/mst_ciencias_penales 301  # String similarity: 100.0%
+/oferta/maestrias/mst_derecho_laboral /oferta/maestrias/mst_derecho_laboral 301  # String similarity: 100.0%
+/oferta/maestrias/mst_finanzas_estrategicas /oferta/maestrias/mst_finanzas_estrategicas 301  # String similarity: 100.0%
+/oferta/maestrias/mst_terapia_familiar_sistemica /oferta/maestrias/mst_terapia_familiar_sistemica 301  # String similarity: 100.0%
+/planteles/avenida-mexico /planteles/avenida-mexico 301  # String similarity: 100.0%
+/planteles/campus-puerto-vallarta /planteles/campus-puerto-vallarta 301  # String similarity: 100.0%
+/planteles/caracol /planteles/caracol 301  # String similarity: 100.0%
+/planteles/centro /planteles/centro 301  # String similarity: 100.0%
+/planteles/centro-medico /planteles/centro-medico 301  # String similarity: 100.0%
+/planteles/chapultepec /planteles/chapultepec 301  # String similarity: 100.0%
+/planteles/las-juntas /planteles/las-juntas 301  # String similarity: 100.0%
+/planteles/milenio /planteles/milenio 301  # String similarity: 100.0%
+/planteles/plaza-del-sol /planteles/plaza-del-sol 301  # String similarity: 100.0%
+/planteles/tepatitlan /planteles/tepatitlan 301  # String similarity: 100.0%
+/planteles/tesistan /planteles/tesistan 301  # String similarity: 100.0%
+/planteles/tlajomulco /planteles/tlajomulco 301  # String similarity: 100.0%
+/planteles/tlaquepaque /planteles/tlaquepaque 301  # String similarity: 100.0%
+/planteles/tonala /planteles/tonala 301  # String similarity: 100.0%
+/planteles/torre-quetzal /planteles/torre-quetzal 301  # String similarity: 100.0%
+/planteles/torre-une-milenio /planteles/torre-une-milenio 301  # String similarity: 100.0%
+/planteles/zapopan /planteles/zapopan 301  # String similarity: 100.0%
+/vidaestudiantil/General /vidaestudiantil/General 301  # String similarity: 100.0%
+/blog/DesarrolloSoftware /blog/DesarrolloSoftware 301  # String similarity: 100.0%
+/blog/actualizacion-cultura-fisica /blog/actualizacion-cultura-fisica 301  # String similarity: 100.0%
+/blog/alimentacion-autoinmunes /blog/alimentacion-autoinmunes 301  # String similarity: 100.0%
+/blog/aparatos-electronicos-ninos /blog/aparatos-electronicos-ninos 301  # String similarity: 100.0%
+/blog/arquitectura-vs-ingenieria /blog/arquitectura-vs-ingenieria 301  # String similarity: 100.0%
+/blog/bruxismo-dental /blog/bruxismo-dental 301  # String similarity: 100.0%
+/blog/cronicas-lago-chapala /blog/cronicas-lago-chapala 301  # String similarity: 100.0%
+/blog/cuidados-paliativos /blog/cuidados-paliativos 301  # String similarity: 100.0%
+/blog/deformacion-craneal-maya /blog/deformacion-craneal-maya 301  # String similarity: 100.0%
+/blog/desarrollo-agil-software /blog/desarrollo-agil-software 301  # String similarity: 100.0%
+/blog/dilema-etico-entrenamiento /blog/dilema-etico-entrenamiento 301  # String similarity: 100.0%
+/blog/emprendimiento-deportivo /blog/emprendimiento-deportivo 301  # String similarity: 100.0%
+/blog/enfermeria-opcion-profesional /blog/enfermeria-opcion-profesional 301  # String similarity: 100.0%
+/blog/evolucion-gastronomia-mexicana /blog/evolucion-gastronomia-mexicana 301  # String similarity: 100.0%
+/blog/importancia-mercadotecnia /blog/importancia-mercadotecnia 301  # String similarity: 100.0%
+/blog/ingenieria-seguridad-22-abril /blog/ingenieria-seguridad-22-abril 301  # String similarity: 100.0%
+/blog/inteligencia-artificial-humana /blog/inteligencia-artificial-humana 301  # String similarity: 100.0%
+/blog/lactancia-materna /blog/lactancia-materna 301  # String similarity: 100.0%
+/blog/lenguaje-piel-tatuajes /blog/lenguaje-piel-tatuajes 301  # String similarity: 100.0%
+/blog/negligencia-tragedia /blog/negligencia-tragedia 301  # String similarity: 100.0%
+/blog/paralisis-facial /blog/paralisis-facial 301  # String similarity: 100.0%
+/blog/planeacion-estrategica-empresas /blog/planeacion-estrategica-empresas 301  # String similarity: 100.0%
+/blog/sindrome-burnout /blog/sindrome-burnout 301  # String similarity: 100.0%
+/contacto/atencion-estudiantes /contacto/atencion-estudiantes 301  # String similarity: 100.0%
+/contacto/formulario-inscripcion /contacto/formulario-inscripcion 301  # String similarity: 100.0%
+/contacto/gracias /contacto/gracias 301  # String similarity: 100.0%
+/contacto/solicitarinformacion /contacto/solicitarinformacion 301  # String similarity: 100.0%
+/contacto/solicitarvisita /contacto/solicitarvisita 301  # String similarity: 100.0%
+/oferta/licenciaturas/trabajo_social /oferta/licenciaturas/trabajo_social 301  # String similarity: 100.0%
+
+# Medium confidence redirects (review recommended)
+/plantel-plaza-caracol-puerto-vallarta /planteles/plaza-caracol-puerto-vallarta 301  # Pattern: planteles (route not verified)
+/plantel-vallarta /planteles/vallarta 301  # Pattern: planteles (route not verified)
+/campus/puerto-vallarta /planteles/campus-puerto-vallarta 301  # String similarity: 86.7%
+/oferta/licenciaturas/gestion_y_creacion_de_pyme%E2%80%99s /oferta/licenciaturas/gestion_y_creacion_de_pyme’s 301  # String similarity: 73.8%
+
+# Low confidence redirects (manual review required)
+# /admisiones /acerca/Admisiones 301  # String similarity: 54.4% (COMMENTED - review needed)
+# /biblioteca /informacionescolar/Bibliotecas 301  # String similarity: 42.9% (COMMENTED - review needed)
+# /campus/torre-quetzal /planteles/torre-quetzal 301  # String similarity: 58.3% (COMMENTED - review needed)
+
