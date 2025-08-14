@@ -178,7 +178,7 @@ export const actividades = [
       "Clases de técnica vocal, interpretación musical y desarrollo del oído musical",
     ciudad: "Plaza del sol",
     url: "/Vivetuuniversidad/Actividades/Futbol",
-    imagen: "/Images/VTU/Cards/Cantoo.jpg",
+    imagen: "/Images/VTU/Cards/Cantoo.webp",
   },
   {
     id: "23",
@@ -311,7 +311,7 @@ export const actividades = [
       "Curso de desarrollo de habilidades comunicativas, redacción y oratoria",
     ciudad: "Tonalá",
     url: "/Vivetuuniversidad/Actividades/Futbol",
-    imagen: "/Images/VTU/Cards/Oral.jpg",
+    imagen: "/Images/VTU/Cards/Oral.webp",
   },
   {
     id: "40",
@@ -321,7 +321,7 @@ export const actividades = [
       "Curso de álgebra básica, resolución de ecuaciones y fundamentos matemáticos",
     ciudad: "Tonalá",
     url: "/Vivetuuniversidad/Actividades/Futbol",
-    imagen: "/Images/VTU/Cards/Baldor.jpg",
+    imagen: "/Images/VTU/Cards/Baldor.webp",
   },
   
   {
@@ -386,7 +386,7 @@ export const actividades = [
       "Curso de lenguaje de señas mexicano para comunicación inclusiva",
     ciudad: "Caracol",
     url: "/Vivetuuniversidad/Actividades/Futbol",
-    imagen: "/Images/VTU/Cards/Senas.jpg",
+    imagen: "/Images/VTU/Cards/Senas.webp",
   },
 
   
@@ -451,7 +451,7 @@ export const actividades = [
       "Curso de desarrollo de habilidades comunicativas, redacción y oratoria",
     ciudad: "Tonalá",
     url: "/Vivetuuniversidad/Actividades/Futbol",
-    imagen: "/Images/VTU/Cards/Oral.jpg",
+    imagen: "/Images/VTU/Cards/Oral.webp",
   },
  
  
@@ -498,7 +498,7 @@ export const actividades = [
       "Curso completo de primeros auxilios, RCP y manejo de situaciones de emergencia",
     ciudad: "Caracol",
     url: "/Vivetuuniversidad/Actividades/Futbol",
-    imagen: "/Images/VTU/Cards/aid.jpg",
+    imagen: "/Images/VTU/Cards/aid.webp",
   },
  
 ];
