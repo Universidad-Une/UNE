@@ -234,40 +234,86 @@ import { Mail, Phone, MessageCircle, Clock, Users, Shield, CheckCircle2 } from "
   </section>
 
   <!-- Sección de FAQ para reducir fricción -->
-  <section class="py-16 px-4 bg-white">
-    <div class="max-w-4xl mx-auto">
-      <div class="text-center mb-12">
-        <h2 class="text-3xl font-bold text-gray-900 mb-4">Preguntas frecuentes</h2>
-        <p class="text-gray-600">Resolvemos tus dudas más comunes</p>
-      </div>
-
-      <div class="space-y-4">
-        <details class="bg-gray-50 rounded-xl p-6 group">
-          <summary class="font-semibold text-gray-900 cursor-pointer flex justify-between items-center">
-            ¿Cuánto tiempo toma recibir información?
-            <span class="group-open:rotate-180 transition-transform">▼</span>
-          </summary>
-          <p class="text-gray-600 mt-3">Te contactaremos en menos de 24 horas hábiles. En horarios de oficina, muchas veces respondemos en menos de 2 horas.</p>
-        </details>
-
-        <details class="bg-gray-50 rounded-xl p-6 group">
-          <summary class="font-semibold text-gray-900 cursor-pointer flex justify-between items-center">
-            ¿La asesoría tiene algún costo?
-            <span class="group-open:rotate-180 transition-transform">▼</span>
-          </summary>
-          <p class="text-gray-600 mt-3">No, toda la asesoría e información es completamente gratuita y sin compromiso.</p>
-        </details>
-
-        <details class="bg-gray-50 rounded-xl p-6 group">
-          <summary class="font-semibold text-gray-900 cursor-pointer flex justify-between items-center">
-            ¿Qué información recibiré?
-            <span class="group-open:rotate-180 transition-transform">▼</span>
-          </summary>
-          <p class="text-gray-600 mt-3">Plan de estudios detallado, opciones de financiamiento, becas disponibles, proceso de admisión y cualquier duda específica que tengas.</p>
-        </details>
-      </div>
+<section class="py-16 px-4 bg-white">
+  <div class="max-w-4xl mx-auto">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-4">Preguntas frecuentes</h2>
+      <p class="text-gray-600">Resolvemos tus dudas más comunes</p>
     </div>
-  </section>
+
+    <div class="space-y-4">
+      <details class="bg-gray-50 rounded-xl group hover:bg-gray-100 transition-colors cursor-pointer">
+        <summary class="font-semibold text-gray-900 cursor-pointer flex justify-between items-center p-6 list-none">
+          <span>¿Cuánto tiempo toma recibir información?</span>
+          <span class="group-open:rotate-180 transition-transform duration-200 flex-shrink-0 ml-4">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+              <path d="M8 12l-4-4h8l-4 4z"/>
+            </svg>
+          </span>
+        </summary>
+        <div class="px-6 pb-6">
+          <p class="text-gray-600">Te contactaremos en menos de 24 horas hábiles. En horarios de oficina, muchas veces respondemos en menos de 2 horas.</p>
+        </div>
+      </details>
+
+      <details class="bg-gray-50 rounded-xl group hover:bg-gray-100 transition-colors cursor-pointer">
+        <summary class="font-semibold text-gray-900 cursor-pointer flex justify-between items-center p-6 list-none">
+          <span>¿La asesoría tiene algún costo?</span>
+          <span class="group-open:rotate-180 transition-transform duration-200 flex-shrink-0 ml-4">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+              <path d="M8 12l-4-4h8l-4 4z"/>
+            </svg>
+          </span>
+        </summary>
+        <div class="px-6 pb-6">
+          <p class="text-gray-600">No, toda la asesoría e información es completamente gratuita y sin compromiso.</p>
+        </div>
+      </details>
+
+      <details class="bg-gray-50 rounded-xl group hover:bg-gray-100 transition-colors cursor-pointer">
+        <summary class="font-semibold text-gray-900 cursor-pointer flex justify-between items-center p-6 list-none">
+          <span>¿Qué información recibiré?</span>
+          <span class="group-open:rotate-180 transition-transform duration-200 flex-shrink-0 ml-4">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+              <path d="M8 12l-4-4h8l-4 4z"/>
+            </svg>
+          </span>
+        </summary>
+        <div class="px-6 pb-6">
+          <p class="text-gray-600">Plan de estudios detallado, opciones de financiamiento, becas disponibles, proceso de admisión y cualquier duda específica que tengas.</p>
+        </div>
+      </details>
+
+      <details class="bg-gray-50 rounded-xl group hover:bg-gray-100 transition-colors cursor-pointer">
+        <summary class="font-semibold text-gray-900 cursor-pointer flex justify-between items-center p-6 list-none">
+          <span>¿Puedo cambiar de carrera después de inscribirme?</span>
+          <span class="group-open:rotate-180 transition-transform duration-200 flex-shrink-0 ml-4">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+              <path d="M8 12l-4-4h8l-4 4z"/>
+            </svg>
+          </span>
+        </summary>
+        <div class="px-6 pb-6">
+          <p class="text-gray-600">Sí, ofrecemos opciones de cambio de carrera durante los primeros semestres. Te asesoramos para encontrar el programa que mejor se adapte a tus intereses y objetivos.</p>
+        </div>
+      </details>
+
+      <details class="bg-gray-50 rounded-xl group hover:bg-gray-100 transition-colors cursor-pointer">
+        <summary class="font-semibold text-gray-900 cursor-pointer flex justify-between items-center p-6 list-none">
+          <span>¿Ofrecen modalidades en línea?</span>
+          <span class="group-open:rotate-180 transition-transform duration-200 flex-shrink-0 ml-4">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+              <path d="M8 12l-4-4h8l-4 4z"/>
+            </svg>
+          </span>
+        </summary>
+        <div class="px-6 pb-6">
+          <p class="text-gray-600">Sí, contamos con modalidades presencial, en línea y mixta para adaptarnos a tu estilo de vida y horarios. Todas con la misma calidad académica.</p>
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
 </Layout>
 
 
@@ -350,12 +396,6 @@ import { Mail, Phone, MessageCircle, Clock, Users, Shield, CheckCircle2 } from "
       }
     }
 
-    // Tracking de tiempo en página
-    let startTime = Date.now();
-    window.addEventListener('beforeunload', function() {
-      const timeSpent = Math.round((Date.now() - startTime) / 1000);
-      console.log(`Usuario pasó ${timeSpent} segundos en la página`);
-      // Enviar a analytics
-    });
+  
   });
 </script>

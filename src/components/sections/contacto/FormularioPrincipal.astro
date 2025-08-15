@@ -144,13 +144,14 @@
   <div class="pt-2 lg:pt-4">
     <button
       type="submit"
-      class="w-full bg-red-500 hover:bg-red-600 text-white font-semibold py-2.5 lg:py-3 px-6 rounded-md transition-colors duration-200 text-sm lg:text-base disabled:opacity-50 disabled:cursor-not-allowed"
-      aria-label="ENVIAR MENSAJE"
-      title="ENVIAR MENSAJE"
+      class="w-full bg-red-500 hover:bg-red-600 text-white font-semibold py-2.5 lg:py-3 px-6 rounded-md transition-all duration-300 text-sm lg:text-base disabled:opacity-50 disabled:cursor-not-allowed relative overflow-hidden"
+      aria-label="ENVIAR"
+      title="ENVIAR"
       id="submit-button"
       disabled
     >
-      ENVIAR MENSAJE
+      <span id="button-text">COMPLETAR REGISTRO</span>
+      <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent opacity-0 transform -skew-x-12 group-hover:opacity-20 transition-all duration-700" id="button-shine"></div>
     </button>
   </div>
 </form>
@@ -290,9 +291,9 @@ document.addEventListener("DOMContentLoaded", function() {
       
       // Cambiar color de la barra según el progreso
       if (progress < 30) {
-        this.progressBar.className = 'h-2 bg-gradient-to-r from-red-400 to-red-500 rounded-full transition-all duration-500 ease-out';
+        this.progressBar.className = 'h-2 bg-gradient-to-r from-blue-400 to-blue-500 rounded-full transition-all duration-500 ease-out';
       } else if (progress < 70) {
-        this.progressBar.className = 'h-2 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-full transition-all duration-500 ease-out';
+        this.progressBar.className = 'h-2 bg-gradient-to-r from-purple-400 to-indigo-500 rounded-full transition-all duration-500 ease-out';
       } else {
         this.progressBar.className = 'h-2 bg-gradient-to-r from-green-400 to-green-600 rounded-full transition-all duration-500 ease-out';
       }
@@ -311,6 +312,9 @@ document.addEventListener("DOMContentLoaded", function() {
       
       // Habilitar/deshabilitar botón de envío
       this.submitButton.disabled = progress < 100;
+      
+      // Actualizar texto del botón según el progreso
+      this.updateButtonState(progress);
       
       // Feedback visual adicional
       this.addVisualFeedback(progress);
@@ -336,6 +340,45 @@ document.addEventListener("DOMContentLoaded", function() {
         // Mostrar confetti virtual (opcional)
         this.showCelebration();
       }
+    }
+    
+    updateButtonState(progress) {
+      const buttonText = document.getElementById('button-text');
+      const buttonShine = document.getElementById('button-shine');
+      
+      if (progress === 100) {
+        // Cambiar texto del botón
+        buttonText.textContent = '¡ENVIAR!';
+        
+        // Añadir efectos al botón
+        this.submitButton.classList.add('animate-pulse', 'shadow-lg', 'shadow-red-500/25', 'scale-105', 'group');
+        
+        // Efecto de brillo
+        buttonShine.style.animation = 'shine 2s ease-in-out infinite';
+        
+        // Efecto de hover mejorado
+        this.submitButton.addEventListener('mouseenter', this.buttonHoverEffect);
+        this.submitButton.addEventListener('mouseleave', this.buttonLeaveEffect);
+      } else {
+        // Estado deshabilitado
+        buttonText.textContent = 'COMPLETAR REGISTRO';
+        this.submitButton.classList.remove('animate-pulse', 'shadow-lg', 'shadow-red-500/25', 'scale-105', 'group');
+        buttonShine.style.animation = 'none';
+        
+        // Remover event listeners
+        this.submitButton.removeEventListener('mouseenter', this.buttonHoverEffect);
+        this.submitButton.removeEventListener('mouseleave', this.buttonLeaveEffect);
+      }
+    }
+    
+    buttonHoverEffect = () => {
+      this.submitButton.style.transform = 'scale(1.08) translateY(-2px)';
+      this.submitButton.style.boxShadow = '0 20px 25px -5px rgba(239, 68, 68, 0.4), 0 10px 10px -5px rgba(239, 68, 68, 0.04)';
+    }
+    
+    buttonLeaveEffect = () => {
+      this.submitButton.style.transform = 'scale(1.05)';
+      this.submitButton.style.boxShadow = '0 10px 15px -3px rgba(239, 68, 68, 0.25), 0 4px 6px -2px rgba(239, 68, 68, 0.05)';
     }
     
     showCelebration() {
@@ -397,6 +440,20 @@ document.addEventListener("DOMContentLoaded", function() {
     100% { 
       opacity: 0; 
       transform: translateY(-10px) scale(0.8);
+    }
+  }
+  
+  @keyframes shine {
+    0% { 
+      transform: translateX(-100%) skewX(-12deg);
+      opacity: 0;
+    }
+    50% { 
+      opacity: 0.6;
+    }
+    100% { 
+      transform: translateX(200%) skewX(-12deg);
+      opacity: 0;
     }
   }
 
