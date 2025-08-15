@@ -139,15 +139,7 @@ import { Mail, Phone, MessageCircle, Clock, Users, Shield, CheckCircle2 } from "
         </div>
 
         <!-- Indicadores de progreso y beneficios -->
-        <div class="bg-gray-50 rounded-lg p-3 mb-6">
-          <div class="flex items-center justify-between text-sm mb-2">
-            <span class="text-gray-600">Solo toma 2 minutos</span>
-            <span class="text-green-600 font-medium">✓ Sin compromiso</span>
-          </div>
-          <div class="w-full bg-gray-200 rounded-full h-1">
-            <div class="h-1 bg-blue-500 rounded-full w-0 form-progress"></div>
-          </div>
-        </div>
+        
 
         <!-- Formulario -->
         <FormularioPrincipal />
@@ -278,66 +270,7 @@ import { Mail, Phone, MessageCircle, Clock, Users, Shield, CheckCircle2 } from "
   </section>
 </Layout>
 
-<style>
-  /* Animaciones y efectos mejorados */
-  .form-progress {
-    animation: progress 8s ease-in-out infinite;
-  }
 
-  @keyframes progress {
-    0% { width: 0%; }
-    30% { width: 25%; }
-    60% { width: 65%; }
-    100% { width: 100%; }
-  }
-
-  /* Efectos hover mejorados */
-  details[open] {
-    background: linear-gradient(135deg, #f3f4f6, #e5e7eb);
-  }
-
-  /* Responsive */
-  @media (max-width: 768px) {
-    iframe {
-      height: 300px;
-    }
-    
-    .grid-cols-2 {
-      grid-template-columns: 1fr 1fr;
-    }
-  }
-
-  /* Efectos de entrada */
-  @keyframes slideInFromLeft {
-    from {
-      opacity: 0;
-      transform: translateX(-30px);
-    }
-    to {
-      opacity: 1;
-      transform: translateX(0);
-    }
-  }
-
-  @keyframes slideInFromRight {
-    from {
-      opacity: 0;
-      transform: translateX(30px);
-    }
-    to {
-      opacity: 1;
-      transform: translateX(0);
-    }
-  }
-
-  .animate-slide-left {
-    animation: slideInFromLeft 0.8s ease-out;
-  }
-
-  .animate-slide-right {
-    animation: slideInFromRight 0.8s ease-out;
-  }
-</style>
 
 <script>
   // Tracking de interacciones para optimizar conversión

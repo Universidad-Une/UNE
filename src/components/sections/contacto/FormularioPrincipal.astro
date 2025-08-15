@@ -1,5 +1,18 @@
 ---
 ---
+<div class="bg-gray-50 rounded-lg p-3 mb-6">
+  <div class="flex items-center justify-between text-sm mb-2">
+    <span class="text-gray-600" id="progress-text">Solo toma 2 minutos</span>
+    <span class="text-green-600 font-medium">✓ Sin compromiso</span>
+  </div>
+  <div class="w-full bg-gray-200 rounded-full h-2 overflow-hidden">
+    <div class="h-2 bg-gradient-to-r from-blue-400 to-blue-600 rounded-full transition-all duration-500 ease-out" id="form-progress" style="width: 0%"></div>
+  </div>
+  <div class="mt-2 text-xs text-gray-500" id="progress-message">
+    Completa los campos para continuar
+  </div>
+</div>
+
 <form id="education-form" class="space-y-3 lg:space-y-4 flex-1 lg:flex-none">
   <!-- Nombre -->
   <div>
@@ -131,9 +144,11 @@
   <div class="pt-2 lg:pt-4">
     <button
       type="submit"
-      class="w-full bg-red-500 hover:bg-red-600 text-white font-semibold py-2.5 lg:py-3 px-6 rounded-md transition-colors duration-200 text-sm lg:text-base"
+      class="w-full bg-red-500 hover:bg-red-600 text-white font-semibold py-2.5 lg:py-3 px-6 rounded-md transition-colors duration-200 text-sm lg:text-base disabled:opacity-50 disabled:cursor-not-allowed"
       aria-label="ENVIAR MENSAJE"
       title="ENVIAR MENSAJE"
+      id="submit-button"
+      disabled
     >
       ENVIAR MENSAJE
     </button>
@@ -144,12 +159,213 @@
 import { FormValidator } from "src/helpers/ContactFormConfig";
 
 document.addEventListener("DOMContentLoaded", function() {
+  // Inicializar el FormValidator existente
   new FormValidator("#education-form", {
     apiUrl: "https://intranet.universidad-une.com/api/createleads",
   });
+
+  // Sistema de progreso mejorado
+  class FormProgressTracker {
+    constructor() {
+      this.form = document.getElementById('education-form');
+      this.progressBar = document.getElementById('form-progress');
+      this.progressText = document.getElementById('progress-text');
+      this.progressMessage = document.getElementById('progress-message');
+      this.submitButton = document.getElementById('submit-button');
+      
+      this.requiredFields = [
+        'nombre',
+        'apellidos',
+        'correo',
+        'telefono',
+        'nivelEducativo',
+        'plantelInteres'
+      ];
+      
+      this.messages = {
+        0: {
+          text: "¡Empecemos! 🚀",
+          message: "Completa tus datos personales"
+        },
+        20: {
+          text: "¡Buen comienzo! 👏",
+          message: "Sigue completando tus datos"
+        },
+        40: {
+          text: "¡Vas muy bien! ⭐",
+          message: "Ya casi tienes la mitad"
+        },
+        60: {
+          text: "¡Excelente progreso! 🎯",
+          message: "Solo faltan unos campos más"
+        },
+        80: {
+          text: "¡Casi listo! 🔥",
+          message: "Un último esfuerzo"
+        },
+        100: {
+          text: "¡Perfecto! ✅",
+          message: "Todo listo para enviar"
+        }
+      };
+      
+      this.init();
+    }
+    
+    init() {
+      // Agregar listeners a todos los campos
+      const allInputs = this.form.querySelectorAll('input, select');
+      allInputs.forEach(input => {
+        input.addEventListener('input', () => this.updateProgress());
+        input.addEventListener('change', () => this.updateProgress());
+      });
+      
+      // Escuchar cambios en campos dinámicos (área de conocimiento, programa, modalidad)
+      const observer = new MutationObserver(() => {
+        this.updateRequiredFields();
+        this.updateProgress();
+      });
+      
+      observer.observe(document.getElementById('area-container'), { 
+        attributes: true, 
+        attributeFilter: ['class'] 
+      });
+      observer.observe(document.getElementById('programa-container'), { 
+        attributes: true, 
+        attributeFilter: ['class'] 
+      });
+      observer.observe(document.getElementById('modalidad-container'), { 
+        attributes: true, 
+        attributeFilter: ['class'] 
+      });
+      
+      // Progreso inicial
+      this.updateProgress();
+    }
+    
+    updateRequiredFields() {
+      // Actualizar campos requeridos basado en campos visibles
+      this.requiredFields = ['nombre', 'apellidos', 'correo', 'telefono', 'nivelEducativo', 'plantelInteres'];
+      
+      if (!document.getElementById('area-container').classList.contains('hidden')) {
+        this.requiredFields.push('areaConocimiento');
+      }
+      
+      if (!document.getElementById('programa-container').classList.contains('hidden')) {
+        this.requiredFields.push('programaInteres');
+      }
+      
+      // Para modalidad, verificar si hay opciones seleccionadas
+      if (!document.getElementById('modalidad-container').classList.contains('hidden')) {
+        const modalidadInputs = document.querySelectorAll('input[name="modalidad"]');
+        if (modalidadInputs.length > 0) {
+          this.requiredFields.push('modalidad');
+        }
+      }
+    }
+    
+    updateProgress() {
+      this.updateRequiredFields();
+      
+      let completedFields = 0;
+      
+      this.requiredFields.forEach(fieldName => {
+        if (fieldName === 'modalidad') {
+          // Verificar radio buttons de modalidad
+          const modalidadInputs = document.querySelectorAll('input[name="modalidad"]');
+          const isModalidadSelected = Array.from(modalidadInputs).some(input => input.checked);
+          if (isModalidadSelected) completedFields++;
+        } else {
+          const field = this.form.querySelector(`[name="${fieldName}"]`);
+          if (field && field.value.trim() !== '') {
+            completedFields++;
+          }
+        }
+      });
+      
+      const progress = (completedFields / this.requiredFields.length) * 100;
+      
+      // Actualizar barra de progreso
+      this.progressBar.style.width = `${progress}%`;
+      
+      // Cambiar color de la barra según el progreso
+      if (progress < 30) {
+        this.progressBar.className = 'h-2 bg-gradient-to-r from-red-400 to-red-500 rounded-full transition-all duration-500 ease-out';
+      } else if (progress < 70) {
+        this.progressBar.className = 'h-2 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-full transition-all duration-500 ease-out';
+      } else {
+        this.progressBar.className = 'h-2 bg-gradient-to-r from-green-400 to-green-600 rounded-full transition-all duration-500 ease-out';
+      }
+      
+      // Actualizar mensajes
+      const messageKey = this.getMessageKey(progress);
+      if (this.messages[messageKey]) {
+        this.progressText.textContent = this.messages[messageKey].text;
+        this.progressMessage.textContent = this.messages[messageKey].message;
+        
+        // Agregar animación de pulso cuando se completa
+        if (progress === 100) {
+          this.progressBar.style.animation = 'pulse 1s ease-in-out 3';
+        }
+      }
+      
+      // Habilitar/deshabilitar botón de envío
+      this.submitButton.disabled = progress < 100;
+      
+      // Feedback visual adicional
+      this.addVisualFeedback(progress);
+    }
+    
+    getMessageKey(progress) {
+      if (progress === 0) return 0;
+      if (progress < 20) return 0;
+      if (progress < 40) return 20;
+      if (progress < 60) return 40;
+      if (progress < 80) return 60;
+      if (progress < 100) return 80;
+      return 100;
+    }
+    
+    addVisualFeedback(progress) {
+      // Remover clases anteriores
+      this.progressText.classList.remove('animate-bounce', 'text-green-600', 'font-bold');
+      
+      if (progress === 100) {
+        this.progressText.classList.add('animate-bounce', 'text-green-600', 'font-bold');
+        
+        // Mostrar confetti virtual (opcional)
+        this.showCelebration();
+      }
+    }
+    
+    showCelebration() {
+      // Efecto de celebración sutil
+      const celebration = document.createElement('div');
+      celebration.innerHTML = '🎉';
+      celebration.style.cssText = `
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        font-size: 1.5rem;
+        animation: fadeInOut 2s ease-in-out;
+        pointer-events: none;
+      `;
+      
+      this.progressText.parentElement.style.position = 'relative';
+      this.progressText.parentElement.appendChild(celebration);
+      
+      setTimeout(() => {
+        if (celebration.parentElement) {
+          celebration.remove();
+        }
+      }, 2000);
+    }
+  }
+  
+  // Inicializar el tracker de progreso
+  new FormProgressTracker();
 });
 </script>
-
 
 <style>
   /* Estilos para los radio buttons personalizados */
@@ -157,5 +373,77 @@ document.addEventListener("DOMContentLoaded", function() {
     background-color: #3b82f6;
     color: white;
     border-color: #3b82f6;
+  }
+
+  /* Animaciones y efectos mejorados */
+  @keyframes pulse {
+    0%, 100% { 
+      transform: scaleY(1);
+    }
+    50% { 
+      transform: scaleY(1.1);
+    }
+  }
+  
+  @keyframes fadeInOut {
+    0% { 
+      opacity: 0; 
+      transform: translateY(10px) scale(0.8);
+    }
+    50% { 
+      opacity: 1; 
+      transform: translateY(0) scale(1.2);
+    }
+    100% { 
+      opacity: 0; 
+      transform: translateY(-10px) scale(0.8);
+    }
+  }
+
+  /* Efectos hover mejorados */
+  details[open] {
+    background: linear-gradient(135deg, #f3f4f6, #e5e7eb);
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    iframe {
+      height: 300px;
+    }
+    
+    .grid-cols-2 {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  /* Efectos de entrada */
+  @keyframes slideInFromLeft {
+    from {
+      opacity: 0;
+      transform: translateX(-30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes slideInFromRight {
+    from {
+      opacity: 0;
+      transform: translateX(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  .animate-slide-left {
+    animation: slideInFromLeft 0.8s ease-out;
+  }
+
+  .animate-slide-right {
+    animation: slideInFromRight 0.8s ease-out;
   }
 </style>
