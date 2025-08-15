@@ -1,121 +1,115 @@
 ---
 import Layout from "@/layouts/Layout.astro";
-import Hero from "@assets/Imagenes/Heros/Blogs/Software.webp"
+import Hero from "@assets/Imagenes/Heros/Blogs/Cuidados.webp"
 ---
 
 <Layout>
   <!-- Hero Section -->
   <div class="relative overflow-hidden bg-gradient-to-br from-slate-50 to-blue-50">
-    <div class="max-w-6xl mx-auto px-6 py-12">
-      <!-- Date and Tags -->
-      <div class="text-center mb-8">
-        <p class="text-red-500 font-semibold text-sm mb-4 fade-in">Abril 2025</p>
-        
-        <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4 max-w-4xl mx-auto leading-tight fade-in">
-          Cuidados Paliativos
-        </h1>
-        
-        <p class="text-lg text-gray-600 mb-8 max-w-3xl mx-auto leading-relaxed fade-in">
-          Importancia y beneficios en la atención de pacientes con enfermedades crónicas y terminales
-        </p>
-
-        <!-- Tags -->
-        <div class="flex flex-wrap justify-center gap-4 mb-12 fade-in">
-          <span class="bg-blue-800 text-white px-6 py-2 rounded-full text-sm font-medium">
-            Abril 2025
-          </span>
-          <span class="bg-blue-800 text-white px-6 py-2 rounded-full text-sm font-medium">
-            M.Ed. Jovana Irene Cabrales Alfaro
-          </span>
-          <span class="bg-blue-800 text-white px-6 py-2 rounded-full text-sm font-medium">
-            Enfermería
-          </span>
-        </div>
-      </div>
-
-      <!-- Hero Image Section -->
-      <div class="relative fade-in">
-        <div class="bg-gradient-to-r from-blue-900 via-blue-800 to-indigo-900 rounded-2xl overflow-hidden shadow-2xl">
-          <div class="relative flex flex-col lg:flex-row items-center justify-between p-8 md:p-12">
-            <!-- Left Side - Laptop Mockup -->
-            <div class="flex-shrink-0 mb-8 lg:mb-0">
-              <div class="relative">
-                <div class="bg-gray-800 rounded-lg p-2 shadow-xl transform -rotate-6 hover:rotate-0 transition-transform duration-300">
-                  <div class="bg-blue-900 rounded-md overflow-hidden">
-                    <img 
-                      src={Hero} 
-                      alt="Palliative Care Dashboard"
-                      class="w-80 h-48 object-cover"
-                    />
-                  </div>
-                </div>
+        <div class="max-w-7xl  mx-auto px-2 py-12">
+            <!-- Date and Tags -->
+            <div class="text-center mb-8">
+                <p class="text-red-500 font-semibold text-sm mb-4 fade-in">Abril 2025</p>
                 
-                <!-- Floating Charts -->
-                <div class="absolute -right-8 -top-4 bg-white rounded-lg p-3 shadow-lg transform rotate-12 animate-bounce">
-                  <div class="w-16 h-12 bg-gradient-to-r from-blue-400 to-purple-500 rounded opacity-80"></div>
-                </div>
-                
-                <div class="absolute -left-6 -bottom-6 bg-white rounded-lg p-2 shadow-lg animate-pulse">
-                  <div class="w-12 h-8 bg-gradient-to-r from-green-400 to-blue-400 rounded opacity-80"></div>
-                </div>
-              </div>
+               
+               
             </div>
 
-            <!-- Right Side - Text Content -->
-            <div class="flex-1 lg:ml-12 text-white text-center lg:text-left">
-              <div class="flex items-center justify-center lg:justify-start mb-4">
-                <div class="w-8 h-8 bg-yellow-400 rounded-full flex items-center justify-center mr-3">
-                  <svg class="w-4 h-4 text-gray-900" fill="currentColor" viewBox="0 0 20 20">
-                    <path fill-rule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clip-rule="evenodd"></path>
-                  </svg>
+            <!-- Hero Image Section -->
+            <div class="relative fade-in">
+                <div class="bg-gradient-to-r from-blue-900 via-blue-800 to-indigo-900 rounded-2xl overflow-hidden shadow-2xl">
+                    <div class="relative flex flex-col items-center p-8 md:p-12">
+                        <!-- Top - Image Section -->
+                        <div class="w-full mb-8">
+                            <div class="relative">
+                                <div class="bg-gray-800 rounded-lg p-2 shadow-xl transform -rotate-1 hover:rotate-0 transition-transform duration-300">
+                                    <div class="bg-blue-900 rounded-md overflow-hidden">
+                                        <img 
+                                            src={Hero.src}
+                                            alt="Palliative Care Dashboard"
+                                            class="hero-image"
+                                        />
+                                    </div>
+                                </div>
+                                
+                                <!-- Floating Charts -->
+                                <div class="absolute -right-4 -top-4 bg-white rounded-lg p-3 shadow-lg transform rotate-12 animate-bounce">
+                                    <div class="w-16 h-12 bg-gradient-to-r from-pink-400 to-rose-500 rounded opacity-80"></div>
+                                </div>
+                                
+                                <div class="absolute -left-4 -bottom-4 bg-white rounded-lg p-2 shadow-lg animate-pulse">
+                                    <div class="w-12 h-8 bg-gradient-to-r from-violet-400 to-purple-400 rounded opacity-80"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Bottom - Text Content -->
+                        <div class="w-full text-white text-center">
+                            <div class="flex items-center justify-center mb-4">
+                                <div class="w-8 h-8 bg-yellow-400 rounded-full flex items-center justify-center mr-3">
+                                    <svg class="w-4 h-4 text-gray-900" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd"></path>
+                                    </svg>
+                                </div>
+                                <span class="text-yellow-400 font-semibold text-sm">CUIDADO</span>
+                            </div>
+                            
+                            <h2 class="text-3xl md:text-4xl font-bold mb-4 leading-tight">
+                                CUIDADOS<br>
+                                PALIATIVOS
+                            </h2>
+                            
+                            <p class="text-blue-100 text-lg mb-6 leading-relaxed">
+                                Importancia y beneficios en la atención de pacientes con enfermedades crónicas y terminales
+                            </p>
+                            
+                            
+                        </div>
+                    </div>
+                    
                 </div>
-                <span class="text-yellow-400 font-semibold text-sm">CUIDADO</span>
-              </div>
-              
-              <h2 class="text-3xl md:text-4xl font-bold mb-4 leading-tight">
-                CUIDADOS<br>
-                PALIATIVOS
-              </h2>
-              
-              <p class="text-blue-100 text-lg mb-6 leading-relaxed">
-                Atención integral para pacientes y familias
-              </p>
-              
-              <div class="flex items-center justify-center lg:justify-start space-x-4">
-                <div class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-                <span class="text-green-400 text-sm font-medium">En línea</span>
-              </div>
+
+
+                <!-- Decorative Elements -->
+                <div class="absolute -top-6 -left-6 w-24 h-24 border-2 border-dashed border-blue-300 rounded-lg opacity-50"></div>
+                <div class="absolute -bottom-4 -right-4 w-16 h-16 border-2 border-dashed border-blue-300 rounded-lg opacity-50"></div>
+                
+                <!-- Floating Icons -->
+                <div class="absolute top-8 -right-4 hidden lg:block">
+                    <div class="bg-orange-100 rounded-full p-3 shadow-lg hover:scale-110 transition-transform">
+                        <svg class="w-6 h-6 text-orange-500" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M9 6a3 3 0 11-6 0 3 3 0 016 0zM17 6a3 3 0 11-6 0 3 3 0 016 0zM12.93 17c.046-.327.07-.66.07-1a6.97 6.97 0 00-1.5-4.33A5 5 0 0119 16v1h-6.07zM6 11a5 5 0 015 5v1H1v-1a5 5 0 015-5z"></path>
+                        </svg>
+                    </div>
+                </div>
+
+                <div class="absolute bottom-8 -left-4 hidden lg:block">
+                    <div class="bg-green-100 rounded-full p-3 shadow-lg hover:scale-110 transition-transform">
+                        <svg class="w-6 h-6 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                        </svg>
+                    </div>
+                </div>
+
+                 <!-- Tags -->
+                <div class="flex flex-wrap justify-center gap-4 mb-12 fade-in mt-12">
+                    <span class="bg-blue-800 text-white px-6 py-2 rounded-full text-sm font-medium">
+                        Abril 2025
+                    </span>
+                    <span class="bg-blue-800 text-white px-6 py-2 rounded-full text-sm font-medium">
+                        M.Ed. Jovana Irene Cabrales Alfaro
+                    </span>
+                    <span class="bg-blue-800 text-white px-6 py-2 rounded-full text-sm font-medium">
+                        Enfermería
+                    </span>
+                </div>
+
+                <!-- Dotted Connection Lines -->
+                <div class="absolute top-8 right-8 w-32 h-0.5 border-t-2 border-dotted border-blue-300 opacity-60 hidden lg:block"></div>
+                <div class="absolute bottom-8 left-8 w-24 h-0.5 border-t-2 border-dotted border-blue-300 opacity-60 hidden lg:block"></div>
             </div>
-          </div>
         </div>
-
-        <!-- Decorative Elements -->
-        <div class="absolute -top-6 -left-6 w-24 h-24 border-2 border-dashed border-blue-300 rounded-lg opacity-50"></div>
-        <div class="absolute -bottom-4 -right-4 w-16 h-16 border-2 border-dashed border-blue-300 rounded-lg opacity-50"></div>
-        
-        <!-- Floating Icons -->
-        <div class="absolute top-1/2 -right-8 transform -translate-y-1/2 hidden lg:block">
-          <div class="bg-orange-100 rounded-full p-3 shadow-lg hover:scale-110 transition-transform">
-            <svg class="w-6 h-6 text-orange-500" fill="currentColor" viewBox="0 0 20 20">
-              <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"></path>
-            </svg>
-          </div>
-        </div>
-
-        <div class="absolute bottom-12 -left-8 hidden lg:block">
-          <div class="bg-green-100 rounded-full p-3 shadow-lg hover:scale-110 transition-transform">
-            <svg class="w-6 h-6 text-green-500" fill="currentColor" viewBox="0 0 20 20">
-              <path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
-            </svg>
-          </div>
-        </div>
-
-        <!-- Dotted Connection Lines -->
-        <div class="absolute top-20 right-12 w-32 h-0.5 border-t-2 border-dotted border-blue-300 opacity-60 hidden lg:block"></div>
-        <div class="absolute bottom-20 left-12 w-24 h-0.5 border-t-2 border-dotted border-blue-300 opacity-60 hidden lg:block"></div>
-      </div>
     </div>
-  </div>
 
   <!-- Blog Content -->
   <div class="bg-white">
