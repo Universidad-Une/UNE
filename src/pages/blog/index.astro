@@ -1,6 +1,7 @@
 ---
 import Layout from "@/layouts/Layout.astro";
 import Grid from "@components/sections/blog/Grid.astro";
+import Blog from "@assets/Imagenes/Secciones/Becas.webp";
 
 // Import dinámico con sintaxis más específica
 const imageModules = import.meta.glob('/src/assets/Imagenes/Heros/Blogs/*.(png|jpg|jpeg|webp)', { 
@@ -244,7 +245,7 @@ const cardsData = [
         </div>
         <div class="flex justify-center">
           <img
-            src="/src/assets/Imagenes/Adaptables/Ilustracion_clara.webp"
+            src={Blog.src}
             alt="Lectura e inspiración"
             class="rounded-lg shadow-lg"
           />
