@@ -3,51 +3,43 @@ export const actividades = [
     id: "1",
     nombre: "Fútbol",
     codigo: "00015",
-    direccion:
-      "Entrenamientos de fútbol, desarrollo de técnicas y participación en torneos deportivos",
+    direccion: "Entrenamientos de fútbol, desarrollo de técnicas y participación en torneos deportivos",
     ciudad: "Tonalá",
     url: "/Vivetuuniversidad/Actividades/Futbol",
     imagen: "/Images/VTU/Cards/Futbol.webp",
   },
- 
-  
-  
- 
   {
     id: "6",
     nombre: "Dibujo",
     codigo: "00015",
-    direccion:
-      "Curso de dibujo artístico, técnicas de ilustración y desarrollo de habilidades creativas",
+    direccion: "Curso de dibujo artístico, técnicas de ilustración y desarrollo de habilidades creativas",
     ciudad: "Tonalá",
-    url: "/Vivetuuniversidad/Actividades/Futbol",
+    url: "/Vivetuuniversidad/Actividades/dibujo",
     imagen: "/Images/VTU/Cards/Dibujo.webp",
   },
   {
     id: "7",
-    nombre: "Dibujo ",
+    nombre: "Dibujo",
     codigo: "00015",
     direccion: "Taller de dibujo y expresión artística para todas las edades",
     ciudad: "Tlajomulco",
-    url: "/Vivetuuniversidad/Actividades/Futbol",
+    url: "/Vivetuuniversidad/Actividades/dibujo",
     imagen: "/Images/VTU/Cards/Dibujo.webp",
   },
   {
     id: "8",
-    nombre: "Taller Administrativos	 ",
+    nombre: "Taller Administrativos",
     codigo: "00015",
-    direccion:
-      "Capacitación en procesos administrativos, gestión documental y habilidades de oficina",
+    direccion: "Capacitación en procesos administrativos, gestión documental y habilidades de oficina",
     ciudad: "Tlajomulco",
-    url: "/Vivetuuniversidad/Actividades/Futbol",
+    url: "/Vivetuuniversidad/Actividades/talleradministrativos",
     imagen: "/Images/VTU/Cards/Administrativos.webp",
   },
   {
     id: "9",
-    nombre: "Fútbol	",
+    nombre: "Fútbol",
     codigo: "00015",
-    direccion:
-      "Entrenamientos de fútbol, desarrollo de técnicas y participación en torneos deportivos",
+    direccion: "Entrenamientos de fútbol, desarrollo de técnicas y participación en torneos deportivos",
     ciudad: "Tlajomulco",
     url: "/Vivetuuniversidad/Actividades/Futbol",
     imagen: "/Images/VTU/Cards/Futbol.webp",
@@ -58,55 +50,50 @@ export const actividades = [
     codigo: "00015",
     direccion: "Clases de danza folklórica, moderna y expresión corporal",
     ciudad: "Tlajomulco",
-    url: "/Vivetuuniversidad/Actividades/Futbol",
+    url: "/Vivetuuniversidad/Actividades/danza",
     imagen: "/Images/VTU/Cards/Latinos.webp",
   },
   {
     id: "11",
     nombre: "Voleibol",
     codigo: "00015",
-    direccion:
-      "Clases de voleibol, técnicas de juego en equipo y competencias deportivas",
+    direccion: "Clases de voleibol, técnicas de juego en equipo y competencias deportivas",
     ciudad: "Tlajomulco",
-    url: "/Vivetuuniversidad/Actividades/Futbol",
+    url: "/Vivetuuniversidad/Actividades/voleibol",
     imagen: "/Images/VTU/Cards/Voleibol.webp",
   },
   {
     id: "12",
     nombre: "Natación",
     codigo: "00015",
-    direccion:
-      "Clases de natación para principiantes y avanzados, técnicas de nado y resistencia acuática",
+    direccion: "Clases de natación para principiantes y avanzados, técnicas de nado y resistencia acuática",
     ciudad: "Tlajomulco",
-    url: "/Vivetuuniversidad/Actividades/Futbol",
+    url: "/Vivetuuniversidad/Actividades/natacion",
     imagen: "/Images/VTU/Cards/Natacion.webp",
   },
   {
     id: "13",
     nombre: "Básquetbol",
     codigo: "00015",
-    direccion:
-      "Entrenamientos de Básquetbol, fundamentos del juego y participación en ligas deportivas",
+    direccion: "Entrenamientos de Básquetbol, fundamentos del juego y participación en ligas deportivas",
     ciudad: "Tlajomulco",
-    url: "/Vivetuuniversidad/Actividades/Futbol",
+    url: "/Vivetuuniversidad/Actividades/basquetbol",
     imagen: "/Images/VTU/Cards/Basketball.webp",
   },
   {
     id: "14",
     nombre: "Gastronomía",
     codigo: "00015",
-    direccion:
-      "Taller de cocina básica, preparación de platillos tradicionales y técnicas culinarias",
+    direccion: "Taller de cocina básica, preparación de platillos tradicionales y técnicas culinarias",
     ciudad: "Tlajomulco",
-    url: "/Vivetuuniversidad/Actividades/Futbol",
+    url: "/Vivetuuniversidad/Actividades/gastronomia",
     imagen: "/Images/VTU/Cards/Gastronomia.webp",
   },
   {
     id: "15",
     nombre: "Fútbol",
     codigo: "00015",
-    direccion:
-      "Entrenamientos de fútbol, desarrollo de técnicas y participación en torneos deportivos",
+    direccion: "Entrenamientos de fútbol, desarrollo de técnicas y participación en torneos deportivos",
     ciudad: "Milenio",
     url: "/Vivetuuniversidad/Actividades/Futbol",
     imagen: "/Images/VTU/Cards/Futbol.webp",
@@ -115,20 +102,18 @@ export const actividades = [
     id: "16",
     nombre: "Voleibol",
     codigo: "00015",
-    direccion:
-      "Clases de voleibol, técnicas de juego en equipo y competencias deportivas",
+    direccion: "Clases de voleibol, técnicas de juego en equipo y competencias deportivas",
     ciudad: "Milenio",
-    url: "/Vivetuuniversidad/Actividades/Futbol",
+    url: "/Vivetuuniversidad/Actividades/voleibol",
     imagen: "/Images/VTU/Cards/Voleibol.webp",
   },
   {
     id: "17",
-    nombre: "Ritmos Latinos	",
+    nombre: "Ritmos Latinos",
     codigo: "00015",
-    direccion:
-      "Clases de baile de ritmos latinos como salsa, bachata, merengue y cumbia",
+    direccion: "Clases de baile de ritmos latinos como salsa, bachata, merengue y cumbia",
     ciudad: "Milenio",
-    url: "/Vivetuuniversidad/Actividades/Futbol",
+    url: "/Vivetuuniversidad/Actividades/ritmoslatinos",
     imagen: "/Images/VTU/Cards/Latinos.webp",
   },
   {
@@ -137,85 +122,77 @@ export const actividades = [
     codigo: "00015",
     direccion: "Clases de baile K-pop y danza urbana con coreografías modernas",
     ciudad: "Milenio",
-    url: "/Vivetuuniversidad/Actividades/Futbol",
+    url: "/Vivetuuniversidad/Actividades/kpopurbano",
     imagen: "/Images/VTU/Cards/Kpop.webp",
   },
   {
     id: "19",
     nombre: "Programación",
     codigo: "00015",
-    direccion:
-      "Curso de programación básica, desarrollo web y fundamentos de la informática",
+    direccion: "Curso de programación básica, desarrollo web y fundamentos de la informática",
     ciudad: "Milenio",
-    url: "/Vivetuuniversidad/Actividades/Futbol",
+    url: "/Vivetuuniversidad/Actividades/programacion",
     imagen: "/Images/VTU/Cards/Programacion.webp",
   },
   {
     id: "20",
     nombre: "Voleibol",
     codigo: "00015",
-    direccion:
-      "Clases de voleibol, técnicas de juego en equipo y competencias deportivas",
+    direccion: "Clases de voleibol, técnicas de juego en equipo y competencias deportivas",
     ciudad: "Tlaquepaque",
-    url: "/Vivetuuniversidad/Actividades/Futbol",
+    url: "/Vivetuuniversidad/Actividades/voleibol",
     imagen: "/Images/VTU/Cards/Voleibol.webp",
   },
   {
     id: "21",
     nombre: "Jazz",
     codigo: "00015",
-    direccion:
-      "Clases de danza jazz, técnicas de movimiento y expresión artística",
+    direccion: "Clases de danza jazz, técnicas de movimiento y expresión artística",
     ciudad: "Plaza del sol",
-    url: "/Vivetuuniversidad/Actividades/Futbol",
+    url: "/Vivetuuniversidad/Actividades/jazz",
     imagen: "/Images/VTU/Cards/Jazz.webp",
   },
   {
     id: "22",
     nombre: "Canto",
     codigo: "00015",
-    direccion:
-      "Clases de técnica vocal, interpretación musical y desarrollo del oído musical",
+    direccion: "Clases de técnica vocal, interpretación musical y desarrollo del oído musical",
     ciudad: "Plaza del sol",
-    url: "/Vivetuuniversidad/Actividades/Futbol",
+    url: "/Vivetuuniversidad/Actividades/canto",
     imagen: "/Images/VTU/Cards/Cantoo.webp",
   },
   {
     id: "23",
-    nombre: "Dibujo y Pintura	",
+    nombre: "Dibujo y Pintura",
     codigo: "00015",
-    direccion:
-      "Taller de dibujo y pintura con diferentes técnicas artísticas y estilos",
+    direccion: "Taller de dibujo y pintura con diferentes técnicas artísticas y estilos",
     ciudad: "Plaza del sol",
-    url: "/Vivetuuniversidad/Actividades/Futbol",
+    url: "/Vivetuuniversidad/Actividades/dibujoypintura",
     imagen: "/Images/VTU/Cards/Dibujo.webp",
   },
   {
     id: "24",
     nombre: "Actuación",
     codigo: "00015",
-    direccion:
-      "Clases de teatro y actuación, desarrollo de habilidades escénicas y expresión dramática",
+    direccion: "Clases de teatro y actuación, desarrollo de habilidades escénicas y expresión dramática",
     ciudad: "Plaza del sol",
-    url: "/Vivetuuniversidad/Actividades/Futbol",
+    url: "/Vivetuuniversidad/Actividades/actuacion",
     imagen: "/Images/VTU/Cards/Teatro.webp",
   },
   {
     id: "25",
     nombre: "Manualidades",
     codigo: "00015",
-    direccion:
-      "Taller de manualidades creativas, elaboración de objetos decorativos y artesanías",
+    direccion: "Taller de manualidades creativas, elaboración de objetos decorativos y artesanías",
     ciudad: "Plaza del sol",
-    url: "/Vivetuuniversidad/Actividades/Futbol",
+    url: "/Vivetuuniversidad/Actividades/manualidades",
     imagen: "/Images/VTU/Cards/Manualidades.webp",
   },
   {
     id: "26",
     nombre: "Fútbol",
     codigo: "00015",
-    direccion:
-      "Entrenamientos de fútbol, desarrollo de técnicas y participación en torneos deportivos",
+    direccion: "Entrenamientos de fútbol, desarrollo de técnicas y participación en torneos deportivos",
     ciudad: "Tesistán",
     url: "/Vivetuuniversidad/Actividades/Futbol",
     imagen: "/Images/VTU/Cards/Futbol.webp",
@@ -224,281 +201,207 @@ export const actividades = [
     id: "27",
     nombre: "Voleibol",
     codigo: "00015",
-    direccion:
-      "Clases de voleibol, técnicas de juego en equipo y competencias deportivas",
+    direccion: "Clases de voleibol, técnicas de juego en equipo y competencias deportivas",
     ciudad: "Tesistán",
-    url: "/Vivetuuniversidad/Actividades/Futbol",
+    url: "/Vivetuuniversidad/Actividades/voleibol",
     imagen: "/Images/VTU/Cards/Voleibol.webp",
   },
   {
     id: "55",
     nombre: "Box",
     codigo: "00015",
-    direccion:
-      "Entrenamientos de boxeo, técnicas de combate y acondicionamiento físico",
+    direccion: "Entrenamientos de boxeo, técnicas de combate y acondicionamiento físico",
     ciudad: "Tesistán",
-    url: "/Vivetuuniversidad/Actividades/Futbol",
+    url: "/Vivetuuniversidad/Actividades/box",
     imagen: "/Images/VTU/Cards/Karate.WEBP",
   },
   {
     id: "29",
     nombre: "Tochito",
     codigo: "00015",
-    direccion:
-      "Práctica de fútbol americano sin contacto, estrategias de juego y trabajo en equipo",
+    direccion: "Práctica de fútbol americano sin contacto, estrategias de juego y trabajo en equipo",
     ciudad: "Tesistán",
-    url: "/Vivetuuniversidad/Actividades/Futbol",
+    url: "/Vivetuuniversidad/Actividades/tochito",
     imagen: "/Images/VTU/Cards/Tochito.webp",
   },
   {
     id: "30",
     nombre: "Deportivo",
     codigo: "00015",
-    direccion:
-      "Actividades deportivas generales, acondicionamiento físico y recreación",
+    direccion: "Actividades deportivas generales, acondicionamiento físico y recreación",
     ciudad: "Centro médico",
-    url: "/Vivetuuniversidad/Actividades/Futbol",
+    url: "/Vivetuuniversidad/Actividades/deportivo",
     imagen: "/Images/VTU/Cards/Futbol.webp",
   },
- 
   {
     id: "32",
     nombre: "Dibujo y Pintura",
     codigo: "00015",
-    direccion:
-      "Taller de dibujo y pintura con diferentes técnicas artísticas y estilos",
+    direccion: "Taller de dibujo y pintura con diferentes técnicas artísticas y estilos",
     ciudad: "Tesistán",
-    url: "/Vivetuuniversidad/Actividades/Futbol",
+    url: "/Vivetuuniversidad/Actividades/dibujoypintura",
     imagen: "/Images/VTU/Cards/Dibujo.webp",
   },
-
-  
   {
     id: "36",
-    nombre: "Voleibol ",
+    nombre: "Voleibol",
     codigo: "00015",
-    direccion:
-      "Clases de voleibol, técnicas de juego en equipo y competencias deportivas",
+    direccion: "Clases de voleibol, técnicas de juego en equipo y competencias deportivas",
     ciudad: "Tonalá",
-    url: "/Vivetuuniversidad/Actividades/Futbol",
+    url: "/Vivetuuniversidad/Actividades/voleibol",
     imagen: "/Images/VTU/Cards/Voleibol.webp",
   },
   {
     id: "37",
     nombre: "Gastronomía",
     codigo: "00015",
-    direccion:
-      "Taller de cocina básica, preparación de platillos tradicionales y técnicas culinarias",
+    direccion: "Taller de cocina básica, preparación de platillos tradicionales y técnicas culinarias",
     ciudad: "Tonalá",
-    url: "/Vivetuuniversidad/Actividades/Futbol",
+    url: "/Vivetuuniversidad/Actividades/gastronomia",
     imagen: "/Images/VTU/Cards/Gastronomia.webp",
   },
   {
     id: "38",
     nombre: "Bisutería",
     codigo: "00015",
-    direccion:
-      "Taller de elaboración de joyería artesanal, diseño y creación de accesorios",
+    direccion: "Taller de elaboración de joyería artesanal, diseño y creación de accesorios",
     ciudad: "Tonalá",
-    url: "/Vivetuuniversidad/Actividades/Futbol",
+    url: "/Vivetuuniversidad/Actividades/bisuteria",
     imagen: "/Images/VTU/Cards/Bisuteria.webp",
   },
   {
     id: "39",
     nombre: "Expresión Oral y Escrita",
     codigo: "00015",
-    direccion:
-      "Curso de desarrollo de habilidades comunicativas, redacción y oratoria",
+    direccion: "Curso de desarrollo de habilidades comunicativas, redacción y oratoria",
     ciudad: "Tonalá",
-    url: "/Vivetuuniversidad/Actividades/Futbol",
+    url: "/Vivetuuniversidad/Actividades/expresionoralyescrita",
     imagen: "/Images/VTU/Cards/Oral.webp",
   },
   {
     id: "40",
     nombre: "Baldor",
     codigo: "00015",
-    direccion:
-      "Curso de álgebra básica, resolución de ecuaciones y fundamentos matemáticos",
+    direccion: "Curso de álgebra básica, resolución de ecuaciones y fundamentos matemáticos",
     ciudad: "Tonalá",
-    url: "/Vivetuuniversidad/Actividades/Futbol",
+    url: "/Vivetuuniversidad/Actividades/baldor",
     imagen: "/Images/VTU/Cards/Baldor.webp",
   },
-  
   {
     id: "42",
     nombre: "Karate",
     codigo: "00015",
-    direccion:
-      "Clases de karate tradicional, técnicas de combate y filosofía de las artes marciales",
+    direccion: "Clases de karate tradicional, técnicas de combate y filosofía de las artes marciales",
     ciudad: "Tonalá",
-    url: "/Vivetuuniversidad/Actividades/Futbol",
+    url: "/Vivetuuniversidad/Actividades/karate",
     imagen: "/Images/VTU/Cards/Karate.WEBP",
   },
   {
     id: "43",
-    nombre: "Jazz ",
+    nombre: "Jazz",
     codigo: "00015",
-    direccion:
-      "Clases de danza jazz, técnicas de movimiento y expresión artística",
+    direccion: "Clases de danza jazz, técnicas de movimiento y expresión artística",
     ciudad: "Tonalá",
-    url: "/Vivetuuniversidad/Actividades/Futbol",
+    url: "/Vivetuuniversidad/Actividades/jazz",
     imagen: "/Images/VTU/Cards/Jazz.webp",
   },
- 
-
   {
     id: "46",
-    nombre: "DEJANDO HUELLAS	",
+    nombre: "DEJANDO HUELLAS",
     codigo: "00015",
     direccion: "Programa de desarrollo personal y liderazgo comunitario",
     ciudad: "Caracol",
-    url: "/Vivetuuniversidad/Actividades/Futbol",
+    url: "/Vivetuuniversidad/Actividades/dejandohuellas",
     imagen: "/Images/VTU/Cards/Administrativos.webp",
   },
   {
     id: "47",
-    nombre: "ROMPIENDO PARADIGMAS	",
+    nombre: "ROMPIENDO PARADIGMAS",
     codigo: "00015",
-    direccion:
-      "Taller de innovación, pensamiento creativo y transformación de ideas",
+    direccion: "Taller de innovación, pensamiento creativo y transformación de ideas",
     ciudad: "Caracol",
-    url: "/Vivetuuniversidad/Actividades/Futbol",
+    url: "/Vivetuuniversidad/Actividades/rompiendoparadigmas",
     imagen: "/Images/VTU/Cards/Administrativos.webp",
   },
-  
   {
     id: "49",
     nombre: "PRINCIPIOS BÁSICOS EN ATENCIÓN A PACIENTES",
     codigo: "00015",
-    direccion:
-      "Capacitación en cuidados básicos de salud y trato humanizado al paciente",
+    direccion: "Capacitación en cuidados básicos de salud y trato humanizado al paciente",
     ciudad: "Caracol",
-    url: "/Vivetuuniversidad/Actividades/Futbol",
+    url: "/Vivetuuniversidad/Actividades/principiosbasicosenatencionapacientes",
     imagen: "/Images/VTU/Cards/Administrativos.webp",
   },
-
-  
   {
     id: "52",
-    nombre: "LENGUAJE DE SEÑAS	",
+    nombre: "LENGUAJE DE SEÑAS",
     codigo: "00015",
-    direccion:
-      "Curso de lenguaje de señas mexicano para comunicación inclusiva",
+    direccion: "Curso de lenguaje de señas mexicano para comunicación inclusiva",
     ciudad: "Caracol",
-    url: "/Vivetuuniversidad/Actividades/Futbol",
+    url: "/Vivetuuniversidad/Actividades/lenguajedesenas",
     imagen: "/Images/VTU/Cards/Senas.webp",
   },
-
-  
   {
     id: "31",
-    nombre: "Dibujo y Pintura	",
+    nombre: "Dibujo y Pintura",
     codigo: "00015",
-    direccion:
-      "Taller de dibujo y pintura con diferentes técnicas artísticas y estilos",
+    direccion: "Taller de dibujo y pintura con diferentes técnicas artísticas y estilos",
     ciudad: "Centro médico",
-    url: "/Vivetuuniversidad/Actividades/Futbol",
+    url: "/Vivetuuniversidad/Actividades/dibujoypintura",
     imagen: "/Images/VTU/Cards/Dibujo.webp",
   },
-  
   {
     id: "33",
-    nombre: "Gastronomía ",
+    nombre: "Gastronomía",
     codigo: "00015",
-    direccion:
-      "Taller de cocina básica, preparación de platillos tradicionales y técnicas culinarias",
+    direccion: "Taller de cocina básica, preparación de platillos tradicionales y técnicas culinarias",
     ciudad: "Tlaquepaque",
-    url: "/Vivetuuniversidad/Actividades/Futbol",
+    url: "/Vivetuuniversidad/Actividades/gastronomia",
     imagen: "/Images/VTU/Cards/Gastronomia.webp",
   },
   {
     id: "34",
-    nombre: "Defensa personal /Karate ",
+    nombre: "Defensa personal /Karate",
     codigo: "00015",
-    direccion:
-      "Clases de artes marciales y técnicas de defensa personal para desarrollo físico y mental",
+    direccion: "Clases de artes marciales y técnicas de defensa personal para desarrollo físico y mental",
     ciudad: "Tlaquepaque",
-    url: "/Vivetuuniversidad/Actividades/Futbol",
+    url: "/Vivetuuniversidad/Actividades/defensapersonalkarate",
     imagen: "/Images/VTU/Cards/Karate.WEBP",
   },
   {
     id: "35",
-    nombre: "Dibujo ",
+    nombre: "Dibujo",
     codigo: "00015",
-    direccion:
-      "Curso de dibujo artístico, técnicas de ilustración y desarrollo de habilidades creativas",
+    direccion: "Curso de dibujo artístico, técnicas de ilustración y desarrollo de habilidades creativas",
     ciudad: "Tlaquepaque",
-    url: "/Vivetuuniversidad/Actividades/Futbol",
+    url: "/Vivetuuniversidad/Actividades/dibujo",
     imagen: "/Images/VTU/Cards/Dibujo.webp",
   },
-  
-  {
-    id: "37",
-    nombre: "Gastronomía",
-    codigo: "00015",
-    direccion:
-      "Taller de cocina básica, preparación de platillos tradicionales y técnicas culinarias",
-    ciudad: "Tonalá",
-    url: "/Vivetuuniversidad/Actividades/Futbol",
-    imagen: "/Images/VTU/Cards/Gastronomia.webp",
-  },
-  
-  {
-    id: "39",
-    nombre: "Expresión Oral y Escrita",
-    codigo: "00015",
-    direccion:
-      "Curso de desarrollo de habilidades comunicativas, redacción y oratoria",
-    ciudad: "Tonalá",
-    url: "/Vivetuuniversidad/Actividades/Futbol",
-    imagen: "/Images/VTU/Cards/Oral.webp",
-  },
- 
- 
-  {
-    id: "43",
-    nombre: "Jazz ",
-    codigo: "00015",
-    direccion:
-      "Clases de danza jazz, técnicas de movimiento y expresión artística",
-    ciudad: "Tonalá",
-    url: "/Vivetuuniversidad/Actividades/Futbol",
-    imagen: "/Images/VTU/Cards/Jazz.webp",
-  },
-
   {
     id: "45",
     nombre: "Teatro",
     codigo: "00015",
-    direccion:
-      "Clases de teatro y actuación, desarrollo de habilidades escénicas y expresión dramática",
+    direccion: "Clases de teatro y actuación, desarrollo de habilidades escénicas y expresión dramática",
     ciudad: "Tonalá",
-    url: "/Vivetuuniversidad/Actividades/Futbol",
+    url: "/Vivetuuniversidad/Actividades/teatro",
     imagen: "/Images/VTU/Cards/Teatro.webp",
   },
- 
-  
-  
-  
   {
     id: "50",
     nombre: "GENERANDO IMPACTO POSITIVO",
     codigo: "00015",
-    direccion:
-      "Programa de responsabilidad social y proyectos de impacto comunitario",
+    direccion: "Programa de responsabilidad social y proyectos de impacto comunitario",
     ciudad: "Caracol",
-    url: "/Vivetuuniversidad/Actividades/Futbol",
+    url: "/Vivetuuniversidad/Actividades/generandoimpactopositivo",
     imagen: "/Images/VTU/Cards/Administrativos.webp",
   },
   {
     id: "51",
     nombre: "PRIMEROS AUXILIOS",
     codigo: "00015",
-    direccion:
-      "Curso completo de primeros auxilios, RCP y manejo de situaciones de emergencia",
+    direccion: "Curso completo de primeros auxilios, RCP y manejo de situaciones de emergencia",
     ciudad: "Caracol",
-    url: "/Vivetuuniversidad/Actividades/Futbol",
+    url: "/Vivetuuniversidad/Actividades/primerosauxilios",
     imagen: "/Images/VTU/Cards/aid.webp",
-  },
- 
+  }
 ];

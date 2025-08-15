@@ -9,17 +9,17 @@ import Galeria from "@/components/sections/vtu/Galeria.astro";
 
 // Información del deporte
 const deporteInfo = {
-  nombre: "Canto",
-  emoji: "⚽",
-  categoria: "Deportiva - Canto",
+  nombre: "Ritmos Latinos",
+  emoji: "🎵",
+  categoria: "Artística - Danza",
   horarios: [
-    { dia: "Lunes", hora: "14:00 - 16:00" },
-    { dia: "Miércoles", hora: "14:00 - 16:00" }
+    { dia: "Por confirmar", hora: "14:00 - 16:00" }
   ],
-  descripcion: "Únete al equipo de Canto de UNE y vive la pasión del deporte rey. Entrenamientos profesionales, compañerismo auténtico y la oportunidad de representar a tu universidad en competencias. Aquí no solo juegas Canto, construyes carácter y forjas amistades para toda la vida.",
-  llamadaAccion: "¡Únete al equipo de Canto!",
-  titulo: "Canto VTU"
+  descripcion: "Disfruta de la energía de los ritmos latinos. Aprende salsa, bachata, merengue y más en un ambiente divertido.",
+  llamadaAccion: "¡Ven a bailar con nosotros!",
+  titulo: "Ritmos Latinos VTU"
 };
+
 
 ---
 
@@ -152,7 +152,7 @@ const deporteInfo = {
           <div class="w-full max-w-xs">
             <img
               src={Ilustration.src}
-              alt="Ilustración de estudiantes jugando Canto"
+              alt="Ilustración de estudiantes jugando Ritmos Latinos	"
               class="w-full h-auto"
             />
           </div>
@@ -179,7 +179,7 @@ const deporteInfo = {
       </div>
     </div>
 
-    <!-- Galería específica de Canto -->
+    <!-- Galería específica de Ritmos Latinos	 -->
     <Galeria actividad={deporteInfo.nombre} />
 
   </main>

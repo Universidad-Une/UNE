@@ -8,17 +8,17 @@ import VTULogo from "@/assets/Logos/VTU.webp";
 import Galeria from "@/components/sections/vtu/Galeria.astro";
 
 // Información del deporte
+// Gastronomía SEC (TL)
 const deporteInfo = {
-  nombre: "Canto",
-  emoji: "⚽",
-  categoria: "Deportiva - Canto",
+  nombre: "Gastronomía SEC",
+  emoji: "👨‍🍳",
+  categoria: "Deportiva - Gastronomía",
   horarios: [
-    { dia: "Lunes", hora: "14:00 - 16:00" },
-    { dia: "Miércoles", hora: "14:00 - 16:00" }
+    { dia: "Jueves", hora: "15:00 - 18:00" }
   ],
-  descripcion: "Únete al equipo de Canto de UNE y vive la pasión del deporte rey. Entrenamientos profesionales, compañerismo auténtico y la oportunidad de representar a tu universidad en competencias. Aquí no solo juegas Canto, construyes carácter y forjas amistades para toda la vida.",
-  llamadaAccion: "¡Únete al equipo de Canto!",
-  titulo: "Canto VTU"
+  descripcion: "Aprende técnicas culinarias profesionales y descubre el arte de la gastronomía en nuestro taller práctico.",
+  llamadaAccion: "¡Inscríbete a gastronomía!",
+  titulo: "Gastronomía VTU"
 };
 
 ---
@@ -152,7 +152,7 @@ const deporteInfo = {
           <div class="w-full max-w-xs">
             <img
               src={Ilustration.src}
-              alt="Ilustración de estudiantes jugando Canto"
+              alt="Ilustración de estudiantes jugando Gastronomía"
               class="w-full h-auto"
             />
           </div>
@@ -179,7 +179,7 @@ const deporteInfo = {
       </div>
     </div>
 
-    <!-- Galería específica de Canto -->
+    <!-- Galería específica de Gastronomía -->
     <Galeria actividad={deporteInfo.nombre} />
 
   </main>

@@ -8,19 +8,18 @@ import VTULogo from "@/assets/Logos/VTU.webp";
 import Galeria from "@/components/sections/vtu/Galeria.astro";
 
 // Información del deporte
+// Primeros Auxilios (CARACOL)
 const deporteInfo = {
-  nombre: "Canto",
-  emoji: "⚽",
-  categoria: "Deportiva - Canto",
+  nombre: "Primeros Auxilios",
+  emoji: "🩹",
+  categoria: "Académica - Salud",
   horarios: [
-    { dia: "Lunes", hora: "14:00 - 16:00" },
-    { dia: "Miércoles", hora: "14:00 - 16:00" }
+    { dia: "Jueves", hora: "08:00 - 10:00" }
   ],
-  descripcion: "Únete al equipo de Canto de UNE y vive la pasión del deporte rey. Entrenamientos profesionales, compañerismo auténtico y la oportunidad de representar a tu universidad en competencias. Aquí no solo juegas Canto, construyes carácter y forjas amistades para toda la vida.",
-  llamadaAccion: "¡Únete al equipo de Canto!",
-  titulo: "Canto VTU"
+  descripcion: "Aprende técnicas vitales de primeros auxilios y RCP para responder en situaciones de emergencia.",
+  llamadaAccion: "¡Certifícate en primeros auxilios!",
+  titulo: "Primeros Auxilios VTU"
 };
-
 ---
 
 <Layout>
@@ -152,7 +151,7 @@ const deporteInfo = {
           <div class="w-full max-w-xs">
             <img
               src={Ilustration.src}
-              alt="Ilustración de estudiantes jugando Canto"
+              alt="Ilustración de estudiantes jugando PRIMEROS AUXILIOS"
               class="w-full h-auto"
             />
           </div>
@@ -179,7 +178,7 @@ const deporteInfo = {
       </div>
     </div>
 
-    <!-- Galería específica de Canto -->
+    <!-- Galería específica de PRIMEROS AUXILIOS -->
     <Galeria actividad={deporteInfo.nombre} />
 
   </main>

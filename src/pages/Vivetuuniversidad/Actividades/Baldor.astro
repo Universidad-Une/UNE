@@ -1,4 +1,4 @@
-﻿---
+---
 import Layout from "@/layouts/Layout.astro";
 
 import Winner from "@/assets/Imagenes/VTU/winner.webp";
@@ -7,18 +7,18 @@ import VTULogo from "@/assets/Logos/VTU.webp";
 
 import Galeria from "@/components/sections/vtu/Galeria.astro";
 
-// InformaciÃ³n del deporte
+// Información del deporte
 const deporteInfo = {
-  nombre: "FÃºtbol",
-  emoji: "âš½",
-  categoria: "Deportiva - FÃºtbol",
+  nombre: "Baldor",
+  emoji: "⚽",
+  categoria: "Deportiva - Baldor",
   horarios: [
     { dia: "Lunes", hora: "14:00 - 16:00" },
-    { dia: "MiÃ©rcoles", hora: "14:00 - 16:00" }
+    { dia: "Miércoles", hora: "14:00 - 16:00" }
   ],
-  descripcion: "Ãšnete al equipo de fÃºtbol de UNE y vive la pasiÃ³n del deporte rey. Entrenamientos profesionales, compaÃ±erismo autÃ©ntico y la oportunidad de representar a tu universidad en competencias. AquÃ­ no solo juegas fÃºtbol, construyes carÃ¡cter y forjas amistades para toda la vida.",
-  llamadaAccion: "Â¡Ãšnete al equipo de fÃºtbol!",
-  titulo: "FÃºtbol VTU"
+  descripcion: "Únete al equipo de Baldor de UNE y vive la pasión del deporte rey. Entrenamientos profesionales, compañerismo auténtico y la oportunidad de representar a tu universidad en competencias. Aquí no solo juegas Baldor, construyes carácter y forjas amistades para toda la vida.",
+  llamadaAccion: "¡Únete al equipo de Baldor!",
+  titulo: "Baldor VTU"
 };
 
 ---
@@ -50,11 +50,11 @@ const deporteInfo = {
         <!-- Soccer Info Card -->
         <div class="bg-blue-50 rounded-lg p-6 w-full max-w-sm border-2 border-blue-200">
           <div class="text-center space-y-4">
-            <h2 class="text-xl font-bold text-blue-800">{deporteInfo.emoji} {deporteInfo.nombre} Deportivo</h2>
+            <h2 class="text-xl font-bold text-blue-800">{deporteInfo.emoji} {deporteInfo.nombre} </h2>
             
             <div class="space-y-3">
               <div class="bg-white rounded-lg p-3 shadow-sm">
-                <h3 class="font-semibold text-gray-800 mb-2">ðŸ“… Horarios de Entrenamiento</h3>
+                <h3 class="font-semibold text-gray-800 mb-2">📅 Horarios de Entrenamiento</h3>
                 <div class="space-y-1 text-sm text-gray-700">
                   {deporteInfo.horarios.map(horario => (
                     <div class="flex justify-between">
@@ -66,7 +66,7 @@ const deporteInfo = {
               </div>
               
               <div class="bg-white rounded-lg p-3 shadow-sm">
-                <h3 class="font-semibold text-gray-800 mb-2">ðŸ† CategorÃ­a</h3>
+                <h3 class="font-semibold text-gray-800 mb-2">🏆 Categoría</h3>
                 <p class="text-sm text-gray-700">{deporteInfo.categoria}</p>
               </div>
             </div>
@@ -91,7 +91,7 @@ const deporteInfo = {
         <div class="w-full max-w-md">
           <img
             src={Ilustration.src}
-            alt="IlustraciÃ³n de estudiantes jugando {deporteInfo.nombre.toLowerCase()}"
+            alt="Ilustración de estudiantes jugando {deporteInfo.nombre.toLowerCase()}"
             class="w-full h-auto"
           />
         </div>
@@ -118,11 +118,11 @@ const deporteInfo = {
           <!-- Soccer Info Card -->
           <div class="bg-blue-50 rounded-lg p-6 w-full border-2 border-blue-200">
             <div class="text-center space-y-4">
-              <h2 class="text-xl font-bold text-blue-800">{deporteInfo.emoji} {deporteInfo.nombre} Deportivo</h2>
+              <h2 class="text-xl font-bold text-blue-800">{deporteInfo.emoji} {deporteInfo.nombre} </h2>
               
               <div class="space-y-3">
                 <div class="bg-white rounded-lg p-4 shadow-sm">
-                  <h3 class="font-semibold text-gray-800 mb-3">ðŸ“… Horarios de Entrenamiento</h3>
+                  <h3 class="font-semibold text-gray-800 mb-3">📅 Horarios de Entrenamiento</h3>
                   <div class="space-y-2 text-gray-700">
                     {deporteInfo.horarios.map(horario => (
                       <div class="flex justify-between items-center">
@@ -134,7 +134,7 @@ const deporteInfo = {
                 </div>
                 
                 <div class="bg-white rounded-lg p-4 shadow-sm">
-                  <h3 class="font-semibold text-gray-800 mb-2">ðŸ† CategorÃ­a</h3>
+                  <h3 class="font-semibold text-gray-800 mb-2">🏆 Categoría</h3>
                   <p class="text-gray-700">{deporteInfo.categoria}</p>
                 </div>
               </div>
@@ -152,7 +152,7 @@ const deporteInfo = {
           <div class="w-full max-w-xs">
             <img
               src={Ilustration.src}
-              alt="IlustraciÃ³n de estudiantes jugando fÃºtbol"
+              alt="Ilustración de estudiantes jugando Baldor"
               class="w-full h-auto"
             />
           </div>
@@ -179,7 +179,7 @@ const deporteInfo = {
       </div>
     </div>
 
-    <!-- GalerÃ­a especÃ­fica de fÃºtbol -->
+    <!-- Galería específica de Baldor -->
     <Galeria actividad={deporteInfo.nombre} />
 
   </main>
