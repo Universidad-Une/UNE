@@ -5,8 +5,9 @@ const programas = obtenerProgramasPorPlantel("TORRE QUETZAL");
 import { Phone, Clock1, MapPin } from "@lucide/astro";
 import Carreradeplantel from "@/components/sections/planteles/Carreradeplantel.astro";
 import CtaVisita from "@/components/sections/planteles/ctaVisita.astro";
-import Card from "@/assets/Imagenes/CardPlantelesInterior/Quetzal.webp";
 import GaleriaPlantel from "@/components/sections/planteles/GaleriaPlantel.astro";
+import Video from "@/assets/Videos/planteles/TorreQuetzal.webm";
+
 
 ---
 
@@ -111,13 +112,17 @@ import GaleriaPlantel from "@/components/sections/planteles/GaleriaPlantel.astro
           <!-- Video/Image Container -->
           <div class="relative">
             <div class="rounded-2xl overflow-hidden shadow-2xl">
-              <img
-                src={Card.src}
-                alt="Plantel UNE Chapultepec"
+              <video
+                src={Video}
+                alt="Campus UNE Centro Médico"
                 class="w-full h-auto object-cover"
-              />
+                autoplay
+                muted
+                loop
+                controls></video>
             </div>
           </div>
+
           <!-- Features List -->
           <div class="space-y-6">
             <div class="flex items-start space-x-4">

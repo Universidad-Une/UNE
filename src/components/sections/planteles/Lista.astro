@@ -637,24 +637,21 @@ const ciudadesDisponibles = [...new Set(planteles.map((p) => p.ciudad))];
       });
     }
 
-    // Filtros por ciudad
-    cityTabs.forEach((tab) => {
-      tab.addEventListener("click", function () {
-        // Remover clase active de todos los tabs
-        cityTabs.forEach((t) => t.classList.remove("active"));
-        this.classList.add("active");
+// Filtros por ciudad
+cityTabs.forEach((tab) => {
+  tab.addEventListener("click", function () {
+    cityTabs.forEach((t) => t.classList.remove("active"));
+    this.classList.add("active");
 
-        const ciudad = this.dataset.ciudad;
-        filterByCiudad(ciudad);
+    const ciudad = this.dataset.ciudadTab; // ✅ Cambiar aquí
+    filterByCiudad(ciudad);
 
-        // Limpiar búsqueda cuando se selecciona una ciudad
-        if (searchInput) {
-          searchInput.value = "";
-          clearBtn.style.opacity = "0";
-        }
-      });
-    });
-
+    if (searchInput) {
+      searchInput.value = "";
+      clearBtn.style.opacity = "0";
+    }
+  });
+});
     // Función para filtrar campus por búsqueda
    function filterCampuses(searchTerm) {
   let hasResults = false;
@@ -694,7 +691,7 @@ const ciudadesDisponibles = [...new Set(planteles.map((p) => p.ciudad))];
     }
 
     // Función para filtrar por ciudad
-   function filterByCiudad(ciudad) {
+function filterByCiudad(ciudad) {
   if (ciudad === "todos") {
     showAllCampuses();
     return;
@@ -702,7 +699,6 @@ const ciudadesDisponibles = [...new Set(planteles.map((p) => p.ciudad))];
 
   let hasResults = false;
   campusCards.forEach((card) => {
-    // ✅ Usar el atributo correcto
     const cardCiudad = card.dataset.ciudadCard || '';
     
     if (cardCiudad === ciudad) {
@@ -719,7 +715,6 @@ const ciudadesDisponibles = [...new Set(planteles.map((p) => p.ciudad))];
     noResultsMessage.classList.add("hidden");
   }
 }
-
     // Funcionalidad para encontrar el más cercano
     if (findNearestBtn) {
       findNearestBtn.addEventListener("click", function () {
