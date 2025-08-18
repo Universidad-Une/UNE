@@ -2278,6 +2278,8 @@ export const programasEducativos = {
             modalidad: "En línea",
             incorporacion: "SICYT",
             hoja_fuente: "GDL",
+            url: "/oferta/licenciaturas/comercio_negocios_globales",
+
           },
         ],
       },

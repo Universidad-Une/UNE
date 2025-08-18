@@ -11,6 +11,7 @@ import CTAinscripcion from "@/components/sections/shared/ctaInscripcion.astro";
 import { Calendar, UserPlus, Phone } from "@lucide/astro";
 import PlanEstudios from "@/components/sections/detallesOferta/planEstudios.astro";
 import Planteles from "@/components/sections/detallesOferta/planteles.astro";
+import Planes from "@/components/sections/detallesOferta/Planes.astro";
 
 const requisitosInfo = {
   items: [
@@ -27,7 +28,6 @@ const requisitosInfo = {
 };
 
 const faqs = [
-  
   {
     question: "¿Cuál es la duración de una licenciatura?",
     answer:
@@ -382,8 +382,9 @@ const ciudades = [
 ---
 
 <Layout
-title="Licenciatura en Mercadotecnia Internacional - UNE"
-description="Licenciatura en Mercadotecnia Internacional en Universidad UNE. Carrera con validez UDG, marketing global y estrategias comerciales internacionales.">
+  title="Licenciatura en Mercadotecnia Internacional - UNE"
+  description="Licenciatura en Mercadotecnia Internacional en Universidad UNE. Carrera con validez UDG, marketing global y estrategias comerciales internacionales."
+>
   <main class="min-h-screen">
     <!-- Hero Section -->
 
@@ -413,7 +414,6 @@ description="Licenciatura en Mercadotecnia Internacional en Universidad UNE. Car
           <h1 class="text-4xl md:text-7xl font-bold tracking-wider mb-4">
             Lic. en Mercadotecnia Internacional
           </h1>
-        
 
           {/* Description */}
           <p
@@ -440,7 +440,9 @@ description="Licenciatura en Mercadotecnia Internacional en Universidad UNE. Car
             <a
               href="/contacto/solicitarvisita"
               class="hover:border-b hover:border-b-cyan-50 font-bold py-6 px-6 text-base transition-colors duration-300 shadow-lg flex flex-col items-center justify-center gap-2 whitespace-nowrap"
-             aria-label="Ir a AGENDA UNA VISITA" title="AGENDA UNA VISITA">
+              aria-label="Ir a AGENDA UNA VISITA"
+              title="AGENDA UNA VISITA"
+            >
               AGENDA UNA VISITA
               <Calendar size={20} />
             </a>
@@ -449,7 +451,9 @@ description="Licenciatura en Mercadotecnia Internacional en Universidad UNE. Car
             <a
               href="/contacto/formulario-inscripcion"
               class="hover:border-b hover:border-b-cyan-50 font-bold py-3 px-6 text-base transition-colors duration-300 shadow-lg flex flex-col items-center justify-center gap-2 whitespace-nowrap"
-             aria-label="Ir a INICIAR INSCRIPCIÓN" title="INICIAR INSCRIPCIÓN">
+              aria-label="Ir a INICIAR INSCRIPCIÓN"
+              title="INICIAR INSCRIPCIÓN"
+            >
               INICIAR INSCRIPCIÓN
               <UserPlus size={20} />
             </a>
@@ -458,7 +462,9 @@ description="Licenciatura en Mercadotecnia Internacional en Universidad UNE. Car
             <a
               href="/contacto/solicitarinformacion"
               class="hover:border-b hover:border-b-cyan-50 font-bold py-3 px-6 text-base transition-colors duration-300 shadow-lg flex flex-col items-center justify-center gap-2 whitespace-nowrap"
-             aria-label="Ir a página de contacto" title="Contactar con nosotros">
+              aria-label="Ir a página de contacto"
+              title="Contactar con nosotros"
+            >
               CONTACTAR
               <Phone size={20} />
             </a>
@@ -492,6 +498,7 @@ description="Licenciatura en Mercadotecnia Internacional en Universidad UNE. Car
     />
 
     <Requisitos nivel="Licenciatura" requisitos={requisitosInfo} />
+    <Planes nombre="Mercadotecnia Internacional" />
 
     <FAQComponent
       faqs={faqs}

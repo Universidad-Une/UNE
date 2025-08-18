@@ -13,6 +13,7 @@ import CTAinscripcion from "@/components/sections/shared/ctaInscripcion.astro";
 import { Calendar, UserPlus, Phone } from "@lucide/astro";
 import PlanEstudios from "@/components/sections/detallesOferta/planEstudios.astro";
 import Planteles from "@/components/sections/detallesOferta/planteles.astro";
+import Planes from "@/components/sections/detallesOferta/Planes.astro";
 
 const requisitosInfo = {
   items: [
@@ -606,6 +607,8 @@ description="Estudia Ciencias de la Comunicación en Universidad UNE. Licenciatu
     
 
     <Requisitos nivel="Licenciatura" requisitos={requisitosInfo} />
+         <Planes nombre="Ciencias de la comunicación"/>
+
 
     <FAQComponent
       faqs={faqs}

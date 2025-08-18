@@ -12,6 +12,7 @@ import CTAinscripcion from "@/components/sections/shared/ctaInscripcion.astro";
 import { Calendar, UserPlus, Phone } from "@lucide/astro";
 import PlanEstudios from "@/components/sections/detallesOferta/planEstudios.astro";
 import Planteles from "@/components/sections/detallesOferta/planteles.astro";
+import Planes from "@/components/sections/detallesOferta/Planes.astro";
 
 const requisitosInfo = {
   items: [
@@ -665,6 +666,8 @@ description="Estudia Ingeniería en Desarrollo de Software en Universidad UNE. L
     />
 
     <Requisitos nivel="Licenciatura" requisitos={requisitosInfo} />
+                            <Planes  nombre="Ingeniería en Desarrollo de Software"/>
+
 
     <FAQComponent
       faqs={faqs}

@@ -11,6 +11,7 @@ import CTAinscripcion from "@/components/sections/shared/ctaInscripcion.astro";
 import { Calendar, UserPlus, Phone } from "@lucide/astro";
 import PlanEstudios from "@/components/sections/detallesOferta/planEstudios.astro";
 import Planteles from "@/components/sections/detallesOferta/planteles.astro";
+import Planes from "@/components/sections/detallesOferta/Planes.astro";
 
 const requisitosInfo = {
   items: [
@@ -649,6 +650,7 @@ description="Estudia Contaduría Pública en Universidad UNE. Licenciatura con v
     />
 
     <Requisitos nivel="Licenciatura" requisitos={requisitosInfo} />
+     <Planes nombre="Contaduría y Auditoria"/>
 
     <FAQComponent
       faqs={faqs}

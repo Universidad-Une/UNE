@@ -1,0 +1,263 @@
+---
+// PerfilSection.astro
+const { nombre } = Astro.props;
+import Egresos from "@assets/Imagenes/Middles/Egresos.webp"
+import { perfiles } from "@helpers/perfiles"
+
+// Buscar el perfil por nombre de carrera
+const perfilEncontrado = perfiles.find(perfil => 
+  perfil.CARRERA.toLowerCase() === nombre.toLowerCase()
+);
+
+// Si no se encuentra, usar valores por defecto o mostrar error
+const perfilIngreso = perfilEncontrado?.["PERFIL DE INGRESO"] || "Perfil de ingreso no encontrado";
+const perfilEgreso = perfilEncontrado?.["PERFIL DE EGRESO"] || "Perfil de egreso no encontrado";
+
+// Verificar si el perfil de ingreso está vacío o es "Sin información"
+const tienePerfilIngreso = perfilIngreso && 
+  perfilIngreso !== "Sin información" && 
+  perfilIngreso !== "Sin Información" && 
+  perfilIngreso !== "Información no disponible por el centro universitario" && 
+  perfilIngreso !== "Perfil de ingreso no encontrado" && 
+  perfilIngreso.trim() !== "";
+
+const tienePerfilEgreso = perfilEgreso && 
+  perfilEgreso !== "Perfil de egreso no encontrado" && 
+  perfilEgreso.trim() !== "";
+---
+
+<section class="relative min-h-[70DVH] flex items-center justify-center">
+  <div
+    id="scalingElement"
+    class="relative w-full mx-auto px-6 pt-12 pb-12 text-center text-white will-change-transform transition-transform duration-75 ease-out bg-cover bg-center bg-no-repeat rounded-t-2xl"
+    style={`transform: scale(0.8); background-image: url(${Egresos.src});`}
+  >
+     <!-- Encabezado -->
+    <div class="mb-6">
+      <a
+        href="/perfiles"
+        class="inline-flex items-center gap-2 text-sm font-medium opacity-90 hover:opacity-100 transition-opacity"
+       aria-label="Ir a Ver oferta" title="Navegar a Ver oferta">
+        Ver oferta
+        <svg
+          width="20"
+          height="20"
+          viewBox="0 0 24 24"
+          fill="none"
+          class="inline-block"
+        >
+          <path
+            d="M5 12h14M12 5l7 7-7 7"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+      </a>
+    </div>
+
+    <h2 class="text-xl md:text-3xl font-bold mb-16 leading-tight">
+      PERFIL - {perfilEncontrado?.CARRERA || nombre}
+    </h2>
+
+    <!-- Grid de perfiles con altura uniforme - Condicional basado en disponibilidad -->
+    <div class={`grid gap-8 max-w-6xl mx-auto items-start ${
+      tienePerfilIngreso && tienePerfilEgreso 
+        ? 'grid-cols-1 lg:grid-cols-2' 
+        : 'grid-cols-1 max-w-3xl'
+    }`}>
+      
+      <!-- Perfil de ingreso - Solo mostrar si tiene información -->
+      {tienePerfilIngreso && (
+        <div class="perfil-card bg-black/20 backdrop-blur-sm rounded-lg p-8 border border-white/20 h-full flex flex-col">
+          <h3 class="text-2xl md:text-3xl font-bold mb-6 text-white">Perfil de ingreso</h3>
+          <div class="flex-1 overflow-y-auto scrollbar-thin scrollbar-track-transparent scrollbar-thumb-white/20 hover:scrollbar-thumb-white/40">
+            <p class="text-lg md:text-xl leading-relaxed opacity-90 text-left">
+              {perfilIngreso}
+            </p>
+          </div>
+        </div>
+      )}
+
+      <!-- Perfil de egreso - Siempre mostrar si existe -->
+      {tienePerfilEgreso && (
+        <div class="perfil-card bg-black/20 backdrop-blur-sm rounded-lg p-8 border border-white/20 h-full flex flex-col">
+          <h3 class="text-2xl md:text-3xl font-bold mb-6 text-white">Perfil de egreso</h3>
+          <div class="flex-1 overflow-y-auto scrollbar-thin scrollbar-track-transparent scrollbar-thumb-white/20 hover:scrollbar-thumb-white/40">
+            <p class="text-lg md:text-xl leading-relaxed opacity-90 text-left">
+              {perfilEgreso}
+            </p>
+          </div>
+        </div>
+      )}
+    </div>
+
+    <!-- Mostrar mensaje si no se encuentra el perfil -->
+    {!perfilEncontrado && (
+      <div class="mt-8 bg-red-500/20 backdrop-blur-sm rounded-lg p-4 border border-red-300/20">
+        <p class="text-red-200">
+          No se encontró información para la carrera: <strong>{nombre}</strong>
+        </p>
+      </div>
+    )}
+
+    <!-- Mostrar mensaje si no hay información disponible -->
+    {perfilEncontrado && !tienePerfilIngreso && !tienePerfilEgreso && (
+      <div class="mt-8 bg-yellow-500/20 backdrop-blur-sm rounded-lg p-4 border border-yellow-300/20">
+        <p class="text-yellow-200">
+          No hay información de perfiles disponible para: <strong>{perfilEncontrado.CARRERA}</strong>
+        </p>
+      </div>
+    )}
+  </div>
+</section>
+
+<style>
+  .glassmorphism-btn {
+    border-radius: 7px;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    background: rgba(255, 255, 255, 0.32);
+    backdrop-filter: blur(10.5px);
+    -webkit-backdrop-filter: blur(10.5px);
+  }
+
+  /* Altura fija para las tarjetas de perfil */
+  .perfil-card {
+    min-height: 400px;
+    max-height: 500px;
+  }
+
+  /* Estilos personalizados para scrollbar */
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 6px;
+  }
+  
+  .scrollbar-track-transparent::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  
+  .scrollbar-thumb-white\/20::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 3px;
+  }
+  
+  .hover\:scrollbar-thumb-white\/40:hover::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.4);
+  }
+
+  /* Para navegadores que no soportan webkit-scrollbar */
+  .perfil-card div {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.2) transparent;
+  }
+
+  /* Animación suave para el scroll */
+  .perfil-card div {
+    scroll-behavior: smooth;
+  }
+
+  /* Responsive: en móviles usar altura automática */
+  @media (max-width: 1023px) {
+    .perfil-card {
+      min-height: auto;
+      max-height: none;
+    }
+    
+    .perfil-card div {
+      overflow-y: visible;
+      max-height: none;
+    }
+  }
+</style>
+
+<script is:inline>
+  function handleScroll() {
+    const scalingElement = document.getElementById("scalingElement");
+    if (!scalingElement) return;
+
+    const windowHeight = window.innerHeight;
+    const elementRect = scalingElement.getBoundingClientRect();
+
+    const minScale = 0.8;
+    const maxScale = 1.0;
+
+    let scrollProgress = 0;
+
+    if (elementRect.top > 0) {
+      const distanceFromTop = elementRect.top;
+      const maxDistance = windowHeight;
+      scrollProgress = Math.max(
+        0,
+        Math.min(1, 1 - distanceFromTop / maxDistance)
+      );
+    } else if (elementRect.bottom > 0) {
+      scrollProgress = 1;
+    } else {
+      scrollProgress = 1;
+    }
+
+    const scale = minScale + (maxScale - minScale) * scrollProgress;
+    scalingElement.style.transform = `scale(${scale})`;
+  }
+
+  let ticking = false;
+  function optimizedScrollHandler() {
+    if (!ticking) {
+      requestAnimationFrame(() => {
+        handleScroll();
+        ticking = false;
+      });
+      ticking = true;
+    }
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", function () {
+      window.addEventListener("scroll", optimizedScrollHandler);
+      handleScroll();
+      
+      // Igualar altura de las tarjetas después del DOM load
+      equalizeCardHeights();
+    });
+  } else {
+    window.addEventListener("scroll", optimizedScrollHandler);
+    handleScroll();
+    equalizeCardHeights();
+  }
+
+  // Función para igualar alturas dinámicamente - actualizada para manejar una sola tarjeta
+  function equalizeCardHeights() {
+    if (window.innerWidth >= 1024) { // Solo en desktop
+      const cards = document.querySelectorAll('.perfil-card');
+      
+      if (cards.length === 2) {
+        let maxHeight = 0;
+        
+        // Resetear altura
+        cards.forEach(card => {
+          card.style.height = 'auto';
+        });
+        
+        // Encontrar la altura máxima
+        cards.forEach(card => {
+          const cardHeight = card.offsetHeight;
+          if (cardHeight > maxHeight) {
+            maxHeight = cardHeight;
+          }
+        });
+        
+        // Aplicar la altura máxima a todas las tarjetas
+        cards.forEach(card => {
+          card.style.height = maxHeight + 'px';
+        });
+      } else if (cards.length === 1) {
+        // Si solo hay una tarjeta, resetear su altura
+        cards[0].style.height = 'auto';
+      }
+    }
+  }
+
+  // Reajustar al redimensionar ventana
+  window.addEventListener('resize', equalizeCardHeights);
+</script>

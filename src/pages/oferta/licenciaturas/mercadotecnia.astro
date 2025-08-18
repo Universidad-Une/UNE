@@ -12,6 +12,7 @@ import CTAinscripcion from "@/components/sections/shared/ctaInscripcion.astro";
 import { Calendar, UserPlus, Phone } from "@lucide/astro";
 import PlanEstudios from "@/components/sections/detallesOferta/planEstudios.astro";
 import Planteles from "@/components/sections/detallesOferta/planteles.astro";
+import Planes from "@/components/sections/detallesOferta/Planes.astro";
 
 const requisitosInfo = {
   items: [
@@ -28,7 +29,6 @@ const requisitosInfo = {
 };
 
 const faqs = [
-  
   {
     question: "¿Cuál es la duración de una licenciatura?",
     answer:
@@ -585,8 +585,9 @@ const ciudades = [
 ---
 
 <Layout
-title="Licenciatura en Mercadotecnia - UNE"
-description="Estudia Mercadotecnia en Universidad UNE. Licenciatura con validez UDG, marketing digital, publicidad y estrategias comerciales modernas.">
+  title="Licenciatura en Mercadotecnia - UNE"
+  description="Estudia Mercadotecnia en Universidad UNE. Licenciatura con validez UDG, marketing digital, publicidad y estrategias comerciales modernas."
+>
   <main class="min-h-screen">
     <!-- Hero Section -->
 
@@ -645,7 +646,9 @@ description="Estudia Mercadotecnia en Universidad UNE. Licenciatura con validez 
             <a
               href="/contacto/solicitarvisita"
               class="hover:border-b hover:border-b-cyan-50 font-bold py-6 px-6 text-base transition-colors duration-300 shadow-lg flex flex-col items-center justify-center gap-2 whitespace-nowrap"
-             aria-label="Ir a AGENDA UNA VISITA" title="AGENDA UNA VISITA">
+              aria-label="Ir a AGENDA UNA VISITA"
+              title="AGENDA UNA VISITA"
+            >
               AGENDA UNA VISITA
               <Calendar size={20} />
             </a>
@@ -654,7 +657,9 @@ description="Estudia Mercadotecnia en Universidad UNE. Licenciatura con validez 
             <a
               href="/contacto/formulario-inscripcion"
               class="hover:border-b hover:border-b-cyan-50 font-bold py-3 px-6 text-base transition-colors duration-300 shadow-lg flex flex-col items-center justify-center gap-2 whitespace-nowrap"
-             aria-label="Ir a INICIAR INSCRIPCIÓN" title="INICIAR INSCRIPCIÓN">
+              aria-label="Ir a INICIAR INSCRIPCIÓN"
+              title="INICIAR INSCRIPCIÓN"
+            >
               INICIAR INSCRIPCIÓN
               <UserPlus size={20} />
             </a>
@@ -663,7 +668,9 @@ description="Estudia Mercadotecnia en Universidad UNE. Licenciatura con validez 
             <a
               href="/contacto/solicitarinformacion"
               class="hover:border-b hover:border-b-cyan-50 font-bold py-3 px-6 text-base transition-colors duration-300 shadow-lg flex flex-col items-center justify-center gap-2 whitespace-nowrap"
-             aria-label="Ir a página de contacto" title="Contactar con nosotros">
+              aria-label="Ir a página de contacto"
+              title="Contactar con nosotros"
+            >
               CONTACTAR
               <Phone size={20} />
             </a>
@@ -697,6 +704,7 @@ description="Estudia Mercadotecnia en Universidad UNE. Licenciatura con validez 
     />
 
     <Requisitos nivel="Licenciatura" requisitos={requisitosInfo} />
+    <Planes nombre="Mercadotecnia" />
 
     <FAQComponent
       faqs={faqs}

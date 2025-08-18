@@ -1,21 +1,15 @@
 ---
 import Layout from "@/layouts/Layout.astro";
-import Hero from "@/assets/Imagenes/Heros/Cirujano_dentista.webp";
-import Hero_mobile from "@/assets/Imagenes/Heros/Cirujano_dentista_mobile.webp";
+import Hero from "@/assets/Imagenes/Heros/Carreras/Contaduria.webp";
+import Hero_mobile from "@/assets/Imagenes/Heros/Carreras/Contaduria_mobile.webp";
 import ImagenCard from "@/assets/Imagenes/CardsNiveles/Nivel.webp";
 import LogoCard from "@/assets/Logos/Licenciatura.webp";
 import InformativeCard from "@components/sections/detallesOferta/card.astro";
-import Carreras from "@components/sections/Licenciaturas/Carreras.astro";
-import Estadisticas from "@components/sections/Licenciaturas/Estadisticas.astro";
-
 import Requisitos from "@/components/sections/detallesOferta/requisitos.astro";
-
 import FAQComponent from "@/components/sections/detallesOferta/preguntas.astro";
 import CTAinscripcion from "@/components/sections/shared/ctaInscripcion.astro";
 import { Calendar, UserPlus, Phone } from "@lucide/astro";
-import PlanEstudios from "@/components/sections/detallesOferta/planEstudios.astro";
-import Planteles from "@/components/sections/detallesOferta/planteles.astro";
-
+import Planes from "@/components/sections/detallesOferta/Planes.astro"
 const requisitosInfo = {
   items: [
     "Acta de nacimiento (original)",
@@ -312,19 +306,15 @@ description="Licenciatura en Contaduría y Auditoría en Universidad UNE. Carrer
         <div class="text-center text-white max-w-4xl mx-auto">
           {/* Main Title */}
           <h1 class="text-4xl md:text-7xl font-bold tracking-wider mb-4">
-            Lic. en Cirujano Dentista
+            Lic. en Contaduría
           </h1>
-          <h2 class="text-2xl md:text-5xl font-bold tracking-wider mb-8">
-            Licenciaturas UNE
-          </h2>
+          
 
           {/* Description */}
           <p
             class="text-lg md:text-xl leading-relaxed mb-16 max-w-3xl mx-auto font-light"
           >
-            Transforma sonrisas y mejora la calidad de vida a través del estudio
-            y la práctica de la odontología, en una carrera donde la ciencia, la
-            salud y la vocación por el bienestar se unen.
+            Domina la información financiera con precisión y responsabilidad. Aprende a gestionar, auditar y tomar decisiones contables clave.
           </p>
         </div>
       </div>
@@ -372,10 +362,9 @@ description="Licenciatura en Contaduría y Auditoría en Universidad UNE. Carrer
       logoSrc={LogoCard.src}
       studentImageSrc={ImagenCard.src}
       title="Objetivo"
-      description="La Licenciatura en Cirujano Dentista te forma como un profesionista altamente capacitado para prevenir, diagnosticar y tratar enfermedades bucales con un enfoque integral y humano."
-      additionalText="Con una sólida formación teórico-práctica y un alto compromiso ético y social, estarás preparado para promover la salud bucodental, brindar atención personalizada y colaborar con instituciones de salud para transformar positivamente la calidad de vida de las personas."
+      description="Formar contadores públicos con sólidas competencias técnicas, éticas y analíticas para la gestión financiera, fiscal y contable de las organizaciones, promoviendo la transparencia, la toma de decisiones responsables y la sostenibilidad económica, con un perfil profesional competitivo y socialmente comprometido."
+      additionalText=""
       features={[
-        { icon: "CalendarDays", label: "Prácticas clínicas presenciales" },
         { icon: "BookOpen", label: "Bases científicas sólidas" },
         { icon: "School", label: "Validez oficial" },
         { icon: "Clock", label: "Horarios accesibles" },
@@ -383,18 +372,14 @@ description="Licenciatura en Contaduría y Auditoría en Universidad UNE. Carrer
       ]}
     />
 
-     <PlanEstudios titulo="Propuesta Educativa" semestres={semestresDatos} />
 
-     <Planteles
-      titulo="Encuentra tu campus más cercano"
-      planteles={planteles}
-      ciudades={ciudades}
-      mostrarMasCercano={true}
-    />
+    
 
     
 
     <Requisitos nivel="Licenciatura" requisitos={requisitosInfo} />
+
+    <Planes nombre="Contaduría en línea"/>
 
     <FAQComponent
       faqs={faqs}

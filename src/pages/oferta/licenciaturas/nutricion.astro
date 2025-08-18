@@ -12,6 +12,7 @@ import CTAinscripcion from "@/components/sections/shared/ctaInscripcion.astro";
 import { Calendar, UserPlus, Phone } from "@lucide/astro";
 import PlanEstudios from "@/components/sections/detallesOferta/planEstudios.astro";
 import Planteles from "@/components/sections/detallesOferta/planteles.astro";
+import Planes from "@/components/sections/detallesOferta/Planes.astro";
 
 const requisitosInfo = {
   items: [
@@ -28,7 +29,6 @@ const requisitosInfo = {
 };
 
 const faqs = [
-  
   {
     question: "¿Cuál es la duración de una licenciatura?",
     answer:
@@ -518,39 +518,40 @@ const planteles = [
     lon: -103.36909119392195,
   },
   {
-id: "5",
-nombre: "Tlaquepaque",
-codigo: "00013",
-direccion: "Blvd. Marcelino García Barragán #2056, Col. Bosques del Boulevard, Tlaquepaque, Jalisco",
-ciudad: "Guadalajara ZMG",
-url: "/campus/tlaquepaque",
-imagen: "/src/assets/Imagenes/CardsPlanteles/Tlaquepaque.webp",
-lat: 20.645650028567157,
-lon: -103.32094530771215,
-},
-{
-id: "13",
-nombre: "Zapopan",
-codigo: "00021",
-direccion: "Plaza Caudillos Zapopan, Jalisco",
-ciudad: "Guadalajara ZMG",
-url: "/campus/zapopan",
-imagen: "/src/assets/Imagenes/CardsPlanteles/Zapopan.webp",
-lat: 20.720900646775917,
-lon: -103.38975281813357,
-},
-{
-id: "17",
-nombre: "Puerto Vallarta Caracol",
-codigo: "Caracol",
-direccion: "Blvd. Francisco Medina Ascencio #2180 Col. Díaz Ordaz Puerto Vallarta, Jalisco",
-ciudad: "Puerto Vallarta",
-url: "/campus/puerto-vallarta-caracol",
-imagen: "/src/assets/Imagenes/CardsPlanteles/Caracol.webp",
-lat: "20.63927815810884",
-lon: "-105.23320503196068",
-},
-
+    id: "5",
+    nombre: "Tlaquepaque",
+    codigo: "00013",
+    direccion:
+      "Blvd. Marcelino García Barragán #2056, Col. Bosques del Boulevard, Tlaquepaque, Jalisco",
+    ciudad: "Guadalajara ZMG",
+    url: "/campus/tlaquepaque",
+    imagen: "/src/assets/Imagenes/CardsPlanteles/Tlaquepaque.webp",
+    lat: 20.645650028567157,
+    lon: -103.32094530771215,
+  },
+  {
+    id: "13",
+    nombre: "Zapopan",
+    codigo: "00021",
+    direccion: "Plaza Caudillos Zapopan, Jalisco",
+    ciudad: "Guadalajara ZMG",
+    url: "/campus/zapopan",
+    imagen: "/src/assets/Imagenes/CardsPlanteles/Zapopan.webp",
+    lat: 20.720900646775917,
+    lon: -103.38975281813357,
+  },
+  {
+    id: "17",
+    nombre: "Puerto Vallarta Caracol",
+    codigo: "Caracol",
+    direccion:
+      "Blvd. Francisco Medina Ascencio #2180 Col. Díaz Ordaz Puerto Vallarta, Jalisco",
+    ciudad: "Puerto Vallarta",
+    url: "/campus/puerto-vallarta-caracol",
+    imagen: "/src/assets/Imagenes/CardsPlanteles/Caracol.webp",
+    lat: "20.63927815810884",
+    lon: "-105.23320503196068",
+  },
 
   {
     id: "16",
@@ -579,7 +580,8 @@ lon: "-105.23320503196068",
     id: "11",
     nombre: "Tepatitlán",
     codigo: "00019",
-    direccion: "Col. Alameda. Av. Matamoros #505, Tepatitlán de Morelos, Jalisco",
+    direccion:
+      "Col. Alameda. Av. Matamoros #505, Tepatitlán de Morelos, Jalisco",
     ciudad: "Tepatitlán",
     url: "/campus/tepatitlan",
     imagen: "/src/assets/Imagenes/CardsPlanteles/Tepatitlan.webp",
@@ -590,7 +592,8 @@ lon: "-105.23320503196068",
     id: "7",
     nombre: "UNE Centro",
     codigo: "00015",
-    direccion: "Av. República No.10 Col. San Juan de Dios, Guadalajara, Jalisco",
+    direccion:
+      "Av. República No.10 Col. San Juan de Dios, Guadalajara, Jalisco",
     ciudad: "Guadalajara ZMG",
     url: "/campus/Centro",
     imagen: "/src/assets/Imagenes/CardsPlanteles/Centro.webp",
@@ -642,8 +645,9 @@ const ciudades = [
 ---
 
 <Layout
-title="Licenciatura en Nutrición - UNE"
-description="Estudia la Licenciatura en Nutrición en Universidad UNE. Carrera de salud con validez UDG, laboratorios especializados y enfoque clínico.">
+  title="Licenciatura en Nutrición - UNE"
+  description="Estudia la Licenciatura en Nutrición en Universidad UNE. Carrera de salud con validez UDG, laboratorios especializados y enfoque clínico."
+>
   <main class="min-h-screen">
     <!-- Hero Section -->
 
@@ -699,7 +703,9 @@ description="Estudia la Licenciatura en Nutrición en Universidad UNE. Carrera d
             <a
               href="/contacto/solicitarvisita"
               class="hover:border-b hover:border-b-cyan-50 font-bold py-6 px-6 text-base transition-colors duration-300 shadow-lg flex flex-col items-center justify-center gap-2 whitespace-nowrap"
-             aria-label="Ir a AGENDA UNA VISITA" title="AGENDA UNA VISITA">
+              aria-label="Ir a AGENDA UNA VISITA"
+              title="AGENDA UNA VISITA"
+            >
               AGENDA UNA VISITA
               <Calendar size={20} />
             </a>
@@ -708,7 +714,9 @@ description="Estudia la Licenciatura en Nutrición en Universidad UNE. Carrera d
             <a
               href="/contacto/formulario-inscripcion"
               class="hover:border-b hover:border-b-cyan-50 font-bold py-3 px-6 text-base transition-colors duration-300 shadow-lg flex flex-col items-center justify-center gap-2 whitespace-nowrap"
-             aria-label="Ir a INICIAR INSCRIPCIÓN" title="INICIAR INSCRIPCIÓN">
+              aria-label="Ir a INICIAR INSCRIPCIÓN"
+              title="INICIAR INSCRIPCIÓN"
+            >
               INICIAR INSCRIPCIÓN
               <UserPlus size={20} />
             </a>
@@ -717,7 +725,9 @@ description="Estudia la Licenciatura en Nutrición en Universidad UNE. Carrera d
             <a
               href="/contacto/solicitarinformacion"
               class="hover:border-b hover:border-b-cyan-50 font-bold py-3 px-6 text-base transition-colors duration-300 shadow-lg flex flex-col items-center justify-center gap-2 whitespace-nowrap"
-             aria-label="Ir a página de contacto" title="Contactar con nosotros">
+              aria-label="Ir a página de contacto"
+              title="Contactar con nosotros"
+            >
               CONTACTAR
               <Phone size={20} />
             </a>
@@ -766,6 +776,8 @@ description="Estudia la Licenciatura en Nutrición en Universidad UNE. Carrera d
     />
 
     <Requisitos nivel="Licenciatura" requisitos={requisitosInfo} />
+
+    <Planes nombre="Nutrición" />
 
     <FAQComponent
       faqs={faqs}
