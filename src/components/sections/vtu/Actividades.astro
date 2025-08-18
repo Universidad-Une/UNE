@@ -10,7 +10,6 @@ export interface Plantel {
   ciudad: string;
   url: string;
   imagen: string;
-  
 }
 
 export interface Props {
@@ -38,12 +37,19 @@ const componentProps = {
   actividades,
   soloUnPlantel,
 };
+
+// Preload crítico para las primeras imágenes
+const primerasImagenes = actividades.slice(0, 4).map(p => p.imagen);
 ---
+
+<!-- Preload de imágenes críticas -->
+{primerasImagenes.map((imagen) => (
+  <link rel="preload" as="image" href={imagen} />
+))}
 
 <div
   id="campus-finder-wrapper"
   class="w-full mx-auto py-6 px-4 sm:px-6 md:px-12"
-  client:load
   data-props={JSON.stringify(componentProps)}
 >
   <div class="flex justify-between items-center mb-8 flex-wrap gap-4">
@@ -55,7 +61,7 @@ const componentProps = {
       <div class="flex flex-wrap justify-center gap-2 mb-6">
         {ciudadesDisponibles.map((ciudad) => (
           <button
-            class="px-4 py-2 rounded-full text-sm font-medium transition-colors"
+            class="px-4 py-2 rounded-full text-sm font-medium transition-colors bg-gray-200 text-gray-700 hover:bg-gray-300"
             data-ciudad-tab={ciudad}
           >
             {ciudad}
@@ -70,21 +76,30 @@ const componentProps = {
     id="desktop-grid"
   >
     {
-      actividades.map((plantel) => (
+      actividades.map((plantel, index) => (
         <div
-          class="bg-white  max-w-lg rounded-3xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 campus-card"
+          class="bg-white max-w-lg rounded-3xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 campus-card"
           data-ciudad-card={plantel.ciudad}
           data-plantel-id={plantel.id}
           data-plantel-nombre={plantel.nombre}
         >
-          <div class="flex flex-col ">
-            <div class="">
-              <img
-                src={plantel.imagen}
-                alt={`Campus ${plantel.nombre}`}
-                class="w-full h-48 object-cover"
-                loading="lazy"
-              />
+          <div class="flex flex-col">
+            <div class="relative">
+              <picture>
+                <source 
+                  srcset={`${plantel.imagen}?w=400&f=webp`} 
+                  type="image/webp"
+                />
+                <img
+                  src={`${plantel.imagen}?w=400&f=jpg`}
+                  alt={`Campus ${plantel.nombre}`}
+                  class="w-full h-48 object-cover"
+                  loading={index < 4 ? "eager" : "lazy"}
+                  decoding={index < 4 ? "sync" : "async"}
+                  width="400"
+                  height="192"
+                />
+              </picture>
             </div>
             <div class="flex-1 p-6">
               <div class="flex items-center gap-2 mb-2">
@@ -93,21 +108,20 @@ const componentProps = {
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
+                  aria-hidden="true"
                 >
-                  <>
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-                    />
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
-                    />
-                  </>
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                  />
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+                  />
                 </svg>
                 <span class="text-sm text-gray-600 uppercase tracking-wide">
                   {plantel.ciudad}
@@ -120,7 +134,6 @@ const componentProps = {
                 {plantel.direccion}
               </p>
               <div class="flex gap-3">
-             
                 <a
                   href={plantel.url} 
                   class="text-blue-500 px-4 py-2 rounded text-sm font-medium hover:bg-gray-50 transition-colors flex items-center gap-2"
@@ -135,36 +148,46 @@ const componentProps = {
     }
   </div>
 
-  <div class="block md:hidden splide" id="mobile-carousel">
-    <div class="splide__track py-12">
-      <ul class="splide__list">
-        {
-          actividades.map((plantel) => (
-            <li class="splide__slide">
-              <div
-                class="bg-white rounded-3xl shadow-lg overflow-hidden transition-all duration-300 campus-card h-full"
-                data-ciudad-card={plantel.ciudad}
-                data-plantel-id={plantel.id}
-                data-plantel-nombre={plantel.nombre}
-              >
-                <div class="flex flex-col h-full">
-                  <div class="w-full h-48 rounded-t-3xl overflow-hidden">
-                    <img
-                      src={plantel.imagen}
-                      alt={`Campus ${plantel.nombre}`}
-                      class="w-full h-full object-cover"
-                      loading="lazy"
-                    />
-                  </div>
-                  <div class="flex-1 p-6">
-                    <div class="flex items-center gap-2 mb-2">
-                      <svg
-                        class="w-4 h-4 text-gray-500"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <>
+  <div class="block md:hidden" id="mobile-carousel-container">
+    <div class="splide" id="mobile-carousel">
+      <div class="splide__track py-12">
+        <ul class="splide__list">
+          {
+            actividades.map((plantel, index) => (
+              <li class="splide__slide">
+                <div
+                  class="bg-white rounded-3xl shadow-lg overflow-hidden transition-all duration-300 campus-card h-full"
+                  data-ciudad-card={plantel.ciudad}
+                  data-plantel-id={plantel.id}
+                  data-plantel-nombre={plantel.nombre}
+                >
+                  <div class="flex flex-col h-full">
+                    <div class="w-full h-48 rounded-t-3xl overflow-hidden">
+                      <picture>
+                        <source 
+                          srcset={`${plantel.imagen}?w=400&f=webp`} 
+                          type="image/webp"
+                        />
+                        <img
+                          src={`${plantel.imagen}?w=400&f=jpg`}
+                          alt={`Campus ${plantel.nombre}`}
+                          class="w-full h-full object-cover"
+                          loading={index < 2 ? "eager" : "lazy"}
+                          decoding={index < 2 ? "sync" : "async"}
+                          width="400"
+                          height="192"
+                        />
+                      </picture>
+                    </div>
+                    <div class="flex-1 p-6">
+                      <div class="flex items-center gap-2 mb-2">
+                        <svg
+                          class="w-4 h-4 text-gray-500"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                          aria-hidden="true"
+                        >
                           <path
                             stroke-linecap="round"
                             stroke-linejoin="round"
@@ -175,41 +198,41 @@ const componentProps = {
                             stroke-linecap="round"
                             stroke-linejoin="round"
                             stroke-width="2"
-                            d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+                            d="M15 11a3 3 0 11-6 0 3 3 0 616 0z"
                           />
-                        </>
-                      </svg>
-                      <span class="text-sm text-gray-600 uppercase tracking-wide">
-                        {plantel.ciudad}
-                      </span>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-800 mb-2">
-                      {plantel.nombre}
-                    </h3>
-                    <p class="text-gray-600 text-sm mb-4 leading-relaxed">
-                      {plantel.direccion}
-                    </p>
-                    <div class="flex flex-col justify-center items-center gap-3">
-                      <a
-                        href={plantel.url}
-                        class="bg-rojo-une text-white px-4 py-2 rounded text-sm font-medium hover:bg-red-700 transition-colors"
-                      >
-                        CONOCE EL PLANTEL
-                      </a>
-                      <a
-                        href="/contacto"
-                        class=" text-blue-500 px-4 py-2 rounded text-sm font-medium hover:bg-gray-50 transition-colors flex items-center gap-2"
-                      >
-                        Contactar <CircleArrowRight />
-                      </a>
+                        </svg>
+                        <span class="text-sm text-gray-600 uppercase tracking-wide">
+                          {plantel.ciudad}
+                        </span>
+                      </div>
+                      <h3 class="text-xl font-bold text-gray-800 mb-2">
+                        {plantel.nombre}
+                      </h3>
+                      <p class="text-gray-600 text-sm mb-4 leading-relaxed">
+                        {plantel.direccion}
+                      </p>
+                      <div class="flex flex-col justify-center items-center gap-3">
+                        <a
+                          href={plantel.url}
+                          class="bg-rojo-une text-white px-4 py-2 rounded text-sm font-medium hover:bg-red-700 transition-colors"
+                        >
+                          CONOCE EL PLANTEL
+                        </a>
+                        <a
+                          href="/contacto"
+                          class="text-blue-500 px-4 py-2 rounded text-sm font-medium hover:bg-gray-50 transition-colors flex items-center gap-2"
+                        >
+                          Contactar <CircleArrowRight />
+                        </a>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            </li>
-          ))
-        }
-      </ul>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
     </div>
   </div>
 </div>
@@ -221,36 +244,44 @@ const componentProps = {
   .hover\:bg-rojo-une:hover {
     background-color: #b91c1c;
   }
+  
   /* Estilos para resaltar la tarjeta */
   .highlight-card {
     box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.7) !important;
     transform: scale(1.02);
   }
-  /* Estilos Splide */
+  
+  /* Estilos Splide optimizados */
   .splide__slide {
     padding: 0 0.5rem;
   }
+  
   .splide__arrow {
     background: rgba(255, 255, 255, 0.9);
     border: 1px solid #e2e8f0;
   }
+  
   .splide__arrow:hover {
     background: #ffffff;
   }
+  
   .splide__arrow svg {
     fill: #64748b;
   }
+  
   .splide__pagination__page.is-active {
     background: #dc2626;
+  }
+
+  /* Lazy loading placeholders */
+  img[loading="lazy"] {
+    background: #f1f5f9;
   }
 </style>
 
 <script>
-  import Splide from "@splidejs/splide";
-  import "@splidejs/splide/dist/css/splide.min.css";
-
-  // Función para inicializar toda la lógica del cliente
-  function initCampusFinder() {
+  // Carga diferida del script principal
+  const initCampusFinder = async () => {
     const wrapper = document.getElementById("campus-finder-wrapper");
     if (!wrapper) return;
 
@@ -258,88 +289,114 @@ const componentProps = {
     const { actividades, soloUnPlantel } = JSON.parse(wrapper.dataset.props);
     let splideInstance = null;
 
-    // 2. Inicializar el carrusel (Splide) en vistas móviles
-    const mobileCarousel = document.getElementById("mobile-carousel");
-    if (mobileCarousel && window.innerWidth < 768) {
-      splideInstance = new Splide("#mobile-carousel", {
-        type: "loop",
-        padding: "1.3rem",
-        perPage: 1,
-        gap: ".1rem",
-        arrows: false,
-        pagination: false,
-        autoplay: true,
-        interval: 4000,
-        pauseOnHover: true,
-      }).mount();
+    // 2. Carga condicional de Splide solo si es necesario
+    const shouldLoadSplide = window.innerWidth < 768 && !soloUnPlantel;
+    
+    if (shouldLoadSplide) {
+      // Importación dinámica de Splide
+      const [{ default: Splide }] = await Promise.all([
+        import("@splidejs/splide"),
+        import("@splidejs/splide/dist/css/splide.min.css")
+      ]);
+
+      const mobileCarousel = document.getElementById("mobile-carousel");
+      if (mobileCarousel) {
+        splideInstance = new Splide("#mobile-carousel", {
+          type: "loop",
+          padding: "1.3rem",
+          perPage: 1,
+          gap: ".1rem",
+          arrows: false,
+          pagination: false,
+          autoplay: false, // Deshabilitado para mejorar performance
+          interval: 4000,
+          pauseOnHover: true,
+          lazyLoad: "nearby", // Lazy loading nativo de Splide
+        }).mount();
+      }
     }
 
     // Si solo hay un plantel, no se necesita la lógica de filtros
     if (soloUnPlantel) return;
 
-    // 3. Lógica del filtro de ciudades
+    // 3. Lógica del filtro de ciudades optimizada
     const filterButtons = document.querySelectorAll("[data-ciudad-tab]");
     const campusCards = document.querySelectorAll(".campus-card");
     const activeClasses = "bg-blue-600 text-white";
     const inactiveClasses = "bg-gray-200 text-gray-700 hover:bg-gray-300";
 
-    const setActiveTab = (button) => {
-      filterButtons.forEach((btn) => {
-        btn.className = `px-4 py-2 rounded-full text-sm font-medium transition-colors ${inactiveClasses}`;
-      });
-      button.className = `px-4 py-2 rounded-full text-sm font-medium transition-colors ${activeClasses}`;
-    };
+    // Usar delegación de eventos en lugar de múltiples listeners
+    const filterContainer = document.querySelector(".flex.flex-wrap.justify-center");
+    if (filterContainer) {
+      filterContainer.addEventListener("click", (e) => {
+        const button = e.target.closest("[data-ciudad-tab]");
+        if (!button) return;
 
-    const filterCards = (targetCiudad) => {
-      let visibleSlides = [];
-      campusCards.forEach((card) => {
-        const cardCiudad = card.dataset.ciudadCard;
-        const parentContainer = card.closest(".splide__slide") || card;
-        const isVisible = cardCiudad === targetCiudad;
-        parentContainer.style.display = isVisible ? "block" : "none";
-        if (isVisible && card.closest(".splide__slide")) {
-          visibleSlides.push(parentContainer);
+        const targetCiudad = button.dataset.ciudadTab;
+        
+        // Actualizar tabs
+        filterButtons.forEach((btn) => {
+          btn.className = `px-4 py-2 rounded-full text-sm font-medium transition-colors ${
+            btn === button ? activeClasses : inactiveClasses
+          }`;
+        });
+
+        // Filtrar tarjetas
+        let visibleSlides = [];
+        campusCards.forEach((card) => {
+          const cardCiudad = card.dataset.ciudadCard;
+          const parentContainer = card.closest(".splide__slide") || card;
+          const isVisible = cardCiudad === targetCiudad;
+          
+          requestAnimationFrame(() => {
+            parentContainer.style.display = isVisible ? "block" : "none";
+          });
+          
+          if (isVisible && card.closest(".splide__slide")) {
+            visibleSlides.push(parentContainer);
+          }
+        });
+
+        // Actualizar carrusel si existe
+        if (splideInstance && visibleSlides.length > 0) {
+          splideInstance.refresh();
         }
       });
-
-      // Actualizar el carrusel si existe
-      if (splideInstance) {
-        // Eliminar los slides que no corresponden
-        const list = splideInstance.Components.Elements.list;
-        list.innerHTML = ""; // Limpiar la lista
-        visibleSlides.forEach((slide) => list.appendChild(slide)); // Re-agregar los visibles
-        splideInstance.refresh();
-      }
-    };
-
-    filterButtons.forEach((button) => {
-      button.addEventListener("click", () => {
-        const targetCiudad = button.dataset.ciudadTab;
-        setActiveTab(button);
-        filterCards(targetCiudad);
-      });
-    });
-
-    // 4. Buscar y activar el plantel "Milenio" por defecto
-    const milenioCard = document.querySelector('.campus-card[data-plantel-nombre*="Milenio"]');
-    if (milenioCard) {
-      const milenioCiudad = milenioCard.dataset.ciudadCard;
-      const milenioButton = document.querySelector(`[data-ciudad-tab="${milenioCiudad}"]`);
-      
-      if (milenioButton) {
-        setActiveTab(milenioButton);
-        filterCards(milenioCiudad);
-      }
-    } else {
-      // Si no existe "Milenio", mostrar la primera ciudad disponible
-      const firstButton = filterButtons[0];
-      if (firstButton) {
-        setActiveTab(firstButton);
-        filterCards(firstButton.dataset.ciudadTab);
-      }
     }
+
+    // 4. Inicializar con plantel por defecto
+    const milenioCard = document.querySelector('.campus-card[data-plantel-nombre*="Milenio"]');
+    const defaultButton = milenioCard 
+      ? document.querySelector(`[data-ciudad-tab="${milenioCard.dataset.ciudadCard}"]`)
+      : filterButtons[0];
+    
+    if (defaultButton) {
+      defaultButton.click();
+    }
+  };
+
+  // Usar intersection observer para carga diferida
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        initCampusFinder();
+        observer.disconnect();
+      }
+    });
+  });
+
+  const wrapper = document.getElementById("campus-finder-wrapper");
+  if (wrapper) {
+    observer.observe(wrapper);
   }
 
-  // Ejecutar el script una vez el DOM esté listo
-  document.addEventListener("DOMContentLoaded", initCampusFinder);
+  // Fallback para asegurar que se ejecute
+  document.addEventListener("DOMContentLoaded", () => {
+    setTimeout(() => {
+      if (!wrapper?.dataset.initialized) {
+        initCampusFinder();
+        wrapper.dataset.initialized = "true";
+      }
+    }, 1000);
+  });
 </script>
