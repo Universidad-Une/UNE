@@ -1,6 +1,9 @@
 ---
 import { programasEducativos } from "@helpers/estructura_educativa";
 import { getImageUrl } from "@/helpers/imageManager.js"; // 👈 AGREGAR ESTA LÍNEA
+console.log(
+  programasEducativos.Licenciaturas["Ciencias Sociales y Humanidades"].Educación
+);
 
 // Función para obtener la primera imagen disponible de los planteles
 function getPrimeraImagenDePlanteles(planteles) {
@@ -413,71 +416,104 @@ export { carreras, areas };
       modalTitle.textContent = `${carreraNombre}`;
 
       // Crear contenido del modal con información detallada
+      // Reemplaza la lógica del modal con esta versión corregida:
+
       plantelesList.innerHTML = planteles
         .map((plantel, index) => {
           const detalles = plantelesDetalle[plantel] || [];
-          console.log('Plantel value:', plantel);
-console.log('Is URL?', plantel.startsWith('http'));
+
+          // 🔥 NUEVA LÓGICA: Separar URLs de programa vs plantel
+          const tieneUrlsDePrograma = detalles.some((detalle) => detalle.url);
+
+          // Para planteles físicos, siempre usar el slug del plantel
+          const esPlantelFisico =
+            !plantel.includes("EN LÍNEA") && !plantel.includes("ONLINE");
+
+          const enlacePlantel = esPlantelFisico
+            ? `/planteles/${plantel
+                .toLowerCase()
+                .normalize("NFD")
+                .replace(/[\u0300-\u036f]/g, "")
+                .replace(/ /g, "-")}`
+            : // Para planteles en línea, usar la primera URL disponible
+              detalles.find((d) => d.url)?.url ||
+              `/planteles/${plantel
+                .toLowerCase()
+                .normalize("NFD")
+                .replace(/[\u0300-\u036f]/g, "")
+                .replace(/ /g, "-")}`;
+
+          // URLs específicas de programas para botones adicionales
+          const urlsDePrograma = detalles
+            .filter((d) => d.url)
+            .map((d) => ({
+              modalidad: d.modalidad,
+              url: d.url,
+            }));
+
+          console.log("Plantel:", plantel);
+          console.log("Es plantel físico:", esPlantelFisico);
+          console.log("Enlace plantel:", enlacePlantel);
+          console.log("URLs de programa:", urlsDePrograma);
+
           return `
-            <div class="p-4 border border-gray-200 rounded-lg transform transition-all duration-300 translate-y-2 opacity-0 plantel-item" 
-                 style="animation-delay: ${index * 100}ms">
-              <div class="flex items-center justify-between mb-3">
-                <h4 class="font-bold text-lg text-gray-900">${plantel}</h4>
-                <span class="text-sm text-green-600 bg-green-100 px-2 py-1 rounded-full font-medium">Disponible</span>
-              </div>
-              
-              <!-- Modalidades e incorporaciones -->
-              <div class="mb-4">
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                  ${detalles
-                    .map(
-                      (detalle) => `
-                    <div class="bg-gray-50 p-2 rounded">
-                      <div class="text-sm">
-                        <span class="font-semibold text-blue-600">${detalle.modalidad}</span>
-                        <br>
-                        <span class="text-gray-600">Incorporación: ${detalle.incorporacion}</span>
-                      </div>
-                    </div>
-                  `
-                    )
-                    .join("")}
+      <div class="p-4 border border-gray-200 rounded-lg transform transition-all duration-300 translate-y-2 opacity-0 plantel-item" 
+           style="animation-delay: ${index * 100}ms">
+        <div class="flex items-center justify-between mb-3">
+          <h4 class="font-bold text-lg text-gray-900">${plantel}</h4>
+          <span class="text-sm text-green-600 bg-green-100 px-2 py-1 rounded-full font-medium">Disponible</span>
+        </div>
+        
+        <!-- Modalidades e incorporaciones -->
+        <div class="mb-4">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+            ${detalles
+              .map(
+                (detalle) => `
+              <div class="bg-gray-50 p-2 rounded">
+                <div class="text-sm">
+                  <span class="font-semibold text-blue-600">${detalle.modalidad}</span>
+                  <br>
+                  <span class="text-gray-600">Incorporación: ${detalle.incorporacion}</span>
+                 
                 </div>
               </div>
-              
-              <!-- Botones de acción -->
-              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                <a 
-                  href="tel:+3380000863" 
-                  class="flex items-center justify-center gap-2 py-2 px-3 bg-gray-100 text-gray-800 rounded-lg hover:bg-blue-100 hover:text-blue-700 transition-all duration-200"
-                >
-                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
-                  </svg>
-                  <span>Llamar al plantel</span>
-                </a>
-                <a 
-                href="${
-                  plantel.startsWith("http://") ||
-                  plantel.startsWith("https://")
-                    ? plantel
-                    : `/planteles/${plantel
-                        .toLowerCase()
-                        .normalize("NFD")
-                        .replace(/[\u0300-\u036f]/g, "")
-                        .replace(/ /g, "-")}`
-                }"
-  class="flex items-center justify-center gap-2 py-2 px-3 bg-gray-100 text-gray-800 rounded-lg hover:bg-red-100 hover:text-red-700 transition-all duration-200"
->
-                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                  </svg>
-                  <span>Visitar plantel</span>
-                </a>
-              </div>
-            </div>
-          `;
+            `
+              )
+              .join("")}
+          </div>
+        </div>
+        
+        <!-- Botones de acción -->
+        <div class="space-y-3">
+          <!-- Botones principales -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <a 
+              href="tel:+3380000863" 
+              class="flex items-center justify-center gap-2 py-2 px-3 bg-gray-100 text-gray-800 rounded-lg hover:bg-blue-100 hover:text-blue-700 transition-all duration-200"
+            >
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+              </svg>
+              <span>Llamar al plantel</span>
+            </a>
+            <a 
+              href="${enlacePlantel}"
+              ${!esPlantelFisico ? 'target="_blank" rel="noopener noreferrer"' : ""}
+              class="flex items-center justify-center gap-2 py-2 px-3 bg-gray-100 text-gray-800 rounded-lg hover:bg-red-100 hover:text-red-700 transition-all duration-200"
+            >
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+              </svg>
+              <span>${esPlantelFisico ? "Visitar plantel" : "Ir al sitio web"}</span>
+            </a>
+          </div>
+          
+
+        </div>
+      </div>
+    `;
         })
         .join("");
 

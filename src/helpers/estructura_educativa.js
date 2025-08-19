@@ -478,10 +478,11 @@ export const programasEducativos = {
             descripcion: "txt",
           },
         ],
-        "UNE  EN  LÍNEA": [
+        "UNE EN LÍNEA": [
           {
             modalidad: "En línea",
             incorporacion: "SICYT",
+            url: "https://www.une-enlinea.com/lic-diseno-grafico",
             hoja_fuente: "GDL",
           },
         ],
@@ -515,10 +516,11 @@ export const programasEducativos = {
               "Conviértete en un comunicador versátil y creativo, preparado para impactar en medios digitales, corporativos y sociales.",
           },
         ],
-        "UNE  EN  LÍNEA": [
+        "UNE EN LÍNEA": [
           {
             modalidad: "En línea",
             incorporacion: "SICYT",
+            url: "https://www.une-enlinea.com/lic-comunicacion",
             hoja_fuente: "GDL",
           },
         ],
@@ -679,10 +681,11 @@ export const programasEducativos = {
               "Conviértete en un profesional del derecho con sólida formación jurídica, listo para defender la justicia y asesorar con responsabilidad.",
           },
         ],
-        "UNE  EN  LÍNEA": [
+        "UNE EN LÍNEA": [
           {
             modalidad: "En línea",
             incorporacion: "SICYT",
+            url: "https://www.une-enlinea.com/lic-derecho",
             hoja_fuente: "GDL",
           },
         ],
@@ -859,10 +862,11 @@ export const programasEducativos = {
         ],
       },
       Educación: {
-        "UNE  EN  LÍNEA": [
+        "UNE EN LÍNEA": [
           {
             modalidad: "En línea",
             incorporacion: "SICYT",
+            url: "https://www.une-enlinea.com/lic-educacion",
             hoja_fuente: "GDL",
           },
         ],
@@ -1251,10 +1255,11 @@ export const programasEducativos = {
               "Comprende la conducta humana y contribuye al bienestar emocional, social y mental de las personas.",
           },
         ],
-        "UNE  EN  LÍNEA": [
+        "UNE EN LÍNEA": [
           {
             modalidad: "En línea",
             incorporacion: "SICYT",
+            url: "https://www.une-enlinea.com/lic-psicologia",
             hoja_fuente: "GDL",
           },
         ],
@@ -1290,13 +1295,7 @@ export const programasEducativos = {
               "Comprende la conducta humana y contribuye al bienestar emocional, social y mental de las personas.",
           },
         ],
-        "UNE  EN  LÍNEA": [
-          {
-            modalidad: "En línea",
-            incorporacion: "SICYT",
-            hoja_fuente: "GDL",
-          },
-        ],
+       
         CENTRO: [
           {
             modalidad: "Escolarizada",
@@ -1571,9 +1570,10 @@ export const programasEducativos = {
               "Optimiza recursos, mejora procesos y lidera la eficiencia en cualquier tipo de organización.",
           },
         ],
-        "UNE  EN  LÍNEA": [
+        "UNE EN LÍNEA": [
           {
             modalidad: "En línea",
+            url: "https://www.une-enlinea.com/ing-industrial",
             incorporacion: "SICYT",
             hoja_fuente: "GDL",
           },
@@ -1891,12 +1891,12 @@ export const programasEducativos = {
     },
     "Económico Administrativa": {
       "Administración de sistemas de información": {
-        "UNE en línea": [
+        "UNE EN LÍNEA": [
           {
             modalidad: "En linea",
             incorporacion: "SICYT",
             imagen: "sistemasdeinformacion",
-            url: "/oferta/licenciaturas/administracion_de_sistemas_de_informacion",
+            url: "https://www.une-enlinea.com/lic-en-administracion-de-sistemas-de-informacion",
             descripcion:
               "Integra tecnología y negocios para mejorar procesos y tomar decisiones estratégicas basadas en datos.",
           },
@@ -2170,11 +2170,12 @@ export const programasEducativos = {
         ],
       },
       Contaduría: {
-        "UNE  EN  LÍNEA": [
+        "UNE EN LÍNEA": [
           {
             modalidad: "En línea",
             incorporacion: "SICYT",
             hoja_fuente: "GDL",
+            url: "https://www.une-enlinea.com/lic-contaduria",
           },
         ],
       },
@@ -2264,22 +2265,22 @@ export const programasEducativos = {
         ],
       },
       Comunicación: {
-        "UNE  EN  LÍNEA": [
+        "UNE EN LÍNEA": [
           {
             modalidad: "En línea",
             incorporacion: "SICYT",
+            url: "https://www.une-enlinea.com/lic-comunicacion",
             hoja_fuente: "GDL",
           },
         ],
       },
       "Comercio y Negocios Globales": {
-        "UNE  EN  LÍNEA": [
+        "UNE EN LÍNEA": [
           {
             modalidad: "En línea",
             incorporacion: "SICYT",
             hoja_fuente: "GDL",
-            url: "/oferta/licenciaturas/comercio_negocios_globales",
-
+            url: "https://www.une-enlinea.com/lic-comercio-y-negocios-globales",
           },
         ],
       },
@@ -2369,11 +2370,12 @@ export const programasEducativos = {
               "Desarrolla estrategias creativas para posicionar marcas, conectar con consumidores y expandir negocios a nivel global.",
           },
         ],
-        "UNE  EN  LÍNEA": [
+        "UNE EN LÍNEA": [
           {
             modalidad: "En línea",
             incorporacion: "SICYT",
             hoja_fuente: "GDL",
+            url: "https://www.une-enlinea.com/lic-mercadotecnia",
           },
         ],
         "CENTRO \nMÉDICO": [
@@ -2851,11 +2853,12 @@ export const programasEducativos = {
               "Desarrolla habilidades gerenciales avanzadas para liderar organizaciones exitosas en el entorno empresarial global.",
           },
         ],
-        "UNE  EN  LÍNEA": [
+        "UNE EN LÍNEA": [
           {
             modalidad: "En línea",
             incorporacion: "SICYT",
             hoja_fuente: "GDL",
+            url: "https://www.une-enlinea.com/maestria-en-administracion-de-negocios",
           },
         ],
         "PUERTO VALLARTA LAS JUNTAS": [
@@ -2988,11 +2991,12 @@ export const programasEducativos = {
               "Impulsa la innovación educativa y mejora los procesos de enseñanza-aprendizaje con metodologías avanzadas.",
           },
         ],
-        "UNE  EN  LÍNEA": [
+        "UNE EN LÍNEA": [
           {
             modalidad: "En línea",
             incorporacion: "SICYT",
             hoja_fuente: "GDL",
+            url: "https://www.une-enlinea.com/maestria-en-educacion",
           },
         ],
         ZAPOPAN: [
