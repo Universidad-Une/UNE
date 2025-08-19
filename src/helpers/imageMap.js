@@ -10,7 +10,7 @@ import Caracol from "../assets/Imagenes/CardsPlanteles/Caracol.webp";
 import Centro from "../assets/Imagenes/CardsPlanteles/Centro.webp";
 import CentroMedico from "../assets/Imagenes/CardsPlanteles/CentroMedico.webp";
 import Chapultepec from "../assets/Imagenes/CardsPlanteles/Chapultepec.webp";
-import LasJuntas from "../assets/Imagenes/CardsPlanteles/LasJuntas.webp";
+import LasJuntas from "../assets/Imagenes/CardsPlanteles/lasjuntas.webp";
 import Milenio from "../assets/Imagenes/CardsPlanteles/Milenio.webp";
 import Tepatitlan from "../assets/Imagenes/CardsPlanteles/Tepatitlan.webp";
 import TorreMillenio from "../assets/Imagenes/CardsPlanteles/Torre-milenio.webp";
