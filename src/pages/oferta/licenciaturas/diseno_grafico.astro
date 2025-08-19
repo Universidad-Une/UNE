@@ -28,7 +28,6 @@ const requisitosInfo = {
 };
 
 const faqs = [
-  
   {
     question: "¿Cuál es la duración de una licenciatura?",
     answer:
@@ -449,7 +448,11 @@ const semestresDatos = [
       },
     ],
   },
-];
+]; // Imports
+import centroImg from "@/assets/Imagenes/CardsPlanteles/Centro.webp";
+import zapopanImg from "@/assets/Imagenes/CardsPlanteles/Zapopan.webp";
+
+// Arreglo actualizado
 const planteles = [
   {
     id: "1",
@@ -457,32 +460,29 @@ const planteles = [
     direccion: "Av. República No.10, Col. San Juan de Dios",
     ciudad: "Guadalajara ZMG",
     url: "/planteles/centro",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/Centro.webp",
+    imagen: centroImg.src,
     lat: 20.67744801539995,
     lon: -103.34031672627513,
   },
-  
   {
     id: "11",
     nombre: "Zapopan",
     direccion: "Plaza Caudillos",
     ciudad: "Guadalajara ZMG",
     url: "/planteles/zapopan",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/Zapopan.webp",
+    imagen: zapopanImg.src,
     lat: 20.720900646775917,
     lon: -103.38975281813357,
   },
 ];
 
-const ciudades = [
-  "Guadalajara ZMG",
-  
-];
+const ciudades = ["Guadalajara ZMG"];
 ---
 
 <Layout
-title="Licenciatura en Diseño Gráfico - UNE"
-description="Estudia Diseño Gráfico en Universidad UNE. Licenciatura con validez UDG, talleres creativos, software especializado y proyectos reales.">
+  title="Licenciatura en Diseño Gráfico - UNE"
+  description="Estudia Diseño Gráfico en Universidad UNE. Licenciatura con validez UDG, talleres creativos, software especializado y proyectos reales."
+>
   <main class="min-h-screen">
     <!-- Hero Section -->
 
@@ -538,7 +538,9 @@ description="Estudia Diseño Gráfico en Universidad UNE. Licenciatura con valid
             <a
               href="/contacto/solicitarvisita"
               class="hover:border-b hover:border-b-cyan-50 font-bold py-6 px-6 text-base transition-colors duration-300 shadow-lg flex flex-col items-center justify-center gap-2 whitespace-nowrap"
-             aria-label="Ir a AGENDA UNA VISITA" title="AGENDA UNA VISITA">
+              aria-label="Ir a AGENDA UNA VISITA"
+              title="AGENDA UNA VISITA"
+            >
               AGENDA UNA VISITA
               <Calendar size={20} />
             </a>
@@ -547,7 +549,9 @@ description="Estudia Diseño Gráfico en Universidad UNE. Licenciatura con valid
             <a
               href="/contacto/formulario-inscripcion"
               class="hover:border-b hover:border-b-cyan-50 font-bold py-3 px-6 text-base transition-colors duration-300 shadow-lg flex flex-col items-center justify-center gap-2 whitespace-nowrap"
-             aria-label="Ir a INICIAR INSCRIPCIÓN" title="INICIAR INSCRIPCIÓN">
+              aria-label="Ir a INICIAR INSCRIPCIÓN"
+              title="INICIAR INSCRIPCIÓN"
+            >
               INICIAR INSCRIPCIÓN
               <UserPlus size={20} />
             </a>
@@ -556,7 +560,9 @@ description="Estudia Diseño Gráfico en Universidad UNE. Licenciatura con valid
             <a
               href="/contacto/solicitarinformacion"
               class="hover:border-b hover:border-b-cyan-50 font-bold py-3 px-6 text-base transition-colors duration-300 shadow-lg flex flex-col items-center justify-center gap-2 whitespace-nowrap"
-             aria-label="Ir a página de contacto" title="Contactar con nosotros">
+              aria-label="Ir a página de contacto"
+              title="Contactar con nosotros"
+            >
               CONTACTAR
               <Phone size={20} />
             </a>
@@ -593,8 +599,7 @@ description="Estudia Diseño Gráfico en Universidad UNE. Licenciatura con valid
     />
 
     <Requisitos nivel="Licenciatura" requisitos={requisitosInfo} />
-            <Planes nombre="Diseño Gráfico"/>
-
+    <Planes nombre="Diseño Gráfico" />
 
     <FAQComponent
       faqs={faqs}

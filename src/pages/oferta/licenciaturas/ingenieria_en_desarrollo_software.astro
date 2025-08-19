@@ -481,73 +481,78 @@ const semestresDatos = [
     ],
   },
 ];
+// Imports
+import centroImg from '@/assets/Imagenes/CardsPlanteles/Centro.webp';
+import milenioImg from '@/assets/Imagenes/CardsPlanteles/Milenio.webp';
+import tepatitlanImg from '@/assets/Imagenes/CardsPlanteles/Tepatitlan.webp';
+import zapopanImg from '@/assets/Imagenes/CardsPlanteles/Zapopan.webp';
+import avenidaMexicoImg from '@/assets/Imagenes/CardsPlanteles/PuertoVallarta.webp';
+import campusPuertoVallartaImg from '@/assets/Imagenes/CardsPlanteles/Campus-Puerto-Vallarta.webp';
+
+// Arreglo actualizado
 const planteles = [
-  {
-    id: "1",
-    nombre: "Centro",
-    direccion: "Av. República No.10, Col. San Juan de Dios",
-    ciudad: "Guadalajara ZMG",
-    url: "/plantel-centro",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/Centro.webp",
-    lat: 20.67744801539995,
-    lon: -103.34031672627513,
-  },
-
-  {
-    id: "3",
-    nombre: "Milenio",
-    direccion: "Av. López Mateos Sur #4154, Col. La Giralda",
-    ciudad: "Guadalajara ZMG",
-    url: "/plantel-milenio",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/Milenio.webp",
-    lat: 20.64540739939039,
-    lon: -103.40630313415286,
-  },
-
-  {
-    id: "7",
-    nombre: "Tepatitlán",
-    direccion: "Calle Dr. Ricardo Alcalá #505, Av. Matamoros, Centro",
-    ciudad: "Tepatitlán de Morelos",
-    url: "/plantel-tepatitlan",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/Tepatitlan.webp",
-    lat: 20.8062946507024,
-    lon: -102.76382902869392,
-  },
- 
-
-  {
-    id: "11",
-    nombre: "Zapopan",
-    direccion: "Plaza Caudillos",
-    ciudad: "Guadalajara ZMG",
-    url: "/plantel-zapopan",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/Zapopan.webp",
-    lat: 20.720900646775917,
-    lon: -103.38975281813357,
-  },
-  {
-    id: "1",
-    nombre: "Avenida México",
-    codigo: "00008",
-    direccion: "Av. México #1255, Col. Agua Zarca, Puerto Vallarta, Jalisco",
-    ciudad: "Puerto Vallarta",
-    url: "/campus/puerto-vallarta",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/PuertoVallarta.webp",
-    lat: 20.669418,
-    lon: -105.226917,
-  },
-  {
-    id: "16",
-    nombre: "Campus Puerto Vallarta",
-    codigo: "Campus",
-    direccion: "Carretera a Tepic No. 5657 Col. las Juntas C.P 48291",
-    ciudad: "Puerto Vallarta",
-    url: "/campus/campus-puerto-vallarta",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/Campus-Puerto-Vallarta.webp",
-    lat: "20.69715126066295",
-    lon: ", -105.23759816941552",
-  },
+ {
+   id: "1",
+   nombre: "Centro",
+   direccion: "Av. República No.10, Col. San Juan de Dios",
+   ciudad: "Guadalajara ZMG",
+   url: "/plantel-centro",
+   imagen: centroImg.src,
+   lat: 20.67744801539995,
+   lon: -103.34031672627513,
+ },
+ {
+   id: "3",
+   nombre: "Milenio",
+   direccion: "Av. López Mateos Sur #4154, Col. La Giralda",
+   ciudad: "Guadalajara ZMG",
+   url: "/plantel-milenio",
+   imagen: milenioImg.src,
+   lat: 20.64540739939039,
+   lon: -103.40630313415286,
+ },
+ {
+   id: "7",
+   nombre: "Tepatitlán",
+   direccion: "Calle Dr. Ricardo Alcalá #505, Av. Matamoros, Centro",
+   ciudad: "Tepatitlán de Morelos",
+   url: "/plantel-tepatitlan",
+   imagen: tepatitlanImg.src,
+   lat: 20.8062946507024,
+   lon: -102.76382902869392,
+ },
+ {
+   id: "11",
+   nombre: "Zapopan",
+   direccion: "Plaza Caudillos",
+   ciudad: "Guadalajara ZMG",
+   url: "/plantel-zapopan",
+   imagen: zapopanImg.src,
+   lat: 20.720900646775917,
+   lon: -103.38975281813357,
+ },
+ {
+   id: "1",
+   nombre: "Avenida México",
+   codigo: "00008",
+   direccion: "Av. México #1255, Col. Agua Zarca, Puerto Vallarta, Jalisco",
+   ciudad: "Puerto Vallarta",
+   url: "/campus/puerto-vallarta",
+   imagen: avenidaMexicoImg.src,
+   lat: 20.669418,
+   lon: -105.226917,
+ },
+ {
+   id: "16",
+   nombre: "Campus Puerto Vallarta",
+   codigo: "Campus",
+   direccion: "Carretera a Tepic No. 5657 Col. las Juntas C.P 48291",
+   ciudad: "Puerto Vallarta",
+   url: "/campus/campus-puerto-vallarta",
+   imagen: campusPuertoVallartaImg.src,
+   lat: "20.69715126066295",
+   lon: "-105.23759816941552",
+ },
 ];
 
 const ciudades = [

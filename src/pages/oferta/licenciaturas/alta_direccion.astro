@@ -349,40 +349,45 @@ const semestresDatos = [
     ],
   },
 ];
+// Imports
+import centroMedicoImg from '@/assets/Imagenes/CardsPlanteles/CentroMedico.webp';
+import torreQuetzalImg from '@/assets/Imagenes/CardsPlanteles/Torre-quetzal.webp';
+import avenidaMexicoImg from '@/assets/Imagenes/CardsPlanteles/PuertoVallarta.webp';
 
+// Arreglo actualizado
 const planteles = [
-  {
-    id: "2",
-    nombre: "Centro Médico",
-    direccion: "José María Lozano #1077, Col. Belisario Domínguez",
-    ciudad: "Guadalajara ZMG",
-    url: "/plantel-centro-medico",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/CentroMedico.webp",
-    lat: 20.684590788642307,
-    lon: -103.3256397932448,
-  },
-  {
-    id: "15",
-    nombre: "Torre Quetzal",
-    codigo: "Torre Quetzak",
-    direccion: "Chimalhuacán #3569 Col. Ciudad del Sol Zapopan, Jalisco",
-    ciudad: "Guadalajara ZMG",
-    url: "/campus/torre-quetzal",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/Torre-quetzal.webp",
-    lat: "20.651860618451966",
-    lon: "-103.40329340052432",
-  },
-  {
-    id: "1",
-    nombre: "Avenida México",
-    codigo: "00008",
-    direccion: "Av. México #1255, Col. Agua Zarca, Puerto Vallarta, Jalisco",
-    ciudad: "Puerto Vallarta",
-    url: "/campus/puerto-vallarta",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/PuertoVallarta.webp",
-    lat: 20.669418,
-    lon: -105.226917,
-  },
+ {
+   id: "2",
+   nombre: "Centro Médico",
+   direccion: "José María Lozano #1077, Col. Belisario Domínguez",
+   ciudad: "Guadalajara ZMG",
+   url: "/plantel-centro-medico",
+   imagen: centroMedicoImg.src,
+   lat: 20.684590788642307,
+   lon: -103.3256397932448,
+ },
+ {
+   id: "15",
+   nombre: "Torre Quetzal",
+   codigo: "Torre Quetzak",
+   direccion: "Chimalhuacán #3569 Col. Ciudad del Sol Zapopan, Jalisco",
+   ciudad: "Guadalajara ZMG",
+   url: "/campus/torre-quetzal",
+   imagen: torreQuetzalImg.src,
+   lat: "20.651860618451966",
+   lon: "-103.40329340052432",
+ },
+ {
+   id: "1",
+   nombre: "Avenida México",
+   codigo: "00008",
+   direccion: "Av. México #1255, Col. Agua Zarca, Puerto Vallarta, Jalisco",
+   ciudad: "Puerto Vallarta",
+   url: "/campus/puerto-vallarta",
+   imagen: avenidaMexicoImg.src,
+   lat: 20.669418,
+   lon: -105.226917,
+ },
 ];
 
 const ciudades = [

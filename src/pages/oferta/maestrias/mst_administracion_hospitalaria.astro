@@ -285,51 +285,57 @@ const semestresDatos = [
   },
 ];
 
-const planteles = [
-  {
-    id: "15",
-    nombre: "Torre Quetzal",
-    codigo: "Torre Quetzak",
-    direccion: "Chimalhuacán #3569 Col. Ciudad del Sol Zapopan, Jalisco",
-    ciudad: "Guadalajara ZMG",
-    url: "/campus/torre-quetzal",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/Torre-quetzal.webp",
-    lat: "20.651860618451966",
-    lon: "-103.40329340052432",
-  },
-  {
-    id: "16",
-    nombre: "Campus Puerto Vallarta",
-    codigo: "Campus",
-    direccion: "Carretera a Tepic No. 5657 Col. las Juntas C.P 48291",
-    ciudad: "Puerto Vallarta",
-    url: "/campus/campus-puerto-vallarta",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/Campus-Puerto-Vallarta.webp",
-    lat: "20.69715126066295",
-    lon: ", -105.23759816941552",
-  },
-  {
-id: "4",
-nombre: "Tlajomulco",
-codigo: "00012",
-direccion: "Av. López Mateos #10100, Col. Los Gavilanes Poniente, Tlajomulco de Zúñiga, Jalisco",
-ciudad: "Guadalajara ZMG",
-url: "/campus/tlajomulco",
-imagen: "/src/assets/Imagenes/CardsPlanteles/Tlajomulco.webp",
-lat: 20.576464164603113,
-lon: -103.45243680650722,
-},
-{
-id: "20",
-nombre: "Las juntas",
-direccion: "Francisco Murguía #523 Col. Las Juntas Puerto Vallarta, Jalisco",
-ciudad: "Puerto Vallarta",
-url: "/planteles/Las-juntas",
-imagen: "/src/assets/Imagenes/CardsPlanteles/Lasjuntas.webp",
-lat: 20.696982077577214,
-lon: -105.23748669247418,
-},
+// Imports
+import torreQuetzalImg from '@/assets/Imagenes/CardsPlanteles/Torre-quetzal.webp';
+import campusPuertoVallartaImg from '@/assets/Imagenes/CardsPlanteles/Campus-Puerto-Vallarta.webp';
+import tlajomulcoImg from '@/assets/Imagenes/CardsPlanteles/Tlajomulco.webp';
+import lasJuntasImg from '@/assets/Imagenes/CardsPlanteles/Lasjuntas.webp';
 
+// Arreglo actualizado
+const planteles = [
+ {
+   id: "15",
+   nombre: "Torre Quetzal",
+   codigo: "Torre Quetzak",
+   direccion: "Chimalhuacán #3569 Col. Ciudad del Sol Zapopan, Jalisco",
+   ciudad: "Guadalajara ZMG",
+   url: "/campus/torre-quetzal",
+   imagen: torreQuetzalImg.src,
+   lat: "20.651860618451966",
+   lon: "-103.40329340052432",
+ },
+ {
+   id: "16",
+   nombre: "Campus Puerto Vallarta",
+   codigo: "Campus",
+   direccion: "Carretera a Tepic No. 5657 Col. las Juntas C.P 48291",
+   ciudad: "Puerto Vallarta",
+   url: "/campus/campus-puerto-vallarta",
+   imagen: campusPuertoVallartaImg.src,
+   lat: "20.69715126066295",
+   lon: "-105.23759816941552",
+ },
+ {
+   id: "4",
+   nombre: "Tlajomulco",
+   codigo: "00012",
+   direccion: "Av. López Mateos #10100, Col. Los Gavilanes Poniente, Tlajomulco de Zúñiga, Jalisco",
+   ciudad: "Guadalajara ZMG",
+   url: "/campus/tlajomulco",
+   imagen: tlajomulcoImg.src,
+   lat: 20.576464164603113,
+   lon: -103.45243680650722,
+ },
+ {
+   id: "20",
+   nombre: "Las juntas",
+   direccion: "Francisco Murguía #523 Col. Las Juntas Puerto Vallarta, Jalisco",
+   ciudad: "Puerto Vallarta",
+   url: "/planteles/Las-juntas",
+   imagen: lasJuntasImg.src,
+   lat: 20.696982077577214,
+   lon: -105.23748669247418,
+ },
 ];
 
 const ciudades = [

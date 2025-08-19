@@ -478,51 +478,55 @@ const semestresDatos = [
   },
 ];
 
+// Imports
+import torreMilenioImg from '@/assets/Imagenes/CardsPlanteles/Torre-milenio.webp';
+import tlajomulcoImg from '@/assets/Imagenes/CardsPlanteles/Tlajomulco.webp';
+import tesistanImg from '@/assets/Imagenes/CardsPlanteles/Tesistan.webp';
+import tonalaImg from '@/assets/Imagenes/CardsPlanteles/Tonala.webp';
+
+// Arreglo actualizado
 const planteles = [
-   {
-    id: "14",
-    nombre: "Torre UNE Milenio",
-    codigo: "TORRE MILENIO",
-    direccion: "Av. López Mateos Sur #4175 Col. La Giralda Zapopan, Jalisco",
-    ciudad: "Guadalajara ZMG",
-    url: "/campus/Torre-milenio",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/Torre-milenio.webp",
-    lat: "20.645336",
-    lon: "-103.405938",
-  },
-  {
-    id: "5",
-    nombre: "Tlajomulco",
-    direccion: "Av. López Mateos #10100, Col. Los Gavilanes Poniente",
-    ciudad: "Guadalajara ZMG",
-    url: "/plantel-tlajomulco",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/Tlajomulco.webp",
-    lat: 20.576464164603113,
-    lon: -103.45243680650722,
-  },
-  {
-    id: "6",
-    nombre: "Tesistán",
-    direccion: "Av. Juan Gil Preciado #3897, Col. Hogares de Nuevo México",
-    ciudad: "Guadalajara ZMG",
-    url: "/plantel-tesistan",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/Tesistan.webp",
-    lat: 20.806203,
-    lon: -102.763903,
-  },
-
-  {
-    id: "9",
-    nombre: "Tonalá",
-    direccion: "Av. Tonaltecas #333, Col. Agua Escondida",
-    ciudad: "Guadalajara ZMG",
-    url: "/plantel-tonala",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/Tonala.webp",
-    lat: 20.63176692188573,
-    lon: -103.24439406488241,
-  },
-
- 
+ {
+   id: "14",
+   nombre: "Torre UNE Milenio",
+   codigo: "TORRE MILENIO",
+   direccion: "Av. López Mateos Sur #4175 Col. La Giralda Zapopan, Jalisco",
+   ciudad: "Guadalajara ZMG",
+   url: "/campus/Torre-milenio",
+   imagen: torreMilenioImg.src,
+   lat: "20.645336",
+   lon: "-103.405938",
+ },
+ {
+   id: "5",
+   nombre: "Tlajomulco",
+   direccion: "Av. López Mateos #10100, Col. Los Gavilanes Poniente",
+   ciudad: "Guadalajara ZMG",
+   url: "/plantel-tlajomulco",
+   imagen: tlajomulcoImg.src,
+   lat: 20.576464164603113,
+   lon: -103.45243680650722,
+ },
+ {
+   id: "6",
+   nombre: "Tesistán",
+   direccion: "Av. Juan Gil Preciado #3897, Col. Hogares de Nuevo México",
+   ciudad: "Guadalajara ZMG",
+   url: "/plantel-tesistan",
+   imagen: tesistanImg.src,
+   lat: 20.806203,
+   lon: -102.763903,
+ },
+ {
+   id: "9",
+   nombre: "Tonalá",
+   direccion: "Av. Tonaltecas #333, Col. Agua Escondida",
+   ciudad: "Guadalajara ZMG",
+   url: "/plantel-tonala",
+   imagen: tonalaImg.src,
+   lat: 20.63176692188573,
+   lon: -103.24439406488241,
+ },
 ];
 
 const ciudades = [

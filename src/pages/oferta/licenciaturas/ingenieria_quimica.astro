@@ -457,38 +457,43 @@ const semestresDatos = [
   },
 ];
 
-const planteles = [
-  {
-    id: "5",
-    nombre: "Tlajomulco",
-    direccion: "Av. López Mateos #10100, Col. Los Gavilanes Poniente",
-    ciudad: "Guadalajara ZMG",
-    url: "/plantel-tlajomulco",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/Tlajomulco.webp",
-    lat: 20.576464164603113,
-    lon: -103.45243680650722,
-  },
-  {
-    id: "6",
-    nombre: "Tesistán",
-    direccion: "Av. Juan Gil Preciado #3897, Col. Hogares de Nuevo México",
-    ciudad: "Guadalajara ZMG",
-    url: "/plantel-tesistan",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/Tesistan.webp",
-    lat: 20.806203,
-    lon: -102.763903,
-  },
+// Imports
+import tlajomulcoImg from '@/assets/Imagenes/CardsPlanteles/Tlajomulco.webp';
+import tesistanImg from '@/assets/Imagenes/CardsPlanteles/Tesistan.webp';
+import chapultepecImg from '@/assets/Imagenes/CardsPlanteles/Chapultepec.webp';
 
-  {
-    id: "10",
-    nombre: "Chapultepec",
-    direccion: "Av. Vallarta #1458, Col. Americana",
-    ciudad: "Guadalajara ZMG",
-    url: "/plantel-vallarta",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/Chapultepec.webp",
-    lat: 20.67471004174908,
-    lon: -103.36909119392195,
-  },
+// Arreglo actualizado
+const planteles = [
+ {
+   id: "5",
+   nombre: "Tlajomulco",
+   direccion: "Av. López Mateos #10100, Col. Los Gavilanes Poniente",
+   ciudad: "Guadalajara ZMG",
+   url: "/plantel-tlajomulco",
+   imagen: tlajomulcoImg.src,
+   lat: 20.576464164603113,
+   lon: -103.45243680650722,
+ },
+ {
+   id: "6",
+   nombre: "Tesistán",
+   direccion: "Av. Juan Gil Preciado #3897, Col. Hogares de Nuevo México",
+   ciudad: "Guadalajara ZMG",
+   url: "/plantel-tesistan",
+   imagen: tesistanImg.src,
+   lat: 20.806203,
+   lon: -102.763903,
+ },
+ {
+   id: "10",
+   nombre: "Chapultepec",
+   direccion: "Av. Vallarta #1458, Col. Americana",
+   ciudad: "Guadalajara ZMG",
+   url: "/plantel-vallarta",
+   imagen: chapultepecImg.src,
+   lat: 20.67471004174908,
+   lon: -103.36909119392195,
+ },
 ];
 
 const ciudades = [

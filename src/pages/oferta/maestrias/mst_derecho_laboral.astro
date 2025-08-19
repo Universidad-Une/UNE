@@ -249,29 +249,33 @@ const semestresDatos = [
   },
 ];
 
-const planteles = [
-  {
-    id: "5",
-    nombre: "Tlajomulco",
-    direccion: "Av. López Mateos #10100, Col. Los Gavilanes Poniente",
-    ciudad: "Guadalajara ZMG",
-    url: "/plantel-tlajomulco",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/Tlajomulco.webp",
-    lat: 20.576464164603113,
-    lon: -103.45243680650722,
-  },
+// Imports
+import tlajomulcoImg from '@/assets/Imagenes/CardsPlanteles/Tlajomulco.webp';
+import avenidaMexicoImg from '@/assets/Imagenes/CardsPlanteles/PuertoVallarta.webp';
 
-  {
-    id: "1",
-    nombre: "Avenida México",
-    codigo: "00008",
-    direccion: "Av. México #1255, Col. Agua Zarca, Puerto Vallarta, Jalisco",
-    ciudad: "Puerto Vallarta",
-    url: "/campus/puerto-vallarta",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/PuertoVallarta.webp",
-    lat: 20.669418,
-    lon: -105.226917,
-  },
+// Arreglo actualizado
+const planteles = [
+ {
+   id: "5",
+   nombre: "Tlajomulco",
+   direccion: "Av. López Mateos #10100, Col. Los Gavilanes Poniente",
+   ciudad: "Guadalajara ZMG",
+   url: "/plantel-tlajomulco",
+   imagen: tlajomulcoImg.src,
+   lat: 20.576464164603113,
+   lon: -103.45243680650722,
+ },
+ {
+   id: "1",
+   nombre: "Avenida México",
+   codigo: "00008",
+   direccion: "Av. México #1255, Col. Agua Zarca, Puerto Vallarta, Jalisco",
+   ciudad: "Puerto Vallarta",
+   url: "/campus/puerto-vallarta",
+   imagen: avenidaMexicoImg.src,
+   lat: 20.669418,
+   lon: -105.226917,
+ },
 ];
 
 const ciudades = [

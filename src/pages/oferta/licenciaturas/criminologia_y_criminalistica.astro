@@ -427,50 +427,55 @@ const semestresDatos = [
   },
 ];
 
-const planteles = [
-  {
-    id: "6",
-    nombre: "Tesistán",
-    direccion: "Av. Juan Gil Preciado #3897, Col. Hogares de Nuevo México",
-    ciudad: "Guadalajara ZMG",
-    url: "/planteles/tesistan",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/Tesistan.webp",
-    lat: 20.806203,
-    lon: -102.763903,
-  },
+// Imports
+import tesistanImg from '@/assets/Imagenes/CardsPlanteles/Tesistan.webp';
+import tlajomulcoImg from '@/assets/Imagenes/CardsPlanteles/Tlajomulco.webp';
+import tonalaImg from '@/assets/Imagenes/CardsPlanteles/Tonala.webp';
+import chapultepecImg from '@/assets/Imagenes/CardsPlanteles/Chapultepec.webp';
 
-  {
-    id: "4",
-    nombre: "Tlajomulco",
-    codigo: "00012",
-    direccion:
-      "Av. López Mateos #10100, Col. Los Gavilanes Poniente, Tlajomulco de Zúñiga, Jalisco",
-    ciudad: "Guadalajara ZMG",
-    url: "/planteles/tlajomulco",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/Tlajomulco.webp",
-    lat: 20.576464164603113,
-    lon: -103.45243680650722,
-  },
-  {
-    id: "9",
-    nombre: "Tonalá",
-    direccion: "Av. Tonaltecas #333, Col. Agua Escondida",
-    ciudad: "Guadalajara ZMG",
-    url: "/planteles/tonala",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/Tonala.webp",
-    lat: 20.63176692188573,
-    lon: -103.24439406488241,
-  },
-  {
-    id: "10",
-    nombre: "Chapultepec",
-    direccion: "Av. Vallarta #1458, Col. Americana",
-    ciudad: "Guadalajara ZMG",
-    url: "/planteles/chapultepec",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/Chapultepec.webp",
-    lat: 20.67471004174908,
-    lon: -103.36909119392195,
-  },
+// Arreglo actualizado
+const planteles = [
+ {
+   id: "6",
+   nombre: "Tesistán",
+   direccion: "Av. Juan Gil Preciado #3897, Col. Hogares de Nuevo México",
+   ciudad: "Guadalajara ZMG",
+   url: "/planteles/tesistan",
+   imagen: tesistanImg.src,
+   lat: 20.806203,
+   lon: -102.763903,
+ },
+ {
+   id: "4",
+   nombre: "Tlajomulco",
+   codigo: "00012",
+   direccion: "Av. López Mateos #10100, Col. Los Gavilanes Poniente, Tlajomulco de Zúñiga, Jalisco",
+   ciudad: "Guadalajara ZMG",
+   url: "/planteles/tlajomulco",
+   imagen: tlajomulcoImg.src,
+   lat: 20.576464164603113,
+   lon: -103.45243680650722,
+ },
+ {
+   id: "9",
+   nombre: "Tonalá",
+   direccion: "Av. Tonaltecas #333, Col. Agua Escondida",
+   ciudad: "Guadalajara ZMG",
+   url: "/planteles/tonala",
+   imagen: tonalaImg.src,
+   lat: 20.63176692188573,
+   lon: -103.24439406488241,
+ },
+ {
+   id: "10",
+   nombre: "Chapultepec",
+   direccion: "Av. Vallarta #1458, Col. Americana",
+   ciudad: "Guadalajara ZMG",
+   url: "/planteles/chapultepec",
+   imagen: chapultepecImg.src,
+   lat: 20.67471004174908,
+   lon: -103.36909119392195,
+ },
 ];
 
 const ciudades = ["Guadalajara ZMG"];

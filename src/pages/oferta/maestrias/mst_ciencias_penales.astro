@@ -249,15 +249,19 @@ const semestresDatos = [
   },
 ];
 
+// Imports
+import lasJuntasImg from "@/assets/Imagenes/CardsPlanteles/Lasjuntas.webp";
+
+// Arreglo actualizado
 const planteles = [
-   {
+  {
     id: "20",
     nombre: "Las juntas",
     direccion:
       "Francisco Murguía #523 Col. Las Juntas Puerto Vallarta, Jalisco",
     ciudad: "Puerto Vallarta",
     url: "/planteles/Las-juntas",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/Lasjuntas.webp",
+    imagen: lasJuntasImg.src,
     lat: 20.696982077577214,
     lon: -105.23748669247418,
   },
@@ -271,8 +275,9 @@ const ciudades = [
 ---
 
 <Layout
-title="Maestría en Ciencias Penales - UNE"
-description="Maestría en Ciencias Penales en Universidad UNE. Posgrado jurídico especializado en derecho penal, criminología y sistema de justicia.">
+  title="Maestría en Ciencias Penales - UNE"
+  description="Maestría en Ciencias Penales en Universidad UNE. Posgrado jurídico especializado en derecho penal, criminología y sistema de justicia."
+>
   <main class="min-h-screen">
     <!-- Hero Section -->
 
@@ -300,14 +305,15 @@ description="Maestría en Ciencias Penales en Universidad UNE. Posgrado jurídic
         <div class="text-center text-white max-w-4xl mx-auto">
           {/* Main Title */}
           <h1 class="text-4xl md:text-7xl font-bold tracking-wider mb-4">
-           Maestría en Ciencias Penales
+            Maestría en Ciencias Penales
           </h1>
 
           {/* Description */}
           <p
             class="text-lg md:text-xl leading-relaxed mb-16 max-w-3xl mx-auto font-light"
           >
-         Profundiza en el sistema penal y la criminología con una mirada jurídica y analítica.
+            Profundiza en el sistema penal y la criminología con una mirada
+            jurídica y analítica.
           </p>
         </div>
       </div>
@@ -385,8 +391,7 @@ description="Maestría en Ciencias Penales en Universidad UNE. Posgrado jurídic
     />
 
     <Requisitos nivel="Maestrías" requisitos={requisitosInfo} />
-            <Planes nombre="Maestría en Ciencias Penales" />
-
+    <Planes nombre="Maestría en Ciencias Penales" />
 
     <FAQComponent
       faqs={faqs}
