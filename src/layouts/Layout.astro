@@ -4,15 +4,17 @@ import Header from "../components/layout/Header.astro";
 import Footer from "../components/layout/Footer.astro";
 import "../styles/global.css";
 import Clarity from "../components/layout/Clarity.astro";
+import GoogleTagManager from "../components/layout/GoogleTagManager.astro";
 
 // Configuración por defecto
 const defaultConfig = {
   projectId: "spfe9hsbw6",
+  gtmId: "GTM-5BDTWB8.", // 👈 Reemplaza con tu ID real de GTM
   title: "UNE - Universidad de Especialidades",
   description: "Universidad UNE - 30 años creyendo en ti. Licenciaturas, posgrados y educación continua en línea y presencial.",
   lang: "es",
   charset: "UTF-8",
-  ogImage: "/og-image.jpg" // 👈 Fallback: public/og-image.jpg
+  ogImage: "/og-image.jpg"
 };
 
 // Extraer props con valores por defecto
@@ -22,10 +24,11 @@ const {
   lang = defaultConfig.lang,
   charset = defaultConfig.charset,
   projectId = defaultConfig.projectId,
+  gtmId = defaultConfig.gtmId, // 👈 Nueva prop para GTM
   noIndex = false,
   customMeta = [],
   bodyClass = "",
-  ogImage = defaultConfig.ogImage // 👈 Nueva prop
+  ogImage = defaultConfig.ogImage
 } = Astro.props;
 
 // Generar título completo
@@ -42,6 +45,9 @@ if (Astro.response) {
 
 <html lang={lang}>
   <head>
+    <!-- GTM debe ir al inicio del head -->
+    <GoogleTagManager gtmId={gtmId} />
+    
     <meta charset={charset} />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{fullTitle}</title>
@@ -75,7 +81,8 @@ if (Astro.response) {
     <meta name="theme-color" content="#ffffff" />
     <meta name="apple-mobile-web-app-title" content="UNE" />
     
-    {/* Preconnect solo para Clarity */}
+    {/* Preconnect para GTM y Clarity */}
+    <link rel="preconnect" href="https://www.googletagmanager.com" />
     <link rel="preconnect" href="https://www.clarity.ms" />
     
     {/* Schema.org para Google */}
@@ -87,7 +94,7 @@ if (Astro.response) {
         "alternateName": "Universidad de Jalisco - UNE",
         "url": Astro.url.origin,
         "logo": `${Astro.url.origin}/Favicon/apple-icon-180x180.png`,
-        "image": fullOgImage, // 👈 Imagen en el schema
+        "image": fullOgImage,
         "description": description || defaultConfig.description,
         "address": {
           "@type": "PostalAddress",
@@ -102,10 +109,10 @@ if (Astro.response) {
     <meta property="og:description" content={description || defaultConfig.description} />
     <meta property="og:type" content="website" />
     <meta property="og:url" content={Astro.url.href} />
-    <meta property="og:image" content={fullOgImage} /> {/* 👈 Nueva imagen */}
-    <meta property="og:image:width" content="1200" /> {/* 👈 Dimensiones correctas */}
+    <meta property="og:image" content={fullOgImage} />
+    <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content={`${fullTitle} - Logo`} /> {/* 👈 Alt text */}
+    <meta property="og:image:alt" content={`${fullTitle} - Logo`} />
     <meta property="og:locale" content="es_MX" />
     <meta property="og:site_name" content="Universidad de Jalisco - UNE" />
     
@@ -113,7 +120,7 @@ if (Astro.response) {
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={fullTitle} />
     <meta name="twitter:description" content={description || defaultConfig.description} />
-    <meta name="twitter:image" content={fullOgImage} /> {/* 👈 Nueva imagen */}
+    <meta name="twitter:image" content={fullOgImage} />
     <meta name="twitter:image:alt" content={`${fullTitle} - Logo`} />
     <meta name="twitter:site" content="@une_universidad" />
     
