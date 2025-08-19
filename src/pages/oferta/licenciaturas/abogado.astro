@@ -600,15 +600,19 @@ const semestresDatos = [
 
 
 
+// Imports
+import torreQuetzalImg from '@/assets/Imagenes/CardsPlanteles/Torre-quetzal.webp';
+
+// Arreglo actualizado
 const planteles = [
- {
+  {
     id: "15",
     nombre: "Torre Quetzal",
     codigo: "Torre Quetzak",
     direccion: "Chimalhuacán #3569 Col. Ciudad del Sol Zapopan, Jalisco",
     ciudad: "Guadalajara ZMG",
-    url: "/planteles/torre-quetzal",
-    imagen: "/src/assets/Imagenes/CardsPlanteles/Torre-quetzal.webp",
+    url: "/planteles/torre-quetzal", // Esta es una ruta de página, se queda igual
+    imagen: torreQuetzalImg.src,    // Esta es la imagen importada
     lat: "20.651860618451966",
     lon: "-103.40329340052432",
   },
