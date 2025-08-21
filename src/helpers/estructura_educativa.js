@@ -866,6 +866,7 @@ export const programasEducativos = {
           {
             modalidad: "En línea",
             incorporacion: "SICYT",
+            imagen: "edu",
             url: "https://www.une-enlinea.com/lic-educacion",
             hoja_fuente: "GDL",
           },
@@ -2175,6 +2176,7 @@ export const programasEducativos = {
             modalidad: "En línea",
             incorporacion: "SICYT",
             hoja_fuente: "GDL",
+            imagen: "Contaduria",
             url: "https://www.une-enlinea.com/lic-contaduria",
           },
         ],
@@ -2278,6 +2280,7 @@ export const programasEducativos = {
         "UNE EN LÍNEA": [
           {
             modalidad: "En línea",
+            imagen: "Comercio",
             incorporacion: "SICYT",
             hoja_fuente: "GDL",
             url: "https://www.une-enlinea.com/lic-comercio-y-negocios-globales",
@@ -2995,6 +2998,7 @@ export const programasEducativos = {
           {
             modalidad: "En línea",
             incorporacion: "SICYT",
+            imagen: "CienciasEducacion",
             hoja_fuente: "GDL",
             url: "https://www.une-enlinea.com/maestria-en-educacion",
           },

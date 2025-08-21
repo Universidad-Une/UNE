@@ -1,9 +1,7 @@
 ---
 import { programasEducativos } from "@helpers/estructura_educativa";
 import { getImageUrl } from "@/helpers/imageManager.js"; // 👈 AGREGAR ESTA LÍNEA
-console.log(
-  programasEducativos.Licenciaturas["Ciencias Sociales y Humanidades"].Educación
-);
+
 
 // Función para obtener la primera imagen disponible de los planteles
 function getPrimeraImagenDePlanteles(planteles) {
@@ -187,7 +185,7 @@ export { carreras, areas };
               data-name={carrera.nombre.toLowerCase()}
             >
               <div class="relative">
-                <div class="h-48 flex items-center justify-center">
+                <div class="h-56 flex items-center justify-center">
                   <img
                     src={carrera.imagenUrl}
                     alt={carrera.imagen}
