@@ -14,8 +14,8 @@ import PlanEstudios from "@/components/sections/detallesOferta/planEstudios.astr
 import Perfiles from "@/components/sections/detallesOferta/perfiles.astro";
 import FAQComponent from "@/components/sections/detallesOferta/preguntas.astro";
 import CTAinscripcion from "@/components/sections/shared/ctaInscripcion.astro";
-import { crearPlantelesEspecificos } from "@/helpers/planteles"
-
+import { crearPlantelesEspecificos } from "@/helpers/planteles";
+import CostosContainer from "@/components/sections/detallesOferta/CostosContainer.astro";
 
 const planteles = [
   {
@@ -44,7 +44,8 @@ const planteles = [
     id: "3",
     nombre: "Tesistán",
     codigo: "00010",
-    direccion: "Av. Juan Gil Preciado #3897, Col. Hogares de Nuevo México, Zapopan, Jalisco",
+    direccion:
+      "Av. Juan Gil Preciado #3897, Col. Hogares de Nuevo México, Zapopan, Jalisco",
     ciudad: "Guadalajara ZMG",
     url: "/planteles/tesistan",
     imagen: getImageById("3"),
@@ -55,7 +56,8 @@ const planteles = [
     id: "4",
     nombre: "Tlajomulco",
     codigo: "00012",
-    direccion: "Av. López Mateos #10100, Col. Los Gavilanes Poniente, Tlajomulco de Zúñiga, Jalisco",
+    direccion:
+      "Av. López Mateos #10100, Col. Los Gavilanes Poniente, Tlajomulco de Zúñiga, Jalisco",
     ciudad: "Guadalajara ZMG",
     url: "/planteles/tlajomulco",
     imagen: getImageById("4"),
@@ -66,7 +68,8 @@ const planteles = [
     id: "5",
     nombre: "Tlaquepaque",
     codigo: "00013",
-    direccion: "Blvd. Marcelino García Barragán #2056, Col. Bosques del Boulevard, Tlaquepaque, Jalisco",
+    direccion:
+      "Blvd. Marcelino García Barragán #2056, Col. Bosques del Boulevard, Tlaquepaque, Jalisco",
     ciudad: "Guadalajara ZMG",
     url: "/planteles/tlaquepaque",
     imagen: getImageById("5"),
@@ -85,7 +88,6 @@ const planteles = [
     lon: -103.24439406488241,
   },
 ];
-
 
 const ciudades = ["Guadalajara ZMG", "Puerto Vallarta"];
 
@@ -436,8 +438,9 @@ const plantelesEspecificos = crearPlantelesEspecificos([
 ---
 
 <Layout
-title="Secundaria UNE - Educación Media Básica"
-description="Secundaria en Colegio UNE con educación integral, actividades culturales y deportivas. Preparación sólida para educación media superior.">
+  title="Secundaria UNE - Educación Media Básica"
+  description="Secundaria en Colegio UNE con educación integral, actividades culturales y deportivas. Preparación sólida para educación media superior."
+>
   <main class="min-h-screen">
     <!-- Hero Section -->
     <section
@@ -500,13 +503,17 @@ description="Secundaria en Colegio UNE con educación integral, actividades cult
             <a
               href="/contacto/formulario-inscripcion"
               class="bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-6 rounded-lg text-base transition-colors duration-300 shadow-lg whitespace-nowrap"
-             aria-label="Ir a INSCRIBIR A MI HIJO" title="INSCRIBIR A MI HIJO">
+              aria-label="Ir a INSCRIBIR A MI HIJO"
+              title="INSCRIBIR A MI HIJO"
+            >
               INSCRIBIR A MI HIJO
             </a>
             <a
               href="/contacto/solicitarinformacion"
               class="text-sm text-azul-une border-b pb-1 font-bold border-blue-une hover:opacity-80 transition-opacity duration-300"
-             aria-label="Ir a Solicitar información" title="Solicitar información">
+              aria-label="Ir a Solicitar información"
+              title="Solicitar información"
+            >
               Solicitar información
             </a>
           </div>
@@ -536,18 +543,96 @@ description="Secundaria en Colegio UNE con educación integral, actividades cult
       mostrarMasCercano={true}
     />
 
-    <Costos
-      inscripcionAnual={costosData.inscripcionAnual}
-      seguroEscolar={costosData.seguroEscolar}
-      coberturaEscolar={costosData.coberturaEscolar}
-      uniformeEscolar={costosData.uniformeEscolar}
-      uniformeDiario={costosData.uniformeDiario}
-      planteles={plantelesEspecificos}
+    <CostosContainer
+      planteles={[
+        {
+          nombre: "Plaza del Sol",
+          modalidad: "Escolarizada",
+          tramite: {
+            nombre: "Inscripción",
+            costo: 1874, // ← Ahora usará este valor
+            descripcion: "Pago único al inicio del ciclo escolar",
+          },
+          seguro: {
+            costo: 260,
+            periodo: "anual",
+          },
+          colegiatura: 2814,
+        },
+        {
+          nombre: "Tesistán",
+          modalidad: "Escolarizada",
+          tramite: {
+            nombre: "Inscripción",
+            costo: 1874, // ← Ahora usará este valor
+            descripcion: "Pago único al inicio del ciclo escolar",
+          },
+          seguro: {
+            costo: 260,
+            periodo: "anual",
+          },
+          colegiatura: 2783,
+        },
+        {
+          nombre: "Tlajomulco",
+          modalidad: "Escolarizada",
+          tramite: {
+            nombre: "Inscripción",
+            costo: 1874, // ← Ahora usará este valor
+            descripcion: "Pago único al inicio del ciclo escolar",
+          },
+          seguro: {
+            costo: 260,
+            periodo: "anual",
+          },
+          colegiatura: 3675,
+        },
+        {
+          nombre: "Tlaquepaque",
+          modalidad: "Escolarizada",
+          tramite: {
+            nombre: "Inscripción",
+            costo: 1874, // ← Ahora usará este valor
+            descripcion: "Pago único al inicio del ciclo escolar",
+          },
+          seguro: {
+            costo: 260,
+            periodo: "anual",
+          },
+          colegiatura: 1848,
+        },
+        {
+          nombre: "Tonalá",
+          modalidad: "Escolarizada",
+          tramite: {
+            nombre: "Inscripción",
+            costo: 1874, // ← Ahora usará este valor
+            descripcion: "Pago único al inicio del ciclo escolar",
+          },
+          seguro: {
+            costo: 260,
+            periodo: "anual",
+          },
+          colegiatura: 2365,
+        },
+      ]}
+      uniformeEscolar={{ kitCompleto: 1380, ahorro: 200 }}
+      uniformeDiario={[
+        { id: 1, nombre: "Falda", precio: 510 },
+        { id: 2, nombre: "Playera polo", precio: 420 },
+        { id: 2, nombre: "Sueter", precio: 570 },
+      ]}
     />
 
     <Requisitos nivel="Secundaria" requisitos={requisitosSecundaria} />
 
-    <PlanEstudios titulo="Propuesta Educativa", nivelAcademico="Secundaria", semestres={semestresDatos} />
+    <PlanEstudios
+      titulo="Propuesta Educativa"
+      ,
+      nivelAcademico="Secundaria"
+      ,
+      semestres={semestresDatos}
+    />
 
     <Perfiles
       perfilIngreso="El estudiante que ingresa a secundaria debe haber concluido la primaria, contar con conocimientos básicos de lectura, escritura y matemáticas, así como habilidades para comunicarse, razonar y trabajar en equipo. Se espera que tenga disposición para aprender, desarrollar su pensamiento crítico y asumir valores como la responsabilidad, el respeto y el compromiso con su entorno."

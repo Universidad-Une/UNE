@@ -13,7 +13,7 @@ import Perfiles from "@/components/sections/detallesOferta/perfiles.astro";
 import FAQComponent from "@/components/sections/detallesOferta/preguntas.astro";
 import CTAinscripcion from "@/components/sections/shared/ctaInscripcion.astro";
 import { Calendar, UserPlus, Phone } from "@lucide/astro";
-import { crearPlantelesUniformes } from "@/helpers/planteles"
+import { crearPlantelesUniformes } from "@/helpers/planteles";
 const nombresPlanteles = [
   "Centro",
   "Centro Médico",
@@ -29,6 +29,7 @@ const nombresPlanteles = [
 ];
 
 import { getImageById } from "@helpers/imageMap.js";
+import CostosContainer from "@/components/sections/detallesOferta/CostosContainer.astro";
 
 const planteles = [
   {
@@ -393,7 +394,8 @@ const semestresDatos = [
       },
       {
         codigo: "RQ001",
-        nombre: "Reacciones químicas, conservación de la materia en la formación de nuevas sustancias",
+        nombre:
+          "Reacciones químicas, conservación de la materia en la formación de nuevas sustancias",
         creditos: 30,
         color: "azul",
       },
@@ -417,7 +419,8 @@ const semestresDatos = [
       },
       {
         codigo: "CH001",
-        nombre: "Conciencia histórica I: perspectiva del México antiguo, los contextos globales",
+        nombre:
+          "Conciencia histórica I: perspectiva del México antiguo, los contextos globales",
         creditos: 30,
         color: "azul",
       },
@@ -470,7 +473,8 @@ const semestresDatos = [
       },
       {
         codigo: "CH002",
-        nombre: "Conciencia histórica II México, durante el expansionismo capitalista",
+        nombre:
+          "Conciencia histórica II México, durante el expansionismo capitalista",
         creditos: 30,
         color: "morado",
       },
@@ -505,7 +509,8 @@ const semestresDatos = [
       },
       {
         codigo: "CH003",
-        nombre: "Conciencia histórica III la realidad actual en perspectiva histórica",
+        nombre:
+          "Conciencia histórica III la realidad actual en perspectiva histórica",
         creditos: 30,
         color: "rojo",
       },
@@ -529,7 +534,8 @@ const semestresDatos = [
       },
       {
         codigo: "OR001",
-        nombre: "Organismos: estructuras y procesos, herencia y evolución biológica",
+        nombre:
+          "Organismos: estructuras y procesos, herencia y evolución biológica",
         creditos: 30,
         color: "rojo",
       },
@@ -589,8 +595,9 @@ const faqs = [
 ---
 
 <Layout
-title="Bachillerato SEJ UNE - Certificación Oficial Jalisco"
-description="Bachillerato con certificación SEJ en Universidad UNE. Programa académico reconocido oficialmente por la Secretaría de Educación Jalisco.">
+  title="Bachillerato SEJ UNE - Certificación Oficial Jalisco"
+  description="Bachillerato con certificación SEJ en Universidad UNE. Programa académico reconocido oficialmente por la Secretaría de Educación Jalisco."
+>
   <main class="min-h-screen">
     <!-- Hero Section -->
 
@@ -651,7 +658,9 @@ description="Bachillerato con certificación SEJ en Universidad UNE. Programa ac
             <a
               href="/contacto/solicitarvisita"
               class="hover:border-b hover:border-b-cyan-50 font-bold py-6 px-6 text-base transition-colors duration-300 shadow-lg flex flex-col items-center justify-center gap-2 whitespace-nowrap"
-             aria-label="Ir a AGENDA UNA VISITA" title="AGENDA UNA VISITA">
+              aria-label="Ir a AGENDA UNA VISITA"
+              title="AGENDA UNA VISITA"
+            >
               AGENDA UNA VISITA
               <Calendar size={20} />
             </a>
@@ -660,7 +669,9 @@ description="Bachillerato con certificación SEJ en Universidad UNE. Programa ac
             <a
               href="/contacto/formulario-inscripcion"
               class="hover:border-b hover:border-b-cyan-50 font-bold py-3 px-6 text-base transition-colors duration-300 shadow-lg flex flex-col items-center justify-center gap-2 whitespace-nowrap"
-             aria-label="Ir a INICIAR INSCRIPCIÓN" title="INICIAR INSCRIPCIÓN">
+              aria-label="Ir a INICIAR INSCRIPCIÓN"
+              title="INICIAR INSCRIPCIÓN"
+            >
               INICIAR INSCRIPCIÓN
               <UserPlus size={20} />
             </a>
@@ -669,7 +680,9 @@ description="Bachillerato con certificación SEJ en Universidad UNE. Programa ac
             <a
               href="/contacto/solicitarinformacion"
               class="hover:border-b hover:border-b-cyan-50 font-bold py-3 px-6 text-base transition-colors duration-300 shadow-lg flex flex-col items-center justify-center gap-2 whitespace-nowrap"
-             aria-label="Ir a página de contacto" title="Contactar con nosotros">
+              aria-label="Ir a página de contacto"
+              title="Contactar con nosotros"
+            >
               CONTACTAR
               <Phone size={20} />
             </a>
@@ -700,15 +713,36 @@ description="Bachillerato con certificación SEJ en Universidad UNE. Programa ac
       mostrarMasCercano={true}
     />
 
-    <Costos
-      seguroEscolar={costosData.seguroEscolar}
-      uniformeEscolar={costosData.uniformeEscolar}
-      uniformeDiario={costosData.uniformeDiario}
-      planteles={crearPlantelesUniformes({
-        planteles: nombresPlanteles,
-        costoNormal: 609,
-        costoSabatina: 772,
-      })}
+    <CostosContainer
+      planteles={[
+        {
+          nombre: "Todos los planteles",
+          modalidad: "Semiescolarizada",
+          tramite: {
+            nombre: "Inscripción",
+            costo: 0, // ← Ahora usará este valor
+            descripcion: "Pago único al inicio del ciclo escolar",
+          },
+          seguro: {
+            costo: 260,
+            periodo: "anual",
+          },
+          // Caso especial: costo por materia
+          tipoCobro: {
+            tipo: "materia",
+            costo: 690,
+            descripcion: "Por materia",
+          },
+        },
+        
+      ]}
+      uniformeEscolar={{ kitCompleto: 1380, ahorro: 200 }}
+      imagen={2}
+      uniformeDiario={[
+        { id: 1, nombre: "Falda", precio: 510 },
+        { id: 2, nombre: "Playera polo", precio: 420 },
+        { id: 2, nombre: "Sueter", precio: 570 },
+      ]}
     />
     <Requisitos nivel="Bachillerato" requisitos={requisitosInfo} />
 

@@ -1,0 +1,287 @@
+---
+// CostosExtras.astro
+const { 
+  uniformeDiario
+} = Astro.props;
+
+import Falda from "@assets/Imagenes/Uniformes/Falda.webp";
+// Importa más imágenes cuando las tengas disponibles
+// import Camisa from "@assets/Imagenes/Uniformes/Camisa.webp";
+// import Pantalon from "@assets/Imagenes/Uniformes/Pantalon.webp";
+---
+
+<div class="space-y-8">
+  <!-- Uniforme Escolar Card -->
+  <div class="bg-white rounded-lg shadow-lg p-6 ">
+    <div class="mb-6">
+      <h2 class="text-2xl font-bold text-blue-600 mb-2">Uniformes Escolares</h2>
+    </div>
+    
+    <div class="space-y-4">
+      <!-- Kit Deportivo Completo -->
+      <div class="flex justify-between items-start">
+        <div class="flex-1">
+          <h3 class="text-gray-800 font-semibold text-lg">Kit Deportivo Completo</h3>
+          <p class="text-gray-600 text-sm">Incluye: Pants + Playera deportiva + Sudadera</p>
+        </div>
+        <div class="text-right ml-4">
+          <span class="text-3xl font-bold text-gray-800">$1,380</span>
+        </div>
+      </div>
+
+      <!-- Botón de Ahorro -->
+      <div class="bg-green-500 text-white text-center py-3 px-4 rounded-lg">
+        <p class="font-semibold">Ahorro de $200 vs compra individual</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Uniforme Diario Card - Slider -->
+  <div class="bg-gray-800 rounded-lg overflow-hidden shadow-lg relative h-80">
+    <!-- Contenedor de slides -->
+    <div id="slides-container" class="absolute inset-0">
+      <!-- Los slides se generarán dinámicamente con JavaScript -->
+    </div>
+    
+
+    
+    <!-- Navegación del carousel -->
+    <button 
+      id="prev-btn"
+      class="absolute left-4 top-1/2 transform -translate-y-1/2 z-20 bg-black bg-opacity-50 hover:bg-opacity-70 text-white p-3 rounded-full transition-all duration-200 hover:scale-110"
+    >
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+      </svg>
+    </button>
+    
+    <button 
+      id="next-btn"
+      class="absolute right-4 top-1/2 transform -translate-y-1/2 z-20 bg-black bg-opacity-50 hover:bg-opacity-70 text-white p-3 rounded-full transition-all duration-200 hover:scale-110"
+    >
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+      </svg>
+    </button>
+    
+
+    
+    <!-- Contenido superpuesto -->
+    <div class="relative z-10 h-full flex flex-col justify-between p-6">
+      <!-- Título superior -->
+      <div>
+        <h2 class="text-2xl font-bold text-white drop-shadow-lg">Uniforme Diario</h2>
+      </div>
+      
+      <!-- Contenido inferior -->
+      <div class="flex justify-between items-end">
+        <div class="text-white">
+          <h3 id="item-nombre" class="text-3xl font-bold mb-2 drop-shadow-lg transition-opacity duration-300">Falda</h3>
+          <p id="item-precio" class="text-4xl font-bold drop-shadow-lg transition-opacity duration-300">$510</p>
+        </div>
+        <div class="relative" id="tooltip-container">
+          <button
+            class="bg-red-600 hover:bg-red-700 text-white px-6 py-2 rounded-lg text-sm font-semibold transition-all duration-200 focus:outline-none hover:scale-105 drop-shadow-lg"
+            onclick="toggleTooltip(this)"
+            onblur="hideTooltip(this)"
+          >
+            ¿Dónde comprar?
+          </button>
+          <div
+            class="absolute bottom-full mb-2 left-1/2 transform -translate-x-1/2 bg-gray-800 text-white text-xs rounded px-3 py-2 opacity-0 pointer-events-none transition-opacity duration-200 z-30 whitespace-nowrap drop-shadow-lg"
+            data-tooltip
+          >
+            En tu plantel más cercano
+            <div class="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-gray-800"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script is:inline>
+  let currentItemIndex = 0;
+  let uniformeItems = [];
+  let isTransitioning = false;
+
+  // Mapeo de imágenes - se inicializará después del DOM
+  let imageMap = {};
+
+  function toggleTooltip(button) {
+    const tooltip = button.parentElement.querySelector('[data-tooltip]');
+    const isVisible = tooltip.classList.contains('opacity-100');
+    tooltip.classList.toggle('opacity-100', !isVisible);
+    tooltip.classList.toggle('opacity-0', isVisible);
+    tooltip.classList.toggle('pointer-events-none', isVisible);
+  }
+
+  function hideTooltip(button) {
+    setTimeout(() => {
+      const tooltip = button.parentElement.querySelector('[data-tooltip]');
+      if (tooltip) {
+        tooltip.classList.remove('opacity-100');
+        tooltip.classList.add('opacity-0', 'pointer-events-none');
+      }
+    }, 100);
+  }
+
+  function createSlides() {
+    const container = document.getElementById('slides-container');
+    if (!container || uniformeItems.length === 0) return;
+
+    // Limpiar contenido previo
+    container.innerHTML = '';
+    
+    // Crear slides con efecto flip 3D
+    uniformeItems.forEach((item, index) => {
+      const slide = document.createElement('div');
+      slide.className = `absolute inset-0 bg-cover bg-center transition-all duration-700 ease-in-out transform-gpu perspective-1000 ${
+        index === 0 ? 'opacity-100 scale-100 rotate-y-0' : 'opacity-0 scale-95 rotate-y-180'
+      }`;
+      slide.style.backgroundImage = `url(${imageMap[item.nombre] || imageMap["Falda"]})`;
+      slide.style.transformStyle = 'preserve-3d';
+      slide.setAttribute('data-slide', index.toString());
+      container.appendChild(slide);
+    });
+  }
+
+
+
+  function updateUniformeDisplay() {
+    if (uniformeItems.length === 0) return;
+    
+    const item = uniformeItems[currentItemIndex];
+    const nombreEl = document.getElementById('item-nombre');
+    const precioEl = document.getElementById('item-precio');
+    
+    // Animación del texto con fade
+    if (nombreEl && precioEl) {
+      nombreEl.style.opacity = '0';
+      precioEl.style.opacity = '0';
+      
+      setTimeout(() => {
+        nombreEl.textContent = item.nombre;
+        precioEl.textContent = `${item.precio.toLocaleString()}`;
+        nombreEl.style.opacity = '1';
+        precioEl.style.opacity = '1';
+      }, 200);
+    }
+    
+    updateSlideVisibility();
+  }
+
+  function updateSlideVisibility() {
+    const slides = document.querySelectorAll('[data-slide]');
+    
+    slides.forEach((slide, index) => {
+      if (index === currentItemIndex) {
+        // Slide activo: visible, escala normal, sin rotación
+        slide.style.opacity = '1';
+        slide.style.transform = 'scale(1) rotateY(0deg)';
+        slide.style.zIndex = '10';
+      } else {
+        // Slides inactivos: ocultos con efecto 3D
+        slide.style.opacity = '0';
+        slide.style.transform = 'scale(0.8) rotateY(90deg)';
+        slide.style.zIndex = '1';
+      }
+    });
+  }
+
+  function goToSlide(index) {
+    if (isTransitioning || index === currentItemIndex) return;
+    
+    isTransitioning = true;
+    currentItemIndex = index;
+    updateUniformeDisplay();
+    
+    setTimeout(() => {
+      isTransitioning = false;
+    }, 700); // Aumentado para coincidir con la duración de la animación
+  }
+
+  function nextItem() {
+    if (isTransitioning || uniformeItems.length === 0) return;
+    
+    const nextIndex = (currentItemIndex + 1) % uniformeItems.length;
+    goToSlide(nextIndex);
+  }
+
+  function prevItem() {
+    if (isTransitioning || uniformeItems.length === 0) return;
+    
+    const prevIndex = currentItemIndex === 0 ? uniformeItems.length - 1 : currentItemIndex - 1;
+    goToSlide(prevIndex);
+  }
+
+  // Auto-play
+  let autoPlayInterval;
+
+  function startAutoPlay() {
+    stopAutoPlay();
+    autoPlayInterval = setInterval(() => {
+      if (!isTransitioning) {
+        nextItem();
+      }
+    }, 4000);
+  }
+
+  function stopAutoPlay() {
+    if (autoPlayInterval) {
+      clearInterval(autoPlayInterval);
+    }
+  }
+
+  // Pausar auto-play al hacer hover
+  function setupHoverPause() {
+    const sliderContainer = document.querySelector('.bg-gray-800');
+    if (sliderContainer) {
+      sliderContainer.addEventListener('mouseenter', stopAutoPlay);
+      sliderContainer.addEventListener('mouseleave', startAutoPlay);
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', function() {
+    // Inicializar el mapeo de imágenes con el valor real de Astro
+    imageMap = {
+      "Falda": window.FaldaImage,
+      "Camisa": window.FaldaImage, // Temporalmente usa la misma imagen
+      "Pantalón": window.FaldaImage, // Temporalmente usa la misma imagen
+    };
+    
+    // Inicializar datos del uniforme diario
+    uniformeItems = window.uniformeDiarioData || [
+      { nombre: "Falda", precio: 510 },
+      { nombre: "Camisa", precio: 280 },
+      { nombre: "Pantalón", precio: 450 }
+    ];
+    
+    // Crear slides e indicadores
+    createSlides();
+    updateUniformeDisplay();
+    
+    // Event listeners para navegación
+    const nextBtn = document.getElementById('next-btn');
+    const prevBtn = document.getElementById('prev-btn');
+    
+    if (nextBtn) nextBtn.addEventListener('click', nextItem);
+    if (prevBtn) prevBtn.addEventListener('click', prevItem);
+    
+    // Configurar auto-play con pausa en hover
+    setupHoverPause();
+    startAutoPlay();
+    
+    // Navegación con teclado
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowLeft') prevItem();
+      if (e.key === 'ArrowRight') nextItem();
+    });
+  });
+</script>
+
+<!-- Pasar datos a JavaScript -->
+<script define:vars={{ uniformeDiario, Falda }}>
+  window.uniformeDiarioData = uniformeDiario;
+  window.FaldaImage = Falda.src;
+</script>

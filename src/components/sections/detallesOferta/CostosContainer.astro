@@ -1,0 +1,37 @@
+---
+// CostosContainer.astro
+const { 
+  planteles,
+  uniformeEscolar,
+  uniformeDiario,
+  imagen = 1 // Nueva prop opcional para imagen de fondo
+} = Astro.props;
+
+// Importar los componentes separados
+import Costos from "./costos.astro";
+import CostosExtras from "./CostosExtras.astro";
+---
+
+<!-- Pasamos los datos correspondientes a cada componente -->
+<div class="max-w-6xl md:mt-12 mx-auto p-6">
+  <!-- Header -->
+  <div class="text-center my-4 md:my-20">
+    <h1 class="text-3xl font-bold text-gray-900 mb-2">CONOCE NUESTROS COSTOS</h1>
+    <p class="text-gray-600">Conoce toda la información sobre los costos de</p>
+    <p class="text-gray-600">inscripción y mensualidades de nuestros planteles</p>
+  </div>
+  
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+    <!-- Componente de costos principales -->
+    <Costos 
+      planteles={planteles}
+      imagen={imagen}
+    />
+        
+    <!-- Componente de uniformes -->
+    <CostosExtras 
+      uniformeEscolar={uniformeEscolar}
+      uniformeDiario={uniformeDiario}
+    />
+  </div>
+</div>
