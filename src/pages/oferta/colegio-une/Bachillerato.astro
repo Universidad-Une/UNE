@@ -10,92 +10,10 @@ import Costos from "@components/sections/detallesOferta/costos.astro";
 import Requisitos from "@/components/sections/detallesOferta/requisitos.astro";
 import PlanEstudios from "@/components/sections/detallesOferta/planEstudios.astro";
 import Perfiles from "@/components/sections/detallesOferta/perfiles.astro";
-import FAQComponent from "@/components/sections/detallesOferta/preguntas.astro";
 import CTAinscripcion from "@/components/sections/shared/ctaInscripcion.astro";
 import { Calendar, UserPlus, Phone } from "@lucide/astro";
-// Importar la función
-import { crearPlantelesEspecificos } from "@/helpers/planteles"
 
-// Configuración de planteles con diferentes casos
-const plantelesData = crearPlantelesEspecificos([
-  {
-    plantel: "Centro",
-    diferentesPrecios: true,
-    costoInscripcion: 2207,
-    costoColegiatura: 2452,
-    modalidad: "normal",
-  },
-  {
-    plantel: "Centro Médico",
-    diferentesPrecios: true,
-    costoInscripcion: 1555,
-    costoColegiatura: 1727,
-    modalidad: "normal",
-  },
-  {
-    plantel: "Milenio (Matutino)",
-    diferentesPrecios: true,
-    costoInscripcion: 2948,
-    costoColegiatura: 3276,
-    modalidad: "normal",
-  },
-  {
-    plantel: "Milenio (Vespertino)",
-    diferentesPrecios: true,
-    costoInscripcion: 2315,
-    costoColegiatura: 2573,
-    modalidad: "normal",
-  },
-  {
-    plantel: "Tlajomulco (Matutino)",
-    diferentesPrecios: true,
-    costoInscripcion: 3667,
-    costoColegiatura: 4074,
-    modalidad: "normal",
-  },
-  {
-    plantel: "Tlajomulco (Vespertino)",
-    diferentesPrecios: true,
-    costoInscripcion: 2930,
-    costoColegiatura: 3255,
-    modalidad: "normal",
-  },
-  {
-    plantel: "Plaza del Sol",
-    diferentesPrecios: true,
-    costoInscripcion: 2930,
-    costoColegiatura: 3255,
-    modalidad: "normal",
-  },
-  {
-    plantel: "Tesistán",
-    diferentesPrecios: true,
-    costoInscripcion: 2084,
-    costoColegiatura: 2315,
-    modalidad: "normal",
-  },
-  {
-    plantel: "Tlaquepaque",
-    diferentesPrecios: true,
-    costoInscripcion: 1758,
-    costoColegiatura: 1953,
-    modalidad: "normal",
-  },
-  {
-    plantel: "Tonalá",
-    diferentesPrecios: true,
-    costoInscripcion: 2183,
-    costoColegiatura: 2426,
-    modalidad: "normal",
-  },
-  {
-    plantel: "Zapopan",
-    diferentesPrecios: true,
-    costoInscripcion: 2008,
-    costoColegiatura: 2231,
-    modalidad: "normal",
-  },
-]);
+
 // Imports
 import centroImg from '@/assets/Imagenes/CardsPlanteles/Centro.webp';
 import centroMedicoImg from '@/assets/Imagenes/CardsPlanteles/CentroMedico.webp';
@@ -107,6 +25,7 @@ import tlajomulcoImg from '@/assets/Imagenes/CardsPlanteles/Tlajomulco.webp';
 import tlaquepaque from '@/assets/Imagenes/CardsPlanteles/Tlaquepaque.webp';
 import tonalaImg from '@/assets/Imagenes/CardsPlanteles/Tonala.webp';
 import avenidaMexicoImg from '@/assets/Imagenes/CardsPlanteles/PuertoVallarta.webp';
+import CostosContainer from "@/components/sections/detallesOferta/CostosContainer.astro";
 
 // Arreglo actualizado
 const planteles = [
@@ -563,14 +482,6 @@ const semestresDatos = [
   },
 ];
 
-const faqs = [
-
-  {
-    question: "¿Qué métodos de enseñanza utilizan?",
-    answer:
-      "Utilizamos un enfoque integral basado en competencias, con apoyo en tecnología educativa, desarrollo socioemocional y aprendizaje significativo.",
-  },
-];
 
 const costosData = {
   // Costos fijos
@@ -714,28 +625,179 @@ description="Bachillerato en UNE con validez UDG. Modalidades presencial, semies
       mostrarMasCercano={true}
     />
 
-    <Costos
-      inscripcionAnual={costosData.inscripcionAnual}
-      seguroEscolar={costosData.seguroEscolar}
-      coberturaEscolar={costosData.coberturaEscolar}
-      uniformeEscolar={costosData.uniformeEscolar}
-      uniformeDiario={costosData.uniformeDiario}
-      planteles={plantelesData}
+     <CostosContainer
+      planteles={[
+        {
+          nombre: "Milenio - Matutino",
+          modalidad: "Escolarizada",
+          tramite: {
+            nombre: "Tramite administrativo",
+            costo: 2948, // ← Ahora usará este valor
+            descripcion: "Pago único al inicio del ciclo escolar",
+          },
+          seguro: {
+            costo: 180,
+            periodo: "semestral",
+          },
+          colegiatura: 3276,
+        },
+        {
+          nombre: "Milenio - Vespertino",
+          modalidad: "Escolarizada",
+          tramite: {
+            nombre: "Tramite administrativo",
+            costo: 2315, // ← Ahora usará este valor
+            descripcion: "Pago único al inicio del ciclo escolar",
+          },
+          seguro: {
+            costo: 180,
+            periodo: "semestral",
+          },
+          colegiatura: 2573,
+        },
+        {
+          nombre: "Plaza del sol",
+          modalidad: "Escolarizada",
+          tramite: {
+            nombre: "Tramite administrativo",
+            costo: 2930, // ← Ahora usará este valor
+            descripcion: "Pago único al inicio del ciclo escolar",
+          },
+          seguro: {
+            costo: 180,
+            periodo: "semestral",
+          },
+          colegiatura: 3255,
+        },
+        {
+          nombre: "Tesistán",
+          modalidad: "Escolarizada",
+          tramite: {
+            nombre: "Tramite administrativo",
+            costo: 2084, // ← Ahora usará este valor
+            descripcion: "Pago único al inicio del ciclo escolar",
+          },
+          seguro: {
+            costo: 180,
+            periodo: "semestral",
+          },
+          colegiatura: 2315,
+        },
+        {
+          nombre: "Tlajomulco - Matutino",
+          modalidad: "Escolarizada",
+          tramite: {
+            nombre: "Tramite administrativo",
+            costo: 3667, // ← Ahora usará este valor
+            descripcion: "Pago único al inicio del ciclo escolar",
+          },
+          seguro: {
+            costo: 180,
+            periodo: "semestral",
+          },
+          colegiatura: 4074,
+        },
+        {
+          nombre: "Tlajomulco - Verspertino",
+          modalidad: "Escolarizada",
+          tramite: {
+            nombre: "Tramite administrativo",
+            costo: 2930, // ← Ahora usará este valor
+            descripcion: "Pago único al inicio del ciclo escolar",
+          },
+          seguro: {
+            costo: 180,
+            periodo: "semestral",
+          },
+          colegiatura: 3255,
+        },
+        {
+          nombre: "Tónala",
+          modalidad: "Escolarizada",
+          tramite: {
+            nombre: "Tramite administrativo",
+            costo: 2183, // ← Ahora usará este valor
+            descripcion: "Pago único al inicio del ciclo escolar",
+          },
+          seguro: {
+            costo: 180,
+            periodo: "semestral",
+          },
+          colegiatura: 2426,
+        },
+        {
+          nombre: "Zapopan",
+          modalidad: "Escolarizada",
+          tramite: {
+            nombre: "Tramite administrativo",
+            costo: 2008, // ← Ahora usará este valor
+            descripcion: "Pago único al inicio del ciclo escolar",
+          },
+          seguro: {
+            costo: 180,
+            periodo: "semestral",
+          },
+          colegiatura: 2231,
+        },
+
+        {
+          nombre: "Centro",
+          modalidad: "Escolarizada",
+          tramite: {
+            nombre: "Tramite administrativo",
+            costo: 2207, // ← Ahora usará este valor
+            descripcion: "Pago único al inicio del ciclo escolar",
+          },
+          seguro: {
+            costo: 180,
+            periodo: "semestral",
+          },
+          colegiatura: 2452,
+        },
+        {
+          nombre: "Tlaquepaque",
+          modalidad: "Escolarizada",
+          tramite: {
+            nombre: "Tramite administrativo",
+            costo: 1758, // ← Ahora usará este valor
+            descripcion: "Pago único al inicio del ciclo escolar",
+          },
+          seguro: {
+            costo: 180,
+            periodo: "semestral",
+          },
+          colegiatura: 1953,
+        },
+        {
+          nombre: "Centro médico",
+          modalidad: "Escolarizada",
+          tramite: {
+            nombre: "Tramite administrativo",
+            costo: 1555, // ← Ahora usará este valor
+            descripcion: "Pago único al inicio del ciclo escolar",
+          },
+          seguro: {
+            costo: 180,
+            periodo: "semestral",
+          },
+          colegiatura: 1727,
+        },
+      ]}
+      uniformeEscolar={{ kitCompleto: 1380, ahorro: 200 }}
+      imagen={2}
+      uniformeDiario={[
+        { id: 1, nombre: "Falda", precio: 510 },
+        { id: 2, nombre: "Playera polo", precio: 420 },
+        { id: 2, nombre: "Sueter", precio: 570 },
+      ]}
     />
     <Requisitos nivel="Bachillerato" requisitos={requisitosInfo} />
 
     <PlanEstudios titulo="Propuesta Educativa" semestres={semestresDatos} />
 
-    <Perfiles
-      perfilIngreso="El estudiante que ingresa al bachillerato debe haber concluido la secundaria, tener hábitos de estudio, disposición para el aprendizaje autónomo y trabajo colaborativo, así como valores como respeto, responsabilidad y honestidad."
-      perfilEgreso="El egresado contribuye a una sociedad democrática con justicia social; actúa con conciencia crítica y solidaria, enfrenta problemáticas actuales y aplica conocimientos científicos, tecnológicos y culturales de forma responsable."
-    />
+    
 
-    <FAQComponent
-      faqs={faqs}
-      title="Preguntas frecuentes"
-      subtitle="Encuentra respuestas a las dudas más comunes"
-    />
+   
 
     <CTAinscripcion />
   </main>
