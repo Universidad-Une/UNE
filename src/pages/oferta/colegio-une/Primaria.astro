@@ -13,6 +13,7 @@ import FAQComponent from "@/components/sections/detallesOferta/preguntas.astro";
 import CTAinscripcion from "@/components/sections/shared/ctaInscripcion.astro";
 import { crearPlantelPersonalizado } from "@helpers/planteles";
 import { getImageById } from "@helpers/imageMap.js";
+import CostosContainer from "@/components/sections/detallesOferta/CostosContainer.astro";
 
 const planteles = [
   {
@@ -66,7 +67,7 @@ const requisitosPrimaria = {
     "CURP (formato RENAPO actualizado)",
     "Identificación oficial con fotografía (INE) del padre, madre o tutor – 2 copias",
     "Comprobante de domicilio reciente (no mayor a 3 meses) – 1 copia",
-    "5 fotografías tamaño infantil, blanco y negro, papel mate, de estudio"
+    "5 fotografías tamaño infantil, blanco y negro, papel mate, de estudio",
   ],
   pdfUrl: "/pdfs/primaria_req.pdf",
 };
@@ -116,8 +117,9 @@ const faqs = [
 ---
 
 <Layout
-title="Primaria UNE - Educación Básica Integral"
-description="Primaria en Colegio UNE con educación integral, enfoque humanista y preparación académica sólida. Formación en valores y competencias.">
+  title="Primaria UNE - Educación Básica Integral"
+  description="Primaria en Colegio UNE con educación integral, enfoque humanista y preparación académica sólida. Formación en valores y competencias."
+>
   <main class="min-h-screen">
     <!-- Hero Section -->
 
@@ -181,13 +183,17 @@ description="Primaria en Colegio UNE con educación integral, enfoque humanista 
             <a
               href="/contacto/formulario-inscripcion"
               class="bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-6 rounded-lg text-base transition-colors duration-300 shadow-lg whitespace-nowrap"
-             aria-label="Ir a INSCRIBIR A MI HIJO" title="INSCRIBIR A MI HIJO">
+              aria-label="Ir a INSCRIBIR A MI HIJO"
+              title="INSCRIBIR A MI HIJO"
+            >
               INSCRIBIR A MI HIJO
             </a>
             <a
               href="/contacto/solicitarinformacion"
               class="text-sm text-azul-une border-b pb-1 font-bold border-blue-une hover:opacity-80 transition-opacity duration-300"
-             aria-label="Ir a Solicitar información" title="Solicitar información">
+              aria-label="Ir a Solicitar información"
+              title="Solicitar información"
+            >
               Solicitar información
             </a>
           </div>
@@ -217,24 +223,33 @@ description="Primaria en Colegio UNE con educación integral, enfoque humanista 
       mostrarMasCercano={true}
     />
 
-    <Costos
-      inscripcionAnual={costosData.inscripcionAnual}
-      seguroEscolar={costosData.seguroEscolar}
-      coberturaEscolar={costosData.coberturaEscolar}
-      uniformeEscolar={costosData.uniformeEscolar}
-      uniformeDiario={costosData.uniformeDiario}
-      planteles={crearPlantelPersonalizado({
-        plantel: "Plaza del Sol",
-        modalidad: "normal",
-        diferentesPrecios: true,
-        costoInscripcion: 2000,
-        costoColegiatura: 3200,
-      })}
+    <CostosContainer
+      planteles={[
+        {
+          nombre: "Plaza del Sol",
+          modalidad: "Escolarizada",
+          tramite: {
+            nombre: "Inscripción",
+            costo: 0, // ← Ahora usará este valor
+            descripcion: "Pago único al inicio del ciclo escolar",
+          },
+          seguro: {
+            costo: 260,
+            periodo: "anual",
+          },
+          colegiatura: 3200,
+        },
+      ]}
+      uniformeEscolar={{ kitCompleto: 1380, ahorro: 200 }}
+      imagen={2}
+      uniformeDiario={[
+        { id: 1, nombre: "Falda", precio: 510 },
+        { id: 2, nombre: "Playera polo", precio: 420 },
+        { id: 2, nombre: "Sueter", precio: 570 },
+      ]}
     />
 
     <Requisitos nivel="Primaria" requisitos={requisitosPrimaria} />
-
-    <!-- <PlanEstudios titulo="Propuesta Educativa" semestres={semestresDatos} /> -->
 
     <Perfiles
       perfilIngreso="El estudiante que ingresa a primaria Montessori debe tener curiosidad natural por aprender, capacidad para seguir rutinas básicas, y disposición para explorar el entorno de forma autónoma. Se valora que desarrolle habilidades de comunicación, motricidad y convivencia, así como respeto por sí mismo, los demás y el ambiente."

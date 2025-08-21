@@ -1,556 +1,270 @@
 ---
-// Props recibidas desde Astro
+// Costos.astro
 const { 
-  seguroEscolar, 
-  uniformeEscolar, 
-  uniformeDiario,
-  planteles 
+  planteles,
+  seguroEscolar, // Mantener para compatibilidad hacia atrás
+  imagen = 1 // Nueva prop para seleccionar imagen de fondo
 } = Astro.props;
 
-import Uniforme from "@assets/Imagenes/Uniformes/Gral.webp";
-import Falda from "@assets/Imagenes/Uniformes/Falda.webp";
+import Uniforme2 from "@assets/Imagenes/Uniformes/Gral.webp";
+import Uniforme1 from "@assets/Imagenes/Uniformes/Primaria.jpg"; // Asumiendo que tienes otra imagen
 
-// Función para detectar si hay turnos diferentes
-function hayTurnosDiferentes(planteles) {
-  const todosPlanteles = [...planteles.normal, ...planteles.sabatina];
-  return todosPlanteles.some(p => p.turno && p.turno !== 'ambos');
+// Seleccionar imagen de fondo basada en la prop
+const imagenFondo = imagen === 2 ? Uniforme2 : Uniforme1;
+
+// Datos iniciales (primer plantel)
+const plantelInicial = planteles[0];
+const tieneSelectorMultiple = planteles.length > 1;
+
+// Función helper para obtener el período en español
+function obtenerPeriodoTexto(periodo) {
+  const periodos = {
+    'anual': 'durante el año escolar',
+    'semestral': 'por semestre',
+    'cuatrimestral': 'por cuatrimestre'
+  };
+  return periodos[periodo] || 'durante el año escolar';
 }
 
-// Función para detectar si los precios son uniformes
-function sonPreciosUniformes(planteles) {
-  const normalPrices = planteles.normal.map(p => p.colegiatura);
-  const sabatinaPrices = planteles.sabatina.map(p => p.colegiatura);
-
-  const normalUniforme = normalPrices.every(price => price === normalPrices[0]);
-  const sabatinaUniforme = sabatinaPrices.every(price => price === sabatinaPrices[0]);
-
-  return normalUniforme && sabatinaUniforme;
-}
-
-// Función para detectar si las inscripciones son uniformes
-function sonInscripcionesUniformes(planteles) {
-  const normalInscripciones = planteles.normal.map(p => p.inscripcion);
-  const sabatinaInscripciones = planteles.sabatina.map(p => p.inscripcion);
-
-  const normalUniforme = normalInscripciones.every(price => price === normalInscripciones[0]);
-  const sabatinaUniforme = sabatinaInscripciones.every(price => price === sabatinaInscripciones[0]);
-
-  return normalUniforme && sabatinaUniforme;
-}
-
-// Función para detectar si los precios son iguales entre modalidades
-function sonPreciosIgualesEntreModalidades(planteles) {
-  if (planteles.normal.length === 0 || planteles.sabatina.length === 0) return false;
-  return planteles.normal[0].colegiatura === planteles.sabatina[0].colegiatura;
-}
-
-// Función para detectar si las inscripciones son iguales entre modalidades
-function sonInscripcionesIgualesEntreModalidades(planteles) {
-  if (planteles.normal.length === 0 || planteles.sabatina.length === 0) return false;
-  return planteles.normal[0].inscripcion === planteles.sabatina[0].inscripcion;
-}
-
-// Función para detectar si hay una sola modalidad
-function esSolaModalidad(planteles) {
-  return (planteles.normal.length === 0 && planteles.sabatina.length > 0) || 
-         (planteles.normal.length > 0 && planteles.sabatina.length === 0);
-}
-
-// Función para detectar si hay un solo plantel
-function esSoloPlantel(planteles) {
-  const totalPlanteles = planteles.normal.length + planteles.sabatina.length;
-  return totalPlanteles === 1;
-}
-
-// Función para obtener la modalidad activa
-function obtenerModalidadActiva(planteles) {
-  if (planteles.normal.length > 0) return 'normal';
-  if (planteles.sabatina.length > 0) return 'sabatina';
-  return 'normal';
-}
-
-// Función para obtener el primer precio disponible
-function obtenerPrimerPrecio(planteles) {
-  if (planteles.normal.length > 0) return planteles.normal[0].colegiatura;
-  if (planteles.sabatina.length > 0) return planteles.sabatina[0].colegiatura;
-  return 0;
-}
-
-// Función para obtener el primer precio de inscripción
-function obtenerPrimeraInscripcion(planteles) {
-  if (planteles.normal.length > 0) return planteles.normal[0].inscripcion;
-  if (planteles.sabatina.length > 0) return planteles.sabatina[0].inscripcion;
-  return 0;
-}
-
-// Función para crear opciones del select unificado
-function crearOpcionesSelect(planteles) {
-  const opciones = [];
-
-  if (planteles.normal.length > 0) {
-    planteles.normal.forEach(plantel => {
-      opciones.push({
-        value: `normal_${plantel.nombre}`,
-        text: ` ${plantel.nombre}`,
-        modalidad: 'normal',
-        plantel: plantel.nombre,
-        inscripcion: plantel.inscripcion,
-        colegiatura: plantel.colegiatura,
-        turno: plantel.turno || 'ambos'
-      });
-    });
+// Obtener datos del seguro - nueva estructura o fallback a la antigua
+function obtenerDatosSeguro(plantel) {
+  if (plantel.seguro) {
+    return {
+      costo: plantel.seguro.costo,
+      descripcion: plantel.seguro.descripcion || `Cobertura médica ${obtenerPeriodoTexto(plantel.seguro.periodo)}`
+    };
   }
-
-  if (planteles.sabatina.length > 0) {
-    planteles.sabatina.forEach(plantel => {
-      opciones.push({
-        value: `sabatina_${plantel.nombre}`,
-        text: `Sabatina - ${plantel.nombre}`,
-        modalidad: 'sabatina',
-        plantel: plantel.nombre,
-        inscripcion: plantel.inscripcion,
-        colegiatura: plantel.colegiatura,
-        turno: plantel.turno || 'ambos'
-      });
-    });
-  }
-
-  return opciones;
+  // Fallback para compatibilidad hacia atrás
+  return {
+    costo: seguroEscolar || 1200,
+    descripcion: 'Cobertura médica durante el ciclo escolar'
+  };
 }
 
-// Función para determinar si necesita selector
-function necesitaSelector(planteles) {
-  const soloPlantel = esSoloPlantel(planteles);
-  const preciosUniformes = sonPreciosUniformes(planteles);
-  const inscripcionesUniformes = sonInscripcionesUniformes(planteles);
-  const preciosIgualesEntreModalidades = sonPreciosIgualesEntreModalidades(planteles);
-  const inscripcionesIgualesEntreModalidades = sonInscripcionesIgualesEntreModalidades(planteles);
-  const solaModalidad = esSolaModalidad(planteles);
-
-  if (soloPlantel) return false;
-
-  if (solaModalidad && preciosUniformes && inscripcionesUniformes) return false;
-
-  if (preciosIgualesEntreModalidades && inscripcionesIgualesEntreModalidades &&
-      preciosUniformes && inscripcionesUniformes) return false;
-
-  return true;
-}
-
-// Variables derivadas
-const preciosUniformes = sonPreciosUniformes(planteles);
-const inscripcionesUniformes = sonInscripcionesUniformes(planteles);
-const preciosIgualesEntreModalidades = sonPreciosIgualesEntreModalidades(planteles);
-const inscripcionesIgualesEntreModalidades = sonInscripcionesIgualesEntreModalidades(planteles);
-const solaModalidad = esSolaModalidad(planteles);
-const soloPlantel = esSoloPlantel(planteles);
-const modalidadActiva = obtenerModalidadActiva(planteles);
-const primerPrecio = obtenerPrimerPrecio(planteles);
-const primeraInscripcion = obtenerPrimeraInscripcion(planteles);
-const tienenTurnos = hayTurnosDiferentes(planteles);
-const opcionesSelect = crearOpcionesSelect(planteles);
-const necesitaSelectorUnificado = necesitaSelector(planteles);
-
-// Función para obtener descripción del selector
-function obtenerDescripcionSelector() {
-  if (soloPlantel) return "Plantel único";
-  if (solaModalidad) return "Selecciona tu plantel";
-  if (tienenTurnos) return "Selecciona modalidad, plantel y turno";
-  return "Selecciona modalidad y plantel";
-}
-
+const seguroInicial = obtenerDatosSeguro(plantelInicial);
 ---
 
-<div class="max-w-6xl md:mt-12 mx-auto p-6">
-  <!-- Header -->
-  <div class="text-center my-4 md:my-20">
-    <h1 class="text-3xl font-bold text-gray-900 mb-2">CONOCE NUESTROS COSTOS</h1>
-    <p class="text-gray-600">Conoce toda la información sobre los costos de</p>
-    <p class="text-gray-600">inscripción y mensualidades de nuestros planteles</p>
-  </div>
+<!-- Card de Costos -->
+<div class="rounded-lg overflow-hidden shadow-lg relative" style={`background-image: url(${imagenFondo.src}); background-size: cover; background-position: center;`}>
+  
+  <!-- Contenido -->
+  <div class="relative z-10 p-6">
+    <!-- Título principal -->
+    <div class="text-center mb-8">
+      <h2 class="text-4xl font-bold text-white mb-2">Costos</h2>
+      <p class="text-white text-sm opacity-90" id="costos-subtitle">
+        {tieneSelectorMultiple ? "(Todos los Planteles)" : `(${plantelInicial.nombre})`}
+      </p>
+    </div>
+    
+    <div class="space-y-6">
+      <!-- Selector de Plantel/Modalidad - Solo si hay múltiples planteles -->
+      {tieneSelectorMultiple && (
+        <div class="flex flex-col gap-2">
+          <div class="flex justify-between items-start">
+            <div>
+              <h3 class="text-white font-semibold text-lg">Selecciona tu opción:</h3>
+              <p class="text-white text-sm opacity-90">Selecciona modalidad y plantel</p>
+            </div>
+          </div>
+          
+          <select 
+            id="plantel-select" 
+            class="mt-2  bg-opacity-20 text-white border border-white border-opacity-30 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-50 focus:border-white shadow-sm backdrop-blur-sm"
+          >
+            {planteles.map((plantel, index) => (
+              <option 
+                value={index}
+                data-nombre={plantel.nombre}
+                data-modalidad={plantel.modalidad}
+                data-tramite-nombre={plantel.tramite?.nombre || "Trámite administrativo"}
+                data-tramite-costo={plantel.tramite?.costo ?? plantel.inscripcion ?? 0}
+                data-tramite-descripcion={plantel.tramite?.descripcion || (plantel.inscripcion === 0 ? "Sin costo de inscripción" : "Pago único al inicio del ciclo escolar")}
+                data-seguro-costo={plantel.seguro?.costo || seguroEscolar || 1200}
+                data-seguro-descripcion={plantel.seguro?.descripcion || `Cobertura médica ${obtenerPeriodoTexto(plantel.seguro?.periodo || 'anual')}`}
+                data-cobro-tipo={plantel.tipoCobro?.tipo || "colegiatura"}
+                data-cobro-costo={plantel.tipoCobro?.costo || plantel.colegiatura}
+                data-cobro-descripcion={plantel.tipoCobro?.descripcion || "Mensual"}
+                data-colegiatura={plantel.colegiatura}
+                class="text-gray-800 bg-white"
+              >
+                {plantel.modalidad === 'sabatina' ? `Sabatina - ${plantel.nombre}` : plantel.nombre}
+                {plantel.turno && plantel.turno !== 'ambos' ? ` (${plantel.turno})` : ''}
+              </option>
+            ))}
+          </select>
+        </div>
+      )}
 
-  <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-    <!-- Costos Fijos Card -->
-    <div class="rounded-lg overflow-hidden shadow-lg relative" style={`background-image: url(${Uniforme.src}); background-size: cover; background-position: center;`}>
-      
-      <!-- Contenido -->
-      <div class="relative z-10 p-6">
-        <!-- Título principal -->
-        <div class="text-center mb-8">
-          <h2 class="text-3xl font-bold text-white mb-2">Costos</h2>
-          <p class="text-white text-sm opacity-90">
-            {soloPlantel ? `(${planteles.normal[0]?.nombre || planteles.sabatina[0]?.nombre})` : "(Todos los Planteles)"}
+      <!-- Trámite administrativo / Inscripción -->
+      <div class="flex justify-between items-start border-b border-white border-opacity-30 pb-4">
+        <div class="flex-1">
+          <h3 class="text-white font-semibold text-lg" id="tramite-titulo">
+            {plantelInicial.tramite?.nombre || "Trámite administrativo"}:
+          </h3>
+          <p class="text-white text-sm opacity-90" id="tramite-descripcion">
+            {plantelInicial.tramite?.descripcion || (plantelInicial.inscripcion === 0 ? "Sin costo de inscripción" : "Pago único al inicio del ciclo escolar")}
           </p>
         </div>
-        
-        <div class="space-y-6">
-          <!-- Selector Unificado (solo si es necesario) -->
-          {necesitaSelectorUnificado && (
-            <div class="flex flex-col gap-2">
-              <div class="flex justify-between items-center">
-                <div>
-                  <h3 class="text-white font-bold text-lg">Selecciona tu opción:</h3>
-                  <p class="text-white text-sm">{obtenerDescripcionSelector()}</p>
-                </div>
-              </div>
-              
-              <select 
-                id="opcion-select" 
-                class="mt-2 bg-transparent text-white border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 shadow-sm"
-              >
-                {opcionesSelect.map((opcion) => (
-                  <option 
-                    value={opcion.value}
-                    data-modalidad={opcion.modalidad}
-                    data-plantel={opcion.plantel}
-                    data-inscripcion={opcion.inscripcion}
-                    data-colegiatura={opcion.colegiatura}
-                    data-turno={opcion.turno}
-                    class="text-gray-800 bg-white"
-                  >
-                    {opcion.text}
-                  </option>
-                ))}
-              </select>
-            </div>
-          )}
-
-          <!-- Inscripción -->
-       <div class="flex flex-col gap-2">
-  <div class="flex justify-between items-center border-b border-gray-400 pb-4">
-    <div>
-      <h3 class="text-white font-bold text-lg">Trámite administrativo:</h3>
-      <p class="text-white text-sm">
-        {primeraInscripcion === 0
-          ? "Sin costo de inscripción"
-          : soloPlantel
-          ? "Pago único al inicio del ciclo escolar"
-          : inscripcionesUniformes && inscripcionesIgualesEntreModalidades
-          ? "Mismo precio en todos los planteles y modalidades"
-          : inscripcionesUniformes
-          ? "Mismo precio en todos los planteles de la modalidad"
-          : necesitaSelectorUnificado
-          ? "Precio según tu selección"
-          : "Precio fijo"
-        }
-      </p>
-    </div>
-    <div class="text-right">
-      <span id="inscripcion-precio" class="text-3xl font-bold text-white">
-        {primeraInscripcion === 0 ? "Sin costo" : `$${primeraInscripcion.toLocaleString()}`}
-      </span>
-    </div>
-  </div>
-
-  {/* Información adicional */}
-  {(!necesitaSelectorUnificado || soloPlantel) && (
-    <div class="mt-2 text-white text-sm opacity-75">
-      <p>
-        {soloPlantel 
-          ? `✓ ${planteles.normal[0]?.nombre || planteles.sabatina[0]?.nombre}`
-          : "✓ Disponible en todos los planteles"
-        }
-      </p>
-    </div>
-  )}
-</div>
-
-       
-          <div class="flex justify-between items-center border-b border-gray-400 pb-4">
-            <div>
-              <h3 class="text-white font-bold text-lg">Credencial:</h3>
-              <p class="text-white text-sm">Pago único hasta vigencia</p>
-            </div>
-            <div class="text-right">
-              <span class="text-3xl font-bold text-white">$240</span>
-            </div>
-          </div>
-
-          <!-- Seguro Escolar -->
-          <div class="flex justify-between items-center border-b border-gray-400 pb-4">
-            <div>
-              <h3 class="text-white font-bold text-lg">Seguro Escolar</h3>
-              <p class="text-white text-sm">Cobertura médica durante el ciclo escolar</p>
-            </div>
-            <div class="text-right">
-              <span class="text-3xl font-bold text-white">${seguroEscolar.toLocaleString()}</span>
-            </div>
-          </div>
-
-          <!-- Mostrar modalidad fija si es solo una -->
-          {solaModalidad && (
-            <div class="flex justify-between items-center border-b border-gray-400 pb-4">
-              <div>
-                <h3 class="text-white font-bold text-lg">Modalidad:</h3>
-                <p class="text-white text-sm">
-                  {modalidadActiva === 'normal' ? 'Normal' : 'Sabatina'}
-                </p>
-              </div>
-            </div>
-          )}
-
-          <!-- Colegiatura Mensual -->
-          <div class="flex flex-col gap-2">
-            <div class="flex justify-between items-center">
-              <div>
-                <h3 class="text-white font-bold text-lg">Colegiatura Mensual</h3>
-                <p class="text-white text-sm">
-                  {soloPlantel
-                    ? "Precio fijo"
-                    : preciosUniformes && preciosIgualesEntreModalidades
-                    ? "Mismo precio en todos los planteles y modalidades" 
-                    : preciosUniformes
-                    ? "Mismo precio en todos los planteles de la modalidad"
-                    : necesitaSelectorUnificado
-                    ? "Precio según tu selección"
-                    : "Precio fijo"
-                  }
-                </p>
-              </div>
-              <div class="text-right">
-                <span id="colegiatura-precio" class="text-3xl font-bold text-white">
-                  ${primerPrecio.toLocaleString()}
-                </span>
-              </div>
-            </div>
-            
-            {/* Información adicional */}
-            {(!necesitaSelectorUnificado || soloPlantel) && (
-              <div class="mt-2 text-white text-sm opacity-75">
-                <p>
-                  {soloPlantel 
-                    ? `✓ ${planteles.normal[0]?.nombre || planteles.sabatina[0]?.nombre}`
-                    : "✓ Disponible en todos los planteles"
-                  }
-                </p>
-              </div>
-            )}
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Right Column -->
-    <div class="space-y-6">
-      <!-- Uniformes Escolares -->
-      <div class="bg-white rounded-lg shadow-lg p-6">
-        <h2 class="text-xl font-bold text-blue-800 mb-4">Uniformes Escolares</h2>
-        
-        <div class="flex justify-between items-center mb-4">
-          <div>
-            <h3 class="font-semibold text-gray-800">Kit Deportivo Completo</h3>
-            <p class="text-sm text-gray-600">Incluye: Pants + Playera deportiva + Sudadera</p>
-          </div>
-          <div class="text-right">
-            <span class="text-2xl font-bold text-gray-800">${uniformeEscolar.kitCompleto.toLocaleString()}</span>
-          </div>
-        </div>
-
-        <div class="bg-green-500 text-white text-center py-2 rounded-lg text-sm font-medium">
-          Ahorro de ${uniformeEscolar.ahorro} vs compra individual
+        <div class="text-right ml-4">
+          <span class="text-4xl font-bold text-white" id="tramite-precio">
+            {(plantelInicial.tramite?.costo ?? plantelInicial.inscripcion ?? 0) === 0 ? "Sin costo" : `${(plantelInicial.tramite?.costo ?? plantelInicial.inscripcion ?? 0).toLocaleString()}`}
+          </span>
         </div>
       </div>
 
-      <!-- Uniforme Diario Carousel -->
-      <div class="bg-gray-800 rounded-lg overflow-hidden shadow-lg relative">
-        <div id="uniform-carousel" class="splide">
-          <div class="splide__track">
-            <ul class="splide__list">
-              {uniformeDiario.map((item) => (
-                <li class="splide__slide" key={item.id}>
-                  <div class="relative h-80 w-full rounded-lg overflow-hidden">
-                    <!-- Imagen de fondo -->
-                    <img 
-                      src={Falda.src} 
-                      alt={item.nombre} 
-                      class="w-full h-full object-cover"
-                    />
-                    
-                    <!-- Título superior -->
-                    <div class="absolute top-4 left-4 right-4">
-                      <h2 class="text-2xl font-bold text-white">Uniforme Diario</h2>
-                    </div>
-                    
-                    <!-- Contenido inferior -->
-                    <div class="absolute bottom-4 left-4 right-4">
-                      <div class="flex justify-between items-end">
-                        <div class="text-white">
-                          <h3 class="text-2xl font-bold mb-1">{item.nombre}</h3>
-                          <p class="text-3xl font-bold">${item.precio.toLocaleString()}</p>
-                        </div>
-                        <div class="relative inline-block" id="tooltip-container">
-                          <button
-                            class="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors focus:outline-none"
-                            onclick="toggleTooltip(this)"
-                            onblur="hideTooltip(this)"
-                          >
-                            ¿Dónde comprar?
-                          </button>
-                          <div
-                            class="absolute bottom-full mb-2 left-1/2 transform -translate-x-1/2 bg-gray-800 text-white text-xs rounded px-2 py-1 opacity-0 pointer-events-none transition-opacity duration-200 z-10 whitespace-nowrap"
-                            data-tooltip
-                          >
-                            En tu plantel más cercano
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </li>
-              ))}
-            </ul>
-          </div>
+      <!-- Credencial -->
+      <div class="flex justify-between items-start border-b border-white border-opacity-30 pb-4">
+        <div class="flex-1">
+          <h3 class="text-white font-semibold text-lg">Credencial:</h3>
+          <p class="text-white text-sm opacity-90">Pago único hasta vigencia</p>
+        </div>
+        <div class="text-right ml-4">
+          <span class="text-4xl font-bold text-white">$240</span>
+        </div>
+      </div>
+
+      <!-- Seguro Escolar -->
+      <div class="flex justify-between items-start border-b border-white border-opacity-30 pb-4">
+        <div class="flex-1">
+          <h3 class="text-white font-semibold text-lg">Seguro Escolar</h3>
+          <p class="text-white text-sm opacity-90" id="seguro-descripcion">
+            {seguroInicial.descripcion}
+          </p>
+        </div>
+        <div class="text-right ml-4">
+          <span class="text-4xl font-bold text-white" id="seguro-precio">
+            ${seguroInicial.costo.toLocaleString()}
+          </span>
+        </div>
+      </div>
+
+      <!-- Colegiatura Mensual / Costo por Materia -->
+      <div class="flex justify-between items-start">
+        <div class="flex-1">
+          <h3 class="text-white font-semibold text-lg" id="cobro-titulo">
+            {plantelInicial.tipoCobro?.tipo === "materia" ? " Precio de materias:" : "Colegiatura Mensual"}
+          </h3>
+          <p class="text-white text-sm opacity-90" id="cobro-descripcion">
+            {plantelInicial.tipoCobro?.descripcion || (tieneSelectorMultiple ? "Mismo precio en todos los planteles de la modalidad" : `Plantel ${plantelInicial.nombre}`)}
+          </p>
+        </div>
+        <div class="text-right ml-4">
+          <span id="cobro-precio" class="text-4xl font-bold text-white">
+            ${(plantelInicial.tipoCobro?.costo || plantelInicial.colegiatura).toLocaleString()}
+          </span>
         </div>
       </div>
     </div>
   </div>
 </div>
 
-<!-- Pasar los datos a JavaScript -->
-<script define:vars={{ 
-  planteles, 
-  preciosUniformes,
-  inscripcionesUniformes,
-  preciosIgualesEntreModalidades,
-  inscripcionesIgualesEntreModalidades,
-  solaModalidad, 
-  soloPlantel, 
-  modalidadActiva,
-  tienenTurnos,
-  opcionesSelect,
-  necesitaSelectorUnificado
-}}>
-  // Datos globales
+<!-- Pasar datos a JavaScript -->
+<script define:vars={{ planteles }}>
   window.plantelesData = planteles;
-  window.preciosUniformes = preciosUniformes;
-  window.inscripcionesUniformes = inscripcionesUniformes;
-  window.preciosIgualesEntreModalidades = preciosIgualesEntreModalidades;
-  window.inscripcionesIgualesEntreModalidades = inscripcionesIgualesEntreModalidades;
-  window.solaModalidad = solaModalidad;
-  window.soloPlantel = soloPlantel;
-  window.modalidadActiva = modalidadActiva;
-  window.tienenTurnos = tienenTurnos;
-  window.opcionesSelect = opcionesSelect;
-  window.necesitaSelectorUnificado = necesitaSelectorUnificado;
 </script>
 
 <script>
-  // Función para actualizar precios basado en la selección
-  function actualizarPrecios() {
-    const opcionSelect = document.getElementById('opcion-select');
-    const colegiaturaPreci = document.getElementById('colegiatura-precio');
-    const inscripcionPrecio = document.getElementById('inscripcion-precio');
+  // Función helper para obtener el período en español (lado cliente)
+  function obtenerPeriodoTexto(periodo) {
+    const periodos = {
+      'anual': 'durante el ciclo escolar',
+      'semestral': 'por semestre', 
+      'cuatrimestral': 'por cuatrimestre'
+    };
+    return periodos[periodo] || 'durante el ciclo escolar';
+  }
+
+  // Función para actualizar precios y información del plantel
+  function actualizarCostos() {
+    const select = document.getElementById('plantel-select');
+    if (!select) return;
     
-    if (!opcionSelect || !colegiaturaPreci || !inscripcionPrecio) return;
+    const selectedIndex = parseInt(select.value);
+    const selectedOption = select.options[selectedIndex];
     
-    const selectedOption = opcionSelect.selectedOptions[0];
     if (!selectedOption) return;
     
-    const inscripcion = parseInt(selectedOption.dataset.inscripcion);
-    const colegiatura = parseInt(selectedOption.dataset.colegiatura);
+    // Obtener datos del option seleccionado
+    const datosSeleccionados = {
+      nombre: selectedOption.getAttribute('data-nombre'),
+      tramiteNombre: selectedOption.getAttribute('data-tramite-nombre'),
+      tramiteCosto: parseInt(selectedOption.getAttribute('data-tramite-costo')) || 0,
+      tramiteDescripcion: selectedOption.getAttribute('data-tramite-descripcion'),
+      seguroCosto: parseInt(selectedOption.getAttribute('data-seguro-costo')) || 0,
+      seguroDescripcion: selectedOption.getAttribute('data-seguro-descripcion'),
+      cobroTipo: selectedOption.getAttribute('data-cobro-tipo'),
+      cobroCosto: parseInt(selectedOption.getAttribute('data-cobro-costo')) || 0,
+      cobroDescripcion: selectedOption.getAttribute('data-cobro-descripcion'),
+      colegiatura: parseInt(selectedOption.getAttribute('data-colegiatura')) || 0
+    };
     
-    // Actualizar los precios mostrados
-    colegiaturaPreci.textContent = `$${colegiatura.toLocaleString()}`;
-    inscripcionPrecio.textContent = `$${inscripcion.toLocaleString()}`;
+    // Actualizar elementos del DOM
+    const elementos = {
+      costosSubtitle: document.getElementById('costos-subtitle'),
+      tramiteTitulo: document.getElementById('tramite-titulo'),
+      tramiteDescripcion: document.getElementById('tramite-descripcion'),
+      tramitePrecio: document.getElementById('tramite-precio'),
+      seguroDescripcion: document.getElementById('seguro-descripcion'),
+      seguroPrecio: document.getElementById('seguro-precio'),
+      cobroTitulo: document.getElementById('cobro-titulo'),
+      cobroDescripcion: document.getElementById('cobro-descripcion'),
+      cobroPrecio: document.getElementById('cobro-precio')
+    };
+    
+    // Actualizar subtítulo
+    if (elementos.costosSubtitle) {
+      elementos.costosSubtitle.textContent = `(${datosSeleccionados.nombre})`;
+    }
+    
+    // Actualizar trámite administrativo/inscripción
+    if (elementos.tramiteTitulo) {
+      elementos.tramiteTitulo.textContent = `${datosSeleccionados.tramiteNombre}:`;
+    }
+    
+    if (elementos.tramiteDescripcion) {
+      elementos.tramiteDescripcion.textContent = datosSeleccionados.tramiteDescripcion;
+    }
+    
+    if (elementos.tramitePrecio) {
+      elementos.tramitePrecio.textContent = datosSeleccionados.tramiteCosto === 0 
+        ? "Sin costo" 
+        : `$${datosSeleccionados.tramiteCosto.toLocaleString()}`;
+    }
+    
+    // Actualizar seguro escolar
+    if (elementos.seguroDescripcion) {
+      elementos.seguroDescripcion.textContent = datosSeleccionados.seguroDescripcion;
+    }
+    
+    if (elementos.seguroPrecio) {
+      elementos.seguroPrecio.textContent = `$${datosSeleccionados.seguroCosto.toLocaleString()}`;
+    }
+    
+    // Actualizar colegiatura/materia
+    if (elementos.cobroTitulo) {
+      elementos.cobroTitulo.textContent = datosSeleccionados.cobroTipo === "materia" 
+        ? "Costo por Materia" 
+        : "Colegiatura Mensual";
+    }
+    
+    if (elementos.cobroDescripcion) {
+      elementos.cobroDescripcion.textContent = datosSeleccionados.cobroDescripcion;
+    }
+    
+    if (elementos.cobroPrecio) {
+      elementos.cobroPrecio.textContent = `${datosSeleccionados.cobroCosto.toLocaleString()}`;
+    }
   }
 
   // Event listeners
   document.addEventListener('DOMContentLoaded', function() {
-    const opcionSelect = document.getElementById('opcion-select');
-    
-    // Solo agregar event listener si existe el selector
-    if (opcionSelect && window.necesitaSelectorUnificado) {
-      opcionSelect.addEventListener('change', actualizarPrecios);
+    const select = document.getElementById('plantel-select');
+    if (select) {
+      select.addEventListener('change', actualizarCostos);
+      // Seleccionar el primer plantel por defecto
+      select.selectedIndex = 0;
+      actualizarCostos();
     }
   });
-
-
- 
 </script>
-
-<script is:inline>
-  function toggleTooltip(button) {
-    const tooltip = button.parentElement.querySelector('[data-tooltip]');
-    const isVisible = tooltip.classList.contains('opacity-100');
-    tooltip.classList.toggle('opacity-100', !isVisible);
-    tooltip.classList.toggle('opacity-0', isVisible);
-    tooltip.classList.toggle('pointer-events-none', isVisible);
-  }
-
-  function hideTooltip(button) {
-    const tooltip = button.parentElement.querySelector('[data-tooltip]');
-    tooltip.classList.remove('opacity-100');
-    tooltip.classList.add('opacity-0', 'pointer-events-none');
-  }
-</script>
-
-<script>
-  import { Splide } from '@splidejs/splide';
-  
-  document.addEventListener('DOMContentLoaded', function() {
-    const splide = new Splide('#uniform-carousel', {
-      type: 'loop',
-      perPage: 1,
-      perMove: 1,
-      arrows: true,
-      pagination: false,
-      autoplay: true,
-      interval: 4000,
-      pauseOnHover: true,
-      resetProgress: false,
-      gap: '0',
-      padding: '0',
-      width: '100%',
-      height: '320px',
-      focus: 'center',
-      trimSpace: false,
-    });
-    
-    splide.mount();
-  });
-</script>
-
-<style>
-  /* Estilos para el carousel */
-  .splide__slide {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100% !important;
-    flex-shrink: 0;
-  }
-  
-  .splide__arrows {
-   display: block; /* CAMBIAR: de none a block */
-  }
-  
-  .splide__pagination {
-    bottom: 10px;
-  }
-  
-  .splide__pagination__page {
-    background: rgba(255, 255, 255, 0.5);
-  }
-  
-  .splide__pagination__page.is-active {
-    background: white;
-  }
-  
-  /* Asegurar que cada slide tenga el tamaño correcto */
-  .splide__track {
-    overflow: hidden;
-    width: 100%;
-  }
-  
-  .splide__list {
-    display: flex;
-    align-items: center;
-    width: 100%;
-  }
-  
-  /* Forzar que solo se vea una slide a la vez */
-  #uniform-carousel .splide__slide {
-    min-width: 100%;
-    max-width: 100%;
-  }
-</style>
