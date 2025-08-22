@@ -20,10 +20,6 @@ function getColorBadge(incorporacion) {
   switch (incorporacion) {
     case "UDG":
       return "bg-red-500";
-    case "SICYT":
-      return "bg-green-600";
-    default:
-      return "bg-blue-500"; // Color por defecto
   }
 }
 
@@ -68,16 +64,19 @@ const carreras = especialidades.map((especialidad, index) => {
   const todasLasIncorporaciones = [];
 
   // Extraer todas las modalidades e incorporaciones
-  Object.values(especialidad.planteles).forEach((plantelInfo) => {
-    plantelInfo.forEach((info) => {
-      if (!todasLasModalidades.includes(info.modalidad)) {
-        todasLasModalidades.push(info.modalidad);
-      }
-      if (!todasLasIncorporaciones.includes(info.incorporacion)) {
-        todasLasIncorporaciones.push(info.incorporacion);
-      }
-    });
+Object.values(especialidad.planteles).forEach((plantelInfo) => {
+  plantelInfo.forEach((info) => {
+    // Guardar modalidades únicas
+    if (!todasLasModalidades.includes(info.modalidad)) {
+      todasLasModalidades.push(info.modalidad);
+    }
+
+    // Guardar solo incorporaciones que sean "UDG"
+    if (info.incorporacion === "UDG" && !todasLasIncorporaciones.includes(info.incorporacion)) {
+      todasLasIncorporaciones.push(info.incorporacion);
+    }
   });
+});
 
   
   // Usar la imagen tal como viene, o el nombre del programa como fallback
@@ -200,9 +199,11 @@ export { carreras, areas };
 
                 <div class="space-y-2 mb-4">
                   <div class="flex items-center gap-2 flex-wrap">
-                    <span class="text-white text-bold px-2 py-1 text-xs bg-azul-une rounded-2xl">
-                      {carrera.incorporacion}
-                    </span>
+                    {carrera.incorporacion && (
+                      <span class="text-white text-bold px-2 py-1 text-xs bg-azul-une rounded-2xl">
+                        {carrera.incorporacion}
+                      </span>
+                    )}
                     <span class="text-white text-bold px-2 py-1 text-xs bg-azul-une rounded-2xl">
                       {carrera.modalidad}
                     </span>
@@ -469,7 +470,7 @@ export { carreras, areas };
                       <div class="text-sm">
                         <span class="font-semibold text-blue-600">${detalle.modalidad}</span>
                         <br>
-                        <span class="text-gray-600">Incorporación: ${detalle.incorporacion}</span>
+                       
                       </div>
                     </div>
                   `
