@@ -7,14 +7,17 @@ export interface Props {
 const { plantel } = Astro.props;
 
 // Normalizar el nombre del plantel para la estructura de carpetas (espacios -> _)
-const normalizedPlantel = plantel.toUpperCase().replace(/\s+/g, '_');
+const normalizedPlantel = plantel.toUpperCase().replace(/\s+/g, "_");
 
 // Importar todas las imágenes del plantel específico
-const allImages = import.meta.glob(`@/assets/Imagenes/Galeria/ZMG/**/*.{png,jpg,jpeg,webp,svg}`, {
-  eager: true,
-  query: '?url',
-  import: 'default'
-});
+const allImages = import.meta.glob(
+  `@/assets/Imagenes/Galeria/ZMG/**/*.{png,jpg,jpeg,webp,svg}`,
+  {
+    eager: true,
+    query: "?url",
+    import: "default",
+  }
+);
 
 // Filtrar las imágenes que pertenecen al plantel específico
 const images = Object.entries(allImages)
@@ -24,93 +27,147 @@ const images = Object.entries(allImages)
   })
   .map(([path, url]) => ({
     src: url as string,
-    alt: path.split('/').pop()?.split('.')[0] || 'Imagen del plantel',
-    name: path.split('/').pop()?.split('.')[0] || ''
+    alt: path.split("/").pop()?.split(".")[0] || "Imagen del plantel",
+    name: path.split("/").pop()?.split(".")[0] || "",
   }));
-
 ---
 
-<div class="galeria-plantel " data-plantel={plantel} data-normalized-plantel={normalizedPlantel} data-images={JSON.stringify(images)}>
-  {images.length > 0 ? (
-    <div class="splide " id={`splide-${normalizedPlantel}`}>
-      <div class="splide__track py-12">
-        <ul class="splide__list ">
-          {images.map((image, index) => (
-            <li class="splide__slide" key={index}>
-              <div class="image-container" data-image-src={image.src} data-image-alt={image.alt} data-image-index={index} data-image-name={image.name}>
-                <img 
-                  src={image.src} 
-                  alt={image.alt}
-                  loading="lazy"
-                  class="slide-image"
-                />
-                <div class="image-caption">
-                
-                  <p>Mostrar: {plantel}</p>
+<div
+  class="galeria-plantel"
+  data-plantel={plantel}
+  data-normalized-plantel={normalizedPlantel}
+  data-images={JSON.stringify(images)}
+>
+  {
+    images.length > 0 ? (
+      <div class="splide " id={`splide-${normalizedPlantel}`}>
+        <div class="splide__track py-12">
+          <ul class="splide__list ">
+            {images.map((image, index) => (
+              <li class="splide__slide" key={index}>
+                <div
+                  class="image-container"
+                  data-image-src={image.src}
+                  data-image-alt={image.alt}
+                  data-image-index={index}
+                  data-image-name={image.name}
+                >
+                  <img
+                    src={image.src}
+                    alt={image.alt}
+                    loading="lazy"
+                    class="slide-image"
+                  />
+                  <div class="image-caption">
+                    <p>Mostrar: {plantel}</p>
+                  </div>
+                  <div class="zoom-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                      <path
+                        d="M21 21L16.514 16.506M19 10.5C19 15.194 15.194 19 10.5 19S2 15.194 2 10.5 5.806 2 10.5 2 19 5.806 19 10.5Z"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                      <path
+                        d="M13.5 10.5H7.5M10.5 7.5V13.5"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  </div>
                 </div>
-                <div class="zoom-icon">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                    <path d="M21 21L16.514 16.506M19 10.5C19 15.194 15.194 19 10.5 19S2 15.194 2 10.5 5.806 2 10.5 2 19 5.806 19 10.5Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M13.5 10.5H7.5M10.5 7.5V13.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                  </svg>
-                </div>
-              </div>
-            </li>
-          ))}
-        </ul>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="splide__arrows">
+          <button class="splide__arrow splide__arrow--prev">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path
+                d="M15 18L9 12L15 6"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </button>
+          <button class="splide__arrow splide__arrow--next">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path
+                d="M9 18L15 12L9 6"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </button>
+        </div>
       </div>
-      
-      <div class="splide__arrows">
-        <button class="splide__arrow splide__arrow--prev">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-            <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </button>
-        <button class="splide__arrow splide__arrow--next">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-            <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </button>
+    ) : (
+      <div class="no-images">
+        <p>No se encontraron imágenes para el plantel: {plantel}</p>
+        <p>
+          Verifique que existan imágenes en: /src/assets/Imagenes/Galeria/ZMG/
+          {normalizedPlantel}/
+        </p>
       </div>
-      
-    </div>
-  ) : (
-    <div class="no-images">
-      <p>No se encontraron imágenes para el plantel: {plantel}</p>
-      <p>Verifique que existan imágenes en: /src/assets/Imagenes/Galeria/ZMG/{normalizedPlantel}/</p>
-    </div>
-  )}
-  
+    )
+  }
+
   <!-- Modal para imagen ampliada -->
   <div class="image-modal" id={`modal-${normalizedPlantel}`}>
     <div class="modal-backdrop"></div>
     <div class="modal-content">
       <button class="modal-close">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-          <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path
+            d="M18 6L6 18M6 6L18 18"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"></path>
         </svg>
       </button>
-      
+
       <!-- Flecha anterior -->
       <button class="modal-arrow modal-arrow-prev">
         <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
-          <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path
+            d="M15 18L9 12L15 6"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"></path>
         </svg>
       </button>
-      
+
       <!-- Flecha siguiente -->
       <button class="modal-arrow modal-arrow-next">
         <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
-          <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path
+            d="M9 18L15 12L9 6"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"></path>
         </svg>
       </button>
-      
+
       <img class="modal-image" src="" alt="" />
       <div class="modal-info">
         <h3 class="modal-title"></h3>
         <p class="modal-plantel"></p>
         <div class="modal-counter">
-          <span class="current-image">1</span> / <span class="total-images">0</span>
+          <span class="current-image">1</span> / <span class="total-images"
+            >0</span
+          >
         </div>
       </div>
     </div>
@@ -123,56 +180,60 @@ const images = Object.entries(allImages)
   import "@splidejs/splide/dist/css/splide.min.css";
 
   // Obtener el plantel y las imágenes desde los data attributes
-  const galeriaElement = document.querySelector('.galeria-plantel') as HTMLElement;
-  
+  const galeriaElement = document.querySelector(
+    ".galeria-plantel"
+  ) as HTMLElement;
+
   if (galeriaElement) {
-    const plantel = galeriaElement.getAttribute('data-plantel'); // Nombre original para mostrar
-    const normalizedPlantel = galeriaElement.getAttribute('data-normalized-plantel'); // Nombre normalizado para IDs
-    const imagesData = galeriaElement.getAttribute('data-images');
-    
+    const plantel = galeriaElement.getAttribute("data-plantel"); // Nombre original para mostrar
+    const normalizedPlantel = galeriaElement.getAttribute(
+      "data-normalized-plantel"
+    ); // Nombre normalizado para IDs
+    const imagesData = galeriaElement.getAttribute("data-images");
+
     let images = [];
     try {
       images = imagesData ? JSON.parse(imagesData) : [];
     } catch (e) {
-      console.error('Error parsing images data:', e);
+      console.error("Error parsing images data:", e);
       images = [];
     }
 
+    const splideElement = document.querySelector(
+      `#splide-${normalizedPlantel}`
+    ) as HTMLElement;
 
-    
-    const splideElement = document.querySelector(`#splide-${normalizedPlantel}`) as HTMLElement;
-    
     if (splideElement && images.length > 0) {
       // Configuración del carousel
       const splide = new Splide(`#splide-${normalizedPlantel}`, {
-        type: 'loop',
+        type: "loop",
         perPage: 4,
         perMove: 0,
-        gap: '1rem',
+        gap: "1rem",
         autoplay: false,
         interval: 3000,
         pauseOnHover: true,
         pauseOnFocus: true,
         resetProgress: false,
-        height: '200px',
-        focus: 'center',
+        height: "200px",
+        focus: "center",
         trimSpace: false,
         pagination: false,
         breakpoints: {
           1024: {
             perPage: 3,
-            height: '180px',
+            height: "180px",
           },
           768: {
             perPage: 2,
-            height: '150px',
-            gap: '0.75rem',
+            height: "150px",
+            gap: "0.75rem",
           },
           480: {
             perPage: 1,
-            height: '150px',
-            gap: '0.5rem',
-          }
+            height: "150px",
+            gap: "0.5rem",
+          },
         },
         extensions: { AutoScroll },
         autoScroll: {
@@ -186,16 +247,30 @@ const images = Object.entries(allImages)
 
       // Funcionalidad del modal
       const modal = document.getElementById(`modal-${normalizedPlantel}`);
-      const modalImage = modal?.querySelector('.modal-image') as HTMLImageElement;
-      const modalTitle = modal?.querySelector('.modal-title') as HTMLElement;
-      const modalPlantel = modal?.querySelector('.modal-plantel') as HTMLElement;
-      const modalClose = modal?.querySelector('.modal-close') as HTMLElement;
-      const modalBackdrop = modal?.querySelector('.modal-backdrop') as HTMLElement;
-      const modalArrowPrev = modal?.querySelector('.modal-arrow-prev') as HTMLButtonElement;
-      const modalArrowNext = modal?.querySelector('.modal-arrow-next') as HTMLButtonElement;
-      const currentImageSpan = modal?.querySelector('.current-image') as HTMLElement;
-      const totalImagesSpan = modal?.querySelector('.total-images') as HTMLElement;
-      
+      const modalImage = modal?.querySelector(
+        ".modal-image"
+      ) as HTMLImageElement;
+      const modalTitle = modal?.querySelector(".modal-title") as HTMLElement;
+      const modalPlantel = modal?.querySelector(
+        ".modal-plantel"
+      ) as HTMLElement;
+      const modalClose = modal?.querySelector(".modal-close") as HTMLElement;
+      const modalBackdrop = modal?.querySelector(
+        ".modal-backdrop"
+      ) as HTMLElement;
+      const modalArrowPrev = modal?.querySelector(
+        ".modal-arrow-prev"
+      ) as HTMLButtonElement;
+      const modalArrowNext = modal?.querySelector(
+        ".modal-arrow-next"
+      ) as HTMLButtonElement;
+      const currentImageSpan = modal?.querySelector(
+        ".current-image"
+      ) as HTMLElement;
+      const totalImagesSpan = modal?.querySelector(
+        ".total-images"
+      ) as HTMLElement;
+
       let currentImageIndex = 0;
       const totalImages = images.length;
 
@@ -204,7 +279,7 @@ const images = Object.entries(allImages)
         totalImagesSpan.textContent = totalImages.toString();
       }
 
-      // Función para actualizar la imagen del modal
+      // Función para actualizar la imagen del modal (versión circular)
       const updateModalImage = (index: number) => {
         const image = images[index];
         if (modalImage && image) {
@@ -212,94 +287,101 @@ const images = Object.entries(allImages)
           modalImage.alt = image.alt;
           // Usar el plantel original (con espacios) para mostrar
           if (modalPlantel) modalPlantel.textContent = `Plantel ${plantel}`;
-          if (currentImageSpan) currentImageSpan.textContent = (index + 1).toString();
-          
+          if (currentImageSpan)
+            currentImageSpan.textContent = (index + 1).toString();
+
           currentImageIndex = index;
-          
-          // Actualizar estado de las flechas
-          if (modalArrowPrev) modalArrowPrev.disabled = index === 0;
-          if (modalArrowNext) modalArrowNext.disabled = index === totalImages - 1;
         }
       };
 
       // Agregar event listeners para abrir modal
-      const imageContainers = document.querySelectorAll(`#splide-${normalizedPlantel} .image-container`);
-      imageContainers.forEach(container => {
-        container.addEventListener('click', (e) => {
+      const imageContainers = document.querySelectorAll(
+        `#splide-${normalizedPlantel} .image-container`
+      );
+      imageContainers.forEach((container) => {
+        container.addEventListener("click", (e) => {
           e.preventDefault();
           e.stopPropagation();
-          
-          const imageIndex = parseInt(container.getAttribute('data-image-index') || '0');
-          
-          
+
+          const imageIndex = parseInt(
+            container.getAttribute("data-image-index") || "0"
+          );
+
           if (modal) {
             updateModalImage(imageIndex);
-            modal.classList.add('active');
-            document.body.style.overflow = 'hidden';
+            modal.classList.add("active");
+            document.body.style.overflow = "hidden";
           }
         });
       });
 
       // Navegación con flechas
-      modalArrowPrev?.addEventListener('click', (e) => {
+      modalArrowPrev?.addEventListener("click", (e) => {
         e.stopPropagation();
-        if (currentImageIndex > 0) {
-          updateModalImage(currentImageIndex - 1);
-        }
+        // Si estamos en la primera imagen (índice 0), ir a la última
+        const newIndex =
+          currentImageIndex === 0 ? totalImages - 1 : currentImageIndex - 1;
+        updateModalImage(newIndex);
       });
 
-      modalArrowNext?.addEventListener('click', (e) => {
+      modalArrowNext?.addEventListener("click", (e) => {
         e.stopPropagation();
-        if (currentImageIndex < totalImages - 1) {
-          updateModalImage(currentImageIndex + 1);
-        }
+        // Si estamos en la última imagen, ir a la primera (índice 0)
+        const newIndex =
+          currentImageIndex === totalImages - 1 ? 0 : currentImageIndex + 1;
+        updateModalImage(newIndex);
       });
 
       // Cerrar modal
       const closeModal = () => {
         if (modal) {
-          modal.classList.remove('active');
-          document.body.style.overflow = '';
+          modal.classList.remove("active");
+          document.body.style.overflow = "";
         }
       };
 
-      modalClose?.addEventListener('click', (e) => {
+      modalClose?.addEventListener("click", (e) => {
         e.stopPropagation();
         closeModal();
       });
-      
-      modalBackdrop?.addEventListener('click', closeModal);
-      
+
+      modalBackdrop?.addEventListener("click", closeModal);
+
       // Navegación con teclado
-      document.addEventListener('keydown', (e) => {
-        if (modal?.classList.contains('active')) {
-          switch(e.key) {
-            case 'Escape':
+      // Navegación con teclado (versión circular)
+      document.addEventListener("keydown", (e) => {
+        if (modal?.classList.contains("active")) {
+          switch (e.key) {
+            case "Escape":
               closeModal();
               break;
-            case 'ArrowLeft':
+            case "ArrowLeft":
               e.preventDefault();
-              if (currentImageIndex > 0) {
-                updateModalImage(currentImageIndex - 1);
-              }
+              // Navegación circular hacia atrás
+              const prevIndex =
+                currentImageIndex === 0
+                  ? totalImages - 1
+                  : currentImageIndex - 1;
+              updateModalImage(prevIndex);
               break;
-            case 'ArrowRight':
+            case "ArrowRight":
               e.preventDefault();
-              if (currentImageIndex < totalImages - 1) {
-                updateModalImage(currentImageIndex + 1);
-              }
+              // Navegación circular hacia adelante
+              const nextIndex =
+                currentImageIndex === totalImages - 1
+                  ? 0
+                  : currentImageIndex + 1;
+              updateModalImage(nextIndex);
               break;
           }
         }
       });
 
       // Eventos del carousel
-      splide.on('move', (newIndex, prevIndex) => {
-      });
+      splide.on("move", (newIndex, prevIndex) => {});
     }
   }
 </script>
-
 
 <style>
   .galeria-plantel {
@@ -578,33 +660,33 @@ const images = Object.entries(allImages)
     .galeria-plantel {
       padding: 1rem 0.5rem;
     }
-    
+
     .image-container {
       height: 150px;
     }
-    
+
     .splide__arrow {
       width: 40px;
       height: 40px;
     }
-    
+
     .image-caption {
       padding: 1rem 0.75rem 0.75rem;
     }
-    
+
     .image-caption h3 {
       font-size: 0.9rem;
     }
-    
+
     .modal-content {
       max-width: 95vw;
       max-height: 95vh;
     }
-    
+
     .modal-info {
       padding: 1rem;
     }
-    
+
     .zoom-icon {
       width: 32px;
       height: 32px;

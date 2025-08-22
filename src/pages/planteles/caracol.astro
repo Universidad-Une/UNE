@@ -6,6 +6,7 @@ const programasCentro = obtenerProgramasPorPlantel("CARACOL");
 import { Phone, Clock1, MapPin } from "@lucide/astro";
 import Carreradeplantel from "@/components/sections/planteles/Carreradeplantel.astro";
 import CtaVisita from "@/components/sections/planteles/ctaVisita.astro";
+import GaleriaPlantel from "@/components/sections/planteles/GaleriaPlantel.astro";
 ---
 
 <Layout
@@ -297,6 +298,8 @@ description="Plantel UNE Caracol en  Puerto Vallarta. Campus universitario estra
     />
 
     <CtaVisita />
+    <GaleriaPlantel plantel="CARACOL"/>
+
   </main>
 </Layout>
 

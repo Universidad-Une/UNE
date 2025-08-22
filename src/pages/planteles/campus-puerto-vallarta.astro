@@ -7,6 +7,8 @@ const programasCentro = obtenerProgramasPorPlantel("CAMPUS PUERTO VALLARTA");
 import { Phone, Clock1, MapPin } from "@lucide/astro";
 import Carreradeplantel from "@/components/sections/planteles/Carreradeplantel.astro";
 import CtaVisita from "@/components/sections/planteles/ctaVisita.astro";
+import GaleriaPlantel from "@/components/sections/planteles/GaleriaPlantel.astro";
+
 ---
 
 <Layout
@@ -312,6 +314,8 @@ description="Campus UNE Puerto Vallarta. Universidad en la costa jalisciense con
     />
 
     <CtaVisita />
+         <GaleriaPlantel plantel="Campus"/>
+
   </main>
 </Layout>
 
