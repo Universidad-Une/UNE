@@ -339,7 +339,7 @@ export const actividades = [
     direccion: "Curso de lenguaje de señas mexicano para comunicación inclusiva",
     ciudad: "Caracol",
     url: "/Vivetuuniversidad/Actividades/lenguajedesenas",
-    imagen: "/Images/VTU/Cards/Senas.webp",
+    imagen: "/Images/VTU/Cards/Administrativos.webp",
   },
   {
     id: "31",
