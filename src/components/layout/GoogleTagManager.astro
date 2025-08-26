@@ -1,200 +1,26 @@
 ---
-// Layout principal de la aplicación con valores por defecto
-import Header from "../components/layout/Header.astro";
-import Footer from "../components/layout/Footer.astro";
-import "../styles/global.css";
-import Clarity from "../components/layout/Clarity.astro";
-import GoogleTagManager from "../components/layout/GoogleTagManager.astro";
-
-// Configuración por defecto
-const defaultConfig = {
-  projectId: "spfe9hsbw6",
-  gtmId: "GTM-5BDTWB8",
-  title: "UNE - Universidad de Especialidades",
-  description: "Universidad UNE - 30 años creyendo en ti. Licenciaturas, posgrados y educación continua en línea y presencial.",
-  lang: "es",
-  charset: "UTF-8",
-  ogImage: "/og-image.jpg"
-};
-
-// Extraer props con valores por defecto
-const { 
-  title = defaultConfig.title,
-  description = defaultConfig.description,
-  lang = defaultConfig.lang,
-  charset = defaultConfig.charset,
-  projectId = defaultConfig.projectId,
-  gtmId = defaultConfig.gtmId,
-  noIndex = false,
-  customMeta = [],
-  bodyClass = "",
-  ogImage = defaultConfig.ogImage
-} = Astro.props;
-
-// Generar título completo
-const fullTitle = title === defaultConfig.title ? title : `${title} | UNE`;
-const fullOgImage = `${Astro.url.origin}${ogImage}`;
-
-// Headers de seguridad
-if (Astro.response) {
-  Astro.response.headers.set('X-Content-Type-Options', 'nosniff');
-  Astro.response.headers.set('X-Frame-Options', 'DENY');
-  Astro.response.headers.set('X-XSS-Protection', '1; mode=block');
-  Astro.response.headers.set('Referrer-Policy', 'strict-origin-when-cross-origin');
-  Astro.response.headers.set('Permissions-Policy', 'camera=(), microphone=(), geolocation=()');
+// Componente para Google Tag Manager
+interface Props {
+  gtmId: string;
 }
+
+const { gtmId } = Astro.props;
 ---
 
-<!DOCTYPE html>
-<html lang={lang}>
-  <head>
-    <GoogleTagManager gtmId={gtmId} />
-    
-    <meta charset={charset} />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{fullTitle}</title>
-    
-    {description && <meta name="description" content={description} />}
-    
-    {noIndex ? (
-      <meta name="robots" content="noindex, nofollow" />
-    ) : (
-      <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
-    )}
-    
-    {customMeta.map((meta) => (
-      <meta name={meta.name} content={meta.content} property={meta.property} />
-    ))}
-    
-    <meta name="author" content="Universidad de Jalisco - UNE" />
-    <meta name="geo.region" content="MX-JAL" />
-    <meta name="geo.placename" content="Jalisco, México" />
-    
-    <link rel="icon" href="/Favicon/favicon.ico" sizes="any" />
-    <link rel="apple-touch-icon" href="/Favicon/apple-icon-180x180.png" />
-    <link rel="manifest" href="/Favicon/manifest.json" />
-    
-    <meta name="theme-color" content="#ffffff" />
-    <meta name="apple-mobile-web-app-title" content="UNE" />
-    
-    {/* Preconnect optimizado para Clarity */}
-    <link rel="preconnect" href="https://www.clarity.ms" />
-    <link rel="preconnect" href="https://c.clarity.ms" />
-    <link rel="preconnect" href="https://www.googletagmanager.com" />
-    <link rel="dns-prefetch" href="//www.clarity.ms" />
-    <link rel="dns-prefetch" href="//c.clarity.ms" />
-    
-    {/* GA4 DIRECTO - Temporal mientras se arregla GTM */}
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-MZLRKV4WV9"></script>
-    <script is:inline>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-MZLRKV4WV9', {
-        page_title: document.title,
-        page_location: window.location.href
-      });
-      console.log('🎯 GA4 directo inicializado con ID correcto');
-    </script>
-    
-    {/* CSS CRÍTICO MÍNIMO - Solo lo esencial para evitar layout shift */}
-    <style>
-      /* Reset básico */
-      *, *::before, *::after { box-sizing: border-box; }
-      html { line-height: 1.15; -webkit-text-size-adjust: 100%; }
-      body { margin: 0; font-family: system-ui, sans-serif; }
-      
-      /* Layout básico para evitar saltos */
-      .container { max-width: 1200px; margin: 0 auto; padding: 0 1rem; }
-      .flex { display: flex; }
-      .items-center { align-items: center; }
-      .justify-between { justify-content: space-between; }
-      
-      /* Loading state suave */
-      body.loading { opacity: 0.95; }
-      body.loaded { opacity: 1; transition: opacity 0.3s ease; }
-      
-      /* Skeleton para header/footer mientras carga */
-      header, footer { min-height: 60px; }
-      main { min-height: 50vh; }
-      
-      /* Evitar flash de imágenes */
-      img { max-width: 100%; height: auto; }
-    </style>
-    
-    {/* Schema.org */}
-    <script type="application/ld+json">
-      {JSON.stringify({
-        "@context": "https://schema.org",
-        "@type": "EducationalOrganization",
-        "name": "UNE - Universidad de Especialidades",
-        "alternateName": "Universidad de Jalisco - UNE",
-        "url": Astro.url.origin,
-        "logo": `${Astro.url.origin}/Favicon/apple-icon-180x180.png`,
-        "image": fullOgImage,
-        "description": description || defaultConfig.description,
-        "address": {
-          "@type": "PostalAddress",
-          "addressRegion": "Jalisco",
-          "addressCountry": "MX"
-        }
-      })}
-    </script>
-    
-    {/* Open Graph */}
-    <meta property="og:title" content={fullTitle} />
-    <meta property="og:description" content={description || defaultConfig.description} />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content={Astro.url.href} />
-    <meta property="og:image" content={fullOgImage} />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content={`${fullTitle} - Logo`} />
-    <meta property="og:locale" content="es_MX" />
-    <meta property="og:site_name" content="Universidad de Jalisco - UNE" />
-    
-    {/* Twitter Card */}
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content={fullTitle} />
-    <meta name="twitter:description" content={description || defaultConfig.description} />
-    <meta name="twitter:image" content={fullOgImage} />
-    <meta name="twitter:image:alt" content={`${fullTitle} - Logo`} />
-    <meta name="twitter:site" content="@une_universidad" />
-    
-    <link rel="canonical" href={Astro.url.href} />
-  </head>
-  
-  <body class={`${bodyClass} loading`}>
-    <Clarity projectId={projectId} />
-    
-    <Header />
-    
-    <main id="main-content" tabindex="-1">
-      <slot />
-    </main>
-    
-    <Footer />
-    
-    <slot name="scripts" />
-    
-    <script is:inline>
-      // Marcado rápido como cargado
-      function markLoaded() {
-        document.body.classList.remove('loading');
-        document.body.classList.add('loaded');
-        
-        if (window.clarity) {
-          window.clarity('set', 'page_loaded', 'true');
-        }
-      }
-      
-      if (document.readyState === 'complete') {
-        markLoaded();
-      } else {
-        window.addEventListener('load', markLoaded);
-        // Fallback más rápido
-        setTimeout(markLoaded, 2000);
-      }
-    </script>
-  </body>
-</html>
+<!-- Google Tag Manager - Script en el head -->
+<script is:inline define:vars={{ gtmId }}>
+  (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer',gtmId);
+</script>
+
+<!-- Google Tag Manager (noscript) -->
+<noscript>
+  <iframe src={`https://www.googletagmanager.com/ns.html?id=${gtmId}`}
+          height="0" 
+          width="0" 
+          style="display:none;visibility:hidden">
+  </iframe>
+</noscript>
