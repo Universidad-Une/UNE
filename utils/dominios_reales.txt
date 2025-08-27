@@ -1,0 +1,282 @@
+LISTA DE DOMINIOS
+UNE-ENLINEA.COM (40 dominios)
+Dominios principales y funcionales:
+
+une-enlinea.com
+www.une-enlinea.com
+mail.une-enlinea.com
+localhost.une-enlinea.com
+contenido.une-enlinea.com
+www.contenido.une-enlinea.com
+moodle.une-enlinea.com
+www.moodle.une-enlinea.com
+virtual.une-enlinea.com
+
+Subdominios técnicos (cPanel, email, etc.):
+
+ftp.une-enlinea.com
+cpanel.une-enlinea.com
+webmail.une-enlinea.com
+webdisk.une-enlinea.com
+cpcontacts.une-enlinea.com
+autoconfig.une-enlinea.com
+cpcalendars.une-enlinea.com
+autodiscover.une-enlinea.com
+whm.une-enlinea.com
+
+Subdominios técnicos de contenido:
+
+cpanel.contenido.une-enlinea.com
+cpcalendars.contenido.une-enlinea.com
+webdisk.contenido.une-enlinea.com
+autodiscover.contenido.une-enlinea.com
+cpcontacts.contenido.une-enlinea.com
+autoconfig.contenido.une-enlinea.com
+webmail.contenido.une-enlinea.com
+whm.contenido.une-enlinea.com
+
+Registros DNS técnicos:
+
+_acme-challenge.une-enlinea.com
+_cpanel-dcv-test-record.une-enlinea.com
+default._domainkey.une-enlinea.com
+default._domainkey.contenido.une-enlinea.com
+_autodiscover._tcp.une-enlinea.com
+_autodiscover._tcp.contenido.une-enlinea.com
+_carddav._tcp.une-enlinea.com
+_carddav._tcp.contenido.une-enlinea.com
+_caldavs._tcp.une-enlinea.com
+_caldavs._tcp.contenido.une-enlinea.com
+_caldav._tcp.une-enlinea.com
+_caldav._tcp.contenido.une-enlinea.com
+_carddavs._tcp.une-enlinea.com
+_carddavs._tcp.contenido.une-enlinea.com
+
+UNIVERSIDAD-UNE.COM (77 dominios)
+Dominio principal:
+
+universidad-une.com
+www.universidad-une.com
+mail.universidad-une.com
+localhost.universidad-une.com
+
+Subdominios funcionales/departamentos:
+
+farmacia.universidad-une.com
+proveedores.universidad-une.com
+servicios.universidad-une.com
+www.servicios.universidad-une.com
+unifi.universidad-une.com
+www.unifi.universidad-une.com
+admin.universidad-une.com
+nimine.universidad-une.com
+nominas.universidad-une.com
+talento.universidad-une.com
+alumnado.universidad-une.com
+profesorado.universidad-une.com
+wazuh.universidad-une.com
+helpdesk.universidad-une.com
+intranet.universidad-une.com
+credenciales.universidad-une.com
+gastronomia.universidad-une.com
+ssdocente.universidad-une.com
+soporteescolar.universidad-une.com
+
+Subdominios de ubicaciones/sucursales:
+
+amarilla.universidad-une.com
+plazadelsol.universidad-une.com
+quetzal.universidad-une.com
+acacias.universidad-une.com
+milenio.universidad-une.com
+tonala.universidad-une.com
+vallarta.universidad-une.com
+centro.universidad-une.com
+centromedico.universidad-une.com
+tlaquepaque.universidad-une.com
+tesistan.universidad-une.com
+pvlasjuntas.universidad-une.com
+pvcaracol.universidad-une.com
+pvavmexico.universidad-une.com
+torreune.universidad-une.com
+zapopan.universidad-une.com
+
+Subdominios de testing/desarrollo:
+
+stagging.universidad-une.com
+alumnado-test.universidad-une.com
+profesorado-test.universidad-une.com
+odoo-test.universidad-une.com
+prueba.universidad-une.com
+prueba3.universidad-une.com
+
+Subdominios comerciales/marketing:
+
+blog.universidad-une.com
+compras.universidad-une.com
+shop.universidad-une.com
+mitienda.universidad-une.com
+portal.universidad-une.com
+mkt.universidad-une.com
+
+Subdominios técnicos (cPanel, email, etc.):
+
+ftp.universidad-une.com
+cpanel.universidad-une.com
+webmail.universidad-une.com
+webdisk.universidad-une.com
+cpcontacts.universidad-une.com
+autoconfig.universidad-une.com
+cpcalendars.universidad-une.com
+autodiscover.universidad-une.com
+whm.universidad-une.com
+
+Subdominios de email/envío:
+
+mta.universidad-une.com
+mailer.universidad-une.com
+mailersend.universidad-une.com
+
+Registros DNS técnicos:
+
+_.universidad-une.com
+_acme-challenge.universidad-une.com
+_cpanel-dcv-test-record.universidad-une.com
+_gh-adminune-o.universidad-une.com
+_dmarc.universidad-une.com
+default._domainkey.universidad-une.com
+g._domainkey.universidad-une.com
+mlsend._domainkey.universidad-une.com
+google._domainkey.universidad-une.com
+_autodiscover._tcp.universidad-une.com
+_carddav._tcp.universidad-une.com
+_caldavs._tcp.universidad-une.com
+_caldav._tcp.universidad-une.com
+_carddavs._tcp.universidad-une.com
+
+VIVETUUNIVERSIDAD.COM (84 dominios)
+Dominio principal:
+
+vivetuuniversidad.com
+www.vivetuuniversidad.com
+mail.vivetuuniversidad.com
+localhost.vivetuuniversidad.com
+
+Subdominios principales:
+
+ejemplo.vivetuuniversidad.com
+www.ejemplo.vivetuuniversidad.com
+une.vivetuuniversidad.com
+www.une.vivetuuniversidad.com
+une-enlinea.vivetuuniversidad.com
+www.une-enlinea.vivetuuniversidad.com
+talento.vivetuuniversidad.com
+www.talento.vivetuuniversidad.com
+
+Subdominios técnicos principales:
+
+autodiscover.vivetuuniversidad.com
+cpcalendars.vivetuuniversidad.com
+webdisk.vivetuuniversidad.com
+cpcontacts.vivetuuniversidad.com
+whm.vivetuuniversidad.com
+autoconfig.vivetuuniversidad.com
+
+Subdominios técnicos de "ejemplo":
+
+whm.ejemplo.vivetuuniversidad.com
+autodiscover.ejemplo.vivetuuniversidad.com
+webmail.ejemplo.vivetuuniversidad.com
+autoconfig.ejemplo.vivetuuniversidad.com
+cpanel.ejemplo.vivetuuniversidad.com
+cpcalendars.ejemplo.vivetuuniversidad.com
+webdisk.ejemplo.vivetuuniversidad.com
+cpcontacts.ejemplo.vivetuuniversidad.com
+
+Subdominios técnicos de "une":
+
+webmail.une.vivetuuniversidad.com
+webdisk.une.vivetuuniversidad.com
+autodiscover.une.vivetuuniversidad.com
+cpanel.une.vivetuuniversidad.com
+cpcontacts.une.vivetuuniversidad.com
+cpcalendars.une.vivetuuniversidad.com
+whm.une.vivetuuniversidad.com
+autoconfig.une.vivetuuniversidad.com
+
+Subdominios técnicos de "une-enlinea":
+
+whm.une-enlinea.vivetuuniversidad.com
+autoconfig.une-enlinea.vivetuuniversidad.com
+webdisk.une-enlinea.vivetuuniversidad.com
+cpanel.une-enlinea.vivetuuniversidad.com
+autodiscover.une-enlinea.vivetuuniversidad.com
+webmail.une-enlinea.vivetuuniversidad.com
+cpcontacts.une-enlinea.vivetuuniversidad.com
+cpcalendars.une-enlinea.vivetuuniversidad.com
+
+Subdominios técnicos de "talento":
+
+cpanel.talento.vivetuuniversidad.com
+webdisk.talento.vivetuuniversidad.com
+webmail.talento.vivetuuniversidad.com
+autodiscover.talento.vivetuuniversidad.com
+cpcontacts.talento.vivetuuniversidad.com
+whm.talento.vivetuuniversidad.com
+autoconfig.talento.vivetuuniversidad.com
+cpcalendars.talento.vivetuuniversidad.com
+
+Registros DNS técnicos principales:
+
+_cpanel-dcv-test-record.vivetuuniversidad.com
+_acme-challenge.vivetuuniversidad.com
+_acme-challenge.ejemplo.vivetuuniversidad.com
+_acme-challenge.www.une.vivetuuniversidad.com
+
+Registros DKIM:
+
+default._domainkey.vivetuuniversidad.com
+default._domainkey.ejemplo.vivetuuniversidad.com
+default._domainkey.une.vivetuuniversidad.com
+default._domainkey.une-enlinea.vivetuuniversidad.com
+default._domainkey.talento.vivetuuniversidad.com
+
+Registros _autodiscover._tcp:
+
+_autodiscover._tcp.vivetuuniversidad.com
+_autodiscover._tcp.ejemplo.vivetuuniversidad.com
+_autodiscover._tcp.une.vivetuuniversidad.com
+_autodiscover._tcp.une-enlinea.vivetuuniversidad.com
+_autodiscover._tcp.talento.vivetuuniversidad.com
+
+Registros _carddav._tcp:
+
+_carddav._tcp.vivetuuniversidad.com
+_carddav._tcp.ejemplo.vivetuuniversidad.com
+_carddav._tcp.une.vivetuuniversidad.com
+_carddav._tcp.une-enlinea.vivetuuniversidad.com
+_carddav._tcp.talento.vivetuuniversidad.com
+
+Registros _caldav._tcp:
+
+_caldav._tcp.vivetuuniversidad.com
+_caldav._tcp.ejemplo.vivetuuniversidad.com
+_caldav._tcp.une.vivetuuniversidad.com
+_caldav._tcp.une-enlinea.vivetuuniversidad.com
+_caldav._tcp.talento.vivetuuniversidad.com
+
+Registros _caldavs._tcp:
+
+_caldavs._tcp.vivetuuniversidad.com
+_caldavs._tcp.ejemplo.vivetuuniversidad.com
+_caldavs._tcp.une.vivetuuniversidad.com
+_caldavs._tcp.une-enlinea.vivetuuniversidad.com
+_caldavs._tcp.talento.vivetuuniversidad.com
+
+Registros _carddavs._tcp:
+
+_carddavs._tcp.vivetuuniversidad.com
+_carddavs._tcp.ejemplo.vivetuuniversidad.com
+_carddavs._tcp.une.vivetuuniversidad.com
+_carddavs._tcp.une-enlinea.vivetuuniversidad.com
+_carddavs._tcp.talento.vivetuuniversidad.com
