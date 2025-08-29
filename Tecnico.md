@@ -152,7 +152,7 @@ intranet.universidad-une.com (interno - pendiente)
 **Consolidación Propuesta (6 sistemas optimizados):**
 ```
 PORTAL PRINCIPAL CONSOLIDADO:
-├── www.universidad-une.co (absorbe: vivetuuniversidad, blog, soporte)
+├── www.universidad-une.com (absorbe: vivetuuniversidad, blog, soporte)
 
 SISTEMAS INDEPENDIENTES:
 ├── www.une-enlinea.com (educación a distancia)
