@@ -1,0 +1,133 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Logo from "@assets/Logos/UNE_30.webp";
+
+import Galeriadeplantele from "@/components/sections/historia/Galeriadeplantele.astro";
+import EmpleosList from "@/components/sections/acerca/EmpleosList.astro";
+---
+
+<Layout
+title="Empleos UNE - Únete a Nuestro Equipo de Excelencia Educativa"
+description="Descubre oportunidades laborales en Universidad UNE. Forma parte de una institución líder con 30 años transformando vidas a través de la educación integral en Jalisco.">
+  <main class="bg-white">
+    <!-- HERO SECTION -->
+
+    <section class="py-16 px-4">
+      <div class="max-w-7xl mx-auto">
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+          <div class="relative">
+            <div class="relative z-10">
+              <img
+                src={Logo.src}
+                alt="Universidad UNE - Tu próximo lugar de trabajo"
+                class="w-3/4 h-auto rounded-lg"
+              />
+            </div>
+          </div>
+
+          <div class="space-y-8">
+            <h2 class="text-3xl lg:text-4xl font-bold mb-6">Forma parte del equipo UNE</h2>
+
+            <p class="text-lg lg:text-xl leading-relaxed mb-8">
+              En Universidad UNE buscamos profesionales comprometidos que compartan 
+              nuestra pasión por la educación de excelencia. Con más de 30 años 
+              formando líderes en Jalisco, ofrecemos un ambiente de trabajo colaborativo 
+              donde tu talento puede crecer y contribuir al desarrollo de las nuevas 
+              generaciones. Únete a nuestro equipo en alguno de nuestros 18 planteles 
+              y sé parte de una institución que transforma vidas.
+            </p>
+
+            <div class="grid sm:grid-cols-2 gap-6">
+              <div class="flex items-start space-x-3">
+                <div class="flex-shrink-0">
+                  <div class="w-8 h-8 bg-green-400 rounded-full flex items-center justify-center">
+                    <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                    </svg>
+                  </div>
+                </div>
+                <p class="font-medium">Desarrollo profesional continuo</p>
+              </div>
+
+              <div class="flex items-start space-x-3">
+                <div class="flex-shrink-0">
+                  <div class="w-8 h-8 bg-green-400 rounded-full flex items-center justify-center">
+                    <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                    </svg>
+                  </div>
+                </div>
+                <p class="font-medium">Ambiente colaborativo e innovador</p>
+              </div>
+
+              <div class="flex items-start space-x-3">
+                <div class="flex-shrink-0">
+                  <div class="w-8 h-8 bg-green-400 rounded-full flex items-center justify-center">
+                    <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                    </svg>
+                  </div>
+                </div>
+                <p class="font-medium">Oportunidades de crecimiento</p>
+              </div>
+
+              <div class="flex items-start space-x-3">
+                <div class="flex-shrink-0">
+                  <div class="w-8 h-8 bg-green-400 rounded-full flex items-center justify-center">
+                    <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                    </svg>
+                  </div>
+                </div>
+                <p class="font-medium">Impacto social significativo</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-gray-50 py-16 px-4">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl lg:text-4xl font-bold mb-6 text-gray-800">
+          ¿Por qué trabajar en UNE?
+        </h2>
+        <p class="text-lg text-gray-600 max-w-4xl mx-auto leading-relaxed">
+          Únete a una institución comprometida con la excelencia educativa y el 
+          desarrollo integral de nuestros colaboradores. En UNE, tu carrera profesional 
+          encontrará el ambiente perfecto para crecer.
+        </p>
+      </div>
+      
+      <div class="grid lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
+        <div class="bg-rojo-une rounded-2xl p-8 text-white shadow-lg">
+          <h3 class="text-3xl font-bold text-center mb-6">NUESTRA VISIÓN</h3>
+          <p class="text-lg font-light leading-relaxed text-center">
+            Ser la mejor Universidad en Guadalajara, formando integralmente a
+            hombres y mujeres, que lleven a México "Por un camino hacia la
+            excelencia".
+          </p>
+        </div>
+
+        <div class="bg-azul-une rounded-2xl p-8 text-white shadow-lg">
+          <h3 class="text-3xl font-bold text-center mb-6">NUESTRA MISIÓN</h3>
+          <p class="text-lg leading-relaxed text-center">
+            Formar de manera íntegra verdaderos profesionales que le den
+            grandeza y prestigio a México, y dignidad a la familia.
+          </p>
+        </div>
+      </div>
+      
+      <div class="mt-12 text-center">
+        <p class="text-lg text-gray-700 max-w-3xl mx-auto leading-relaxed">
+          Como parte del equipo UNE, contribuirás directamente al cumplimiento de 
+          esta misión, impactando positivamente en la formación de miles de estudiantes 
+          y en el futuro de México.
+        </p>
+      </div>
+    </section>
+    
+    <EmpleosList />
+    <Galeriadeplantele />
+  </main>
+</Layout>

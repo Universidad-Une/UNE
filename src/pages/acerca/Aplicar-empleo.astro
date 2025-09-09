@@ -1,0 +1,550 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import { MapPin, Calendar, Users, BookOpen, Building2, User, Mail, Phone, FileText, Upload, ArrowLeft, Calendar as CalendarIcon, Briefcase, GraduationCap, Car, Bus } from '@lucide/astro';
+
+// Obtener parámetros de la URL
+const url = new URL(Astro.request.url);
+const searchParams = url.searchParams;
+
+const jobData = {
+  id: searchParams.get('id') || '',
+  puesto: decodeURIComponent(searchParams.get('puesto') || ''),
+  ubicacion: decodeURIComponent(searchParams.get('ubicacion') || ''),
+  puestos: parseInt(searchParams.get('puestos') || '1'),
+  fecha: searchParams.get('fecha') || '',
+  descripcion: decodeURIComponent(searchParams.get('descripcion') || '')
+};
+
+// Función para formatear fecha
+const formatDate = (dateString: string) => {
+  if (!dateString) return 'Fecha no disponible';
+  
+  try {
+    const date = new Date(dateString);
+    // Verificar si la fecha es válida
+    if (isNaN(date.getTime())) {
+      return 'Fecha no disponible';
+    }
+    
+    return date.toLocaleDateString('es-MX', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric'
+    });
+  } catch (error) {
+    return 'Fecha no disponible';
+  }
+};
+
+// Función para obtener color del badge según disponibilidad
+const getBadgeColor = (count: number) => {
+  if (count >= 3) return 'bg-green-100 text-green-800';
+  if (count >= 2) return 'bg-yellow-100 text-yellow-800';
+  return 'bg-red-100 text-red-800';
+};
+
+// Obtener fecha actual para el campo de fecha de aplicación
+const today = new Date().toISOString().split('T')[0];
+---
+
+<Layout>
+  <div class="max-w-5xl mx-auto p-6">
+    <!-- Botón de regreso -->
+    <div class="mb-6">
+      <a 
+        href="/acerca/Empleos" 
+        class="inline-flex items-center text-blue-600 hover:text-blue-700 font-medium transition-colors duration-200"
+      >
+        <ArrowLeft class="w-4 h-4 mr-2" />
+        Volver a empleos
+      </a>
+    </div>
+
+    <!-- Información del trabajo -->
+    <div class="bg-white rounded-lg shadow-md border border-gray-200 mb-8">
+      <div class="p-6">
+        <div class="flex justify-between items-start mb-4">
+          <div class="flex-1">
+            <h1 class="text-2xl font-bold text-gray-900 mb-2">
+              {jobData.puesto || 'Puesto no especificado'}
+            </h1>
+            <div class="flex items-center text-gray-600 mb-2">
+              <Building2 class="w-4 h-4 mr-2" />
+              <span>{jobData.ubicacion || 'Ubicación no especificada'}</span>
+            </div>
+            
+        
+          </div>
+          <div class={`px-3 py-1 rounded-full text-xs font-medium ${getBadgeColor(jobData.puestos)}`}>
+            <Users class="w-3 h-3 inline mr-1" />
+            {jobData.puestos} {jobData.puestos === 1 ? 'puesto' : 'puestos'}
+          </div>
+        </div>
+
+        <p class="text-gray-700 mb-4 leading-relaxed">
+          {jobData.descripcion || 'Descripción no disponible'}
+        </p>
+
+        <div class="flex items-center text-gray-500 text-sm pt-4 border-t border-gray-100">
+          <Calendar class="w-4 h-4 mr-2" />
+          <span>Publicado el {formatDate(jobData.fecha)}</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Formulario de registro -->
+    <div class="bg-white rounded-lg shadow-md border border-gray-200">
+      <div class="p-6">
+        <h2 class="text-xl font-semibold text-gray-900 mb-6 flex items-center">
+          <FileText class="w-5 h-5 mr-2" />
+          Formulario de registro
+        </h2>
+
+        <form class="space-y-8" id="job-application-form">
+          <!-- Fecha de aplicación y Vacante -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+              <label for="fecha_aplicacion" class="block text-sm font-medium text-gray-700 mb-2">
+                Fecha de Aplicación *
+              </label>
+              <div class="relative">
+                <CalendarIcon class="w-4 h-4 absolute left-3 top-3 text-gray-400" />
+                <input 
+                  type="date" 
+                  id="fecha_aplicacion" 
+                  name="fecha_aplicacion" 
+                  required
+                  value={today}
+                  class="w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                />
+              </div>
+            </div>
+
+            <div>
+              <label for="vacante_deseada" class="block text-sm font-medium text-gray-700 mb-2">
+                Vacante deseada *
+              </label>
+              <div class="relative">
+                <Briefcase class="w-4 h-4 absolute left-3 top-3 text-gray-400" />
+                <select 
+                  id="vacante_deseada" 
+                  name="vacante_deseada" 
+                  required
+                  class="w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                >
+                  <option value="">Seleccione una opción</option>
+                  <option value="admision">Admisión</option>
+                  <option value="control_escolar">Control escolar</option>
+                  <option value="ejecutivo_ventas">Ejecutivo de ventas en línea</option>
+                  <option value="soporte_escolar">Soporte escolar</option>
+                  <option value="soporte_tecnico">Soporte técnico</option>
+                  <option value="administracion_plantel">Administración de plantel</option>
+                  <option value="coordinador_prefecto">Coordinador prefecto</option>
+                  <option value="coordinador_academico" selected={jobData.puesto.toLowerCase().includes('coordinador académico') || jobData.puesto.toLowerCase().includes('coordinador academico')}>Coordinador académico</option>
+                  <option value="docente" selected={jobData.puesto.toLowerCase().includes('docente') || jobData.puesto.toLowerCase().includes('profesor')}>Docente (profesorado)</option>
+                  <option value="chofer">Chofer</option>
+                  <option value="cocina">Cocina</option>
+                  <option value="auxiliar_general">Auxiliar general</option>
+                  <option value="mantenimiento">Mantenimiento</option>
+                  <option value="intendencia">Intendencia</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <!-- Información personal -->
+          <div class="border-t pt-6">
+            <h3 class="text-lg font-semibold text-gray-900 mb-4 flex items-center">
+              <User class="w-5 h-5 mr-2" />
+              Información Personal
+            </h3>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div>
+                <label for="nombre" class="block text-sm font-medium text-gray-700 mb-2">
+                  Nombre(s) *
+                </label>
+                <input 
+                  type="text" 
+                  id="nombre" 
+                  name="nombre" 
+                  required
+                  placeholder="Nombre(s) del aplicante"
+                  class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                />
+              </div>
+
+              <div>
+                <label for="apellido_paterno" class="block text-sm font-medium text-gray-700 mb-2">
+                  Apellido Paterno *
+                </label>
+                <input 
+                  type="text" 
+                  id="apellido_paterno" 
+                  name="apellido_paterno" 
+                  required
+                  class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                />
+              </div>
+
+              <div>
+                <label for="apellido_materno" class="block text-sm font-medium text-gray-700 mb-2">
+                  Apellido Materno *
+                </label>
+                <input 
+                  type="text" 
+                  id="apellido_materno" 
+                  name="apellido_materno" 
+                  required
+                  class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                />
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-2">
+                  Género *
+                </label>
+                <div class="flex space-x-4">
+                  <label class="flex items-center">
+                    <input type="radio" name="genero" value="masculino" required class="mr-2" />
+                    Masculino
+                  </label>
+                  <label class="flex items-center">
+                    <input type="radio" name="genero" value="femenino" required class="mr-2" />
+                    Femenino
+                  </label>
+                  <label class="flex items-center">
+                    <input type="radio" name="genero" value="otro" required class="mr-2" />
+                    Otro
+                  </label>
+                </div>
+              </div>
+
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-2">
+                  Estado civil *
+                </label>
+                <div class="grid grid-cols-2 gap-2">
+                  <label class="flex items-center">
+                    <input type="radio" name="estado_civil" value="soltero" required class="mr-2" />
+                    Soltero/a
+                  </label>
+                  <label class="flex items-center">
+                    <input type="radio" name="estado_civil" value="casado" required class="mr-2" />
+                    Casado/a
+                  </label>
+                  <label class="flex items-center">
+                    <input type="radio" name="estado_civil" value="viudo" required class="mr-2" />
+                    Viudo/a
+                  </label>
+                  <label class="flex items-center">
+                    <input type="radio" name="estado_civil" value="divorciado" required class="mr-2" />
+                    Divorciado/a
+                  </label>
+                  <label class="flex items-center">
+                    <input type="radio" name="estado_civil" value="otro" required class="mr-2" />
+                    Otro
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Información de contacto -->
+          <div class="border-t pt-6">
+            <h3 class="text-lg font-semibold text-gray-900 mb-4 flex items-center">
+              <Phone class="w-5 h-5 mr-2" />
+              Información de Contacto
+            </h3>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div>
+                <label for="telefono" class="block text-sm font-medium text-gray-700 mb-2">
+                  Su número de teléfono *
+                </label>
+                <div class="relative">
+                  <Phone class="w-4 h-4 absolute left-3 top-3 text-gray-400" />
+                  <input 
+                    type="tel" 
+                    id="telefono" 
+                    name="telefono" 
+                    required
+                    placeholder="+52 123 456 7890"
+                    class="w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  />
+                </div>
+              </div>
+
+              <div>
+                <label for="email" class="block text-sm font-medium text-gray-700 mb-2">
+                  Su correo electrónico *
+                </label>
+                <div class="relative">
+                  <Mail class="w-4 h-4 absolute left-3 top-3 text-gray-400" />
+                  <input 
+                    type="email" 
+                    id="email" 
+                    name="email" 
+                    required
+                    placeholder="tu.email@ejemplo.com"
+                    class="w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  />
+                </div>
+              </div>
+
+              <div>
+                <label for="fecha_nacimiento" class="block text-sm font-medium text-gray-700 mb-2">
+                  Fecha de nacimiento *
+                </label>
+                <div class="relative">
+                  <CalendarIcon class="w-4 h-4 absolute left-3 top-3 text-gray-400" />
+                  <input 
+                    type="date" 
+                    id="fecha_nacimiento" 
+                    name="fecha_nacimiento" 
+                    required
+                    class="w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  />
+                </div>
+              </div>
+
+              <div>
+                <label for="codigo_postal" class="block text-sm font-medium text-gray-700 mb-2">
+                  Código Postal
+                </label>
+                <div class="relative">
+                  <MapPin class="w-4 h-4 absolute left-3 top-3 text-gray-400" />
+                  <input 
+                    type="text" 
+                    id="codigo_postal" 
+                    name="codigo_postal" 
+                    placeholder="45000"
+                    class="w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Medio de empleo -->
+          <div class="border-t pt-6">
+            <h3 class="text-lg font-semibold text-gray-900 mb-4">
+              Medio de empleo *
+            </h3>
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+              <label class="flex items-center">
+                <input type="radio" name="medio_empleo" value="facebook" required class="mr-2" />
+                Facebook
+              </label>
+              <label class="flex items-center">
+                <input type="radio" name="medio_empleo" value="indeed" required class="mr-2" />
+                Indeed
+              </label>
+              <label class="flex items-center">
+                <input type="radio" name="medio_empleo" value="computrabajo" required class="mr-2" />
+                Computrabajo
+              </label>
+              <label class="flex items-center">
+                <input type="radio" name="medio_empleo" value="sne" required class="mr-2" />
+                SNE
+              </label>
+              <label class="flex items-center">
+                <input type="radio" name="medio_empleo" value="pagina_web_une" required class="mr-2" />
+                Página Web UNE
+              </label>
+              <label class="flex items-center">
+                <input type="radio" name="medio_empleo" value="volante_plantel" required class="mr-2" />
+                Volante/Plantel
+              </label>
+              <label class="flex items-center">
+                <input type="radio" name="medio_empleo" value="modulo" required class="mr-2" />
+                Módulo
+              </label>
+              <label class="flex items-center">
+                <input type="radio" name="medio_empleo" value="talenteca" required class="mr-2" />
+                Talenteca
+              </label>
+              <label class="flex items-center">
+                <input type="radio" name="medio_empleo" value="recomendado" required class="mr-2" />
+                Recomendado
+              </label>
+              <label class="flex items-center">
+                <input type="radio" name="medio_empleo" value="otro" required class="mr-2" />
+                Otro
+              </label>
+            </div>
+          </div>
+
+          <!-- Escolaridad y Plantel -->
+          <div class="border-t pt-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-2">
+                  Escolaridad *
+                </label>
+                <div class="space-y-2">
+                  <label class="flex items-center">
+                    <input type="radio" name="escolaridad" value="medio_superior" required class="mr-2" />
+                    Medio superior
+                  </label>
+                  <label class="flex items-center">
+                    <input type="radio" name="escolaridad" value="superior" required class="mr-2" />
+                    Superior
+                  </label>
+                  <label class="flex items-center">
+                    <input type="radio" name="escolaridad" value="maestria" required class="mr-2" />
+                    Maestría
+                  </label>
+                  <label class="flex items-center">
+                    <input type="radio" name="escolaridad" value="doctorado" required class="mr-2" />
+                    Doctorado
+                  </label>
+                </div>
+              </div>
+
+              <div>
+                <label for="plantel_docentes" class="block text-sm font-medium text-gray-700 mb-2">
+                  Plantel *
+                </label>
+                <select 
+                  id="plantel_docentes" 
+                  name="plantel_docentes" 
+                  required
+                  class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                >
+                  <option value="">Seleccione un plantel</option>
+                  <option value="av_mexico">Av. México</option>
+                  <option value="casa_amarilla">Casa Amarilla</option>
+                  <option value="centro">Centro</option>
+                  <option value="centro_medico">Centro Médico</option>
+                  <option value="centro_idiomas">Centro de Idiomas</option>
+                  <option value="une_en_linea">UNE en Línea</option>
+                  <option value="las_juntas">Las Juntas</option>
+                  <option value="las_gaviotas">Las Gaviotas</option>
+                  <option value="milenio">Milenio</option>
+                  <option value="plaza_caracol">Plaza Caracol</option>
+                  <option value="tesistan">Tesistán</option>
+                  <option value="tlajomulco">Tlajomulco</option>
+                  <option value="tlaquepaque">Tlaquepaque</option>
+                  <option value="tonala">Tonalá</option>
+                  <option value="torre_milenio">Torre Milenio</option>
+                  <option value="torre_quetzal">Torre Quetzal</option>
+                  <option value="torre_zafiro">Torre Zafiro</option>
+                  <option value="vallarta">Vallarta</option>
+                  <option value="zapopan" selected={jobData.ubicacion.toLowerCase().includes('zapopan')}>Zapopan</option>
+                  <option value="tepatitlan">Tepatitlán</option>
+                  <option value="campus_puerto_vallarta">Campus Puerto Vallarta</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <!-- Información médica y transporte -->
+          <div class="border-t pt-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-2">
+                  ¿El empleado padece de alguna discapacidad?
+                </label>
+                <div class="flex space-x-4">
+                  <label class="flex items-center">
+                    <input type="radio" name="discapacidad" value="si" class="mr-2" />
+                    Sí
+                  </label>
+                  <label class="flex items-center">
+                    <input type="radio" name="discapacidad" value="no" class="mr-2" />
+                    No
+                  </label>
+                </div>
+              </div>
+
+              <div>
+                <label for="medicamentos" class="block text-sm font-medium text-gray-700 mb-2">
+                  Medicamentos
+                </label>
+                <textarea 
+                  id="medicamentos" 
+                  name="medicamentos" 
+                  rows="2"
+                  placeholder="Liste medicamentos que toma regularmente (opcional)"
+                  class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                ></textarea>
+              </div>
+            </div>
+
+            <div class="mt-6">
+              <label class="block text-sm font-medium text-gray-700 mb-2">
+                Medio de transporte *
+              </label>
+              <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <label class="flex items-center">
+                  <input type="radio" name="medio_transporte" value="automovil" required class="mr-2" />
+                  <Car class="w-4 h-4 mr-1" />
+                  Automóvil
+                </label>
+                <label class="flex items-center">
+                  <input type="radio" name="medio_transporte" value="transporte_publico" required class="mr-2" />
+                  <Bus class="w-4 h-4 mr-1" />
+                  Transporte Público
+                </label>
+                <label class="flex items-center">
+                  <input type="radio" name="medio_transporte" value="motocicleta" required class="mr-2" />
+                  Motocicleta
+                </label>
+                <label class="flex items-center">
+                  <input type="radio" name="medio_transporte" value="bicicleta" required class="mr-2" />
+                  Bicicleta
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Campos ocultos -->
+          <input type="hidden" name="puesto_id" value={jobData.id} />
+          <input type="hidden" name="puesto_nombre" value={jobData.puesto} />
+          <input type="hidden" name="puesto_ubicacion" value={jobData.ubicacion} />
+
+          <!-- Términos y condiciones -->
+          <div class="border-t pt-6">
+            <div class="flex items-start space-x-2">
+              <input 
+                type="checkbox" 
+                id="terminos" 
+                name="terminos" 
+                required
+                class="mt-1"
+              />
+              <label for="terminos" class="text-sm text-gray-600">
+                Acepto los 
+                <a href="/legal/terminos" class="text-blue-600 hover:text-blue-700">términos y condiciones</a> 
+                y autorizo el tratamiento de mis datos personales conforme a la 
+                <a href="/legal/privacidad" class="text-blue-600 hover:text-blue-700">política de privacidad</a>.
+                Declaro que toda la información proporcionada es verdadera y completa.
+              </label>
+            </div>
+          </div>
+
+          <!-- Botones -->
+          <div class="flex flex-col sm:flex-row gap-4 pt-6">
+            <button 
+              type="submit"
+              class="flex-1 bg-blue-600 hover:bg-blue-700 text-white py-3 px-6 rounded-md font-medium transition-colors duration-200 flex items-center justify-center"
+            >
+              <BookOpen class="w-4 h-4 mr-2" />
+              Enviar solicitud de empleo
+            </button>
+            
+            <a 
+              href="/acerca/empleos"
+              class="flex-1 bg-gray-100 hover:bg-gray-200 text-gray-700 py-3 px-6 rounded-md font-medium transition-colors duration-200 text-center"
+            >
+              Cancelar
+            </a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</Layout>
