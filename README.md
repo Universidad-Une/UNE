@@ -52,6 +52,7 @@ Este proyecto representa una migración completa desde Odoo Website Builder a As
 - **TailwindCSS 4.1** - Framework de CSS
 - **JavaScript/TypeScript** - Lógica del cliente
 - **Splide.js** - Carruseles y sliders
+- Primer commit - 25 jun. 2025
 
 ### Herramientas y Librerías
 - **PDF-lib** - Generación de documentos PDF
