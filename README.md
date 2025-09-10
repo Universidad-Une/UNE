@@ -134,14 +134,11 @@ npm install
 # Ejecutar en modo desarrollo
 npm run dev
 
-# Build para producción
-npm run build
 ```
 
 ### Scripts Disponibles
 ```bash
 npm run dev          # Servidor de desarrollo
-npm run build        # Build de producción
 npm run preview      # Vista previa del build
 npm run astro        # Comandos de Astro CLI
 ```
