@@ -111,9 +111,172 @@
   <div class="pt-2 lg:pt-4">
     <button 
       type="submit"
-      class="w-full bg-red-500 hover:bg-red-600 text-white font-semibold py-2.5 lg:py-3 px-6 rounded-md transition-colors duration-200 text-sm lg:text-base"
-     aria-label="ENVIAR MENSAJE" title="ENVIAR MENSAJE">
-      ENVIAR MENSAJE
+      id="submit-button"
+      class="w-full bg-red-500 hover:bg-red-600 text-white font-semibold py-2.5 lg:py-3 px-6 rounded-md transition-colors duration-200 text-sm lg:text-base disabled:bg-gray-400 disabled:cursor-not-allowed"
+      aria-label="ENVIAR MENSAJE" 
+      title="ENVIAR MENSAJE"
+    >
+      <span id="button-text">ENVIAR MENSAJE</span>
     </button>
   </div>
+
+  <!-- Mensaje de respuesta -->
+  <div id="response-message" class="hidden mt-4 p-4 rounded-md"></div>
 </form>
+
+<script>
+  console.log('[EDUCATION FORM] 📝 Formulario cargado');
+
+  const form = document.getElementById('education-form');
+  const submitButton = document.getElementById('submit-button');
+  const buttonText = document.getElementById('button-text');
+  const responseMessage = document.getElementById('response-message');
+  const apiUrl = 'https://intranet.universidad-une.com/api/createvisit';
+
+  // Función para mostrar mensaje
+  const showMessage = (message, type = 'success') => {
+    responseMessage.classList.remove('hidden', 'bg-green-100', 'text-green-800', 'bg-red-100', 'text-red-800');
+    
+    if (type === 'success') {
+      responseMessage.classList.add('bg-green-100', 'text-green-800');
+    } else {
+      responseMessage.classList.add('bg-red-100', 'text-red-800');
+    }
+    
+    responseMessage.textContent = message;
+    
+    // Auto-ocultar después de 5 segundos
+    setTimeout(() => {
+      responseMessage.classList.add('hidden');
+    }, 5000);
+  };
+
+  // Función para deshabilitar/habilitar botón
+  const setButtonState = (isLoading) => {
+    submitButton.disabled = isLoading;
+    buttonText.textContent = isLoading ? 'ENVIANDO...' : 'ENVIAR MENSAJE';
+  };
+
+  // Manejar el envío del formulario
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    
+    console.log('[EDUCATION FORM] 🚀 Iniciando envío del formulario');
+    
+    // Deshabilitar botón
+    setButtonState(true);
+    
+    // Obtener datos del formulario
+    const formData = new FormData(form);
+    const data = {
+      nombre: formData.get('nombre'),
+      apellidos: formData.get('apellidos'),
+      correo: formData.get('correo'),
+      telefono: formData.get('telefono'),
+      plantel: formData.get('plantel'),
+      fecha_visita: formData.get('fecha_visita'),
+      hora_visita: formData.get('hora_visita'),
+      relacion_visita: formData.get('relacion_visita')
+    };
+    
+    console.log('[EDUCATION FORM] 📦 Datos a enviar:', data);
+    
+    try {
+      console.log('[EDUCATION FORM] 📡 Enviando POST a:', apiUrl);
+      
+      const response = await fetch(apiUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify(data)
+      });
+      
+      console.log('[EDUCATION FORM] 📬 Respuesta recibida:', {
+        status: response.status,
+        statusText: response.statusText,
+        ok: response.ok
+      });
+      
+      // Intentar parsear la respuesta
+      let responseData;
+      try {
+        responseData = await response.json();
+        console.log('[EDUCATION FORM] ✅ Respuesta JSON:', responseData);
+      } catch (parseError) {
+        console.error('[EDUCATION FORM] ⚠️ No se pudo parsear JSON:', parseError);
+        responseData = { message: 'Respuesta del servidor no válida' };
+      }
+      
+      if (response.ok) {
+        console.log('[EDUCATION FORM] 🎉 Visita creada exitosamente');
+        showMessage('¡Visita registrada exitosamente! Nos pondremos en contacto contigo pronto.', 'success');
+        
+        // Limpiar formulario
+        form.reset();
+      } else {
+        console.error('[EDUCATION FORM] ❌ Error en la respuesta:', responseData);
+        showMessage(
+          responseData.message || `Error al registrar la visita (${response.status})`,
+          'error'
+        );
+      }
+      
+    } catch (error) {
+      console.error('[EDUCATION FORM] ❌ Error al enviar formulario:', error);
+      console.error('[EDUCATION FORM] 📋 Detalles del error:', {
+        message: error.message,
+        name: error.name,
+        stack: error.stack
+      });
+      
+      showMessage(
+        'Error al conectar con el servidor. Por favor, intenta de nuevo.',
+        'error'
+      );
+    } finally {
+      // Habilitar botón nuevamente
+      setButtonState(false);
+    }
+  });
+
+  // Log cuando los campos cambian (para debugging)
+  const inputs = form.querySelectorAll('input, select');
+  inputs.forEach(input => {
+    input.addEventListener('change', (e) => {
+      console.log('[EDUCATION FORM] 📝 Campo modificado:', {
+        name: e.target.name,
+        value: e.target.value
+      });
+    });
+  });
+
+  console.log('[EDUCATION FORM] ✅ Event listeners configurados');
+</script>
+
+<style>
+  /* Animación para el mensaje */
+  #response-message {
+    animation: slideIn 0.3s ease-out;
+  }
+
+  @keyframes slideIn {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+
+
+  /* Estilos para el botón en estado de carga */
+  #submit-button:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+  }
+</style>
