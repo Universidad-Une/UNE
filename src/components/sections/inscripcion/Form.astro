@@ -1429,68 +1429,93 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // Función para preparar el payload
+// Función para preparar el payload
 const preparePayload = () => {
   console.log('[STUDENT FORM] 📦 Preparando payload...');
   
+  // Función auxiliar para obtener valor por posición dentro de una sección específica
+  function obtenerPorSeccion(seccionIndex, inputIndex, tipo = "text") {
+    const secciones = document.querySelectorAll(".bg-white.rounded-xl.shadow-sm");
+    if (secciones[seccionIndex]) {
+      const inputs = secciones[seccionIndex].querySelectorAll(`input[type="${tipo}"]`);
+      return inputs[inputIndex] ? inputs[inputIndex].value : "";
+    }
+    return "";
+  }
+
+  function obtenerSelectPorSeccion(seccionIndex, selectIndex) {
+    const secciones = document.querySelectorAll(".bg-white.rounded-xl.shadow-sm");
+    if (secciones[seccionIndex]) {
+      const selects = secciones[seccionIndex].querySelectorAll("select");
+      return selects[selectIndex] ? selects[selectIndex].value : "";
+    }
+    return "";
+  }
+
+  function obtenerValor(name) {
+    const element = document.querySelector(`[name="${name}"]`);
+    return element ? element.value : "";
+  }
+  
   // Obtener firma desde canvas
   const firmaCanvas = document.getElementById('firmaCanvas');
-  const firmaImagen = firmaCanvas ? firmaCanvas.toDataURL('image/jpeg') : '';
+  const firmaImagen =  '';
   
   // Construir fecha de registro (fecha actual)
   const fechaActual = new Date();
   const fechaRegistro = fechaActual.toISOString().split('T')[0];
   
   // Obtener día, mes y año del compromiso
-  const dia = document.querySelector('input[name="dia"]')?.value || '';
-  const mes = document.querySelector('select[name="mes"]')?.value || '';
-  const año = document.querySelector('select[name="año"]')?.value || '';
+  const dia = obtenerPorSeccion(6, 0, "number");
+  const mes = obtenerSelectPorSeccion(6, 0);
+  const año = obtenerSelectPorSeccion(6, 1);
   
   const payload = {
-    // Nombres
-    nombre: document.querySelector('input[name="nombres"]')?.value || '',
-    apellidoPaterno: document.querySelector('input[name="apellidoPaterno"]')?.value || '',
-    apellidoMaterno: document.querySelector('input[name="apellidoMaterno"]')?.value || '',
-    nombres: document.querySelector('input[name="nombres"]')?.value || '',
+    // Nombres (sección 0)
+    nombre: obtenerPorSeccion(0, 2), // nombres
+    apellidoPaterno: obtenerPorSeccion(0, 0),
+    apellidoMaterno: obtenerPorSeccion(0, 1),
+    nombres: obtenerPorSeccion(0, 2),
     
-    // Domicilio
-    calleNumero: document.querySelector('input[name="calleNumero"]')?.value || '',
-    colonia: document.querySelector('input[name="colonia"]')?.value || '',
-    codigoPostal: document.querySelector('input[name="codigoPostal"]')?.value || '',
-    municipio: document.querySelector('input[name="municipio"]')?.value || '',
-    estado: document.querySelector('input[name="estado"]')?.value || 'JALISCO',
-    pais: document.querySelector('input[name="pais"]')?.value || 'MÉXICO',
+    // Domicilio (sección 1)
+    calleNumero: obtenerPorSeccion(1, 0),
+    colonia: obtenerPorSeccion(1, 1),
+    codigoPostal: obtenerPorSeccion(1, 2),
+    municipio: obtenerPorSeccion(1, 3),
+    estado: obtenerPorSeccion(1, 4) || 'JALISCO',
+    pais: obtenerPorSeccion(1, 5) || 'MÉXICO',
     
-    // Contacto
-    telefono: document.querySelector('input[name="telefono"]')?.value || '',
-    celular: document.querySelector('input[name="celular"]')?.value || '',
-    correo: document.querySelector('input[name="correo"]')?.value || '',
+    // Contacto (sección 1)
+    telefono: obtenerPorSeccion(1, 0, "tel"),
+    celular: obtenerPorSeccion(1, 1, "tel"),
+    correo: obtenerPorSeccion(1, 0, "email"),
     
-    // Datos personales
-    fechaNacimiento: document.querySelector('input[name="fechaNacimiento"]')?.value || '',
-    edad: document.querySelector('input[name="edad"]')?.value || '',
-    sexo: document.querySelector('select[name="sexo"]')?.value || '',
-    estadoCivil: document.querySelector('select[name="estadoCivil"]')?.value || '',
-    nacionalidad: document.querySelector('select[name="nacionalidad"]')?.value || 'MEXICANA',
-    ocupacion: document.querySelector('input[name="ocupacion"]')?.value || '',
-    curp: document.querySelector('input[name="curp"]')?.value || '',
-    rfc: document.querySelector('input[name="rfc"]')?.value || '',
-    tipoSangre: document.querySelector('select[name="tipoSangre"]')?.value || '',
+    // Datos personales (sección 1)
+    fechaNacimiento: obtenerPorSeccion(1, 0, "date"),
+    edad: obtenerPorSeccion(1, 6),
+    sexo: obtenerSelectPorSeccion(1, 0),
+    estadoCivil: obtenerSelectPorSeccion(1, 1),
+    nacionalidad: obtenerSelectPorSeccion(1, 2) || 'MEXICANA',
+    ocupacion: obtenerPorSeccion(1, 7),
+    curp: obtenerPorSeccion(1, 8),
+    rfc: obtenerPorSeccion(1, 9),
+    tipoSangre: obtenerSelectPorSeccion(1, 3),
     
-    // Datos académicos
-    nivelEducativo: 'LICENCIATURA', // Valor por defecto
-    plantel: document.querySelector('select[name="plantel"]')?.value || '',
-    turno: document.querySelector('select[name="turno"]')?.value || '',
-    escuelaProcedencia: document.querySelector('input[name="escuelaProcedencia"]')?.value || '',
-    promedio: document.querySelector('input[name="promedio"]')?.value || '',
-    carrera: document.querySelector('select[name="carrera"]')?.value || '',
-    asesor: document.querySelector('select[name="asesor"]')?.value || '',
+    // Datos académicos (sección 2)
+    nivelEducativo: 'LICENCIATURA',
+    plantel: obtenerValor("plantel"),
+    turno: obtenerValor("turno"),
+    escuelaProcedencia: obtenerValor("escuela_proc"),
+    promedio: obtenerPorSeccion(2, 0, "number") || '',
+    carrera: obtenerValor("carrera"),
+    asesor: obtenerValor("asesor"),
     
-    // Datos familiares
-    nombrePadreTutor: document.querySelector('input[name="nombrePadreTutor"]')?.value || '',
-    ocupacionPadre: document.querySelector('input[name="ocupacionPadre"]')?.value || '',
-    domicilioPadre: document.querySelector('input[name="domicilioPadre"]')?.value || '',
-    telefonoPadre: document.querySelector('input[name="telefonoPadre"]')?.value || '',
-    celularPadre: document.querySelector('input[name="celularPadre"]')?.value || '',
+    // Datos familiares (sección 3)
+    nombrePadreTutor: obtenerPorSeccion(3, 0),
+    ocupacionPadre: obtenerPorSeccion(3, 1),
+    domicilioPadre: obtenerPorSeccion(3, 2),
+    telefonoPadre: obtenerPorSeccion(3, 0, "tel"),
+    celularPadre: obtenerPorSeccion(3, 1, "tel"),
     
     // Medios y razones
     "Medios Seleccionados:": getMediosSeleccionados().join(', ') || 'Ninguno',
@@ -1642,7 +1667,6 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 </script>
 
-<!-- En tu componente .astro -->
 <script>
   // Configuración del canvas para firma
   const canvas = document.getElementById("firmaCanvas");
