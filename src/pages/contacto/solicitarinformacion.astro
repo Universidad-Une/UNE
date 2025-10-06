@@ -138,10 +138,7 @@ description="Solicita información sobre carreras en UNE. Asesoría gratuita, pl
             Recibe información personalizada
           </h2>
         
-        </div>
-
-        <!-- Indicadores de progreso y beneficios -->
-        
+        </div>        
 
         <!-- Formulario -->
         <FormularioPrincipal />
@@ -320,84 +317,3 @@ description="Solicita información sobre carreras en UNE. Asesoría gratuita, pl
 
 
 
-<script>
-  // Tracking de interacciones para optimizar conversión
-  document.addEventListener('DOMContentLoaded', function() {
-    // Tracking de scroll en formulario
-    const formSection = document.querySelector('form');
-    if (formSection) {
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            console.log('Usuario vio formulario');
-            // Aquí enviarías a tu analytics
-          }
-        });
-      });
-      observer.observe(formSection);
-    }
-
-    // Auto-focus en primer campo cuando esté visible
-    const firstInput = document.querySelector('input[type="text"]');
-    if (firstInput) {
-      const inputObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting && window.innerWidth > 768) {
-            setTimeout(() => {
-              firstInput.focus();
-            }, 500);
-          }
-        });
-      });
-      inputObserver.observe(firstInput);
-    }
-
-    // Validación en tiempo real para reducir errores
-    const inputs = document.querySelectorAll('input, select');
-    inputs.forEach(input => {
-      input.addEventListener('blur', function() {
-        validateField(this);
-      });
-    });
-
-    function validateField(field) {
-      const value = field.value.trim();
-      let isValid = true;
-      let message = '';
-
-      switch(field.type) {
-        case 'email':
-          const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-          isValid = emailRegex.test(value);
-          message = isValid ? '' : 'Email no válido';
-          break;
-        case 'tel':
-          const phoneRegex = /^[\d\s\-\+\(\)]{10,}$/;
-          isValid = phoneRegex.test(value);
-          message = isValid ? '' : 'Teléfono no válido';
-          break;
-        default:
-          isValid = value.length > 0;
-          message = isValid ? '' : 'Este campo es requerido';
-      }
-
-      // Mostrar feedback visual
-      field.classList.toggle('border-red-500', !isValid);
-      field.classList.toggle('border-green-500', isValid && value.length > 0);
-      
-      let errorElement = field.nextElementSibling;
-      if (errorElement && errorElement.classList.contains('error-message')) {
-        errorElement.remove();
-      }
-      
-      if (!isValid && message) {
-        const errorDiv = document.createElement('div');
-        errorDiv.className = 'error-message text-red-500 text-xs mt-1';
-        errorDiv.textContent = message;
-        field.parentNode.insertBefore(errorDiv, field.nextSibling);
-      }
-    }
-
-  
-  });
-</script>

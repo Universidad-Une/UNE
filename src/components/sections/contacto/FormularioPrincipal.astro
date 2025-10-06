@@ -1,12 +1,19 @@
 ---
+
 ---
+
 <div class="bg-gray-50 rounded-lg p-3 mb-6">
   <div class="flex items-center justify-between text-sm mb-2">
     <span class="text-gray-600" id="progress-text">Solo toma 2 minutos</span>
     <span class="text-green-600 font-medium">✓ Sin compromiso</span>
   </div>
   <div class="w-full bg-gray-200 rounded-full h-2 overflow-hidden">
-    <div class="h-2 bg-gradient-to-r from-blue-400 to-blue-600 rounded-full transition-all duration-500 ease-out" id="form-progress" style="width: 0%"></div>
+    <div
+      class="h-2 bg-gradient-to-r from-blue-400 to-blue-600 rounded-full transition-all duration-500 ease-out"
+      id="form-progress"
+      style="width: 0%"
+    >
+    </div>
   </div>
   <div class="mt-2 text-xs text-gray-500" id="progress-message">
     Completa los campos para continuar
@@ -49,7 +56,6 @@
       placeholder="Correo electrónico"
       class="w-full px-2 lg:px-4 py-1.5 lg:py-2.5 border-b focus:border-blue-500 outline-none transition-colors bg-transparent text-sm lg:text-base"
       autocomplete="off"
-      
     />
     <!-- Lista de sugerencias -->
     <div
@@ -151,263 +157,425 @@
       disabled
     >
       <span id="button-text">COMPLETAR REGISTRO</span>
-      <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent opacity-0 transform -skew-x-12 group-hover:opacity-20 transition-all duration-700" id="button-shine"></div>
+      <div
+        class="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent opacity-0 transform -skew-x-12 group-hover:opacity-20 transition-all duration-700"
+        id="button-shine"
+      >
+      </div>
     </button>
   </div>
 </form>
 
+<!-- Modal de error -->
+<div
+  id="error-modal"
+  class="hidden fixed inset-0  flex items-center justify-center z-50 p-4"
+>
+  <div class="bg-white rounded-lg shadow-xl max-w-md w-full p-6">
+    <div class="flex items-start mb-4">
+      <div class="flex-shrink-0">
+        <svg
+          class="w-6 h-6 text-red-600"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"
+          ></path>
+        </svg>
+      </div>
+      <div class="ml-3 flex-1">
+        <h3 class="text-lg font-medium text-gray-900 mb-2">
+          Error al enviar solicitud
+        </h3>
+        <p id="modal-error-message" class="text-sm text-gray-600 mb-4"></p>
+        <div
+          class="text-sm text-gray-600 bg-gray-50 p-3 rounded border border-gray-200"
+        >
+          <p class="font-semibold mb-1">Si el problema persiste:</p>
+          <p>Por favor, envíe su solicitud por correo a:</p>
+          <a
+            href="mailto:informes@universidad-une.com"
+            class="text-blue-600 hover:text-blue-700 font-medium"
+          >
+            informes@universidad-une.com
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="flex gap-3 mt-6">
+      <button
+        id="retry-button"
+        class="flex-1 bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-md font-medium transition-colors"
+      >
+        Intentar de nuevo
+      </button>
+      <button
+        id="close-modal-button"
+        class="flex-1 bg-gray-200 hover:bg-gray-300 text-gray-700 py-2 px-4 rounded-md font-medium transition-colors"
+      >
+        Cerrar
+      </button>
+    </div>
+  </div>
+</div>
+
 <script>
-import { FormValidator } from "src/helpers/ContactFormConfig";
+  import { FormValidator } from "src/helpers/ContactFormConfig";
 
-document.addEventListener("DOMContentLoaded", function() {
-  // Inicializar el FormValidator existente
-  new FormValidator("#education-form", {
-    apiUrl: "https://intranet.universidad-une.com/api/createleads",
-  });
+  document.addEventListener("DOMContentLoaded", function () {
+    // Inicializar el FormValidator existente
+    new FormValidator("#education-form", {
+      apiUrl: "https://intranet.universidad-une.com/api/createleads",
+    });
 
-  // Sistema de progreso mejorado
-  class FormProgressTracker {
-    constructor() {
-      this.form = document.getElementById('education-form');
-      this.progressBar = document.getElementById('form-progress');
-      this.progressText = document.getElementById('progress-text');
-      this.progressMessage = document.getElementById('progress-message');
-      this.submitButton = document.getElementById('submit-button');
-      
-      this.requiredFields = [
-        'nombre',
-        'apellidos',
-        'correo',
-        'telefono',
-        'nivelEducativo',
-        'plantelInteres'
-      ];
-      
-      this.messages = {
-        0: {
-          text: "¡Empecemos! 🚀",
-          message: "Completa tus datos personales"
-        },
-        20: {
-          text: "¡Buen comienzo! 👏",
-          message: "Sigue completando tus datos"
-        },
-        40: {
-          text: "¡Vas muy bien! ⭐",
-          message: "Ya casi tienes la mitad"
-        },
-        60: {
-          text: "¡Excelente progreso! 🎯",
-          message: "Solo faltan unos campos más"
-        },
-        80: {
-          text: "¡Casi listo! 🔥",
-          message: "Un último esfuerzo"
-        },
-        100: {
-          text: "¡Perfecto! ✅",
-          message: "Todo listo para enviar"
-        }
-      };
-      
-      this.init();
-    }
-    
-    init() {
-      // Agregar listeners a todos los campos
-      const allInputs = this.form.querySelectorAll('input, select');
-      allInputs.forEach(input => {
-        input.addEventListener('input', () => this.updateProgress());
-        input.addEventListener('change', () => this.updateProgress());
-      });
-      
-      // Escuchar cambios en campos dinámicos (área de conocimiento, programa, modalidad)
-      const observer = new MutationObserver(() => {
-        this.updateRequiredFields();
+    // Sistema de progreso mejorado
+    class FormProgressTracker {
+      constructor() {
+        this.form = document.getElementById("education-form");
+        this.progressBar = document.getElementById("form-progress");
+        this.progressText = document.getElementById("progress-text");
+        this.progressMessage = document.getElementById("progress-message");
+        this.submitButton = document.getElementById("submit-button");
+
+        this.messages = {
+          0: {
+            text: "¡Empecemos! 🚀",
+            message: "Completa tus datos personales",
+          },
+          20: {
+            text: "¡Buen comienzo! 👏",
+            message: "Sigue completando tus datos",
+          },
+          40: {
+            text: "¡Vas muy bien! ⭐",
+            message: "Ya casi tienes la mitad",
+          },
+          60: {
+            text: "¡Excelente progreso! 🎯",
+            message: "Solo faltan unos campos más",
+          },
+          80: {
+            text: "¡Casi listo! 🔥",
+            message: "Un último esfuerzo",
+          },
+          100: {
+            text: "¡Perfecto! ✅",
+            message: "Todo listo para enviar",
+          },
+        };
+
+        this.init();
+      }
+
+      init() {
+        // Agregar listeners a todos los campos
+        const allInputs = this.form.querySelectorAll("input, select");
+        allInputs.forEach((input) => {
+          input.addEventListener("input", () => this.updateProgress());
+          input.addEventListener("change", () => this.updateProgress());
+        });
+
+        // NUEVO: Listener específico para radio buttons de modalidad
+        const modalidadContainer = document.getElementById("modalidad-options");
+        const modalidadObserver = new MutationObserver(() => {
+          // Cuando se agregan nuevos radio buttons, agregar listeners
+          const radioButtons = document.querySelectorAll(
+            'input[name="modalidad"]'
+          );
+          radioButtons.forEach((radio) => {
+            radio.addEventListener("change", () => this.updateProgress());
+          });
+          this.updateProgress();
+        });
+
+        modalidadObserver.observe(modalidadContainer, {
+          childList: true,
+          subtree: true,
+        });
+
+        // Escuchar cambios en campos dinámicos (área de conocimiento, programa, modalidad)
+        const observer = new MutationObserver(() => {
+          this.updateProgress();
+        });
+
+        observer.observe(document.getElementById("area-container"), {
+          attributes: true,
+          attributeFilter: ["class"],
+        });
+        observer.observe(document.getElementById("programa-container"), {
+          attributes: true,
+          attributeFilter: ["class"],
+        });
+        observer.observe(document.getElementById("modalidad-container"), {
+          attributes: true,
+          attributeFilter: ["class"],
+        });
+
+        // Observar cambios en el atributo disabled del plantel
+        observer.observe(document.getElementById("plantel-interes"), {
+          attributes: true,
+          attributeFilter: ["disabled"],
+        });
+
+        // Progreso inicial
         this.updateProgress();
-      });
-      
-      observer.observe(document.getElementById('area-container'), { 
-        attributes: true, 
-        attributeFilter: ['class'] 
-      });
-      observer.observe(document.getElementById('programa-container'), { 
-        attributes: true, 
-        attributeFilter: ['class'] 
-      });
-      observer.observe(document.getElementById('modalidad-container'), { 
-        attributes: true, 
-        attributeFilter: ['class'] 
-      });
-      
-      // Progreso inicial
-      this.updateProgress();
-    }
-    
-    updateRequiredFields() {
-      // Actualizar campos requeridos basado en campos visibles
-      this.requiredFields = ['nombre', 'apellidos', 'correo', 'telefono', 'nivelEducativo', 'plantelInteres'];
-      
-      if (!document.getElementById('area-container').classList.contains('hidden')) {
-        this.requiredFields.push('areaConocimiento');
       }
-      
-      if (!document.getElementById('programa-container').classList.contains('hidden')) {
-        this.requiredFields.push('programaInteres');
-      }
-      
-      // Para modalidad, verificar si hay opciones seleccionadas
-      if (!document.getElementById('modalidad-container').classList.contains('hidden')) {
-        const modalidadInputs = document.querySelectorAll('input[name="modalidad"]');
-        if (modalidadInputs.length > 0) {
-          this.requiredFields.push('modalidad');
-        }
-      }
-    }
-    
-    updateProgress() {
-      this.updateRequiredFields();
-      
-      let completedFields = 0;
-      
-      this.requiredFields.forEach(fieldName => {
-        if (fieldName === 'modalidad') {
-          // Verificar radio buttons de modalidad
-          const modalidadInputs = document.querySelectorAll('input[name="modalidad"]');
-          const isModalidadSelected = Array.from(modalidadInputs).some(input => input.checked);
-          if (isModalidadSelected) completedFields++;
-        } else {
+
+      getRequiredFields() {
+        const fields = [];
+
+        // Campos base siempre requeridos
+        const baseFields = [
+          "nombre",
+          "apellidos",
+          "correo",
+          "telefono",
+          "nivelEducativo",
+        ];
+
+        baseFields.forEach((fieldName) => {
           const field = this.form.querySelector(`[name="${fieldName}"]`);
-          if (field && field.value.trim() !== '') {
-            completedFields++;
+          if (field && !field.disabled) {
+            fields.push({ name: fieldName, element: field });
+          }
+        });
+
+        // Plantel solo si está habilitado
+        const plantelField = this.form.querySelector('[name="plantelInteres"]');
+        if (plantelField && !plantelField.disabled) {
+          fields.push({ name: "plantelInteres", element: plantelField });
+        }
+
+        // Área de conocimiento solo si está visible
+        const areaContainer = document.getElementById("area-container");
+        if (!areaContainer.classList.contains("hidden")) {
+          const areaField = this.form.querySelector(
+            '[name="areaConocimiento"]'
+          );
+          if (areaField && !areaField.disabled) {
+            fields.push({ name: "areaConocimiento", element: areaField });
           }
         }
-      });
-      
-      const progress = (completedFields / this.requiredFields.length) * 100;
-      
-      // Actualizar barra de progreso
-      this.progressBar.style.width = `${progress}%`;
-      
-      // Cambiar color de la barra según el progreso
-      if (progress < 30) {
-        this.progressBar.className = 'h-2 bg-gradient-to-r from-blue-400 to-blue-500 rounded-full transition-all duration-500 ease-out';
-      } else if (progress < 70) {
-        this.progressBar.className = 'h-2 bg-gradient-to-r from-purple-400 to-indigo-500 rounded-full transition-all duration-500 ease-out';
-      } else {
-        this.progressBar.className = 'h-2 bg-gradient-to-r from-green-400 to-green-600 rounded-full transition-all duration-500 ease-out';
+
+        // Programa solo si está visible
+        const programaContainer = document.getElementById("programa-container");
+        if (!programaContainer.classList.contains("hidden")) {
+          const programaField = this.form.querySelector(
+            '[name="programaInteres"]'
+          );
+          if (programaField && !programaField.disabled) {
+            fields.push({ name: "programaInteres", element: programaField });
+          }
+        }
+
+        // Modalidad solo si está visible y tiene opciones
+        const modalidadContainer = document.getElementById(
+          "modalidad-container"
+        );
+        if (!modalidadContainer.classList.contains("hidden")) {
+          const modalidadInputs = document.querySelectorAll(
+            'input[name="modalidad"]'
+          );
+          if (modalidadInputs.length > 0) {
+            fields.push({ name: "modalidad", element: modalidadInputs });
+          }
+        }
+
+        return fields;
       }
-      
-      // Actualizar mensajes
-      const messageKey = this.getMessageKey(progress);
-      if (this.messages[messageKey]) {
-        this.progressText.textContent = this.messages[messageKey].text;
-        this.progressMessage.textContent = this.messages[messageKey].message;
-        
-        // Agregar animación de pulso cuando se completa
+
+      updateProgress() {
+        const requiredFields = this.getRequiredFields();
+        let completedFields = 0;
+
+        requiredFields.forEach((field) => {
+          if (field.name === "modalidad") {
+            // Verificar si algún radio button está marcado
+            const isModalidadSelected = Array.from(field.element).some(
+              (input) => input.checked
+            );
+            console.log("Modalidad seleccionada:", isModalidadSelected);
+            if (isModalidadSelected) completedFields++;
+          } else {
+            if (field.element.value.trim() !== "") {
+              completedFields++;
+            }
+          }
+        });
+
+        const totalRequired = requiredFields.length;
+        const progress =
+          totalRequired > 0 ? (completedFields / totalRequired) * 100 : 0;
+
+        // DEBUG
+        console.log("Campos requeridos:", totalRequired);
+        console.log("Campos completados:", completedFields);
+        console.log("Progreso:", progress);
+
+        // Detalle de cada campo
+        requiredFields.forEach((field) => {
+          if (field.name === "modalidad") {
+            const selected = Array.from(field.element).find(
+              (input) => input.checked
+            );
+            console.log(
+              `${field.name}:`,
+              selected ? selected.value : "NO SELECCIONADO"
+            );
+          } else {
+            console.log(`${field.name}:`, field.element.value || "VACÍO");
+          }
+        });
+
+        // Actualizar barra de progreso
+        this.progressBar.style.width = `${progress}%`;
+
+        // Cambiar color de la barra según el progreso
+        if (progress < 30) {
+          this.progressBar.className =
+            "h-2 bg-gradient-to-r from-blue-400 to-blue-500 rounded-full transition-all duration-500 ease-out";
+        } else if (progress < 70) {
+          this.progressBar.className =
+            "h-2 bg-gradient-to-r from-purple-400 to-indigo-500 rounded-full transition-all duration-500 ease-out";
+        } else {
+          this.progressBar.className =
+            "h-2 bg-gradient-to-r from-green-400 to-green-600 rounded-full transition-all duration-500 ease-out";
+        }
+
+        // Actualizar mensajes
+        const messageKey = this.getMessageKey(progress);
+        if (this.messages[messageKey]) {
+          this.progressText.textContent = this.messages[messageKey].text;
+          this.progressMessage.textContent = this.messages[messageKey].message;
+
+          if (progress === 100) {
+            this.progressBar.style.animation = "pulse 1s ease-in-out 3";
+          }
+        }
+
+        // Habilitar/deshabilitar botón de envío
+        this.submitButton.disabled = progress < 100;
+
+        // Actualizar texto del botón según el progreso
+        this.updateButtonState(progress);
+
+        // Feedback visual adicional
+        this.addVisualFeedback(progress);
+      }
+
+      getMessageKey(progress) {
+        if (progress === 0) return 0;
+        if (progress < 20) return 0;
+        if (progress < 40) return 20;
+        if (progress < 60) return 40;
+        if (progress < 80) return 60;
+        if (progress < 100) return 80;
+        return 100;
+      }
+
+      addVisualFeedback(progress) {
+        this.progressText.classList.remove(
+          "animate-bounce",
+          "text-green-600",
+          "font-bold"
+        );
+
         if (progress === 100) {
-          this.progressBar.style.animation = 'pulse 1s ease-in-out 3';
+          this.progressText.classList.add(
+            "animate-bounce",
+            "text-green-600",
+            "font-bold"
+          );
+          this.showCelebration();
         }
       }
-      
-      // Habilitar/deshabilitar botón de envío
-      this.submitButton.disabled = progress < 100;
-      
-      // Actualizar texto del botón según el progreso
-      this.updateButtonState(progress);
-      
-      // Feedback visual adicional
-      this.addVisualFeedback(progress);
-    }
-    
-    getMessageKey(progress) {
-      if (progress === 0) return 0;
-      if (progress < 20) return 0;
-      if (progress < 40) return 20;
-      if (progress < 60) return 40;
-      if (progress < 80) return 60;
-      if (progress < 100) return 80;
-      return 100;
-    }
-    
-    addVisualFeedback(progress) {
-      // Remover clases anteriores
-      this.progressText.classList.remove('animate-bounce', 'text-green-600', 'font-bold');
-      
-      if (progress === 100) {
-        this.progressText.classList.add('animate-bounce', 'text-green-600', 'font-bold');
-        
-        // Mostrar confetti virtual (opcional)
-        this.showCelebration();
-      }
-    }
-    
-    updateButtonState(progress) {
-      const buttonText = document.getElementById('button-text');
-      const buttonShine = document.getElementById('button-shine');
-      
-      if (progress === 100) {
-        // Cambiar texto del botón
-        buttonText.textContent = '¡ENVIAR!';
-        
-        // Añadir efectos al botón
-        this.submitButton.classList.add('animate-pulse', 'shadow-lg', 'shadow-red-500/25', 'scale-105', 'group');
-        
-        // Efecto de brillo
-        buttonShine.style.animation = 'shine 2s ease-in-out infinite';
-        
-        // Efecto de hover mejorado
-        this.submitButton.addEventListener('mouseenter', this.buttonHoverEffect);
-        this.submitButton.addEventListener('mouseleave', this.buttonLeaveEffect);
-      } else {
-        // Estado deshabilitado
-        buttonText.textContent = 'COMPLETAR REGISTRO';
-        this.submitButton.classList.remove('animate-pulse', 'shadow-lg', 'shadow-red-500/25', 'scale-105', 'group');
-        buttonShine.style.animation = 'none';
-        
-        // Remover event listeners
-        this.submitButton.removeEventListener('mouseenter', this.buttonHoverEffect);
-        this.submitButton.removeEventListener('mouseleave', this.buttonLeaveEffect);
-      }
-    }
-    
-    buttonHoverEffect = () => {
-      this.submitButton.style.transform = 'scale(1.08) translateY(-2px)';
-      this.submitButton.style.boxShadow = '0 20px 25px -5px rgba(239, 68, 68, 0.4), 0 10px 10px -5px rgba(239, 68, 68, 0.04)';
-    }
-    
-    buttonLeaveEffect = () => {
-      this.submitButton.style.transform = 'scale(1.05)';
-      this.submitButton.style.boxShadow = '0 10px 15px -3px rgba(239, 68, 68, 0.25), 0 4px 6px -2px rgba(239, 68, 68, 0.05)';
-    }
-    
-    showCelebration() {
-      // Efecto de celebración sutil
-      const celebration = document.createElement('div');
-      celebration.innerHTML = '🎉';
-      celebration.style.cssText = `
-        position: absolute;
-        top: 10px;
-        right: 10px;
-        font-size: 1.5rem;
-        animation: fadeInOut 2s ease-in-out;
-        pointer-events: none;
-      `;
-      
-      this.progressText.parentElement.style.position = 'relative';
-      this.progressText.parentElement.appendChild(celebration);
-      
-      setTimeout(() => {
-        if (celebration.parentElement) {
-          celebration.remove();
+
+      updateButtonState(progress) {
+        const buttonText = document.getElementById("button-text");
+        const buttonShine = document.getElementById("button-shine");
+
+        if (progress === 100) {
+          buttonText.textContent = "¡ENVIAR!";
+          this.submitButton.classList.add(
+            "animate-pulse",
+            "shadow-lg",
+            "shadow-red-500/25",
+            "scale-105",
+            "group"
+          );
+          buttonShine.style.animation = "shine 2s ease-in-out infinite";
+          this.submitButton.addEventListener(
+            "mouseenter",
+            this.buttonHoverEffect
+          );
+          this.submitButton.addEventListener(
+            "mouseleave",
+            this.buttonLeaveEffect
+          );
+        } else {
+          buttonText.textContent = "COMPLETAR REGISTRO";
+          this.submitButton.classList.remove(
+            "animate-pulse",
+            "shadow-lg",
+            "shadow-red-500/25",
+            "scale-105",
+            "group"
+          );
+          buttonShine.style.animation = "none";
+          this.submitButton.removeEventListener(
+            "mouseenter",
+            this.buttonHoverEffect
+          );
+          this.submitButton.removeEventListener(
+            "mouseleave",
+            this.buttonLeaveEffect
+          );
         }
-      }, 2000);
+      }
+
+      buttonHoverEffect = () => {
+        this.submitButton.style.transform = "scale(1.08) translateY(-2px)";
+        this.submitButton.style.boxShadow =
+          "0 20px 25px -5px rgba(239, 68, 68, 0.4), 0 10px 10px -5px rgba(239, 68, 68, 0.04)";
+      };
+
+      buttonLeaveEffect = () => {
+        this.submitButton.style.transform = "scale(1.05)";
+        this.submitButton.style.boxShadow =
+          "0 10px 15px -3px rgba(239, 68, 68, 0.25), 0 4px 6px -2px rgba(239, 68, 68, 0.05)";
+      };
+
+      showCelebration() {
+        const celebration = document.createElement("div");
+        celebration.innerHTML = "🎉";
+        celebration.style.cssText = `
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      font-size: 1.5rem;
+      animation: fadeInOut 2s ease-in-out;
+      pointer-events: none;
+    `;
+
+        this.progressText.parentElement.style.position = "relative";
+        this.progressText.parentElement.appendChild(celebration);
+
+        setTimeout(() => {
+          if (celebration.parentElement) {
+            celebration.remove();
+          }
+        }, 2000);
+      }
     }
-  }
-  
-  // Inicializar el tracker de progreso
-  new FormProgressTracker();
-});
+
+    // Inicializar el tracker de progreso
+    new FormProgressTracker();
+  });
 </script>
 
 <style>
@@ -420,38 +588,39 @@ document.addEventListener("DOMContentLoaded", function() {
 
   /* Animaciones y efectos mejorados */
   @keyframes pulse {
-    0%, 100% { 
+    0%,
+    100% {
       transform: scaleY(1);
     }
-    50% { 
+    50% {
       transform: scaleY(1.1);
     }
   }
-  
+
   @keyframes fadeInOut {
-    0% { 
-      opacity: 0; 
+    0% {
+      opacity: 0;
       transform: translateY(10px) scale(0.8);
     }
-    50% { 
-      opacity: 1; 
+    50% {
+      opacity: 1;
       transform: translateY(0) scale(1.2);
     }
-    100% { 
-      opacity: 0; 
+    100% {
+      opacity: 0;
       transform: translateY(-10px) scale(0.8);
     }
   }
-  
+
   @keyframes shine {
-    0% { 
+    0% {
       transform: translateX(-100%) skewX(-12deg);
       opacity: 0;
     }
-    50% { 
+    50% {
       opacity: 0.6;
     }
-    100% { 
+    100% {
       transform: translateX(200%) skewX(-12deg);
       opacity: 0;
     }
@@ -467,7 +636,7 @@ document.addEventListener("DOMContentLoaded", function() {
     iframe {
       height: 300px;
     }
-    
+
     .grid-cols-2 {
       grid-template-columns: 1fr 1fr;
     }

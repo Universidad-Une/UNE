@@ -8,7 +8,7 @@ export class FormValidator {
     this.validationErrors = {};
     this.commonEmailProviders = [
       "gmail.com",
-      "outlook.com", 
+      "outlook.com",
       "hotmail.com",
       "yahoo.com",
       "icloud.com",
@@ -85,22 +85,56 @@ export class FormValidator {
   setupElements() {
     // Encontrar elementos dentro del formulario o en el documento
     this.elements = {
-      nivelEducativo: this.form.querySelector("#nivel-educativo") || document.getElementById("nivel-educativo"),
-      areaContainer: this.form.querySelector("#area-container") || document.getElementById("area-container"),
-      areaConocimiento: this.form.querySelector("#area-conocimiento") || document.getElementById("area-conocimiento"),
-      programaContainer: this.form.querySelector("#programa-container") || document.getElementById("programa-container"),
-      programaInteres: this.form.querySelector("#programa-interes") || document.getElementById("programa-interes"),
-      plantelInteres: this.form.querySelector("#plantel-interes") || document.getElementById("plantel-interes"),
-      modalidadContainer: this.form.querySelector("#modalidad-container") || document.getElementById("modalidad-container"),
-      modalidadOptions: this.form.querySelector("#modalidad-options") || document.getElementById("modalidad-options"),
-      incorporacionHidden: this.form.querySelector("#incorporacion-hidden") || document.getElementById("incorporacion-hidden"),
-      apellidosInput: this.form.querySelector("#apellidos-input") || document.getElementById("apellidos-input"),
-      apellidoPaternoHidden: this.form.querySelector("#apellido_p_hidden") || document.getElementById("apellido_p_hidden"),
-      apellidoMaternoHidden: this.form.querySelector("#apellido_m_hidden") || document.getElementById("apellido_m_hidden"),
-      correoInput: this.form.querySelector("#correo-input") || document.getElementById("correo-input"),
-      emailSuggestions: this.form.querySelector("#email-suggestions") || document.getElementById("email-suggestions"),
-      nombreInput: this.form.querySelector("#nombre-input") || document.getElementById("nombre-input") || this.form.querySelector('input[name="nombre"]'),
-      telefonoInput: this.form.querySelector("#telefono-input") || document.getElementById("telefono-input") || this.form.querySelector('input[name="telefono"]'),
+      nivelEducativo:
+        this.form.querySelector("#nivel-educativo") ||
+        document.getElementById("nivel-educativo"),
+      areaContainer:
+        this.form.querySelector("#area-container") ||
+        document.getElementById("area-container"),
+      areaConocimiento:
+        this.form.querySelector("#area-conocimiento") ||
+        document.getElementById("area-conocimiento"),
+      programaContainer:
+        this.form.querySelector("#programa-container") ||
+        document.getElementById("programa-container"),
+      programaInteres:
+        this.form.querySelector("#programa-interes") ||
+        document.getElementById("programa-interes"),
+      plantelInteres:
+        this.form.querySelector("#plantel-interes") ||
+        document.getElementById("plantel-interes"),
+      modalidadContainer:
+        this.form.querySelector("#modalidad-container") ||
+        document.getElementById("modalidad-container"),
+      modalidadOptions:
+        this.form.querySelector("#modalidad-options") ||
+        document.getElementById("modalidad-options"),
+      incorporacionHidden:
+        this.form.querySelector("#incorporacion-hidden") ||
+        document.getElementById("incorporacion-hidden"),
+      apellidosInput:
+        this.form.querySelector("#apellidos-input") ||
+        document.getElementById("apellidos-input"),
+      apellidoPaternoHidden:
+        this.form.querySelector("#apellido_p_hidden") ||
+        document.getElementById("apellido_p_hidden"),
+      apellidoMaternoHidden:
+        this.form.querySelector("#apellido_m_hidden") ||
+        document.getElementById("apellido_m_hidden"),
+      correoInput:
+        this.form.querySelector("#correo-input") ||
+        document.getElementById("correo-input"),
+      emailSuggestions:
+        this.form.querySelector("#email-suggestions") ||
+        document.getElementById("email-suggestions"),
+      nombreInput:
+        this.form.querySelector("#nombre-input") ||
+        document.getElementById("nombre-input") ||
+        this.form.querySelector('input[name="nombre"]'),
+      telefonoInput:
+        this.form.querySelector("#telefono-input") ||
+        document.getElementById("telefono-input") ||
+        this.form.querySelector('input[name="telefono"]'),
     };
   }
 
@@ -110,9 +144,9 @@ export class FormValidator {
 
   setupValidationStyles() {
     // Crear estilos CSS para validaciones si no existen
-    if (!document.getElementById('form-validation-styles')) {
-      const style = document.createElement('style');
-      style.id = 'form-validation-styles';
+    if (!document.getElementById("form-validation-styles")) {
+      const style = document.createElement("style");
+      style.id = "form-validation-styles";
       style.textContent = `
         .field-error {
           border-color: #ef4444 !important;
@@ -143,27 +177,27 @@ export class FormValidator {
     if (!fieldElement) return;
 
     this.clearFieldValidation(fieldElement);
-    fieldElement.classList.add('field-error');
+    fieldElement.classList.add("field-error");
 
-    const errorElement = document.createElement('span');
-    errorElement.className = 'error-message';
+    const errorElement = document.createElement("span");
+    errorElement.className = "error-message";
     errorElement.textContent = message;
-    errorElement.setAttribute('data-validation', 'error');
+    errorElement.setAttribute("data-validation", "error");
 
     fieldElement.parentNode.appendChild(errorElement);
   }
 
-  showFieldSuccess(fieldElement, message = '') {
+  showFieldSuccess(fieldElement, message = "") {
     if (!fieldElement) return;
 
     this.clearFieldValidation(fieldElement);
-    fieldElement.classList.add('field-success');
+    fieldElement.classList.add("field-success");
 
     if (message) {
-      const successElement = document.createElement('span');
-      successElement.className = 'success-message';
+      const successElement = document.createElement("span");
+      successElement.className = "success-message";
       successElement.textContent = message;
-      successElement.setAttribute('data-validation', 'success');
+      successElement.setAttribute("data-validation", "success");
       fieldElement.parentNode.appendChild(successElement);
     }
   }
@@ -171,135 +205,161 @@ export class FormValidator {
   clearFieldValidation(fieldElement) {
     if (!fieldElement) return;
 
-    fieldElement.classList.remove('field-error', 'field-success');
-    const validationMessages = fieldElement.parentNode.querySelectorAll('[data-validation]');
-    validationMessages.forEach(msg => msg.remove());
+    fieldElement.classList.remove("field-error", "field-success");
+    const validationMessages =
+      fieldElement.parentNode.querySelectorAll("[data-validation]");
+    validationMessages.forEach((msg) => msg.remove());
   }
 
   validateName(value) {
     const trimmed = value.trim();
     if (!trimmed) {
-      return { valid: true, message: '' }; // NOMBRE AHORA OPCIONAL
+      return { valid: true, message: "" }; // NOMBRE AHORA OPCIONAL
     }
     if (trimmed.length < 2) {
-      return { valid: false, message: 'El nombre debe tener al menos 2 caracteres' };
+      return {
+        valid: false,
+        message: "El nombre debe tener al menos 2 caracteres",
+      };
     }
     if (!/^[a-záéíóúüñA-ZÁÉÍÓÚÜÑ\s]+$/.test(trimmed)) {
-      return { valid: false, message: 'El nombre solo puede contener letras y espacios' };
+      return {
+        valid: false,
+        message: "El nombre solo puede contener letras y espacios",
+      };
     }
-    return { valid: true, message: '' };
+    return { valid: true, message: "" };
   }
 
   validateLastNames(value) {
     const trimmed = value.trim();
     if (!trimmed) {
-      return { valid: false, message: 'Es necesario minimo un apellido' };
+      return { valid: false, message: "Es necesario minimo un apellido" };
     }
     if (trimmed.length < 2) {
-      return { valid: false, message: 'Los apellidos deben tener al menos 2 caracteres' };
+      return {
+        valid: false,
+        message: "Los apellidos deben tener al menos 2 caracteres",
+      };
     }
     if (!/^[a-záéíóúüñA-ZÁÉÍÓÚÜÑ\s]+$/.test(trimmed)) {
-      return { valid: false, message: 'Los apellidos solo pueden contener letras y espacios' };
+      return {
+        valid: false,
+        message: "Los apellidos solo pueden contener letras y espacios",
+      };
     }
-    return { valid: true, message: '' };
+    return { valid: true, message: "" };
   }
 
   validateEmail(value) {
     const trimmed = value.trim();
     if (!trimmed) {
-      return { valid: true, message: '' }; // Email es opcional
+      return { valid: true, message: "" }; // Email es opcional
     }
-    
+
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(trimmed)) {
-      return { valid: false, message: 'Ingresa un correo electrónico válido' };
+      return { valid: false, message: "Ingresa un correo electrónico válido" };
     }
-    
-    return { valid: true, message: 'Correo válido' };
+
+    return { valid: true, message: "Correo válido" };
   }
 
   validatePhone(value) {
     const trimmed = value.trim();
     if (!trimmed) {
-      return { valid: false, message: 'El teléfono es obligatorio' };
+      return { valid: false, message: "El teléfono es obligatorio" };
     }
-    
+
     // Remover espacios, guiones y paréntesis para validar solo números
-    const numbersOnly = trimmed.replace(/[\s\-\(\)]/g, '');
-    
+    const numbersOnly = trimmed.replace(/[\s\-\(\)]/g, "");
+
     if (!/^\d{10}$/.test(numbersOnly)) {
-      return { valid: false, message: 'El teléfono debe tener 10 dígitos' };
+      return { valid: false, message: "El teléfono debe tener 10 dígitos" };
     }
-    
-    return { valid: true, message: 'Teléfono válido' };
+
+    return { valid: true, message: "Teléfono válido" };
   }
 
   validateEducationLevel(value) {
     if (!value) {
-      return { valid: false, message: 'Selecciona un nivel educativo' };
+      return { valid: false, message: "Selecciona un nivel educativo" };
     }
-    return { valid: true, message: '' };
+    return { valid: true, message: "" };
   }
 
   validateArea(value, nivelEducativo) {
     if (!nivelEducativo || !this.processedData[nivelEducativo]) {
-      return { valid: true, message: '' };
+      return { valid: true, message: "" };
     }
 
     const nivelData = this.processedData[nivelEducativo];
     if (nivelData.requiereArea && !value) {
-      return { valid: false, message: 'Selecciona un área de conocimiento' };
+      return { valid: false, message: "Selecciona un área de conocimiento" };
     }
-    return { valid: true, message: '' };
+    return { valid: true, message: "" };
   }
 
   validateProgram(value, nivelEducativo, areaConocimiento) {
     if (!nivelEducativo || !this.processedData[nivelEducativo]) {
-      return { valid: true, message: '' };
+      return { valid: true, message: "" };
     }
 
     const nivelData = this.processedData[nivelEducativo];
-    
+
     // Solo requerir programa si:
     // 1. El nivel requiere programa Y
     // 2. Si requiere área, debe haber área seleccionada OR si no requiere área
     if (nivelData.requierePrograma) {
       if (nivelData.requiereArea && !areaConocimiento) {
         // Si requiere área pero no hay área seleccionada, no validar programa aún
-        return { valid: true, message: '' };
+        return { valid: true, message: "" };
       }
-      
+
       if (!value) {
-        return { valid: false, message: 'Selecciona un programa de interés' };
+        return { valid: false, message: "Selecciona un programa de interés" };
       }
     }
-    
-    return { valid: true, message: '' };
+
+    return { valid: true, message: "" };
   }
 
   validateCampus(value) {
     if (!value) {
-      return { valid: false, message: 'Selecciona un plantel de interés' };
+      return { valid: false, message: "Selecciona un plantel de interés" };
     }
-    return { valid: true, message: '' };
+    return { valid: true, message: "" };
   }
 
   validateModality() {
-    const modalidadHidden = this.form.querySelector('input[name="modalidad"][type="hidden"]');
-    const modalidadRadio = this.form.querySelector('input[name="modalidad"]:checked');
-    
+    const modalidadHidden = this.form.querySelector(
+      'input[name="modalidad"][type="hidden"]'
+    );
+    const modalidadRadio = this.form.querySelector(
+      'input[name="modalidad"]:checked'
+    );
+
     if (!modalidadHidden && !modalidadRadio) {
-      return { valid: false, message: 'Selecciona una modalidad' };
+      return { valid: false, message: "Selecciona una modalidad" };
     }
-    return { valid: true, message: '' };
+    return { valid: true, message: "" };
   }
 
   setupRealTimeValidation() {
-    const { nombreInput, apellidosInput, correoInput, telefonoInput, nivelEducativo, areaConocimiento, programaInteres, plantelInteres } = this.elements;
+    const {
+      nombreInput,
+      apellidosInput,
+      correoInput,
+      telefonoInput,
+      nivelEducativo,
+      areaConocimiento,
+      programaInteres,
+      plantelInteres,
+    } = this.elements;
 
     // Validación en tiempo real para nombre
     if (nombreInput) {
-      nombreInput.addEventListener('blur', () => {
+      nombreInput.addEventListener("blur", () => {
         const validation = this.validateName(nombreInput.value);
         if (validation.valid) {
           this.showFieldSuccess(nombreInput);
@@ -308,8 +368,8 @@ export class FormValidator {
         }
       });
 
-      nombreInput.addEventListener('input', () => {
-        if (nombreInput.classList.contains('field-error')) {
+      nombreInput.addEventListener("input", () => {
+        if (nombreInput.classList.contains("field-error")) {
           const validation = this.validateName(nombreInput.value);
           if (validation.valid) {
             this.showFieldSuccess(nombreInput);
@@ -320,7 +380,7 @@ export class FormValidator {
 
     // Validación en tiempo real para apellidos
     if (apellidosInput) {
-      apellidosInput.addEventListener('blur', () => {
+      apellidosInput.addEventListener("blur", () => {
         const validation = this.validateLastNames(apellidosInput.value);
         if (validation.valid) {
           this.showFieldSuccess(apellidosInput);
@@ -329,8 +389,8 @@ export class FormValidator {
         }
       });
 
-      apellidosInput.addEventListener('input', () => {
-        if (apellidosInput.classList.contains('field-error')) {
+      apellidosInput.addEventListener("input", () => {
+        if (apellidosInput.classList.contains("field-error")) {
           const validation = this.validateLastNames(apellidosInput.value);
           if (validation.valid) {
             this.showFieldSuccess(apellidosInput);
@@ -341,10 +401,10 @@ export class FormValidator {
 
     // Validación en tiempo real para correo
     if (correoInput) {
-      correoInput.addEventListener('blur', () => {
+      correoInput.addEventListener("blur", () => {
         const validation = this.validateEmail(correoInput.value);
         const hasContent = correoInput.value.trim().length > 0;
-        
+
         if (hasContent && validation.valid) {
           this.showFieldSuccess(correoInput, validation.message);
         } else if (hasContent && !validation.valid) {
@@ -355,9 +415,9 @@ export class FormValidator {
         }
       });
 
-      correoInput.addEventListener('input', () => {
+      correoInput.addEventListener("input", () => {
         // Solo validar si había un error previo y ahora tiene contenido
-        if (correoInput.classList.contains('field-error')) {
+        if (correoInput.classList.contains("field-error")) {
           const validation = this.validateEmail(correoInput.value);
           if (validation.valid) {
             this.clearFieldValidation(correoInput);
@@ -368,7 +428,7 @@ export class FormValidator {
 
     // Validación en tiempo real para teléfono
     if (telefonoInput) {
-      telefonoInput.addEventListener('blur', () => {
+      telefonoInput.addEventListener("blur", () => {
         const validation = this.validatePhone(telefonoInput.value);
         if (validation.valid) {
           this.showFieldSuccess(telefonoInput, validation.message);
@@ -377,15 +437,15 @@ export class FormValidator {
         }
       });
 
-      telefonoInput.addEventListener('input', () => {
+      telefonoInput.addEventListener("input", () => {
         // Solo permitir números, espacios, guiones y paréntesis
         const value = telefonoInput.value;
-        const filteredValue = value.replace(/[^0-9\s\-\(\)]/g, '');
+        const filteredValue = value.replace(/[^0-9\s\-\(\)]/g, "");
         if (value !== filteredValue) {
           telefonoInput.value = filteredValue;
         }
 
-        if (telefonoInput.classList.contains('field-error')) {
+        if (telefonoInput.classList.contains("field-error")) {
           const validation = this.validatePhone(telefonoInput.value);
           if (validation.valid) {
             this.showFieldSuccess(telefonoInput, validation.message);
@@ -395,17 +455,28 @@ export class FormValidator {
     }
 
     // Validación para campos de selección
-    [nivelEducativo, areaConocimiento, programaInteres, plantelInteres].forEach(element => {
-      if (element) {
-        element.addEventListener('change', () => {
-          this.clearFieldValidation(element);
-        });
+    [nivelEducativo, areaConocimiento, programaInteres, plantelInteres].forEach(
+      (element) => {
+        if (element) {
+          element.addEventListener("change", () => {
+            this.clearFieldValidation(element);
+          });
+        }
       }
-    });
+    );
   }
 
   validateForm() {
-    const { nombreInput, apellidosInput, correoInput, telefonoInput, nivelEducativo, areaConocimiento, programaInteres, plantelInteres } = this.elements;
+    const {
+      nombreInput,
+      apellidosInput,
+      correoInput,
+      telefonoInput,
+      nivelEducativo,
+      areaConocimiento,
+      programaInteres,
+      plantelInteres,
+    } = this.elements;
     let isValid = true;
     this.validationErrors = {};
 
@@ -474,10 +545,14 @@ export class FormValidator {
     // Validar área (si es requerida y visible)
     if (areaConocimiento) {
       const { areaContainer } = this.elements;
-      const isAreaVisible = areaContainer && !areaContainer.classList.contains('hidden');
-      
+      const isAreaVisible =
+        areaContainer && !areaContainer.classList.contains("hidden");
+
       if (isAreaVisible) {
-        const areaValidation = this.validateArea(areaConocimiento.value, nivelEducativo?.value);
+        const areaValidation = this.validateArea(
+          areaConocimiento.value,
+          nivelEducativo?.value
+        );
         if (!areaValidation.valid) {
           this.showFieldError(areaConocimiento, areaValidation.message);
           this.validationErrors.area = areaValidation.message;
@@ -489,10 +564,15 @@ export class FormValidator {
     // Validar programa (si es requerido y visible)
     if (programaInteres) {
       const { programaContainer } = this.elements;
-      const isProgramaVisible = programaContainer && !programaContainer.classList.contains('hidden');
-      
+      const isProgramaVisible =
+        programaContainer && !programaContainer.classList.contains("hidden");
+
       if (isProgramaVisible) {
-        const programValidation = this.validateProgram(programaInteres.value, nivelEducativo?.value, areaConocimiento?.value);
+        const programValidation = this.validateProgram(
+          programaInteres.value,
+          nivelEducativo?.value,
+          areaConocimiento?.value
+        );
         if (!programValidation.valid) {
           this.showFieldError(programaInteres, programValidation.message);
           this.validationErrors.programa = programValidation.message;
@@ -515,14 +595,19 @@ export class FormValidator {
     const modalityValidation = this.validateModality();
     if (!modalityValidation.valid) {
       const { modalidadContainer } = this.elements;
-      if (modalidadContainer && !modalidadContainer.classList.contains('hidden')) {
+      if (
+        modalidadContainer &&
+        !modalidadContainer.classList.contains("hidden")
+      ) {
         // Mostrar error en el contenedor de modalidad
-        const existingError = modalidadContainer.querySelector('[data-validation="error"]');
+        const existingError = modalidadContainer.querySelector(
+          '[data-validation="error"]'
+        );
         if (!existingError) {
-          const errorElement = document.createElement('span');
-          errorElement.className = 'error-message';
+          const errorElement = document.createElement("span");
+          errorElement.className = "error-message";
           errorElement.textContent = modalityValidation.message;
-          errorElement.setAttribute('data-validation', 'error');
+          errorElement.setAttribute("data-validation", "error");
           modalidadContainer.appendChild(errorElement);
         }
       }
@@ -536,7 +621,7 @@ export class FormValidator {
   // ==========================================
   // FUNCIONES PARA APELLIDOS
   // ==========================================
-  
+
   separateLastNames(fullLastName) {
     const trimmed = fullLastName.trim();
     if (!trimmed) return { paterno: "", materno: "" };
@@ -553,9 +638,11 @@ export class FormValidator {
   }
 
   setupLastNameHandler() {
-    const { apellidosInput, apellidoPaternoHidden, apellidoMaternoHidden } = this.elements;
+    const { apellidosInput, apellidoPaternoHidden, apellidoMaternoHidden } =
+      this.elements;
 
-    if (!apellidosInput || !apellidoPaternoHidden || !apellidoMaternoHidden) return;
+    if (!apellidosInput || !apellidoPaternoHidden || !apellidoMaternoHidden)
+      return;
 
     apellidosInput.addEventListener("input", () => {
       const { paterno, materno } = this.separateLastNames(apellidosInput.value);
@@ -581,7 +668,8 @@ export class FormValidator {
 
     suggestions.forEach((suggestion) => {
       const suggestionItem = document.createElement("div");
-      suggestionItem.className = "px-3 py-2 cursor-pointer hover:bg-gray-100 text-sm";
+      suggestionItem.className =
+        "px-3 py-2 cursor-pointer hover:bg-gray-100 text-sm";
       suggestionItem.textContent = suggestion;
 
       suggestionItem.addEventListener("click", () => {
@@ -591,7 +679,7 @@ export class FormValidator {
 
         const event = new Event("input", { bubbles: true });
         input.dispatchEvent(event);
-        
+
         // Validar el email seleccionado
         const validation = this.validateEmail(suggestion);
         if (validation.valid) {
@@ -648,7 +736,10 @@ export class FormValidator {
 
     // Ocultar sugerencias cuando se hace clic fuera
     document.addEventListener("click", (e) => {
-      if (!correoInput.contains(e.target) && !emailSuggestions.contains(e.target)) {
+      if (
+        !correoInput.contains(e.target) &&
+        !emailSuggestions.contains(e.target)
+      ) {
         emailSuggestions.classList.add("hidden");
       }
     });
@@ -678,7 +769,9 @@ export class FormValidator {
             suggestions[suggestions.length - 1].classList.add("bg-blue-100");
           } else {
             activeSuggestion.classList.remove("bg-blue-100");
-            const prev = activeSuggestion.previousElementSibling || suggestions[suggestions.length - 1];
+            const prev =
+              activeSuggestion.previousElementSibling ||
+              suggestions[suggestions.length - 1];
             prev.classList.add("bg-blue-100");
           }
           break;
@@ -737,7 +830,9 @@ export class FormValidator {
 
           // Procesar planteles en cada programa
           for (const [plantel, infoPlantel] of Object.entries(planteles)) {
-            processedData[config.key].areas[area].programas[programa].planteles[plantel] = {
+            processedData[config.key].areas[area].programas[programa].planteles[
+              plantel
+            ] = {
               modalidades: [],
               incorporaciones: [],
             };
@@ -748,48 +843,90 @@ export class FormValidator {
               const incorporacion = info.incorporacion;
 
               // Agregar a programa específico
-              processedData[config.key].areas[area].programas[programa].planteles[plantel].modalidades.push(modalidad);
-              processedData[config.key].areas[area].programas[programa].planteles[plantel].incorporaciones.push(incorporacion);
+              processedData[config.key].areas[area].programas[
+                programa
+              ].planteles[plantel].modalidades.push(modalidad);
+              processedData[config.key].areas[area].programas[
+                programa
+              ].planteles[plantel].incorporaciones.push(incorporacion);
 
               // Agregar a conjuntos generales
               processedData[config.key].areas[area].planteles.add(plantel);
               processedData[config.key].areas[area].modalidades.add(modalidad);
-              processedData[config.key].areas[area].incorporaciones.add(incorporacion);
-              processedData[config.key].areas[area].programas[programa].modalidades.add(modalidad);
-              processedData[config.key].areas[area].programas[programa].incorporaciones.add(incorporacion);
+              processedData[config.key].areas[area].incorporaciones.add(
+                incorporacion
+              );
+              processedData[config.key].areas[area].programas[
+                programa
+              ].modalidades.add(modalidad);
+              processedData[config.key].areas[area].programas[
+                programa
+              ].incorporaciones.add(incorporacion);
               processedData[config.key].todosLosPlanteles.add(plantel);
               processedData[config.key].todasLasModalidades.add(modalidad);
-              processedData[config.key].todasLasIncorporaciones.add(incorporacion);
+              processedData[config.key].todasLasIncorporaciones.add(
+                incorporacion
+              );
             });
 
             // Eliminar duplicados
-            processedData[config.key].areas[area].programas[programa].planteles[plantel].modalidades = [
-              ...new Set(processedData[config.key].areas[area].programas[programa].planteles[plantel].modalidades)
+            processedData[config.key].areas[area].programas[programa].planteles[
+              plantel
+            ].modalidades = [
+              ...new Set(
+                processedData[config.key].areas[area].programas[
+                  programa
+                ].planteles[plantel].modalidades
+              ),
             ];
-            processedData[config.key].areas[area].programas[programa].planteles[plantel].incorporaciones = [
-              ...new Set(processedData[config.key].areas[area].programas[programa].planteles[plantel].incorporaciones)
+            processedData[config.key].areas[area].programas[programa].planteles[
+              plantel
+            ].incorporaciones = [
+              ...new Set(
+                processedData[config.key].areas[area].programas[
+                  programa
+                ].planteles[plantel].incorporaciones
+              ),
             ];
           }
 
           // Convertir Sets a Arrays ordenados para programas
-          processedData[config.key].areas[area].programas[programa].modalidades = Array.from(
-            processedData[config.key].areas[area].programas[programa].modalidades
+          processedData[config.key].areas[area].programas[
+            programa
+          ].modalidades = Array.from(
+            processedData[config.key].areas[area].programas[programa]
+              .modalidades
           ).sort();
-          processedData[config.key].areas[area].programas[programa].incorporaciones = Array.from(
-            processedData[config.key].areas[area].programas[programa].incorporaciones
+          processedData[config.key].areas[area].programas[
+            programa
+          ].incorporaciones = Array.from(
+            processedData[config.key].areas[area].programas[programa]
+              .incorporaciones
           ).sort();
         }
 
         // Convertir Sets a Arrays ordenados para áreas
-        processedData[config.key].areas[area].planteles = Array.from(processedData[config.key].areas[area].planteles).sort();
-        processedData[config.key].areas[area].modalidades = Array.from(processedData[config.key].areas[area].modalidades).sort();
-        processedData[config.key].areas[area].incorporaciones = Array.from(processedData[config.key].areas[area].incorporaciones).sort();
+        processedData[config.key].areas[area].planteles = Array.from(
+          processedData[config.key].areas[area].planteles
+        ).sort();
+        processedData[config.key].areas[area].modalidades = Array.from(
+          processedData[config.key].areas[area].modalidades
+        ).sort();
+        processedData[config.key].areas[area].incorporaciones = Array.from(
+          processedData[config.key].areas[area].incorporaciones
+        ).sort();
       }
 
       // Convertir Sets generales a Arrays ordenados
-      processedData[config.key].todosLosPlanteles = Array.from(processedData[config.key].todosLosPlanteles).sort();
-      processedData[config.key].todasLasModalidades = Array.from(processedData[config.key].todasLasModalidades).sort();
-      processedData[config.key].todasLasIncorporaciones = Array.from(processedData[config.key].todasLasIncorporaciones).sort();
+      processedData[config.key].todosLosPlanteles = Array.from(
+        processedData[config.key].todosLosPlanteles
+      ).sort();
+      processedData[config.key].todasLasModalidades = Array.from(
+        processedData[config.key].todasLasModalidades
+      ).sort();
+      processedData[config.key].todasLasIncorporaciones = Array.from(
+        processedData[config.key].todasLasIncorporaciones
+      ).sort();
     }
 
     this.processedData = processedData;
@@ -804,7 +941,11 @@ export class FormValidator {
     selectElement.innerHTML = '<option value="">Selecciona una opción</option>';
   }
 
-  populateSelect(selectElement, options, placeholder = "Selecciona una opción") {
+  populateSelect(
+    selectElement,
+    options,
+    placeholder = "Selecciona una opción"
+  ) {
     if (!selectElement) return;
 
     this.clearSelect(selectElement);
@@ -827,7 +968,9 @@ export class FormValidator {
   }
 
   createHiddenModalidadInput(modalidad) {
-    const existingHidden = this.form.querySelector('input[name="modalidad"][type="hidden"]');
+    const existingHidden = this.form.querySelector(
+      'input[name="modalidad"][type="hidden"]'
+    );
     if (existingHidden) existingHidden.remove();
 
     const hiddenInput = document.createElement("input");
@@ -856,7 +999,8 @@ export class FormValidator {
       input.id = `modalidad_${index}`;
 
       const span = document.createElement("span");
-      span.className = "px-3 py-1.5 text-xs lg:text-sm border border-gray-300 rounded-full cursor-pointer peer-checked:bg-blue-500 peer-checked:text-white peer-checked:border-blue-500 transition-colors hover:bg-gray-50";
+      span.className =
+        "px-3 py-1.5 text-xs lg:text-sm border border-gray-300 rounded-full cursor-pointer peer-checked:bg-blue-500 peer-checked:text-white peer-checked:border-blue-500 transition-colors hover:bg-gray-50";
       span.textContent = modalidad;
 
       label.appendChild(input);
@@ -882,7 +1026,9 @@ export class FormValidator {
       this.hideContainer(modalidadContainer);
       this.createHiddenModalidadInput(modalidades[0]);
     } else {
-      const existingHidden = this.form.querySelector('input[name="modalidad"][type="hidden"]');
+      const existingHidden = this.form.querySelector(
+        'input[name="modalidad"][type="hidden"]'
+      );
       if (existingHidden) existingHidden.remove();
 
       this.showContainer(modalidadContainer);
@@ -891,8 +1037,17 @@ export class FormValidator {
   }
 
   resetDependentFields(fromLevel = "area") {
-    const { areaConocimiento, areaContainer, programaInteres, programaContainer, plantelInteres, modalidadOptions, modalidadContainer, incorporacionHidden } = this.elements;
-    
+    const {
+      areaConocimiento,
+      areaContainer,
+      programaInteres,
+      programaContainer,
+      plantelInteres,
+      modalidadOptions,
+      modalidadContainer,
+      incorporacionHidden,
+    } = this.elements;
+
     const levels = ["area", "programa", "plantel", "modalidad"];
     const startIndex = levels.indexOf(fromLevel);
 
@@ -918,13 +1073,17 @@ export class FormValidator {
         case "modalidad":
           if (modalidadOptions) modalidadOptions.innerHTML = "";
           this.hideContainer(modalidadContainer);
-          const existingHidden = this.form.querySelector('input[name="modalidad"][type="hidden"]');
+          const existingHidden = this.form.querySelector(
+            'input[name="modalidad"][type="hidden"]'
+          );
           if (existingHidden) existingHidden.remove();
           if (incorporacionHidden) incorporacionHidden.value = "";
           // Limpiar errores de modalidad
           if (modalidadContainer) {
-            const modalidadErrors = modalidadContainer.querySelectorAll('[data-validation="error"]');
-            modalidadErrors.forEach(error => error.remove());
+            const modalidadErrors = modalidadContainer.querySelectorAll(
+              '[data-validation="error"]'
+            );
+            modalidadErrors.forEach((error) => error.remove());
           }
           break;
       }
@@ -962,8 +1121,9 @@ export class FormValidator {
   }
 
   setupNivelEducativoListener() {
-    const { nivelEducativo, areaConocimiento, areaContainer, plantelInteres } = this.elements;
-    
+    const { nivelEducativo, areaConocimiento, areaContainer, plantelInteres } =
+      this.elements;
+
     if (!nivelEducativo) return;
 
     nivelEducativo.addEventListener("change", () => {
@@ -986,8 +1146,14 @@ export class FormValidator {
   }
 
   setupAreaConocimientoListener() {
-    const { areaConocimiento, nivelEducativo, programaInteres, programaContainer, plantelInteres } = this.elements;
-    
+    const {
+      areaConocimiento,
+      nivelEducativo,
+      programaInteres,
+      programaContainer,
+      plantelInteres,
+    } = this.elements;
+
     if (!areaConocimiento) return;
 
     areaConocimiento.addEventListener("change", () => {
@@ -996,14 +1162,19 @@ export class FormValidator {
 
       this.resetDependentFields("programa");
 
-      if (!selectedArea || !selectedLevel || !this.processedData[selectedLevel]) return;
+      if (!selectedArea || !selectedLevel || !this.processedData[selectedLevel])
+        return;
 
       const areaData = this.processedData[selectedLevel].areas[selectedArea];
       const nivelData = this.processedData[selectedLevel];
 
       if (nivelData.requierePrograma) {
         const programas = Object.keys(areaData.programas).sort();
-        this.populateSelect(programaInteres, programas, "Selecciona un programa");
+        this.populateSelect(
+          programaInteres,
+          programas,
+          "Selecciona un programa"
+        );
         this.showContainer(programaContainer);
       } else {
         this.populateSelect(plantelInteres, areaData.planteles);
@@ -1013,8 +1184,13 @@ export class FormValidator {
   }
 
   setupProgramaInteresListener() {
-    const { programaInteres, areaConocimiento, nivelEducativo, plantelInteres } = this.elements;
-    
+    const {
+      programaInteres,
+      areaConocimiento,
+      nivelEducativo,
+      plantelInteres,
+    } = this.elements;
+
     if (!programaInteres) return;
 
     programaInteres.addEventListener("change", () => {
@@ -1026,7 +1202,10 @@ export class FormValidator {
 
       if (!selectedPrograma || !selectedArea || !selectedLevel) return;
 
-      const programaData = this.processedData[selectedLevel].areas[selectedArea].programas[selectedPrograma];
+      const programaData =
+        this.processedData[selectedLevel].areas[selectedArea].programas[
+          selectedPrograma
+        ];
       const planteles = Object.keys(programaData.planteles).sort();
 
       this.populateSelect(plantelInteres, planteles, "Selecciona un plantel");
@@ -1035,8 +1214,13 @@ export class FormValidator {
   }
 
   setupPlantelInteresListener() {
-    const { plantelInteres, programaInteres, areaConocimiento, nivelEducativo } = this.elements;
-    
+    const {
+      plantelInteres,
+      programaInteres,
+      areaConocimiento,
+      nivelEducativo,
+    } = this.elements;
+
     if (!plantelInteres) return;
 
     plantelInteres.addEventListener("change", () => {
@@ -1053,15 +1237,21 @@ export class FormValidator {
       let incorporaciones = [];
 
       if (selectedPrograma && selectedArea) {
-        const plantelData = this.processedData[selectedLevel].areas[selectedArea].programas[selectedPrograma].planteles[selectedPlantel];
+        const plantelData =
+          this.processedData[selectedLevel].areas[selectedArea].programas[
+            selectedPrograma
+          ].planteles[selectedPlantel];
         modalidades = plantelData.modalidades;
         incorporaciones = plantelData.incorporaciones;
       } else if (selectedArea) {
-        modalidades = this.processedData[selectedLevel].areas[selectedArea].modalidades;
-        incorporaciones = this.processedData[selectedLevel].areas[selectedArea].incorporaciones;
+        modalidades =
+          this.processedData[selectedLevel].areas[selectedArea].modalidades;
+        incorporaciones =
+          this.processedData[selectedLevel].areas[selectedArea].incorporaciones;
       } else {
         modalidades = this.processedData[selectedLevel].todasLasModalidades;
-        incorporaciones = this.processedData[selectedLevel].todasLasIncorporaciones;
+        incorporaciones =
+          this.processedData[selectedLevel].todasLasIncorporaciones;
       }
 
       this.handleModalidadDisplay(modalidades, incorporaciones);
@@ -1069,111 +1259,176 @@ export class FormValidator {
   }
 
   setupFormSubmitListener() {
-    if (!this.form) return;
+  if (!this.form) return;
 
-    this.form.addEventListener("submit", async (e) => {
-      e.preventDefault();
+  this.form.addEventListener("submit", async (e) => {
+    e.preventDefault();
 
-      // Validar formulario antes del envío
-      const isFormValid = this.validateForm();
-      
-      if (!isFormValid) {
-        // Scroll al primer error
-        const firstError = this.form.querySelector('.field-error');
-        if (firstError) {
-          firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
-          firstError.focus();
-        }
-        
-        // Mostrar mensaje de error general
-        console.log("❌ Formulario tiene errores:", this.validationErrors);
-        return;
+    // Validar formulario antes del envío
+    const isFormValid = this.validateForm();
+
+    if (!isFormValid) {
+      // Scroll al primer error
+      const firstError = this.form.querySelector(".field-error");
+      if (firstError) {
+        firstError.scrollIntoView({ behavior: "smooth", block: "center" });
+        firstError.focus();
       }
 
-      const formData = new FormData(this.form);
+      // Mostrar mensaje de error general
+      console.log("❌ Formulario tiene errores:", this.validationErrors);
+      return;
+    }
 
-      const apellidoPaterno = this.elements.apellidoPaternoHidden?.value || "";
-      const apellidoMaterno = this.elements.apellidoMaternoHidden?.value || "No proporcionado";
+    const formData = new FormData(this.form);
 
-      const data = {
-        nombre: formData.get("nombre") || "",
-        apellido_p: apellidoPaterno,
-        apellido_m: apellidoMaterno,
-        correo: formData.get("correo") || "",
-        telefono: formData.get("telefono") || "",
-        nivel_educativo: formData.get("nivelEducativo") || "",
-        plantel_interes: formData.get("plantelInteres") || "",
-        programa_interes: formData.get("programaInteres") || "",
-        modalidad: formData.get("modalidad") || "",
-        medio: "Página web",
-      };
+    const apellidoPaterno = this.elements.apellidoPaternoHidden?.value || "";
+    const apellidoMaterno =
+      this.elements.apellidoMaternoHidden?.value || "No proporcionado";
 
-      console.log("=== DATOS DEL FORMULARIO ===");
-      console.log("Datos completos:", data);
+    const data = {
+      nombre: formData.get("nombre") || "",
+      apellido_p: apellidoPaterno,
+      apellido_m: apellidoMaterno,
+      correo: formData.get("correo") || "",
+      telefono: formData.get("telefono") || "",
+      nivel_educativo: formData.get("nivelEducativo") || "",
+      plantel_interes: formData.get("plantelInteres") || "",
+      programa_interes: formData.get("programaInteres") || "",
+      modalidad: formData.get("modalidad") || "",
+      medio: "Página web",
+    };
 
-      const submitButton = this.form.querySelector('button[type="submit"]');
-      const originalText = submitButton ? submitButton.textContent : "";
-      
-      if (submitButton) {
-        submitButton.disabled = true;
-        submitButton.textContent = "Enviando...";
-      }
+    console.log("=== DATOS DEL FORMULARIO ===");
+    console.log("Datos completos:", data);
 
-      const apiUrl = this.config.apiUrl || "https://intranet.universidad-une.com/api/createleads";
+    const submitButton = this.form.querySelector('button[type="submit"]');
+    const originalText = submitButton ? submitButton.textContent : "";
 
-      try {
-        const response = await fetch(apiUrl, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(data),
-        });
+    if (submitButton) {
+      submitButton.disabled = true;
+      submitButton.textContent = "Enviando...";
+    }
 
-        console.log("=== RESPUESTA DEL SERVIDOR ===");
-        console.log("Status:", response.status);
+    const apiUrl =
+      this.config.apiUrl ||
+      "https://intranet.universidad-une.com/api/createleads";
 
-        if (response.ok) {
-          const result = await response.json();
-          console.log("✅ Respuesta exitosa:", result);
+    try {
+      const response = await fetch(apiUrl, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
 
-          if (result.status === "success") {
-            console.log(`✅ Lead creado exitosamente. ID: ${result.lead_id}`);
-            
-            // Redirigir a página de agradecimiento
-            window.location.href = "/contacto/gracias";
-          } else {
-            console.warn("⚠️ Servidor reportó error:", result.message);
-            alert("Hubo un problema al enviar tu mensaje. Por favor intenta nuevamente.");
-          }
+      console.log("=== RESPUESTA DEL SERVIDOR ===");
+      console.log("Status:", response.status);
+
+      if (response.ok) {
+        const result = await response.json();
+        console.log("✅ Respuesta exitosa:", result);
+
+        if (result.status === "success") {
+          console.log(`✅ Lead creado exitosamente. ID: ${result.lead_id}`);
+
+          // Redirigir a página de agradecimiento
+          window.location.href = "/contacto/gracias";
         } else {
-          console.error("❌ Error HTTP:", response.status, response.statusText);
-          alert("Error del servidor. Por favor intenta más tarde.");
+          // Error reportado por el servidor
+          console.warn("⚠️ Servidor reportó error:", result.message);
+          this.showErrorModal(
+            result.message || "Hubo un problema al procesar tu solicitud."
+          );
         }
-      } catch (error) {
-        console.error("❌ Error de conexión:", error);
-        alert("Error de conexión. Verifica tu internet e intenta nuevamente.");
-      } finally {
-        if (submitButton) {
-          submitButton.disabled = false;
-          submitButton.textContent = originalText;
-        }
+      } else {
+        // Error HTTP (4xx, 5xx)
+        console.error("❌ Error HTTP:", response.status, response.statusText);
+        this.showErrorModal(
+          `Error del servidor (${response.status}). Por favor intenta más tarde.`
+        );
       }
-    });
+    } catch (error) {
+      // Error de red o conexión
+      console.error("❌ Error de conexión:", error);
+      this.showErrorModal(
+        "No se pudo conectar con el servidor. Verifica tu conexión a internet e intenta nuevamente."
+      );
+    } finally {
+      if (submitButton) {
+        submitButton.disabled = false;
+        submitButton.textContent = originalText;
+      }
+    }
+  });
+}
+
+// Método para mostrar el modal de error
+showErrorModal(errorMessage) {
+  const modal = document.getElementById("error-modal");
+  const modalErrorMessage = document.getElementById("modal-error-message");
+  const retryButton = document.getElementById("retry-button");
+  const closeModalButton = document.getElementById("close-modal-button");
+
+  if (!modal || !modalErrorMessage) {
+    console.error("❌ Modal de error no encontrado en el DOM");
+    alert(errorMessage); // Fallback
+    return;
   }
+
+  // Establecer el mensaje de error
+  modalErrorMessage.textContent = errorMessage;
+
+  // Mostrar el modal
+  modal.classList.remove("hidden");
+
+  // Agregar fondo oscuro al modal
+  modal.classList.add( "bg-opacity-50");
+
+  // Listener para el botón de reintentar
+  const handleRetry = () => {
+    modal.classList.add("hidden");
+    // Opcional: enfocar el primer campo del formulario
+    const firstInput = this.form?.querySelector("input, select");
+    if (firstInput) firstInput.focus();
+  };
+
+  // Listener para el botón de cerrar
+  const handleClose = () => {
+    modal.classList.add("hidden");
+  };
+
+  // Remover listeners previos para evitar duplicados
+  retryButton?.replaceWith(retryButton.cloneNode(true));
+  closeModalButton?.replaceWith(closeModalButton.cloneNode(true));
+
+  // Agregar nuevos listeners
+  document.getElementById("retry-button")?.addEventListener("click", handleRetry);
+  document.getElementById("close-modal-button")?.addEventListener("click", handleClose);
+
+  // Cerrar modal al hacer clic fuera de él
+  modal.addEventListener("click", (e) => {
+    if (e.target === modal) {
+      modal.classList.add("hidden");
+    }
+  });
+}
 
   clearAllValidations() {
     // Limpiar validaciones de todos los campos
-    const allFields = this.form.querySelectorAll('input, select');
-    allFields.forEach(field => {
+    const allFields = this.form.querySelectorAll("input, select");
+    allFields.forEach((field) => {
       this.clearFieldValidation(field);
     });
 
     // Limpiar errores de modalidad
     const { modalidadContainer } = this.elements;
     if (modalidadContainer) {
-      const modalidadErrors = modalidadContainer.querySelectorAll('[data-validation="error"]');
-      modalidadErrors.forEach(error => error.remove());
+      const modalidadErrors = modalidadContainer.querySelectorAll(
+        '[data-validation="error"]'
+      );
+      modalidadErrors.forEach((error) => error.remove());
     }
 
     // Resetear validationErrors
@@ -1182,23 +1437,27 @@ export class FormValidator {
 
   setupModalidadOptionsListener() {
     const { modalidadOptions } = this.elements;
-    
+
     if (!modalidadOptions) return;
 
     modalidadOptions.addEventListener("click", (e) => {
-      if (e.target.tagName === "SPAN" && 
-          e.target.previousElementSibling && 
-          e.target.previousElementSibling.type === "radio") {
+      if (
+        e.target.tagName === "SPAN" &&
+        e.target.previousElementSibling &&
+        e.target.previousElementSibling.type === "radio"
+      ) {
         e.target.previousElementSibling.checked = true;
 
         const changeEvent = new Event("change", { bubbles: true });
         e.target.previousElementSibling.dispatchEvent(changeEvent);
-        
+
         // Limpiar errores de modalidad cuando se selecciona una opción
         const { modalidadContainer } = this.elements;
         if (modalidadContainer) {
-          const modalidadErrors = modalidadContainer.querySelectorAll('[data-validation="error"]');
-          modalidadErrors.forEach(error => error.remove());
+          const modalidadErrors = modalidadContainer.querySelectorAll(
+            '[data-validation="error"]'
+          );
+          modalidadErrors.forEach((error) => error.remove());
         }
       }
     });

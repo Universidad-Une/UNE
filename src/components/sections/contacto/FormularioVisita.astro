@@ -120,35 +120,89 @@
     </button>
   </div>
 
-  <!-- Mensaje de respuesta -->
-  <div id="response-message" class="hidden mt-4 p-4 rounded-md"></div>
+   <!-- Modal de error -->
+  <div id="error-modal" class="hidden fixed inset-0  bg-opacity-50 flex items-center justify-center z-50 p-4">
+    <div class="bg-white rounded-lg shadow-xl max-w-md w-full p-6">
+      <div class="flex items-start mb-4">
+        <div class="flex-shrink-0">
+          <svg class="w-6 h-6 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path>
+          </svg>
+        </div>
+        <div class="ml-3 flex-1">
+          <h3 class="text-lg font-semibold text-gray-900 mb-2">Error al enviar solicitud</h3>
+          <p id="modal-error-message" class="text-sm text-gray-600 mb-4"></p>
+          <div class="text-sm text-gray-600 bg-gray-50 p-3 rounded border border-gray-200">
+            <p class="font-semibold mb-1">Si el problema persiste:</p>
+            <p>Por favor, envíe su solicitud por correo a:</p>
+            <a href="mailto:informes@universidad-une.com" class="text-blue-600 hover:text-blue-700 font-medium">
+              informes@universidad-une.com
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="flex gap-3 mt-6">
+        <button 
+          id="retry-button"
+          class="flex-1 bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-md font-medium transition-colors"
+        >
+          Intentar de nuevo
+        </button>
+        <button 
+          id="close-modal-button"
+          class="flex-1 bg-gray-200 hover:bg-gray-300 text-gray-700 py-2 px-4 rounded-md font-medium transition-colors"
+        >
+          Cerrar
+        </button>
+      </div>
+    </div>
+  </div>
+
 </form>
 
 <script>
-  console.log('[EDUCATION FORM] 📝 Formulario cargado');
-
   const form = document.getElementById('education-form');
   const submitButton = document.getElementById('submit-button');
   const buttonText = document.getElementById('button-text');
-  const responseMessage = document.getElementById('response-message');
+  const errorModal = document.getElementById('error-modal');
+  const modalErrorMessage = document.getElementById('modal-error-message');
+  const retryButton = document.getElementById('retry-button');
+  const closeModalButton = document.getElementById('close-modal-button');
   const apiUrl = 'https://intranet.universidad-une.com/api/createvisit';
 
-  // Función para mostrar mensaje
-  const showMessage = (message, type = 'success') => {
-    responseMessage.classList.remove('hidden', 'bg-green-100', 'text-green-800', 'bg-red-100', 'text-red-800');
+  let formDataCache = null;
+  const REQUEST_TIMEOUT = 15000; // 15 segundos
+
+  // Función para ajustar la hora sumando 1 hora
+  const adjustHour = (timeString) => {
+    if (!timeString) return timeString;
     
-    if (type === 'success') {
-      responseMessage.classList.add('bg-green-100', 'text-green-800');
-    } else {
-      responseMessage.classList.add('bg-red-100', 'text-red-800');
+    const [hours, minutes] = timeString.split(':');
+    let hour = parseInt(hours);
+    
+    // Sumar 1 hora
+    hour += 1;
+    
+    // Si supera 23, volver a 0
+    if (hour >= 24) {
+      hour = 0;
     }
     
-    responseMessage.textContent = message;
-    
-    // Auto-ocultar después de 5 segundos
-    setTimeout(() => {
-      responseMessage.classList.add('hidden');
-    }, 5000);
+    // Formatear con ceros a la izquierda
+    return `${hour.toString().padStart(2, '0')}:${minutes}`;
+  };
+
+  // Función para mostrar el modal de error
+  const showErrorModal = (message) => {
+    modalErrorMessage.textContent = message;
+    errorModal.classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
+  };
+
+  // Función para ocultar el modal
+  const hideErrorModal = () => {
+    errorModal.classList.add('hidden');
+    document.body.style.overflow = '';
   };
 
   // Función para deshabilitar/habilitar botón
@@ -157,34 +211,22 @@
     buttonText.textContent = isLoading ? 'ENVIANDO...' : 'ENVIAR MENSAJE';
   };
 
-  // Manejar el envío del formulario
-  form.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    
-    console.log('[EDUCATION FORM] 🚀 Iniciando envío del formulario');
-    
-    // Deshabilitar botón
-    setButtonState(true);
-    
-    // Obtener datos del formulario
-    const formData = new FormData(form);
-    const data = {
-      nombre: formData.get('nombre'),
-      apellidos: formData.get('apellidos'),
-      correo: formData.get('correo'),
-      telefono: formData.get('telefono'),
-      plantel: formData.get('plantel'),
-      fecha_visita: formData.get('fecha_visita'),
-      hora_visita: formData.get('hora_visita'),
-      relacion_visita: formData.get('relacion_visita')
-    };
-    
-    console.log('[EDUCATION FORM] 📦 Datos a enviar:', data);
+  // Función para enviar datos con timeout
+  const fetchWithTimeout = (url, options, timeout = REQUEST_TIMEOUT) => {
+    return Promise.race([
+      fetch(url, options),
+      new Promise((_, reject) =>
+        setTimeout(() => reject(new Error('timeout')), timeout)
+      )
+    ]);
+  };
+
+  // Función principal de envío
+  const submitForm = async (data) => {
+    console.log('[FORM] Enviando visita...');
     
     try {
-      console.log('[EDUCATION FORM] 📡 Enviando POST a:', apiUrl);
-      
-      const response = await fetch(apiUrl, {
+      const response = await fetchWithTimeout(apiUrl, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -193,66 +235,100 @@
         body: JSON.stringify(data)
       });
       
-      console.log('[EDUCATION FORM] 📬 Respuesta recibida:', {
-        status: response.status,
-        statusText: response.statusText,
-        ok: response.ok
-      });
-      
-      // Intentar parsear la respuesta
       let responseData;
       try {
         responseData = await response.json();
-        console.log('[EDUCATION FORM] ✅ Respuesta JSON:', responseData);
-      } catch (parseError) {
-        console.error('[EDUCATION FORM] ⚠️ No se pudo parsear JSON:', parseError);
+      } catch {
         responseData = { message: 'Respuesta del servidor no válida' };
       }
       
       if (response.ok) {
-        console.log('[EDUCATION FORM] 🎉 Visita creada exitosamente');
-        showMessage('¡Visita registrada exitosamente! Nos pondremos en contacto contigo pronto.', 'success');
-        
-        // Limpiar formulario
+        console.log('[FORM] ✅ Visita registrada exitosamente');
+        formDataCache = null;
         form.reset();
+        window.location.href = '/contacto/gracias-visita';
       } else {
-        console.error('[EDUCATION FORM] ❌ Error en la respuesta:', responseData);
-        showMessage(
-          responseData.message || `Error al registrar la visita (${response.status})`,
-          'error'
-        );
+        console.error('[FORM] ❌ Error del servidor:', response.status);
+        const errorMessage = responseData.message || 
+          `No pudimos procesar tu solicitud en este momento. Error del servidor (${response.status}).`;
+        showErrorModal(errorMessage);
       }
       
     } catch (error) {
-      console.error('[EDUCATION FORM] ❌ Error al enviar formulario:', error);
-      console.error('[EDUCATION FORM] 📋 Detalles del error:', {
-        message: error.message,
-        name: error.name,
-        stack: error.stack
-      });
+      console.error('[FORM] ❌ Error:', error.message);
       
-      showMessage(
-        'Error al conectar con el servidor. Por favor, intenta de nuevo.',
-        'error'
-      );
+      let errorMessage;
+      
+      if (error.message === 'timeout') {
+        errorMessage = 'El servidor está tardando más de lo esperado en responder. Por favor, verifica tu conexión a internet e intenta nuevamente.';
+      } else if (error.message.includes('Failed to fetch') || error.message.includes('NetworkError')) {
+        errorMessage = 'No se pudo conectar con el servidor. Por favor, verifica tu conexión a internet e intenta nuevamente.';
+      } else {
+        errorMessage = 'Ocurrió un error inesperado al procesar tu solicitud. Por favor, intenta nuevamente.';
+      }
+      
+      showErrorModal(errorMessage);
     } finally {
-      // Habilitar botón nuevamente
       setButtonState(false);
+    }
+  };
+
+  // Manejar el envío del formulario
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    
+    setButtonState(true);
+    
+    const formData = new FormData(form);
+    const originalHour = formData.get('hora_visita');
+    
+    formDataCache = {
+      nombre: formData.get('nombre'),
+      apellidos: formData.get('apellidos'),
+      correo: formData.get('correo'),
+      telefono: formData.get('telefono'),
+      plantel: formData.get('plantel'),
+      fecha_visita: formData.get('fecha_visita'),
+      hora_visita: adjustHour(originalHour),
+      relacion_visita: formData.get('relacion_visita')
+    };
+    
+    console.log('[FORM] Hora original:', originalHour, '→ Hora ajustada:', formDataCache.hora_visita);
+    
+    await submitForm(formDataCache);
+  });
+
+  // Botón de reintentar
+  retryButton.addEventListener('click', async () => {
+    if (formDataCache) {
+      hideErrorModal();
+      setButtonState(true);
+      await submitForm(formDataCache);
     }
   });
 
-  // Log cuando los campos cambian (para debugging)
-  const inputs = form.querySelectorAll('input, select');
-  inputs.forEach(input => {
-    input.addEventListener('change', (e) => {
-      console.log('[EDUCATION FORM] 📝 Campo modificado:', {
-        name: e.target.name,
-        value: e.target.value
-      });
-    });
+  // Botón de cerrar modal
+  closeModalButton.addEventListener('click', (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    hideErrorModal();
   });
 
-  console.log('[EDUCATION FORM] ✅ Event listeners configurados');
+  // Cerrar modal al hacer clic fuera de él
+  errorModal.addEventListener('click', (e) => {
+    if (e.target === errorModal) {
+      hideErrorModal();
+    }
+  });
+
+  // Cerrar modal con tecla ESC
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && !errorModal.classList.contains('hidden')) {
+      hideErrorModal();
+    }
+  });
+
+  console.log('[FORM] ✅ Formulario inicializado');
 </script>
 
 <style>

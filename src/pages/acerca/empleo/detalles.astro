@@ -7,14 +7,7 @@ const today = new Date().toISOString().split('T')[0];
 
 <Layout>
   <div class="max-w-4xl mx-auto p-6">
-    <!-- Mostrar ID detectado -->
-    <div class="mb-6 p-4 bg-blue-50 border border-blue-200 rounded-lg">
-      <p class="text-sm text-blue-800">
-        <span class="font-semibold">ID del empleo detectado:</span> 
-        <span id="job-id-display" class="font-mono bg-blue-100 px-2 py-1 rounded ml-2">Cargando...</span>
-      </p>
-    </div>
-
+   
     <!-- Detalles del empleo -->
     <div id="job-details" class="mb-6 bg-white rounded-lg shadow-md border border-gray-200 p-6 hidden">
       <h2 class="text-xl font-semibold text-gray-900 mb-4 flex items-center">
@@ -469,10 +462,11 @@ const today = new Date().toISOString().split('T')[0];
           <div class="flex flex-col sm:flex-row gap-4 pt-6">
             <button 
               type="submit"
-              class="flex-1 bg-blue-600 hover:bg-blue-700 text-white py-3 px-6 rounded-md font-medium transition-colors duration-200 flex items-center justify-center"
+              id="submit-button"
+              class="flex-1 bg-blue-600 hover:bg-blue-700 text-white py-3 px-6 rounded-md font-medium transition-colors duration-200 flex items-center justify-center disabled:bg-gray-400 disabled:cursor-not-allowed"
             >
               <BookOpen class="w-4 h-4 mr-2" />
-              Enviar solicitud
+              <span id="submit-text">Enviar solicitud</span>
             </button>
             
             <a 
@@ -487,20 +481,55 @@ const today = new Date().toISOString().split('T')[0];
     </div>
   </div>
 
+  <!-- Modal de error -->
+  <div id="error-modal" class="hidden fixed inset-0  bg-opacity-50 flex items-center justify-center z-50 p-4">
+    <div class="bg-white rounded-lg shadow-xl max-w-md w-full p-6">
+      <div class="flex items-start mb-4">
+        <div class="flex-shrink-0">
+          <svg class="w-6 h-6 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path>
+          </svg>
+        </div>
+        <div class="ml-3 flex-1">
+          <h3 class="text-lg font-semibold text-gray-900 mb-2">Error al enviar solicitud</h3>
+          <p id="modal-error-message" class="text-sm text-gray-600 mb-4"></p>
+          <div class="text-sm text-gray-600 bg-gray-50 p-3 rounded border border-gray-200">
+            <p class="font-semibold mb-1">Si el problema persiste:</p>
+            <p>Por favor, envíe su solicitud por correo a:</p>
+            <a href="mailto:informes@universidad-une.com" class="text-blue-600 hover:text-blue-700 font-medium">
+              informes@universidad-une.com
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="flex gap-3 mt-6">
+        <button 
+          id="retry-button"
+          class="flex-1 bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-md font-medium transition-colors"
+        >
+          Intentar de nuevo
+        </button>
+        <button 
+          id="close-modal-button"
+          class="flex-1 bg-gray-200 hover:bg-gray-300 text-gray-700 py-2 px-4 rounded-md font-medium transition-colors"
+        >
+          Cerrar
+        </button>
+      </div>
+    </div>
+  </div>
+
   <script>
     const API_URL = "https://intranet.universidad-une.com/api/getjobs";
 
-    // Obtener el ID de la URL
     const urlParams = new URLSearchParams(window.location.search);
     const jobId = urlParams.get("id");
 
-    // Mostrar el ID detectado
     const jobIdDisplay = document.getElementById("job-id-display");
     if (jobIdDisplay) {
       jobIdDisplay.textContent = jobId || "No detectado";
     }
 
-    // Guardar el ID en el campo oculto
     const puestoIdInput = document.getElementById("puesto_id");
     if (puestoIdInput && jobId) {
       puestoIdInput.value = jobId;
@@ -508,7 +537,6 @@ const today = new Date().toISOString().split('T')[0];
 
     console.log("ID del empleo:", jobId);
 
-    // Función para mostrar error
     function showError(message) {
       const errorDiv = document.getElementById("error-message");
       if (errorDiv) {
@@ -517,7 +545,6 @@ const today = new Date().toISOString().split('T')[0];
       }
     }
 
-    // Función para ocultar error
     function hideError() {
       const errorDiv = document.getElementById("error-message");
       if (errorDiv) {
@@ -525,7 +552,6 @@ const today = new Date().toISOString().split('T')[0];
       }
     }
 
-    // Función para mostrar detalles del empleo
     function displayJobDetails(job) {
       const jobDetails = document.getElementById("job-details");
       
@@ -535,7 +561,6 @@ const today = new Date().toISOString().split('T')[0];
         document.getElementById("job-puestos-disponibles").textContent = job.puestos_disponibles || "0";
         document.getElementById("job-fecha").textContent = job.fecha_publicacion || "N/A";
         
-        // Mostrar descripción si existe y no está vacía
         const descripcionContainer = document.getElementById("job-descripcion-container");
         const descripcionDiv = document.getElementById("job-descripcion");
         
@@ -548,7 +573,6 @@ const today = new Date().toISOString().split('T')[0];
         
         jobDetails.classList.remove("hidden");
         
-        // Llenar el campo de vacante deseada
         const vacanteInput = document.getElementById("vacante_deseada");
         if (vacanteInput) {
           vacanteInput.value = job.puesto;
@@ -556,7 +580,6 @@ const today = new Date().toISOString().split('T')[0];
       }
     }
 
-    // Función para buscar el empleo por ID
     async function fetchJobDetails() {
       if (!jobId) {
         showError("No se proporcionó un ID de empleo en la URL");
@@ -575,7 +598,6 @@ const today = new Date().toISOString().split('T')[0];
         const result = await response.json();
         
         if (result.status === "success" && result.data) {
-          // Buscar el empleo con el ID especificado
           const job = result.data.find(j => j.id_empleo === parseInt(jobId));
           
           if (job) {
@@ -594,19 +616,41 @@ const today = new Date().toISOString().split('T')[0];
       }
     }
 
-    // Cargar detalles del empleo al cargar la página
     if (jobId) {
       fetchJobDetails();
     }
 
-    // Manejar el envío del formulario
     const form = document.getElementById("job-application-form");
-    form?.addEventListener("submit", async (e) => {
-      e.preventDefault();
+    const submitButton = document.getElementById("submit-button");
+    const submitText = document.getElementById("submit-text");
+    const errorModal = document.getElementById("error-modal");
+    const modalErrorMessage = document.getElementById("modal-error-message");
+    const retryButton = document.getElementById("retry-button");
+    const closeModalButton = document.getElementById("close-modal-button");
+    
+    let lastFormData = null;
+    
+    function showErrorModal(message) {
+      modalErrorMessage.textContent = message;
+      errorModal.classList.remove("hidden");
+    }
+    
+    function closeErrorModal() {
+      errorModal.classList.add("hidden");
+    }
+    
+    closeModalButton?.addEventListener("click", closeErrorModal);
+    
+    errorModal?.addEventListener("click", (e) => {
+      if (e.target === errorModal) {
+        closeErrorModal();
+      }
+    });
+    
+    async function submitForm(formData) {
+      submitButton.disabled = true;
+      submitText.textContent = "Enviando...";
       
-      const formData = new FormData(form);
-      
-      // Mapear los datos al formato requerido
       const payload = {
         tipo_formulario: "Formulario de aplicación",
         fecha_aplicacion: formData.get("fecha_aplicacion"),
@@ -653,17 +697,42 @@ const today = new Date().toISOString().split('T')[0];
         
         if (response.ok) {
           console.log("Solicitud enviada exitosamente");
-          // Opcional: redirigir después del envío exitoso
-          // window.location.href = '/acerca/empleo';
+          window.location.href = '/contacto/gracias-empleo';
         } else {
-          console.error("Error en la respuesta:", data);
+          throw new Error(data.message || "Error al procesar la solicitud");
         }
       } catch (error) {
         console.error("Error al enviar el formulario:", error);
+        
+        let errorMessage = "";
+        if (!navigator.onLine) {
+          errorMessage = "No hay conexión a internet. Por favor, verifica tu conexión e intenta nuevamente.";
+        } else if (error.message === "Failed to fetch" || error.name === "TypeError") {
+          errorMessage = "No se pudo conectar con el servidor. Esto puede deberse a problemas de conexión a internet. Por favor, intenta más tarde.";
+        } else {
+          errorMessage = `Ocurrió un error al enviar tu solicitud: ${error.message}. Por favor, intenta nuevamente.`;
+        }
+        
+        showErrorModal(errorMessage);
+      } finally {
+        submitButton.disabled = false;
+        submitText.textContent = "Enviar solicitud";
+      }
+    }
+    
+    form?.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      lastFormData = new FormData(form);
+      await submitForm(lastFormData);
+    });
+    
+    retryButton?.addEventListener("click", async () => {
+      closeErrorModal();
+      if (lastFormData) {
+        await submitForm(lastFormData);
       }
     });
     
-    // Funciones auxiliares para formatear los valores
     function formatMedioEmpleo(value) {
       const mapping = {
         "facebook": "Facebook",

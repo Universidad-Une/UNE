@@ -709,7 +709,9 @@ import { BookOpen, FileText } from "@lucide/astro";
                   id="limpiarFirma"
                   type="button"
                   class="bg-red-500 hover:bg-red-600 text-white font-semibold text-sm py-2 px-4 rounded-md transition-colors duration-200"
-                 aria-label="Limpiar firma" title="Limpiar firma">
+                  aria-label="Limpiar firma"
+                  title="Limpiar firma"
+                >
                   Limpiar firma
                 </button>
               </div>
@@ -724,19 +726,81 @@ import { BookOpen, FileText } from "@lucide/astro";
               id="btnGenerarPDF"
               type="button"
               class="bg-gray-600 hover:bg-gray-700 text-white font-bold py-4 px-12 rounded-lg transition-colors duration-200 text-lg"
-             aria-label="GENERAR PDF" title="GENERAR PDF">
+              aria-label="GENERAR PDF"
+              title="GENERAR PDF"
+            >
               GENERAR PDF
             </button>
             <button
               type="submit"
               class="bg-red-600 hover:bg-red-700 text-white font-bold py-4 px-12 rounded-lg transition-colors duration-200 text-lg"
-             aria-label="INSCRIBIRME" title="INSCRIBIRME">
+              aria-label="INSCRIBIRME"
+              title="INSCRIBIRME"
+            >
               INSCRIBIRME
             </button>
           </div>
         </div>
       </div>
     </form>
+  </div>
+
+  <!-- Modal de error -->
+  <div
+    id="error-modal"
+    class="hidden fixed inset-0 bg-opacity-50 flex items-center justify-center z-50 p-4"
+  >
+    <div class="bg-white rounded-lg shadow-xl max-w-md w-full p-6">
+      <div class="flex items-start mb-4">
+        <div class="flex-shrink-0">
+          <svg
+            class="w-6 h-6 text-red-600"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"
+            ></path>
+          </svg>
+        </div>
+        <div class="ml-3 flex-1">
+          <h3 class="text-lg font-semibold text-gray-900 mb-2">
+            Error al enviar solicitud
+          </h3>
+          <p id="modal-error-message" class="text-sm text-gray-600 mb-4"></p>
+          <div
+            class="text-sm text-gray-600 bg-gray-50 p-3 rounded border border-gray-200"
+          >
+            <p class="font-semibold mb-1">Si el problema persiste:</p>
+            <p>Por favor, envíe su solicitud por correo a:</p>
+            <a
+              href="mailto:informes@universidad-une.com"
+              class="text-blue-600 hover:text-blue-700 font-medium"
+            >
+              informes@universidad-une.com
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="flex gap-3 mt-6">
+        <button
+          id="retry-button"
+          class="flex-1 bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-md font-medium transition-colors"
+        >
+          Intentar de nuevo
+        </button>
+        <button
+          id="close-modal-button"
+          class="flex-1 bg-gray-200 hover:bg-gray-300 text-gray-700 py-2 px-4 rounded-md font-medium transition-colors"
+        >
+          Cerrar
+        </button>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -1324,347 +1388,494 @@ import { BookOpen, FileText } from "@lucide/astro";
 </script>
 
 <script is:inline>
-// Script para enviar formulario de inscripción de estudiante
-console.log('[STUDENT FORM] 📝 Script cargado');
+  // Script para enviar formulario de inscripción de estudiante
+  console.log("[STUDENT FORM] 📝 Script cargado");
 
-const apiUrl = 'https://intranet.universidad-une.com/api/createstudent';
+  const apiUrl = "https://intranet.universidad-une.com/api/createstudent";
 
-// Función para obtener checkboxes seleccionados
-const getSelectedCheckboxes = (name) => {
-  const checkboxes = document.querySelectorAll(`input[type="checkbox"][data-group="${name}"]:checked`);
-  return Array.from(checkboxes).map(cb => cb.value);
-};
-
-// Función para obtener todos los medios seleccionados (¿Por qué medio te enteraste de UNE?)
-const getMediosSeleccionados = () => {
-  const medios = [];
-  const checkboxes = document.querySelectorAll('input[type="checkbox"][data-group="medios"]:checked');
-  checkboxes.forEach(cb => {
-    medios.push(cb.value);
-  });
-  return medios;
-};
-
-// Función para obtener razones seleccionadas (máximo 5)
-const getRazonesSeleccionadas = () => {
-  const razones = [];
-  const checkboxes = document.querySelectorAll('input[type="checkbox"][data-group="razones"]:checked');
-  checkboxes.forEach(cb => {
-    razones.push(cb.value);
-  });
-  return razones;
-};
-
-// Función para validar formulario
-const validateFormsend = () => {
-  console.log('[STUDENT FORM] 🔍 Validando formulario...');
-  
-  const requiredFields = [
-    'apellidoPaterno',
-    'apellidoMaterno',
-    'nombres',
-    'calleNumero',
-    'codigoPostal',
-    'municipio',
-    'estado',
-    'pais',
-    'telefono',
-    'celular',
-    'fechaNacimiento',
-    'edad',
-    'sexo',
-    'estadoCivil',
-    'nacionalidad',
-    'ocupacion',
-    'curp',
-    'tipoSangre',
-    'plantel',
-    'turno',
-    'escuelaProcedencia',
-    'carrera',
-    'asesor',
-    'nombrePadreTutor',
-    'ocupacionPadre',
-    'domicilioPadre',
-    'telefonoPadre',
-    'celularPadre',
-    'dia',
-    'mes',
-    'año'
-  ];
-
-  let isValid = true;
-  const missingFields = [];
-
-
-  return isValid;
-};
-
-// Función para calcular edad a partir de fecha de nacimiento
-const calcularEdad = (fechaNacimiento) => {
-  const hoy = new Date();
-  const nacimiento = new Date(fechaNacimiento);
-  let edad = hoy.getFullYear() - nacimiento.getFullYear();
-  const mes = hoy.getMonth() - nacimiento.getMonth();
-  
-  if (mes < 0 || (mes === 0 && hoy.getDate() < nacimiento.getDate())) {
-    edad--;
-  }
-  
-  return edad.toString();
-};
-
-// Auto-calcular edad cuando cambia la fecha de nacimiento
-document.addEventListener('DOMContentLoaded', () => {
-  const fechaNacimientoInput = document.querySelector('input[name="fechaNacimiento"]');
-  const edadInput = document.querySelector('input[name="edad"]');
-  
-  if (fechaNacimientoInput && edadInput) {
-    fechaNacimientoInput.addEventListener('change', (e) => {
-      const edad = calcularEdad(e.target.value);
-      edadInput.value = edad;
-      console.log('[STUDENT FORM] 🎂 Edad calculada:', edad);
-    });
-  }
-});
-
-// Función para preparar el payload
-// Función para preparar el payload
-const preparePayload = () => {
-  console.log('[STUDENT FORM] 📦 Preparando payload...');
-  
-  // Función auxiliar para obtener valor por posición dentro de una sección específica
-  function obtenerPorSeccion(seccionIndex, inputIndex, tipo = "text") {
-    const secciones = document.querySelectorAll(".bg-white.rounded-xl.shadow-sm");
-    if (secciones[seccionIndex]) {
-      const inputs = secciones[seccionIndex].querySelectorAll(`input[type="${tipo}"]`);
-      return inputs[inputIndex] ? inputs[inputIndex].value : "";
-    }
-    return "";
-  }
-
-  function obtenerSelectPorSeccion(seccionIndex, selectIndex) {
-    const secciones = document.querySelectorAll(".bg-white.rounded-xl.shadow-sm");
-    if (secciones[seccionIndex]) {
-      const selects = secciones[seccionIndex].querySelectorAll("select");
-      return selects[selectIndex] ? selects[selectIndex].value : "";
-    }
-    return "";
-  }
-
-  function obtenerValor(name) {
-    const element = document.querySelector(`[name="${name}"]`);
-    return element ? element.value : "";
-  }
-  
-  // Obtener firma desde canvas
-  const firmaCanvas = document.getElementById('firmaCanvas');
-  const firmaImagen =  '';
-  
-  // Construir fecha de registro (fecha actual)
-  const fechaActual = new Date();
-  const fechaRegistro = fechaActual.toISOString().split('T')[0];
-  
-  // Obtener día, mes y año del compromiso
-  const dia = obtenerPorSeccion(6, 0, "number");
-  const mes = obtenerSelectPorSeccion(6, 0);
-  const año = obtenerSelectPorSeccion(6, 1);
-  
-  const payload = {
-    // Nombres (sección 0)
-    nombre: obtenerPorSeccion(0, 2), // nombres
-    apellidoPaterno: obtenerPorSeccion(0, 0),
-    apellidoMaterno: obtenerPorSeccion(0, 1),
-    nombres: obtenerPorSeccion(0, 2),
-    
-    // Domicilio (sección 1)
-    calleNumero: obtenerPorSeccion(1, 0),
-    colonia: obtenerPorSeccion(1, 1),
-    codigoPostal: obtenerPorSeccion(1, 2),
-    municipio: obtenerPorSeccion(1, 3),
-    estado: obtenerPorSeccion(1, 4) || 'JALISCO',
-    pais: obtenerPorSeccion(1, 5) || 'MÉXICO',
-    
-    // Contacto (sección 1)
-    telefono: obtenerPorSeccion(1, 0, "tel"),
-    celular: obtenerPorSeccion(1, 1, "tel"),
-    correo: obtenerPorSeccion(1, 0, "email"),
-    
-    // Datos personales (sección 1)
-    fechaNacimiento: obtenerPorSeccion(1, 0, "date"),
-    edad: obtenerPorSeccion(1, 6),
-    sexo: obtenerSelectPorSeccion(1, 0),
-    estadoCivil: obtenerSelectPorSeccion(1, 1),
-    nacionalidad: obtenerSelectPorSeccion(1, 2) || 'MEXICANA',
-    ocupacion: obtenerPorSeccion(1, 7),
-    curp: obtenerPorSeccion(1, 8),
-    rfc: obtenerPorSeccion(1, 9),
-    tipoSangre: obtenerSelectPorSeccion(1, 3),
-    
-    // Datos académicos (sección 2)
-    nivelEducativo: 'LICENCIATURA',
-    plantel: obtenerValor("plantel"),
-    turno: obtenerValor("turno"),
-    escuelaProcedencia: obtenerValor("escuela_proc"),
-    promedio: obtenerPorSeccion(2, 0, "number") || '',
-    carrera: obtenerValor("carrera"),
-    asesor: obtenerValor("asesor"),
-    
-    // Datos familiares (sección 3)
-    nombrePadreTutor: obtenerPorSeccion(3, 0),
-    ocupacionPadre: obtenerPorSeccion(3, 1),
-    domicilioPadre: obtenerPorSeccion(3, 2),
-    telefonoPadre: obtenerPorSeccion(3, 0, "tel"),
-    celularPadre: obtenerPorSeccion(3, 1, "tel"),
-    
-    // Medios y razones
-    "Medios Seleccionados:": getMediosSeleccionados().join(', ') || 'Ninguno',
-    mediosSeleccionados: getMediosSeleccionados(),
-    beneficiarios: getRazonesSeleccionadas().join(', ') || 'Ninguno',
-    
-    // Fechas
-    fechaRegistro: fechaRegistro,
-    dateFields: fechaRegistro,
-    dia: dia,
-    mes: mes,
-    año: año,
-    
-    // Firma
-    firmaImagen: firmaImagen
+  // Función para obtener checkboxes seleccionados
+  const getSelectedCheckboxes = (name) => {
+    const checkboxes = document.querySelectorAll(
+      `input[type="checkbox"][data-group="${name}"]:checked`
+    );
+    return Array.from(checkboxes).map((cb) => cb.value);
   };
-  
-  console.log('[STUDENT FORM] ✅ Payload preparado:', {
-    ...payload,
-    firmaImagen: firmaImagen ? `data:image/jpeg;base64,... (${firmaImagen.length} caracteres)` : 'Sin firma'
-  });
-  
-  return payload;
-};
 
-// Función para enviar formulario
-const submitForm = async () => {
-  console.log('[STUDENT FORM] 🚀 Iniciando envío del formulario');
-  
-  // Validar formulario
-  if (!validateFormsend()) {
-    return;
-  }
-  
-  // Preparar payload
-  const payload = preparePayload();
-  
-  // Deshabilitar botón de envío
-  const submitButton = document.querySelector('button[type="submit"]');
-  const originalText = submitButton?.textContent;
-  if (submitButton) {
-    submitButton.disabled = true;
-    submitButton.textContent = 'ENVIANDO...';
-    submitButton.classList.add('opacity-50', 'cursor-not-allowed');
-  }
-  
-  try {
-    console.log('[STUDENT FORM] 📡 Enviando POST a:', apiUrl);
-    console.log('[STUDENT FORM] 📦 Payload completo:', payload);
-    
-    const response = await fetch(apiUrl, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Accept': 'application/json'
-      },
-      body: JSON.stringify(payload)
+  // Función para obtener todos los medios seleccionados (¿Por qué medio te enteraste de UNE?)
+  const getMediosSeleccionados = () => {
+    const medios = [];
+    const checkboxes = document.querySelectorAll(
+      'input[type="checkbox"][data-group="medios"]:checked'
+    );
+    checkboxes.forEach((cb) => {
+      medios.push(cb.value);
     });
-    
-    console.log('[STUDENT FORM] 📬 Respuesta recibida:', {
-      status: response.status,
-      statusText: response.statusText,
-      ok: response.ok
-    });
-    
-    // Intentar parsear la respuesta
-    let responseData;
-    try {
-      responseData = await response.json();
-      console.log('[STUDENT FORM] ✅ Respuesta JSON:', responseData);
-    } catch (parseError) {
-      console.error('[STUDENT FORM] ⚠️ No se pudo parsear JSON:', parseError);
-      const textResponse = await response.text();
-      console.log('[STUDENT FORM] 📄 Respuesta como texto:', textResponse);
-      responseData = { message: textResponse || 'Respuesta del servidor no válida' };
-    }
-    
-    if (response.ok) {
-      console.log('[STUDENT FORM] 🎉 Estudiante registrado exitosamente');
-      alert('¡Inscripción exitosa! Tu registro ha sido completado.');
-      
-      // Opcional: Limpiar formulario o redirigir
-      // window.location.href = '/confirmacion';
-    } else {
-      console.error('[STUDENT FORM] ❌ Error en la respuesta:', responseData);
-      alert(`Error al registrar: ${responseData.message || `Código ${response.status}`}`);
-    }
-    
-  } catch (error) {
-    console.error('[STUDENT FORM] ❌ Error al enviar formulario:', error);
-    console.error('[STUDENT FORM] 📋 Detalles del error:', {
-      message: error.message,
-      name: error.name,
-      stack: error.stack
-    });
-    
-    alert('Error al conectar con el servidor. Por favor, intenta de nuevo.');
-  } finally {
-    // Habilitar botón nuevamente
-    if (submitButton) {
-      submitButton.disabled = false;
-      submitButton.textContent = originalText;
-      submitButton.classList.remove('opacity-50', 'cursor-not-allowed');
-    }
-  }
-};
+    return medios;
+  };
 
-// Event listener para el botón de submit
-document.addEventListener('DOMContentLoaded', () => {
-  console.log('[STUDENT FORM] 🎯 Configurando event listeners');
-  
-  const submitButton = document.querySelector('button[type="submit"]');
-  
-  if (submitButton) {
-    console.log('[STUDENT FORM] ✅ Botón de submit encontrado');
-    
-    submitButton.addEventListener('click', async (e) => {
-      e.preventDefault();
-      console.log('[STUDENT FORM] 🖱️ Click en botón INSCRIBIRME');
-      await submitForm();
+  // Función para obtener razones seleccionadas (máximo 5)
+  const getRazonesSeleccionadas = () => {
+    const razones = [];
+    const checkboxes = document.querySelectorAll(
+      'input[type="checkbox"][data-group="razones"]:checked'
+    );
+    checkboxes.forEach((cb) => {
+      razones.push(cb.value);
     });
-  } else {
-    console.error('[STUDENT FORM] ❌ No se encontró el botón de submit');
-  }
-  
-  // Agregar data-group a los checkboxes para identificarlos
-  // Medios
-  const mediosCheckboxes = document.querySelectorAll('input[type="checkbox"]');
-  mediosCheckboxes.forEach((cb, index) => {
-    if (index < 8) { // Primeros 8 son medios
-      cb.setAttribute('data-group', 'medios');
-      cb.setAttribute('value', cb.nextElementSibling?.textContent?.trim() || `medio${index}`);
-    } else { // Resto son razones
-      cb.setAttribute('data-group', 'razones');
-      cb.setAttribute('value', cb.nextElementSibling?.textContent?.trim() || `razon${index}`);
-      
-      // Limitar a 5 selecciones
-      cb.addEventListener('change', () => {
-        const checkedRazones = document.querySelectorAll('input[type="checkbox"][data-group="razones"]:checked');
-        if (checkedRazones.length > 5) {
-          cb.checked = false;
-          alert('Solo puedes seleccionar máximo 5 razones.');
-        }
+    return razones;
+  };
+
+  // Función para validar formulario
+  const validateFormsend = () => {
+    console.log("[STUDENT FORM] 🔍 Validando formulario...");
+
+    const requiredFields = [
+      "apellidoPaterno",
+      "apellidoMaterno",
+      "nombres",
+      "calleNumero",
+      "codigoPostal",
+      "municipio",
+      "estado",
+      "pais",
+      "telefono",
+      "celular",
+      "fechaNacimiento",
+      "edad",
+      "sexo",
+      "estadoCivil",
+      "nacionalidad",
+      "ocupacion",
+      "curp",
+      "tipoSangre",
+      "plantel",
+      "turno",
+      "escuelaProcedencia",
+      "carrera",
+      "asesor",
+      "nombrePadreTutor",
+      "ocupacionPadre",
+      "domicilioPadre",
+      "telefonoPadre",
+      "celularPadre",
+      "dia",
+      "mes",
+      "año",
+    ];
+
+    let isValid = true;
+    const missingFields = [];
+
+    return isValid;
+  };
+
+  // Función para calcular edad a partir de fecha de nacimiento
+  const calcularEdad = (fechaNacimiento) => {
+    const hoy = new Date();
+    const nacimiento = new Date(fechaNacimiento);
+    let edad = hoy.getFullYear() - nacimiento.getFullYear();
+    const mes = hoy.getMonth() - nacimiento.getMonth();
+
+    if (mes < 0 || (mes === 0 && hoy.getDate() < nacimiento.getDate())) {
+      edad--;
+    }
+
+    return edad.toString();
+  };
+
+  // Auto-calcular edad cuando cambia la fecha de nacimiento
+  document.addEventListener("DOMContentLoaded", () => {
+    const fechaNacimientoInput = document.querySelector(
+      'input[name="fechaNacimiento"]'
+    );
+    const edadInput = document.querySelector('input[name="edad"]');
+
+    if (fechaNacimientoInput && edadInput) {
+      fechaNacimientoInput.addEventListener("change", (e) => {
+        const edad = calcularEdad(e.target.value);
+        edadInput.value = edad;
+        console.log("[STUDENT FORM] 🎂 Edad calculada:", edad);
       });
     }
   });
-  
-  console.log('[STUDENT FORM] ✅ Configuración completa');
-});
+
+  // Función para preparar el payload
+  // Función para preparar el payload
+  const preparePayload = () => {
+    console.log("[STUDENT FORM] 📦 Preparando payload...");
+
+    // Función auxiliar para obtener valor por posición dentro de una sección específica
+    function obtenerPorSeccion(seccionIndex, inputIndex, tipo = "text") {
+      const secciones = document.querySelectorAll(
+        ".bg-white.rounded-xl.shadow-sm"
+      );
+      if (secciones[seccionIndex]) {
+        const inputs = secciones[seccionIndex].querySelectorAll(
+          `input[type="${tipo}"]`
+        );
+        return inputs[inputIndex] ? inputs[inputIndex].value : "";
+      }
+      return "";
+    }
+
+    function obtenerSelectPorSeccion(seccionIndex, selectIndex) {
+      const secciones = document.querySelectorAll(
+        ".bg-white.rounded-xl.shadow-sm"
+      );
+      if (secciones[seccionIndex]) {
+        const selects = secciones[seccionIndex].querySelectorAll("select");
+        return selects[selectIndex] ? selects[selectIndex].value : "";
+      }
+      return "";
+    }
+
+    function obtenerValor(name) {
+      const element = document.querySelector(`[name="${name}"]`);
+      return element ? element.value : "";
+    }
+
+    // Obtener firma desde canvas
+    const firmaCanvas = document.getElementById("firmaCanvas");
+    const firmaImagen = "";
+
+    // Construir fecha de registro (fecha actual)
+    const fechaActual = new Date();
+    const fechaRegistro = fechaActual.toISOString().split("T")[0];
+
+    // Obtener día, mes y año del compromiso
+    const dia = obtenerPorSeccion(6, 0, "number");
+    const mes = obtenerSelectPorSeccion(6, 0);
+    const año = obtenerSelectPorSeccion(6, 1);
+
+    const payload = {
+      // Nombres (sección 0)
+      nombre: obtenerPorSeccion(0, 2), // nombres
+      apellidoPaterno: obtenerPorSeccion(0, 0),
+      apellidoMaterno: obtenerPorSeccion(0, 1),
+      nombres: obtenerPorSeccion(0, 2),
+
+      // Domicilio (sección 1)
+      calleNumero: obtenerPorSeccion(1, 0),
+      colonia: obtenerPorSeccion(1, 1),
+      codigoPostal: obtenerPorSeccion(1, 2),
+      municipio: obtenerPorSeccion(1, 3),
+      estado: obtenerPorSeccion(1, 4) || "JALISCO",
+      pais: obtenerPorSeccion(1, 5) || "MÉXICO",
+
+      // Contacto (sección 1)
+      telefono: obtenerPorSeccion(1, 0, "tel"),
+      celular: obtenerPorSeccion(1, 1, "tel"),
+      correo: obtenerPorSeccion(1, 0, "email"),
+
+      // Datos personales (sección 1)
+      fechaNacimiento: obtenerPorSeccion(1, 0, "date"),
+      edad: obtenerPorSeccion(1, 6),
+      sexo: obtenerSelectPorSeccion(1, 0),
+      estadoCivil: obtenerSelectPorSeccion(1, 1),
+      nacionalidad: obtenerSelectPorSeccion(1, 2) || "MEXICANA",
+      ocupacion: obtenerPorSeccion(1, 7),
+      curp: obtenerPorSeccion(1, 8),
+      rfc: obtenerPorSeccion(1, 9),
+      tipoSangre: obtenerSelectPorSeccion(1, 3),
+
+      // Datos académicos (sección 2)
+      nivelEducativo: "LICENCIATURA",
+      plantel: obtenerValor("plantel"),
+      turno: obtenerValor("turno"),
+      escuelaProcedencia: obtenerValor("escuela_proc"),
+      promedio: obtenerPorSeccion(2, 0, "number") || "",
+      carrera: obtenerValor("carrera"),
+      asesor: obtenerValor("asesor"),
+
+      // Datos familiares (sección 3)
+      nombrePadreTutor: obtenerPorSeccion(3, 0),
+      ocupacionPadre: obtenerPorSeccion(3, 1),
+      domicilioPadre: obtenerPorSeccion(3, 2),
+      telefonoPadre: obtenerPorSeccion(3, 0, "tel"),
+      celularPadre: obtenerPorSeccion(3, 1, "tel"),
+
+      // Medios y razones
+      "Medios Seleccionados:": getMediosSeleccionados().join(", ") || "Ninguno",
+      mediosSeleccionados: getMediosSeleccionados(),
+      beneficiarios: getRazonesSeleccionadas().join(", ") || "Ninguno",
+
+      // Fechas
+      fechaRegistro: fechaRegistro,
+      dateFields: fechaRegistro,
+      dia: dia,
+      mes: mes,
+      año: año,
+
+      // Firma
+      firmaImagen: firmaImagen,
+    };
+
+    console.log("[STUDENT FORM] ✅ Payload preparado:", {
+      ...payload,
+      firmaImagen: firmaImagen
+        ? `data:image/jpeg;base64,... (${firmaImagen.length} caracteres)`
+        : "Sin firma",
+    });
+
+    return payload;
+  };
+
+  // Variables globales para el modal y reintento
+  let lastPayload = null;
+  const errorModal = document.getElementById("error-modal");
+  const modalErrorMessage = document.getElementById("modal-error-message");
+  const retryButton = document.getElementById("retry-button");
+  const closeModalButton = document.getElementById("close-modal-button");
+
+  // Función para mostrar el modal de error
+  function showErrorModal(message) {
+    if (modalErrorMessage && errorModal) {
+      modalErrorMessage.textContent = message;
+      errorModal.classList.remove("hidden");
+    }
+  }
+
+  // Función para cerrar el modal
+  function closeErrorModal() {
+    if (errorModal) {
+      errorModal.classList.add("hidden");
+    }
+  }
+
+  // Event listeners del modal
+  closeModalButton?.addEventListener("click", closeErrorModal);
+
+  errorModal?.addEventListener("click", (e) => {
+    if (e.target === errorModal) {
+      closeErrorModal();
+    }
+  });
+
+  // Función para enviar formulario
+  const submitForm = async () => {
+    console.log("[STUDENT FORM] 🚀 Iniciando envío del formulario");
+
+    // Validar formulario
+    if (!validateFormsend()) {
+      return;
+    }
+
+    // Preparar payload
+    const payload = preparePayload();
+
+    // Guardar payload para posible reintento
+    lastPayload = payload;
+
+    // Deshabilitar botón de envío
+    const submitButton = document.querySelector('button[type="submit"]');
+    const originalText = submitButton?.textContent;
+    if (submitButton) {
+      submitButton.disabled = true;
+      submitButton.textContent = "ENVIANDO...";
+      submitButton.classList.add("opacity-50", "cursor-not-allowed");
+    }
+
+    try {
+      console.log("[STUDENT FORM] 📡 Enviando POST a:", apiUrl);
+      console.log("[STUDENT FORM] 📦 Payload completo:", payload);
+
+      const response = await fetch(apiUrl, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify(payload),
+      });
+
+      console.log("[STUDENT FORM] 📬 Respuesta recibida:", {
+        status: response.status,
+        statusText: response.statusText,
+        ok: response.ok,
+      });
+
+      // Intentar parsear la respuesta
+      let responseData;
+      try {
+        responseData = await response.json();
+        console.log("[STUDENT FORM] ✅ Respuesta JSON:", responseData);
+      } catch (parseError) {
+        console.error("[STUDENT FORM] ⚠️ No se pudo parsear JSON:", parseError);
+        const textResponse = await response.text();
+        console.log("[STUDENT FORM] 📄 Respuesta como texto:", textResponse);
+        responseData = {
+          message: textResponse || "Respuesta del servidor no válida",
+        };
+      }
+
+      if (response.ok) {
+        console.log("[STUDENT FORM] 🎉 Estudiante registrado exitosamente");
+        // Redirigir a la página de gracias
+        window.location.href = "/contacto/gracias";
+      } else {
+        throw new Error(
+          responseData.message ||
+            `Error ${response.status}: ${response.statusText}`
+        );
+      }
+    } catch (error) {
+      console.error("[STUDENT FORM] ❌ Error al enviar formulario:", error);
+      console.error("[STUDENT FORM] 📋 Detalles del error:", {
+        message: error.message,
+        name: error.name,
+        stack: error.stack,
+      });
+
+      // Determinar el tipo de error y mostrar modal
+      let errorMessage = "";
+      if (!navigator.onLine) {
+        errorMessage =
+          "No hay conexión a internet. Por favor, verifica tu conexión e intenta nuevamente.";
+      } else if (
+        error.message === "Failed to fetch" ||
+        error.name === "TypeError"
+      ) {
+        errorMessage =
+          "No se pudo conectar con el servidor. Esto puede deberse a problemas de conexión a internet. Por favor, intenta más tarde.";
+      } else {
+        errorMessage = `Ocurrió un error al procesar tu inscripción: ${error.message}. Por favor, intenta nuevamente.`;
+      }
+
+      showErrorModal(errorMessage);
+    } finally {
+      // Habilitar botón nuevamente
+      if (submitButton) {
+        submitButton.disabled = false;
+        submitButton.textContent = originalText;
+        submitButton.classList.remove("opacity-50", "cursor-not-allowed");
+      }
+    }
+  };
+
+  // Botón de reintentar en el modal
+  retryButton?.addEventListener("click", async () => {
+    closeErrorModal();
+
+    if (lastPayload) {
+      console.log("[STUDENT FORM] 🔄 Reintentando envío...");
+
+      // Deshabilitar botón
+      const submitButton = document.querySelector('button[type="submit"]');
+      const originalText = submitButton?.textContent;
+      if (submitButton) {
+        submitButton.disabled = true;
+        submitButton.textContent = "ENVIANDO...";
+        submitButton.classList.add("opacity-50", "cursor-not-allowed");
+      }
+
+      try {
+        const response = await fetch(apiUrl, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+          body: JSON.stringify(lastPayload),
+        });
+
+        let responseData;
+        try {
+          responseData = await response.json();
+        } catch (parseError) {
+          const textResponse = await response.text();
+          responseData = {
+            message: textResponse || "Respuesta del servidor no válida",
+          };
+        }
+
+        if (response.ok) {
+          console.log("[STUDENT FORM] 🎉 Reintento exitoso");
+          window.location.href = "/contacto/gracias";
+        } else {
+          throw new Error(responseData.message || `Error ${response.status}`);
+        }
+      } catch (error) {
+        console.error("[STUDENT FORM] ❌ Error en reintento:", error);
+
+        let errorMessage = "";
+        if (!navigator.onLine) {
+          errorMessage =
+            "No hay conexión a internet. Por favor, verifica tu conexión e intenta nuevamente.";
+        } else if (
+          error.message === "Failed to fetch" ||
+          error.name === "TypeError"
+        ) {
+          errorMessage =
+            "No se pudo conectar con el servidor. Esto puede deberse a problemas de conexión a internet. Por favor, intenta más tarde.";
+        } else {
+          errorMessage = `Ocurrió un error al procesar tu inscripción: ${error.message}. Por favor, intenta nuevamente.`;
+        }
+
+        showErrorModal(errorMessage);
+      } finally {
+        if (submitButton) {
+          submitButton.disabled = false;
+          submitButton.textContent = originalText;
+          submitButton.classList.remove("opacity-50", "cursor-not-allowed");
+        }
+      }
+    }
+  });
+
+  // Event listener para el botón de submit
+  document.addEventListener("DOMContentLoaded", () => {
+    console.log("[STUDENT FORM] 🎯 Configurando event listeners");
+
+    const submitButton = document.querySelector('button[type="submit"]');
+
+    if (submitButton) {
+      console.log("[STUDENT FORM] ✅ Botón de submit encontrado");
+
+      submitButton.addEventListener("click", async (e) => {
+        e.preventDefault();
+        console.log("[STUDENT FORM] 🖱️ Click en botón INSCRIBIRME");
+        await submitForm();
+      });
+    } else {
+      console.error("[STUDENT FORM] ❌ No se encontró el botón de submit");
+    }
+
+    // Agregar data-group a los checkboxes para identificarlos
+    // Medios
+    const mediosCheckboxes = document.querySelectorAll(
+      'input[type="checkbox"]'
+    );
+    mediosCheckboxes.forEach((cb, index) => {
+      if (index < 8) {
+        // Primeros 8 son medios
+        cb.setAttribute("data-group", "medios");
+        cb.setAttribute(
+          "value",
+          cb.nextElementSibling?.textContent?.trim() || `medio${index}`
+        );
+      } else {
+        // Resto son razones
+        cb.setAttribute("data-group", "razones");
+        cb.setAttribute(
+          "value",
+          cb.nextElementSibling?.textContent?.trim() || `razon${index}`
+        );
+
+        // Limitar a 5 selecciones
+        cb.addEventListener("change", () => {
+          const checkedRazones = document.querySelectorAll(
+            'input[type="checkbox"][data-group="razones"]:checked'
+          );
+          if (checkedRazones.length > 5) {
+            cb.checked = false;
+            alert("Solo puedes seleccionar máximo 5 razones.");
+          }
+        });
+      }
+    });
+
+    console.log("[STUDENT FORM] ✅ Configuración completa");
+  });
 </script>
 
 <script>

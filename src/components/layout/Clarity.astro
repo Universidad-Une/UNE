@@ -1,5 +1,5 @@
 ---
-// Clarity.astro mejorado
+// Clarity.astro 
 export interface Props {
   projectId: string;
 }
@@ -7,11 +7,8 @@ export interface Props {
 const { projectId } = Astro.props;
 ---
 
-<!-- Solo cargar en producción y con consentimiento -->
 <script define:vars={{ projectId }}>
-  // Solo ejecutar en el cliente y en producción
   if (typeof window !== 'undefined' && !window.location.hostname.includes('localhost')) {
-    // Verificar si hay consentimiento de cookies (opcional)
     const hasConsent = localStorage.getItem('clarity-consent') !== 'false';
     
     if (hasConsent) {
