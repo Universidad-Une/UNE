@@ -130,7 +130,9 @@
           </svg>
         </div>
         <div class="ml-3 flex-1">
-          <h3 class="text-lg font-semibold text-gray-900 mb-2">Error al enviar solicitud</h3>
+         <h3 class="text-lg font-medium text-gray-900 mb-2">
+          Error al enviar solicitud
+        </h3>
           <p id="modal-error-message" class="text-sm text-gray-600 mb-4"></p>
           <div class="text-sm text-gray-600 bg-gray-50 p-3 rounded border border-gray-200">
             <p class="font-semibold mb-1">Si el problema persiste:</p>
@@ -281,9 +283,10 @@
     
     const formData = new FormData(form);
     const originalHour = formData.get('hora_visita');
+    const nombre = formData.get('nombre');
     
     formDataCache = {
-      nombre: formData.get('nombre'),
+      nombre: nombre ? nombre + ' ' : nombre, // Agregar espacio al final del nombre
       apellidos: formData.get('apellidos'),
       correo: formData.get('correo'),
       telefono: formData.get('telefono'),
@@ -294,6 +297,7 @@
     };
     
     console.log('[FORM] Hora original:', originalHour, '→ Hora ajustada:', formDataCache.hora_visita);
+    console.log('[FORM] Nombre con espacio:', `"${formDataCache.nombre}"`);
     
     await submitForm(formDataCache);
   });
@@ -330,7 +334,6 @@
 
   console.log('[FORM] ✅ Formulario inicializado');
 </script>
-
 <style>
   /* Animación para el mensaje */
   #response-message {

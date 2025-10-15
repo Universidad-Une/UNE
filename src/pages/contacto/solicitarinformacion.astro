@@ -2,18 +2,31 @@
 import Layout from "@/layouts/Layout.astro";
 import Fondo from "@assets/Imagenes/Heros/Contacto.webp";
 import FormularioPrincipal from "@components/sections/contacto/FormularioPrincipal.astro";
-import { Mail, Phone, MessageCircle, Clock, Users, Shield, CheckCircle2 } from "@lucide/astro";
+import {
+  Mail,
+  Phone,
+  MessageCircle,
+  Clock,
+  Users,
+  Shield,
+  CheckCircle2,
+} from "@lucide/astro";
 ---
 
 <Layout
-title="Solicitar Información UNE - Asesoría Académica Gratuita"
-description="Solicita información sobre carreras en UNE. Asesoría gratuita, planes de estudio, costos y modalidades. Contacta con nuestros asesores.">
+  title="Solicitar Información UNE - Asesoría Académica Gratuita"
+  description="Solicita información sobre carreras en UNE. Asesoría gratuita, planes de estudio, costos y modalidades. Contacta con nuestros asesores."
+>
   <!-- Hero Section Mejorado -->
-  <section class="min-h-screen lg:h-[84dvh] bg-gray-50 flex flex-col lg:flex-row relative overflow-hidden">
-
+  <section
+    class="min-h-screen lg:h-[84dvh] bg-gray-50 flex flex-col lg:flex-row relative overflow-hidden"
+  >
     <!-- Lado izquierdo - Hero con mejor jerarquía visual -->
-    <div class="w-full lg:w-3/5 h-[75vh] lg:h-[85vh] relative overflow-hidden">
-      <div class="absolute inset-0 bg-gradient-to-r from-black/60 via-black/40 to-transparent z-10"></div>
+    <div class="w-full lg:w-7/12 h-[75vh] lg:h-[85vh] relative overflow-hidden">
+      <div
+        class="absolute inset-0 bg-gradient-to-r from-black/60 via-black/40 to-transparent z-10"
+      >
+      </div>
       <img
         src={Fondo.src}
         alt="Estudiantes UNE"
@@ -21,14 +34,16 @@ description="Solicita información sobre carreras en UNE. Asesoría gratuita, pl
       />
 
       <!-- Contenido del hero mejorado -->
-      <div class="relative z-20 h-full flex flex-col justify-between p-6 lg:p-8 text-white">
-        
+      <div
+        class="relative z-20 h-full flex flex-col justify-between p-6 lg:p-8 text-white"
+      >
         <!-- Sección principal con mejor copywriting -->
         <div class="flex-1 flex flex-col justify-center">
           <!-- Badge de urgencia -->
-         
 
-          <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 leading-tight">
+          <h1
+            class="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 leading-tight"
+          >
             Inicia tu futuro<br />
             <span class="text-rojo-une">profesional hoy</span>
           </h1>
@@ -45,39 +60,50 @@ description="Solicita información sobre carreras en UNE. Asesoría gratuita, pl
             </div>
             <div class="flex items-center gap-3">
               <div class="w-2 h-2 bg-green-400 rounded-full"></div>
-              <span class="text-lg">Opciones de financiamiento disponibles</span>
+              <span class="text-lg">Opciones de financiamiento disponibles</span
+              >
             </div>
           </div>
-
-
-          
         </div>
 
         <!-- Banda de confianza compacta -->
-       
+
         <!-- Información de contacto reorganizada -->
         <div class="space-y-4">
-          <div class=" flex justify-between ">
-            <h3 class="text-lg font-semibold text-blue-100 mb-3">Otras formas de contacto</h3>
-             <div class="bg-gradient-to-r from-green-500 to-emerald-500 text-white py-2 px-4 rounded-xl mb-4">
-          <div class="flex items-center justify-center gap-4 text-sm font-medium">
-            <div class="flex items-center gap-1">
-              <CheckCircle2 size={16} />
-              <span>Respuesta tan pronto como sea posible</span>
-            </div>
-            <div class="hidden sm:flex items-center gap-1">
-              <Users size={16} />
-              <span>+15,000 estudiantes</span>
+          <div class="flex justify-between">
+            <h3 class="text-lg font-semibold text-blue-100 mb-3">
+              Otras formas de contacto
+            </h3>
+            <div
+              class="bg-gradient-to-r from-green-500 to-emerald-500 text-white py-2 px-4 rounded-xl mb-4"
+            >
+              <div
+                class="flex items-center justify-center gap-4 text-sm font-medium"
+              >
+                <div class="flex items-center gap-1">
+                  <CheckCircle2 size={16} />
+                  <span>Respuesta tan pronto como sea posible</span>
+                </div>
+                <div class="hidden sm:flex items-center gap-1">
+                  <Users size={16} />
+                  <span>+15,000 estudiantes</span>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-
-          </div>
-           <div class="bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-4 mb-6">
-            <p class="text-sm text-gray-200 mb-2">¿Necesitas hablar ahora mismo?</p>
-            <a href="tel:3380000863" 
-               class="flex items-center gap-3 text-white hover:text-blue-500 transition-colors group">
-              <div class="w-10 h-10 bg-green-500 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
+          <div
+            class="bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-4 mb-6"
+          >
+            <p class="text-sm text-gray-200 mb-2">
+              ¿Necesitas hablar ahora mismo?
+            </p>
+            <a
+              href="tel:3380000863"
+              class="flex items-center gap-3 text-white hover:text-blue-500 transition-colors group"
+            >
+              <div
+                class="w-10 h-10 bg-green-500 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform"
+              >
                 <Phone size={18} />
               </div>
               <div>
@@ -88,28 +114,38 @@ description="Solicita información sobre carreras en UNE. Asesoría gratuita, pl
           </div>
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <!-- WhatsApp destacado -->
-            <a href="https://api.whatsapp.com/send?phone=5213380000831&text=Hola%2C%20me%20gustar%C3%ADa%20recibir%20informaci%C3%B3n%20sobre%20UNE"
-               target="_blank"
-               rel="noopener noreferrer"
-               class="flex items-center gap-3 bg-green-500/20 backdrop-blur-sm border border-green-500/30 rounded-xl p-3 hover:bg-green-500/30 transition-all group">
-              <div class="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+            <a
+              href="https://api.whatsapp.com/send?phone=5213380000863&text=Hola%2C%20me%20gustar%C3%ADa%20recibir%20informaci%C3%B3n%20sobre%20UNE"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="flex items-center gap-3 bg-green-500/20 backdrop-blur-sm border border-green-500/30 rounded-xl p-3 hover:bg-green-500/30 transition-all group"
+            >
+              <div
+                class="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform"
+              >
                 <MessageCircle size={16} />
               </div>
               <div>
                 <div class="text-sm font-medium">WhatsApp</div>
-                <div class="text-xs text-gray-300">(33) 8000 0831</div>
+                <div class="text-xs text-gray-300">(33) 8000 0863</div>
               </div>
             </a>
 
             <!-- Email -->
-            <a href="mailto:informes@universidad-une.com"
-               class="flex items-center gap-3 bg-blue-500/20 backdrop-blur-sm border border-blue-500/30 rounded-xl p-3 hover:bg-blue-500/30 transition-all group">
-              <div class="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+            <a
+              href="mailto:informes@universidad-une.com"
+              class="flex items-center gap-3 bg-blue-500/20 backdrop-blur-sm border border-blue-500/30 rounded-xl p-3 hover:bg-blue-500/30 transition-all group"
+            >
+              <div
+                class="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform"
+              >
                 <Mail size={16} />
               </div>
               <div>
                 <div class="text-sm font-medium">Email</div>
-                <div class="text-xs text-gray-300">informes@universidad-une.com</div>
+                <div class="text-xs text-gray-300">
+                  informes@universidad-une.com
+                </div>
               </div>
             </a>
           </div>
@@ -117,32 +153,35 @@ description="Solicita información sobre carreras en UNE. Asesoría gratuita, pl
           <!-- Horarios de atención -->
           <div class="flex items-center gap-2 text-sm text-gray-300 mt-4">
             <Clock size={16} />
-            <span>Horarios: Lun-Vie 8:00-20:00 | Sáb 9:00-15:00</span>
+            <span>Horarios: Lun-Vie 8:00-20:00 | Sáb 9:00-14:00</span>
           </div>
         </div>
       </div>
     </div>
 
     <!-- Lado derecho - Formulario optimizado -->
-    <div class="w-full lg:w-2/5 flex-1 lg:h-[85vh] bg-white flex items-center justify-center p-4 lg:p-6">
-      <div class="w-full max-w-md h-full lg:h-auto flex flex-col justify-center">
-        
+    <div
+      class="w-full lg:w-5/12 flex-1 lg:h-[85vh] bg-white flex items-center justify-center p-4 lg:p-6"
+    >
+      <div
+        class="w-full max-w-9/12 h-full lg:h-auto flex flex-col justify-center"
+      >
         <!-- Header del formulario mejorado -->
         <div class="text-center mb-6">
-          <div class="inline-flex items-center gap-2 bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm font-medium mb-3">
+          <div
+            class="inline-flex items-center gap-2 bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm font-medium mb-3"
+          >
             <div class="w-2 h-2 bg-green-500 rounded-full"></div>
             <span>Formulario seguro</span>
           </div>
-          
+
           <h2 class="text-2xl lg:text-3xl font-bold text-gray-900 mb-2">
             Recibe información personalizada
           </h2>
-        
-        </div>        
+        </div>
 
         <!-- Formulario -->
         <FormularioPrincipal />
-
       </div>
     </div>
   </section>
@@ -154,7 +193,9 @@ description="Solicita información sobre carreras en UNE. Asesoría gratuita, pl
         <!-- Contenido mejorado -->
         <div class="space-y-6">
           <div>
-            <div class="inline-flex items-center gap-2 bg-red-100 text-red-700 px-3 py-1 rounded-full text-sm font-medium mb-4">
+            <div
+              class="inline-flex items-center gap-2 bg-red-100 text-red-700 px-3 py-1 rounded-full text-sm font-medium mb-4"
+            >
               <span>📍</span>
               <span>Visítanos sin cita previa</span>
             </div>
@@ -168,23 +209,33 @@ description="Solicita información sobre carreras en UNE. Asesoría gratuita, pl
 
           <!-- Beneficios de visitar -->
           <div class="bg-white rounded-xl p-6 shadow-sm border">
-            <h3 class="font-semibold text-gray-900 mb-4">¿Por qué visitarnos?</h3>
+            <h3 class="font-semibold text-gray-900 mb-4">
+              ¿Por qué visitarnos?
+            </h3>
             <div class="space-y-3">
               <div class="flex items-center gap-3">
                 <CheckCircle2 size={20} class="text-green-500 flex-shrink-0" />
-                <span class="text-gray-700">Recorrido por nuestras instalaciones</span>
+                <span class="text-gray-700"
+                  >Recorrido por nuestras instalaciones</span
+                >
               </div>
               <div class="flex items-center gap-3">
                 <CheckCircle2 size={20} class="text-green-500 flex-shrink-0" />
-                <span class="text-gray-700">Asesoría presencial personalizada</span>
+                <span class="text-gray-700"
+                  >Asesoría presencial personalizada</span
+                >
               </div>
               <div class="flex items-center gap-3">
                 <CheckCircle2 size={20} class="text-green-500 flex-shrink-0" />
-                <span class="text-gray-700">Información sobre becas y financiamiento</span>
+                <span class="text-gray-700"
+                  >Información sobre becas y financiamiento</span
+                >
               </div>
               <div class="flex items-center gap-3">
                 <CheckCircle2 size={20} class="text-green-500 flex-shrink-0" />
-                <span class="text-gray-700">Conoce a profesores y estudiantes actuales</span>
+                <span class="text-gray-700"
+                  >Conoce a profesores y estudiantes actuales</span
+                >
               </div>
             </div>
           </div>
@@ -197,7 +248,10 @@ description="Solicita información sobre carreras en UNE. Asesoría gratuita, pl
               aria-label="Agendar una cita"
             >
               <span class="relative z-10">🗓️ Agendar una cita</span>
-              <div class="absolute inset-0 bg-white opacity-0 group-hover:opacity-10 transition-opacity"></div>
+              <div
+                class="absolute inset-0 bg-white opacity-0 group-hover:opacity-10 transition-opacity"
+              >
+              </div>
             </a>
             <a
               href="/planteles/"
@@ -211,7 +265,9 @@ description="Solicita información sobre carreras en UNE. Asesoría gratuita, pl
 
         <!-- Mapa mejorado -->
         <div class="relative">
-          <div class="absolute -top-4 -right-4 bg-yellow-400 text-black px-3 py-2 rounded-lg text-sm font-medium z-10 shadow-lg">
+          <div
+            class="absolute -top-4 -right-4 bg-yellow-400 text-black px-3 py-2 rounded-lg text-sm font-medium z-10 shadow-lg"
+          >
             📍 18 planteles disponibles
           </div>
           <div class="rounded-2xl overflow-hidden shadow-2xl border">
@@ -233,87 +289,159 @@ description="Solicita información sobre carreras en UNE. Asesoría gratuita, pl
   </section>
 
   <!-- Sección de FAQ para reducir fricción -->
-<section class="py-16 px-4 bg-white">
-  <div class="max-w-4xl mx-auto">
-    <div class="text-center mb-12">
-      <h2 class="text-3xl font-bold text-gray-900 mb-4">Preguntas frecuentes</h2>
-      <p class="text-gray-600">Resolvemos tus dudas más comunes</p>
+  <section class="py-16 px-4 bg-white">
+    <div class="max-w-4xl mx-auto">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold text-gray-900 mb-4">
+          Preguntas frecuentes
+        </h2>
+        <p class="text-gray-600">Resolvemos tus dudas más comunes</p>
+      </div>
+
+      <div class="space-y-4">
+        <details
+          class="bg-gray-50 rounded-xl group hover:bg-gray-100 transition-colors cursor-pointer"
+        >
+          <summary
+            class="font-semibold text-gray-900 cursor-pointer flex justify-between items-center p-6 list-none"
+          >
+            <span>¿Cuánto tiempo toma recibir información?</span>
+            <span
+              class="group-open:rotate-180 transition-transform duration-200 flex-shrink-0 ml-4"
+            >
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 16 16"
+                fill="currentColor"
+              >
+                <path d="M8 12l-4-4h8l-4 4z"></path>
+              </svg>
+            </span>
+          </summary>
+          <div class="px-6 pb-6">
+            <p class="text-gray-600">
+              Te contactaremos en menos de 24 horas hábiles. En horarios de
+              oficina, muchas veces respondemos en menos de 2 horas.
+            </p>
+          </div>
+        </details>
+
+        <details
+          class="bg-gray-50 rounded-xl group hover:bg-gray-100 transition-colors cursor-pointer"
+        >
+          <summary
+            class="font-semibold text-gray-900 cursor-pointer flex justify-between items-center p-6 list-none"
+          >
+            <span>¿La asesoría tiene algún costo?</span>
+            <span
+              class="group-open:rotate-180 transition-transform duration-200 flex-shrink-0 ml-4"
+            >
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 16 16"
+                fill="currentColor"
+              >
+                <path d="M8 12l-4-4h8l-4 4z"></path>
+              </svg>
+            </span>
+          </summary>
+          <div class="px-6 pb-6">
+            <p class="text-gray-600">
+              No, toda la asesoría e información es completamente gratuita y sin
+              compromiso.
+            </p>
+          </div>
+        </details>
+
+        <details
+          class="bg-gray-50 rounded-xl group hover:bg-gray-100 transition-colors cursor-pointer"
+        >
+          <summary
+            class="font-semibold text-gray-900 cursor-pointer flex justify-between items-center p-6 list-none"
+          >
+            <span>¿Qué información recibiré?</span>
+            <span
+              class="group-open:rotate-180 transition-transform duration-200 flex-shrink-0 ml-4"
+            >
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 16 16"
+                fill="currentColor"
+              >
+                <path d="M8 12l-4-4h8l-4 4z"></path>
+              </svg>
+            </span>
+          </summary>
+          <div class="px-6 pb-6">
+            <p class="text-gray-600">
+              Plan de estudios detallado, opciones de financiamiento, becas
+              disponibles, proceso de admisión y cualquier duda específica que
+              tengas.
+            </p>
+          </div>
+        </details>
+
+        <details
+          class="bg-gray-50 rounded-xl group hover:bg-gray-100 transition-colors cursor-pointer"
+        >
+          <summary
+            class="font-semibold text-gray-900 cursor-pointer flex justify-between items-center p-6 list-none"
+          >
+            <span>¿Puedo cambiar de carrera después de inscribirme?</span>
+            <span
+              class="group-open:rotate-180 transition-transform duration-200 flex-shrink-0 ml-4"
+            >
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 16 16"
+                fill="currentColor"
+              >
+                <path d="M8 12l-4-4h8l-4 4z"></path>
+              </svg>
+            </span>
+          </summary>
+          <div class="px-6 pb-6">
+            <p class="text-gray-600">
+              Sí, ofrecemos opciones de cambio de carrera durante los primeros
+              semestres. Te asesoramos para encontrar el programa que mejor se
+              adapte a tus intereses y objetivos.
+            </p>
+          </div>
+        </details>
+
+        <details
+          class="bg-gray-50 rounded-xl group hover:bg-gray-100 transition-colors cursor-pointer"
+        >
+          <summary
+            class="font-semibold text-gray-900 cursor-pointer flex justify-between items-center p-6 list-none"
+          >
+            <span>¿Ofrecen modalidades en línea?</span>
+            <span
+              class="group-open:rotate-180 transition-transform duration-200 flex-shrink-0 ml-4"
+            >
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 16 16"
+                fill="currentColor"
+              >
+                <path d="M8 12l-4-4h8l-4 4z"></path>
+              </svg>
+            </span>
+          </summary>
+          <div class="px-6 pb-6">
+            <p class="text-gray-600">
+              Sí, contamos con modalidades presencial, en línea y mixta para
+              adaptarnos a tu estilo de vida y horarios. Todas con la misma
+              calidad académica.
+            </p>
+          </div>
+        </details>
+      </div>
     </div>
-
-    <div class="space-y-4">
-      <details class="bg-gray-50 rounded-xl group hover:bg-gray-100 transition-colors cursor-pointer">
-        <summary class="font-semibold text-gray-900 cursor-pointer flex justify-between items-center p-6 list-none">
-          <span>¿Cuánto tiempo toma recibir información?</span>
-          <span class="group-open:rotate-180 transition-transform duration-200 flex-shrink-0 ml-4">
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
-              <path d="M8 12l-4-4h8l-4 4z"/>
-            </svg>
-          </span>
-        </summary>
-        <div class="px-6 pb-6">
-          <p class="text-gray-600">Te contactaremos en menos de 24 horas hábiles. En horarios de oficina, muchas veces respondemos en menos de 2 horas.</p>
-        </div>
-      </details>
-
-      <details class="bg-gray-50 rounded-xl group hover:bg-gray-100 transition-colors cursor-pointer">
-        <summary class="font-semibold text-gray-900 cursor-pointer flex justify-between items-center p-6 list-none">
-          <span>¿La asesoría tiene algún costo?</span>
-          <span class="group-open:rotate-180 transition-transform duration-200 flex-shrink-0 ml-4">
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
-              <path d="M8 12l-4-4h8l-4 4z"/>
-            </svg>
-          </span>
-        </summary>
-        <div class="px-6 pb-6">
-          <p class="text-gray-600">No, toda la asesoría e información es completamente gratuita y sin compromiso.</p>
-        </div>
-      </details>
-
-      <details class="bg-gray-50 rounded-xl group hover:bg-gray-100 transition-colors cursor-pointer">
-        <summary class="font-semibold text-gray-900 cursor-pointer flex justify-between items-center p-6 list-none">
-          <span>¿Qué información recibiré?</span>
-          <span class="group-open:rotate-180 transition-transform duration-200 flex-shrink-0 ml-4">
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
-              <path d="M8 12l-4-4h8l-4 4z"/>
-            </svg>
-          </span>
-        </summary>
-        <div class="px-6 pb-6">
-          <p class="text-gray-600">Plan de estudios detallado, opciones de financiamiento, becas disponibles, proceso de admisión y cualquier duda específica que tengas.</p>
-        </div>
-      </details>
-
-      <details class="bg-gray-50 rounded-xl group hover:bg-gray-100 transition-colors cursor-pointer">
-        <summary class="font-semibold text-gray-900 cursor-pointer flex justify-between items-center p-6 list-none">
-          <span>¿Puedo cambiar de carrera después de inscribirme?</span>
-          <span class="group-open:rotate-180 transition-transform duration-200 flex-shrink-0 ml-4">
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
-              <path d="M8 12l-4-4h8l-4 4z"/>
-            </svg>
-          </span>
-        </summary>
-        <div class="px-6 pb-6">
-          <p class="text-gray-600">Sí, ofrecemos opciones de cambio de carrera durante los primeros semestres. Te asesoramos para encontrar el programa que mejor se adapte a tus intereses y objetivos.</p>
-        </div>
-      </details>
-
-      <details class="bg-gray-50 rounded-xl group hover:bg-gray-100 transition-colors cursor-pointer">
-        <summary class="font-semibold text-gray-900 cursor-pointer flex justify-between items-center p-6 list-none">
-          <span>¿Ofrecen modalidades en línea?</span>
-          <span class="group-open:rotate-180 transition-transform duration-200 flex-shrink-0 ml-4">
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
-              <path d="M8 12l-4-4h8l-4 4z"/>
-            </svg>
-          </span>
-        </summary>
-        <div class="px-6 pb-6">
-          <p class="text-gray-600">Sí, contamos con modalidades presencial, en línea y mixta para adaptarnos a tu estilo de vida y horarios. Todas con la misma calidad académica.</p>
-        </div>
-      </details>
-    </div>
-  </div>
-</section>
+  </section>
 </Layout>
-
-
-

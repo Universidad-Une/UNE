@@ -1,5 +1,33 @@
 ---
-import { BookOpen, FileText } from "@lucide/astro";
+import { asesoresPorPlantel } from "../../../helpers/asesoresPorPlantel";
+import { educationData } from "../../../helpers/educationData";
+
+// Función para extraer todas las carreras disponibles por plantel desde educationData
+function getCarrerasPorPlantel() {
+  const carrerasPorPlantel = {};
+
+  Object.keys(educationData).forEach((nivelEducativo) => {
+    const carreras = educationData[nivelEducativo];
+
+    Object.keys(carreras).forEach((nombreCarrera) => {
+      const planteles = carreras[nombreCarrera];
+
+      Object.keys(planteles).forEach((plantel) => {
+        if (!carrerasPorPlantel[plantel]) {
+          carrerasPorPlantel[plantel] = [];
+        }
+
+        if (!carrerasPorPlantel[plantel].includes(nombreCarrera)) {
+          carrerasPorPlantel[plantel].push(nombreCarrera);
+        }
+      });
+    });
+  });
+
+  return carrerasPorPlantel;
+}
+
+const carrerasPorPlantel = getCarrerasPorPlantel();
 ---
 
 <section class="py-16 bg-gray-50">
@@ -99,7 +127,7 @@ import { BookOpen, FileText } from "@lucide/astro";
               >
               <input
                 type="text"
-                value="JALISCO"
+                value="Jalisco"
                 class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
               />
             </div>
@@ -109,7 +137,7 @@ import { BookOpen, FileText } from "@lucide/astro";
               >
               <input
                 type="text"
-                value="MÉXICO"
+                value="México"
                 class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
               />
             </div>
@@ -175,8 +203,8 @@ import { BookOpen, FileText } from "@lucide/astro";
                 class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
               >
                 <option value="">Seleccione</option>
-                <option value="FEMENINO">FEMENINO</option>
-                <option value="MASCULINO">MASCULINO</option>
+                <option value="Femenino">Femenino</option>
+                <option value="Masculino">Masculino</option>
               </select>
             </div>
             <div>
@@ -187,11 +215,11 @@ import { BookOpen, FileText } from "@lucide/astro";
                 class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
               >
                 <option value="">Seleccione</option>
-                <option value="SOLTERO">SOLTERO/A</option>
-                <option value="CASADO">CASADO/A</option>
-                <option value="VIUDO">VIUDO/A</option>
-                <option value="DIVORCIADO">DIVORCIADO/A</option>
-                <option value="UNION_LIBRE">UNIÓN LIBRE</option>
+                <option value="Soltero">Soltero/a</option>
+                <option value="Casado">Casado/a</option>
+                <option value="Viudo">Viudo/a</option>
+                <option value="Divorciado">Divorciado/a</option>
+                <option value="Union libre">Unión libre</option>
               </select>
             </div>
           </div>
@@ -204,7 +232,7 @@ import { BookOpen, FileText } from "@lucide/astro";
               <select
                 class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
               >
-                <option value="MEXICANA">MEXICANA</option>
+                <option value="Mexicana">Mexicana</option>
               </select>
             </div>
             <div>
@@ -278,28 +306,27 @@ import { BookOpen, FileText } from "@lucide/astro";
                 class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
               >
                 <option value="">Seleccione</option>
-                <option value="CENTRO">CENTRO</option>
-                <option value="CENTRO MÉDICO">CENTRO MÉDICO</option>
-                <option value="CHAPULTEPEC">CHAPULTEPEC</option>
-                <option value="MILENIO">MILENIO</option>
-                <option value="TESISTÁN">TESISTÁN</option>
-                <option value="TLAJOMULCO">TLAJOMULCO</option>
-                <option value="TLAQUEPAQUE">TLAQUEPAQUE</option>
-                <option value="TONALÁ">TONALÁ</option>
-                <option value="TORRE QUETZAL">TORRE QUETZAL</option>
-                <option value="TORRE UNE MILENIO">TORRE UNE MILENIO</option>
-                <option value="MILENIO">MILENIO</option>
-                <option value="ZAPOPAN"> ZAPOPAN</option>
-                <option value="TEPATITLÁN">TEPATITLÁN</option>
-                <option value="AV. MÉXICO">AV. MÉXICO</option>
-                <option value="CAMPUS PUERTO VALLARTA"
-                  >CAMPUS PUERTO VALLARTA</option
+                <option value="Centro">Centro</option>
+                <option value="Centro médico">Centro médico</option>
+                <option value="Chapultepec">Chapultepec</option>
+                <option value="Milenio">Milenio</option>
+                <option value="Tesistán">Tesistán</option>
+                <option value="Tlajomulco">Tlajomulco</option>
+                <option value="Tlaquepaque">Tlaquepaque</option>
+                <option value="Tonalá">Tonalá</option>
+                <option value="Torre Quetzal">Torre Quetzal</option>
+                <option value="Torre UNE Milenio">Torre UNE Milenio</option>
+                <option value="Zapopan">Zapopan</option>
+                <option value="Tepatitlán">Tepatitlán</option>
+                <option value="Av. México">Av. México</option>
+                <option value="Campus Puerto Vallarta"
+                  >Campus Puerto Vallarta</option
                 >
-                <option value="CARACOL">CARACOL</option>
-                <option value="LAS JUNTAS">LAS JUNTAS</option>
-                <option value="PLAZA DEL SOL">PLAZA DEL SOL</option>
-                <option value="UNE EN LÍNEA">UNE EN LÍNEA</option>
-                <option value="CENTRO DE IDIOMAS">CENTRO DE IDIOMAS</option>
+                <option value="Caracol">Caracol</option>
+                <option value="Las Juntas">Las Juntas</option>
+                <option value="Plaza del Sol">Plaza del Sol</option>
+                <option value="UNE en línea">UNE en línea</option>
+                <option value="Centro de idiomas">Centro de idiomas</option>
               </select>
             </div>
             <div>
@@ -311,12 +338,12 @@ import { BookOpen, FileText } from "@lucide/astro";
                 class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
               >
                 <option value="">Seleccione</option>
-                <option value="MATUTINO">MATUTINO</option>
-                <option value="VESPERTINO">VESPERTINO</option>
-                <option value="NOCTURNO">NOCTURNO</option>
-                <option value="MIXTO">MIXTO</option>
-                <option value="SABATINO">SABATINO</option>
-                <option value="EN_LINEA">EN LÍNEA</option>
+                <option value="Matutino">Matutino</option>
+                <option value="Vespertino">Vespertino</option>
+                <option value="Nocturno">Nocturno</option>
+                <option value="Mixto">Mixto</option>
+                <option value="Sabatino">Sabatino</option>
+                <option value="En línea">En línea</option>
               </select>
             </div>
             <div>
@@ -648,18 +675,18 @@ import { BookOpen, FileText } from "@lucide/astro";
                 class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
               >
                 <option value="">Seleccione</option>
-                <option value="ENERO">ENERO</option>
-                <option value="FEBRERO">FEBRERO</option>
-                <option value="MARZO">MARZO</option>
-                <option value="ABRIL">ABRIL</option>
-                <option value="MAYO">MAYO</option>
-                <option value="JUNIO">JUNIO</option>
-                <option value="JULIO">JULIO</option>
-                <option value="AGOSTO">AGOSTO</option>
-                <option value="SEPTIEMBRE">SEPTIEMBRE</option>
-                <option value="OCTUBRE">OCTUBRE</option>
-                <option value="NOVIEMBRE">NOVIEMBRE</option>
-                <option value="DICIEMBRE">DICIEMBRE</option>
+                <option value="Enero">Enero</option>
+                <option value="Febrero">Febrero</option>
+                <option value="Marzo">Marzo</option>
+                <option value="Abril">Abril</option>
+                <option value="Mayo">Mayo</option>
+                <option value="Junio">Junio</option>
+                <option value="Julio">Julio</option>
+                <option value="Agosto">Agosto</option>
+                <option value="Septiembre">Septiembre</option>
+                <option value="Octubre">Octubre</option>
+                <option value="Noviembre">Noviembre</option>
+                <option value="Diciembre">Diciembre</option>
               </select>
             </div>
 
@@ -768,7 +795,7 @@ import { BookOpen, FileText } from "@lucide/astro";
           </svg>
         </div>
         <div class="ml-3 flex-1">
-          <h3 class="text-lg font-semibold text-gray-900 mb-2">
+          <h3 class="text-lg font-medium text-gray-900 mb-2">
             Error al enviar solicitud
           </h3>
           <p id="modal-error-message" class="text-sm text-gray-600 mb-4"></p>
@@ -804,402 +831,19 @@ import { BookOpen, FileText } from "@lucide/astro";
   </div>
 </section>
 
-<script is:inline>
-  // Ejemplo de datos - aquí van tus constantes completas
-  // Definir los asesores por plantel
-  const asesoresPorPlantel = {
-    CENTRO: [
-      "NINGUNO",
-      "VANIA DENISE GARCÍA ESTRADA",
-      "BRENDA MICHELLE RAMOS RAMÍREZ",
-    ],
-    "CENTRO MÉDICO": [
-      "NINGUNO",
-      "NIDIA CARINA LUEVANO CURIEL",
-      "TANIA GUADALUPE GONZALEZ SOLORIO",
-    ],
-    CHAPULTEPEC: [
-      "NINGUNO",
-      "JENNIFER SUGUEY MACIEL FONSECA",
-      "CRISTINA LISET CARRILLO RAMÍREZ",
-      "CYNTHIA MESINOS CARMONA",
-    ],
-    MILENIO: [
-      "NINGUNO",
-      "ERNESTO NOE TORRES JUAREZ",
-      "KARLA CECILIA LOMELÍ GONZÁLEZ",
-      "VALERIA NARAI DELGADILLO VILLALOBOS",
-    ],
-    "PLAZA DEL SOL": ["NINGUNO", "ANA GRECIA CANELA GUTIÉRREZ"],
-    TESISTÁN: [
-      "NINGUNO",
-      "ERIKA MARCELA ESQUEDA DE ANDA",
-      "YANNIRETH GONZÁLEZ LÓPEZ",
-      "IMELDA JUÁREZ SANDOVAL",
-    ],
-    TLAJOMULCO: [
-      "NINGUNO",
-      "SONIA ALEJANDRA RODRÍGUEZ GARCÍA",
-      "JESÚS EMMANUEL VILLA PRECIADO",
-      "ULISES GAMALIEL GÓMEZ JIMÉNEZ",
-      "SANDRA GABRIELA LOZA DE LA CRUZ",
-    ],
-    TLAQUEPAQUE: [
-      "NINGUNO",
-      "BELEN EUNICE MEJÍA ZAMBRANO",
-      "LILIANA GUILLERMINA DE LA TORRE AGUILAR",
-    ],
-    TONALÁ: [
-      "NINGUNO",
-      "UBALDO ABRAHAM PÉREZ SEGURA",
-      "ALEJANDRA MONTSERRAT ALANÍZ REYES",
-      "JAVIER JAUREGUI RUIZ",
-      "ELEANA JOCELYNE VICENCIO CARRILLO",
-    ],
-    "TORRE QUETZAL": [
-      "NINGUNO",
-      "TOMÁS EFRAÍN FLORES JIMÉNEZ",
-      "ANETT GÓMEZ PÉREZ",
-    ],
-    "TORRE UNE MILENIO": [
-      "NINGUNO",
-      "BRIANDA A. ESTRADA ARELLANO",
-      "MIGUEL ÁNGEL JIMÉNEZ GONZÁLEZ",
-      "ELIZABETH BARAJAS GARCÍA",
-    ],
-    ZAPOPAN: [
-      "NINGUNO",
-      "ANDREA FERNANDA CASTRO CHARLES",
-      "JOCELYNE PALOMA TORRES CARRILLO",
-    ],
-    TEPATITLÁN: [
-      "NINGUNO",
-      "CAROLINA ELISANDRA CAMPOS BAÑUELOS",
-      "MARÍA JOSÉ RAMÍREZ LÓPEZ",
-      "ANAHÍ BARBA BARBA",
-    ],
-    "AV. MÉXICO": [
-      "NINGUNO",
-      "MARISOL ROMERO RODRÍGUEZ",
-      "JOSÉ MARÍA ALONSO CASTILLO",
-    ],
-    "CAMPUS PUERTO VALLARTA": [
-      "NINGUNO",
-      "JHOSELYN KARELY VILLANUEVA CASTAÑEDA",
-      "LESLIE NASHIRA GARCÍA DELGADO",
-    ],
-    CARACOL: [
-      "NINGUNO",
-      "INGRID ALEJANDRA CARVAJAL MARISCAL",
-      "ALMA YADIRA NAVARRO DÍAZ",
-    ],
-    "LAS JUNTAS": [
-      "NINGUNO",
-      "JONATHAN BARRERA ARIAS",
-      "BETSY YAMILETH PÉREZ VIRGEN",
-      "NOEMÍ CASTELLANOS RÍOS",
-    ],
-    "UNE EN LÍNEA": [
-      "NINGUNO",
-      "FERNANDA EDITH JIMÉNEZ HERNÁNDEZ",
-      "ELENA CAROLINA ORIGEL LOZANO",
-      "FABIÁN CHÁVEZ DE LA CRUZ",
-      "MICHELLE TORRES HERNÁNDEZ",
-      "MARÍA MICHELLE TORRES HERNÁNDEZ",
-      "GUILLERMO ARMANDO JARAMILLO VERA",
-    ],
-    "CENTRO DE IDIOMAS": ["NINGUNO", "ASESOR 1", "ASESOR 2"],
-  };
-
-  // Definir las carreras por plantel
-  const carrerasPorPlantel = {
-    CENTRO: [
-      "BACHILLERATO INTENSIVO SEMIESCOLARIZADO (BIS)", // SEJ - AGREGADO
-      "BACHILLERATO GENERAL (UDG)",
-      "ARQUITECTURA",
-      "INGENIERÍA EN COMPUTACIÓN",
-      "DISEÑO GRÁFICO",
-      "NUTRICIÓN",
-      "INGENIERÍA INDUSTRIAL",
-      "INGENIERÍA EN INTELIGENCIA DE DATOS Y CIBERSEGURIDAD",
-      "INGENIERÍA MECÁNICA",
-      "INGENIERÍA EN DESARROLLO DE SOFTWARE",
-      "INGENIERÍA EN COMUNICACIONES Y ELECTRÓNICA",
-      "CIENCIAS DE LA COMUNICACIÓN",
-      "PSICOLOGÍA",
-      "TRABAJO SOCIAL",
-      "ADMINISTRACIÓN DE EMPRESAS",
-      "DERECHO",
-      "MERCADOTECNIA",
-      "NEGOCIOS INTERNACIONALES",
-    ],
-    "CENTRO MÉDICO": [
-      "BACHILLERATO INTENSIVO SEMIESCOLARIZADO (BIS)", // SEJ - AGREGADO
-      "BACHILLERATO GENERAL (UDG)",
-      "CIENCIAS DE LA EDUCACIÓN",
-      "CONTADURÍA Y AUDITORÍA",
-      "TRABAJO SOCIAL",
-      "ADMINISTRACIÓN DE EMPRESAS",
-      "DERECHO",
-      "MERCADOTECNIA",
-      "NEGOCIOS INTERNACIONALES",
-      "GESTIÓN Y CREACIÓN DE PYME'S",
-      "ALTA DIRECCIÓN",
-      "MERCADOTECNIA INTERNACIONAL",
-    ],
-    MILENIO: [
-      "BACHILLERATO INTENSIVO SEMIESCOLARIZADO (BIS)", // SEJ - AGREGADO
-      "BACHILLERATO GENERAL (UDG)",
-      "PSICOLOGÍA",
-      "INGENIERÍA INDUSTRIAL",
-      "INGENIERÍA EN INTELIGENCIA DE DATOS Y CIBERSEGURIDAD",
-      "INGENIERÍA MECÁNICA",
-      "INGENIERÍA EN DESARROLLO DE SOFTWARE",
-      "INGENIERÍA EN COMUNICACIONES Y ELECTRÓNICA",
-      "CIENCIAS DE LA COMUNICACIÓN",
-      "ADMINISTRACIÓN DE EMPRESAS",
-      "DERECHO",
-      "MERCADOTECNIA",
-      "NEGOCIOS INTERNACIONALES",
-    ],
-    "PLAZA DEL SOL": ["SECUNDARIA", "BACHILLERATO GENERAL (UDG)"],
-    TESISTÁN: [
-      "SECUNDARIA",
-      "BACHILLERATO INTENSIVO SEMIESCOLARIZADO (BIS)", // SEJ - AGREGADO
-      "BACHILLERATO GENERAL (UDG)",
-      "PSICOLOGÍA",
-      "INGENIERÍA EN COMUNICACIONES Y ELECTRÓNICA",
-      "INGENIERÍA QUÍMICA",
-      "CRIMINOLOGÍA Y CRIMINALÍSTICA",
-      "INGENIERÍA CIVIL",
-      "CULTURA FÍSICA Y DEL DEPORTE",
-      "TERAPIA FÍSICA",
-      "QUÍMICO FARMACÉUTICO BIÓLOGO",
-      "ARQUITECTURA",
-      "ADMINISTRACIÓN DE EMPRESAS",
-      "DERECHO",
-      "MERCADOTECNIA",
-      "NEGOCIOS INTERNACIONALES",
-    ],
-    TLAJOMULCO: [
-      "SECUNDARIA",
-      "BACHILLERATO INTENSIVO SEMIESCOLARIZADO (BIS)", // SEJ - AGREGADO
-      "BACHILLERATO GENERAL (UDG)",
-      "ENFERMERÍA",
-      "ARQUITECTURA",
-      "INGENIERÍA CIVIL",
-      "TERAPIA FÍSICA",
-      "CULTURA FÍSICA Y DEL DEPORTE",
-      "NUTRICIÓN",
-      "GASTRONOMÍA",
-      "PSICOLOGÍA",
-      "QUÍMICO FARMACÉUTICO BIÓLOGO",
-      "INGENIERÍA QUÍMICA",
-      "INGENIERÍA EN INTELIGENCIA DE DATOS Y CIBERSEGURIDAD",
-      "INGENIERÍA MECÁNICA",
-      "INGENIERÍA EN COMUNICACIONES Y ELECTRÓNICA",
-      "CRIMINOLOGÍA Y CRIMINALÍSTICA",
-      "CONTADURÍA Y AUDITORÍA",
-      "ADMINISTRACIÓN DE EMPRESAS",
-      "DERECHO",
-      "MERCADOTECNIA",
-      "NEGOCIOS INTERNACIONALES",
-      "MAESTRÍA: ADMINISTRACIÓN HOSPITALARIA",
-    ],
-    TLAQUEPAQUE: [
-      "SECUNDARIA",
-      "BACHILLERATO INTENSIVO SEMIESCOLARIZADO (BIS)", // SEJ - AGREGADO
-      "BACHILLERATO GENERAL (UDG)",
-      "GASTRONOMÍA",
-      "PSICOLOGÍA",
-      "NUTRICIÓN",
-      "TRABAJO SOCIAL",
-      "ADMINISTRACIÓN DE EMPRESAS",
-      "DERECHO",
-      "MERCADOTECNIA",
-      "NEGOCIOS INTERNACIONALES",
-    ],
-    TONALÁ: [
-      "SECUNDARIA",
-      "BACHILLERATO INTENSIVO SEMIESCOLARIZADO (BIS)", // SEJ - AGREGADO
-      "BACHILLERATO GENERAL (UDG)",
-      "CIRUJANO DENTISTA",
-      "NUTRICIÓN",
-      "PSICOLOGÍA",
-      "ARQUITECTURA",
-      "CULTURA FÍSICA Y DEL DEPORTE",
-      "CRIMINOLOGÍA Y CRIMINALÍSTICA",
-      "INGENIERÍA CIVIL",
-      "TERAPIA FÍSICA",
-      "GASTRONOMÍA",
-      "ADMINISTRACIÓN DE EMPRESAS",
-      "DERECHO",
-      "MERCADOTECNIA",
-      "NEGOCIOS INTERNACIONALES",
-    ],
-    "TORRE QUETZAL": [
-      "ABOGADO",
-      "ADMINISTRACIÓN",
-      "CONTADURÍA PÚBLICA",
-      "MERCADOTECNIA",
-      "NEGOCIOS INTERNACIONALES",
-      "CONTADURÍA Y AUDITORÍA",
-      "GESTIÓN Y CREACIÓN DE PYME'S",
-      "ALTA DIRECCIÓN",
-      "DERECHO",
-      "MAESTRÍA: FINANZAS ESTRATÉGICAS",
-      "MAESTRÍA: CIENCIAS DE LA EDUCACIÓN",
-      "MAESTRÍA: ADMINISTRACIÓN DE NEGOCIOS",
-      "MAESTRÍA: TERAPIA FAMILIAR Y SISTÉMICA",
-      "MAESTRÍA: ADMINISTRACIÓN DE RECURSOS HUMANOS",
-      "MAESTRÍA: ADMINISTRACIÓN HOSPITALARIA",
-      "ESPECIALIDAD: CIENCIAS DE LA EDUCACIÓN",
-      "ESPECIALIDAD: ADMINISTRACIÓN DE NEGOCIOS",
-    ],
-    "TORRE UNE MILENIO": [
-      "CIRUJANO DENTISTA",
-      "ENFERMERÍA",
-      "NUTRICIÓN",
-      "PSICOLOGÍA",
-      "QUÍMICO FARMACÉUTICO BIÓLOGO",
-      "CULTURA FÍSICA Y DEL DEPORTE",
-      "TERAPIA FÍSICA",
-    ],
-    CHAPULTEPEC: [
-      "BACHILLERATO INTENSIVO SEMIESCOLARIZADO (BIS)", // SEJ - AGREGADO
-      "CIRUJANO DENTISTA",
-      "ENFERMERÍA",
-      "TERAPIA FÍSICA",
-      "TRABAJO SOCIAL",
-      "INGENIERÍA QUÍMICA",
-      "CRIMINOLOGÍA Y CRIMINALÍSTICA",
-      "QUÍMICO FARMACÉUTICO BIÓLOGO",
-      "NUTRICIÓN",
-      "GASTRONOMÍA",
-      "PSICOLOGÍA",
-      "ADMINISTRACIÓN DE EMPRESAS",
-      "DERECHO",
-      "CIENCIAS DE LA EDUCACIÓN",
-      "MERCADOTECNIA",
-      "NEGOCIOS INTERNACIONALES",
-    ],
-    ZAPOPAN: [
-      "BACHILLERATO INTENSIVO SEMIESCOLARIZADO (BIS)", // SEJ - AGREGADO
-      "BACHILLERATO GENERAL (UDG)",
-      "CIRUJANO DENTISTA",
-      "ENFERMERÍA",
-      "TRABAJO SOCIAL",
-      "CONTADURÍA Y AUDITORÍA",
-      "INGENIERÍA INDUSTRIAL",
-      "INGENIERÍA EN DATOS Y CIBERSEGURIDAD",
-      "INGENIERÍA MECÁNICA",
-      "INGENIERÍA EN DESARROLLO DE SOFTWARE",
-      "INGENIERÍA CIVIL",
-      "ARQUITECTURA",
-      "DISEÑO GRÁFICO",
-      "NUTRICIÓN",
-      "PSICOLOGÍA",
-      "TERAPIA FÍSICA",
-      "QUÍMICO FARMACÉUTICO BIÓLOGO",
-      "ADMINISTRACIÓN DE EMPRESAS",
-      "CIENCIAS DE LA EDUCACIÓN",
-      "DERECHO",
-      "MERCADOTECNIA",
-      "NEGOCIOS INTERNACIONALES",
-    ],
-    TEPATITLÁN: [
-      "BACHILLERATO INTENSIVO SEMIESCOLARIZADO (BIS)", // SEJ
-      "CIRUJANO DENTISTA", // UDG
-      "PSICOLOGÍA",
-      "NUTRICIÓN",
-      "TERAPIA FÍSICA",
-      "QUÍMICO FARMACÉUTICO BIÓLOGO",
-      "CONTADURÍA Y AUDITORÍA",
-      "INGENIERÍA CIVIL",
-      "INGENIERÍA EN DESARROLLO DE SOFTWARE",
-      "INGENIERÍA EN INTELIGENCIA DE DATOS Y CIBERSEGURIDAD",
-      "ARQUITECTURA",
-      "ADMINISTRACIÓN DE EMPRESAS",
-      "DERECHO",
-      "MERCADOTECNIA",
-      "NEGOCIOS INTERNACIONALES",
-    ],
-    "AV. MÉXICO": [
-      "SECUNDARIA",
-      "BACHILLERATO GENERAL (UDG)",
-      "PSICOLOGÍA",
-      "CONTADURÍA Y AUDITORÍA",
-      "INGENIERÍA EN INTELIGENCIA DE DATOS Y CIBERSEGURIDAD",
-      "INGENIERÍA MECÁNICA",
-      "INGENIERÍA EN DESARROLLO DE SOFTWARE",
-      "NUTRICIÓN",
-      "QUÍMICO FARMACÉUTICO BIÓLOGO",
-      "ADMINISTRACIÓN DE EMPRESAS",
-      "CIENCIAS DE LA EDUCACIÓN",
-      "DERECHO",
-      "MERCADOTECNIA",
-      "NEGOCIOS INTERNACIONALES",
-      "ALTA DIRECCIÓN",
-      "MERCADOTECNIA INTERNACIONAL",
-      "MAESTRÍA: ADMINISTRACIÓN DE RECURSOS HUMANOS",
-      "MAESTRÍA: DERECHO LABORAL",
-    ],
-    "CAMPUS PUERTO VALLARTA": [
-      "PSICOLOGÍA",
-      "NUTRICIÓN",
-      "TERAPIA FÍSICA",
-      "INGENIERÍA CIVIL",
-      "ARQUITECTURA",
-      "INGENIERÍA MECÁNICA",
-      "INGENIERÍA EN INTELIGENCIA DE DATOS Y CIBERSEGURIDAD",
-      "INGENIERÍA EN DESARROLLO DE SOFTWARE",
-      "CIENCIAS DE LA EDUCACIÓN",
-      "ADMINISTRACIÓN",
-      "NEGOCIOS INTERNACIONALES",
-      "MERCADOTECNIA",
-      "DERECHO",
-      "MAESTRÍA: EDUCACIÓN",
-      "MAESTRÍA: ADMINISTRACIÓN HOSPITALARIA Y GESTIÓN DE LA CALIDAD",
-    ],
-    CARACOL: [
-      "BACHILLERATO INTENSIVO SEMIESCOLARIZADO (BIS)",
-      "NUTRICIÓN",
-      "CONTADURÍA Y AUDITORÍA",
-      "TRABAJO SOCIAL",
-      "PSICOLOGÍA",
-      "ADMINISTRACIÓN DE EMPRESAS",
-      "CIENCIAS DE LA EDUCACIÓN",
-      "DERECHO",
-      "MERCADOTECNIA",
-      "NEGOCIOS INTERNACIONALES",
-      "MAESTRÍA: FINANZAS ESTRATÉGICAS",
-    ],
-    "UNE EN LÍNEA": [
-      "BACHILLERATO",
-      "ADMINISTRACIÓN",
-      "ADMINISTRACIÓN DE SISTEMAS DE INFORMACIÓN",
-      "CONTADURÍA",
-      "MERCADOTECNIA",
-      "COMUNICACIÓN",
-      "DERECHO",
-      "EDUCACIÓN",
-      "PSICOLOGÍA",
-      "COMERCIO Y NEGOCIOS GLOBALES",
-      "DISEÑO GRÁFICO",
-      "INGENIERÍA INDUSTRIAL",
-      "MAESTRÍA EN EDUCACIÓN",
-      "MAESTRÍA EN ADMINISTRACIÓN DE NEGOCIOS",
-    ],
-    "CENTRO DE IDIOMAS": ["FRANCÉS", "INGLÉS"],
-    "LAS JUNTAS": [
-      "CIRUJANO DENTISTA",
-      "ENFERMERÍA",
-      "NUTRICIÓN",
-      "MAESTRÍA: ADMINISTRACIÓN HOSPITALARIA",
-      "MAESTRÍA: ADMINISTRACIÓN DE NEGOCIOS",
-      "MAESTRÍA: CIENCIAS PENALES",
-    ],
-  }; // Función principal para actualizar asesores y carreras según el plantel
+<script define:vars={{ asesoresPorPlantel, carrerasPorPlantel }}>
+  // Ahora las variables están disponibles en el scope del script
+  console.log("📊 Datos cargados:");
+  console.log(
+    "- Carreras por plantel:",
+    Object.keys(carrerasPorPlantel).length,
+    "planteles"
+  );
+  console.log(
+    "- Asesores por plantel:",
+    Object.keys(asesoresPorPlantel).length,
+    "planteles"
+  );
 
   // Función para actualizar las opciones de un select
   function updateSelectOptions(selectElement, options) {
@@ -1208,18 +852,14 @@ import { BookOpen, FileText } from "@lucide/astro";
       return;
     }
 
-    // Limpiar opciones existentes
-    const previousOptionsCount = selectElement.options.length;
     selectElement.innerHTML = "";
 
-    // Agregar opción por defecto
     const defaultOption = document.createElement("option");
     defaultOption.value = "";
     defaultOption.textContent = "Seleccione";
     selectElement.appendChild(defaultOption);
 
-    // Agregar nuevas opciones
-    options.forEach((option, index) => {
+    options.forEach((option) => {
       const newOption = document.createElement("option");
       newOption.value = option;
       newOption.textContent = option;
@@ -1237,77 +877,46 @@ import { BookOpen, FileText } from "@lucide/astro";
       console.error(
         "❌ ERROR: No se encontraron todos los elementos select necesarios"
       );
-      console.error("❌ Faltantes:", {
-        plantel: !plantelSelect ? "FALTA" : "OK",
-        carrera: !carreraSelect ? "FALTA" : "OK",
-        asesor: !asesorSelect ? "FALTA" : "OK",
-      });
       return;
     }
 
     const selectedPlantel = plantelSelect.value;
 
-    // Debugging para espacios y caracteres especiales
-    if (selectedPlantel) {
-    }
-
-    // Buscar coincidencias parciales para debugging
-    if (selectedPlantel && !carrerasPorPlantel[selectedPlantel]) {
-      const possibleMatches = Object.keys(carrerasPorPlantel).filter(
-        (key) =>
-          key.toLowerCase().includes(selectedPlantel.toLowerCase()) ||
-          selectedPlantel.toLowerCase().includes(key.toLowerCase())
-      );
-    }
-
     // Actualizar carreras
     if (selectedPlantel && carrerasPorPlantel[selectedPlantel]) {
       updateSelectOptions(carreraSelect, carrerasPorPlantel[selectedPlantel]);
+      console.log("✅ Carreras actualizadas para:", selectedPlantel);
     } else {
       updateSelectOptions(carreraSelect, []);
+      console.log("⚠️ No hay carreras para el plantel seleccionado");
     }
 
     // Actualizar asesores
     if (selectedPlantel && asesoresPorPlantel[selectedPlantel]) {
       updateSelectOptions(asesorSelect, asesoresPorPlantel[selectedPlantel]);
+      console.log("✅ Asesores actualizados para:", selectedPlantel);
     } else {
-      console.log(
-        "⚠️ No hay asesores para el plantel seleccionado o plantel vacío"
-      );
-      console.log(
-        "🔍 Razón:",
-        !selectedPlantel ? "Plantel vacío" : "Plantel no encontrado en datos"
-      );
+      console.log("⚠️ No hay asesores para el plantel seleccionado");
       updateSelectOptions(asesorSelect, []);
     }
   }
 
   // Inicializar el formulario cuando el DOM esté cargado
   document.addEventListener("DOMContentLoaded", function () {
-    // Verificar que los datos estén cargados
-
     const plantelSelect = document.querySelector('select[name="plantel"]');
 
     if (plantelSelect) {
-      // Agregar event listener al select de plantel
-      plantelSelect.addEventListener("change", function (event) {
-        // Guardar valor anterior para debugging
-        event.target.dataset.previousValue = event.target.value;
-
+      plantelSelect.addEventListener("change", function () {
         updateDatosAcademicos();
       });
 
-      // Inicializar con valores por defecto
       updateDatosAcademicos();
     } else {
       console.error("❌ ERROR CRÍTICO: No se encontró el select de plantel");
-      console.error("🔍 Elementos select encontrados en la página:");
-      const allSelects = document.querySelectorAll("select");
-      allSelects.forEach((select, index) => {});
     }
   });
 
-  // Función opcional para validar el formulario
+  // Función de validación del formulario
   function validateForm() {
     const requiredFields = [
       'select[name="plantel"]',
@@ -1320,22 +929,21 @@ import { BookOpen, FileText } from "@lucide/astro";
     let isValid = true;
     const errors = [];
 
-    requiredFields.forEach((selector, index) => {
+    requiredFields.forEach((selector) => {
       const field = document.querySelector(selector);
       const fieldName = field?.previousElementSibling?.textContent || selector;
 
       if (!field) {
-        console.error(`      ❌ ERROR: Elemento no encontrado`);
+        console.error(`❌ ERROR: Elemento no encontrado - ${selector}`);
         isValid = false;
         errors.push(`No se encontró el campo ${fieldName}`);
       } else {
         const value = field.value.trim();
 
         if (!value) {
-          console.warn(`      ⚠️ ADVERTENCIA: Campo vacío`);
+          console.warn(`⚠️ ADVERTENCIA: Campo vacío - ${fieldName}`);
           isValid = false;
           errors.push(`El campo ${fieldName} es requerido`);
-        } else {
         }
       }
     });
@@ -1353,38 +961,6 @@ import { BookOpen, FileText } from "@lucide/astro";
 
     return isValid;
   }
-
-  // Agregar validación al botón de guardar
-  document.addEventListener("DOMContentLoaded", function () {
-    const submitButton = document.querySelector('button[type="submit"]');
-
-    if (submitButton) {
-      submitButton.addEventListener("click", function (e) {
-        e.preventDefault();
-
-        if (validateForm()) {
-          // Obtener todos los valores del formulario
-          const formData = {
-            plantel: document.querySelector('select[name="plantel"]')?.value,
-            turno: document.querySelector('select[name="turno"]')?.value,
-            escuela_proc: document.querySelector('input[name="escuela_proc"]')
-              ?.value,
-            carrera: document.querySelector('select[name="carrera"]')?.value,
-            asesor: document.querySelector('select[name="asesor"]')?.value,
-          };
-
-          // Aquí puedes agregar la lógica para enviar el formulario
-          // Por ejemplo: fetch('/api/guardar-datos', { method: 'POST', body: JSON.stringify(formData) })
-        } else {
-          console.warn("⚠️ Formulario inválido - No se enviará");
-        }
-      });
-    } else {
-      console.error("❌ ERROR: No se encontró el botón de submit");
-      const allButtons = document.querySelectorAll("button");
-      allButtons.forEach((button, index) => {});
-    }
-  });
 </script>
 
 <script is:inline>
@@ -1401,7 +977,7 @@ import { BookOpen, FileText } from "@lucide/astro";
     return Array.from(checkboxes).map((cb) => cb.value);
   };
 
-  // Función para obtener todos los medios seleccionados (¿Por qué medio te enteraste de UNE?)
+  // Función para obtener todos los medios seleccionados
   const getMediosSeleccionados = () => {
     const medios = [];
     const checkboxes = document.querySelectorAll(
@@ -1428,44 +1004,8 @@ import { BookOpen, FileText } from "@lucide/astro";
   // Función para validar formulario
   const validateFormsend = () => {
     console.log("[STUDENT FORM] 🔍 Validando formulario...");
-
-    const requiredFields = [
-      "apellidoPaterno",
-      "apellidoMaterno",
-      "nombres",
-      "calleNumero",
-      "codigoPostal",
-      "municipio",
-      "estado",
-      "pais",
-      "telefono",
-      "celular",
-      "fechaNacimiento",
-      "edad",
-      "sexo",
-      "estadoCivil",
-      "nacionalidad",
-      "ocupacion",
-      "curp",
-      "tipoSangre",
-      "plantel",
-      "turno",
-      "escuelaProcedencia",
-      "carrera",
-      "asesor",
-      "nombrePadreTutor",
-      "ocupacionPadre",
-      "domicilioPadre",
-      "telefonoPadre",
-      "celularPadre",
-      "dia",
-      "mes",
-      "año",
-    ];
-
     let isValid = true;
     const missingFields = [];
-
     return isValid;
   };
 
@@ -1499,7 +1039,6 @@ import { BookOpen, FileText } from "@lucide/astro";
     }
   });
 
-  // Función para preparar el payload
   // Función para preparar el payload
   const preparePayload = () => {
     console.log("[STUDENT FORM] 📦 Preparando payload...");
@@ -1549,7 +1088,7 @@ import { BookOpen, FileText } from "@lucide/astro";
 
     const payload = {
       // Nombres (sección 0)
-      nombre: obtenerPorSeccion(0, 2), // nombres
+      nombre: obtenerPorSeccion(0, 2),
       apellidoPaterno: obtenerPorSeccion(0, 0),
       apellidoMaterno: obtenerPorSeccion(0, 1),
       nombres: obtenerPorSeccion(0, 2),
@@ -1559,8 +1098,8 @@ import { BookOpen, FileText } from "@lucide/astro";
       colonia: obtenerPorSeccion(1, 1),
       codigoPostal: obtenerPorSeccion(1, 2),
       municipio: obtenerPorSeccion(1, 3),
-      estado: obtenerPorSeccion(1, 4) || "JALISCO",
-      pais: obtenerPorSeccion(1, 5) || "MÉXICO",
+      estado: obtenerPorSeccion(1, 4) || "Jalisco",
+      pais: obtenerPorSeccion(1, 5) || "México",
 
       // Contacto (sección 1)
       telefono: obtenerPorSeccion(1, 0, "tel"),
@@ -1643,30 +1182,29 @@ import { BookOpen, FileText } from "@lucide/astro";
   }
 
   // Event listeners del modal
-  closeModalButton?.addEventListener("click", closeErrorModal);
+  if (closeModalButton) {
+    closeModalButton.addEventListener("click", closeErrorModal);
+  }
 
-  errorModal?.addEventListener("click", (e) => {
-    if (e.target === errorModal) {
-      closeErrorModal();
-    }
-  });
+  if (errorModal) {
+    errorModal.addEventListener("click", (e) => {
+      if (e.target === errorModal) {
+        closeErrorModal();
+      }
+    });
+  }
 
   // Función para enviar formulario
   const submitForm = async () => {
     console.log("[STUDENT FORM] 🚀 Iniciando envío del formulario");
 
-    // Validar formulario
     if (!validateFormsend()) {
       return;
     }
 
-    // Preparar payload
     const payload = preparePayload();
-
-    // Guardar payload para posible reintento
     lastPayload = payload;
 
-    // Deshabilitar botón de envío
     const submitButton = document.querySelector('button[type="submit"]');
     const originalText = submitButton?.textContent;
     if (submitButton) {
@@ -1694,7 +1232,6 @@ import { BookOpen, FileText } from "@lucide/astro";
         ok: response.ok,
       });
 
-      // Intentar parsear la respuesta
       let responseData;
       try {
         responseData = await response.json();
@@ -1710,7 +1247,6 @@ import { BookOpen, FileText } from "@lucide/astro";
 
       if (response.ok) {
         console.log("[STUDENT FORM] 🎉 Estudiante registrado exitosamente");
-        // Redirigir a la página de gracias
         window.location.href = "/contacto/gracias";
       } else {
         throw new Error(
@@ -1726,7 +1262,6 @@ import { BookOpen, FileText } from "@lucide/astro";
         stack: error.stack,
       });
 
-      // Determinar el tipo de error y mostrar modal
       let errorMessage = "";
       if (!navigator.onLine) {
         errorMessage =
@@ -1743,7 +1278,6 @@ import { BookOpen, FileText } from "@lucide/astro";
 
       showErrorModal(errorMessage);
     } finally {
-      // Habilitar botón nuevamente
       if (submitButton) {
         submitButton.disabled = false;
         submitButton.textContent = originalText;
@@ -1753,74 +1287,75 @@ import { BookOpen, FileText } from "@lucide/astro";
   };
 
   // Botón de reintentar en el modal
-  retryButton?.addEventListener("click", async () => {
-    closeErrorModal();
+  if (retryButton) {
+    retryButton.addEventListener("click", async () => {
+      closeErrorModal();
 
-    if (lastPayload) {
-      console.log("[STUDENT FORM] 🔄 Reintentando envío...");
+      if (lastPayload) {
+        console.log("[STUDENT FORM] 🔄 Reintentando envío...");
 
-      // Deshabilitar botón
-      const submitButton = document.querySelector('button[type="submit"]');
-      const originalText = submitButton?.textContent;
-      if (submitButton) {
-        submitButton.disabled = true;
-        submitButton.textContent = "ENVIANDO...";
-        submitButton.classList.add("opacity-50", "cursor-not-allowed");
-      }
-
-      try {
-        const response = await fetch(apiUrl, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            Accept: "application/json",
-          },
-          body: JSON.stringify(lastPayload),
-        });
-
-        let responseData;
-        try {
-          responseData = await response.json();
-        } catch (parseError) {
-          const textResponse = await response.text();
-          responseData = {
-            message: textResponse || "Respuesta del servidor no válida",
-          };
-        }
-
-        if (response.ok) {
-          console.log("[STUDENT FORM] 🎉 Reintento exitoso");
-          window.location.href = "/contacto/gracias";
-        } else {
-          throw new Error(responseData.message || `Error ${response.status}`);
-        }
-      } catch (error) {
-        console.error("[STUDENT FORM] ❌ Error en reintento:", error);
-
-        let errorMessage = "";
-        if (!navigator.onLine) {
-          errorMessage =
-            "No hay conexión a internet. Por favor, verifica tu conexión e intenta nuevamente.";
-        } else if (
-          error.message === "Failed to fetch" ||
-          error.name === "TypeError"
-        ) {
-          errorMessage =
-            "No se pudo conectar con el servidor. Esto puede deberse a problemas de conexión a internet. Por favor, intenta más tarde.";
-        } else {
-          errorMessage = `Ocurrió un error al procesar tu inscripción: ${error.message}. Por favor, intenta nuevamente.`;
-        }
-
-        showErrorModal(errorMessage);
-      } finally {
+        const submitButton = document.querySelector('button[type="submit"]');
+        const originalText = submitButton?.textContent;
         if (submitButton) {
-          submitButton.disabled = false;
-          submitButton.textContent = originalText;
-          submitButton.classList.remove("opacity-50", "cursor-not-allowed");
+          submitButton.disabled = true;
+          submitButton.textContent = "ENVIANDO...";
+          submitButton.classList.add("opacity-50", "cursor-not-allowed");
+        }
+
+        try {
+          const response = await fetch(apiUrl, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              Accept: "application/json",
+            },
+            body: JSON.stringify(lastPayload),
+          });
+
+          let responseData;
+          try {
+            responseData = await response.json();
+          } catch (parseError) {
+            const textResponse = await response.text();
+            responseData = {
+              message: textResponse || "Respuesta del servidor no válida",
+            };
+          }
+
+          if (response.ok) {
+            console.log("[STUDENT FORM] 🎉 Reintento exitoso");
+            window.location.href = "/contacto/gracias";
+          } else {
+            throw new Error(responseData.message || `Error ${response.status}`);
+          }
+        } catch (error) {
+          console.error("[STUDENT FORM] ❌ Error en reintento:", error);
+
+          let errorMessage = "";
+          if (!navigator.onLine) {
+            errorMessage =
+              "No hay conexión a internet. Por favor, verifica tu conexión e intenta nuevamente.";
+          } else if (
+            error.message === "Failed to fetch" ||
+            error.name === "TypeError"
+          ) {
+            errorMessage =
+              "No se pudo conectar con el servidor. Esto puede deberse a problemas de conexión a internet. Por favor, intenta más tarde.";
+          } else {
+            errorMessage = `Ocurrió un error al procesar tu inscripción: ${error.message}. Por favor, intenta nuevamente.`;
+          }
+
+          showErrorModal(errorMessage);
+        } finally {
+          if (submitButton) {
+            submitButton.disabled = false;
+            submitButton.textContent = originalText;
+            submitButton.classList.remove("opacity-50", "cursor-not-allowed");
+          }
         }
       }
-    }
-  });
+    });
+  }
 
   // Event listener para el botón de submit
   document.addEventListener("DOMContentLoaded", () => {
@@ -1841,27 +1376,23 @@ import { BookOpen, FileText } from "@lucide/astro";
     }
 
     // Agregar data-group a los checkboxes para identificarlos
-    // Medios
     const mediosCheckboxes = document.querySelectorAll(
       'input[type="checkbox"]'
     );
     mediosCheckboxes.forEach((cb, index) => {
       if (index < 8) {
-        // Primeros 8 son medios
         cb.setAttribute("data-group", "medios");
         cb.setAttribute(
           "value",
           cb.nextElementSibling?.textContent?.trim() || `medio${index}`
         );
       } else {
-        // Resto son razones
         cb.setAttribute("data-group", "razones");
         cb.setAttribute(
           "value",
           cb.nextElementSibling?.textContent?.trim() || `razon${index}`
         );
 
-        // Limitar a 5 selecciones
         cb.addEventListener("change", () => {
           const checkedRazones = document.querySelectorAll(
             'input[type="checkbox"][data-group="razones"]:checked'
@@ -1878,6 +1409,356 @@ import { BookOpen, FileText } from "@lucide/astro";
   });
 </script>
 
+<script>
+  // Función para recolectar datos del formulario (usada por generarPDF)
+  function recolectarDatosFormulario() {
+    function obtenerPorSeccion(seccionIndex, inputIndex, tipo = "text") {
+      const secciones = document.querySelectorAll(
+        ".bg-white.rounded-xl.shadow-sm"
+      );
+      if (secciones[seccionIndex]) {
+        const inputs = secciones[seccionIndex].querySelectorAll(
+          `input[type="${tipo}"]`
+        );
+        return inputs[inputIndex] ? inputs[inputIndex].value : "";
+      }
+      return "";
+    }
+
+    function obtenerSelectPorSeccion(seccionIndex, selectIndex) {
+      const secciones = document.querySelectorAll(
+        ".bg-white.rounded-xl.shadow-sm"
+      );
+      if (secciones[seccionIndex]) {
+        const selects = secciones[seccionIndex].querySelectorAll("select");
+        return selects[selectIndex] ? selects[selectIndex].value : "";
+      }
+      return "";
+    }
+
+    function obtenerValor(name) {
+      const element = document.querySelector(`[name="${name}"]`);
+      return element ? element.value : "";
+    }
+
+    const firmaCanvas = document.getElementById("firmaCanvas");
+    let firmaImagen = "";
+
+    if (firmaCanvas) {
+      try {
+        firmaImagen = firmaCanvas.toDataURL("image/png");
+      } catch (error) {
+        console.warn("No se pudo obtener la firma del canvas:", error);
+      }
+    }
+
+    const dia = obtenerPorSeccion(6, 0, "number");
+    const mes = obtenerSelectPorSeccion(6, 0);
+    const año = obtenerSelectPorSeccion(6, 1);
+
+    const mediosSeleccionados = [];
+    const mediosCheckboxes = document.querySelectorAll(
+      'input[type="checkbox"][data-group="medios"]:checked'
+    );
+    mediosCheckboxes.forEach((cb) => {
+      mediosSeleccionados.push(cb.value);
+    });
+
+    return {
+      apellidoPaterno: obtenerPorSeccion(0, 0),
+      apellidoMaterno: obtenerPorSeccion(0, 1),
+      nombres: obtenerPorSeccion(0, 2),
+      calleNumero: obtenerPorSeccion(1, 0),
+      colonia: obtenerPorSeccion(1, 1),
+      codigoPostal: obtenerPorSeccion(1, 2),
+      municipio: obtenerPorSeccion(1, 3),
+      estado: obtenerPorSeccion(1, 4) || "Jalisco",
+      pais: obtenerPorSeccion(1, 5) || "México",
+      telefono: obtenerPorSeccion(1, 0, "tel"),
+      celular: obtenerPorSeccion(1, 1, "tel"),
+      correo: obtenerPorSeccion(1, 0, "email"),
+      fechaNacimiento: obtenerPorSeccion(1, 0, "date"),
+      edad: obtenerPorSeccion(1, 6),
+      sexo: obtenerSelectPorSeccion(1, 0),
+      estadoCivil: obtenerSelectPorSeccion(1, 1),
+      nacionalidad: obtenerSelectPorSeccion(1, 2) || "MEXICANA",
+      ocupacion: obtenerPorSeccion(1, 7),
+      curp: obtenerPorSeccion(1, 8),
+      rfc: obtenerPorSeccion(1, 9),
+      tipoSangre: obtenerSelectPorSeccion(1, 3),
+      plantel: obtenerValor("plantel"),
+      turno: obtenerValor("turno"),
+      escuelaProcedencia: obtenerValor("escuela_proc"),
+      carrera: obtenerValor("carrera"),
+      asesor: obtenerValor("asesor"),
+      nombrePadreTutor: obtenerPorSeccion(3, 0),
+      ocupacionPadre: obtenerPorSeccion(3, 1),
+      domicilioPadre: obtenerPorSeccion(3, 2),
+      telefonoPadre: obtenerPorSeccion(3, 0, "tel"),
+      celularPadre: obtenerPorSeccion(3, 1, "tel"),
+      mediosSeleccionados: mediosSeleccionados,
+      dia: dia,
+      mes: mes,
+      año: año,
+      firmaImagen: firmaImagen,
+    };
+  }
+
+  async function generarPDF() {
+    try {
+      console.log("🔄 Generando PDF...");
+      alert("Generando PDF, por favor espere...");
+
+      const { PDFDocument, rgb, StandardFonts } = await import("pdf-lib");
+
+      const datosFormulario = recolectarDatosFormulario();
+      console.log(datosFormulario);
+
+      const inscripcionPath = "/pdfs/INSCRIPCION.pdf";
+      console.log("Cargando plantilla principal...");
+
+      const inscripcionResponse = await fetch(inscripcionPath);
+      if (!inscripcionResponse.ok) {
+        throw new Error(
+          `Error al cargar ${inscripcionPath}: ${inscripcionResponse.status}`
+        );
+      }
+      const inscripcionBytes = await inscripcionResponse.arrayBuffer();
+
+      let requisitosPath = "";
+      const carrera = datosFormulario.carrera?.toLowerCase() || "";
+
+      if (carrera.includes("secundaria")) {
+        requisitosPath = "/pdfs/secundaria_req.pdf";
+      } else if (carrera.includes("bachillerato") || carrera.includes("bis")) {
+        requisitosPath = "/pdfs/bachillerato_req.pdf";
+      } else if (carrera.includes("licenciatura") || carrera.includes("lic.")) {
+        requisitosPath = "/pdfs/licenciatura_req.pdf";
+      } else if (
+        carrera.includes("posgrado") ||
+        carrera.includes("maestría") ||
+        carrera.includes("maestria")
+      ) {
+        requisitosPath = "/pdfs/posgrado_req.pdf";
+      }
+
+      let requisitosBytes = null;
+      if (requisitosPath) {
+        console.log(`Cargando requisitos para carrera: ${carrera}`);
+        try {
+          const requisitosResponse = await fetch(requisitosPath);
+          if (requisitosResponse.ok) {
+            requisitosBytes = await requisitosResponse.arrayBuffer();
+          } else {
+            console.warn(
+              `No se pudo cargar ${requisitosPath}, continuando sin requisitos`
+            );
+          }
+        } catch (error) {
+          console.warn(`Error al cargar requisitos: ${error.message}`);
+        }
+      }
+
+      const pdfDoc = await PDFDocument.load(inscripcionBytes);
+
+      if (requisitosBytes) {
+        try {
+          const requisitosDoc = await PDFDocument.load(requisitosBytes);
+          const requisitosPages = await pdfDoc.copyPages(
+            requisitosDoc,
+            requisitosDoc.getPageIndices()
+          );
+          requisitosPages.forEach((page) => pdfDoc.addPage(page));
+          console.log("Requisitos agregados al PDF");
+        } catch (error) {
+          console.warn("Error al agregar requisitos:", error);
+        }
+      }
+
+      const pages = pdfDoc.getPages();
+      const firstPage = pages[0];
+
+      const font = await pdfDoc.embedFont(StandardFonts.Helvetica);
+      const fontBold = await pdfDoc.embedFont(StandardFonts.HelveticaBold);
+
+      const coordenadas = {
+        apellidoPaterno: { x: 120, y: 598 },
+        apellidoMaterno: { x: 390, y: 598 },
+        nombres: { x: 110, y: 575 },
+        calleNumero: { x: 110, y: 540 },
+        colonia: { x: 70, y: 515 },
+        codigoPostal: { x: 255, y: 515 },
+        municipio: { x: 360, y: 515 },
+        estado: { x: 70, y: 492 },
+        pais: { x: 320, y: 492 },
+        telefono: { x: 75, y: 470 },
+        celular: { x: 205, y: 470 },
+        correo: { x: 325, y: 470 },
+        fechaNacimiento: { x: 135, y: 445 },
+        edad: { x: 235, y: 445 },
+        sexo: { x: 290, y: 445 },
+        estadoCivil: { x: 400, y: 445 },
+        nacionalidad: { x: 110, y: 423 },
+        ocupacion: { x: 350, y: 423 },
+        curp: { x: 70, y: 398 },
+        rfc: { x: 238, y: 398 },
+        tipoSangre: { x: 500, y: 398 },
+        plantel: { x: 215, y: 710 },
+        turno: { x: 210, y: 688 },
+        escuelaProcedencia: { x: 450, y: 688 },
+        carrera: { x: 235, y: 662 },
+        asesor: { x: 235, y: 642 },
+        nombrePadreTutor: { x: 160, y: 354 },
+        ocupacionPadre: { x: 410, y: 354 },
+        domicilioPadre: { x: 75, y: 330 },
+        telefonoPadre: { x: 260, y: 330 },
+        celularPadre: { x: 399, y: 330 },
+        dia: { x: 200, y: 85 },
+        mes: { x: 380, y: 85 },
+        año: { x: 517, y: 83 },
+      };
+
+      for (const [campo, valor] of Object.entries(datosFormulario)) {
+        if (coordenadas[campo] && valor) {
+          let textoValor = valor.toString();
+
+          if (campo === "año" && textoValor.length === 4) {
+            textoValor = textoValor.slice(2);
+          }
+
+          try {
+            firstPage.drawText(textoValor, {
+              x: coordenadas[campo].x,
+              y: coordenadas[campo].y,
+              size: 10,
+              font,
+              color: rgb(0, 0, 0),
+            });
+          } catch (error) {
+            console.warn(`Error al escribir campo ${campo}:`, error);
+          }
+        }
+      }
+
+      const coordenadasMedios = {
+        "Volante o cruceros, trípticos y dípticos": { x: 29, y: 278 },
+        "Visita en tu escuela": { x: 187, y: 278 },
+        "Página web UNE": { x: 353, y: 278 },
+        "Redes sociales UNE": { x: 505, y: 278 },
+        "Promoción en stands": { x: 29, y: 252 },
+        Televisión: { x: 187, y: 252 },
+        Espectaculares: { x: 353, y: 253 },
+        Recomendación: { x: 505, y: 253 },
+        Ubicación: { x: 34, y: 191 },
+        "Plan de estudios": { x: 325, y: 191 },
+        Horarios: { x: 34, y: 172 },
+        "Oferta académica": { x: 325, y: 172 },
+        "Rechazo de la U.D.G.": { x: 142, y: 191 },
+        Instalaciones: { x: 142, y: 172 },
+        "Nivel académico": { x: 418, y: 172 },
+        "Rechazo de U. de G.": { x: 418, y: 191 },
+        "Mejor opción": { x: 528, y: 191 },
+        Incorporación: { x: 235, y: 172 },
+        Otro: { x: 528, y: 172 },
+      };
+
+      if (datosFormulario.mediosSeleccionados?.length > 0) {
+        console.log(
+          "Medios seleccionados:",
+          datosFormulario.mediosSeleccionados
+        );
+
+        datosFormulario.mediosSeleccionados.forEach((medio) => {
+          console.log(`Procesando medio: "${medio}"`);
+
+          if (coordenadasMedios[medio]) {
+            try {
+              firstPage.drawText("X", {
+                x: coordenadasMedios[medio].x,
+                y: coordenadasMedios[medio].y,
+                size: 12,
+                font: fontBold,
+                color: rgb(0, 0, 0),
+              });
+              console.log(`✅ Checkbox marcado: ${medio}`);
+            } catch (error) {
+              console.warn(`Error al marcar checkbox ${medio}:`, error);
+            }
+          } else {
+            console.warn(`❌ No se encontraron coordenadas para: "${medio}"`);
+          }
+        });
+      } else {
+        console.log("No hay medios seleccionados");
+      }
+
+      if (datosFormulario.firmaImagen) {
+        try {
+          const firmaImage = await pdfDoc.embedPng(datosFormulario.firmaImagen);
+          firstPage.drawImage(firmaImage, {
+            x: 255,
+            y: 4,
+            width: 150,
+            height: 75,
+          });
+          console.log("Firma agregada al PDF");
+        } catch (firmaError) {
+          console.warn("Error al procesar la firma:", firmaError);
+        }
+      }
+
+      console.log("Guardando PDF...");
+      const pdfBytes = await pdfDoc.save();
+
+      const blob = new Blob([pdfBytes], { type: "application/pdf" });
+      const url = URL.createObjectURL(blob);
+
+      const a = document.createElement("a");
+      a.href = url;
+      a.download =
+        `Inscripcion_UNE_${datosFormulario.nombres || "Formulario"}.pdf`.replace(
+          /\s+/g,
+          "_"
+        );
+
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+
+      setTimeout(() => URL.revokeObjectURL(url), 1000);
+
+      let mensaje = "PDF generado y descargado exitosamente";
+      if (requisitosPath) {
+        mensaje += `\nIncluye requisitos para: ${carrera}`;
+      }
+      alert(mensaje);
+
+      console.log("✅ PDF generado exitosamente");
+      return true;
+    } catch (error) {
+      console.error("Error al generar el PDF:", error);
+      alert(
+        `Error al generar el PDF: ${error.message}\nRevisa la consola para más detalles.`
+      );
+      return false;
+    }
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const btnGenerarPDF = document.getElementById("btnGenerarPDF");
+
+    if (btnGenerarPDF) {
+      btnGenerarPDF.addEventListener("click", function (e) {
+        e.preventDefault();
+        console.log("🔄 Iniciando generación de PDF...");
+        generarPDF();
+      });
+    } else {
+      console.warn("Botón 'btnGenerarPDF' no encontrado");
+    }
+  });
+</script>
+<!-- Script para manejo de firma en canvas -->
 <script>
   // Configuración del canvas para firma
   const canvas = document.getElementById("firmaCanvas");
@@ -1950,437 +1831,4 @@ import { BookOpen, FileText } from "@lucide/astro";
       }
     });
   }
-
-  // Exportar firma en base64
-  function obtenerImagenFirma() {
-    if (!canvas) return "";
-    const imageDataURL = canvas.toDataURL("image/png");
-    if (firmaImagenInput) {
-      firmaImagenInput.value = imageDataURL;
-    }
-    return imageDataURL;
-  }
-
-  function recolectarDatosFormulario() {
-    // Función para obtener valor de input/select por name
-    function obtenerValor(name) {
-      const element = document.querySelector(`[name="${name}"]`);
-      return element ? element.value : "";
-    }
-
-    // Función para obtener todos los inputs de texto por índice
-    function obtenerInputTexto(index) {
-      const inputs = document.querySelectorAll('input[type="text"]');
-      return inputs[index] ? inputs[index].value : "";
-    }
-
-    // Función para obtener todos los inputs de email
-    function obtenerInputEmail(index) {
-      const inputs = document.querySelectorAll('input[type="email"]');
-      return inputs[index] ? inputs[index].value : "";
-    }
-
-    // Función para obtener todos los inputs de tel
-    function obtenerInputTel(index) {
-      const inputs = document.querySelectorAll('input[type="tel"]');
-      return inputs[index] ? inputs[index].value : "";
-    }
-
-    // Función para obtener todos los inputs de date
-    function obtenerInputDate(index) {
-      const inputs = document.querySelectorAll('input[type="date"]');
-      return inputs[index] ? inputs[index].value : "";
-    }
-
-    // Función para obtener todos los inputs de number
-    function obtenerInputNumber(index) {
-      const inputs = document.querySelectorAll('input[type="number"]');
-      return inputs[index] ? inputs[index].value : "";
-    }
-
-    // Función para obtener todos los selects
-    function obtenerSelect(index) {
-      const selects = document.querySelectorAll("select");
-      return selects[index] ? selects[index].value : "";
-    }
-
-    // Función para obtener checkboxes marcados
-    function obtenerCheckboxesMarcados() {
-      const checkboxes = document.querySelectorAll(
-        'input[type="checkbox"]:checked'
-      );
-      return Array.from(checkboxes).map((checkbox) => {
-        const label = checkbox.parentElement.querySelector("span");
-        return label ? label.textContent.trim() : "";
-      });
-    }
-
-    // Función para obtener valor por posición dentro de una sección específica
-    function obtenerPorSeccion(seccionIndex, inputIndex, tipo = "text") {
-      const secciones = document.querySelectorAll(
-        ".bg-white.rounded-xl.shadow-sm"
-      );
-      if (secciones[seccionIndex]) {
-        const inputs = secciones[seccionIndex].querySelectorAll(
-          `input[type="${tipo}"]`
-        );
-        return inputs[inputIndex] ? inputs[inputIndex].value : "";
-      }
-      return "";
-    }
-
-    function obtenerSelectPorSeccion(seccionIndex, selectIndex) {
-      const secciones = document.querySelectorAll(
-        ".bg-white.rounded-xl.shadow-sm"
-      );
-      if (secciones[seccionIndex]) {
-        const selects = secciones[seccionIndex].querySelectorAll("select");
-        return selects[selectIndex] ? selects[selectIndex].value : "";
-      }
-      return "";
-    }
-
-    // Recolectar datos del formulario usando selectores más específicos
-    const datosFormulario = {
-      // Datos Académicos (primera sección) - sección 0
-      apellidoPaterno: obtenerPorSeccion(0, 0),
-      apellidoMaterno: obtenerPorSeccion(0, 1),
-      nombres: obtenerPorSeccion(0, 2),
-
-      // Domicilio (sección 1)
-      calleNumero: obtenerPorSeccion(1, 0),
-      colonia: obtenerPorSeccion(1, 1),
-      codigoPostal: obtenerPorSeccion(1, 2),
-      municipio: obtenerPorSeccion(1, 3),
-      estado: obtenerPorSeccion(1, 4),
-      pais: obtenerPorSeccion(1, 5),
-      telefono: obtenerPorSeccion(1, 0, "tel"),
-      celular: obtenerPorSeccion(1, 1, "tel"),
-      correo: obtenerPorSeccion(1, 0, "email"),
-      fechaNacimiento: obtenerPorSeccion(1, 0, "date"),
-      edad: obtenerPorSeccion(1, 6),
-      sexo: obtenerSelectPorSeccion(1, 0),
-      estadoCivil: obtenerSelectPorSeccion(1, 1),
-      nacionalidad: obtenerSelectPorSeccion(1, 2),
-      ocupacion: obtenerPorSeccion(1, 7),
-      curp: obtenerPorSeccion(1, 8),
-      rfc: obtenerPorSeccion(1, 9),
-      tipoSangre: obtenerSelectPorSeccion(1, 3),
-
-      // Datos Académicos (segunda sección) - sección 2
-      plantel: obtenerValor("plantel"),
-      turno: obtenerValor("turno"),
-      escuelaProcedencia: obtenerValor("escuela_proc"),
-      carrera: obtenerValor("carrera"),
-      asesor: obtenerValor("asesor"),
-
-      // Datos Familiares - sección 3
-      nombrePadreTutor: obtenerPorSeccion(3, 0),
-      ocupacionPadre: obtenerPorSeccion(3, 1),
-      domicilioPadre: obtenerPorSeccion(3, 2),
-      telefonoPadre: obtenerPorSeccion(3, 0, "tel"),
-      celularPadre: obtenerPorSeccion(3, 1, "tel"),
-
-      // Medios para enterarse de UNE
-      mediosSeleccionados: obtenerCheckboxesMarcados(),
-
-      // Compromiso - sección 6
-      dia: obtenerPorSeccion(6, 0, "number"),
-      mes: obtenerSelectPorSeccion(6, 0),
-      año: obtenerSelectPorSeccion(6, 1),
-
-      // Firma
-      firmaImagen: obtenerImagenFirma(),
-    };
-
-    return datosFormulario;
-  }
-
-  // Función de depuración para verificar los índices
-
-  async function generarPDF() {
-    try {
-      // Mostrar mensaje de carga
-      console.log("🔄 Generando PDF...");
-      alert("Generando PDF, por favor espere...");
-
-      // Importación dinámica de pdf-lib (necesario para Astro)
-      const { PDFDocument, rgb, StandardFonts } = await import("pdf-lib");
-
-      // Obtener los datos del formulario
-      const datosFormulario = recolectarDatosFormulario();
-      console.log(datosFormulario);
-
-      // 1. Cargar el PDF base de inscripción
-      const inscripcionPath = "/pdfs/INSCRIPCION.pdf";
-      console.log("Cargando plantilla principal...");
-
-      const inscripcionResponse = await fetch(inscripcionPath);
-      if (!inscripcionResponse.ok) {
-        throw new Error(
-          `Error al cargar ${inscripcionPath}: ${inscripcionResponse.status}`
-        );
-      }
-      const inscripcionBytes = await inscripcionResponse.arrayBuffer();
-
-      // 2. Determinar qué PDF de requisitos cargar según el nivel
-      let requisitosPath = "";
-      const nivel = datosFormulario.carrera?.toLowerCase() || "";
-
-      if (nivel.includes("secundaria")) {
-        requisitosPath = "/pdfs/secundaria_req.pdf";
-      } else if (nivel.includes("bachillerato")) {
-        requisitosPath = "/pdfs/bachillerato_req.pdf";
-      } else if (nivel.includes("licenciatura")) {
-        requisitosPath = "/pdfs/licenciatura_req.pdf";
-      } else if (nivel.includes("posgrado")) {
-        requisitosPath = "/pdfs/posgrado_req.pdf";
-      }
-
-      // 3. Cargar el PDF de requisitos si corresponde
-      let requisitosBytes = null;
-      if (requisitosPath) {
-        console.log(`Cargando requisitos para nivel: ${nivel}`);
-        try {
-          const requisitosResponse = await fetch(requisitosPath);
-          if (requisitosResponse.ok) {
-            requisitosBytes = await requisitosResponse.arrayBuffer();
-          } else {
-            console.warn(
-              `No se pudo cargar ${requisitosPath}, continuando sin requisitos`
-            );
-          }
-        } catch (error) {
-          console.warn(`Error al cargar requisitos: ${error.message}`);
-        }
-      }
-
-      // 4. Crear el documento PDF
-      const pdfDoc = await PDFDocument.load(inscripcionBytes);
-
-      // Si hay requisitos, añadirlos al PDF
-      if (requisitosBytes) {
-        try {
-          const requisitosDoc = await PDFDocument.load(requisitosBytes);
-          const requisitosPages = await pdfDoc.copyPages(
-            requisitosDoc,
-            requisitosDoc.getPageIndices()
-          );
-          requisitosPages.forEach((page) => pdfDoc.addPage(page));
-          console.log("Requisitos agregados al PDF");
-        } catch (error) {
-          console.warn("Error al agregar requisitos:", error);
-        }
-      }
-
-      // 5. Rellenar los datos en la primera página
-      const pages = pdfDoc.getPages();
-      const firstPage = pages[0];
-
-      // Cargar fuentes
-      const font = await pdfDoc.embedFont(StandardFonts.Helvetica);
-      const fontBold = await pdfDoc.embedFont(StandardFonts.HelveticaBold);
-
-      // Coordenadas para los campos (ajusta según tu PDF)
-      const coordenadas = {
-        // Datos personales
-        apellidoPaterno: { x: 120, y: 598 },
-        apellidoMaterno: { x: 390, y: 598 },
-        nombres: { x: 110, y: 575 },
-
-        // Domicilio
-        calleNumero: { x: 110, y: 540 },
-        colonia: { x: 70, y: 515 },
-        codigoPostal: { x: 255, y: 515 },
-        municipio: { x: 360, y: 515 },
-        estado: { x: 70, y: 492 },
-        pais: { x: 320, y: 492 },
-
-        // Contacto
-        telefono: { x: 75, y: 470 },
-        celular: { x: 205, y: 470 },
-        correo: { x: 325, y: 470 },
-
-        // Datos adicionales
-        fechaNacimiento: { x: 135, y: 445 },
-        edad: { x: 235, y: 445 },
-        sexo: { x: 290, y: 445 },
-        estadoCivil: { x: 400, y: 445 },
-        nacionalidad: { x: 110, y: 423 },
-
-        // Datos académicos
-        ocupacion: { x: 350, y: 423 },
-        curp: { x: 70, y: 398 },
-        rfc: { x: 238, y: 398 },
-        tipoSangre: { x: 500, y: 398 },
-
-        // Datos académicos (segunda sección)
-        plantel: { x: 215, y: 710 },
-        turno: { x: 210, y: 688 },
-        escuelaProcedencia: { x: 450, y: 688 },
-        carrera: { x: 235, y: 662 },
-        asesor: { x: 235, y: 642 },
-
-        // Datos familiares
-        nombrePadreTutor: { x: 160, y: 354 },
-        ocupacionPadre: { x: 410, y: 354 },
-        domicilioPadre: { x: 75, y: 330 },
-        telefonoPadre: { x: 260, y: 330 },
-        celularPadre: { x: 399, y: 330 },
-
-        // Fecha de compromiso
-        dia: { x: 200, y: 85 },
-        mes: { x: 380, y: 85 },
-        año: { x: 517, y: 83 },
-      };
-
-      // Rellenar campos en el PDF
-      for (const [campo, valor] of Object.entries(datosFormulario)) {
-        if (coordenadas[campo] && valor) {
-          let textoValor = valor.toString();
-
-          // Formateo especial para algunos campos
-          if (campo === "año" && textoValor.length === 4) {
-            textoValor = textoValor.slice(2);
-          }
-
-          try {
-            firstPage.drawText(textoValor, {
-              x: coordenadas[campo].x,
-              y: coordenadas[campo].y,
-              size: 10,
-              font,
-              color: rgb(0, 0, 0),
-            });
-          } catch (error) {
-            console.warn(`Error al escribir campo ${campo}:`, error);
-          }
-        }
-      }
-
-      // Procesar checkboxes de medios
-      const coordenadasMedios = {
-        "Volante o cruceros, trípticos y dípticos": { x: 29, y: 278 },
-        "Visita en tu escuela": { x: 187, y: 278 },
-        "Página web UNE": { x: 353, y: 278 },
-        "Redes sociales UNE": { x: 505, y: 278 },
-        "Promoción en stands": { x: 29, y: 252 },
-        Televisión: { x: 187, y: 252 },
-        Espectaculares: { x: 353, y: 253 },
-        Recomendación: { x: 505, y: 253 },
-        Ubicación: { x: 34, y: 191 },
-        "Plan de estudios": { x: 325, y: 191 },
-        Horarios: { x: 34, y: 172 },
-        "Oferta académica": { x: 325, y: 172 },
-        "Rechazo de la U.D.G.": { x: 142, y: 191 }, // Costos
-        Instalaciones: { x: 142, y: 172 },
-        "Nivel académico": { x: 418, y: 172 },
-        "Rechazo de U. de G.": { x: 418, y: 191 },
-        "Mejor opción": { x: 528, y: 191 },
-        Incorporación: { x: 235, y: 172 },
-        Otro: { x: 528, y: 172 },
-      };
-
-      if (datosFormulario.mediosSeleccionados?.length > 0) {
-        console.log(
-          "Medios seleccionados:",
-          datosFormulario.mediosSeleccionados
-        );
-
-        datosFormulario.mediosSeleccionados.forEach((medio) => {
-          console.log(`Procesando medio: "${medio}"`);
-
-          if (coordenadasMedios[medio]) {
-            try {
-              firstPage.drawText("X", {
-                x: coordenadasMedios[medio].x,
-                y: coordenadasMedios[medio].y,
-                size: 12,
-                font: fontBold,
-                color: rgb(0, 0, 0),
-              });
-              console.log(`✅ Checkbox marcado: ${medio}`);
-            } catch (error) {
-              console.warn(`Error al marcar checkbox ${medio}:`, error);
-            }
-          } else {
-            console.warn(`❌ No se encontraron coordenadas para: "${medio}"`);
-          }
-        });
-      } else {
-        console.log("No hay medios seleccionados");
-      }
-
-      // Procesar firma si existe
-      if (datosFormulario.firmaImagen) {
-        try {
-          const firmaImage = await pdfDoc.embedPng(datosFormulario.firmaImagen);
-          firstPage.drawImage(firmaImage, {
-            x: 255,
-            y: 4,
-            width: 150,
-            height: 75,
-          });
-          console.log("Firma agregada al PDF");
-        } catch (firmaError) {
-          console.warn("Error al procesar la firma:", firmaError);
-        }
-      }
-
-      // Guardar el PDF
-      console.log("Guardando PDF...");
-      const pdfBytes = await pdfDoc.save();
-
-      // Crear blob y descargar
-      const blob = new Blob([pdfBytes], { type: "application/pdf" });
-      const url = URL.createObjectURL(blob);
-
-      const a = document.createElement("a");
-      a.href = url;
-      a.download =
-        `Inscripcion_UNE_${datosFormulario.nombres || "Formulario"}.pdf`.replace(
-          /\s+/g,
-          "_"
-        );
-
-      // Descargar automáticamente
-      document.body.appendChild(a);
-      a.click();
-      document.body.removeChild(a);
-
-      // Limpiar URL
-      setTimeout(() => URL.revokeObjectURL(url), 1000);
-
-      // Mensaje de éxito
-      let mensaje = "PDF generado y descargado exitosamente";
-      if (requisitosPath) {
-        mensaje += `\nIncluye requisitos para: ${nivel}`;
-      }
-      alert(mensaje);
-
-      console.log("✅ PDF generado exitosamente");
-      return true;
-    } catch (error) {
-      console.error("Error al generar el PDF:", error);
-      alert(
-        `Error al generar el PDF: ${error.message}\nRevisa la consola para más detalles.`
-      );
-      return false;
-    }
-  }
-
-  // Configurar el botón cuando el DOM esté listo
-  document.addEventListener("DOMContentLoaded", function () {
-    const btnGenerarPDF = document.getElementById("btnGenerarPDF");
-
-    if (btnGenerarPDF) {
-      btnGenerarPDF.addEventListener("click", function (e) {
-        e.preventDefault();
-        console.log("🔄 Iniciando generación de PDF...");
-        generarPDF();
-      });
-    } else {
-      console.warn("Botón 'btnGenerarPDF' no encontrado");
-    }
-  });
 </script>
