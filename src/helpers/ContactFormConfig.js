@@ -1357,7 +1357,6 @@ export class FormValidator {
       );
     } finally {
       if (submitButton) {
-        submitButton.disabled = false;
         submitButton.textContent = originalText;
       }
     }
