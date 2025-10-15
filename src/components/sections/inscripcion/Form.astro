@@ -1,33 +1,5 @@
 ---
-import { asesoresPorPlantel } from "../../../helpers/asesoresPorPlantel";
-import { educationData } from "../../../helpers/educationData";
-
-// Función para extraer todas las carreras disponibles por plantel desde educationData
-function getCarrerasPorPlantel() {
-  const carrerasPorPlantel = {};
-
-  Object.keys(educationData).forEach((nivelEducativo) => {
-    const carreras = educationData[nivelEducativo];
-
-    Object.keys(carreras).forEach((nombreCarrera) => {
-      const planteles = carreras[nombreCarrera];
-
-      Object.keys(planteles).forEach((plantel) => {
-        if (!carrerasPorPlantel[plantel]) {
-          carrerasPorPlantel[plantel] = [];
-        }
-
-        if (!carrerasPorPlantel[plantel].includes(nombreCarrera)) {
-          carrerasPorPlantel[plantel].push(nombreCarrera);
-        }
-      });
-    });
-  });
-
-  return carrerasPorPlantel;
-}
-
-const carrerasPorPlantel = getCarrerasPorPlantel();
+import { BookOpen, FileText } from "@lucide/astro";
 ---
 
 <section class="py-16 bg-gray-50">
@@ -127,7 +99,7 @@ const carrerasPorPlantel = getCarrerasPorPlantel();
               >
               <input
                 type="text"
-                value="Jalisco"
+                value="JALISCO"
                 class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
               />
             </div>
@@ -137,7 +109,7 @@ const carrerasPorPlantel = getCarrerasPorPlantel();
               >
               <input
                 type="text"
-                value="México"
+                value="MÉXICO"
                 class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
               />
             </div>
@@ -203,8 +175,8 @@ const carrerasPorPlantel = getCarrerasPorPlantel();
                 class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
               >
                 <option value="">Seleccione</option>
-                <option value="Femenino">Femenino</option>
-                <option value="Masculino">Masculino</option>
+                <option value="FEMENINO">FEMENINO</option>
+                <option value="MASCULINO">MASCULINO</option>
               </select>
             </div>
             <div>
@@ -215,11 +187,11 @@ const carrerasPorPlantel = getCarrerasPorPlantel();
                 class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
               >
                 <option value="">Seleccione</option>
-                <option value="Soltero">Soltero/a</option>
-                <option value="Casado">Casado/a</option>
-                <option value="Viudo">Viudo/a</option>
-                <option value="Divorciado">Divorciado/a</option>
-                <option value="Union libre">Unión libre</option>
+                <option value="SOLTERO">SOLTERO/A</option>
+                <option value="CASADO">CASADO/A</option>
+                <option value="VIUDO">VIUDO/A</option>
+                <option value="DIVORCIADO">DIVORCIADO/A</option>
+                <option value="UNION_LIBRE">UNIÓN LIBRE</option>
               </select>
             </div>
           </div>
@@ -232,7 +204,7 @@ const carrerasPorPlantel = getCarrerasPorPlantel();
               <select
                 class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
               >
-                <option value="Mexicana">Mexicana</option>
+                <option value="MEXICANA">MEXICANA</option>
               </select>
             </div>
             <div>
@@ -306,27 +278,28 @@ const carrerasPorPlantel = getCarrerasPorPlantel();
                 class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
               >
                 <option value="">Seleccione</option>
-                <option value="Centro">Centro</option>
-                <option value="Centro médico">Centro médico</option>
-                <option value="Chapultepec">Chapultepec</option>
-                <option value="Milenio">Milenio</option>
-                <option value="Tesistán">Tesistán</option>
-                <option value="Tlajomulco">Tlajomulco</option>
-                <option value="Tlaquepaque">Tlaquepaque</option>
-                <option value="Tonalá">Tonalá</option>
-                <option value="Torre Quetzal">Torre Quetzal</option>
-                <option value="Torre UNE Milenio">Torre UNE Milenio</option>
-                <option value="Zapopan">Zapopan</option>
-                <option value="Tepatitlán">Tepatitlán</option>
-                <option value="Av. México">Av. México</option>
-                <option value="Campus Puerto Vallarta"
-                  >Campus Puerto Vallarta</option
+                <option value="CENTRO">CENTRO</option>
+                <option value="CENTRO MÉDICO">CENTRO MÉDICO</option>
+                <option value="CHAPULTEPEC">CHAPULTEPEC</option>
+                <option value="MILENIO">MILENIO</option>
+                <option value="TESISTÁN">TESISTÁN</option>
+                <option value="TLAJOMULCO">TLAJOMULCO</option>
+                <option value="TLAQUEPAQUE">TLAQUEPAQUE</option>
+                <option value="TONALÁ">TONALÁ</option>
+                <option value="TORRE QUETZAL">TORRE QUETZAL</option>
+                <option value="TORRE UNE MILENIO">TORRE UNE MILENIO</option>
+                <option value="MILENIO">MILENIO</option>
+                <option value="ZAPOPAN"> ZAPOPAN</option>
+                <option value="TEPATITLÁN">TEPATITLÁN</option>
+                <option value="AV. MÉXICO">AV. MÉXICO</option>
+                <option value="CAMPUS PUERTO VALLARTA"
+                  >CAMPUS PUERTO VALLARTA</option
                 >
-                <option value="Caracol">Caracol</option>
-                <option value="Las Juntas">Las Juntas</option>
-                <option value="Plaza del Sol">Plaza del Sol</option>
-                <option value="UNE en línea">UNE en línea</option>
-                <option value="Centro de idiomas">Centro de idiomas</option>
+                <option value="CARACOL">CARACOL</option>
+                <option value="LAS JUNTAS">LAS JUNTAS</option>
+                <option value="PLAZA DEL SOL">PLAZA DEL SOL</option>
+                <option value="UNE EN LÍNEA">UNE EN LÍNEA</option>
+                <option value="CENTRO DE IDIOMAS">CENTRO DE IDIOMAS</option>
               </select>
             </div>
             <div>
@@ -338,12 +311,12 @@ const carrerasPorPlantel = getCarrerasPorPlantel();
                 class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
               >
                 <option value="">Seleccione</option>
-                <option value="Matutino">Matutino</option>
-                <option value="Vespertino">Vespertino</option>
-                <option value="Nocturno">Nocturno</option>
-                <option value="Mixto">Mixto</option>
-                <option value="Sabatino">Sabatino</option>
-                <option value="En línea">En línea</option>
+                <option value="MATUTINO">MATUTINO</option>
+                <option value="VESPERTINO">VESPERTINO</option>
+                <option value="NOCTURNO">NOCTURNO</option>
+                <option value="MIXTO">MIXTO</option>
+                <option value="SABATINO">SABATINO</option>
+                <option value="EN_LINEA">EN LÍNEA</option>
               </select>
             </div>
             <div>
@@ -675,18 +648,18 @@ const carrerasPorPlantel = getCarrerasPorPlantel();
                 class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
               >
                 <option value="">Seleccione</option>
-                <option value="Enero">Enero</option>
-                <option value="Febrero">Febrero</option>
-                <option value="Marzo">Marzo</option>
-                <option value="Abril">Abril</option>
-                <option value="Mayo">Mayo</option>
-                <option value="Junio">Junio</option>
-                <option value="Julio">Julio</option>
-                <option value="Agosto">Agosto</option>
-                <option value="Septiembre">Septiembre</option>
-                <option value="Octubre">Octubre</option>
-                <option value="Noviembre">Noviembre</option>
-                <option value="Diciembre">Diciembre</option>
+                <option value="ENERO">ENERO</option>
+                <option value="FEBRERO">FEBRERO</option>
+                <option value="MARZO">MARZO</option>
+                <option value="ABRIL">ABRIL</option>
+                <option value="MAYO">MAYO</option>
+                <option value="JUNIO">JUNIO</option>
+                <option value="JULIO">JULIO</option>
+                <option value="AGOSTO">AGOSTO</option>
+                <option value="SEPTIEMBRE">SEPTIEMBRE</option>
+                <option value="OCTUBRE">OCTUBRE</option>
+                <option value="NOVIEMBRE">NOVIEMBRE</option>
+                <option value="DICIEMBRE">DICIEMBRE</option>
               </select>
             </div>
 
@@ -736,9 +709,7 @@ const carrerasPorPlantel = getCarrerasPorPlantel();
                   id="limpiarFirma"
                   type="button"
                   class="bg-red-500 hover:bg-red-600 text-white font-semibold text-sm py-2 px-4 rounded-md transition-colors duration-200"
-                  aria-label="Limpiar firma"
-                  title="Limpiar firma"
-                >
+                 aria-label="Limpiar firma" title="Limpiar firma">
                   Limpiar firma
                 </button>
               </div>
@@ -753,17 +724,13 @@ const carrerasPorPlantel = getCarrerasPorPlantel();
               id="btnGenerarPDF"
               type="button"
               class="bg-gray-600 hover:bg-gray-700 text-white font-bold py-4 px-12 rounded-lg transition-colors duration-200 text-lg"
-              aria-label="GENERAR PDF"
-              title="GENERAR PDF"
-            >
+             aria-label="GENERAR PDF" title="GENERAR PDF">
               GENERAR PDF
             </button>
             <button
               type="submit"
               class="bg-red-600 hover:bg-red-700 text-white font-bold py-4 px-12 rounded-lg transition-colors duration-200 text-lg"
-              aria-label="INSCRIBIRME"
-              title="INSCRIBIRME"
-            >
+             aria-label="INSCRIBIRME" title="INSCRIBIRME">
               INSCRIBIRME
             </button>
           </div>
@@ -771,994 +738,9 @@ const carrerasPorPlantel = getCarrerasPorPlantel();
       </div>
     </form>
   </div>
-
-  <!-- Modal de error -->
-  <div
-    id="error-modal"
-    class="hidden fixed inset-0 bg-opacity-50 flex items-center justify-center z-50 p-4"
-  >
-    <div class="bg-white rounded-lg shadow-xl max-w-md w-full p-6">
-      <div class="flex items-start mb-4">
-        <div class="flex-shrink-0">
-          <svg
-            class="w-6 h-6 text-red-600"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"
-            ></path>
-          </svg>
-        </div>
-        <div class="ml-3 flex-1">
-          <h3 class="text-lg font-medium text-gray-900 mb-2">
-            Error al enviar solicitud
-          </h3>
-          <p id="modal-error-message" class="text-sm text-gray-600 mb-4"></p>
-          <div
-            class="text-sm text-gray-600 bg-gray-50 p-3 rounded border border-gray-200"
-          >
-            <p class="font-semibold mb-1">Si el problema persiste:</p>
-            <p>Por favor, envíe su solicitud por correo a:</p>
-            <a
-              href="mailto:informes@universidad-une.com"
-              class="text-blue-600 hover:text-blue-700 font-medium"
-            >
-              informes@universidad-une.com
-            </a>
-          </div>
-        </div>
-      </div>
-      <div class="flex gap-3 mt-6">
-        <button
-          id="retry-button"
-          class="flex-1 bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-md font-medium transition-colors"
-        >
-          Intentar de nuevo
-        </button>
-        <button
-          id="close-modal-button"
-          class="flex-1 bg-gray-200 hover:bg-gray-300 text-gray-700 py-2 px-4 rounded-md font-medium transition-colors"
-        >
-          Cerrar
-        </button>
-      </div>
-    </div>
-  </div>
 </section>
 
-<script define:vars={{ asesoresPorPlantel, carrerasPorPlantel }}>
-  // Ahora las variables están disponibles en el scope del script
-  console.log("📊 Datos cargados:");
-  console.log(
-    "- Carreras por plantel:",
-    Object.keys(carrerasPorPlantel).length,
-    "planteles"
-  );
-  console.log(
-    "- Asesores por plantel:",
-    Object.keys(asesoresPorPlantel).length,
-    "planteles"
-  );
 
-  // Función para actualizar las opciones de un select
-  function updateSelectOptions(selectElement, options) {
-    if (!selectElement) {
-      console.error("❌ ERROR: selectElement es null o undefined");
-      return;
-    }
-
-    selectElement.innerHTML = "";
-
-    const defaultOption = document.createElement("option");
-    defaultOption.value = "";
-    defaultOption.textContent = "Seleccione";
-    selectElement.appendChild(defaultOption);
-
-    options.forEach((option) => {
-      const newOption = document.createElement("option");
-      newOption.value = option;
-      newOption.textContent = option;
-      selectElement.appendChild(newOption);
-    });
-  }
-
-  // Función principal para actualizar carreras y asesores basado en el plantel
-  function updateDatosAcademicos() {
-    const plantelSelect = document.querySelector('select[name="plantel"]');
-    const carreraSelect = document.querySelector('select[name="carrera"]');
-    const asesorSelect = document.querySelector('select[name="asesor"]');
-
-    if (!plantelSelect || !carreraSelect || !asesorSelect) {
-      console.error(
-        "❌ ERROR: No se encontraron todos los elementos select necesarios"
-      );
-      return;
-    }
-
-    const selectedPlantel = plantelSelect.value;
-
-    // Actualizar carreras
-    if (selectedPlantel && carrerasPorPlantel[selectedPlantel]) {
-      updateSelectOptions(carreraSelect, carrerasPorPlantel[selectedPlantel]);
-      console.log("✅ Carreras actualizadas para:", selectedPlantel);
-    } else {
-      updateSelectOptions(carreraSelect, []);
-      console.log("⚠️ No hay carreras para el plantel seleccionado");
-    }
-
-    // Actualizar asesores
-    if (selectedPlantel && asesoresPorPlantel[selectedPlantel]) {
-      updateSelectOptions(asesorSelect, asesoresPorPlantel[selectedPlantel]);
-      console.log("✅ Asesores actualizados para:", selectedPlantel);
-    } else {
-      console.log("⚠️ No hay asesores para el plantel seleccionado");
-      updateSelectOptions(asesorSelect, []);
-    }
-  }
-
-  // Inicializar el formulario cuando el DOM esté cargado
-  document.addEventListener("DOMContentLoaded", function () {
-    const plantelSelect = document.querySelector('select[name="plantel"]');
-
-    if (plantelSelect) {
-      plantelSelect.addEventListener("change", function () {
-        updateDatosAcademicos();
-      });
-
-      updateDatosAcademicos();
-    } else {
-      console.error("❌ ERROR CRÍTICO: No se encontró el select de plantel");
-    }
-  });
-
-  // Función de validación del formulario
-  function validateForm() {
-    const requiredFields = [
-      'select[name="plantel"]',
-      'select[name="turno"]',
-      'input[name="escuela_proc"]',
-      'select[name="carrera"]',
-      'select[name="asesor"]',
-    ];
-
-    let isValid = true;
-    const errors = [];
-
-    requiredFields.forEach((selector) => {
-      const field = document.querySelector(selector);
-      const fieldName = field?.previousElementSibling?.textContent || selector;
-
-      if (!field) {
-        console.error(`❌ ERROR: Elemento no encontrado - ${selector}`);
-        isValid = false;
-        errors.push(`No se encontró el campo ${fieldName}`);
-      } else {
-        const value = field.value.trim();
-
-        if (!value) {
-          console.warn(`⚠️ ADVERTENCIA: Campo vacío - ${fieldName}`);
-          isValid = false;
-          errors.push(`El campo ${fieldName} es requerido`);
-        }
-      }
-    });
-
-    if (!isValid) {
-      console.error("❌ ERRORES DE VALIDACIÓN:");
-      errors.forEach((error, index) => {
-        console.error(`   ${index + 1}. ${error}`);
-      });
-      alert(
-        "Por favor complete todos los campos obligatorios:\n" +
-          errors.join("\n")
-      );
-    }
-
-    return isValid;
-  }
-</script>
-
-<script is:inline>
-  // Script para enviar formulario de inscripción de estudiante
-  console.log("[STUDENT FORM] 📝 Script cargado");
-
-  const apiUrl = "https://intranet.universidad-une.com/api/createstudent";
-
-  // Función para obtener checkboxes seleccionados
-  const getSelectedCheckboxes = (name) => {
-    const checkboxes = document.querySelectorAll(
-      `input[type="checkbox"][data-group="${name}"]:checked`
-    );
-    return Array.from(checkboxes).map((cb) => cb.value);
-  };
-
-  // Función para obtener todos los medios seleccionados
-  const getMediosSeleccionados = () => {
-    const medios = [];
-    const checkboxes = document.querySelectorAll(
-      'input[type="checkbox"][data-group="medios"]:checked'
-    );
-    checkboxes.forEach((cb) => {
-      medios.push(cb.value);
-    });
-    return medios;
-  };
-
-  // Función para obtener razones seleccionadas (máximo 5)
-  const getRazonesSeleccionadas = () => {
-    const razones = [];
-    const checkboxes = document.querySelectorAll(
-      'input[type="checkbox"][data-group="razones"]:checked'
-    );
-    checkboxes.forEach((cb) => {
-      razones.push(cb.value);
-    });
-    return razones;
-  };
-
-  // Función para validar formulario
-  const validateFormsend = () => {
-    console.log("[STUDENT FORM] 🔍 Validando formulario...");
-    let isValid = true;
-    const missingFields = [];
-    return isValid;
-  };
-
-  // Función para calcular edad a partir de fecha de nacimiento
-  const calcularEdad = (fechaNacimiento) => {
-    const hoy = new Date();
-    const nacimiento = new Date(fechaNacimiento);
-    let edad = hoy.getFullYear() - nacimiento.getFullYear();
-    const mes = hoy.getMonth() - nacimiento.getMonth();
-
-    if (mes < 0 || (mes === 0 && hoy.getDate() < nacimiento.getDate())) {
-      edad--;
-    }
-
-    return edad.toString();
-  };
-
-  // Auto-calcular edad cuando cambia la fecha de nacimiento
-  document.addEventListener("DOMContentLoaded", () => {
-    const fechaNacimientoInput = document.querySelector(
-      'input[name="fechaNacimiento"]'
-    );
-    const edadInput = document.querySelector('input[name="edad"]');
-
-    if (fechaNacimientoInput && edadInput) {
-      fechaNacimientoInput.addEventListener("change", (e) => {
-        const edad = calcularEdad(e.target.value);
-        edadInput.value = edad;
-        console.log("[STUDENT FORM] 🎂 Edad calculada:", edad);
-      });
-    }
-  });
-
-  // Función para preparar el payload
-  const preparePayload = () => {
-    console.log("[STUDENT FORM] 📦 Preparando payload...");
-
-    // Función auxiliar para obtener valor por posición dentro de una sección específica
-    function obtenerPorSeccion(seccionIndex, inputIndex, tipo = "text") {
-      const secciones = document.querySelectorAll(
-        ".bg-white.rounded-xl.shadow-sm"
-      );
-      if (secciones[seccionIndex]) {
-        const inputs = secciones[seccionIndex].querySelectorAll(
-          `input[type="${tipo}"]`
-        );
-        return inputs[inputIndex] ? inputs[inputIndex].value : "";
-      }
-      return "";
-    }
-
-    function obtenerSelectPorSeccion(seccionIndex, selectIndex) {
-      const secciones = document.querySelectorAll(
-        ".bg-white.rounded-xl.shadow-sm"
-      );
-      if (secciones[seccionIndex]) {
-        const selects = secciones[seccionIndex].querySelectorAll("select");
-        return selects[selectIndex] ? selects[selectIndex].value : "";
-      }
-      return "";
-    }
-
-    function obtenerValor(name) {
-      const element = document.querySelector(`[name="${name}"]`);
-      return element ? element.value : "";
-    }
-
-    // Obtener firma desde canvas
-    const firmaCanvas = document.getElementById("firmaCanvas");
-    const firmaImagen = "";
-
-    // Construir fecha de registro (fecha actual)
-    const fechaActual = new Date();
-    const fechaRegistro = fechaActual.toISOString().split("T")[0];
-
-    // Obtener día, mes y año del compromiso
-    const dia = obtenerPorSeccion(6, 0, "number");
-    const mes = obtenerSelectPorSeccion(6, 0);
-    const año = obtenerSelectPorSeccion(6, 1);
-
-    const payload = {
-      // Nombres (sección 0)
-      nombre: obtenerPorSeccion(0, 2),
-      apellidoPaterno: obtenerPorSeccion(0, 0),
-      apellidoMaterno: obtenerPorSeccion(0, 1),
-      nombres: obtenerPorSeccion(0, 2),
-
-      // Domicilio (sección 1)
-      calleNumero: obtenerPorSeccion(1, 0),
-      colonia: obtenerPorSeccion(1, 1),
-      codigoPostal: obtenerPorSeccion(1, 2),
-      municipio: obtenerPorSeccion(1, 3),
-      estado: obtenerPorSeccion(1, 4) || "Jalisco",
-      pais: obtenerPorSeccion(1, 5) || "México",
-
-      // Contacto (sección 1)
-      telefono: obtenerPorSeccion(1, 0, "tel"),
-      celular: obtenerPorSeccion(1, 1, "tel"),
-      correo: obtenerPorSeccion(1, 0, "email"),
-
-      // Datos personales (sección 1)
-      fechaNacimiento: obtenerPorSeccion(1, 0, "date"),
-      edad: obtenerPorSeccion(1, 6),
-      sexo: obtenerSelectPorSeccion(1, 0),
-      estadoCivil: obtenerSelectPorSeccion(1, 1),
-      nacionalidad: obtenerSelectPorSeccion(1, 2) || "MEXICANA",
-      ocupacion: obtenerPorSeccion(1, 7),
-      curp: obtenerPorSeccion(1, 8),
-      rfc: obtenerPorSeccion(1, 9),
-      tipoSangre: obtenerSelectPorSeccion(1, 3),
-
-      // Datos académicos (sección 2)
-      nivelEducativo: "LICENCIATURA",
-      plantel: obtenerValor("plantel"),
-      turno: obtenerValor("turno"),
-      escuelaProcedencia: obtenerValor("escuela_proc"),
-      promedio: obtenerPorSeccion(2, 0, "number") || "",
-      carrera: obtenerValor("carrera"),
-      asesor: obtenerValor("asesor"),
-
-      // Datos familiares (sección 3)
-      nombrePadreTutor: obtenerPorSeccion(3, 0),
-      ocupacionPadre: obtenerPorSeccion(3, 1),
-      domicilioPadre: obtenerPorSeccion(3, 2),
-      telefonoPadre: obtenerPorSeccion(3, 0, "tel"),
-      celularPadre: obtenerPorSeccion(3, 1, "tel"),
-
-      // Medios y razones
-      "Medios Seleccionados:": getMediosSeleccionados().join(", ") || "Ninguno",
-      mediosSeleccionados: getMediosSeleccionados(),
-      beneficiarios: getRazonesSeleccionadas().join(", ") || "Ninguno",
-
-      // Fechas
-      fechaRegistro: fechaRegistro,
-      dateFields: fechaRegistro,
-      dia: dia,
-      mes: mes,
-      año: año,
-
-      // Firma
-      firmaImagen: firmaImagen,
-    };
-
-    console.log("[STUDENT FORM] ✅ Payload preparado:", {
-      ...payload,
-      firmaImagen: firmaImagen
-        ? `data:image/jpeg;base64,... (${firmaImagen.length} caracteres)`
-        : "Sin firma",
-    });
-
-    return payload;
-  };
-
-  // Variables globales para el modal y reintento
-  let lastPayload = null;
-  const errorModal = document.getElementById("error-modal");
-  const modalErrorMessage = document.getElementById("modal-error-message");
-  const retryButton = document.getElementById("retry-button");
-  const closeModalButton = document.getElementById("close-modal-button");
-
-  // Función para mostrar el modal de error
-  function showErrorModal(message) {
-    if (modalErrorMessage && errorModal) {
-      modalErrorMessage.textContent = message;
-      errorModal.classList.remove("hidden");
-    }
-  }
-
-  // Función para cerrar el modal
-  function closeErrorModal() {
-    if (errorModal) {
-      errorModal.classList.add("hidden");
-    }
-  }
-
-  // Event listeners del modal
-  if (closeModalButton) {
-    closeModalButton.addEventListener("click", closeErrorModal);
-  }
-
-  if (errorModal) {
-    errorModal.addEventListener("click", (e) => {
-      if (e.target === errorModal) {
-        closeErrorModal();
-      }
-    });
-  }
-
-  // Función para enviar formulario
-  const submitForm = async () => {
-    console.log("[STUDENT FORM] 🚀 Iniciando envío del formulario");
-
-    if (!validateFormsend()) {
-      return;
-    }
-
-    const payload = preparePayload();
-    lastPayload = payload;
-
-    const submitButton = document.querySelector('button[type="submit"]');
-    const originalText = submitButton?.textContent;
-    if (submitButton) {
-      submitButton.disabled = true;
-      submitButton.textContent = "ENVIANDO...";
-      submitButton.classList.add("opacity-50", "cursor-not-allowed");
-    }
-
-    try {
-      console.log("[STUDENT FORM] 📡 Enviando POST a:", apiUrl);
-      console.log("[STUDENT FORM] 📦 Payload completo:", payload);
-
-      const response = await fetch(apiUrl, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-        },
-        body: JSON.stringify(payload),
-      });
-
-      console.log("[STUDENT FORM] 📬 Respuesta recibida:", {
-        status: response.status,
-        statusText: response.statusText,
-        ok: response.ok,
-      });
-
-      let responseData;
-      try {
-        responseData = await response.json();
-        console.log("[STUDENT FORM] ✅ Respuesta JSON:", responseData);
-      } catch (parseError) {
-        console.error("[STUDENT FORM] ⚠️ No se pudo parsear JSON:", parseError);
-        const textResponse = await response.text();
-        console.log("[STUDENT FORM] 📄 Respuesta como texto:", textResponse);
-        responseData = {
-          message: textResponse || "Respuesta del servidor no válida",
-        };
-      }
-
-      if (response.ok) {
-        console.log("[STUDENT FORM] 🎉 Estudiante registrado exitosamente");
-        window.location.href = "/contacto/gracias";
-      } else {
-        throw new Error(
-          responseData.message ||
-            `Error ${response.status}: ${response.statusText}`
-        );
-      }
-    } catch (error) {
-      console.error("[STUDENT FORM] ❌ Error al enviar formulario:", error);
-      console.error("[STUDENT FORM] 📋 Detalles del error:", {
-        message: error.message,
-        name: error.name,
-        stack: error.stack,
-      });
-
-      let errorMessage = "";
-      if (!navigator.onLine) {
-        errorMessage =
-          "No hay conexión a internet. Por favor, verifica tu conexión e intenta nuevamente.";
-      } else if (
-        error.message === "Failed to fetch" ||
-        error.name === "TypeError"
-      ) {
-        errorMessage =
-          "No se pudo conectar con el servidor. Esto puede deberse a problemas de conexión a internet. Por favor, intenta más tarde.";
-      } else {
-        errorMessage = `Ocurrió un error al procesar tu inscripción: ${error.message}. Por favor, intenta nuevamente.`;
-      }
-
-      showErrorModal(errorMessage);
-    } finally {
-      if (submitButton) {
-        submitButton.disabled = false;
-        submitButton.textContent = originalText;
-        submitButton.classList.remove("opacity-50", "cursor-not-allowed");
-      }
-    }
-  };
-
-  // Botón de reintentar en el modal
-  if (retryButton) {
-    retryButton.addEventListener("click", async () => {
-      closeErrorModal();
-
-      if (lastPayload) {
-        console.log("[STUDENT FORM] 🔄 Reintentando envío...");
-
-        const submitButton = document.querySelector('button[type="submit"]');
-        const originalText = submitButton?.textContent;
-        if (submitButton) {
-          submitButton.disabled = true;
-          submitButton.textContent = "ENVIANDO...";
-          submitButton.classList.add("opacity-50", "cursor-not-allowed");
-        }
-
-        try {
-          const response = await fetch(apiUrl, {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-              Accept: "application/json",
-            },
-            body: JSON.stringify(lastPayload),
-          });
-
-          let responseData;
-          try {
-            responseData = await response.json();
-          } catch (parseError) {
-            const textResponse = await response.text();
-            responseData = {
-              message: textResponse || "Respuesta del servidor no válida",
-            };
-          }
-
-          if (response.ok) {
-            console.log("[STUDENT FORM] 🎉 Reintento exitoso");
-            window.location.href = "/contacto/gracias";
-          } else {
-            throw new Error(responseData.message || `Error ${response.status}`);
-          }
-        } catch (error) {
-          console.error("[STUDENT FORM] ❌ Error en reintento:", error);
-
-          let errorMessage = "";
-          if (!navigator.onLine) {
-            errorMessage =
-              "No hay conexión a internet. Por favor, verifica tu conexión e intenta nuevamente.";
-          } else if (
-            error.message === "Failed to fetch" ||
-            error.name === "TypeError"
-          ) {
-            errorMessage =
-              "No se pudo conectar con el servidor. Esto puede deberse a problemas de conexión a internet. Por favor, intenta más tarde.";
-          } else {
-            errorMessage = `Ocurrió un error al procesar tu inscripción: ${error.message}. Por favor, intenta nuevamente.`;
-          }
-
-          showErrorModal(errorMessage);
-        } finally {
-          if (submitButton) {
-            submitButton.disabled = false;
-            submitButton.textContent = originalText;
-            submitButton.classList.remove("opacity-50", "cursor-not-allowed");
-          }
-        }
-      }
-    });
-  }
-
-  // Event listener para el botón de submit
-  document.addEventListener("DOMContentLoaded", () => {
-    console.log("[STUDENT FORM] 🎯 Configurando event listeners");
-
-    const submitButton = document.querySelector('button[type="submit"]');
-
-    if (submitButton) {
-      console.log("[STUDENT FORM] ✅ Botón de submit encontrado");
-
-      submitButton.addEventListener("click", async (e) => {
-        e.preventDefault();
-        console.log("[STUDENT FORM] 🖱️ Click en botón INSCRIBIRME");
-        await submitForm();
-      });
-    } else {
-      console.error("[STUDENT FORM] ❌ No se encontró el botón de submit");
-    }
-
-    // Agregar data-group a los checkboxes para identificarlos
-    const mediosCheckboxes = document.querySelectorAll(
-      'input[type="checkbox"]'
-    );
-    mediosCheckboxes.forEach((cb, index) => {
-      if (index < 8) {
-        cb.setAttribute("data-group", "medios");
-        cb.setAttribute(
-          "value",
-          cb.nextElementSibling?.textContent?.trim() || `medio${index}`
-        );
-      } else {
-        cb.setAttribute("data-group", "razones");
-        cb.setAttribute(
-          "value",
-          cb.nextElementSibling?.textContent?.trim() || `razon${index}`
-        );
-
-        cb.addEventListener("change", () => {
-          const checkedRazones = document.querySelectorAll(
-            'input[type="checkbox"][data-group="razones"]:checked'
-          );
-          if (checkedRazones.length > 5) {
-            cb.checked = false;
-            alert("Solo puedes seleccionar máximo 5 razones.");
-          }
-        });
-      }
-    });
-
-    console.log("[STUDENT FORM] ✅ Configuración completa");
-  });
-</script>
-
-<script>
-  // Función para recolectar datos del formulario (usada por generarPDF)
-  function recolectarDatosFormulario() {
-    function obtenerPorSeccion(seccionIndex, inputIndex, tipo = "text") {
-      const secciones = document.querySelectorAll(
-        ".bg-white.rounded-xl.shadow-sm"
-      );
-      if (secciones[seccionIndex]) {
-        const inputs = secciones[seccionIndex].querySelectorAll(
-          `input[type="${tipo}"]`
-        );
-        return inputs[inputIndex] ? inputs[inputIndex].value : "";
-      }
-      return "";
-    }
-
-    function obtenerSelectPorSeccion(seccionIndex, selectIndex) {
-      const secciones = document.querySelectorAll(
-        ".bg-white.rounded-xl.shadow-sm"
-      );
-      if (secciones[seccionIndex]) {
-        const selects = secciones[seccionIndex].querySelectorAll("select");
-        return selects[selectIndex] ? selects[selectIndex].value : "";
-      }
-      return "";
-    }
-
-    function obtenerValor(name) {
-      const element = document.querySelector(`[name="${name}"]`);
-      return element ? element.value : "";
-    }
-
-    const firmaCanvas = document.getElementById("firmaCanvas");
-    let firmaImagen = "";
-
-    if (firmaCanvas) {
-      try {
-        firmaImagen = firmaCanvas.toDataURL("image/png");
-      } catch (error) {
-        console.warn("No se pudo obtener la firma del canvas:", error);
-      }
-    }
-
-    const dia = obtenerPorSeccion(6, 0, "number");
-    const mes = obtenerSelectPorSeccion(6, 0);
-    const año = obtenerSelectPorSeccion(6, 1);
-
-    const mediosSeleccionados = [];
-    const mediosCheckboxes = document.querySelectorAll(
-      'input[type="checkbox"][data-group="medios"]:checked'
-    );
-    mediosCheckboxes.forEach((cb) => {
-      mediosSeleccionados.push(cb.value);
-    });
-
-    return {
-      apellidoPaterno: obtenerPorSeccion(0, 0),
-      apellidoMaterno: obtenerPorSeccion(0, 1),
-      nombres: obtenerPorSeccion(0, 2),
-      calleNumero: obtenerPorSeccion(1, 0),
-      colonia: obtenerPorSeccion(1, 1),
-      codigoPostal: obtenerPorSeccion(1, 2),
-      municipio: obtenerPorSeccion(1, 3),
-      estado: obtenerPorSeccion(1, 4) || "Jalisco",
-      pais: obtenerPorSeccion(1, 5) || "México",
-      telefono: obtenerPorSeccion(1, 0, "tel"),
-      celular: obtenerPorSeccion(1, 1, "tel"),
-      correo: obtenerPorSeccion(1, 0, "email"),
-      fechaNacimiento: obtenerPorSeccion(1, 0, "date"),
-      edad: obtenerPorSeccion(1, 6),
-      sexo: obtenerSelectPorSeccion(1, 0),
-      estadoCivil: obtenerSelectPorSeccion(1, 1),
-      nacionalidad: obtenerSelectPorSeccion(1, 2) || "MEXICANA",
-      ocupacion: obtenerPorSeccion(1, 7),
-      curp: obtenerPorSeccion(1, 8),
-      rfc: obtenerPorSeccion(1, 9),
-      tipoSangre: obtenerSelectPorSeccion(1, 3),
-      plantel: obtenerValor("plantel"),
-      turno: obtenerValor("turno"),
-      escuelaProcedencia: obtenerValor("escuela_proc"),
-      carrera: obtenerValor("carrera"),
-      asesor: obtenerValor("asesor"),
-      nombrePadreTutor: obtenerPorSeccion(3, 0),
-      ocupacionPadre: obtenerPorSeccion(3, 1),
-      domicilioPadre: obtenerPorSeccion(3, 2),
-      telefonoPadre: obtenerPorSeccion(3, 0, "tel"),
-      celularPadre: obtenerPorSeccion(3, 1, "tel"),
-      mediosSeleccionados: mediosSeleccionados,
-      dia: dia,
-      mes: mes,
-      año: año,
-      firmaImagen: firmaImagen,
-    };
-  }
-
-  async function generarPDF() {
-    try {
-      console.log("🔄 Generando PDF...");
-      alert("Generando PDF, por favor espere...");
-
-      const { PDFDocument, rgb, StandardFonts } = await import("pdf-lib");
-
-      const datosFormulario = recolectarDatosFormulario();
-      console.log(datosFormulario);
-
-      const inscripcionPath = "/pdfs/INSCRIPCION.pdf";
-      console.log("Cargando plantilla principal...");
-
-      const inscripcionResponse = await fetch(inscripcionPath);
-      if (!inscripcionResponse.ok) {
-        throw new Error(
-          `Error al cargar ${inscripcionPath}: ${inscripcionResponse.status}`
-        );
-      }
-      const inscripcionBytes = await inscripcionResponse.arrayBuffer();
-
-      let requisitosPath = "";
-      const carrera = datosFormulario.carrera?.toLowerCase() || "";
-
-      if (carrera.includes("secundaria")) {
-        requisitosPath = "/pdfs/secundaria_req.pdf";
-      } else if (carrera.includes("bachillerato") || carrera.includes("bis")) {
-        requisitosPath = "/pdfs/bachillerato_req.pdf";
-      } else if (carrera.includes("licenciatura") || carrera.includes("lic.")) {
-        requisitosPath = "/pdfs/licenciatura_req.pdf";
-      } else if (
-        carrera.includes("posgrado") ||
-        carrera.includes("maestría") ||
-        carrera.includes("maestria")
-      ) {
-        requisitosPath = "/pdfs/posgrado_req.pdf";
-      }
-
-      let requisitosBytes = null;
-      if (requisitosPath) {
-        console.log(`Cargando requisitos para carrera: ${carrera}`);
-        try {
-          const requisitosResponse = await fetch(requisitosPath);
-          if (requisitosResponse.ok) {
-            requisitosBytes = await requisitosResponse.arrayBuffer();
-          } else {
-            console.warn(
-              `No se pudo cargar ${requisitosPath}, continuando sin requisitos`
-            );
-          }
-        } catch (error) {
-          console.warn(`Error al cargar requisitos: ${error.message}`);
-        }
-      }
-
-      const pdfDoc = await PDFDocument.load(inscripcionBytes);
-
-      if (requisitosBytes) {
-        try {
-          const requisitosDoc = await PDFDocument.load(requisitosBytes);
-          const requisitosPages = await pdfDoc.copyPages(
-            requisitosDoc,
-            requisitosDoc.getPageIndices()
-          );
-          requisitosPages.forEach((page) => pdfDoc.addPage(page));
-          console.log("Requisitos agregados al PDF");
-        } catch (error) {
-          console.warn("Error al agregar requisitos:", error);
-        }
-      }
-
-      const pages = pdfDoc.getPages();
-      const firstPage = pages[0];
-
-      const font = await pdfDoc.embedFont(StandardFonts.Helvetica);
-      const fontBold = await pdfDoc.embedFont(StandardFonts.HelveticaBold);
-
-      const coordenadas = {
-        apellidoPaterno: { x: 120, y: 598 },
-        apellidoMaterno: { x: 390, y: 598 },
-        nombres: { x: 110, y: 575 },
-        calleNumero: { x: 110, y: 540 },
-        colonia: { x: 70, y: 515 },
-        codigoPostal: { x: 255, y: 515 },
-        municipio: { x: 360, y: 515 },
-        estado: { x: 70, y: 492 },
-        pais: { x: 320, y: 492 },
-        telefono: { x: 75, y: 470 },
-        celular: { x: 205, y: 470 },
-        correo: { x: 325, y: 470 },
-        fechaNacimiento: { x: 135, y: 445 },
-        edad: { x: 235, y: 445 },
-        sexo: { x: 290, y: 445 },
-        estadoCivil: { x: 400, y: 445 },
-        nacionalidad: { x: 110, y: 423 },
-        ocupacion: { x: 350, y: 423 },
-        curp: { x: 70, y: 398 },
-        rfc: { x: 238, y: 398 },
-        tipoSangre: { x: 500, y: 398 },
-        plantel: { x: 215, y: 710 },
-        turno: { x: 210, y: 688 },
-        escuelaProcedencia: { x: 450, y: 688 },
-        carrera: { x: 235, y: 662 },
-        asesor: { x: 235, y: 642 },
-        nombrePadreTutor: { x: 160, y: 354 },
-        ocupacionPadre: { x: 410, y: 354 },
-        domicilioPadre: { x: 75, y: 330 },
-        telefonoPadre: { x: 260, y: 330 },
-        celularPadre: { x: 399, y: 330 },
-        dia: { x: 200, y: 85 },
-        mes: { x: 380, y: 85 },
-        año: { x: 517, y: 83 },
-      };
-
-      for (const [campo, valor] of Object.entries(datosFormulario)) {
-        if (coordenadas[campo] && valor) {
-          let textoValor = valor.toString();
-
-          if (campo === "año" && textoValor.length === 4) {
-            textoValor = textoValor.slice(2);
-          }
-
-          try {
-            firstPage.drawText(textoValor, {
-              x: coordenadas[campo].x,
-              y: coordenadas[campo].y,
-              size: 10,
-              font,
-              color: rgb(0, 0, 0),
-            });
-          } catch (error) {
-            console.warn(`Error al escribir campo ${campo}:`, error);
-          }
-        }
-      }
-
-      const coordenadasMedios = {
-        "Volante o cruceros, trípticos y dípticos": { x: 29, y: 278 },
-        "Visita en tu escuela": { x: 187, y: 278 },
-        "Página web UNE": { x: 353, y: 278 },
-        "Redes sociales UNE": { x: 505, y: 278 },
-        "Promoción en stands": { x: 29, y: 252 },
-        Televisión: { x: 187, y: 252 },
-        Espectaculares: { x: 353, y: 253 },
-        Recomendación: { x: 505, y: 253 },
-        Ubicación: { x: 34, y: 191 },
-        "Plan de estudios": { x: 325, y: 191 },
-        Horarios: { x: 34, y: 172 },
-        "Oferta académica": { x: 325, y: 172 },
-        "Rechazo de la U.D.G.": { x: 142, y: 191 },
-        Instalaciones: { x: 142, y: 172 },
-        "Nivel académico": { x: 418, y: 172 },
-        "Rechazo de U. de G.": { x: 418, y: 191 },
-        "Mejor opción": { x: 528, y: 191 },
-        Incorporación: { x: 235, y: 172 },
-        Otro: { x: 528, y: 172 },
-      };
-
-      if (datosFormulario.mediosSeleccionados?.length > 0) {
-        console.log(
-          "Medios seleccionados:",
-          datosFormulario.mediosSeleccionados
-        );
-
-        datosFormulario.mediosSeleccionados.forEach((medio) => {
-          console.log(`Procesando medio: "${medio}"`);
-
-          if (coordenadasMedios[medio]) {
-            try {
-              firstPage.drawText("X", {
-                x: coordenadasMedios[medio].x,
-                y: coordenadasMedios[medio].y,
-                size: 12,
-                font: fontBold,
-                color: rgb(0, 0, 0),
-              });
-              console.log(`✅ Checkbox marcado: ${medio}`);
-            } catch (error) {
-              console.warn(`Error al marcar checkbox ${medio}:`, error);
-            }
-          } else {
-            console.warn(`❌ No se encontraron coordenadas para: "${medio}"`);
-          }
-        });
-      } else {
-        console.log("No hay medios seleccionados");
-      }
-
-      if (datosFormulario.firmaImagen) {
-        try {
-          const firmaImage = await pdfDoc.embedPng(datosFormulario.firmaImagen);
-          firstPage.drawImage(firmaImage, {
-            x: 255,
-            y: 4,
-            width: 150,
-            height: 75,
-          });
-          console.log("Firma agregada al PDF");
-        } catch (firmaError) {
-          console.warn("Error al procesar la firma:", firmaError);
-        }
-      }
-
-      console.log("Guardando PDF...");
-      const pdfBytes = await pdfDoc.save();
-
-      const blob = new Blob([pdfBytes], { type: "application/pdf" });
-      const url = URL.createObjectURL(blob);
-
-      const a = document.createElement("a");
-      a.href = url;
-      a.download =
-        `Inscripcion_UNE_${datosFormulario.nombres || "Formulario"}.pdf`.replace(
-          /\s+/g,
-          "_"
-        );
-
-      document.body.appendChild(a);
-      a.click();
-      document.body.removeChild(a);
-
-      setTimeout(() => URL.revokeObjectURL(url), 1000);
-
-      let mensaje = "PDF generado y descargado exitosamente";
-      if (requisitosPath) {
-        mensaje += `\nIncluye requisitos para: ${carrera}`;
-      }
-      alert(mensaje);
-
-      console.log("✅ PDF generado exitosamente");
-      return true;
-    } catch (error) {
-      console.error("Error al generar el PDF:", error);
-      alert(
-        `Error al generar el PDF: ${error.message}\nRevisa la consola para más detalles.`
-      );
-      return false;
-    }
-  }
-
-  document.addEventListener("DOMContentLoaded", function () {
-    const btnGenerarPDF = document.getElementById("btnGenerarPDF");
-
-    if (btnGenerarPDF) {
-      btnGenerarPDF.addEventListener("click", function (e) {
-        e.preventDefault();
-        console.log("🔄 Iniciando generación de PDF...");
-        generarPDF();
-      });
-    } else {
-      console.warn("Botón 'btnGenerarPDF' no encontrado");
-    }
-  });
-</script>
-<!-- Script para manejo de firma en canvas -->
 <script>
   // Configuración del canvas para firma
   const canvas = document.getElementById("firmaCanvas");
@@ -1831,4 +813,1192 @@ const carrerasPorPlantel = getCarrerasPorPlantel();
       }
     });
   }
+
+  // Exportar firma en base64
+  function obtenerImagenFirma() {
+    if (!canvas) return "";
+    const imageDataURL = canvas.toDataURL("image/png");
+    if (firmaImagenInput) {
+      firmaImagenInput.value = imageDataURL;
+    }
+    return imageDataURL;
+  }
+
+
+</script>
+
+<script is:inline>
+ const DATOS_ACADEMICOS = {
+  asesores: {
+    CENTRO: [
+      "NINGUNO",
+      "BRENDA MICHELLE RAMOS RAMÍREZ",
+      "VERONICA TABARES BECERRA",
+      "CARMEN ALEJANDRA RAMOS GARCÍA",
+    ],
+    "CENTRO MÉDICO": [
+      "NINGUNO",
+      "TANIA GUADALUPE GONZALEZ SOLORIO",
+      "NIDIA CARINA LUEVANO CURIEL",
+    ],
+    MILENIO: [
+      "NINGUNO",
+      "ERNESTO NOE TORRES JUÁREZ",
+      "VALERIA NARAI DELGADILLO VILLALOBOS",
+      "KARLA CECILIA LOMELÍ GONZÁLEZ",
+    ],
+    "PLAZA DEL SOL": ["NINGUNO", "ANETT GÓMEZ PÉREZ"],
+    "PTO. VALLARTA CARACOL": [
+      "NINGUNO",
+      "INGRID ALEJANDRA CARBAJAL MARISCAL",
+      "MAYBETH AYERIN GARCÍA URIBE",
+    ],
+    "PTO. VALLARTA LAS JUNTAS": [
+      "NINGUNO",
+      "NOEMI CASTELLANOS RÍOS",
+      "BETZY YAMILETH PÉREZ VIRGEN",
+      "JONATAN BARRERA ARIAS",
+    ],
+    "PTO. VALLARTA AV. MÉXICO": [
+      "NINGUNO",
+      "MARISOL ROMERO RODRÍGUEZ",
+      "JOSÉ MARÍA ALONSO CASTILLO",
+    ],
+    "CAMPUS PTO. VALLARTA": [
+      "NINGUNO",
+      "JHOSELYN KARELY VILLANUEVA CASTAÑEDA",
+      "LESLIE NASHIRA GARCÍA DELGADO",
+    ],
+    TESISTÁN: [
+      "NINGUNO",
+      "ERIKA MARCELA ESQUEDA DE ANDA",
+      "NOEMI VIRIDIANA RÍOS CORNEJO",
+      "YANNIRETH GONZÁLEZ LÓPEZ",
+    ],
+    TLAJOMULCO: [
+      "NINGUNO",
+      "SONIA ALEJANDRA RODRÍGUEZ GARCÍA",
+      "ULISES GAMALIEL GÓMEZ JIMÉNEZ",
+      "KARLA SUSANA ARECHIGA SALAZAR",
+      "JESÚS EMMANUEL VILLA PRECIADO",
+    ],
+    TLAQUEPAQUE: [
+      "NINGUNO",
+      "BELÉN EUNICE MEJÍA ZAMBRANO",
+      "LILIANA GUILLERMINA DE LA TORRE AGUILAR",
+    ],
+    TONALÁ: [
+      "NINGUNO",
+      "UBALDO ABRAHAM PÉREZ SEGURA",
+      "JAVIER JAUREGUI RUIZ",
+      "ALEJANDRA MONTSERRAT ALANIZ REYES",
+      "ELEANA JOCELYNE VICENCIA CARRILLO",
+    ],
+    "TORRE QUETZAL": [
+      "NINGUNO",
+      "VACANTE",
+      "TOMÁS EFRAÍN FLORES JIMÉNEZ",
+    ],
+    "TORRE UNE": [
+      "NINGUNO",
+      "BRIANDA ABIGAIL ESTRADA ARELLANO",
+      "ELIZABETH BARAJAS GARCÍA",
+      "OSCAR DANIEL ZARATE TORRES",
+    ],
+    CHAPULTEPEC: [
+      "NINGUNO",
+      "JENNIFER SUGUEY MACIEL FONSECA",
+      "CYNTHIA MESINOS CARMONA",
+      "ROSENDA ROMERO HERNÁNDEZ",
+    ],
+    ZAPOPAN: [
+      "NINGUNO",
+      "BRAYAN MUNGUIA AVILA",
+      "ANDREA FERNANDA CASTRO CHARLES",
+    ],
+    TEPATITLÁN: [
+      "NINGUNO",
+      "ANAHI BARBA BARBA",
+      "MARÍA JOSÉ RAMÍREZ LÓPEZ",
+    ],
+    "EL SALTO": [
+      "NINGUNO",
+      "JENIFER RAQUEL RODRIGUEZ ZAPATA",
+      "NUVIA BERENICE AGUIRRE LEÓN",
+    ],
+  },
+  
+  carreras: {
+    CENTRO: [
+      "BACHILLERATO INTENSIVO SEMIESCOLARIZADO (BIS)",
+      "BACHILLERATO GENERAL (UDG)",
+      "ARQUITECTURA",
+      "INGENIERÍA EN COMPUTACIÓN",
+      "DISEÑO GRÁFICO",
+      "NUTRICIÓN",
+      "INGENIERÍA INDUSTRIAL",
+      "INGENIERÍA EN INTELIGENCIA DE DATOS Y CIBERSEGURIDAD",
+      "INGENIERÍA MECÁNICA",
+      "INGENIERÍA EN DESARROLLO DE SOFTWARE",
+      "INGENIERÍA EN COMUNICACIONES Y ELECTRÓNICA",
+      "CIENCIAS DE LA COMUNICACIÓN",
+      "PSICOLOGÍA",
+      "TRABAJO SOCIAL",
+      "ADMINISTRACIÓN DE EMPRESAS",
+      "DERECHO",
+      "MERCADOTECNIA",
+      "NEGOCIOS INTERNACIONALES",
+    ],
+    "CENTRO MÉDICO": [
+      "BACHILLERATO INTENSIVO SEMIESCOLARIZADO (BIS)",
+      "BACHILLERATO GENERAL (UDG)",
+      "CIENCIAS DE LA EDUCACIÓN",
+      "CONTADURÍA Y AUDITORÍA",
+      "TRABAJO SOCIAL",
+      "ADMINISTRACIÓN DE EMPRESAS",
+      "DERECHO",
+      "MERCADOTECNIA",
+      "NEGOCIOS INTERNACIONALES",
+      "GESTIÓN Y CREACIÓN DE PYME'S",
+      "ALTA DIRECCIÓN",
+      "MERCADOTECNIA INTERNACIONAL",
+    ],
+    MILENIO: [
+      "BACHILLERATO INTENSIVO SEMIESCOLARIZADO (BIS)",
+      "BACHILLERATO GENERAL (UDG)",
+      "PSICOLOGÍA",
+      "INGENIERÍA INDUSTRIAL",
+      "INGENIERÍA EN INTELIGENCIA DE DATOS Y CIBERSEGURIDAD",
+      "INGENIERÍA MECÁNICA",
+      "INGENIERÍA EN DESARROLLO DE SOFTWARE",
+      "INGENIERÍA EN COMUNICACIONES Y ELECTRÓNICA",
+      "CIENCIAS DE LA COMUNICACIÓN",
+      "ADMINISTRACIÓN DE EMPRESAS",
+      "DERECHO",
+      "MERCADOTECNIA",
+      "NEGOCIOS INTERNACIONALES",
+    ],
+    "PLAZA DEL SOL": ["SECUNDARIA", "BACHILLERATO GENERAL (UDG)"],
+    TESISTÁN: [
+      "SECUNDARIA",
+      "BACHILLERATO INTENSIVO SEMIESCOLARIZADO (BIS)",
+      "BACHILLERATO GENERAL (UDG)",
+      "PSICOLOGÍA",
+      "INGENIERÍA EN COMUNICACIONES Y ELECTRÓNICA",
+      "INGENIERÍA QUÍMICA",
+      "CRIMINOLOGÍA Y CRIMINALÍSTICA",
+      "INGENIERÍA CIVIL",
+      "CULTURA FÍSICA Y DEL DEPORTE",
+      "TERAPIA FÍSICA",
+      "QUÍMICO FARMACÉUTICO BIÓLOGO",
+      "ARQUITECTURA",
+      "ADMINISTRACIÓN DE EMPRESAS",
+      "DERECHO",
+      "MERCADOTECNIA",
+      "NEGOCIOS INTERNACIONALES",
+    ],
+    TLAJOMULCO: [
+      "SECUNDARIA",
+      "BACHILLERATO INTENSIVO SEMIESCOLARIZADO (BIS)",
+      "BACHILLERATO GENERAL (UDG)",
+      "ENFERMERÍA",
+      "ARQUITECTURA",
+      "INGENIERÍA CIVIL",
+      "TERAPIA FÍSICA",
+      "CULTURA FÍSICA Y DEL DEPORTE",
+      "NUTRICIÓN",
+      "GASTRONOMÍA",
+      "PSICOLOGÍA",
+      "QUÍMICO FARMACÉUTICO BIÓLOGO",
+      "INGENIERÍA QUÍMICA",
+      "INGENIERÍA EN INTELIGENCIA DE DATOS Y CIBERSEGURIDAD",
+      "INGENIERÍA MECÁNICA",
+      "INGENIERÍA EN COMUNICACIONES Y ELECTRÓNICA",
+      "CRIMINOLOGÍA Y CRIMINALÍSTICA",
+      "CONTADURÍA Y AUDITORÍA",
+      "ADMINISTRACIÓN DE EMPRESAS",
+      "DERECHO",
+      "MERCADOTECNIA",
+      "NEGOCIOS INTERNACIONALES",
+      "MAESTRÍA: ADMINISTRACIÓN HOSPITALARIA",
+    ],
+    TLAQUEPAQUE: [
+      "SECUNDARIA",
+      "BACHILLERATO INTENSIVO SEMIESCOLARIZADO (BIS)",
+      "BACHILLERATO GENERAL (UDG)",
+      "GASTRONOMÍA",
+      "PSICOLOGÍA",
+      "NUTRICIÓN",
+      "TRABAJO SOCIAL",
+      "ADMINISTRACIÓN DE EMPRESAS",
+      "DERECHO",
+      "MERCADOTECNIA",
+      "NEGOCIOS INTERNACIONALES",
+    ],
+    TONALÁ: [
+      "SECUNDARIA",
+      "BACHILLERATO INTENSIVO SEMIESCOLARIZADO (BIS)",
+      "BACHILLERATO GENERAL (UDG)",
+      "CIRUJANO DENTISTA",
+      "NUTRICIÓN",
+      "PSICOLOGÍA",
+      "ARQUITECTURA",
+      "CULTURA FÍSICA Y DEL DEPORTE",
+      "CRIMINOLOGÍA Y CRIMINALÍSTICA",
+      "INGENIERÍA CIVIL",
+      "TERAPIA FÍSICA",
+      "GASTRONOMÍA",
+      "ADMINISTRACIÓN DE EMPRESAS",
+      "DERECHO",
+      "MERCADOTECNIA",
+      "NEGOCIOS INTERNACIONALES",
+    ],
+    "TORRE QUETZAL": [
+      "ABOGADO",
+      "ADMINISTRACIÓN",
+      "CONTADURÍA PÚBLICA",
+      "MERCADOTECNIA",
+      "NEGOCIOS INTERNACIONALES",
+      "CONTADURÍA Y AUDITORÍA",
+      "GESTIÓN Y CREACIÓN DE PYME'S",
+      "ALTA DIRECCIÓN",
+      "DERECHO",
+      "MAESTRÍA: FINANZAS ESTRATÉGICAS",
+      "MAESTRÍA: CIENCIAS DE LA EDUCACIÓN",
+      "MAESTRÍA: ADMINISTRACIÓN DE NEGOCIOS",
+      "MAESTRÍA: TERAPIA FAMILIAR Y SISTÉMICA",
+      "MAESTRÍA: ADMINISTRACIÓN DE RECURSOS HUMANOS",
+      "MAESTRÍA: ADMINISTRACIÓN HOSPITALARIA",
+      "ESPECIALIDAD: CIENCIAS DE LA EDUCACIÓN",
+      "ESPECIALIDAD: ADMINISTRACIÓN DE NEGOCIOS",
+    ],
+    "TORRE UNE MILENIO": [
+      "CIRUJANO DENTISTA",
+      "ENFERMERÍA",
+      "NUTRICIÓN",
+      "PSICOLOGÍA",
+      "QUÍMICO FARMACÉUTICO BIÓLOGO",
+      "CULTURA FÍSICA Y DEL DEPORTE",
+      "TERAPIA FÍSICA",
+    ],
+    CHAPULTEPEC: [
+      "BACHILLERATO INTENSIVO SEMIESCOLARIZADO (BIS)",
+      "CIRUJANO DENTISTA",
+      "ENFERMERÍA",
+      "TERAPIA FÍSICA",
+      "TRABAJO SOCIAL",
+      "INGENIERÍA QUÍMICA",
+      "CRIMINOLOGÍA Y CRIMINALÍSTICA",
+      "QUÍMICO FARMACÉUTICO BIÓLOGO",
+      "NUTRICIÓN",
+      "GASTRONOMÍA",
+      "PSICOLOGÍA",
+      "ADMINISTRACIÓN DE EMPRESAS",
+      "DERECHO",
+      "CIENCIAS DE LA EDUCACIÓN",
+      "MERCADOTECNIA",
+      "NEGOCIOS INTERNACIONALES",
+    ],
+    ZAPOPAN: [
+      "BACHILLERATO INTENSIVO SEMIESCOLARIZADO (BIS)",
+      "BACHILLERATO GENERAL (UDG)",
+      "CIRUJANO DENTISTA",
+      "ENFERMERÍA",
+      "TRABAJO SOCIAL",
+      "CONTADURÍA Y AUDITORÍA",
+      "INGENIERÍA INDUSTRIAL",
+      "INGENIERÍA EN DATOS Y CIBERSEGURIDAD",
+      "INGENIERÍA MECÁNICA",
+      "INGENIERÍA EN DESARROLLO DE SOFTWARE",
+      "INGENIERÍA CIVIL",
+      "ARQUITECTURA",
+      "DISEÑO GRÁFICO",
+      "NUTRICIÓN",
+      "PSICOLOGÍA",
+      "TERAPIA FÍSICA",
+      "QUÍMICO FARMACÉUTICO BIÓLOGO",
+      "ADMINISTRACIÓN DE EMPRESAS",
+      "CIENCIAS DE LA EDUCACIÓN",
+      "DERECHO",
+      "MERCADOTECNIA",
+      "NEGOCIOS INTERNACIONALES",
+    ],
+    TEPATITLÁN: [
+      "BACHILLERATO INTENSIVO SEMIESCOLARIZADO (BIS)",
+      "CIRUJANO DENTISTA",
+      "PSICOLOGÍA",
+      "NUTRICIÓN",
+      "TERAPIA FÍSICA",
+      "QUÍMICO FARMACÉUTICO BIÓLOGO",
+      "CONTADURÍA Y AUDITORÍA",
+      "INGENIERÍA CIVIL",
+      "INGENIERÍA EN DESARROLLO DE SOFTWARE",
+      "INGENIERÍA EN INTELIGENCIA DE DATOS Y CIBERSEGURIDAD",
+      "ARQUITECTURA",
+      "ADMINISTRACIÓN DE EMPRESAS",
+      "DERECHO",
+      "MERCADOTECNIA",
+      "NEGOCIOS INTERNACIONALES",
+    ],
+    "AV. MÉXICO": [
+      "SECUNDARIA",
+      "BACHILLERATO GENERAL (UDG)",
+      "PSICOLOGÍA",
+      "CONTADURÍA Y AUDITORÍA",
+      "INGENIERÍA EN INTELIGENCIA DE DATOS Y CIBERSEGURIDAD",
+      "INGENIERÍA MECÁNICA",
+      "INGENIERÍA EN DESARROLLO DE SOFTWARE",
+      "NUTRICIÓN",
+      "QUÍMICO FARMACÉUTICO BIÓLOGO",
+      "ADMINISTRACIÓN DE EMPRESAS",
+      "CIENCIAS DE LA EDUCACIÓN",
+      "DERECHO",
+      "MERCADOTECNIA",
+      "NEGOCIOS INTERNACIONALES",
+      "ALTA DIRECCIÓN",
+      "MERCADOTECNIA INTERNACIONAL",
+      "MAESTRÍA: ADMINISTRACIÓN DE RECURSOS HUMANOS",
+      "MAESTRÍA: DERECHO LABORAL",
+    ],
+    "CAMPUS PUERTO VALLARTA": [
+      "PSICOLOGÍA",
+      "NUTRICIÓN",
+      "TERAPIA FÍSICA",
+      "INGENIERÍA CIVIL",
+      "ARQUITECTURA",
+      "INGENIERÍA MECÁNICA",
+      "INGENIERÍA EN INTELIGENCIA DE DATOS Y CIBERSEGURIDAD",
+      "INGENIERÍA EN DESARROLLO DE SOFTWARE",
+      "CIENCIAS DE LA EDUCACIÓN",
+      "ADMINISTRACIÓN",
+      "NEGOCIOS INTERNACIONALES",
+      "MERCADOTECNIA",
+      "DERECHO",
+      "MAESTRÍA: EDUCACIÓN",
+      "MAESTRÍA: ADMINISTRACIÓN HOSPITALARIA Y GESTIÓN DE LA CALIDAD",
+    ],
+    CARACOL: [
+      "BACHILLERATO INTENSIVO SEMIESCOLARIZADO (BIS)",
+      "NUTRICIÓN",
+      "CONTADURÍA Y AUDITORÍA",
+      "TRABAJO SOCIAL",
+      "PSICOLOGÍA",
+      "ADMINISTRACIÓN DE EMPRESAS",
+      "CIENCIAS DE LA EDUCACIÓN",
+      "DERECHO",
+      "MERCADOTECNIA",
+      "NEGOCIOS INTERNACIONALES",
+      "MAESTRÍA: FINANZAS ESTRATÉGICAS",
+    ],
+    "UNE EN LÍNEA": [
+      "BACHILLERATO",
+      "ADMINISTRACIÓN",
+      "ADMINISTRACIÓN DE SISTEMAS DE INFORMACIÓN",
+      "CONTADURÍA",
+      "MERCADOTECNIA",
+      "COMUNICACIÓN",
+      "DERECHO",
+      "EDUCACIÓN",
+      "PSICOLOGÍA",
+      "COMERCIO Y NEGOCIOS GLOBALES",
+      "DISEÑO GRÁFICO",
+      "INGENIERÍA INDUSTRIAL",
+      "MAESTRÍA EN EDUCACIÓN",
+      "MAESTRÍA EN ADMINISTRACIÓN DE NEGOCIOS",
+    ],
+    "CENTRO DE IDIOMAS": ["FRANCÉS", "INGLÉS"],
+    "LAS JUNTAS": [
+      "CIRUJANO DENTISTA",
+      "ENFERMERÍA",
+      "NUTRICIÓN",
+      "MAESTRÍA: ADMINISTRACIÓN HOSPITALARIA",
+      "MAESTRÍA: ADMINISTRACIÓN DE NEGOCIOS",
+      "MAESTRÍA: CIENCIAS PENALES",
+    ],
+  }
+};
+
+// Clase principal del sistema de inscripción
+class SistemaInscripcion {
+  constructor() {
+    this.elementos = {
+      plantel: null,
+      carrera: null,
+      asesor: null,
+      turno: null,
+      escuelaProcedencia: null,
+      submitButton: null
+    };
+    this.inicializar();
+  }
+
+  inicializar() {
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', () => this.configurar());
+    } else {
+      this.configurar();
+    }
+  }
+
+  configurar() {
+    if (!this.obtenerElementos()) {
+      console.error('Error: No se encontraron todos los elementos del formulario');
+      return;
+    }
+
+    this.configurarEventos();
+    this.actualizarDatosAcademicos();
+  }
+
+  obtenerElementos() {
+    this.elementos.plantel = document.querySelector('select[name="plantel"]');
+    this.elementos.carrera = document.querySelector('select[name="carrera"]');
+    this.elementos.asesor = document.querySelector('select[name="asesor"]');
+    this.elementos.turno = document.querySelector('select[name="turno"]');
+    this.elementos.escuelaProcedencia = document.querySelector('input[name="escuela_proc"]');
+    this.elementos.submitButton = document.querySelector('button[type="submit"]');
+
+    return Object.values(this.elementos).every(el => el !== null);
+  }
+
+  configurarEventos() {
+    this.elementos.plantel.addEventListener('change', () => this.actualizarDatosAcademicos());
+    
+    if (this.elementos.submitButton) {
+      this.elementos.submitButton.addEventListener('click', (e) => this.manejarEnvio(e));
+    }
+  }
+
+  actualizarSelect(selectElement, opciones) {
+    selectElement.innerHTML = '<option value="">Seleccione</option>';
+    
+    opciones.forEach(opcion => {
+      const option = document.createElement('option');
+      option.value = opcion;
+      option.textContent = opcion;
+      selectElement.appendChild(option);
+    });
+  }
+
+  actualizarDatosAcademicos() {
+    const plantelSeleccionado = this.elementos.plantel.value;
+
+    if (!plantelSeleccionado) {
+      this.actualizarSelect(this.elementos.carrera, []);
+      this.actualizarSelect(this.elementos.asesor, []);
+      return;
+    }
+
+    const carreras = DATOS_ACADEMICOS.carreras[plantelSeleccionado] || [];
+    const asesores = DATOS_ACADEMICOS.asesores[plantelSeleccionado] || [];
+
+    this.actualizarSelect(this.elementos.carrera, carreras);
+    this.actualizarSelect(this.elementos.asesor, asesores);
+  }
+
+  validarFormulario() {
+    const errores = [];
+    
+    const campos = [
+      { elemento: this.elementos.plantel, nombre: 'Plantel' },
+      { elemento: this.elementos.turno, nombre: 'Turno' },
+      { elemento: this.elementos.escuelaProcedencia, nombre: 'Escuela de procedencia' },
+      { elemento: this.elementos.carrera, nombre: 'Carrera' },
+      { elemento: this.elementos.asesor, nombre: 'Asesor' }
+    ];
+
+    campos.forEach(({ elemento, nombre }) => {
+      if (!elemento.value.trim()) {
+        errores.push(nombre);
+      }
+    });
+
+    if (errores.length > 0) {
+      alert(`Por favor complete los siguientes campos:\n• ${errores.join('\n• ')}`);
+      return false;
+    }
+
+    return true;
+  }
+
+  obtenerDatosFormulario() {
+    return {
+      plantel: this.elementos.plantel.value,
+      turno: this.elementos.turno.value,
+      escuelaProcedencia: this.elementos.escuelaProcedencia.value,
+      carrera: this.elementos.carrera.value,
+      asesor: this.elementos.asesor.value
+    };
+  }
+
+  manejarEnvio(evento) {
+    evento.preventDefault();
+
+    if (!this.validarFormulario()) {
+      return;
+    }
+
+    const datos = this.obtenerDatosFormulario();
+    console.log('Formulario válido - Datos:', datos);
+    
+  
+  }
+
+
+}
+
+// Inicializar el sistema
+new SistemaInscripcion();
+</script>
+
+<script is:inline>
+
+  const API_URL = 'https://intranet.universidad-une.com/api/createstudent';
+
+class FormularioInscripcion {
+  constructor() {
+    this.submitButton = null;
+    this.inicializar();
+  }
+
+  inicializar() {
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', () => this.configurar());
+    } else {
+      this.configurar();
+    }
+  }
+
+  configurar() {
+    this.submitButton = document.querySelector('button[type="submit"]');
+    
+    if (!this.submitButton) {
+      console.error('No se encontró el botón de submit');
+      return;
+    }
+
+    this.configurarEventos();
+    this.configurarCheckboxes();
+    this.configurarCalculoEdad();
+  }
+
+  configurarEventos() {
+    this.submitButton.addEventListener('click', async (e) => {
+      e.preventDefault();
+      await this.enviarFormulario();
+    });
+  }
+
+  configurarCalculoEdad() {
+    const fechaNacimientoInput = document.querySelector('input[name="fechaNacimiento"]');
+    const edadInput = document.querySelector('input[name="edad"]');
+    
+    if (fechaNacimientoInput && edadInput) {
+      fechaNacimientoInput.addEventListener('change', (e) => {
+        edadInput.value = this.calcularEdad(e.target.value);
+      });
+    }
+  }
+
+  calcularEdad(fechaNacimiento) {
+    const hoy = new Date();
+    const nacimiento = new Date(fechaNacimiento);
+    let edad = hoy.getFullYear() - nacimiento.getFullYear();
+    const mes = hoy.getMonth() - nacimiento.getMonth();
+    
+    if (mes < 0 || (mes === 0 && hoy.getDate() < nacimiento.getDate())) {
+      edad--;
+    }
+    
+    return edad.toString();
+  }
+
+  configurarCheckboxes() {
+    const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+    
+    checkboxes.forEach((cb, index) => {
+      if (index < 8) {
+        cb.setAttribute('data-group', 'medios');
+        cb.setAttribute('value', cb.nextElementSibling?.textContent?.trim() || `medio${index}`);
+      } else {
+        cb.setAttribute('data-group', 'razones');
+        cb.setAttribute('value', cb.nextElementSibling?.textContent?.trim() || `razon${index}`);
+        
+        cb.addEventListener('change', () => {
+          const checkedRazones = document.querySelectorAll('input[type="checkbox"][data-group="razones"]:checked');
+          if (checkedRazones.length > 5) {
+            cb.checked = false;
+            alert('Solo puedes seleccionar máximo 5 razones.');
+          }
+        });
+      }
+    });
+  }
+
+  obtenerCheckboxesSeleccionados(grupo) {
+    const checkboxes = document.querySelectorAll(`input[type="checkbox"][data-group="${grupo}"]:checked`);
+    return Array.from(checkboxes).map(cb => cb.value);
+  }
+
+  obtenerPorSeccion(seccionIndex, inputIndex, tipo = "text") {
+    const secciones = document.querySelectorAll(".bg-white.rounded-xl.shadow-sm");
+    if (secciones[seccionIndex]) {
+      const inputs = secciones[seccionIndex].querySelectorAll(`input[type="${tipo}"]`);
+      return inputs[inputIndex] ? inputs[inputIndex].value : "";
+    }
+    return "";
+  }
+
+  obtenerSelectPorSeccion(seccionIndex, selectIndex) {
+    const secciones = document.querySelectorAll(".bg-white.rounded-xl.shadow-sm");
+    if (secciones[seccionIndex]) {
+      const selects = secciones[seccionIndex].querySelectorAll("select");
+      return selects[selectIndex] ? selects[selectIndex].value : "";
+    }
+    return "";
+  }
+
+  obtenerValor(name) {
+    const element = document.querySelector(`[name="${name}"]`);
+    return element ? element.value : "";
+  }
+
+  prepararPayload() {
+    const fechaActual = new Date();
+    const fechaRegistro = fechaActual.toISOString().split('T')[0];
+    
+    const dia = this.obtenerPorSeccion(6, 0, "number");
+    const mes = this.obtenerSelectPorSeccion(6, 0);
+    const año = this.obtenerSelectPorSeccion(6, 1);
+    
+    const mediosSeleccionados = this.obtenerCheckboxesSeleccionados('medios');
+    const razonesSeleccionadas = this.obtenerCheckboxesSeleccionados('razones');
+    
+    return {
+      nombre: this.obtenerPorSeccion(0, 2),
+      apellidoPaterno: this.obtenerPorSeccion(0, 0),
+      apellidoMaterno: this.obtenerPorSeccion(0, 1),
+      nombres: this.obtenerPorSeccion(0, 2),
+      
+      calleNumero: this.obtenerPorSeccion(1, 0),
+      colonia: this.obtenerPorSeccion(1, 1),
+      codigoPostal: this.obtenerPorSeccion(1, 2),
+      municipio: this.obtenerPorSeccion(1, 3),
+      estado: this.obtenerPorSeccion(1, 4) || 'JALISCO',
+      pais: this.obtenerPorSeccion(1, 5) || 'MÉXICO',
+      
+      telefono: this.obtenerPorSeccion(1, 0, "tel"),
+      celular: this.obtenerPorSeccion(1, 1, "tel"),
+      correo: this.obtenerPorSeccion(1, 0, "email"),
+      
+      fechaNacimiento: this.obtenerPorSeccion(1, 0, "date"),
+      edad: this.obtenerPorSeccion(1, 6),
+      sexo: this.obtenerSelectPorSeccion(1, 0),
+      estadoCivil: this.obtenerSelectPorSeccion(1, 1),
+      nacionalidad: this.obtenerSelectPorSeccion(1, 2) || 'MEXICANA',
+      ocupacion: this.obtenerPorSeccion(1, 7),
+      curp: this.obtenerPorSeccion(1, 8),
+      rfc: this.obtenerPorSeccion(1, 9),
+      tipoSangre: this.obtenerSelectPorSeccion(1, 3),
+      
+      nivelEducativo: 'LICENCIATURA',
+      plantel: this.obtenerValor("plantel"),
+      turno: this.obtenerValor("turno"),
+      escuelaProcedencia: this.obtenerValor("escuela_proc"),
+      promedio: this.obtenerPorSeccion(2, 0, "number") || '',
+      carrera: this.obtenerValor("carrera"),
+      asesor: this.obtenerValor("asesor"),
+      
+      nombrePadreTutor: this.obtenerPorSeccion(3, 0),
+      ocupacionPadre: this.obtenerPorSeccion(3, 1),
+      domicilioPadre: this.obtenerPorSeccion(3, 2),
+      telefonoPadre: this.obtenerPorSeccion(3, 0, "tel"),
+      celularPadre: this.obtenerPorSeccion(3, 1, "tel"),
+      
+      "Medios Seleccionados:": mediosSeleccionados.join(', ') || 'Ninguno',
+      mediosSeleccionados: mediosSeleccionados,
+      beneficiarios: razonesSeleccionadas.join(', ') || 'Ninguno',
+      
+      fechaRegistro: fechaRegistro,
+      dateFields: fechaRegistro,
+      dia: dia,
+      mes: mes,
+      año: año,
+      
+      firmaImagen: ''
+    };
+  }
+
+  validarFormulario() {
+    const camposRequeridos = [
+      'apellidoPaterno',
+      'apellidoMaterno',
+      'nombres',
+      'calleNumero',
+      'codigoPostal',
+      'municipio',
+      'estado',
+      'pais',
+      'telefono',
+      'celular',
+      'fechaNacimiento',
+      'edad',
+      'sexo',
+      'estadoCivil',
+      'nacionalidad',
+      'ocupacion',
+      'curp',
+      'tipoSangre',
+      'plantel',
+      'turno',
+      'escuelaProcedencia',
+      'carrera',
+      'asesor',
+      'nombrePadreTutor',
+      'ocupacionPadre',
+      'domicilioPadre',
+      'telefonoPadre',
+      'celularPadre',
+      'dia',
+      'mes',
+      'año'
+    ];
+
+    return true;
+  }
+
+  deshabilitarBoton() {
+    this.originalText = this.submitButton.textContent;
+    this.submitButton.disabled = true;
+    this.submitButton.textContent = 'ENVIANDO...';
+    this.submitButton.classList.add('opacity-50', 'cursor-not-allowed');
+  }
+
+  habilitarBoton() {
+    this.submitButton.disabled = false;
+    this.submitButton.textContent = this.originalText;
+    this.submitButton.classList.remove('opacity-50', 'cursor-not-allowed');
+  }
+
+  async enviarFormulario() {
+    if (!this.validarFormulario()) {
+      return;
+    }
+    
+    const payload = this.prepararPayload();
+    this.deshabilitarBoton();
+    
+    try {
+      const response = await fetch(API_URL, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify(payload)
+      });
+      
+      let responseData;
+      try {
+        responseData = await response.json();
+      } catch (parseError) {
+        const textResponse = await response.text();
+        responseData = { message: textResponse || 'Respuesta del servidor no válida' };
+      }
+      
+      if (response.ok) {
+        alert('¡Inscripción exitosa! Tu registro ha sido completado.');
+      } else {
+        alert(`Error al registrar: ${responseData.message || `Código ${response.status}`}`);
+      }
+      
+    } catch (error) {
+      console.error('Error al enviar formulario:', error);
+      alert('Error al conectar con el servidor. Por favor, intenta de nuevo.');
+    } finally {
+      this.habilitarBoton();
+    }
+  }
+}
+
+new FormularioInscripcion();
+</script>
+
+
+
+<script>
+  class GeneradorPDFInscripcion {
+  constructor() {
+    this.coordenadas = {
+      apellidoPaterno: { x: 120, y: 598 },
+      apellidoMaterno: { x: 390, y: 598 },
+      nombres: { x: 110, y: 575 },
+      calleNumero: { x: 110, y: 540 },
+      colonia: { x: 70, y: 515 },
+      codigoPostal: { x: 255, y: 515 },
+      municipio: { x: 360, y: 515 },
+      estado: { x: 70, y: 492 },
+      pais: { x: 320, y: 492 },
+      telefono: { x: 75, y: 470 },
+      celular: { x: 205, y: 470 },
+      correo: { x: 325, y: 470 },
+      fechaNacimiento: { x: 135, y: 445 },
+      edad: { x: 235, y: 445 },
+      sexo: { x: 290, y: 445 },
+      estadoCivil: { x: 400, y: 445 },
+      nacionalidad: { x: 110, y: 423 },
+      ocupacion: { x: 350, y: 423 },
+      curp: { x: 70, y: 398 },
+      rfc: { x: 238, y: 398 },
+      tipoSangre: { x: 500, y: 398 },
+      plantel: { x: 215, y: 710 },
+      turno: { x: 210, y: 688 },
+      escuelaProcedencia: { x: 450, y: 688 },
+      carrera: { x: 235, y: 662 },
+      asesor: { x: 235, y: 642 },
+      nombrePadreTutor: { x: 160, y: 354 },
+      ocupacionPadre: { x: 410, y: 354 },
+      domicilioPadre: { x: 75, y: 330 },
+      telefonoPadre: { x: 260, y: 330 },
+      celularPadre: { x: 399, y: 330 },
+      dia: { x: 200, y: 85 },
+      mes: { x: 380, y: 85 },
+      año: { x: 517, y: 83 },
+    };
+
+    this.coordenadasMedios = {
+      "Volante o cruceros, trípticos y dípticos": { x: 29, y: 278 },
+      "Visita en tu escuela": { x: 187, y: 278 },
+      "Página web UNE": { x: 353, y: 278 },
+      "Redes sociales UNE": { x: 505, y: 278 },
+      "Promoción en stands": { x: 29, y: 252 },
+      Televisión: { x: 187, y: 252 },
+      Espectaculares: { x: 353, y: 253 },
+      Recomendación: { x: 505, y: 253 },
+      Ubicación: { x: 34, y: 191 },
+      "Plan de estudios": { x: 325, y: 191 },
+      Horarios: { x: 34, y: 172 },
+      "Oferta académica": { x: 325, y: 172 },
+      "Rechazo de la U.D.G.": { x: 142, y: 191 },
+      Instalaciones: { x: 142, y: 172 },
+      "Nivel académico": { x: 418, y: 172 },
+      "Rechazo de U. de G.": { x: 418, y: 191 },
+      "Mejor opción": { x: 528, y: 191 },
+      Incorporación: { x: 235, y: 172 },
+      Otro: { x: 528, y: 172 },
+    };
+
+    this.inicializar();
+  }
+
+  inicializar() {
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', () => this.configurar());
+    } else {
+      this.configurar();
+    }
+  }
+
+  configurar() {
+    const btnGenerarPDF = document.getElementById("btnGenerarPDF");
+    
+    if (btnGenerarPDF) {
+      btnGenerarPDF.addEventListener('click', (e) => {
+        e.preventDefault();
+        this.generar();
+      });
+    }
+  }
+
+  obtenerValor(name) {
+    const element = document.querySelector(`[name="${name}"]`);
+    return element ? element.value : "";
+  }
+
+  obtenerPorSeccion(seccionIndex, inputIndex, tipo = "text") {
+    const secciones = document.querySelectorAll(".bg-white.rounded-xl.shadow-sm");
+    if (secciones[seccionIndex]) {
+      const inputs = secciones[seccionIndex].querySelectorAll(`input[type="${tipo}"]`);
+      return inputs[inputIndex] ? inputs[inputIndex].value : "";
+    }
+    return "";
+  }
+
+  obtenerSelectPorSeccion(seccionIndex, selectIndex) {
+    const secciones = document.querySelectorAll(".bg-white.rounded-xl.shadow-sm");
+    if (secciones[seccionIndex]) {
+      const selects = secciones[seccionIndex].querySelectorAll("select");
+      return selects[selectIndex] ? selects[selectIndex].value : "";
+    }
+    return "";
+  }
+
+  obtenerCheckboxesMarcados() {
+    const checkboxes = document.querySelectorAll('input[type="checkbox"]:checked');
+    return Array.from(checkboxes).map((checkbox) => {
+      const label = checkbox.parentElement.querySelector("span");
+      return label ? label.textContent.trim() : "";
+    });
+  }
+
+  obtenerImagenFirma() {
+    const canvas = document.getElementById('firmaCanvas');
+    if (canvas) {
+      return canvas.toDataURL('image/png');
+    }
+    return '';
+  }
+
+  recolectarDatos() {
+    return {
+      apellidoPaterno: this.obtenerPorSeccion(0, 0),
+      apellidoMaterno: this.obtenerPorSeccion(0, 1),
+      nombres: this.obtenerPorSeccion(0, 2),
+      calleNumero: this.obtenerPorSeccion(1, 0),
+      colonia: this.obtenerPorSeccion(1, 1),
+      codigoPostal: this.obtenerPorSeccion(1, 2),
+      municipio: this.obtenerPorSeccion(1, 3),
+      estado: this.obtenerPorSeccion(1, 4),
+      pais: this.obtenerPorSeccion(1, 5),
+      telefono: this.obtenerPorSeccion(1, 0, "tel"),
+      celular: this.obtenerPorSeccion(1, 1, "tel"),
+      correo: this.obtenerPorSeccion(1, 0, "email"),
+      fechaNacimiento: this.obtenerPorSeccion(1, 0, "date"),
+      edad: this.obtenerPorSeccion(1, 6),
+      sexo: this.obtenerSelectPorSeccion(1, 0),
+      estadoCivil: this.obtenerSelectPorSeccion(1, 1),
+      nacionalidad: this.obtenerSelectPorSeccion(1, 2),
+      ocupacion: this.obtenerPorSeccion(1, 7),
+      curp: this.obtenerPorSeccion(1, 8),
+      rfc: this.obtenerPorSeccion(1, 9),
+      tipoSangre: this.obtenerSelectPorSeccion(1, 3),
+      plantel: this.obtenerValor("plantel"),
+      turno: this.obtenerValor("turno"),
+      escuelaProcedencia: this.obtenerValor("escuela_proc"),
+      carrera: this.obtenerValor("carrera"),
+      asesor: this.obtenerValor("asesor"),
+      nombrePadreTutor: this.obtenerPorSeccion(3, 0),
+      ocupacionPadre: this.obtenerPorSeccion(3, 1),
+      domicilioPadre: this.obtenerPorSeccion(3, 2),
+      telefonoPadre: this.obtenerPorSeccion(3, 0, "tel"),
+      celularPadre: this.obtenerPorSeccion(3, 1, "tel"),
+      mediosSeleccionados: this.obtenerCheckboxesMarcados(),
+      dia: this.obtenerPorSeccion(6, 0, "number"),
+      mes: this.obtenerSelectPorSeccion(6, 0),
+      año: this.obtenerSelectPorSeccion(6, 1),
+      firmaImagen: this.obtenerImagenFirma(),
+    };
+  }
+
+  determinarRequisitos(nivel) {
+    const nivelLower = nivel.toLowerCase();
+    
+    if (nivelLower.includes("secundaria")) return "/pdfs/secundaria_req.pdf";
+    if (nivelLower.includes("bachillerato")) return "/pdfs/bachillerato_req.pdf";
+    if (nivelLower.includes("licenciatura")) return "/pdfs/licenciatura_req.pdf";
+    if (nivelLower.includes("posgrado")) return "/pdfs/posgrado_req.pdf";
+    
+    return "";
+  }
+
+  async cargarPDF(ruta) {
+    try {
+      const response = await fetch(ruta);
+      if (!response.ok) {
+        throw new Error(`Error ${response.status} al cargar ${ruta}`);
+      }
+      return await response.arrayBuffer();
+    } catch (error) {
+      console.error(`Error cargando ${ruta}:`, error);
+      return null;
+    }
+  }
+
+  async rellenarCampos(page, datos, font) {
+    const { rgb } = await import("pdf-lib");
+    
+    for (const [campo, valor] of Object.entries(datos)) {
+      if (this.coordenadas[campo] && valor) {
+        let textoValor = valor.toString();
+        
+        if (campo === "año" && textoValor.length === 4) {
+          textoValor = textoValor.slice(2);
+        }
+
+        try {
+          page.drawText(textoValor, {
+            x: this.coordenadas[campo].x,
+            y: this.coordenadas[campo].y,
+            size: 10,
+            font,
+            color: rgb(0, 0, 0),
+          });
+        } catch (error) {
+          console.warn(`Error escribiendo campo ${campo}`);
+        }
+      }
+    }
+  }
+
+  async marcarCheckboxes(page, medios, fontBold) {
+    const { rgb } = await import("pdf-lib");
+    
+    if (!medios?.length) return;
+
+    medios.forEach((medio) => {
+      if (this.coordenadasMedios[medio]) {
+        try {
+          page.drawText("X", {
+            x: this.coordenadasMedios[medio].x,
+            y: this.coordenadasMedios[medio].y,
+            size: 12,
+            font: fontBold,
+            color: rgb(0, 0, 0),
+          });
+        } catch (error) {
+          console.warn(`Error marcando checkbox ${medio}`);
+        }
+      }
+    });
+  }
+
+  async agregarFirma(page, pdfDoc, firmaBase64) {
+    if (!firmaBase64) return;
+
+    try {
+      const firmaImage = await pdfDoc.embedPng(firmaBase64);
+      page.drawImage(firmaImage, {
+        x: 255,
+        y: 4,
+        width: 150,
+        height: 75,
+      });
+    } catch (error) {
+      console.warn("Error procesando firma");
+    }
+  }
+
+  descargarPDF(pdfBytes, nombreArchivo) {
+    const blob = new Blob([pdfBytes], { type: "application/pdf" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    
+    a.href = url;
+    a.download = nombreArchivo;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    
+    setTimeout(() => URL.revokeObjectURL(url), 1000);
+  }
+
+  validarCamposObligatorios(datos) {
+    const camposObligatorios = [
+      { campo: 'apellidoPaterno', nombre: 'Apellido Paterno' },
+      { campo: 'apellidoMaterno', nombre: 'Apellido Materno' },
+      { campo: 'nombres', nombre: 'Nombre(s)' },
+      { campo: 'calleNumero', nombre: 'Calle y Número' },
+      { campo: 'codigoPostal', nombre: 'Código Postal' },
+      { campo: 'municipio', nombre: 'Municipio' },
+      { campo: 'estado', nombre: 'Estado' },
+      { campo: 'pais', nombre: 'País' },
+      { campo: 'telefono', nombre: 'Teléfono' },
+      { campo: 'celular', nombre: 'Celular' },
+      { campo: 'correo', nombre: 'Correo Electrónico' },
+      { campo: 'fechaNacimiento', nombre: 'Fecha de Nacimiento' },
+      { campo: 'edad', nombre: 'Edad' },
+      { campo: 'sexo', nombre: 'Sexo' },
+      { campo: 'estadoCivil', nombre: 'Estado Civil' },
+      { campo: 'nacionalidad', nombre: 'Nacionalidad' },
+      { campo: 'ocupacion', nombre: 'Ocupación' },
+      { campo: 'curp', nombre: 'CURP' },
+      { campo: 'tipoSangre', nombre: 'Tipo de Sangre' },
+      { campo: 'plantel', nombre: 'Plantel' },
+      { campo: 'turno', nombre: 'Turno' },
+      { campo: 'escuelaProcedencia', nombre: 'Escuela de Procedencia' },
+      { campo: 'carrera', nombre: 'Carrera' },
+      { campo: 'asesor', nombre: 'Asesor' },
+      { campo: 'nombrePadreTutor', nombre: 'Nombre del Padre/Tutor' },
+      { campo: 'ocupacionPadre', nombre: 'Ocupación del Padre' },
+      { campo: 'domicilioPadre', nombre: 'Domicilio del Padre' },
+      { campo: 'telefonoPadre', nombre: 'Teléfono del Padre' },
+      { campo: 'celularPadre', nombre: 'Celular del Padre' },
+      { campo: 'dia', nombre: 'Día' },
+      { campo: 'mes', nombre: 'Mes' },
+      { campo: 'año', nombre: 'Año' }
+    ];
+
+    const camposFaltantes = [];
+
+    camposObligatorios.forEach(({ campo, nombre }) => {
+      if (!datos[campo] || datos[campo].toString().trim() === '') {
+        camposFaltantes.push(nombre);
+      }
+    });
+
+    if (camposFaltantes.length > 0) {
+      const mensaje = `Por favor complete los siguientes campos obligatorios:\n\n• ${camposFaltantes.join('\n• ')}`;
+      alert(mensaje);
+      return false;
+    }
+
+    return true;
+  }
+
+  async generar() {
+    try {
+      const datos = this.recolectarDatos();
+      
+      if (!this.validarCamposObligatorios(datos)) {
+        return false;
+      }
+
+
+      const { PDFDocument, StandardFonts } = await import("pdf-lib");
+
+      const inscripcionBytes = await this.cargarPDF("/pdfs/INSCRIPCION.pdf");
+      if (!inscripcionBytes) {
+        throw new Error("No se pudo cargar la plantilla de inscripción");
+      }
+
+      const pdfDoc = await PDFDocument.load(inscripcionBytes);
+
+      const requisitosPath = this.determinarRequisitos(datos.carrera || "");
+      if (requisitosPath) {
+        const requisitosBytes = await this.cargarPDF(requisitosPath);
+        if (requisitosBytes) {
+          const requisitosDoc = await PDFDocument.load(requisitosBytes);
+          const requisitosPages = await pdfDoc.copyPages(
+            requisitosDoc,
+            requisitosDoc.getPageIndices()
+          );
+          requisitosPages.forEach((page) => pdfDoc.addPage(page));
+        }
+      }
+
+      const pages = pdfDoc.getPages();
+      const firstPage = pages[0];
+      const font = await pdfDoc.embedFont(StandardFonts.Helvetica);
+      const fontBold = await pdfDoc.embedFont(StandardFonts.HelveticaBold);
+
+      await this.rellenarCampos(firstPage, datos, font);
+      await this.marcarCheckboxes(firstPage, datos.mediosSeleccionados, fontBold);
+      await this.agregarFirma(firstPage, pdfDoc, datos.firmaImagen);
+
+      const pdfBytes = await pdfDoc.save();
+      const nombreArchivo = `Inscripcion_UNE_${datos.nombres || "Formulario"}.pdf`.replace(/\s+/g, "_");
+      
+      this.descargarPDF(pdfBytes, nombreArchivo);
+      alert("PDF generado y descargado exitosamente");
+      
+      return true;
+    } catch (error) {
+      console.error("Error al generar PDF:", error);
+      alert(`Error al generar el PDF: ${error.message}`);
+      return false;
+    }
+  }
+}
+
+new GeneradorPDFInscripcion();
 </script>
